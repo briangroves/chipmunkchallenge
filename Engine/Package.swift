@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "ChipmunkEngine", targets: ["ChipmunkEngine"]),
     ],
     targets: [
-        .target(name: "ChipmunkEngine"),
+        .target(name: "ChipmunkEngine", resources: [.copy("Resources/levels.json")]),
         .testTarget(name: "ChipmunkEngineTests", dependencies: ["ChipmunkEngine"]),
     ]
 )

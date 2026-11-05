@@ -26,3 +26,20 @@ They take about four minutes, mostly in the JavaScript side. Run them in release
 
 Until the native app replaces it, the HTML stays the reference: change gameplay there first, then port the change
 and rerun the tests.
+
+## Levels
+
+`Resources/levels.json` holds every picture: the 170 Level Play boards (9 packs), 13 background variants of each of
+the 20 Coin Mining pictures, and the 5 pre-built boards. `LevelCatalog` loads it and gives each board its rocks,
+locked slot, challenge, seed and aim the same way the web game does, so a board index builds the same board in both.
+
+The pictures are painted by code in the HTML, so they are exported rather than ported:
+
+```
+tools/export_levels.sh
+```
+
+Rerun it whenever pictures or packs change in the HTML. `CatalogTests.testExportIsUpToDate` fails until you do.
+
+Coin Mining in the web game repaints the background on every lap with no end. The native catalog stops at 13 variants
+(260 distinct rounds) and then repeats them.
