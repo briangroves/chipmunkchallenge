@@ -4,7 +4,7 @@ import SwiftUI
 /// The play screen, laid out like the web page's `.game` card: the title bar and buttons, then the wooden stage with
 /// the HUD, the board, the holding slots, the lanes of nests and the tool bar. Sizes come from the page's CSS.
 struct PlayScreen: View {
-    @StateObject private var model = GameModel()
+    @ObservedObject var model: GameModel
 
     var body: some View {
         GeometryReader { geo in
@@ -51,12 +51,12 @@ struct PlayScreen: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
-        .background(WoodBackground().ignoresSafeArea())
+        .background(TableBackground(table: model.table).ignoresSafeArea())
     }
 }
 
 /// A small round icon button in the control row (restart, undo, fast, backpack, home, settings).
-private struct HUDButton: View {
+struct HUDButton: View {
     let icon: SVGShape
     var size: CGFloat = 16
     var disabled = false
@@ -157,7 +157,7 @@ private struct Stage: View {
 }
 
 /// `.t-wood`: planks 44 points wide in two tones, with a thin darker seam at each plank's left edge.
-private struct WoodBackground: View {
+struct WoodBackground: View {
     var body: some View {
         Canvas { g, size in
             var x: CGFloat = 0, k = 0
@@ -176,7 +176,7 @@ private struct WoodBackground: View {
 // MARK: - HUD (.hud)
 
 /// The screen's corner radius in points, by screen width (Apple doesn't publish it; these are the measured values).
-private func displayCornerRadius(_ width: CGFloat) -> CGFloat {
+func displayCornerRadius(_ width: CGFloat) -> CGFloat {
     switch width {
     case 402, 420, 440: return 62   // iPhone 16 Pro / 17 / 17 Pro, Air, Pro Max
     default: return 55              // iPhone 14 Pro – 16, Plus and Pro Max of those years
@@ -185,7 +185,7 @@ private func displayCornerRadius(_ width: CGFloat) -> CGFloat {
 
 /// Hearts on the left, coins on the right. Beside a Dynamic Island `island` points wide, each is centered between
 /// the island's edge and the center of the screen's corner curve; otherwise they sit at the row's ends.
-private struct StatusRow: View {
+struct StatusRow: View {
     @ObservedObject var model: GameModel
     var island: CGFloat? = nil
     var screenWidth: CGFloat = 0
@@ -248,21 +248,21 @@ private struct ControlRow: View {
                     Text("You'll start over from the beginning and lose your progress on this level.")
                 }
             HUDButton(icon: Icons.undo, disabled: !model.canUndo) { model.undo() }
-            HUDButton(icon: Icons.speed, on: model.fast) { model.fast.toggle() }
+            HUDButton(icon: Icons.speed, on: model.fast) { model.toggleFast() }
             Color.clear.frame(width: 30, height: 30)   // warning icon
             Color.clear.frame(width: 30, height: 30)   // mystery box
             Spacer(minLength: 4)
             HUDButton(icon: Icons.backpack, on: model.toolsOpen) {
                 withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.toolsOpen.toggle() }
             }
-            HUDButton(icon: Icons.home) {}             // no home screen yet
-            HUDButton(icon: Icons.gear, size: 15) {}   // no settings yet
+            HUDButton(icon: Icons.home) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
+            HUDButton(icon: Icons.gear, size: 15) { model.settingsOpen = true }
         }
     }
 }
 
 /// `.hud .chip`: a white pill 30 points tall.
-private struct Chip<Content: View>: View {
+struct Chip<Content: View>: View {
     let leading: CGFloat
     let trailing: CGFloat
     @ViewBuilder let content: Content
@@ -481,18 +481,42 @@ private struct LaneColumn: View {
             ForEach(Array(lane.nests.enumerated()), id: \.offset) { k, n in
                 NestTile(color: model.hex(n.c), count: n.n, size: nest, fontSize: k == 0 ? 23 : 21,
                          front: k == 0, key: n.key)
+                    .overlay(alignment: .topTrailing) {
+                        if k < lane.at.count, let q = model.queuePlace(lane: lane.id, at: lane.at[k]) {
+                            QueueBadge(place: q).offset(x: 8, y: -8)
+                        }
+                    }
             }
         }
         .frame(width: laneW)
         .contentShape(Rectangle())
         .gesture(DragGesture(minimumDistance: 0)
-            .onChanged { _ in
+            .onChanged { v in
                 if !down {
                     down = true
-                    model.tap(lane: lane.id)
+                    // Which nest the finger landed on: rows are a nest tall with 6 points between them.
+                    let k = min(max(0, Int(v.startLocation.y / (nest + 6))), lane.at.count - 1)
+                    if k >= 0 { model.press(lane: lane.id, at: lane.at[k]) }
                 }
             }
             .onEnded { _ in down = false })
+    }
+}
+
+/// `.lanes .nest .qbadge`: the nest's place in the queue, a gold disc with a white ring.
+private struct QueueBadge: View {
+    let place: Int
+
+    var body: some View {
+        Text("\(place)")
+            .font(Theme.display(14))
+            .foregroundStyle(Color(hex: 0x3A2A00))
+            .padding(.horizontal, 6)
+            .frame(minWidth: 22, minHeight: 22)
+            .background(Capsule().fill(Theme.gold))
+            .background(Capsule().fill(.white).padding(-3))
+            .shadow(color: .black.opacity(0.3), radius: 2, y: 2)
+            .transition(.scale.combined(with: .opacity))
     }
 }
 

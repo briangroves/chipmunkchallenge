@@ -16,10 +16,10 @@ struct ChipmunkChallengeApp: App {
                     .background(Color(red: 0x1f / 255, green: 0x2f / 255, blue: 0x1b / 255))
                     .persistentSystemOverlays(.hidden)
             } else {
-                PlayScreen().persistentSystemOverlays(.hidden)
+                RootView().persistentSystemOverlays(.hidden)
             }
             #else
-            PlayScreen().persistentSystemOverlays(.hidden)
+            RootView().persistentSystemOverlays(.hidden)
             #endif
         }
     }

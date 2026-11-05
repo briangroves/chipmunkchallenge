@@ -225,7 +225,15 @@ struct ResultCard: View {
 
     @ViewBuilder private var winCard: some View {
         let w = model.lastWin
-        H2("Board cleared")
+        if model.mode == .daily {
+            H2("Day \(model.daily.count) cleared")
+            Text("🔥 \(model.daily.streak)")
+                .font(Theme.body(30, 900))
+                .foregroundStyle(Color(hex: 0xC2410C))
+                .accessibilityLabel("Streak: \(model.daily.streak) days")
+        } else {
+            H2("Board cleared")
+        }
         HStack(spacing: 8) {
             CoinIcon().frame(width: 30, height: 30)
             Text("+\((w.base + w.bonus).formatted())")
@@ -242,6 +250,23 @@ struct ResultCard: View {
         }
         .foregroundStyle(Color(hex: 0x4A5841))
         .padding(.top, 2 - 3)        // measured against the web layout
+        switch model.mode {
+        case .mining:
+            Note("\(model.paraRound) Coin Mining board\(model.paraRound == 1 ? "" : "s") cleared")
+            Row {
+                Big("Next board") { model.next() }
+                Big("Home", alt: true) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
+            }
+        case .daily:
+            Note("Come back tomorrow to keep your streak.")
+            Row { Big("Home") { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } } }
+        case .level:
+            levelWinExtras
+        }
+    }
+
+    @ViewBuilder private var levelWinExtras: some View {
+        let w = model.lastWin
         if w.bonus > 0 {
             Text("First-try bonus +\(w.bonus)")
                 .font(Theme.body(13, 800))
@@ -267,7 +292,10 @@ struct ResultCard: View {
             .padding(.top, 2)
             .padding(.bottom, 4)
         }
-        Row { Big("Next level") { model.next() } }
+        Row {
+            Big("Next level") { model.next() }
+            Big("Home", alt: true) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
+        }
     }
 
     @ViewBuilder private var stuckCard: some View {
@@ -278,6 +306,7 @@ struct ResultCard: View {
         if paradise {
             Note("No hearts lost in Coin Mining. Try again!")
         } else {
+            if model.mode == .daily { Note("No hearts lost on the daily puzzle.") }
             let can = model.coins >= GameModel.continuePrice
             Row {
                 Button { model.continueGame() } label: {
@@ -378,7 +407,7 @@ private struct Big: View {
     }
 }
 
-private extension View {
+extension View {
     func bigLabel(alt: Bool) -> some View {
         self.font(Theme.body(16, 800))
             .foregroundStyle(alt ? Theme.ink : Theme.card)
