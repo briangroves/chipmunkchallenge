@@ -1,0 +1,35 @@
+# Generates ChipmunkChallenge.xcodeproj with XcodeGen:  brew install xcodegen && xcodegen
+name: ChipmunkChallenge
+options:
+  bundleIdPrefix: com.groveseng
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  ChipmunkChallenge:
+    type: application
+    platform: iOS
+    sources:
+      - path: ChipmunkChallenge
+        excludes:
+          - Web
+      - path: ChipmunkChallenge/Web
+        type: folder          # keeps the folder structure inside the app bundle
+        buildPhase: resources
+    info:
+      path: ChipmunkChallenge/Info.plist
+      properties:
+        CFBundleDisplayName: Chipmunk Challenge
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIRequiresFullScreen: true
+        UIStatusBarHidden: true
+        UIViewControllerBasedStatusBarAppearance: false
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.groveseng.chipmunkchallenge
+        TARGETED_DEVICE_FAMILY: "1"      # iPhone only
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.0"
+        DEVELOPMENT_TEAM: ""             # pick your team in Xcode > Signing & Capabilities
