@@ -2,8 +2,30 @@ import ChipmunkEngine
 import Foundation
 import UIKit
 
+/// What the slots and lanes show right now. Published only when it changes, so SwiftUI redraws them only then.
+struct SideState: Equatable {
+    struct SlotItem: Equatable {
+        var c: Int
+        var r: Int
+        var key: Bool
+        var magic: Bool
+    }
+
+    struct Lane: Equatable, Identifiable {
+        var id: Int
+        /// Front nest first, then up to three behind it (the fourth is the half-hidden preview).
+        var nests: [NestSpec]
+    }
+
+    var slots: [SlotItem?] = []
+    var lockedAt: Int?
+    /// Slot columns the lanes line up with (the board's base slot count).
+    var columns = 5
+    var lanes: [Lane] = []
+}
+
 /// One board in play: loads (or builds) the board, runs the timed simulation, and takes the player's taps.
-/// The SpriteKit scene draws from it every frame; SwiftUI shows its published status.
+/// BoardView drives the clock every frame; SwiftUI shows the published state.
 @MainActor
 final class GameModel: ObservableObject {
     enum Status: Equatable {
@@ -19,12 +41,15 @@ final class GameModel: ObservableObject {
     @Published private(set) var title = ""
     @Published private(set) var subtitle = ""
     @Published var fast = false
-    /// Bumped whenever a new board is ready, so the scene rebuilds.
+    @Published private(set) var side = SideState()
+    /// Bumped whenever a new board is ready (or restarts), so the board view repaints from scratch.
     @Published private(set) var boardVersion = 0
+    /// Board cell size in points, set by the layout (JS sizeBoard).
+    var cellSize: CGFloat = 7.5
 
     let catalog: LevelCatalog
     private(set) var level: Level?
-    /// The simulation. The scene reads it to draw critters; only this model changes it.
+    /// The simulation. The board view reads it to draw; only this model changes it.
     private(set) var sim: Sim?
     /// Simulation clock, in ticks (10 ms each).
     private(set) var simT: Double = 0
@@ -53,10 +78,7 @@ final class GameModel: ObservableObject {
         title = p.name
         subtitle = "Level \(i + 1)"
         status = .building
-        level = nil
-        sim = nil
 
-        let catalog = catalog
         let base = catalog.base(forBoard: i)
         let key = catalog.diffKey(forBoard: i)
         let seed = catalog.seed(forBoard: i, attempt: attempt)
@@ -88,12 +110,13 @@ final class GameModel: ObservableObject {
     /// Play the same board again from the start.
     func restart() {
         guard let lv = level else { return }
-        if lv.slots != lv.def?.slots, let s = lv.def?.slots { lv.setSlots(s) }
+        if let s = lv.def?.slots, lv.slots != s { lv.setSlots(s) }
         sim = Sim(lv)
         simT = 0
         status = .playing
         tapFeedback.prepare()
         boardVersion += 1
+        refreshSide()
     }
 
     /// A different board from the same picture.
@@ -105,11 +128,11 @@ final class GameModel: ObservableObject {
 
     // MARK: - Playing
 
-    /// Move the clock forward by `dt` seconds of real time. `observer` hears every critter event.
-    func advance(by dt: TimeInterval, observer: SimObserver) {
+    /// Move the clock forward by `dt` seconds of real time.
+    func advance(by dt: TimeInterval) {
         guard status == .playing, let lv = level, var m = sim else { return }
         simT += min(dt, 0.1) / SIM.tickSeconds * (fast ? 3 : 1)
-        advanceTo(lv, &m, simT, observer)
+        advanceTo(lv, &m, simT)
         #if DEBUG
         // Launch with `-autoplay YES` to watch the board play its own stored solution (for testing).
         if UserDefaults.standard.bool(forKey: "autoplay"), canTap(lv, m.s),
@@ -117,6 +140,8 @@ final class GameModel: ObservableObject {
             ChipmunkEngine.tap(lv, &m.s, l)
         }
         #endif
+        sim = m
+        refreshSide()
         if isCleared(m) {
             status = .won
             notify.notificationOccurred(.success)
@@ -124,7 +149,6 @@ final class GameModel: ObservableObject {
             status = .stuck
             notify.notificationOccurred(.error)
         }
-        sim = m
     }
 
     /// Tap lane l: its front nest moves into a free slot. Returns false when that isn't possible right now.
@@ -132,17 +156,46 @@ final class GameModel: ObservableObject {
     func tap(lane l: Int) -> Bool {
         guard status == .playing, let lv = level, var m = sim else { return false }
         guard legalMoves(lv, m.s).contains(l) else { return false }
-        // The tap happens on the current tick; anything due before it has already happened.
         ChipmunkEngine.tap(lv, &m.s, l)
         sim = m
         tapFeedback.impactOccurred()
         tapFeedback.prepare()
+        refreshSide()
         return true
     }
 
-    var canTapNow: Bool {
-        guard let lv = level, let m = sim else { return false }
-        return canTap(lv, m.s)
+    private func refreshSide() {
+        guard let lv = level, let m = sim else { return }
+        var s = SideState()
+        s.columns = lv.def?.slots ?? lv.slots
+        s.slots = (0..<lv.slots).map { k in
+            m.s.sl.first { $0.k == k }.map { SideState.SlotItem(c: $0.c, r: $0.r, key: $0.key, magic: $0.w) }
+        }
+        s.lockedAt = m.s.locked ? lv.lockAt : nil
+        for (l, lane) in lv.lanes.enumerated() {
+            let p = m.s.lp[l]
+            if p >= lane.count { continue }   // an empty lane drops out; the rest slide together
+            var nests = [lane[p]]
+            var k = p + 1
+            while k < lane.count && nests.count < 4 {
+                if m.s.tk[l][k] == 0 { nests.append(lane[k]) }
+                k += 1
+            }
+            s.lanes.append(SideState.Lane(id: l, nests: nests))
+        }
+        if s != side { side = s }
+    }
+
+    // MARK: - Looks
+
+    /// RGB of color index c on this board.
+    func hex(_ c: Int) -> UInt32 { level?.rgb(c) ?? 0x888888 }
+
+    /// Difficulty shown to the player: acorns from the careful player's win rate (JS TIERS / acorns).
+    var acorns: String {
+        guard let c = level?.botWin else { return "–" }
+        let n = c >= 0.5 ? 1 : c >= 0.35 ? 2 : c >= 0.22 ? 3 : c >= 0.12 ? 4 : 5
+        return String(repeating: "🌰", count: n)
     }
 }
 
