@@ -12,6 +12,18 @@ A puzzle game, first built as a claude.ai artifact, packaged here as an iPhone a
 | `ios/ChipmunkChallenge/*.swift` | The Swift shell: a full-screen `WKWebView` that serves the game from the app bundle and plays haptics. |
 | `ios/project.yml` | XcodeGen spec that generates the Xcode project. |
 
+## Native version (in progress)
+
+The game is being rebuilt as a native iOS app. The app now opens the native play screen; the web shell
+(`GameWebView.swift`, `Web/`) stays in the project until everything is ported.
+
+| Path | What it is |
+|---|---|
+| `Engine/` | `ChipmunkEngine`, the rules, simulation, level builder and solver in Swift, tested against the HTML. See `Engine/README.md`. |
+| `ios/ChipmunkChallenge/Native/` | The native play screen: `GameModel` (runs a board), `GameScene` (SpriteKit drawing and taps), `GameView` (SwiftUI header and overlays). |
+
+Debug builds accept `-autoplay YES` as a launch argument: the board plays its own stored solution.
+
 ## Build on a Mac
 
 ```bash

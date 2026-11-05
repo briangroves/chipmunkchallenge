@@ -307,3 +307,53 @@ public func settleTimed(_ lv: Level, _ m: inout Sim, _ cb: SimObserver? = nil) {
         processTick(lv, &m, e, cb)
     }
 }
+
+// MARK: - For the game screen
+
+/// Where a critter is at tick T, in navigation-grid cells (cell centers at x + 0.5, y + 0.5; y grows downward),
+/// which way it is heading, and whether it is carrying its block home.
+public struct AntPose: Equatable, Sendable {
+    public var x: Double
+    public var y: Double
+    public var dx: Double
+    public var dy: Double
+    public var carrying: Bool
+}
+
+public func antPose(_ lv: Level, _ a: Ant, at T: Double) -> AntPose {
+    let carrying = a.picked || T >= a.ta
+    let path: [Int], t0: Double, t1: Double
+    if carrying, let p2 = a.p2 {
+        path = p2; t0 = a.ta; t1 = a.th
+    } else {
+        path = a.p1; t0 = a.t0; t1 = a.ta
+    }
+    func cell(_ n: Int) -> (Double, Double) { (Double(n % lv.NW) + 0.5, Double(n / lv.NW) + 0.5) }
+    if path.count < 2 {
+        let (x, y) = cell(path.first ?? lv.drain)
+        return AntPose(x: x, y: y, dx: 0, dy: -1, carrying: carrying)
+    }
+    let f = t1 > t0 ? min(1, max(0, (T - t0) / (t1 - t0))) : 1
+    let s = f * Double(path.count - 1)
+    let k = min(path.count - 2, Int(s))
+    let u = s - Double(k)
+    let (ax, ay) = cell(path[k]), (bx, by) = cell(path[k + 1])
+    return AntPose(x: ax + (bx - ax) * u, y: ay + (by - ay) * u, dx: bx - ax, dy: by - ay, carrying: carrying)
+}
+
+/// No critter is out, none can be sent, and no nest can be tapped, yet blocks remain: the player is stuck.
+public func isStuck(_ lv: Level, _ m: inout Sim) -> Bool {
+    !m.s.won && simIdle(lv, &m) && legalMoves(lv, m.s).isEmpty
+}
+
+/// Every block is gone and every critter is home.
+public func isCleared(_ m: Sim) -> Bool {
+    m.s.won && m.ants.isEmpty
+}
+
+extension Level {
+    /// RGB of color index c (1...).
+    public func rgb(_ c: Int) -> UInt32 {
+        c >= 1 && c <= art.chars.count ? PALETTE[art.chars[c - 1]] ?? 0x888888 : 0x888888
+    }
+}

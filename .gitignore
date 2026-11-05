@@ -6,3 +6,4 @@ build/
 *.xcworkspace/
 .build/
 .swiftpm/
+ios/ChipmunkChallenge/Info.plist

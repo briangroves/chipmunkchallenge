@@ -11,7 +11,12 @@ let package = Package(
         .library(name: "ChipmunkEngine", targets: ["ChipmunkEngine"]),
     ],
     targets: [
-        .target(name: "ChipmunkEngine", resources: [.copy("Resources/levels.json")]),
+        .target(
+            name: "ChipmunkEngine",
+            resources: [.copy("Resources/levels.json")],
+            // Level building is heavy; optimize the engine even in Debug app builds so boards build in seconds.
+            swiftSettings: [.unsafeFlags(["-O"], .when(configuration: .debug))]
+        ),
         .testTarget(name: "ChipmunkEngineTests", dependencies: ["ChipmunkEngine"]),
     ]
 )
