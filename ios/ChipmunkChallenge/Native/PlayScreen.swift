@@ -11,15 +11,33 @@ struct PlayScreen: View {
             // The wood is the only background, edge to edge. No title bar: the buttons live in the HUD.
             // Everything fits on one screen, no scrolling.
             let w = min(geo.size.width, 560)
+            // On Dynamic Island phones the hearts and coins sit in the island's row, either side of it; elsewhere
+            // they sit at the top of the stage. The control buttons are always the stage's first row.
+            let island = geo.safeAreaInsets.top >= 55
             ZStack(alignment: .top) {
-                Stage(model: model, width: w, maxHeight: geo.size.height)
+                Stage(model: model, width: w, maxHeight: geo.size.height, showsHUD: !island)
+                if model.toolsOpen && model.status == .playing {
+                    ToolTray()
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .transition(.move(edge: .bottom))
+                }
                 // Scenes and cards cover the whole screen, edge to edge; the HUD stays on top of the cards.
                 ZStack {
                     if model.cardShown {
                         ResultCard(model: model)
-                        HUD(model: model)
-                            .padding(EdgeInsets(top: 10, leading: 6, bottom: 0, trailing: 6))
-                            .frame(width: w)
+                        if !island {
+                            StatusRow(model: model)
+                                .padding(EdgeInsets(top: 10, leading: 6, bottom: 0, trailing: 6))
+                                .frame(width: w)
+                                .frame(maxHeight: .infinity, alignment: .top)
+                        }
+                    }
+                    if island && model.scene == nil && model.status != .building {
+                        StatusRow(model: model, island: 126, screenWidth: geo.size.width,
+                                  corner: displayCornerRadius(geo.size.width + geo.safeAreaInsets.leading
+                                                              + geo.safeAreaInsets.trailing))
+                            // Centered on the island: it spans 11 to 48 points from the top on current phones.
+                            .offset(y: 14.5 - geo.safeAreaInsets.top)
                             .frame(maxHeight: .infinity, alignment: .top)
                     }
                     if let run = model.scene {
@@ -37,7 +55,7 @@ struct PlayScreen: View {
     }
 }
 
-/// A small round icon button in the HUD (undo, fast, restart, settings).
+/// A small round icon button in the control row (restart, undo, fast, backpack, home, settings).
 private struct HUDButton: View {
     let icon: SVGShape
     var size: CGFloat = 16
@@ -48,7 +66,7 @@ private struct HUDButton: View {
     var body: some View {
         Button(action: action) {
             icon
-                .fill(on ? Theme.gold : Theme.ink)
+                .fill(on ? Theme.gold : Theme.ink, style: FillStyle(eoFill: true))
                 .frame(width: size, height: size)
                 .frame(width: 30, height: 30)
                 .background(Circle().fill(on ? Theme.darkInk : .white.opacity(0.88))
@@ -66,47 +84,74 @@ private struct Stage: View {
     @ObservedObject var model: GameModel
     let width: CGFloat
     let maxHeight: CGFloat
+    var showsHUD = true
 
-    /// Stage height for a cell size: padding 10, HUD 30 + 10, the board, the slots, 12, the lanes, 12, the tools
-    /// (46 + 6) and padding 8. Slots and lanes scale with the board's width.
-    private func stageHeight(_ cs: CGFloat, NW: Int, NH: Int) -> CGFloat {
-        let boardW = CGFloat(NW) * cs
+    /// Padding, the hearts and coins row (when it isn't beside the island) and the control row.
+    private var top: CGFloat { showsHUD ? 10 + 30 + 6 + 30 + 8 : 4 + 30 + 8 }
+
+    /// Height of a slot, the full lane box (three rows plus a fifth of the fourth) and one row of lanes, for slots
+    /// and lanes `w` wide.
+    private func rows(_ w: CGFloat) -> (slot: CGFloat, lanes: CGFloat, nest: CGFloat) {
         let n = CGFloat(max(1, model.side.slots.count)), cols = CGFloat(max(1, model.side.columns))
-        let slot = (boardW - (n - 1) * 6) / n
-        let nest = (boardW - (cols - 1) * 6) / cols * 0.88
-        let lanes = CGFloat(JSRound(Double(3 * nest + 18 + nest * 0.2)))
-        return 10 + 30 + 10 + CGFloat(NH) * cs + slot + 12 + lanes + 12 + 52 + 8
+        let nest = (w - (cols - 1) * 6) / cols * 0.88
+        return ((w - (n - 1) * 6) / n, CGFloat(JSRound(Double(3 * nest + 18 + nest * 0.2))), nest)
     }
 
-    private func fittedCell(_ start: CGFloat, NW: Int, NH: Int, scale: CGFloat) -> CGFloat {
-        var cs = start
-        while cs > 4, stageHeight(cs, NW: NW, NH: NH) > maxHeight { cs -= 1 / scale }
-        return cs
+    /// Stage height with the board's cells `cs` and slots and lanes `w` wide: the top, the board, the slots, 12,
+    /// the lanes and padding 8. The tools aren't in the stage: they slide up over the lanes from the backpack.
+    private func stageHeight(_ cs: CGFloat, NH: Int, w: CGFloat, lanes: CGFloat? = nil) -> CGFloat {
+        let r = rows(w)
+        return top + drop(w) + CGFloat(NH) * cs + r.slot + 12 + (lanes ?? r.lanes) + 8
+    }
+
+    /// Extra room above the board: two thirds of a queue nest's width.
+    private func drop(_ w: CGFloat) -> CGFloat { (rows(w).nest * 2 / 3).rounded() }
+
+    /// The board's cell size, the slots' and lanes' width, and the lane box's height.
+    private func fit() -> (CGFloat, CGFloat, CGFloat) {
+        let scale = UIScreen.main.scale
+        let NW = model.level?.NW ?? 42, NH = model.level?.NH ?? 49
+        var classic = BoardView.cellSize(width: min(width - 20, 520), NW: NW, scale: scale)
+        while classic > 4 {
+            let r = rows(CGFloat(NW) * classic)
+            if 50 + CGFloat(NH) * classic + r.slot + 12 + r.lanes + 12 + 52 + 8 <= maxHeight { break }
+            classic -= 1 / scale
+        }
+        let laneW = CGFloat(NW) * classic
+        let r = rows(laneW)
+        let minLanes = (r.nest * 1.35 + 12).rounded()
+        var cs = BoardView.cellSize(width: min(width - 12, 520), NW: NW, scale: scale)
+        while cs > classic, stageHeight(cs, NH: NH, w: laneW, lanes: minLanes) > maxHeight { cs -= 1 / scale }
+        let lanesH = max(minLanes, min(r.lanes, maxHeight - stageHeight(cs, NH: NH, w: laneW, lanes: 0)))
+        return (cs, laneW, lanesH)
     }
 
     var body: some View {
-        // .stage padding 10px 6px 8px; boards use min(stage width - 20, 520) (JS sizeBoard), then shrink a device
-        // pixel at a time until the whole stage fits the screen height.
-        let scale = UIScreen.main.scale
-        let NW = model.level?.NW ?? 42, NH = model.level?.NH ?? 49
-        let cs = fittedCell(BoardView.cellSize(width: min(width - 20, 520), NW: NW, scale: scale), NW: NW, NH: NH, scale: scale)
-        let boardW = CGFloat(NW) * cs
+        // The slots and nests keep the size they had when the board was sized to fit the whole stage with the HUD
+        // above it. The board itself then runs nearly edge to edge; the slots, lanes and tools move down, and the
+        // lanes show fewer of the waiting rows. If even a row and a bit no longer fits, the board shrinks.
+        let NH = model.level?.NH ?? 49
+        let (cs, laneW, lanesH) = fit()
+        let boardW = CGFloat(model.level?.NW ?? 42) * cs
         VStack(spacing: 0) {
-            HUD(model: model)
-                .padding(.bottom, 10)
+            if showsHUD {
+                StatusRow(model: model)
+                    .padding(.bottom, 6)
+            }
+            ControlRow(model: model)
+                .padding(.horizontal, 4)   // 10 points in from the screen's edges
+                .padding(.bottom, 8 + drop(laneW))
             BoardCanvas(model: model)
                 .frame(width: boardW, height: CGFloat(NH) * cs)
                 .onAppear { model.cellSize = cs }
                 .onChange(of: cs) { _, v in model.cellSize = v }
             VStack(spacing: 12) {
-                Slots(model: model, width: boardW)
-                Lanes(model: model, width: boardW)
-                ToolBar()
-                    .padding(.top, 2 + 4)
+                Slots(model: model, width: laneW)
+                Lanes(model: model, width: laneW, height: lanesH)
             }
-            .frame(width: boardW)
+            .frame(width: laneW)
         }
-        .padding(EdgeInsets(top: 10, leading: 6, bottom: 8, trailing: 6))
+        .padding(EdgeInsets(top: showsHUD ? 10 : 4, leading: 6, bottom: 8, trailing: 6))
         .frame(width: width)
     }
 }
@@ -130,11 +175,40 @@ private struct WoodBackground: View {
 
 // MARK: - HUD (.hud)
 
-private struct HUD: View {
+/// The screen's corner radius in points, by screen width (Apple doesn't publish it; these are the measured values).
+private func displayCornerRadius(_ width: CGFloat) -> CGFloat {
+    switch width {
+    case 402, 420, 440: return 62   // iPhone 16 Pro / 17 / 17 Pro, Air, Pro Max
+    default: return 55              // iPhone 14 Pro – 16, Plus and Pro Max of those years
+    }
+}
+
+/// Hearts on the left, coins on the right. Beside a Dynamic Island `island` points wide, each is centered between
+/// the island's edge and the center of the screen's corner curve; otherwise they sit at the row's ends.
+private struct StatusRow: View {
     @ObservedObject var model: GameModel
+    var island: CGFloat? = nil
+    var screenWidth: CGFloat = 0
+    var corner: CGFloat = 0
 
     var body: some View {
-        HStack(spacing: 3) {
+        Group {
+            if let island {
+                let edge = (screenWidth - island) / 2
+                ZStack {
+                    hearts.position(x: (corner + edge) / 2, y: 15)
+                    coins.position(x: screenWidth - (corner + edge) / 2, y: 15)
+                }
+                .frame(width: screenWidth, height: 30)
+            } else {
+                HStack { hearts; Spacer(); coins }
+            }
+        }
+        .font(Theme.body(12.864, 800))
+        .foregroundStyle(Theme.ink)
+    }
+
+    private var hearts: some View {
             // The heart chip also holds the (empty) refill timer, whose 4pt gap still takes room.
             Chip(leading: 6, trailing: 10) {
                 HStack(spacing: 4) {
@@ -146,26 +220,44 @@ private struct HUD: View {
                     Text("5")
                 }
             }
-            Chip(leading: 6, trailing: 6) {
-                Text(model.acorns).tracking(-2)
-            }
-            Spacer(minLength: 2)
-            HStack(spacing: 4) {
-                HUDButton(icon: Icons.undo, disabled: !model.canUndo) { model.undo() }
-                HUDButton(icon: Icons.speed, on: model.fast) { model.fast.toggle() }
-                HUDButton(icon: Icons.restart) { model.restartButton() }
-                HUDButton(icon: Icons.gear, size: 15) {}
-            }
-            .padding(.trailing, 3)
+    }
+
+    private var coins: some View {
             Chip(leading: 3, trailing: 6) {
                 HStack(spacing: 4) {
                     CoinIcon().frame(width: 16, height: 16)
                     Text(model.coins.formatted())
                 }
             }
+    }
+}
+
+/// Restart (after a confirmation), undo and fast on the left, then room for the warning icon and the mystery box (not built yet); the backpack
+/// (which shows the tools), home and settings on the right.
+private struct ControlRow: View {
+    @ObservedObject var model: GameModel
+    @SwiftUI.State private var confirmRestart = false
+
+    var body: some View {
+        HStack(spacing: 4) {
+            HUDButton(icon: Icons.restart) { confirmRestart = true }
+                .alert("Restart this level?", isPresented: $confirmRestart) {
+                    Button("Restart", role: .destructive) { model.restartButton() }
+                    Button("Keep playing", role: .cancel) {}
+                } message: {
+                    Text("You'll start over from the beginning and lose your progress on this level.")
+                }
+            HUDButton(icon: Icons.undo, disabled: !model.canUndo) { model.undo() }
+            HUDButton(icon: Icons.speed, on: model.fast) { model.fast.toggle() }
+            Color.clear.frame(width: 30, height: 30)   // warning icon
+            Color.clear.frame(width: 30, height: 30)   // mystery box
+            Spacer(minLength: 4)
+            HUDButton(icon: Icons.backpack, on: model.toolsOpen) {
+                withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.toolsOpen.toggle() }
+            }
+            HUDButton(icon: Icons.home) {}             // no home screen yet
+            HUDButton(icon: Icons.gear, size: 15) {}   // no settings yet
         }
-        .font(Theme.body(12.864, 800))
-        .foregroundStyle(Theme.ink)
     }
 }
 
@@ -344,6 +436,8 @@ struct OutlinedNumber: View {
 private struct Lanes: View {
     @ObservedObject var model: GameModel
     let width: CGFloat
+    /// The lane box's height, short of the full three rows and a bit when the screen is tight.
+    var height: CGFloat = .infinity
 
     var body: some View {
         let cols: CGFloat = CGFloat(max(1, model.side.columns))
@@ -351,7 +445,7 @@ private struct Lanes: View {
         let nest: CGFloat = laneW * 0.88                             // .lanes .nest{width:88%}
         // Three whole rows plus the top 20% of the fourth; its lower half of that fades out (JS fitLanes).
         let rows: CGFloat = 3 * nest + 18 + nest * 0.2
-        let maxH: CGFloat = CGFloat(JSRound(Double(rows)))
+        let maxH: CGFloat = min(CGFloat(JSRound(Double(rows))), height)
         let fade: CGFloat = CGFloat(JSRound(Double(nest * 0.1)))
         let boxH: CGFloat = maxH + 12
         HStack(alignment: .top, spacing: 10) {
@@ -403,6 +497,22 @@ private struct LaneColumn: View {
 }
 
 // MARK: - Tool bar (.toolbar)
+
+/// The tool bar on a wooden tray, slid up from the bottom of the screen over the lanes while the backpack is open.
+private struct ToolTray: View {
+    var body: some View {
+        ToolBar()
+            .padding(EdgeInsets(top: 16, leading: 14, bottom: 10, trailing: 14))
+            .frame(maxWidth: .infinity)
+            .background(
+                UnevenRoundedRectangle(topLeadingRadius: 22, topTrailingRadius: 22)
+                    .fill(Color(hex: 0xE3B886))
+                    .overlay(UnevenRoundedRectangle(topLeadingRadius: 22, topTrailingRadius: 22)
+                        .stroke(Color(hex: 0xC9965E), lineWidth: 1.5))
+                    .shadow(color: .black.opacity(0.22), radius: 8, y: -2)
+                    .ignoresSafeArea(edges: .bottom))
+    }
+}
 
 /// The five tools, shown as on a new player's page: none owned yet, each with a yellow "+" to get more.
 /// (They aren't playable yet.)

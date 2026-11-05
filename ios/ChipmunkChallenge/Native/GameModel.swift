@@ -41,6 +41,8 @@ final class GameModel: ObservableObject {
     @Published private(set) var title = ""
     @Published private(set) var subtitle = ""
     @Published var fast = false
+    /// The backpack: the tool tray is shown only while it is open.
+    @Published var toolsOpen = false
     @Published private(set) var side = SideState()
     /// Bumped whenever a new board is ready (or restarts), so the board view repaints from scratch.
     @Published private(set) var boardVersion = 0

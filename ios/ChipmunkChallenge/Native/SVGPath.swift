@@ -19,6 +19,9 @@ enum Icons {
     static let speed = SVGShape(d: "M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z", viewBox: CGSize(width: 24, height: 24))
     static let restart = SVGShape(d: "M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z", viewBox: CGSize(width: 24, height: 24))
     static let gear = SVGShape(d: "M19.4 13a7.7 7.7 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3.3h-4l-.4 2.6a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.7 7.7 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1l.4 2.6h4l.4-2.6a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z", viewBox: CGSize(width: 24, height: 24))
+    static let home = SVGShape(d: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z", viewBox: CGSize(width: 24, height: 24))
+    /// A backpack: top handle, body, and a front pocket (drawn even-odd, so the pocket is cut out with a strap left in it).
+    static let backpack = SVGShape(d: "M9 5V4a3 3 0 0 1 6 0v1h-2V4a1 1 0 0 0-2 0v1zM7.5 5h9A4.5 4.5 0 0 1 21 9.5V19a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V9.5A4.5 4.5 0 0 1 7.5 5zM7 13v6h10v-6zM11 14.5h2v2h-2z", viewBox: CGSize(width: 24, height: 24))
     static let heart = SVGShape(d: "M12 21s-7.6-4.7-10.1-9.4C.4 8.4 2 4.1 6 3.4c2.4-.4 4.5.9 6 3 1.5-2.1 3.6-3.4 6-3 4 .7 5.6 5 4.1 8.2C19.6 16.3 12 21 12 21z", viewBox: CGSize(width: 24, height: 22))
 }
 
