@@ -27,6 +27,10 @@ struct GameWebView: UIViewRepresentable {
         webView.allowsBackForwardNavigationGestures = false
         #if DEBUG
         if #available(iOS 16.4, *) { webView.isInspectable = true }   // Safari > Develop menu
+        // `-webJS "<script>"` runs a script once the page has loaded (for side-by-side comparisons).
+        if let js = UserDefaults.standard.string(forKey: "webJS") {
+            config.userContentController.addUserScript(WKUserScript(source: js, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
+        }
         #endif
         webView.load(URLRequest(url: Self.startURL))
         return webView

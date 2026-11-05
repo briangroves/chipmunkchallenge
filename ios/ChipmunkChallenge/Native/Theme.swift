@@ -38,6 +38,10 @@ enum Theme {
         UIFont(name: "LilitaOne", size: size) ?? .systemFont(ofSize: size, weight: .black)
     }
 
+    static func uiBody(_ size: CGFloat, _ weight: Int = 400) -> UIFont {
+        UIFont(name: nunitoName(weight), size: size) ?? .systemFont(ofSize: size, weight: .bold)
+    }
+
     static func nunitoName(_ weight: Int) -> String {
         switch weight {
         case ..<550: return "Nunito-Medium"

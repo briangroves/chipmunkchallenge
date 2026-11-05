@@ -42,7 +42,6 @@ private struct GameCard: View {
                 .fill(Theme.card)
                 .shadow(color: .black.opacity(0.35), radius: 25, y: 18)
         }
-        .overlay { StatusOverlay(model: model) }
     }
 }
 
@@ -91,9 +90,9 @@ private struct TopBar: View {
 
     private var buttons: some View {
         HStack(spacing: 6) {
-            IconButton(icon: Icons.undo, size: 22, width: 44, disabled: true) {}
+            IconButton(icon: Icons.undo, size: 22, width: 44, disabled: !model.canUndo) { model.undo() }
             IconButton(icon: Icons.speed, size: 22, width: 44, on: model.fast) { model.fast.toggle() }
-            IconButton(icon: Icons.restart, size: 22, width: 44) { model.restart() }
+            IconButton(icon: Icons.restart, size: 22, width: 44) { model.restartButton() }
             IconButton(icon: Icons.gear, size: 20, width: 38) {}
         }
         .fixedSize()
@@ -154,6 +153,24 @@ private struct Stage: View {
         .frame(width: width)
         .background(WoodBackground().clipShape(RoundedRectangle(cornerRadius: 22, style: .circular)))
         .overlay(RoundedRectangle(cornerRadius: 22, style: .circular).strokeBorder(.black.opacity(0.06), lineWidth: 1))
+        .overlay {
+            ZStack {
+                if model.cardShown {
+                    ResultCard(model: model)
+                    // .hud sits above the card (z-index 3)
+                    HUD(model: model)
+                        .padding(EdgeInsets(top: 10, leading: 6, bottom: 0, trailing: 6))
+                        .frame(maxHeight: .infinity, alignment: .top)
+                }
+                if let run = model.scene {
+                    SceneLayer(model: model, run: run).id(run.id)
+                } else if model.status == .building {
+                    ProgressView().controlSize(.large).tint(Theme.ink)
+                } else if case .failed = model.status {
+                    ResultCard(model: model)
+                }
+            }
+        }
     }
 }
 
@@ -199,7 +216,7 @@ private struct HUD: View {
             Chip(leading: 3, trailing: 6) {
                 HStack(spacing: 4) {
                     CoinIcon().frame(width: 16, height: 16)
-                    Text("500")
+                    Text(model.coins.formatted())
                 }
             }
         }
@@ -478,78 +495,6 @@ private struct ToolBar: View {
                 }
             }
         }
-    }
-}
-
-// MARK: - Overlays
-
-private struct StatusOverlay: View {
-    @ObservedObject var model: GameModel
-
-    var body: some View {
-        switch model.status {
-        case .building:
-            Card {
-                ProgressView().controlSize(.large).tint(Theme.ink)
-                Text("Building board…").font(Theme.body(17, 800)).foregroundStyle(Theme.ink)
-            }
-        case .won:
-            Card {
-                Text("🐿️").font(.system(size: 54))
-                Text("Board cleared!").font(Theme.display(28)).foregroundStyle(Theme.ink)
-                BigButton(title: "Next level") { model.next() }
-                Button("Play again") { model.restart() }.font(Theme.body(15, 800)).foregroundStyle(Theme.sub)
-            }
-        case .stuck:
-            Card {
-                Text("Out of moves").font(Theme.display(28)).foregroundStyle(Theme.ink)
-                Text("Every slot is full and no critter can reach its color.")
-                    .font(Theme.body(15, 700))
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(Theme.sub)
-                BigButton(title: "Try again") { model.restart() }
-                Button("New board") { model.newBoard() }.font(Theme.body(15, 800)).foregroundStyle(Theme.sub)
-            }
-        case .failed(let message):
-            Card {
-                Text(message).font(Theme.body(15, 700)).multilineTextAlignment(.center).foregroundStyle(Theme.ink)
-                BigButton(title: "Next level") { model.next() }
-            }
-        case .playing:
-            EmptyView()
-        }
-    }
-}
-
-private struct Card<Content: View>: View {
-    @ViewBuilder var content: Content
-
-    var body: some View {
-        VStack(spacing: 14) { content }
-            .padding(24)
-            .frame(maxWidth: 300)
-            .background {
-                RoundedRectangle(cornerRadius: 24, style: .circular)
-                    .fill(Theme.card)
-                    .shadow(color: .black.opacity(0.3), radius: 18, y: 10)
-            }
-    }
-}
-
-private struct BigButton: View {
-    let title: String
-    let action: () -> Void
-
-    var body: some View {
-        Button(action: action) {
-            Text(title)
-                .font(Theme.display(22))
-                .foregroundStyle(Theme.card)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
-                .background(Theme.ink, in: RoundedRectangle(cornerRadius: 16, style: .circular))
-        }
-        .buttonStyle(Pressable())
     }
 }
 

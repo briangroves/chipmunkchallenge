@@ -30,6 +30,7 @@ targets:
         UIStatusBarHidden: true
         UIViewControllerBasedStatusBarAppearance: false
         ITSAppUsesNonExemptEncryption: false
+        SCNDisableLinearSpaceRendering: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.groveseng.chipmunkchallenge
