@@ -19,6 +19,7 @@ struct SceneLayer: View {
             ZStack {
                 LinearGradient(stops: [.init(color: Color(hex: 0xBFE3FF), location: 0), .init(color: Color(hex: 0xE3F4FF), location: 0.55),
                                        .init(color: Color(hex: 0xF5FBEF), location: 1)], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
                 SceneCanvas(run: run, size: CGSize(width: w, height: h), ready: { model.introReady }) {
                     finish()
                 }
@@ -37,7 +38,6 @@ struct SceneLayer: View {
                 }
             }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 22, style: .circular))
         .opacity(fading ? 0 : 1)
         .allowsHitTesting(!fading)
     }
@@ -219,9 +219,8 @@ struct ResultCard: View {
         .multilineTextAlignment(.center)
         .padding(24)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(red: 238 / 255, green: 244 / 255, blue: 232 / 255, opacity: 0.93),
-                    in: RoundedRectangle(cornerRadius: 22, style: .circular))
-        .contentShape(RoundedRectangle(cornerRadius: 22, style: .circular))
+        .background(Color(red: 238 / 255, green: 244 / 255, blue: 232 / 255, opacity: 0.93).ignoresSafeArea())
+        .contentShape(Rectangle())
     }
 
     @ViewBuilder private var winCard: some View {

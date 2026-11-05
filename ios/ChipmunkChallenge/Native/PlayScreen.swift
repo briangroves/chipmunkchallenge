@@ -8,102 +8,39 @@ struct PlayScreen: View {
 
     var body: some View {
         GeometryReader { geo in
-            let bodyPad = max(16, geo.safeAreaInsets.leading)
-            let cardW = min(geo.size.width + geo.safeAreaInsets.leading + geo.safeAreaInsets.trailing - 2 * bodyPad, 520)
-            ScrollView(.vertical, showsIndicators: false) {
-                GameCard(model: model, width: cardW)
-                    .padding(.top, 19)          // body padding-block 20px, less the 1pt the web view sits higher
-                    .padding(.bottom, 40)
-                    .frame(maxWidth: .infinity)
+            // The wood is the only background, edge to edge. No title bar: the buttons live in the HUD.
+            // Everything fits on one screen, no scrolling.
+            let w = min(geo.size.width, 560)
+            ZStack(alignment: .top) {
+                Stage(model: model, width: w, maxHeight: geo.size.height)
+                // Scenes and cards cover the whole screen, edge to edge; the HUD stays on top of the cards.
+                ZStack {
+                    if model.cardShown {
+                        ResultCard(model: model)
+                        HUD(model: model)
+                            .padding(EdgeInsets(top: 10, leading: 6, bottom: 0, trailing: 6))
+                            .frame(width: w)
+                            .frame(maxHeight: .infinity, alignment: .top)
+                    }
+                    if let run = model.scene {
+                        SceneLayer(model: model, run: run).id(run.id)
+                    } else if model.status == .building {
+                        ProgressView().controlSize(.large).tint(Theme.ink)
+                    } else if case .failed = model.status {
+                        ResultCard(model: model)
+                    }
+                }
             }
-            .scrollBounceBehavior(.basedOnSize)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
-        .background(Theme.page.ignoresSafeArea())
+        .background(WoodBackground().ignoresSafeArea())
     }
 }
 
-/// `.game`: the light card holding everything.
-private struct GameCard: View {
-    @ObservedObject var model: GameModel
-    let width: CGFloat
-
-    var body: some View {
-        // .game padding 16px 8px 18px; .play gap 8px
-        let inner = width - 16
-        VStack(alignment: .leading, spacing: 8) {
-            TopBar(model: model, width: inner)
-            Stage(model: model, width: inner)
-        }
-        .padding(EdgeInsets(top: 16, leading: 8, bottom: 18, trailing: 8))
-        .frame(width: width)
-        .background {
-            // box-shadow on the card only, not on everything inside it
-            RoundedRectangle(cornerRadius: 30, style: .circular)
-                .fill(Theme.card)
-                .shadow(color: .black.opacity(0.35), radius: 25, y: 18)
-        }
-    }
-}
-
-// MARK: - Title bar (.topbar)
-
-private struct TopBar: View {
-    @ObservedObject var model: GameModel
-    let width: CGFloat
-
-    var body: some View {
-        // flex-wrap: the buttons drop to their own row when the title and buttons don't fit side by side.
-        ViewThatFits(in: .horizontal) {
-            HStack(spacing: 8) { title; Spacer(minLength: 0); buttons }
-            VStack(alignment: .leading, spacing: 8) { title; buttons }
-        }
-        .frame(width: width, alignment: .leading)
-    }
-
-    private var title: some View {
-        HStack(spacing: 8) {
-            Button { model.previous() } label: {
-                Text("‹")
-                    .font(Theme.display(26))
-                    .foregroundStyle(Theme.ink)
-                    .padding(.bottom, 3)
-                    .frame(width: 36, height: 36)
-                    .background(Theme.button, in: RoundedRectangle(cornerRadius: 12, style: .circular))
-            }
-            .buttonStyle(Pressable())
-            VStack(alignment: .leading, spacing: 0) {
-                Text(model.subtitle.uppercased())
-                    .font(Theme.body(12, 800))
-                    .tracking(0.96)
-                    .foregroundStyle(Theme.sub)
-                    .frame(height: 17.4)
-                Text(model.title)
-                    .font(Theme.display(26))
-                    .tracking(0.26)
-                    .foregroundStyle(Theme.ink)
-                    .frame(height: 37.7)
-            }
-            .lineLimit(1)
-        }
-        .fixedSize()
-    }
-
-    private var buttons: some View {
-        HStack(spacing: 6) {
-            IconButton(icon: Icons.undo, size: 22, width: 44, disabled: !model.canUndo) { model.undo() }
-            IconButton(icon: Icons.speed, size: 22, width: 44, on: model.fast) { model.fast.toggle() }
-            IconButton(icon: Icons.restart, size: 22, width: 44) { model.restartButton() }
-            IconButton(icon: Icons.gear, size: 20, width: 38) {}
-        }
-        .fixedSize()
-    }
-}
-
-/// `.ib.icb`: a 36-point rounded button with an SVG icon.
-private struct IconButton: View {
+/// A small round icon button in the HUD (undo, fast, restart, settings).
+private struct HUDButton: View {
     let icon: SVGShape
-    let size: CGFloat
-    let width: CGFloat
+    var size: CGFloat = 16
     var disabled = false
     var on = false
     let action: () -> Void
@@ -113,8 +50,9 @@ private struct IconButton: View {
             icon
                 .fill(on ? Theme.gold : Theme.ink)
                 .frame(width: size, height: size)
-                .frame(width: width, height: 36)
-                .background(on ? Theme.darkInk : Theme.button, in: RoundedRectangle(cornerRadius: 12, style: .circular))
+                .frame(width: 30, height: 30)
+                .background(Circle().fill(on ? Theme.darkInk : .white.opacity(0.88))
+                    .shadow(color: .black.opacity(0.12), radius: 1.5, y: 1))
         }
         .buttonStyle(Pressable())
         .disabled(disabled)
@@ -127,12 +65,31 @@ private struct IconButton: View {
 private struct Stage: View {
     @ObservedObject var model: GameModel
     let width: CGFloat
+    let maxHeight: CGFloat
+
+    /// Stage height for a cell size: padding 10, HUD 30 + 10, the board, the slots, 12, the lanes, 12, the tools
+    /// (46 + 6) and padding 8. Slots and lanes scale with the board's width.
+    private func stageHeight(_ cs: CGFloat, NW: Int, NH: Int) -> CGFloat {
+        let boardW = CGFloat(NW) * cs
+        let n = CGFloat(max(1, model.side.slots.count)), cols = CGFloat(max(1, model.side.columns))
+        let slot = (boardW - (n - 1) * 6) / n
+        let nest = (boardW - (cols - 1) * 6) / cols * 0.88
+        let lanes = CGFloat(JSRound(Double(3 * nest + 18 + nest * 0.2)))
+        return 10 + 30 + 10 + CGFloat(NH) * cs + slot + 12 + lanes + 12 + 52 + 8
+    }
+
+    private func fittedCell(_ start: CGFloat, NW: Int, NH: Int, scale: CGFloat) -> CGFloat {
+        var cs = start
+        while cs > 4, stageHeight(cs, NW: NW, NH: NH) > maxHeight { cs -= 1 / scale }
+        return cs
+    }
 
     var body: some View {
-        // .stage padding 10px 6px 8px; boards use min(stage width - 20, 520) (JS sizeBoard)
+        // .stage padding 10px 6px 8px; boards use min(stage width - 20, 520) (JS sizeBoard), then shrink a device
+        // pixel at a time until the whole stage fits the screen height.
         let scale = UIScreen.main.scale
         let NW = model.level?.NW ?? 42, NH = model.level?.NH ?? 49
-        let cs = BoardView.cellSize(width: min(width - 20, 520), NW: NW, scale: scale)
+        let cs = fittedCell(BoardView.cellSize(width: min(width - 20, 520), NW: NW, scale: scale), NW: NW, NH: NH, scale: scale)
         let boardW = CGFloat(NW) * cs
         VStack(spacing: 0) {
             HUD(model: model)
@@ -151,26 +108,6 @@ private struct Stage: View {
         }
         .padding(EdgeInsets(top: 10, leading: 6, bottom: 8, trailing: 6))
         .frame(width: width)
-        .background(WoodBackground().clipShape(RoundedRectangle(cornerRadius: 22, style: .circular)))
-        .overlay(RoundedRectangle(cornerRadius: 22, style: .circular).strokeBorder(.black.opacity(0.06), lineWidth: 1))
-        .overlay {
-            ZStack {
-                if model.cardShown {
-                    ResultCard(model: model)
-                    // .hud sits above the card (z-index 3)
-                    HUD(model: model)
-                        .padding(EdgeInsets(top: 10, leading: 6, bottom: 0, trailing: 6))
-                        .frame(maxHeight: .infinity, alignment: .top)
-                }
-                if let run = model.scene {
-                    SceneLayer(model: model, run: run).id(run.id)
-                } else if model.status == .building {
-                    ProgressView().controlSize(.large).tint(Theme.ink)
-                } else if case .failed = model.status {
-                    ResultCard(model: model)
-                }
-            }
-        }
     }
 }
 
@@ -213,6 +150,13 @@ private struct HUD: View {
                 Text(model.acorns).tracking(-2)
             }
             Spacer(minLength: 2)
+            HStack(spacing: 4) {
+                HUDButton(icon: Icons.undo, disabled: !model.canUndo) { model.undo() }
+                HUDButton(icon: Icons.speed, on: model.fast) { model.fast.toggle() }
+                HUDButton(icon: Icons.restart) { model.restartButton() }
+                HUDButton(icon: Icons.gear, size: 15) {}
+            }
+            .padding(.trailing, 3)
             Chip(leading: 3, trailing: 6) {
                 HStack(spacing: 4) {
                     CoinIcon().frame(width: 16, height: 16)

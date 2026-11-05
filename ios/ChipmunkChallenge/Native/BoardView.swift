@@ -70,7 +70,7 @@ final class BoardView: UIView {
         let dt = lastTime.map { l.timestamp - $0 } ?? 0
         lastTime = l.timestamp
         guard let lv = model.level else { return }
-        if builtVersion != model.boardVersion { sizeBoard(lv) }
+        if builtVersion != model.boardVersion || cs != model.cellSize { sizeBoard(lv) }
         model.advance(by: dt)
         guard let m = model.sim else { return }
         // A block left: repaint around it (JS CB.arrive → repaintAround).
