@@ -186,20 +186,28 @@ func displayCornerRadius(_ width: CGFloat) -> CGFloat {
 }
 
 /// Hearts on the left, coins on the right. Beside a Dynamic Island `island` points wide, each is centered between
-/// the island's edge and the center of the screen's corner curve; otherwise they sit at the row's ends.
+/// the island's edge and where the screen's rounded corner actually is at the island's mid-height (the same spot iOS
+/// centers the clock on); otherwise they sit at the row's ends.
 struct StatusRow: View {
     @ObservedObject var model: GameModel
     var island: CGFloat? = nil
     var screenWidth: CGFloat = 0
     var corner: CGFloat = 0
 
+    /// The island's vertical center, in points from the top of the screen (it spans 11 to 48 on current phones).
+    static let islandMidY: CGFloat = 29.5
+
     var body: some View {
         Group {
             if let island {
                 let edge = (screenWidth - island) / 2
+                // The corner curve's x at the island's mid-height: a circle of radius `corner` in the top-left corner.
+                let dy = max(0, corner - StatusRow.islandMidY)
+                let curve = corner - (max(0, corner * corner - dy * dy)).squareRoot()
+                let x = (curve + edge) / 2
                 ZStack {
-                    hearts.position(x: (corner + edge) / 2, y: Chip<EmptyView>.height / 2)
-                    coins.position(x: screenWidth - (corner + edge) / 2, y: Chip<EmptyView>.height / 2)
+                    hearts.position(x: x, y: Chip<EmptyView>.height / 2)
+                    coins.position(x: screenWidth - x, y: Chip<EmptyView>.height / 2)
                 }
                 .frame(width: screenWidth, height: Chip<EmptyView>.height)
             } else {
