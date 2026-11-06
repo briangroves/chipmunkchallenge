@@ -37,7 +37,7 @@ struct PlayScreen: View {
                                   corner: displayCornerRadius(geo.size.width + geo.safeAreaInsets.leading
                                                               + geo.safeAreaInsets.trailing))
                             // Centered on the island: it spans 11 to 48 points from the top on current phones.
-                            .offset(y: 14.5 - geo.safeAreaInsets.top)
+                            .offset(y: 29.5 - Chip<EmptyView>.height / 2 - geo.safeAreaInsets.top)
                             .frame(maxHeight: .infinity, alignment: .top)
                     }
                     if let run = model.scene {
@@ -57,8 +57,9 @@ struct PlayScreen: View {
 
 /// A small round icon button in the control row (restart, undo, fast, backpack, home, settings).
 struct HUDButton: View {
+    static let diameter: CGFloat = 36
     let icon: SVGShape
-    var size: CGFloat = 16
+    var size: CGFloat = 20
     var disabled = false
     var on = false
     let action: () -> Void
@@ -68,7 +69,7 @@ struct HUDButton: View {
             icon
                 .fill(on ? Theme.gold : Theme.ink, style: FillStyle(eoFill: true))
                 .frame(width: size, height: size)
-                .frame(width: 30, height: 30)
+                .frame(width: HUDButton.diameter, height: HUDButton.diameter)
                 .background(Circle().fill(on ? Theme.darkInk : .white.opacity(0.88))
                     .shadow(color: .black.opacity(0.12), radius: 1.5, y: 1))
         }
@@ -87,14 +88,14 @@ private struct Stage: View {
     var showsHUD = true
 
     /// Padding, the hearts and coins row (when it isn't beside the island) and the control row.
-    private var top: CGFloat { showsHUD ? 10 + 30 + 6 + 30 + 8 : 4 + 30 + 8 }
+    private var top: CGFloat { showsHUD ? 10 + Chip<EmptyView>.height + 6 + HUDButton.diameter + 8 : 4 + HUDButton.diameter + 8 }
 
     /// Height of a slot, the full lane box (three rows plus a fifth of the fourth) and one row of lanes, for slots
     /// and lanes `w` wide.
     private func rows(_ w: CGFloat) -> (slot: CGFloat, lanes: CGFloat, nest: CGFloat) {
         let n = CGFloat(max(1, model.side.slots.count)), cols = CGFloat(max(1, model.side.columns))
         let nest = (w - (cols - 1) * 6) / cols * 0.88
-        return ((w - (n - 1) * 6) / n, CGFloat(JSRound(Double(3 * nest + 18 + nest * 0.2))), nest)
+        return ((w - (n - 1) * 6) / n, CGFloat(JSRound(Double(3 * nest + 18 + nest * Lanes.peek))), nest)
     }
 
     /// Stage height with the board's cells `cs` and slots and lanes `w` wide: the top, the board, the slots, 12,
@@ -121,7 +122,8 @@ private struct Stage: View {
         let r = rows(laneW)
         let minLanes = (r.nest * 1.35 + 12).rounded()
         var cs = BoardView.cellSize(width: min(width - 12, 520), NW: NW, scale: scale)
-        while cs > classic, stageHeight(cs, NH: NH, w: laneW, lanes: minLanes) > maxHeight { cs -= 1 / scale }
+        // Shrink the board (never below the classic size) until three rows and a good look at the fourth fit.
+        while cs > classic, stageHeight(cs, NH: NH, w: laneW) > maxHeight { cs -= 1 / scale }
         let lanesH = max(minLanes, min(r.lanes, maxHeight - stageHeight(cs, NH: NH, w: laneW, lanes: 0)))
         return (cs, laneW, lanesH)
     }
@@ -196,26 +198,26 @@ struct StatusRow: View {
             if let island {
                 let edge = (screenWidth - island) / 2
                 ZStack {
-                    hearts.position(x: (corner + edge) / 2, y: 15)
-                    coins.position(x: screenWidth - (corner + edge) / 2, y: 15)
+                    hearts.position(x: (corner + edge) / 2, y: Chip<EmptyView>.height / 2)
+                    coins.position(x: screenWidth - (corner + edge) / 2, y: Chip<EmptyView>.height / 2)
                 }
-                .frame(width: screenWidth, height: 30)
+                .frame(width: screenWidth, height: Chip<EmptyView>.height)
             } else {
                 HStack { hearts; Spacer(); coins }
             }
         }
-        .font(Theme.body(12.864, 800))
+        .font(Theme.body(16, 800))
         .foregroundStyle(Theme.ink)
     }
 
     private var hearts: some View {
             // The heart chip also holds the (empty) refill timer, whose 4pt gap still takes room.
-            Chip(leading: 6, trailing: 10) {
+            Chip(leading: 9, trailing: 12) {
                 HStack(spacing: 4) {
                     Icons.heart
                         .fill(Color(hex: 0xE53935))
                         .overlay(Icons.heart.stroke(Color(hex: 0x9C1F1D), lineWidth: 1.4 * 15 / 24))
-                        .frame(width: 15, height: 14)
+                        .frame(width: 19, height: 18)
                         .shadow(color: .black.opacity(0.18), radius: 0, y: 1)
                     Text("5")
                 }
@@ -223,9 +225,9 @@ struct StatusRow: View {
     }
 
     private var coins: some View {
-            Chip(leading: 3, trailing: 6) {
+            Chip(leading: 5, trailing: 10) {
                 HStack(spacing: 4) {
-                    CoinIcon().frame(width: 16, height: 16)
+                    CoinIcon().frame(width: 20, height: 20)
                     Text(model.coins.formatted())
                 }
             }
@@ -249,20 +251,21 @@ private struct ControlRow: View {
                 }
             HUDButton(icon: Icons.undo, disabled: !model.canUndo) { model.undo() }
             HUDButton(icon: Icons.speed, on: model.fast) { model.toggleFast() }
-            Color.clear.frame(width: 30, height: 30)   // warning icon
-            Color.clear.frame(width: 30, height: 30)   // mystery box
+            Color.clear.frame(width: HUDButton.diameter, height: HUDButton.diameter)   // warning icon
+            Color.clear.frame(width: HUDButton.diameter, height: HUDButton.diameter)   // mystery box
             Spacer(minLength: 4)
             HUDButton(icon: Icons.backpack, on: model.toolsOpen) {
                 withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.toolsOpen.toggle() }
             }
             HUDButton(icon: Icons.home) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
-            HUDButton(icon: Icons.gear, size: 15) { model.settingsOpen = true }
+            HUDButton(icon: Icons.gear, size: 19) { model.settingsOpen = true }
         }
     }
 }
 
 /// `.hud .chip`: a white pill 30 points tall.
 struct Chip<Content: View>: View {
+    static var height: CGFloat { 36 }
     let leading: CGFloat
     let trailing: CGFloat
     @ViewBuilder let content: Content
@@ -271,7 +274,7 @@ struct Chip<Content: View>: View {
         content
             .padding(.leading, leading)
             .padding(.trailing, trailing)
-            .frame(height: 30)
+            .frame(height: Chip.height)
             .background(Capsule().fill(.white.opacity(0.88)).shadow(color: .black.opacity(0.12), radius: 1.5, y: 1))
     }
 }
@@ -434,6 +437,8 @@ struct OutlinedNumber: View {
 // MARK: - Lanes (.lanes)
 
 private struct Lanes: View {
+    /// How much of the fourth row of waiting nests shows under the first three.
+    static let peek: CGFloat = 0.45
     @ObservedObject var model: GameModel
     let width: CGFloat
     /// The lane box's height, short of the full three rows and a bit when the screen is tight.
@@ -443,8 +448,8 @@ private struct Lanes: View {
         let cols: CGFloat = CGFloat(max(1, model.side.columns))
         let laneW: CGFloat = (width - (cols - 1) * 6) / cols         // same as a holding slot
         let nest: CGFloat = laneW * 0.88                             // .lanes .nest{width:88%}
-        // Three whole rows plus the top 20% of the fourth; its lower half of that fades out (JS fitLanes).
-        let rows: CGFloat = 3 * nest + 18 + nest * 0.2
+        // Three whole rows plus the top of the fourth; its lower half of that fades out (JS fitLanes).
+        let rows: CGFloat = 3 * nest + 18 + nest * Lanes.peek
         let maxH: CGFloat = min(CGFloat(JSRound(Double(rows))), height)
         let fade: CGFloat = CGFloat(JSRound(Double(nest * 0.1)))
         let boxH: CGFloat = maxH + 12

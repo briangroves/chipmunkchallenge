@@ -11,6 +11,11 @@ struct SceneLayer: View {
     @ObservedObject var model: GameModel
     let run: GameModel.SceneRun
     @SwiftUI.State private var fading = false
+    /// The intro waits on its Start button.
+    @SwiftUI.State private var started = false
+
+    /// The 3D ground's color as rendered (flat toon shading), so the grass can run on below the scene.
+    static let grass = Color(hex: 0xBBF47A)
 
     var body: some View {
         GeometryReader { geo in
@@ -20,10 +25,26 @@ struct SceneLayer: View {
                 LinearGradient(stops: [.init(color: Color(hex: 0xBFE3FF), location: 0), .init(color: Color(hex: 0xE3F4FF), location: 0.55),
                                        .init(color: Color(hex: 0xF5FBEF), location: 1)], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
-                SceneCanvas(run: run, size: CGSize(width: w, height: h), ready: { model.introReady }) {
+                if run.kind != .win {
+                    // The scene is centered, so the grass below it is half the leftover height plus the bottom inset.
+                    SceneLayer.grass
+                        .frame(height: (geo.size.height - h) / 2 + 1 + geo.safeAreaInsets.bottom)
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .offset(y: geo.safeAreaInsets.bottom)
+                }
+                SceneCanvas(run: run, size: CGSize(width: w, height: h), ready: { model.introReady },
+                            go: run.kind == .intro ? { started } : nil) {
                     finish()
                 }
                 .frame(width: w, height: h)
+                if run.kind == .intro && model.introReady && !started {
+                    // Centered on the grass below the scene, down to the screen's bottom edge.
+                    StartButton { started = true }
+                        .frame(height: max(80, (geo.size.height - h) / 2 + geo.safeAreaInsets.bottom))
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .offset(y: geo.safeAreaInsets.bottom)
+                        .transition(.scale(scale: 0.6).combined(with: .opacity))
+                }
                 if run.kind == .intro {
                     SplashTitle(model: model)
                         .padding(.horizontal, 12)
@@ -38,6 +59,7 @@ struct SceneLayer: View {
                 }
             }
         }
+        .animation(.interpolatingSpring(stiffness: 260, damping: 16), value: model.introReady)
         .opacity(fading ? 0 : 1)
         .allowsHitTesting(!fading)
     }
@@ -46,6 +68,24 @@ struct SceneLayer: View {
         model.sceneFinished(run)
         withAnimation(.easeInOut(duration: 0.6)) { fading = true }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) { model.sceneGone(run) }
+    }
+}
+
+/// The intro's Start button: a big dark pill, centered on the grass.
+private struct StartButton: View {
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text("Start")
+                .font(Theme.display(30))
+                .tracking(0.5)
+                .foregroundStyle(.white)
+                .padding(.vertical, 14)
+                .padding(.horizontal, 64)
+                .background(Capsule().fill(Theme.darkInk).shadow(color: .black.opacity(0.25), radius: 0, y: 4))
+        }
+        .buttonStyle(Pressable())
     }
 }
 
@@ -91,6 +131,8 @@ private struct SceneCanvas: UIViewRepresentable {
     let run: GameModel.SceneRun
     let size: CGSize
     let ready: () -> Bool
+    /// When set, the scene ends only once this says so (the intro's Start button), not on its own or on a tap.
+    var go: (() -> Bool)? = nil
     let done: () -> Void
 
     // Built once and reused, like the page's win3d / chip3d.
@@ -112,12 +154,14 @@ private struct SceneCanvas: UIViewRepresentable {
         let tap = UILongPressGestureRecognizer(target: p, action: #selector(Player.pressed(_:)))
         tap.minimumPressDuration = 0
         v.addGestureRecognizer(tap)
+        p.go = go
         p.start(run, ready: ready, done: done)
         return v
     }
 
     func updateUIView(_ v: SCNView, context: Context) {
         context.coordinator.ready = ready
+        context.coordinator.go = go
         context.coordinator.resize(size)
     }
 
@@ -127,6 +171,7 @@ private struct SceneCanvas: UIViewRepresentable {
     final class Player: NSObject {
         weak var view: SCNView?
         var ready: () -> Bool = { true }
+        var go: (() -> Bool)?
         private var done: () -> Void = {}
         private var run: GameModel.SceneRun?
         private var link: CADisplayLink?
@@ -165,7 +210,7 @@ private struct SceneCanvas: UIViewRepresentable {
 
         @objc func pressed(_ g: UIGestureRecognizer) {
             // pointerdown: skip (the intro only once the board is ready)
-            if g.state == .began, ready() { skip = true }
+            if g.state == .began, go == nil, ready() { skip = true }
         }
 
         @objc private func tick() { step() }
@@ -189,7 +234,8 @@ private struct SceneCanvas: UIViewRepresentable {
                 end = ChipScene.loseEnd
                 SceneCanvas.chips.setTime(.lose, t)
             }
-            if (t >= end || skip) && ready() {
+            let over = go.map { $0() } ?? (t >= end || skip)
+            if over && ready() {
                 finished = true
                 done()
                 // keep drawing the final pose while the layer fades

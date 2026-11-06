@@ -35,7 +35,7 @@ struct HomeScreen: View {
                     StatusRow(model: model, island: 126, screenWidth: geo.size.width,
                               corner: displayCornerRadius(geo.size.width + geo.safeAreaInsets.leading
                                                           + geo.safeAreaInsets.trailing))
-                        .offset(y: 14.5 - geo.safeAreaInsets.top)
+                        .offset(y: 29.5 - Chip<EmptyView>.height / 2 - geo.safeAreaInsets.top)
                 }
                 VStack(spacing: 14) {
                     if !island {
