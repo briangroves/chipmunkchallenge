@@ -127,7 +127,7 @@ private struct SplashTitle: View {
 }
 
 /// The SceneKit view, driven frame by frame like the page's requestAnimationFrame loop.
-private struct SceneCanvas: UIViewRepresentable {
+struct SceneCanvas: UIViewRepresentable {
     let run: GameModel.SceneRun
     let size: CGSize
     let ready: () -> Bool

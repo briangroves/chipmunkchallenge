@@ -24,7 +24,8 @@ targets:
       path: ChipmunkChallenge/Info.plist
       properties:
         CFBundleDisplayName: Chipmunk Challenge
-        UILaunchScreen: {}
+        UILaunchScreen:
+          UIColorName: LaunchSky          # the splash screen's sky, so launch flows straight into it
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         UIRequiresFullScreen: true
         UIStatusBarHidden: true
@@ -38,4 +39,6 @@ targets:
         MARKETING_VERSION: "1.0"
         CURRENT_PROJECT_VERSION: "1"
         SWIFT_VERSION: "5.0"
-        DEVELOPMENT_TEAM: ""             # pick your team in Xcode > Signing & Capabilities
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        DEVELOPMENT_TEAM: 4ET52CG8GF
+        CODE_SIGN_STYLE: Automatic
