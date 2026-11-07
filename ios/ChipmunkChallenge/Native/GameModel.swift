@@ -91,6 +91,36 @@ final class GameModel: ObservableObject {
     @Published var speedFast: Double { didSet { store.set(speedFast, forKey: "native.speedFast") } }
     /// The backpack: the tool tray is shown only while it is open.
     @Published var toolsOpen = false
+    /// Tools owned (JS wands, owls, drops, xslots, peeks). A new player starts with 3 of each.
+    @Published private(set) var tools: [Tool: Int]
+    /// The tool whose shop card is up (tapped with none left).
+    @Published var shopTool: Tool?
+    /// Wise Owl: the next nests to tap, in order (shown as numbered owl badges).
+    @Published private(set) var owlPlan: [Queued] = []
+    /// Magnifying glass: the lanes show every waiting nest and scroll, until the next tap.
+    @Published private(set) var peek = false
+    /// Magic wand armed: the next nest tapped (in a lane or a slot) turns magic.
+    @Published private(set) var magicMode = false
+    /// Acorn Drop is raining.
+    @Published private(set) var dropping = false
+    /// A short message over the board.
+    @Published private(set) var toast: Toast?
+    struct Toast: Equatable {
+        let id: Int
+        let text: String
+    }
+    /// Falling acorns for the board to draw: the cell each lands on and when it starts falling (media time).
+    struct AcornFall {
+        let cell: Int
+        let start: CFTimeInterval
+    }
+    private(set) var acornFalls: [AcornFall] = []
+    private var dropQueue: [(at: CFTimeInterval, cell: Int)] = []
+    /// Extra Slot was used on this board (once per board).
+    private(set) var extraUsed = false
+    /// History depths at which a wand was spent, so Undo gives the use back.
+    private var wandSpentAt: Set<Int> = []
+    private var toastID = 0
     @Published private(set) var side = SideState()
     /// Bumped whenever a new board is ready (or restarts), so the board view repaints from scratch.
     @Published private(set) var boardVersion = 0
@@ -125,6 +155,11 @@ final class GameModel: ObservableObject {
     private var failStreak = 0
     private var buildTask: Task<Void, Never>?
     private let tapFeedback = UIImpactFeedbackGenerator(style: .light)
+    /// The small tick when a chipmunk picks up a block.
+    private let pickFeedback = UIImpactFeedbackGenerator(style: .soft)
+    private var lastPickBuzz: CFTimeInterval = 0
+    /// Ticks a chipmunk stands at its block before heading home with it (a quarter second at normal speed).
+    static let pickupPause: Double = 25
     private let notify = UINotificationFeedbackGenerator()
 
     private static let boardKey = "native.boardIndex"
@@ -171,8 +206,9 @@ final class GameModel: ObservableObject {
         table = Table(rawValue: store.string(forKey: "native.table") ?? "") ?? .wood
         paraRound = store.integer(forKey: "native.paraRound")
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
-        let saved = UserDefaults.standard.integer(forKey: Self.boardKey)
-        boardIndex = min(max(0, saved), 169)
+        let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
+        tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
+        boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), 169)
         #if DEBUG
         // The debug launch arguments (`-scene`, `-autoplay`, `-screen play`) skip the home screen.
         if store.string(forKey: "scene") != nil || store.bool(forKey: "autoplay") || store.string(forKey: "screen") == "play" {
@@ -216,9 +252,11 @@ final class GameModel: ObservableObject {
         screen = .play
     }
 
-    /// The play screen's home button. The board is kept as it is; nothing is lost.
+    /// The play screen's home button (and the intro's). The board is kept as it is; nothing is lost, and backing out
+    /// of the intro doesn't count as a try.
     func goHome() {
         toolsOpen = false
+        shopTool = nil
         screen = .home
     }
 
@@ -292,7 +330,7 @@ final class GameModel: ObservableObject {
         mode = .mining
         let b = miningBoard
         build(base: b.base, key: "paradise", seed: b.seed + attempt - 1, aim: LevelCatalog.baseAim("paradise"),
-              baked: nil, attempt: attempt, title: b.base.name, subtitle: "Board \(paraRound + 1)",
+              baked: nil, attempt: attempt, title: b.base.name, subtitle: "Challenge \(paraRound + 1)",
               label: "⛏️ Coin Mining")
     }
 
@@ -306,7 +344,7 @@ final class GameModel: ObservableObject {
         let p = catalog.levelPlay[d.picture]
         build(base: levelBase(name: p.name, rows: p.rows, boardNumber: d.rampN), key: "daily",
               seed: d.day * 7 + attempt, aim: LevelCatalog.baseAim("daily"), baked: nil, attempt: attempt,
-              title: p.name, subtitle: "Day \(dayCount) · 🔥 \(streakNow)", label: "Daily puzzle")
+              title: "Day \(dayCount) · \(p.name)", subtitle: "Current Streak - \(streakNow) 🔥", label: "Daily puzzle")
     }
 
     /// The same kind of board again with a fresh build (attempt n).
@@ -346,6 +384,7 @@ final class GameModel: ObservableObject {
         history = []
         canUndo = false
         queue = []
+        resetTools()
         endBoost()
         play(.intro)
         if let baked {
@@ -377,15 +416,19 @@ final class GameModel: ObservableObject {
     func restart() {
         guard let lv = level else { return }
         if let s = lv.def?.slots, lv.slots != s { lv.setSlots(s) }
-        sim = Sim(lv)
+        var m = Sim(lv)
+        m.pickupPause = Self.pickupPause
+        sim = m
         simT = 0
         status = .playing
         cardShown = false
         history = []
         canUndo = false
         queue = []
+        resetTools()
         endBoost()
         tapFeedback.prepare()
+        pickFeedback.prepare()
         boardVersion += 1
         refreshSide()
         #if DEBUG
@@ -447,8 +490,15 @@ final class GameModel: ObservableObject {
     /// Move the clock forward by `dt` seconds of real time.
     func advance(by dt: TimeInterval) {
         guard status == .playing, let lv = level, var m = sim else { return }
+        let before0 = simT
         simT += min(dt, 0.1) / SIM.tickSeconds * speed
         advanceTo(lv, &m, simT)
+        pickupBuzz(m, from: before0, to: simT)
+        rainAcorns(lv, &m)
+        if !owlPlan.isEmpty {
+            let left = owlPlan.filter { m.s.lp[$0.l] <= $0.i && m.s.tk[$0.l][$0.i] == 0 }
+            if left != owlPlan { owlPlan = left }
+        }
         // A queued nest loads a quarter second after a slot opens (less at higher speeds), so the hand-off is easy
         // to follow.
         if !queue.isEmpty, canTap(lv, m.s) {
@@ -480,7 +530,7 @@ final class GameModel: ObservableObject {
             payOut(lv)
             buzz(.success)
             play(.win)
-        } else if isStuck(lv, &m) {
+        } else if !dropping, isStuck(lv, &m) {
             status = .stuck
             firstTry = false
             noteFailure()
@@ -573,8 +623,13 @@ final class GameModel: ObservableObject {
     // MARK: - Undo and continue
 
     func undo() {
-        guard let m = history.popLast(), level != nil else { return }
+        guard level != nil, !history.isEmpty else { return }
+        if wandSpentAt.remove(history.count) != nil { addTools(.wand, 1) }
+        let m = history.removeLast()
         queue = []
+        owlPlan = []
+        stopDrop()
+        if peek { peek = false }
         firstTry = false
         sim = m
         simT = m.tick
@@ -639,7 +694,7 @@ final class GameModel: ObservableObject {
             if p >= lane.count { continue }   // an empty lane drops out; the rest slide together
             var nests = [lane[p]], at = [p]
             var k = p + 1
-            while k < lane.count && nests.count < 4 {
+            while k < lane.count && (peek || nests.count < 4) {
                 if m.s.tk[l][k] == 0 {
                     nests.append(lane[k])
                     at.append(k)
@@ -689,6 +744,17 @@ final class GameModel: ObservableObject {
     /// slots open, up to 9 in all. Double-tapping a queued nest takes just that one out of the line.
     func press(lane l: Int, at i: Int) {
         guard status == .playing, let lv = level, var m = sim else { return }
+        if magicMode {
+            wandLane(lv, &m, l, i)
+            return
+        }
+        if peek {
+            peek = false
+            refreshSide()
+        }
+        if let first = owlPlan.first {
+            if first == Queued(l: l, i: i) { owlPlan.removeFirst() } else { owlPlan = [] }
+        }
         let now = CACurrentMediaTime(), key = "\(l):\(i)"
         let full = !canTap(lv, m.s)
         let at = queue.firstIndex(of: Queued(l: l, i: i))
@@ -759,6 +825,223 @@ final class GameModel: ObservableObject {
         }
     }
 
+    // MARK: - Tools (JS BACKPACK)
+
+    /// Using any tool ends the first-try bonus for this try. The wand is spent when it touches a nest.
+    func use(_ t: Tool) {
+        guard count(t) > 0, canUse(t), let lv = level, var m = sim else { return }
+        toolsOpen = false
+        if t == .wand {
+            magicMode = true
+            buzz()
+            return
+        }
+        firstTry = false
+        addTools(t, -1)
+        switch t {
+        case .owl:
+            say("🦉 Thinking…")
+            let box = LevelBox(lv), start = m, token = loadToken
+            Task { [weak self] in
+                let r = await Task.detached(priority: .userInitiated) { solve(box.level!, start) }.value
+                guard let self, self.loadToken == token, self.status == .playing, let now = self.sim else { return }
+                if let path = r.path, !path.isEmpty {
+                    self.owlPlan = Self.owlSteps(now.s, path, 3)
+                    self.say("🦉 Tap the nests in order: 1, 2, 3")
+                } else {
+                    self.addTools(.owl, 1)
+                    self.say("🦉 No winning line from here. Try Undo.")
+                }
+            }
+        case .peek:
+            peek = true
+            refreshSide()
+        case .slot:
+            extraUsed = true
+            lv.setSlots(lv.slots + 1)
+            buzz()
+            refreshSide()
+            say("Extra slot added")
+        case .drop:
+            history.append(m)
+            canUndo = true
+            dropping = true
+            let now = CACurrentMediaTime(), N = lv.W * lv.H
+            for k in 0..<Self.acornCount {
+                let cell = Int.random(in: 0..<N), start = now + Double(k) * Self.acornGap
+                acornFalls.append(AcornFall(cell: cell, start: start))
+                dropQueue.append((start + Self.acornFall, cell))
+            }
+            sim = m
+        case .wand:
+            break
+        }
+    }
+
+    /// The tool bar button for t: with some left, use it; with none, open its shop card. The armed wand and the open
+    /// magnifying glass put themselves away.
+    func toolTapped(_ t: Tool) {
+        if t == .wand && magicMode {
+            magicMode = false
+            buzz()
+            return
+        }
+        if t == .peek && peek {
+            peek = false
+            refreshSide()
+            return
+        }
+        if count(t) == 0 { shopTool = t }
+    }
+
+    func count(_ t: Tool) -> Int { tools[t] ?? 0 }
+
+    func canUse(_ t: Tool) -> Bool {
+        guard level != nil, status == .playing else { return false }
+        switch t {
+        case .peek: return !peek
+        case .slot: return !extraUsed
+        case .drop: return !dropping
+        case .wand: return !magicMode
+        case .owl: return true
+        }
+    }
+
+    func buy(_ t: Tool) {
+        guard coins >= t.price else { return }
+        coins -= t.price
+        store.set(coins, forKey: "native.coins")
+        addTools(t, t.pack)
+        shopTool = nil
+        buzz()
+    }
+
+    func cancelWand() {
+        magicMode = false
+    }
+
+    /// The light tap used for small confirmations.
+    func lightTap() { buzz() }
+
+    private func addTools(_ t: Tool, _ n: Int) {
+        tools[t] = max(0, count(t) + n)
+        store.set(Dictionary(uniqueKeysWithValues: tools.map { ($0.key.rawValue, $0.value) }), forKey: "native.tools")
+    }
+
+    private func resetTools() {
+        owlPlan = []
+        peek = false
+        magicMode = false
+        extraUsed = false
+        wandSpentAt = []
+        stopDrop()
+    }
+
+    private func say(_ text: String) {
+        toastID += 1
+        let id = toastID
+        toast = Toast(id: id, text: text)
+        Task { [weak self] in
+            try? await Task.sleep(for: .seconds(2.2))
+            if self?.toast?.id == id { self?.toast = nil }
+        }
+    }
+
+    /// The solver's next n taps as nests (a lane tapped twice gets its front nest and then the one behind it).
+    private static func owlSteps(_ s: State, _ path: [Int], _ n: Int) -> [Queued] {
+        var lp = s.lp, out: [Queued] = []
+        for l in path where out.count < n {
+            var i = lp[l]
+            while i < s.tk[l].count && s.tk[l][i] != 0 { i += 1 }
+            out.append(Queued(l: l, i: i))
+            lp[l] = i + 1
+        }
+        return out
+    }
+
+    /// Wand on a lane nest: the front one, or one further back pulled straight out of its column. It needs a free slot.
+    private func wandLane(_ lv: Level, _ m: inout Sim, _ l: Int, _ i: Int) {
+        guard i >= m.s.lp[l], i < lv.lanes[l].count, m.s.tk[l][i] == 0 else { return }
+        guard canTap(lv, m.s) else {
+            say("No free slot: tap a nest in a slot, or wait for one to open")
+            return
+        }
+        history.append(m)
+        wandSpentAt.insert(history.count)
+        canUndo = true
+        let id = tapAt(lv, &m.s, l, i)
+        if id != 0 { makeMagic(&m.s, id: id) }
+        spendWand()
+        queue.removeAll { $0 == Queued(l: l, i: i) }
+        owlPlan = []
+        sim = m
+        refreshSide()
+    }
+
+    /// Wand on a nest already in slot k: from now on its chipmunks fly.
+    func wandSlot(_ k: Int) {
+        guard magicMode, status == .playing, var m = sim,
+              let n = m.s.sl.first(where: { $0.k == k }), !n.w else { return }
+        history.append(m)
+        wandSpentAt.insert(history.count)
+        canUndo = true
+        makeMagic(&m.s, id: n.id)
+        spendWand()
+        sim = m
+        refreshSide()
+    }
+
+    private func spendWand() {
+        addTools(.wand, -1)
+        magicMode = false
+        firstTry = false
+        buzz()
+    }
+
+    // MARK: - Acorn Drop
+
+    static let acornCount = 75
+    /// 75 acorns over about 5 seconds; each takes 0.42 s to fall.
+    static let acornGap = 5.0 / 75
+    static let acornFall = 0.42
+
+    private func rainAcorns(_ lv: Level, _ m: inout Sim) {
+        guard dropping else { return }
+        let now = CACurrentMediaTime()
+        while let d = dropQueue.first, d.at <= now {
+            dropQueue.removeFirst()
+            if acornHit(lv, &m.s, d.cell) {
+                lifetime += 1
+                store.set(lifetime, forKey: "native.lifetime")
+                buzz()
+            }
+        }
+        acornFalls.removeAll { now - $0.start > Self.acornFall + 0.3 }
+        if dropQueue.isEmpty {
+            dropping = false
+            refreshSide()
+        }
+    }
+
+    private func stopDrop() {
+        dropQueue = []
+        acornFalls = []
+        dropping = false
+    }
+
+    // MARK: - Pickup haptic
+
+    /// A small tick as each chipmunk lifts its block, once it has stood at the block for the pickup pause.
+    private func pickupBuzz(_ m: Sim, from t0: Double, to t1: Double) {
+        guard hapticsOn else { return }
+        guard m.ants.contains(where: { $0.picked && $0.ta + $0.hold > t0 && $0.ta + $0.hold <= t1 }) else { return }
+        let now = CACurrentMediaTime()
+        guard now - lastPickBuzz > 0.045 else { return }
+        lastPickBuzz = now
+        pickFeedback.impactOccurred(intensity: 0.7)
+        pickFeedback.prepare()
+    }
+
     // MARK: - Looks
 
     /// RGB of color index c on this board.
@@ -782,4 +1065,61 @@ final class GameModel: ObservableObject {
 private struct LevelBox: @unchecked Sendable {
     let level: Level?
     init(_ level: Level?) { self.level = level }
+}
+
+/// The backpack's tools (JS TOOLS), in tool bar order.
+enum Tool: String, CaseIterable, Identifiable {
+    case owl, peek, drop, slot, wand
+
+    var id: String { rawValue }
+    /// How many of each a new player starts with.
+    static let starting = 3
+
+    var icon: String {
+        switch self {
+        case .owl: return "🦉"
+        case .peek: return "🔍"
+        case .drop: return "🌰"
+        case .slot: return "➕"
+        case .wand: return "🪄"
+        }
+    }
+
+    var name: String {
+        switch self {
+        case .owl: return "Wise Owl"
+        case .peek: return "Magnifying Glass"
+        case .drop: return "Acorn Drop"
+        case .slot: return "Extra Slot"
+        case .wand: return "Magic Wand"
+        }
+    }
+
+    /// How many one purchase gives, and for how many coins.
+    var pack: Int {
+        switch self {
+        case .owl: return 3
+        case .peek, .wand: return 5
+        case .drop, .slot: return 1
+        }
+    }
+
+    var price: Int {
+        switch self {
+        case .owl: return 100
+        case .peek, .drop: return 150
+        case .slot: return 250
+        case .wand: return 750
+        }
+    }
+
+    var desc: String {
+        switch self {
+        case .owl: return "Shows the next 3 nests to tap, in order."
+        case .peek: return "Scroll the queue to see every nest past row 3, until your next tap."
+        case .drop: return "75 acorns rain down over 5 seconds and knock out the blocks they hit."
+        case .slot: return "A 6th holding slot for the rest of this board."
+        case .wand: return "Tap a nest: its chipmunks fly straight to their color."
+        }
+    }
 }

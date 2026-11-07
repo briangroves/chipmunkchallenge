@@ -204,14 +204,14 @@ private struct ModeCard<Fill: ShapeStyle, Thumb: View>: View {
     }
 }
 
-/// Coin Mining: the next board, worth 100 coins. (The web version adds a tool; tools aren't built yet.)
+/// Coin Mining: the next challenge, worth 100 coins.
 private struct MiningCard: View {
     @ObservedObject var model: GameModel
 
     var body: some View {
         let b = model.miningBoard
         let resumes = model.mode == .mining && model.status == .playing && model.level != nil
-        ModeCard(label: "Coin Mining", big: "Board \(model.paraRound + 1)",
+        ModeCard(label: "Coin Mining", big: "Challenge \(model.paraRound + 1)",
                  sub: AnyView(HStack(spacing: 4) { CoinIcon().frame(width: 14, height: 14); Text("+100") }),
                  play: resumes ? "Continue" : "Play", playColor: Color(hex: 0x8A4B22),
                  fill: LinearGradient(stops: [.init(color: Color(hex: 0xFFF3C4), location: 0),
@@ -262,8 +262,8 @@ private struct DailyCard: View {
     }
 }
 
-/// A level's picture, one square per character, like the page's `thumb()` (pixelated, blanks left clear). `grey`
-/// draws it washed out in grey, as the daily card does.
+/// A level's picture, one square per character, drawn as little blocks like the real board: a lit rim where a square's
+/// top is open, shadowed open sides, and a darker side band wherever nothing sits below it. Blanks stay clear. `grey` draws it washed out in grey, as the daily card does.
 struct PictureThumb: View {
     let rows: [String]
     var grey = false
@@ -273,20 +273,46 @@ struct PictureThumb: View {
             let grid = rows.map(Array.init)
             let h = grid.count, w = grid.first?.count ?? 1
             let sx = size.width / CGFloat(w), sy = size.height / CGFloat(h)
+            func filled(_ r: Int, _ k: Int) -> Bool {
+                r >= 0 && r < h && k >= 0 && k < grid[r].count && grid[r][k] != "." && PALETTE[grid[r][k]] != nil
+            }
+            func rgb(_ hex: UInt32) -> (Double, Double, Double) {
+                let r = Double(hex >> 16), gg = Double((hex >> 8) & 255), b = Double(hex & 255)
+                if !grey { return (r / 255, gg / 255, b / 255) }
+                let v = ((0.3 * r + 0.59 * gg + 0.11 * b) * 0.35 + 150).rounded() / 255
+                return (v, min(1, v + 4 / 255), v - 2 / 255)
+            }
+            func shade(_ c: (Double, Double, Double), _ to: Double, _ f: Double) -> Color {
+                Color(red: c.0 + (to - c.0) * f, green: c.1 + (to - c.1) * f, blue: c.2 + (to - c.2) * f)
+            }
+            let depth = sy * SpriteCache.depth
             for (r, row) in grid.enumerated() {
                 for (k, ch) in row.enumerated() where ch != "." {
                     guard let hex = PALETTE[ch] else { continue }
-                    let color: Color
-                    if grey {
-                        let y = (0.3 * Double(hex >> 16) + 0.59 * Double((hex >> 8) & 255) + 0.11 * Double(hex & 255)) * 0.35 + 150
-                        let v = y.rounded() / 255
-                        color = Color(red: v, green: min(1, v + 4 / 255), blue: v - 2 / 255)
-                    } else {
-                        color = Color(hex: hex)
-                    }
+                    let c = rgb(hex)
+                    let x = CGFloat(k) * sx, y = CGFloat(r) * sy
                     // Overlap by a hair so no seams show between squares.
-                    g.fill(Path(CGRect(x: CGFloat(k) * sx, y: CGFloat(r) * sy, width: sx + 0.5, height: sy + 0.5)),
-                           with: .color(color))
+                    let cell = CGRect(x: x, y: y, width: sx + 0.5, height: sy + 0.5)
+                    g.fill(Path(cell), with: .color(shade(c, 0, 0)))
+                    // A light rim where the square's top is open.
+                    if !filled(r - 1, k) {
+                        g.fill(Path(CGRect(x: x, y: y, width: sx + 0.5, height: max(0.5, sy * 0.2))),
+                               with: .color(.white.opacity(0.3)))
+                    }
+                    // Shadow on the left and right edges where the neighbour is missing.
+                    if !filled(r, k - 1) {
+                        g.fill(Path(CGRect(x: x, y: y, width: max(0.5, sx * 0.08), height: sy)), with: .color(.black.opacity(0.10)))
+                    }
+                    if !filled(r, k + 1) {
+                        g.fill(Path(CGRect(x: x + sx - max(0.5, sx * 0.1), y: y, width: max(0.5, sx * 0.1), height: sy)),
+                               with: .color(.black.opacity(0.14)))
+                    }
+                    // The block's side, seen from slightly above, wherever its bottom is exposed.
+                    if !filled(r + 1, k) {
+                        g.fill(Path(CGRect(x: x, y: y + sy, width: sx + 0.5, height: depth)), with: .linearGradient(
+                            Gradient(colors: [shade(c, 0, 0.34), shade(c, 0, 0.55)]),
+                            startPoint: CGPoint(x: 0, y: y + sy), endPoint: CGPoint(x: 0, y: y + sy + depth)))
+                    }
                 }
             }
         }
@@ -317,7 +343,7 @@ struct SettingsSheet: View {
                         }
                     }
                 }
-                SetToggle(title: "Haptics", detail: "A light tap when a nest loads, and a buzz when a board ends.",
+                SetToggle(title: "Haptics", detail: "A light tap when a nest loads or a chipmunk picks up a block, and a buzz when a board ends.",
                           on: $model.hapticsOn)
                 SetToggle(title: "Auto-finish last column",
                           detail: "When only one column is left, its nests load by themselves at fast-forward speed.",

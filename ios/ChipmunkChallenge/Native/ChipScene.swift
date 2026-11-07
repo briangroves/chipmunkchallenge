@@ -8,6 +8,8 @@ import simd
 final class ChipScene {
     enum Mode { case intro, lose }
     static let introEnd: Float = 2.9
+    /// How far the intro camera is raised, in scene units: the chipmunk shows about 6% lower on screen.
+    static let introLift: Float = 0.13
     static let loseEnd: Float = 4.6
 
     let scene = SCNScene()
@@ -308,8 +310,9 @@ final class ChipScene {
     private func setIntro(_ t: Float) {
         typealias A = Anim
         reset()
-        camera.simdPosition = [-0.05, 0.95, 2.9]
-        camera.simdLook(at: [-0.1, 0.42, 0])
+        // Raised a little (camera and target together), so the chipmunk sits lower in the frame, clear of the title.
+        camera.simdPosition = [-0.05, 0.95 + ChipScene.introLift, 2.9]
+        camera.simdLook(at: [-0.1, 0.42 + ChipScene.introLift, 0])
         let tt = t > ChipScene.introEnd ? 2.3 + fmod(t - 2.3, 0.6) : t      // keep chewing while the board builds
         scamper(min(tt, 1.9))
         acorn.visible = true

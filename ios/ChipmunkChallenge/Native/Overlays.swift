@@ -48,8 +48,15 @@ struct SceneLayer: View {
                 if run.kind == .intro {
                     SplashTitle(model: model)
                         .padding(.horizontal, 12)
-                        .padding(.top, 18 - 2.0 / 3)      // measured against the web layout
+                        // Lower than the web layout's 18: clear of the home button and closer to the chipmunk.
+                        .padding(.top, 18 - 2.0 / 3 + (geo.size.height * 0.06).rounded())
                         .frame(maxHeight: .infinity, alignment: .top)
+                    // Back out to the home screen without starting; the board waits, and it doesn't count as a try.
+                    HUDButton(icon: Icons.home) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
+                        .accessibilityLabel("Home")
+                        .padding(.top, 4)
+                        .padding(.trailing, 10)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 } else {
                     Text("Tap to skip")
                         .font(Theme.body(12, 800))
@@ -106,10 +113,14 @@ private struct SplashTitle: View {
                 .font(Theme.display(52))
                 .tracking(52 * 0.01)
                 .foregroundStyle(Color(hex: 0x1F2A18))
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
                 .cssLine(Theme.uiDisplay(52), 52 - 2.0 / 3)
             Text(model.title)
                 .font(Theme.body(20, 800))
                 .foregroundStyle(Color(hex: 0x3A4A30))
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
                 .cssLine(Theme.uiBody(20, 800), 24)
             let n = model.introReady ? model.tier : nil
             Text(n.map { String(repeating: "🌰", count: $0) } ?? " ")
@@ -278,7 +289,7 @@ struct ResultCard: View {
                 .foregroundStyle(Color(hex: 0xC2410C))
                 .accessibilityLabel("Streak: \(model.daily.streak) days")
         } else {
-            H2("Board cleared")
+            H2(model.mode == .mining ? "Challenge cleared" : "Board cleared")
         }
         HStack(spacing: 8) {
             CoinIcon().frame(width: 30, height: 30)
@@ -298,9 +309,9 @@ struct ResultCard: View {
         .padding(.top, 2 - 3)        // measured against the web layout
         switch model.mode {
         case .mining:
-            Note("\(model.paraRound) Coin Mining board\(model.paraRound == 1 ? "" : "s") cleared")
+            Note("\(model.paraRound) Coin Mining challenge\(model.paraRound == 1 ? "" : "s") cleared")
             Row {
-                Big("Next board") { model.next() }
+                Big("Next challenge") { model.next() }
                 Big("Home", alt: true) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
             }
         case .daily:

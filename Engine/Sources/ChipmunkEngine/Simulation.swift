@@ -171,6 +171,8 @@ public struct Ant: Equatable, Sendable {
     public var p1: [Int]
     public var p2: [Int]?
     public var fly: Bool
+    /// Ticks it stands at its block after reaching it, before setting off home (the walk home starts at `ta + hold`).
+    public var hold: Double = 0
 }
 
 /// Hooks for animation: called as each critter sets off, picks up its block, and gets home.
@@ -193,6 +195,10 @@ public struct Sim: Sendable {
     /// Critters out per nest id.
     public var crew: [Int: Int] = [:]
     public var tick: Double = 0
+    /// Ticks each critter stands at its block before heading home. The block still leaves the board on arrival, so the
+    /// rules play out the same; only the trip home starts later. The game uses a short pause so the pickup reads; the
+    /// level builder leaves it at 0, as in the web game.
+    public var pickupPause: Double = 0
 
     public init(_ lv: Level) {
         s = initState(lv)
@@ -232,13 +238,13 @@ func processTick(_ lv: Level, _ m: inout Sim, _ T: Double, _ cb: SimObserver?) {
         if m.ants[x].fly {
             removeMagic(lv, &m.s, ai)
             m.ants[x].p2 = [at, lv.drain]
-            m.ants[x].th = T + SIM.TPC * max(1, navDist(lv, at, lv.drain))
+            m.ants[x].th = T + m.ants[x].hold + SIM.TPC * max(1, navDist(lv, at, lv.drain))
         } else {
             removeBlock(lv, &m.s, ai)
             route(lv, m.s, lv.drain, at)
             let p2 = walk(lv, m.s, at)
             m.ants[x].p2 = p2
-            m.ants[x].th = T + SIM.TPC * Double(max(1, p2.count - 1))
+            m.ants[x].th = T + m.ants[x].hold + SIM.TPC * Double(max(1, p2.count - 1))
         }
         cb?.arrive?(m.ants[x])
     }
@@ -273,8 +279,8 @@ func processTick(_ lv: Level, _ m: inout Sim, _ T: Double, _ cb: SimObserver?) {
                 p1 = walk(lv, m.s, ex)
                 len = Double(p1.count - 1)
             }
-            let a = Ant(i: i, c: n.c, id: n.id, k: n.k, t0: T, ta: T + SIM.TPC * max(1, len), th: 0, picked: false,
-                        p1: p1, p2: nil, fly: n.w)
+            let a = Ant(i: i, c: n.c, id: n.id, k: n.k, t0: T, ta: T + SIM.TPC * max(1, len), th: 0,
+                        picked: false, p1: p1, p2: nil, fly: n.w, hold: m.pickupPause)
             m.ants.append(a)
             m.crew[n.id, default: 0] += 1
             cb?.spawn?(a)
@@ -324,7 +330,7 @@ public func antPose(_ lv: Level, _ a: Ant, at T: Double) -> AntPose {
     let carrying = a.picked || T >= a.ta
     let path: [Int], t0: Double, t1: Double
     if carrying, let p2 = a.p2 {
-        path = p2; t0 = a.ta; t1 = a.th
+        path = p2; t0 = a.ta + a.hold; t1 = a.th
     } else {
         path = a.p1; t0 = a.t0; t1 = a.ta
     }

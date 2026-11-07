@@ -73,8 +73,11 @@ final class BoardView: UIView {
         if builtVersion != model.boardVersion || cs != model.cellSize { sizeBoard(lv) }
         model.advance(by: dt)
         guard let m = model.sim else { return }
-        // A block left: repaint around it (JS CB.arrive → repaintAround).
-        for i in 0..<min(shown.count, m.s.b.count) where shown[i] != m.s.b[i] {
+        // A block left: repaint around it (JS CB.arrive → repaintAround). A chipmunk standing at its block for the
+        // pickup pause still shows the block; it goes once the chipmunk lifts it.
+        var holding = Set<Int>()
+        for a in m.ants where a.hold > 0 && model.simT < a.ta + a.hold { holding.insert(a.i) }
+        for i in 0..<min(shown.count, m.s.b.count) where shown[i] != m.s.b[i] && !holding.contains(i) {
             shown[i] = m.s.b[i]
             repaintAround(lv, m.s.b, i)
         }
@@ -194,7 +197,7 @@ final class BoardView: UIView {
         g.fill(CGRect(x: x, y: y, width: cs, height: cs * SpriteCache.depth + 1))
     }
 
-    // MARK: - Touch: nothing on the board is tappable yet (tools will be).
+    // MARK: - Touch: nothing on the board itself is tappable (the tools work from the tray, lanes and slots).
 }
 
 // MARK: - The live layer: drain and critters (JS drawFrame)
@@ -222,10 +225,50 @@ private final class LiveView: UIView {
         let now = CACurrentMediaTime() * 1000
         let simT = board.model.simT
         for a in m.ants {
-            let p = antPose(lv, a, at: simT)
-            let carry = a.picked
+            // During the pickup pause it stands at the block, still facing it, cheeks not yet full.
+            let standing = a.picked && simT < a.ta + a.hold
+            var out = a
+            out.picked = false
+            let p = standing ? antPose(lv, out, at: a.ta - 0.001) : antPose(lv, a, at: simT)
+            let carry = a.picked && !standing
             drawCritter(g, lv, CGFloat(p.x) * cs, CGFloat(p.y) * cs, CGFloat(p.dx), CGFloat(p.dy),
                         carry ? a.c : 0, now, a.c)
+        }
+        drawAcorns(g, lv, CACurrentMediaTime())
+    }
+
+    /// Acorn Drop: each acorn falls 160 points onto its cell, turning upright, then pops (JS .acorn-fall).
+    private func drawAcorns(_ g: CGContext, _ lv: Level, _ now: CFTimeInterval) {
+        guard let falls = board?.model.acornFalls, !falls.isEmpty else { return }
+        let font = UIFont.systemFont(ofSize: 18)
+        let glyph = NSAttributedString(string: "🌰", attributes: [.font: font])
+        let gs = glyph.size()
+        for f in falls {
+            let t = now - f.start
+            if t < 0 { continue }
+            let n = lv.boardToNav(f.cell)
+            let x = (CGFloat(n % lv.NW) + 0.5) * cs, y = (CGFloat(n / lv.NW) + 0.5) * cs
+            var dy: CGFloat = 0, rot: CGFloat = 0, scale: CGFloat = 1, alpha: CGFloat = 1
+            if t < GameModel.acornFall {
+                let u = CGFloat(t / GameModel.acornFall), e = u * u
+                dy = -160 * (1 - e)
+                rot = -40 * (1 - e) * .pi / 180
+                alpha = min(1, u / 0.25)
+            } else {
+                let u = CGFloat(min(1, (t - GameModel.acornFall) / 0.3))
+                scale = 1 + 0.6 * u
+                alpha = 1 - u
+            }
+            if alpha <= 0 { continue }
+            g.saveGState()
+            g.setAlpha(alpha)
+            g.translateBy(x: x, y: y + dy)
+            g.rotate(by: rot)
+            g.scaleBy(x: scale, y: scale)
+            UIGraphicsPushContext(g)
+            glyph.draw(at: CGPoint(x: -gs.width / 2, y: -gs.height / 2))
+            UIGraphicsPopContext()
+            g.restoreGState()
         }
     }
 

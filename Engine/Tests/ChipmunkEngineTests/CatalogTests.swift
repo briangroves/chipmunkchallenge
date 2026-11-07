@@ -54,6 +54,47 @@ final class CatalogTests: XCTestCase {
         XCTAssertNil(catalog.baked(forBoard: 5))
     }
 
+    /// The game has each critter stand a quarter second at its block before heading home. The builder checks boards
+    /// without that pause, so make sure the stored plan still clears boards across the whole ramp with it.
+    func testPlansStillClearWithThePickupPause() {
+        var boards: [(String, Level)] = []
+        for i in 0..<5 {
+            let summary = catalog.baked(forBoard: i)!
+            boards.append(("baked \(i)", assembleLevel(base: catalog.base(forBoard: i), diffKey: catalog.diffKey(forBoard: i),
+                                                       seed: catalog.seed(forBoard: i), summary: summary)))
+        }
+        for i in [12, 30, 55, 80, 110, 140, 169] {
+            let key = catalog.diffKey(forBoard: i)
+            var o = BuildOptions.game
+            o.aim = LevelCatalog.aim(key, tailor: 1)
+            if let lv = generateLevel(base: catalog.base(forBoard: i), seed: catalog.seed(forBoard: i), diffKey: key, options: o) {
+                boards.append(("board \(i)", lv))
+            }
+        }
+        for r in [0, 5, 23] {
+            let b = catalog.paradiseRound(r)
+            var o = BuildOptions.game
+            o.aim = LevelCatalog.baseAim("paradise")
+            if let lv = generateLevel(base: b.base, seed: b.seed, diffKey: "paradise", options: o) {
+                boards.append(("mining \(r)", lv))
+            }
+        }
+        XCTAssertGreaterThan(boards.count, 10)
+        for (name, lv) in boards {
+            var m = Sim(lv)
+            m.pickupPause = 25
+            settleTimed(lv, &m)
+            for l in lv.plan! {
+                if m.s.won { break }
+                XCTAssertTrue(canTap(lv, m.s), name)
+                if !canTap(lv, m.s) { break }
+                tap(lv, &m.s, l)
+                settleTimed(lv, &m)
+            }
+            XCTAssertTrue(m.s.won, name)
+        }
+    }
+
     func testAim() {
         for key in ["warm3", "lv40", "lv170", "paradise", "normal"] {
             XCTAssertEqual(LevelCatalog.baseAim(key), js.decode(Double.self, "Math.round(10/DIFF['\(key)'].rtarget)/10"), key)

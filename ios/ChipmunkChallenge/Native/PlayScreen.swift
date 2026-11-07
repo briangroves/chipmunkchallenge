@@ -17,7 +17,7 @@ struct PlayScreen: View {
             ZStack(alignment: .top) {
                 Stage(model: model, width: w, maxHeight: geo.size.height, showsHUD: !island)
                 if model.toolsOpen && model.status == .playing {
-                    ToolTray()
+                    ToolTray(model: model)
                         .frame(maxHeight: .infinity, alignment: .bottom)
                         .transition(.move(edge: .bottom))
                 }
@@ -39,6 +39,9 @@ struct PlayScreen: View {
                             // Centered on the island: it spans 11 to 48 points from the top on current phones.
                             .offset(y: 29.5 - Chip<EmptyView>.height / 2 - geo.safeAreaInsets.top)
                             .frame(maxHeight: .infinity, alignment: .top)
+                    }
+                    if let t = model.shopTool {
+                        ToolShop(model: model, tool: t)
                     }
                     if let run = model.scene {
                         SceneLayer(model: model, run: run).id(run.id)
@@ -145,6 +148,7 @@ private struct Stage: View {
                 .padding(.bottom, 8 + drop(laneW))
             BoardCanvas(model: model)
                 .frame(width: boardW, height: CGFloat(NH) * cs)
+                .overlay(alignment: .top) { BoardNotice(model: model).padding(.top, 6) }
                 .onAppear { model.cellSize = cs }
                 .onChange(of: cs) { _, v in model.cellSize = v }
             VStack(spacing: 12) {
@@ -262,8 +266,10 @@ private struct ControlRow: View {
             Color.clear.frame(width: HUDButton.diameter, height: HUDButton.diameter)   // warning icon
             Color.clear.frame(width: HUDButton.diameter, height: HUDButton.diameter)   // mystery box
             Spacer(minLength: 4)
-            HUDButton(icon: Icons.backpack, on: model.toolsOpen) {
-                withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.toolsOpen.toggle() }
+            HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek) {
+                withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) {
+                    if model.magicMode { model.cancelWand() } else { model.toolsOpen.toggle() }
+                }
             }
             HUDButton(icon: Icons.home) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
             HUDButton(icon: Icons.gear, size: 19) { model.settingsOpen = true }
@@ -327,6 +333,11 @@ private struct Slots: View {
                 let item = k < model.side.slots.count ? model.side.slots[k] : nil
                 if let item {
                     NestTile(color: model.hex(item.c), count: item.r, size: size, fontSize: 26, front: false, key: item.key)
+                        .overlay {
+                            if item.magic { MagicGlow(radius: 14) }
+                            else if model.magicMode { WandTarget(radius: 14) }
+                        }
+                        .onTapGesture { model.wandSlot(k) }
                 } else if model.side.lockedAt == k {
                     LockedSlot(size: size)
                 } else {
@@ -461,19 +472,29 @@ private struct Lanes: View {
         let maxH: CGFloat = min(CGFloat(JSRound(Double(rows))), height)
         let fade: CGFloat = CGFloat(JSRound(Double(nest * 0.1)))
         let boxH: CGFloat = maxH + 12
-        HStack(alignment: .top, spacing: 10) {
+        let columns = HStack(alignment: .top, spacing: 10) {
             ForEach(model.side.lanes) { lane in
-                LaneColumn(model: model, lane: lane, laneW: laneW, nest: nest)
+                LaneColumn(model: model, lane: lane, laneW: laneW, nest: nest, scrolling: model.peek)
             }
         }
         .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.32), value: model.side.lanes.map(\.id))
         .padding(.top, 12 + 4.0 / 3)   // measured against the web version on device
         .padding(.horizontal, 12)
-        .frame(width: width + 24, height: boxH, alignment: .top)
-        .clipped()
-        .mask {
-            LinearGradient(stops: [.init(color: .black, location: 0), .init(color: .black, location: (boxH - fade) / boxH),
-                                   .init(color: .clear, location: 1)], startPoint: .top, endPoint: .bottom)
+        Group {
+            if model.peek {
+                // Magnifying glass: every waiting nest, scrolling. A tap (not a scroll) still loads or queues a nest.
+                ScrollView(.vertical) { columns.padding(.bottom, 16) }
+                    .frame(width: width + 24, height: boxH)
+                    .background(RoundedRectangle(cornerRadius: 16).fill(Color(hex: 0x1E88E5).opacity(0.10)).padding(.horizontal, 8))
+            } else {
+                columns
+                    .frame(width: width + 24, height: boxH, alignment: .top)
+                    .clipped()
+                    .mask {
+                        LinearGradient(stops: [.init(color: .black, location: 0), .init(color: .black, location: (boxH - fade) / boxH),
+                                               .init(color: .clear, location: 1)], startPoint: .top, endPoint: .bottom)
+                    }
+            }
         }
         .padding(.top, -12)
         .padding(.horizontal, -12)
@@ -487,33 +508,121 @@ private struct LaneColumn: View {
     let lane: SideState.Lane
     let laneW: CGFloat
     let nest: CGFloat
+    /// Inside the magnifying glass's scroll view: a tap, not a touch-down, so the finger can scroll.
+    var scrolling = false
     @SwiftUI.State private var down = false
 
     var body: some View {
-        VStack(spacing: 6) {
+        let column = VStack(spacing: 6) {
             ForEach(Array(lane.nests.enumerated()), id: \.offset) { k, n in
+                let at = k < lane.at.count ? lane.at[k] : -1
                 NestTile(color: model.hex(n.c), count: n.n, size: nest, fontSize: k == 0 ? 23 : 21,
                          front: k == 0, key: n.key)
+                    .overlay {
+                        if model.magicMode { WandTarget(radius: 14) }
+                        if let o = model.owlPlan.firstIndex(of: GameModel.Queued(l: lane.id, i: at)) {
+                            OwlRing(now: o == 0)
+                        }
+                    }
                     .overlay(alignment: .topTrailing) {
-                        if k < lane.at.count, let q = model.queuePlace(lane: lane.id, at: lane.at[k]) {
+                        if let q = model.queuePlace(lane: lane.id, at: at) {
                             QueueBadge(place: q).offset(x: 8, y: -8)
+                        }
+                    }
+                    .overlay(alignment: .topLeading) {
+                        if let o = model.owlPlan.firstIndex(of: GameModel.Queued(l: lane.id, i: at)) {
+                            OwlBadge(step: o + 1).offset(x: -6, y: -6)
                         }
                     }
             }
         }
         .frame(width: laneW)
         .contentShape(Rectangle())
-        .gesture(DragGesture(minimumDistance: 0)
-            .onChanged { v in
-                if !down {
-                    down = true
-                    // Which nest the finger landed on: rows are a nest tall with 6 points between them.
-                    let k = min(max(0, Int(v.startLocation.y / (nest + 6))), lane.at.count - 1)
-                    if k >= 0 { model.press(lane: lane.id, at: lane.at[k]) }
+        if scrolling {
+            column.onTapGesture(coordinateSpace: .local) { p in pressAt(p.y) }
+        } else {
+            column.gesture(DragGesture(minimumDistance: 0)
+                .onChanged { v in
+                    if !down {
+                        down = true
+                        pressAt(v.startLocation.y)
+                    }
                 }
-            }
-            .onEnded { _ in down = false })
+                .onEnded { _ in down = false })
+        }
     }
+
+    /// Which nest the finger landed on: rows are a nest tall with 6 points between them.
+    private func pressAt(_ y: CGFloat) {
+        guard !lane.at.isEmpty else { return }
+        let k = min(max(0, Int(y / (nest + 6))), lane.at.count - 1)
+        model.press(lane: lane.id, at: lane.at[k])
+    }
+}
+
+/// Wise Owl: a brown ring round each nest in the plan; the next one to tap pulses gold.
+private struct OwlRing: View {
+    let now: Bool
+    @SwiftUI.State private var pulse = false
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: 14, style: .circular)
+            .strokeBorder(now && pulse ? Theme.gold : Color(hex: 0x8D5A2B), lineWidth: now && pulse ? 5 : 3)
+            .shadow(color: now && pulse ? Color(hex: 0xFFD23F).opacity(0.8) : .clear, radius: 7)
+            .padding(-3)
+            .onAppear {
+                guard now, !UIAccessibility.isReduceMotionEnabled else { return }
+                withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) { pulse = true }
+            }
+            .allowsHitTesting(false)
+    }
+}
+
+/// `.owlbadge`: the step number on a brown pill with a little owl.
+private struct OwlBadge: View {
+    let step: Int
+    var body: some View {
+        HStack(spacing: 1) {
+            Text("🦉").font(.system(size: 11))
+            Text("\(step)").font(Theme.body(13, 800)).foregroundStyle(.white)
+        }
+        .padding(.leading, 4)
+        .padding(.trailing, 6)
+        .frame(height: 22)
+        .background(Capsule().fill(Color(hex: 0x8D5A2B)))
+        .background(Capsule().fill(.white).padding(-2))
+        .shadow(color: .black.opacity(0.3), radius: 2, y: 2)
+        .allowsHitTesting(false)
+    }
+}
+
+/// While the wand is armed every nest it can touch shimmers in rainbow colors.
+private struct WandTarget: View {
+    let radius: CGFloat
+    var body: some View {
+        TimelineView(.animation(paused: UIAccessibility.isReduceMotionEnabled)) { tl in
+            let a = tl.date.timeIntervalSinceReferenceDate.truncatingRemainder(dividingBy: 1.2) / 1.2 * 360
+            RoundedRectangle(cornerRadius: radius, style: .circular)
+                .strokeBorder(AngularGradient(colors: Rainbow.colors, center: .center, angle: .degrees(a)), lineWidth: 3.5)
+                .padding(-3)
+        }
+        .allowsHitTesting(false)
+    }
+}
+
+/// A magic nest in a slot: a soft rainbow rim.
+private struct MagicGlow: View {
+    let radius: CGFloat
+    var body: some View {
+        RoundedRectangle(cornerRadius: radius, style: .circular)
+            .strokeBorder(AngularGradient(colors: Rainbow.colors, center: .center), lineWidth: 3)
+            .opacity(0.9)
+            .allowsHitTesting(false)
+    }
+}
+
+enum Rainbow {
+    static let colors = [0xE53935, 0xFB8C00, 0xFDD835, 0x43A047, 0x1E88E5, 0x8E24AA, 0xE53935].map { Color(hex: UInt32($0)) }
 }
 
 /// `.lanes .nest .qbadge`: the nest's place in the queue, a gold disc with a white ring.
@@ -536,9 +645,36 @@ private struct QueueBadge: View {
 // MARK: - Tool bar (.toolbar)
 
 /// The tool bar on a wooden tray, slid up from the bottom of the screen over the lanes while the backpack is open.
+/// Tapping a tool asks first (a small ✓ / ✕ bubble over the tray); the wand arms straight away.
 private struct ToolTray: View {
+    @ObservedObject var model: GameModel
+    @SwiftUI.State private var asking: Tool?
+
     var body: some View {
-        ToolBar()
+        VStack(spacing: 10) {
+            if let t = asking {
+                ToolAsk(tool: t) {
+                    asking = nil
+                } yes: {
+                    asking = nil
+                    withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.use(t) }
+                }
+                .transition(.scale(scale: 0.8).combined(with: .opacity))
+            }
+            ToolBar(model: model, asking: asking) { t in
+                if asking == t {
+                    asking = nil
+                } else if model.count(t) > 0 && model.canUse(t) && t != .wand {
+                    asking = t
+                    model.lightTap()
+                } else if t == .wand && model.count(t) > 0 && model.canUse(t) {
+                    asking = nil
+                    withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.use(t) }
+                } else {
+                    asking = nil
+                    model.toolTapped(t)
+                }
+            }
             .padding(EdgeInsets(top: 16, leading: 14, bottom: 10, trailing: 14))
             .frame(maxWidth: .infinity)
             .background(
@@ -548,44 +684,212 @@ private struct ToolTray: View {
                         .stroke(Color(hex: 0xC9965E), lineWidth: 1.5))
                     .shadow(color: .black.opacity(0.22), radius: 8, y: -2)
                     .ignoresSafeArea(edges: .bottom))
+        }
+        .animation(.easeOut(duration: 0.16), value: asking)
+        .onChange(of: model.toolsOpen) { _, open in if !open { asking = nil } }
     }
 }
 
-/// The five tools, shown as on a new player's page: none owned yet, each with a yellow "+" to get more.
-/// (They aren't playable yet.)
+/// `.toolask`: the tool, ✕ and ✓, on a white pill.
+private struct ToolAsk: View {
+    let tool: Tool
+    let no: () -> Void
+    let yes: () -> Void
+
+    var body: some View {
+        HStack(spacing: 8) {
+            ToolIcon(tool: tool, size: 26)
+            Text("Use \(tool.name)?")
+                .font(Theme.body(15, 800))
+                .foregroundStyle(Theme.ink)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+            Button(action: no) {
+                Text("✕").font(.system(size: 20, weight: .black)).foregroundStyle(Color(hex: 0x555555))
+                    .frame(width: 44, height: 44).background(Circle().fill(Color(hex: 0xE9E9E9)))
+            }
+            .accessibilityLabel("Cancel")
+            Button(action: yes) {
+                Text("✓").font(.system(size: 22, weight: .black)).foregroundStyle(.white)
+                    .frame(width: 44, height: 44).background(Circle().fill(Color(hex: 0x2E7D32)))
+            }
+            .accessibilityLabel("Use \(tool.name)")
+        }
+        .buttonStyle(Pressable())
+        .padding(EdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 8))
+        .background(Capsule().fill(.white).shadow(color: .black.opacity(0.25), radius: 9, y: 6))
+        .overlay(Capsule().strokeBorder(Theme.darkInk, lineWidth: 2))
+    }
+}
+
+/// A tool's picture: its emoji, or for the Extra Slot a plus inside a slot-shaped box.
+struct ToolIcon: View {
+    let tool: Tool
+    var size: CGFloat = 26
+
+    var body: some View {
+        if tool == .slot {
+            let box = size * 28 / 26
+            Text("+")
+                .font(Theme.body(box * 0.78, 900))
+                .foregroundStyle(Theme.darkInk)
+                .offset(y: -0.06 * box * 0.78)
+                .frame(width: box, height: box)
+                .background(RoundedRectangle(cornerRadius: box * 0.28).fill(.white))
+                .overlay(RoundedRectangle(cornerRadius: box * 0.28).strokeBorder(Theme.darkInk, lineWidth: box * 3 / 28))
+        } else {
+            Text(tool.icon).font(.system(size: size))
+        }
+    }
+}
+
+/// The five tools (`.toolbar`): each shows how many are left, or a yellow "+" with none (tap to buy more).
 private struct ToolBar: View {
+    @ObservedObject var model: GameModel
+    let asking: Tool?
+    let tap: (Tool) -> Void
+
     var body: some View {
         HStack(spacing: 10) {
-            ForEach(["🦉", "🔍", "🌰", "slot", "🪄"], id: \.self) { t in
-                ZStack(alignment: .topTrailing) {
-                    Group {
-                        if t == "slot" {
-                            Text("+")
-                                .font(Theme.body(28 * 0.78, 900))
-                                .foregroundStyle(Theme.darkInk)
-                                .offset(y: -0.06 * 28 * 0.78)
-                                .frame(width: 28, height: 28)
-                                .background(RoundedRectangle(cornerRadius: 28 * 0.28).fill(.white))
-                                .overlay(RoundedRectangle(cornerRadius: 28 * 0.28).strokeBorder(Theme.darkInk, lineWidth: 3))
-                        } else {
-                            Text(t).font(.system(size: 26))
-                        }
+            ForEach(Tool.allCases) { t in
+                let n = model.count(t)
+                let on = (t == .wand && model.magicMode) || (t == .peek && model.peek)
+                let empty = n == 0 && !on
+                let spent = n > 0 && !model.canUse(t) && !on
+                Button { tap(t) } label: {
+                    ZStack(alignment: .topTrailing) {
+                        ToolIcon(tool: t)
+                            .saturation(empty ? 0.4 : 1)
+                            .opacity(empty ? 0.5 : 1)
+                            .frame(width: 52, height: 46)
+                            .background {
+                                let shape = RoundedRectangle(cornerRadius: 15, style: .circular)
+                                if on {
+                                    shape.fill(LinearGradient(colors: Rainbow.colors, startPoint: .leading, endPoint: .trailing))
+                                } else {
+                                    shape.fill(empty ? Color(hex: 0xF3F0E6) : .white)
+                                }
+                            }
+                            .overlay {
+                                if asking == t {
+                                    RoundedRectangle(cornerRadius: 15, style: .circular).strokeBorder(Color(hex: 0x2E7D32), lineWidth: 3)
+                                }
+                            }
+                            .background(RoundedRectangle(cornerRadius: 15, style: .circular).fill(.black.opacity(0.14)).offset(y: 3))
+                        Text(n > 0 ? "\(n)" : "+")
+                            .font(Theme.body(13, 800))
+                            .foregroundStyle(n > 0 ? .white : Color(hex: 0x3A2A00))
+                            .padding(.horizontal, 6)
+                            .frame(minWidth: 24, minHeight: 24)
+                            .background(Capsule().fill(n > 0 ? Theme.darkInk : Theme.gold))
+                            .background(Capsule().fill(.white).padding(-2))
+                            .offset(x: 7, y: -7)
                     }
-                    .saturation(0.4)
-                    .opacity(0.5)
-                    .frame(width: 52, height: 46)
-                    .background(RoundedRectangle(cornerRadius: 15, style: .circular).fill(Color(hex: 0xF3F0E6)))
-                    .background(RoundedRectangle(cornerRadius: 15, style: .circular).fill(.black.opacity(0.14)).offset(y: 3))
-                    Text("+")
-                        .font(Theme.body(13, 800))
-                        .foregroundStyle(Color(hex: 0x3A2A00))
-                        .frame(minWidth: 24, minHeight: 24)
-                        .background(Circle().fill(Theme.gold))
-                        .background(Circle().fill(.white).padding(-2))
-                        .offset(x: 7, y: -7)
+                    .opacity(spent ? 0.45 : 1)
                 }
+                .buttonStyle(Pressable())
+                .accessibilityLabel("\(t.name): \(n) left. \(t.desc)")
             }
         }
+    }
+}
+
+/// A tool's shop card, opened by tapping a tool with none left (JS openToolShop).
+private struct ToolShop: View {
+    @ObservedObject var model: GameModel
+    let tool: Tool
+
+    var body: some View {
+        let can = model.coins >= tool.price
+        ZStack {
+            Color(red: 20 / 255, green: 30 / 255, blue: 15 / 255, opacity: 0.5)
+                .ignoresSafeArea()
+                .onTapGesture { model.shopTool = nil }
+            VStack(spacing: 10) {
+                ToolIcon(tool: tool, size: 44)
+                    .shadow(color: Color(hex: 0xFFF59D), radius: 8)
+                Text(tool.name + (tool.pack > 1 ? " ×\(tool.pack)" : ""))
+                    .font(Theme.display(26))
+                    .foregroundStyle(Theme.ink)
+                Text(tool.desc)
+                    .font(Theme.body(15, 500))
+                    .foregroundStyle(Color(hex: 0x4A5841))
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                HStack(spacing: 8) {
+                    Button { model.buy(tool) } label: {
+                        HStack(spacing: 4) {
+                            CoinIcon().frame(width: 18, height: 18)
+                            Text(tool.price.formatted())
+                        }
+                        .bigLabel(alt: false)
+                    }
+                    .disabled(!can)
+                    .opacity(can ? 1 : 0.45)
+                    Button { model.shopTool = nil } label: { Text("Not now").bigLabel(alt: true) }
+                }
+                .buttonStyle(Pressable())
+                .padding(.top, 4)
+                Text(can ? "You have \(model.coins.formatted()) coins."
+                         : "You need \((tool.price - model.coins).formatted()) more coins.")
+                    .font(Theme.body(13, 800))
+                    .foregroundStyle(Color(hex: 0x4A5841))
+            }
+            .padding(20)
+            .frame(maxWidth: 340)
+            .background(RoundedRectangle(cornerRadius: 20, style: .circular).fill(.white)
+                .shadow(color: .black.opacity(0.3), radius: 15, y: 10))
+            .padding(16)
+        }
+        .transition(.opacity)
+    }
+}
+
+/// Over the top of the board: the armed wand or the open magnifying glass (with a button to put it away), or else
+/// the latest short message.
+private struct BoardNotice: View {
+    @ObservedObject var model: GameModel
+
+    var body: some View {
+        Group {
+            if model.magicMode {
+                pill("🪄 Tap a nest to make it magic", button: "Cancel") { model.cancelWand() }
+            } else if model.peek {
+                pill("🔍 Scroll to look ahead", button: "Done") { model.toolTapped(.peek) }
+            } else if let t = model.toast {
+                pill(t.text, button: nil, action: nil).id(t.id)
+            }
+        }
+        .animation(.easeOut(duration: 0.2), value: model.toast)
+        .animation(.easeOut(duration: 0.2), value: model.magicMode)
+        .animation(.easeOut(duration: 0.2), value: model.peek)
+    }
+
+    private func pill(_ text: String, button: String?, action: (() -> Void)?) -> some View {
+        HStack(spacing: 8) {
+            Text(text)
+                .font(Theme.body(14, 800))
+                .foregroundStyle(Theme.ink)
+                .lineLimit(2)
+                .multilineTextAlignment(.center)
+            if let button, let action {
+                Button(action: action) {
+                    Text(button)
+                        .font(Theme.body(13, 800))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 12)
+                        .frame(height: 30)
+                        .background(Capsule().fill(Theme.darkInk))
+                }
+                .buttonStyle(Pressable())
+            }
+        }
+        .padding(.leading, 14)
+        .padding(.trailing, button == nil ? 14 : 5)
+        .padding(.vertical, button == nil ? 8 : 5)
+        .background(Capsule().fill(.white.opacity(0.95)).shadow(color: .black.opacity(0.2), radius: 6, y: 3))
+        .padding(.horizontal, 10)
+        .transition(.move(edge: .top).combined(with: .opacity))
     }
 }
 
