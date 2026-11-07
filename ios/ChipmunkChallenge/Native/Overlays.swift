@@ -14,6 +14,15 @@ struct SceneLayer: View {
     /// The intro waits on its Start button.
     @SwiftUI.State private var started = false
 
+    /// Debug `-autoplay YES`: the intro starts by itself.
+    static var autoStart: Bool {
+        #if DEBUG
+        UserDefaults.standard.bool(forKey: "autoplay")
+        #else
+        false
+        #endif
+    }
+
     /// The 3D ground's color as rendered (flat toon shading), so the grass can run on below the scene.
     static let grass = Color(hex: 0xBBF47A)
 
@@ -33,7 +42,7 @@ struct SceneLayer: View {
                         .offset(y: geo.safeAreaInsets.bottom)
                 }
                 SceneCanvas(run: run, size: CGSize(width: w, height: h), ready: { model.introReady },
-                            go: run.kind == .intro ? { started } : nil) {
+                            go: run.kind == .intro ? { started || SceneLayer.autoStart } : nil) {
                     finish()
                 }
                 .frame(width: w, height: h)

@@ -333,15 +333,30 @@ struct PictureThumb: View {
 struct SettingsSheet: View {
     @ObservedObject var model: GameModel
 
+    /// "v" + the marketing version + "." + the build number, e.g. v1.0.99 for version 1.0, build 99.
+    static let version: String = {
+        let info = Bundle.main.infoDictionary
+        let v = info?["CFBundleShortVersionString"] as? String ?? "1.0"
+        let b = info?["CFBundleVersion"] as? String ?? "0"
+        return "v\(v).\(b)"
+    }()
+
     var body: some View {
         ZStack {
             Color(red: 20 / 255, green: 30 / 255, blue: 15 / 255, opacity: 0.5)
                 .ignoresSafeArea()
                 .onTapGesture { model.settingsOpen = false }
             VStack(alignment: .leading, spacing: 16) {
-                Text("Settings")
-                    .font(Theme.display(26))
-                    .foregroundStyle(Theme.ink)
+                HStack(alignment: .firstTextBaseline) {
+                    Text("Settings")
+                        .font(Theme.display(26))
+                        .foregroundStyle(Theme.ink)
+                    Spacer()
+                    Text(Self.version)
+                        .font(Theme.body(13, 700))
+                        .foregroundStyle(Color(hex: 0x8A9682))
+                        .accessibilityLabel("Version \(Self.version.dropFirst())")
+                }
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Background").font(Theme.body(14, 800)).foregroundStyle(Color(hex: 0x4A5841))
                     HStack(spacing: 6) {

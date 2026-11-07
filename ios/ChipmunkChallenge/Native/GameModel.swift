@@ -212,6 +212,7 @@ final class GameModel: ObservableObject {
         // The debug launch arguments (`-scene`, `-autoplay`, `-screen play`) skip the home screen.
         if store.string(forKey: "scene") != nil || store.bool(forKey: "autoplay") || store.string(forKey: "screen") == "play" {
             screen = .play
+            if store.bool(forKey: "fast") { fast = true }
             load(boardIndex)
         }
         #endif

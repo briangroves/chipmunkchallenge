@@ -66,12 +66,40 @@ final class BoardView: UIView {
 
     // MARK: - Frame loop (JS: the animation loop calling drawFrame)
 
+    #if DEBUG
+    private var perf = (frames: 0, start: 0.0, advance: 0.0, repaint: 0.0, worst: 0.0)
+    #endif
+
     @objc private func tick(_ l: CADisplayLink) {
         let dt = lastTime.map { l.timestamp - $0 } ?? 0
         lastTime = l.timestamp
+        #if DEBUG
+        let p0 = CACurrentMediaTime()
+        defer {
+            if UserDefaults.standard.bool(forKey: "perf") {
+                perf.frames += 1
+                perf.worst = max(perf.worst, dt)
+                if perf.start == 0 { perf.start = l.timestamp }
+                if l.timestamp - perf.start >= 2 {
+                    let n = Double(perf.frames)
+                    NSLog("PERF fps %.1f  worst gap %.1f ms  advance %.2f ms  repaint %.2f ms  draw %.2f ms  ants %d",
+                          n / (l.timestamp - perf.start), perf.worst * 1000, perf.advance / n * 1000, perf.repaint / n * 1000,
+                          live.drawTime / max(1, Double(live.draws)) * 1000, model.sim?.ants.count ?? 0)
+                    perf = (0, l.timestamp, 0, 0, 0)
+                    live.drawTime = 0
+                    live.draws = 0
+                }
+            }
+        }
+        #endif
         guard let lv = model.level else { return }
         if builtVersion != model.boardVersion || cs != model.cellSize { sizeBoard(lv) }
         model.advance(by: dt)
+        #if DEBUG
+        let p1 = CACurrentMediaTime()
+        perf.advance += p1 - p0
+        defer { perf.repaint += CACurrentMediaTime() - p1 }
+        #endif
         guard let m = model.sim else { return }
         // A block left: repaint around it (JS CB.arrive → repaintAround). A chipmunk standing at its block for the
         // pickup pause still shows the block; it goes once the chipmunk lifts it.
@@ -114,6 +142,7 @@ final class BoardView: UIView {
         off = ctx
         sprites = SpriteCache(cs: cs, scale: scale, chars: lv.art.chars)
         live.cs = cs
+        live.reset()
         shown = model.sim?.s.b ?? lv.art.cells
         paintOff(lv)
     }
@@ -206,6 +235,23 @@ private final class LiveView: UIView {
     weak var board: BoardView?
     var cs: CGFloat = 0
     private var tones: [Int: Tone] = [:]
+    /// Each chipmunk pose drawn once (by color, cheeks, paw step and tail flick), then stamped every frame. Drawing
+    /// them from shapes every frame took 15-25 ms with a few dozen out and dropped fast-forward to ~25 fps.
+    private var critters: [Int: CGImage] = [:]
+    private var holeImage: CGImage?
+    private static let steps = 8
+    private static let flicks = 9
+
+    /// A new board (or size): its colors and poses start over.
+    func reset() {
+        tones = [:]
+        critters = [:]
+        holeImage = nil
+    }
+    #if DEBUG
+    var drawTime = 0.0
+    var draws = 0
+    #endif
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -220,8 +266,15 @@ private final class LiveView: UIView {
     override func draw(_ rect: CGRect) {
         guard let board, let lv = board.model.level, let m = board.model.sim, cs > 0,
               let g = UIGraphicsGetCurrentContext() else { return }
+        #if DEBUG
+        let d0 = CACurrentMediaTime()
+        defer {
+            drawTime += CACurrentMediaTime() - d0
+            draws += 1
+        }
+        #endif
         let NW = lv.NW
-        hole(g, (CGFloat(lv.drain % NW) + 0.5) * cs, (CGFloat(lv.drain / NW) + 0.5) * cs, cs * 2.4)
+        drawHole(g, (CGFloat(lv.drain % NW) + 0.5) * cs, (CGFloat(lv.drain / NW) + 0.5) * cs, cs * 2.4)
         let now = CACurrentMediaTime() * 1000
         let simT = board.model.simT
         for a in m.ants {
@@ -294,14 +347,73 @@ private final class LiveView: UIView {
         g.restoreGState()
     }
 
-    /// A chipmunk seen from above, tinted its nest's color (JS drawCritter, crew = chipmunks).
+    /// The drain, drawn once into an image.
+    private func drawHole(_ g: CGContext, _ x: CGFloat, _ y: CGFloat, _ rad: CGFloat) {
+        let box = CGRect(x: x - rad, y: y - rad, width: rad * 2, height: rad * 2)
+        if holeImage == nil {
+            holeImage = render(CGSize(width: rad * 2, height: rad * 2)) { c in self.hole(c, rad, rad, rad) }
+        }
+        if let img = holeImage { stamp(g, img, box) }
+    }
+
+    /// An image of `size` points at screen scale, drawn y-down.
+    private func render(_ size: CGSize, _ body: @escaping (CGContext) -> Void) -> CGImage? {
+        let fmt = UIGraphicsImageRendererFormat()
+        fmt.scale = window?.screen.scale ?? 3
+        fmt.opaque = false
+        return UIGraphicsImageRenderer(size: size, format: fmt).image { body($0.cgContext) }.cgImage
+    }
+
+    /// Draw a y-down image into the y-down view context (CGContext.draw expects y-up, so flip around it).
+    private func stamp(_ g: CGContext, _ img: CGImage, _ r: CGRect) {
+        g.saveGState()
+        g.translateBy(x: r.minX, y: r.maxY)
+        g.scaleBy(x: 1, y: -1)
+        g.draw(img, in: CGRect(origin: .zero, size: r.size))
+        g.restoreGState()
+    }
+
+    /// Body size of a chipmunk (drawn 25% bigger than the web's critters).
+    private var bodySize: CGFloat { cs * CGFloat(SIM.BODY) / 1.35 * 1.25 }
+
+    /// A chipmunk seen from above, tinted its nest's color (JS drawCritter, crew = chipmunks): a cached pose, turned to
+    /// face its way with a little wobble, and the block it carries.
     private func drawCritter(_ g: CGContext, _ lv: Level, _ x: CGFloat, _ y: CGFloat, _ dx: CGFloat, _ dy: CGFloat,
                              _ carry: Int, _ t: Double, _ col: Int) {
-        let s = cs * CGFloat(SIM.BODY) / 1.35 * 1.25          // chipmunks drawn 25% bigger
-        let tn = tone(lv, col)
+        let s = bodySize
         let ang = atan2(dy, dx)
+        // The animation, snapped to a few poses: the paws' trot and the tail's flick.
+        let phase = (t / 26).truncatingRemainder(dividingBy: 2 * .pi)
+        let stepK = Int((phase / (2 * .pi) * Double(Self.steps)).rounded(.down)) % Self.steps
+        let flick = tanh(3.5 * sin(t / 150 + Double(col) * 2))
+        let flickK = Int(((flick + 1) / 2 * Double(Self.flicks - 1)).rounded())
+        let key = ((col * 2 + (carry != 0 ? 1 : 0)) * Self.steps + stepK) * Self.flicks + flickK
+        let half = s * 0.82
+        if critters[key] == nil {
+            let tn = tone(lv, col)
+            let step = CGFloat(sin(Double(stepK) / Double(Self.steps) * 2 * .pi))
+            let fl = CGFloat(flickK) / CGFloat(Self.flicks - 1) * 2 - 1
+            critters[key] = render(CGSize(width: half * 2, height: half * 2)) { c in
+                c.translateBy(x: half, y: half)
+                Self.critterBody(c, s, tn, step, fl, carry != 0)
+            }
+        }
+        g.saveGState()
+        g.translateBy(x: x, y: y)
+        g.rotate(by: ang + 0.13 * CGFloat(sin(t / 38 + Double(col))))
+        if let img = critters[key] { stamp(g, img, CGRect(x: -half, y: -half, width: half * 2, height: half * 2)) }
+        if carry != 0, let board {
+            g.rotate(by: -ang)
+            let hx = cos(ang) * s * 0.8, hy = sin(ang) * s * 0.8
+            board.sprites.block(g, (hx - cs * 0.5).rounded(), (hy - cs * 0.5).rounded(), cs, UInt8(carry), false, 15)
+        }
+        g.restoreGState()
+    }
+
+    /// The chipmunk itself, facing +x, centered on the origin: paws, tail, body with back stripes, ears, cheeks while
+    /// carrying, then head, muzzle, eyes and nose.
+    private static func critterBody(_ g: CGContext, _ s: CGFloat, _ tn: Tone, _ step: CGFloat, _ flick: CGFloat, _ carry: Bool) {
         let ink = UIColor(red: 20 / 255, green: 12 / 255, blue: 6 / 255, alpha: 0.8)
-        let step = CGFloat(sin(t / 26))
         let lw = max(0.6, s * 0.06)
 
         func ellipse(_ cx: CGFloat, _ cy: CGFloat, _ rx: CGFloat, _ ry: CGFloat) {
@@ -317,9 +429,6 @@ private final class LiveView: UIView {
             g.fillPath()
         }
 
-        g.saveGState()
-        g.translateBy(x: x, y: y)
-        g.rotate(by: ang + 0.13 * CGFloat(sin(t / 38 + Double(col))))
         g.setLineWidth(lw)
         g.setStrokeColor(ink.cgColor)
 
@@ -330,7 +439,6 @@ private final class LiveView: UIView {
         }
         // Tail: a slim chain of puffs that flicks from side to side and snaps there.
         let n = 9
-        let flick = CGFloat(tanh(3.5 * sin(t / 150 + Double(col) * 2)))
         func tp(_ f: CGFloat) -> (CGFloat, CGFloat, CGFloat) {
             (-(0.3 + 0.4 * f) * s, (0.2 * sin(f * .pi * 0.6) * flick) * s, (0.06 + 0.025 * f) * s)
         }
@@ -367,7 +475,7 @@ private final class LiveView: UIView {
             fill(tn.hi)
         }
         // Cheeks puff out while it carries a block.
-        if carry != 0 {
+        if carry {
             for sg in [1.0, -1.0] as [CGFloat] {
                 circle(0.4 * s, sg * 0.17 * s, 0.11 * s)
                 fillStroke(tn.face)
@@ -390,12 +498,6 @@ private final class LiveView: UIView {
             circle(0.455 * s, sg * 0.085 * s - 0.015 * s, 0.015 * s)
             fill(UIColor(white: 1, alpha: 0.9))
         }
-        if carry != 0, let board {
-            g.rotate(by: -ang)
-            let hx = cos(ang) * s * 0.8, hy = sin(ang) * s * 0.8
-            board.sprites.block(g, (hx - cs * 0.5).rounded(), (hy - cs * 0.5).rounded(), cs, UInt8(carry), false, 15)
-        }
-        g.restoreGState()
     }
 }
 
