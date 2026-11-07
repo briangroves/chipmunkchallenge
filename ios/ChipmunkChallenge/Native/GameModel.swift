@@ -1155,19 +1155,20 @@ final class PickupBuzzer {
             fallback.impactOccurred(intensity: 0.8)
             return
         }
-        // A deep, round pickup: a soft low thump, then a low rumble (sharpness near 0) that swells a little and fades.
+        // A punchy pickup: a full-strength thump with some snap, then a short deep tail that drops off fast.
+        let tail = min(d, 0.12)
         let thump = CHHapticEvent(eventType: .hapticTransient, parameters: [
-            CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.75),
-            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.05),
+            CHHapticEventParameter(parameterID: .hapticIntensity, value: 1.0),
+            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.45),
         ], relativeTime: 0)
         let rumble = CHHapticEvent(eventType: .hapticContinuous, parameters: [
-            CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.9),
-            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.0),
-        ], relativeTime: 0, duration: d)
+            CHHapticEventParameter(parameterID: .hapticIntensity, value: 1.0),
+            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.1),
+        ], relativeTime: 0, duration: tail)
         let curve = CHHapticParameterCurve(parameterID: .hapticIntensityControl, controlPoints: [
-            .init(relativeTime: 0, value: 0.8),
-            .init(relativeTime: d * 0.3, value: 1.0),
-            .init(relativeTime: d, value: 0.0),
+            .init(relativeTime: 0, value: 1.0),
+            .init(relativeTime: tail * 0.35, value: 0.55),
+            .init(relativeTime: tail, value: 0.0),
         ], relativeTime: 0)
         do {
             try engine.start()
