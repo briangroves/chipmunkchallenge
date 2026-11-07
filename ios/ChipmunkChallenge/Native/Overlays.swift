@@ -325,6 +325,7 @@ struct ResultCard: View {
                 .foregroundStyle(Theme.ink)
                 .cssLine(Theme.uiDisplay(34), 34 * 1.45)
         }
+        if let box = w.box { BoxRevealView(box: box) }
         HStack(spacing: 6) {
             BlockIcon(size: 14)
             // .lifeline is a flex row: the count and the words are separate items 6 apart

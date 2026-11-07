@@ -138,6 +138,18 @@ final class GameModel: ObservableObject {
     @Published private(set) var easeNext = false
     /// Blocks cleared, all time.
     @Published private(set) var lifetime: Int
+    /// This try's mystery boxes, in their pockets (the board view draws them).
+    private(set) var pickups: [Pickup] = []
+    /// Boxes reached this try, shown on the hold chip.
+    @Published private(set) var held: [Held] = []
+    /// A tool, Continue or the auto-solver was used this try: every held box is lost.
+    @Published private(set) var helped = false
+    /// Bumped when a box goes on hold (the chip pops) or help is used while holding (the chip shakes).
+    @Published private(set) var heldPop = 0
+    @Published private(set) var heldShake = 0
+    private var boxSource: BoxSource?
+    private var boardSeed = 0
+    private static let pickedKey = "native.picked"
     /// Board cell size in points, set by the layout (JS sizeBoard).
     var cellSize: CGFloat = 7.5
 
@@ -173,6 +185,30 @@ final class GameModel: ObservableObject {
     struct Win: Equatable {
         var base: Int
         var bonus: Int
+        /// The mystery boxes this win opened (or lost to help).
+        var box: BoxReveal? = nil
+    }
+
+    /// What the win card shows of the boxes held at the win: the tools inside, or how many were lost.
+    struct BoxReveal: Equatable {
+        var tools: [Tool]
+        var lost: Bool
+        var count: Int { lost ? lostCount : tools.count }
+        var lostCount = 0
+    }
+
+    /// A box the open area has reached this try: on hold until the board is cleared without help.
+    struct Held: Equatable {
+        let tool: Tool
+        let key: String
+    }
+
+    /// Where this board's mystery boxes come from (the picture, its id and its place in the web game's level list).
+    struct BoxSource {
+        let rows: [String]
+        let id: String
+        let index: Int
+        let board: PickupBoard
     }
 
     /// Win-card difficulty picks (JS TAILOR).
@@ -322,7 +358,9 @@ final class GameModel: ObservableObject {
         let baked = attempt == 1 && aim == LevelCatalog.baseAim(key) ? catalog.baked(forBoard: i) : nil
         build(base: catalog.base(forBoard: i), key: key, seed: catalog.seed(forBoard: i, attempt: attempt), aim: aim,
               baked: baked, attempt: attempt, title: catalog.levelPlay[i].name, subtitle: "Level \(i + 1)",
-              label: packName(i))
+              label: packName(i),
+              boxes: BoxSource(rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, index: i,
+                               board: i < catalog.packs[0].levels.count ? .warmup(i + 1) : .level(i + 1)))
     }
 
     /// Load the next Coin Mining board (JS playParadise).
@@ -331,7 +369,9 @@ final class GameModel: ObservableObject {
         let b = miningBoard
         build(base: b.base, key: "paradise", seed: b.seed + attempt - 1, aim: LevelCatalog.baseAim("paradise"),
               baked: nil, attempt: attempt, title: b.base.name, subtitle: "Challenge \(paraRound + 1)",
-              label: "⛏️ Coin Mining")
+              label: "⛏️ Coin Mining",
+              boxes: BoxSource(rows: b.base.rows, id: catalog.paradise[b.index - catalog.paradiseFrom].id,
+                               index: b.index, board: .mining))
     }
 
     /// Load today's daily puzzle. It plays on the ramp's settings for its board number, at the standard aim.
@@ -344,7 +384,9 @@ final class GameModel: ObservableObject {
         let p = catalog.levelPlay[d.picture]
         build(base: levelBase(name: p.name, rows: p.rows, boardNumber: d.rampN), key: "daily",
               seed: d.day * 7 + attempt, aim: LevelCatalog.baseAim("daily"), baked: nil, attempt: attempt,
-              title: "\(streakNow) 🔥", subtitle: "Current Streak", label: "Daily puzzle")
+              title: "\(streakNow) 🔥", subtitle: "Current Streak", label: "Daily puzzle",
+              boxes: BoxSource(rows: p.rows, id: "daily", index: catalog.paradiseFrom + catalog.paradise.count,
+                               board: .daily))
     }
 
     /// The same kind of board again with a fresh build (attempt n).
@@ -368,8 +410,10 @@ final class GameModel: ObservableObject {
     private var loadToken = 0
 
     private func build(base: LevelBase, key: String, seed: Int, aim: Double, baked: LevelSummary?, attempt: Int,
-                       title: String, subtitle: String, label: String) {
+                       title: String, subtitle: String, label: String, boxes: BoxSource) {
         buildTask?.cancel()
+        boxSource = boxes
+        boardSeed = seed
         loadToken += 1
         let token = loadToken
         self.attempt = attempt
@@ -418,6 +462,7 @@ final class GameModel: ObservableObject {
         if let s = lv.def?.slots, lv.slots != s { lv.setSlots(s) }
         var m = Sim(lv)
         m.pickupPause = Self.pickupPause
+        setupPickups(lv, &m)
         sim = m
         simT = 0
         status = .playing
@@ -525,6 +570,7 @@ final class GameModel: ObservableObject {
             store.set(lifetime, forKey: "native.lifetime")
         }
         refreshSide()
+        checkPickups(m)
         if isCleared(m) {
             status = .won
             stopFast()
@@ -541,8 +587,10 @@ final class GameModel: ObservableObject {
         }
     }
 
-    /// JS payOut, without packs, hearts or mystery boxes yet.
+    /// JS payOut, without packs or hearts yet.
     private func payOut(_ lv: Level) {
+        let box = claimHeld()
+        defer { lastWin.box = box }
         let c = lv.botWin
         let reward: Int = lv.diff == "paradise" ? 100
             : c == nil ? 100 : Int(JSRound(100 * min(2.5, max(0.6, 0.3 / max(c!, 0.01))) / 10)) * 10
@@ -649,6 +697,7 @@ final class GameModel: ObservableObject {
         coins -= Self.continuePrice
         store.set(coins, forKey: "native.coins")
         firstTry = false
+        markHelp()
         history.append(m)
         canUndo = true
         let before = m.s.left
@@ -662,6 +711,7 @@ final class GameModel: ObservableObject {
         boardVersion += 1
         buzz()
         refreshSide()
+        checkPickups(m)
         if m.s.left == 0 {
             status = .won
             stopFast()
@@ -847,6 +897,7 @@ final class GameModel: ObservableObject {
             return
         }
         firstTry = false
+        markHelp()
         addTools(t, -1)
         switch t {
         case .owl:
@@ -1005,6 +1056,7 @@ final class GameModel: ObservableObject {
         addTools(.wand, -1)
         magicMode = false
         firstTry = false
+        markHelp()
         buzz()
     }
 
@@ -1037,6 +1089,63 @@ final class GameModel: ObservableObject {
         dropQueue = []
         acornFalls = []
         dropping = false
+    }
+
+    // MARK: - Mystery boxes (JS setupPickups, checkPickups, markHelp, claimHeld)
+
+    /// Keys of boxes already opened, oldest first (the newest 500 are kept).
+    private var picked: [String] { store.stringArray(forKey: Self.pickedKey) ?? [] }
+
+    /// A new try: the boxes go back in their pockets (any not opened on an earlier win) and nothing is on hold.
+    private func setupPickups(_ lv: Level, _ m: inout Sim) {
+        held = []
+        helped = false
+        pickups = []
+        guard let src = boxSource else { return }
+        pickups = placePickups(lv, &m.s, rows: src.rows, id: src.id, seed: boardSeed, index: src.index,
+                               board: src.board, claimed: Set(picked))
+    }
+
+    /// The critters' open area has reached a pocket: its box goes on hold.
+    private func checkPickups(_ m: Sim) {
+        for k in pickups.indices where !pickups[k].got && pickups[k].reached(m.s) {
+            pickups[k].got = true
+            guard let t = Tool(rawValue: pickups[k].tool) else { continue }
+            held.append(Held(tool: t, key: pickups[k].key))
+            heldPop += 1
+            buzz()
+        }
+    }
+
+    /// A tool, Continue or the auto-solver: every box held (or reached later) this try is lost.
+    private func markHelp() {
+        guard !helped else { return }
+        helped = true
+        if !held.isEmpty {
+            heldShake += 1
+            buzz(.warning)
+        }
+    }
+
+    /// The hold chip was tapped: it shakes.
+    func shakeHeld() {
+        heldShake += 1
+        buzz()
+    }
+
+    /// The win opens the held boxes: their tools go in the backpack, and they're remembered as opened.
+    private func claimHeld() -> BoxReveal? {
+        guard !held.isEmpty else { return nil }
+        let hs = held
+        held = []
+        if helped { return BoxReveal(tools: [], lost: true, lostCount: hs.count) }
+        var keys = picked
+        for h in hs {
+            if !keys.contains(h.key) { keys.append(h.key) }
+            addTools(h.tool, 1)
+        }
+        store.set(Array(keys.suffix(500)), forKey: Self.pickedKey)
+        return BoxReveal(tools: hs.map(\.tool), lost: false)
     }
 
     // MARK: - Pickup haptic

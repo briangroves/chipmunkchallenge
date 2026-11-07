@@ -252,7 +252,7 @@ struct StatusRow: View {
     }
 }
 
-/// Restart (after a confirmation), undo and fast on the left, then room for the warning icon and the mystery box (not built yet); the backpack
+/// Restart (after a confirmation), undo and fast on the left, then room for the warning icon and the mystery boxes on hold; the backpack
 /// (which shows the tools), home and settings on the right.
 private struct ControlRow: View {
     @ObservedObject var model: GameModel
@@ -270,7 +270,11 @@ private struct ControlRow: View {
             HUDButton(icon: Icons.undo, disabled: !model.canUndo) { model.undo() }
             HUDButton(icon: Icons.speed, on: model.fast) { model.toggleFast() }
             Color.clear.frame(width: HUDButton.diameter, height: HUDButton.diameter)   // warning icon
-            Color.clear.frame(width: HUDButton.diameter, height: HUDButton.diameter)   // mystery box
+            Group {
+                if model.held.isEmpty { Color.clear } else { HeldChip(model: model).fixedSize() }
+            }
+            .frame(minWidth: HUDButton.diameter)
+            .frame(height: HUDButton.diameter)
             Spacer(minLength: 4)
             HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek) {
                 withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) {

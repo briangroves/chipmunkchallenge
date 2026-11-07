@@ -239,6 +239,8 @@ private final class LiveView: UIView {
     /// them from shapes every frame took 15-25 ms with a few dozen out and dropped fast-forward to ~25 fps.
     private var critters: [Int: CGImage] = [:]
     private var holeImage: CGImage?
+    private var rainbowImage: CGImage?
+    private var markImage: CGImage?
     private static let steps = 8
     private static let flicks = 9
 
@@ -247,6 +249,8 @@ private final class LiveView: UIView {
         tones = [:]
         critters = [:]
         holeImage = nil
+        rainbowImage = nil
+        markImage = nil
     }
     #if DEBUG
     var drawTime = 0.0
@@ -276,6 +280,7 @@ private final class LiveView: UIView {
         let NW = lv.NW
         drawHole(g, (CGFloat(lv.drain % NW) + 0.5) * cs, (CGFloat(lv.drain / NW) + 0.5) * cs, cs * 2.4)
         let now = CACurrentMediaTime() * 1000
+        drawPickups(g, lv, m.s, board.model.pickups, now)
         let simT = board.model.simT
         for a in m.ants {
             // During the pickup pause it stands at the block, still facing it, cheeks not yet full.
@@ -288,6 +293,108 @@ private final class LiveView: UIView {
                         carry ? a.c : 0, now, a.c)
         }
         drawAcorns(g, lv, CACurrentMediaTime())
+    }
+
+    // MARK: Mystery boxes (JS drawPickups, drawMystery)
+
+    /// Each box still in its pocket: an inset cream pocket, shadowed on its top and left, with a gently pulsing rainbow
+    /// "?" box. A box opened on an earlier win (Coin Mining) shows its tool faded, with a check, until the pocket opens.
+    private func drawPickups(_ g: CGContext, _ lv: Level, _ s: ChipmunkEngine.State, _ pickups: [Pickup], _ now: Double) {
+        guard !pickups.isEmpty else { return }
+        let P = cs * CGFloat(POCKET)
+        let pulse = 1 + 0.05 * CGFloat(sin(now / 300))
+        for p in pickups {
+            if p.got && !p.claimed { continue }
+            if p.claimed && p.reached(s) { continue }
+            let n = lv.boardToNav(p.at)
+            let x0 = CGFloat(n % lv.NW) * cs, y0 = CGFloat(n / lv.NW) * cs
+            g.saveGState()
+            g.setFillColor(UIColor(hex: 0xFFF6DC).cgColor)
+            g.fill(CGRect(x: x0, y: y0, width: P, height: P))
+            g.setFillColor(UIColor(red: 90 / 255, green: 60 / 255, blue: 10 / 255, alpha: 0.35).cgColor)
+            g.fill(CGRect(x: x0, y: y0, width: P, height: max(1, cs * 0.25)))
+            g.fill(CGRect(x: x0, y: y0, width: max(1, cs * 0.25), height: P))
+            g.translateBy(x: x0 + P / 2, y: y0 + P / 2)
+            let k = CGFloat(POCKET) * 0.94 / 1.62
+            g.scaleBy(x: k, y: k)
+            if p.claimed {
+                drawClaimed(g, p.tool)
+            } else {
+                g.scaleBy(x: pulse, y: pulse)
+                drawMystery(g, now)
+            }
+            g.restoreGState()
+        }
+    }
+
+    /// The box: a rainbow turning inside a rounded square, a dark rim, and a white "?" outlined in dark.
+    private func drawMystery(_ g: CGContext, _ now: Double) {
+        let w = cs * 1.62, r = cs * 0.34
+        let box = CGRect(x: -w / 2, y: -w / 2, width: w, height: w)
+        if rainbowImage == nil {
+            // A conic rainbow, drawn once as thin wedges.
+            let R = w
+            rainbowImage = render(CGSize(width: R * 2, height: R * 2)) { c in
+                let stops: [UInt32] = [0xFF4D4D, 0xFFA53A, 0xFFE14D, 0x5FD35F, 0x4DC3FF, 0x6B6BFF, 0xC065FF, 0xFF4D4D]
+                let N = 96
+                for i in 0..<N {
+                    let f = CGFloat(i) / CGFloat(N), seg = f * CGFloat(stops.count - 1)
+                    let a = Int(seg), u = seg - CGFloat(a)
+                    c.setFillColor(mix(stops[a], stops[min(a + 1, stops.count - 1)], Double(u)).cgColor)
+                    let a0 = f * 2 * .pi - 0.02, a1 = CGFloat(i + 1) / CGFloat(N) * 2 * .pi + 0.02
+                    c.move(to: CGPoint(x: R, y: R))
+                    c.addArc(center: CGPoint(x: R, y: R), radius: R * 1.5, startAngle: a0, endAngle: a1, clockwise: false)
+                    c.closePath()
+                    c.fillPath()
+                }
+            }
+        }
+        if markImage == nil {
+            markImage = render(CGSize(width: w * 1.2, height: w * 1.2)) { c in
+                UIGraphicsPushContext(c)
+                let font = UIFont.systemFont(ofSize: (self.cs * 1.15).rounded(), weight: .black)
+                let ink = UIColor(hex: 0x1F2A18)
+                let outline = NSAttributedString(string: "?", attributes: [.font: font, .foregroundColor: ink,
+                                                                           .strokeColor: ink, .strokeWidth: 18])
+                let fill = NSAttributedString(string: "?", attributes: [.font: font, .foregroundColor: UIColor.white])
+                let sz = fill.size()
+                let at = CGPoint(x: w * 0.6 - sz.width / 2, y: w * 0.6 - sz.height / 2 + self.cs * 0.06)
+                outline.draw(at: at)
+                fill.draw(at: at)
+                UIGraphicsPopContext()
+            }
+        }
+        let shape = UIBezierPath(roundedRect: box, cornerRadius: r).cgPath
+        g.saveGState()
+        g.addPath(shape)
+        g.clip()
+        g.rotate(by: CGFloat(now / 700))
+        if let img = rainbowImage { stamp(g, img, CGRect(x: -w, y: -w, width: w * 2, height: w * 2)) }
+        g.restoreGState()
+        g.addPath(shape)
+        g.setStrokeColor(UIColor(hex: 0x1F2A18).cgColor)
+        g.setLineWidth(max(1, cs * 0.16))
+        g.strokePath()
+        if let img = markImage { stamp(g, img, CGRect(x: -w * 0.6, y: -w * 0.6, width: w * 1.2, height: w * 1.2)) }
+    }
+
+    /// A box already opened: its tool, faded, with a green check.
+    private func drawClaimed(_ g: CGContext, _ tool: String) {
+        UIGraphicsPushContext(g)
+        let icon = NSAttributedString(string: Tool(rawValue: tool)?.icon ?? "?",
+                                      attributes: [.font: UIFont.systemFont(ofSize: (cs * 1.75).rounded())])
+        let sz = icon.size()
+        g.setAlpha(0.35)
+        icon.draw(at: CGPoint(x: -sz.width / 2, y: -sz.height / 2 + cs * 0.08))
+        g.setAlpha(1)
+        g.setFillColor(UIColor(hex: 0x2E7D32).cgColor)
+        g.addEllipse(in: CGRect(x: 0, y: 0, width: cs * 1.1, height: cs * 1.1))
+        g.fillPath()
+        let check = NSAttributedString(string: "✓", attributes: [.font: UIFont.systemFont(ofSize: (cs * 0.8).rounded(), weight: .heavy),
+                                                                 .foregroundColor: UIColor.white])
+        let cz = check.size()
+        check.draw(at: CGPoint(x: cs * 0.55 - cz.width / 2, y: cs * 0.6 - cz.height / 2))
+        UIGraphicsPopContext()
     }
 
     /// Acorn Drop: each acorn falls 160 points onto its cell, turning upright, then pops (JS .acorn-fall).
