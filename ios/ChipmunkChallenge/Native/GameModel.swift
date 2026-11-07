@@ -1,5 +1,4 @@
 import ChipmunkEngine
-import CoreHaptics
 import Foundation
 import UIKit
 
@@ -1031,7 +1030,7 @@ final class GameModel: ObservableObject {
 
     // MARK: - Pickup haptic
 
-    /// One smooth buzz as a chipmunk reaches its block, lasting through the pickup pause.
+    /// A click as a chipmunk reaches its block.
     private func pickupBuzz(_ m: Sim, from t0: Double, to t1: Double) {
         guard hapticsOn else { return }
         guard m.ants.contains(where: { $0.picked && $0.ta > t0 && $0.ta <= t1 }) else { return }
@@ -1120,62 +1119,20 @@ enum Tool: String, CaseIterable, Identifiable {
     }
 }
 
-/// The pickup haptic: one deep vibration (Core Haptics), not a tap. While one is still running, another
-/// chipmunk arriving doesn't start a second, so a busy board feels like a steady hum, not a rattle.
+/// The pickup haptic: the same kind of click as loading a nest, one step heavier (medium instead of light) and at full
+/// strength. Clicks closer together than 45 ms are skipped, so a busy board stays crisp instead of rattling.
 @MainActor
 final class PickupBuzzer {
-    private var engine: CHHapticEngine?
-    private var until: CFTimeInterval = 0
-    private let fallback = UIImpactFeedbackGenerator(style: .soft)
+    private let click = UIImpactFeedbackGenerator(style: .medium)
+    private var last: CFTimeInterval = 0
 
-    func prepare() {
-        guard engine == nil, CHHapticEngine.capabilitiesForHardware().supportsHaptics else {
-            fallback.prepare()
-            return
-        }
-        do {
-            let e = try CHHapticEngine()
-            e.isAutoShutdownEnabled = true
-            e.playsHapticsOnly = true
-            e.resetHandler = { [weak e] in try? e?.start() }
-            try e.start()
-            engine = e
-        } catch {
-            engine = nil
-        }
-    }
+    func prepare() { click.prepare() }
 
     func buzz(seconds: Double) {
         let now = CACurrentMediaTime()
-        guard now >= until else { return }
-        let d = min(0.25, max(0.08, seconds))
-        until = now + d
-        if engine == nil { prepare() }
-        guard let engine else {
-            fallback.impactOccurred(intensity: 0.8)
-            return
-        }
-        // A punchy pickup: a full-strength thump with some snap, then a short deep tail that drops off fast.
-        let tail = min(d, 0.12)
-        let thump = CHHapticEvent(eventType: .hapticTransient, parameters: [
-            CHHapticEventParameter(parameterID: .hapticIntensity, value: 1.0),
-            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.45),
-        ], relativeTime: 0)
-        let rumble = CHHapticEvent(eventType: .hapticContinuous, parameters: [
-            CHHapticEventParameter(parameterID: .hapticIntensity, value: 1.0),
-            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.1),
-        ], relativeTime: 0, duration: tail)
-        let curve = CHHapticParameterCurve(parameterID: .hapticIntensityControl, controlPoints: [
-            .init(relativeTime: 0, value: 1.0),
-            .init(relativeTime: tail * 0.35, value: 0.55),
-            .init(relativeTime: tail, value: 0.0),
-        ], relativeTime: 0)
-        do {
-            try engine.start()
-            let pattern = try CHHapticPattern(events: [thump, rumble], parameterCurves: [curve])
-            try engine.makePlayer(with: pattern).start(atTime: CHHapticTimeImmediate)
-        } catch {
-            fallback.impactOccurred(intensity: 0.8)
-        }
+        guard now - last > 0.045 else { return }
+        last = now
+        click.impactOccurred(intensity: 1.0)
+        click.prepare()
     }
 }
