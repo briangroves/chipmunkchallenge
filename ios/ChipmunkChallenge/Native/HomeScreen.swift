@@ -373,7 +373,7 @@ struct SettingsSheet: View {
                 SetToggle(title: "Queue nests",
                           detail: "When every slot is full, tapping a nest lines it up to load next.",
                           on: $model.queueOn)
-                SetSlider(title: "Normal speed", value: $model.speedNormal, range: 0.5...1.5, step: 0.1)
+                SetSlider(title: "Normal speed", value: $model.speedNormal, range: 0.5...2.5, step: 0.1)
                 SetSlider(title: "Fast-forward speed", value: $model.speedFast, range: 1.5...4, step: 0.25)
                 Button { model.settingsOpen = false } label: { Text("Done").bigLabel(alt: false) }
                     .buttonStyle(Pressable())

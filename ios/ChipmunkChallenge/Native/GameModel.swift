@@ -385,7 +385,7 @@ final class GameModel: ObservableObject {
         canUndo = false
         queue = []
         resetTools()
-        endBoost()
+        stopFast()
         play(.intro)
         if let baked {
             start(assembleLevel(base: base, diffKey: key, seed: seed, summary: baked, aim: aim))
@@ -426,7 +426,7 @@ final class GameModel: ObservableObject {
         canUndo = false
         queue = []
         resetTools()
-        endBoost()
+        stopFast()
         tapFeedback.prepare()
         pickBuzzer.prepare()
         boardVersion += 1
@@ -527,11 +527,13 @@ final class GameModel: ObservableObject {
         refreshSide()
         if isCleared(m) {
             status = .won
+            stopFast()
             payOut(lv)
             buzz(.success)
             play(.win)
         } else if !dropping, isStuck(lv, &m) {
             status = .stuck
+            stopFast()
             firstTry = false
             noteFailure()
             buzz(.error)
@@ -662,6 +664,7 @@ final class GameModel: ObservableObject {
         refreshSide()
         if m.s.left == 0 {
             status = .won
+            stopFast()
             payOut(lv)
             cardShown = true
         }
@@ -724,6 +727,13 @@ final class GameModel: ObservableObject {
     private func endBoost() {
         if let b = boostFrom { fast = b }
         boostFrom = nil
+    }
+
+    /// A board ends (won or stuck), restarts, or a new one loads: fast-forward goes off, so each game starts at
+    /// normal speed and the player turns it on themselves.
+    private func stopFast() {
+        boostFrom = nil
+        fast = false
     }
 
     // MARK: - Nest queue (JS preQ) and auto-finish
@@ -1121,7 +1131,8 @@ enum Tool: String, CaseIterable, Identifiable {
 }
 
 /// The pickup haptic: the same kind of click as loading a nest, one step heavier (medium instead of light) and at full
-/// strength. Clicks closer together than 45 ms are skipped, so a busy board stays crisp instead of rattling.
+/// strength. At most 10 clicks a second: on fast-forward a busy board can reach ~50 pickups a second, and iOS quietly
+/// stops playing an app's haptics when it sends them that fast for long, which made them cut out mid-game.
 @MainActor
 final class PickupBuzzer {
     private let click = UIImpactFeedbackGenerator(style: .medium)
@@ -1131,7 +1142,7 @@ final class PickupBuzzer {
 
     func buzz(seconds: Double) {
         let now = CACurrentMediaTime()
-        guard now - last > 0.045 else { return }
+        guard now - last >= 0.1 else { return }
         last = now
         click.impactOccurred(intensity: 1.0)
         click.prepare()
