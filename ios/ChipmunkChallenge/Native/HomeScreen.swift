@@ -262,60 +262,67 @@ private struct DailyCard: View {
     }
 }
 
-/// A level's picture, one square per character, drawn as little blocks like the real board: a lit rim where a square's
-/// top is open, shadowed open sides, and a darker side band wherever nothing sits below it. Blanks stay clear. `grey` draws it washed out in grey, as the daily card does.
+/// A level's picture drawn exactly as the game board draws its blocks, with the board's own block sprites: each a
+/// little cube seen from slightly above, with a lit top edge, soft corner shading, rounded corners where a block is
+/// open on two sides, and a darker side band wherever nothing sits below it. Blanks stay clear. `grey` draws it
+/// washed out in grey, as the daily card does. Rendered once per picture and size, then reused.
 struct PictureThumb: View {
     let rows: [String]
     var grey = false
+    @Environment(\.displayScale) private var scale
 
     var body: some View {
-        Canvas { g, size in
-            let grid = rows.map(Array.init)
-            let h = grid.count, w = grid.first?.count ?? 1
-            let sx = size.width / CGFloat(w), sy = size.height / CGFloat(h)
-            func filled(_ r: Int, _ k: Int) -> Bool {
-                r >= 0 && r < h && k >= 0 && k < grid[r].count && grid[r][k] != "." && PALETTE[grid[r][k]] != nil
+        GeometryReader { geo in
+            if let img = Self.image(rows: rows, size: geo.size, scale: scale, grey: grey) {
+                Image(uiImage: img)
+                    .resizable()
+                    .interpolation(.high)
+                    .frame(width: geo.size.width, height: geo.size.height)
             }
-            func rgb(_ hex: UInt32) -> (Double, Double, Double) {
-                let r = Double(hex >> 16), gg = Double((hex >> 8) & 255), b = Double(hex & 255)
-                if !grey { return (r / 255, gg / 255, b / 255) }
-                let v = ((0.3 * r + 0.59 * gg + 0.11 * b) * 0.35 + 150).rounded() / 255
-                return (v, min(1, v + 4 / 255), v - 2 / 255)
+        }
+    }
+
+    @MainActor private static var cache: [String: UIImage] = [:]
+
+    @MainActor static func image(rows: [String], size: CGSize, scale: CGFloat, grey: Bool) -> UIImage? {
+        let grid = rows.map(Array.init)
+        let h = grid.count, w = grid.first?.count ?? 0
+        guard w > 0, h > 0, size.width > 0, size.height > 0 else { return nil }
+        let key = "\(rows.joined(separator: "/"))|\(Int(size.width))x\(Int(size.height))|\(scale)|\(grey)"
+        if let img = cache[key] { return img }
+        // Colors as the board numbers them: 1, 2, … in order of first appearance.
+        var chars: [Character] = [], index: [Character: UInt8] = [:]
+        var b = [UInt8](repeating: 0, count: w * h)
+        for r in 0..<h {
+            for c in 0..<min(w, grid[r].count) where grid[r][c] != "." && PALETTE[grid[r][c]] != nil {
+                let ch = grid[r][c]
+                if index[ch] == nil {
+                    chars.append(ch)
+                    index[ch] = UInt8(chars.count)
+                }
+                b[r * w + c] = index[ch]!
             }
-            func shade(_ c: (Double, Double, Double), _ to: Double, _ f: Double) -> Color {
-                Color(red: c.0 + (to - c.0) * f, green: c.1 + (to - c.1) * f, blue: c.2 + (to - c.2) * f)
-            }
-            let depth = sy * SpriteCache.depth
-            for (r, row) in grid.enumerated() {
-                for (k, ch) in row.enumerated() where ch != "." {
-                    guard let hex = PALETTE[ch] else { continue }
-                    let c = rgb(hex)
-                    let x = CGFloat(k) * sx, y = CGFloat(r) * sy
-                    // Overlap by a hair so no seams show between squares.
-                    let cell = CGRect(x: x, y: y, width: sx + 0.5, height: sy + 0.5)
-                    g.fill(Path(cell), with: .color(shade(c, 0, 0)))
-                    // A light rim where the square's top is open.
-                    if !filled(r - 1, k) {
-                        g.fill(Path(CGRect(x: x, y: y, width: sx + 0.5, height: max(0.5, sy * 0.2))),
-                               with: .color(.white.opacity(0.3)))
-                    }
-                    // Shadow on the left and right edges where the neighbour is missing.
-                    if !filled(r, k - 1) {
-                        g.fill(Path(CGRect(x: x, y: y, width: max(0.5, sx * 0.08), height: sy)), with: .color(.black.opacity(0.10)))
-                    }
-                    if !filled(r, k + 1) {
-                        g.fill(Path(CGRect(x: x + sx - max(0.5, sx * 0.1), y: y, width: max(0.5, sx * 0.1), height: sy)),
-                               with: .color(.black.opacity(0.14)))
-                    }
-                    // The block's side, seen from slightly above, wherever its bottom is exposed.
-                    if !filled(r + 1, k) {
-                        g.fill(Path(CGRect(x: x, y: y + sy, width: sx + 0.5, height: depth)), with: .linearGradient(
-                            Gradient(colors: [shade(c, 0, 0.34), shade(c, 0, 0.55)]),
-                            startPoint: CGPoint(x: 0, y: y + sy), endPoint: CGPoint(x: 0, y: y + sy + depth)))
-                    }
+        }
+        let cs = min(size.width / CGFloat(w), size.height / CGFloat(h))
+        var sprites = SpriteCache(cs: cs, scale: scale, chars: chars, grey: grey)
+        let fmt = UIGraphicsImageRendererFormat()
+        fmt.scale = scale
+        fmt.opaque = false
+        let img = UIGraphicsImageRenderer(size: CGSize(width: cs * CGFloat(w), height: cs * CGFloat(h)), format: fmt).image { ctx in
+            let g = ctx.cgContext
+            func open(_ rr: Int, _ cc: Int) -> Bool { rr < 0 || cc < 0 || rr >= h || cc >= w || b[rr * w + cc] == 0 }
+            // Top row first, so each block's side band lands over the blank below it (as on the board).
+            for r in 0..<h {
+                for c in 0..<w where b[r * w + c] != 0 {
+                    let T = open(r - 1, c), B = open(r + 1, c), L = open(r, c - 1), R = open(r, c + 1)
+                    let mask = (T && L ? 1 : 0) | (T && R ? 2 : 0) | (B && L ? 4 : 0) | (B && R ? 8 : 0)
+                    sprites.block(g, CGFloat(c) * cs, CGFloat(r) * cs, cs, b[r * w + c], !B, mask)
                 }
             }
         }
+        if cache.count > 60 { cache.removeAll() }
+        cache[key] = img
+        return img
     }
 }
 

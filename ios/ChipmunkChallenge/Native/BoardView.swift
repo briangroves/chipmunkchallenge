@@ -409,17 +409,24 @@ struct SpriteCache {
     private(set) var D = 0
     private var chars: [Character] = []
     private var cache: [Int: UIImage] = [:]
+    /// Washed-out grey instead of the real colors (the daily card's mystery thumbnail).
+    private var grey = false
 
     init() {}
 
-    init(cs: CGFloat, scale: CGFloat, chars: [Character]) {
+    init(cs: CGFloat, scale: CGFloat, chars: [Character], grey: Bool = false) {
         S = max(4, Int(JSRound(Double(cs * scale))))
         D = max(2, Int(JSRound(Double(S) * Double(Self.depth))))
         self.chars = chars
+        self.grey = grey
     }
 
     private func hex(_ col: UInt8) -> UInt32 {
-        col == ROCK ? Theme.rock : (Int(col) <= chars.count ? PALETTE[chars[Int(col) - 1]] ?? 0x888888 : 0x888888)
+        let h = col == ROCK ? Theme.rock : (Int(col) <= chars.count ? PALETTE[chars[Int(col) - 1]] ?? 0x888888 : 0x888888)
+        guard grey else { return h }
+        let y = (0.3 * Double(h >> 16) + 0.59 * Double((h >> 8) & 255) + 0.11 * Double(h & 255)) * 0.35 + 150
+        let v = UInt32(y.rounded())
+        return v << 16 | min(255, v + 4) << 8 | (v - 2)
     }
 
     /// JS block(g, x, y, s, col, flat, mask).
