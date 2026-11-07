@@ -52,15 +52,15 @@ struct SceneLayer: View {
                         .padding(.top, 18 - 2.0 / 3 + (geo.size.height * 0.06).rounded())
                         .frame(maxHeight: .infinity, alignment: .top)
                     // Back out to the home screen without starting; the board waits, and it doesn't count as a try.
-                    // Beside a Dynamic Island it sits in the island's row, centered between the island and the screen's
-                    // rounded corner (where the coins chip goes); elsewhere it sits in from the top-right corner.
+                    // Beside a Dynamic Island it sits centered between the island and the screen's rounded corner (where
+                    // the coins chip goes), a little below the island's row; elsewhere it sits in from the top-right corner.
                     let home = HUDButton(icon: Icons.home) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
                         .accessibilityLabel("Home")
                     if geo.safeAreaInsets.top >= 55 {
                         let x = StatusRow.sideCenter(screenWidth: w, island: 126,
                                                      corner: displayCornerRadius(w + geo.safeAreaInsets.leading
                                                                                  + geo.safeAreaInsets.trailing))
-                        home.position(x: w - x, y: StatusRow.islandMidY - geo.safeAreaInsets.top)
+                        home.position(x: w - x, y: StatusRow.islandMidY - geo.safeAreaInsets.top + 12)
                     } else {
                         home.padding(.top, 10)
                             .padding(.trailing, 16)

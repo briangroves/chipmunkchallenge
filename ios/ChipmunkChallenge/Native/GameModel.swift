@@ -1,4 +1,5 @@
 import ChipmunkEngine
+import CoreHaptics
 import Foundation
 import UIKit
 
@@ -156,8 +157,7 @@ final class GameModel: ObservableObject {
     private var buildTask: Task<Void, Never>?
     private let tapFeedback = UIImpactFeedbackGenerator(style: .light)
     /// The small tick when a chipmunk picks up a block.
-    private let pickFeedback = UIImpactFeedbackGenerator(style: .soft)
-    private var lastPickBuzz: CFTimeInterval = 0
+    private let pickBuzzer = PickupBuzzer()
     /// Ticks a chipmunk stands at its block before heading home with it (a quarter second at normal speed).
     static let pickupPause: Double = 25
     private let notify = UINotificationFeedbackGenerator()
@@ -428,7 +428,7 @@ final class GameModel: ObservableObject {
         resetTools()
         endBoost()
         tapFeedback.prepare()
-        pickFeedback.prepare()
+        pickBuzzer.prepare()
         boardVersion += 1
         refreshSide()
         #if DEBUG
@@ -1031,15 +1031,11 @@ final class GameModel: ObservableObject {
 
     // MARK: - Pickup haptic
 
-    /// A small tick as each chipmunk lifts its block, once it has stood at the block for the pickup pause.
+    /// One smooth buzz as a chipmunk reaches its block, lasting through the pickup pause.
     private func pickupBuzz(_ m: Sim, from t0: Double, to t1: Double) {
         guard hapticsOn else { return }
-        guard m.ants.contains(where: { $0.picked && $0.ta + $0.hold > t0 && $0.ta + $0.hold <= t1 }) else { return }
-        let now = CACurrentMediaTime()
-        guard now - lastPickBuzz > 0.045 else { return }
-        lastPickBuzz = now
-        pickFeedback.impactOccurred(intensity: 0.7)
-        pickFeedback.prepare()
+        guard m.ants.contains(where: { $0.picked && $0.ta > t0 && $0.ta <= t1 }) else { return }
+        pickBuzzer.buzz(seconds: Self.pickupPause * SIM.tickSeconds / speed)
     }
 
     // MARK: - Looks
@@ -1120,6 +1116,54 @@ enum Tool: String, CaseIterable, Identifiable {
         case .drop: return "75 acorns rain down over 5 seconds and knock out the blocks they hit."
         case .slot: return "A 6th holding slot for the rest of this board."
         case .wand: return "Tap a nest: its chipmunks fly straight to their color."
+        }
+    }
+}
+
+/// The pickup buzz: a single continuous vibration (Core Haptics), not a tap. While one is still running, another
+/// chipmunk arriving doesn't start a second, so a busy board feels like a steady hum, not a rattle.
+@MainActor
+final class PickupBuzzer {
+    private var engine: CHHapticEngine?
+    private var until: CFTimeInterval = 0
+    private let fallback = UIImpactFeedbackGenerator(style: .soft)
+
+    func prepare() {
+        guard engine == nil, CHHapticEngine.capabilitiesForHardware().supportsHaptics else {
+            fallback.prepare()
+            return
+        }
+        do {
+            let e = try CHHapticEngine()
+            e.isAutoShutdownEnabled = true
+            e.playsHapticsOnly = true
+            e.resetHandler = { [weak e] in try? e?.start() }
+            try e.start()
+            engine = e
+        } catch {
+            engine = nil
+        }
+    }
+
+    func buzz(seconds: Double) {
+        let now = CACurrentMediaTime()
+        guard now >= until else { return }
+        let d = min(0.25, max(0.08, seconds))
+        until = now + d
+        if engine == nil { prepare() }
+        guard let engine else {
+            fallback.impactOccurred(intensity: 0.8)
+            return
+        }
+        let event = CHHapticEvent(eventType: .hapticContinuous, parameters: [
+            CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.7),
+            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.2),
+        ], relativeTime: 0, duration: d)
+        do {
+            try engine.start()
+            try engine.makePlayer(with: CHHapticPattern(events: [event], parameters: [])).start(atTime: CHHapticTimeImmediate)
+        } catch {
+            fallback.impactOccurred(intensity: 0.8)
         }
     }
 }
