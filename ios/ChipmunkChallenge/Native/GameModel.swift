@@ -344,7 +344,7 @@ final class GameModel: ObservableObject {
         let p = catalog.levelPlay[d.picture]
         build(base: levelBase(name: p.name, rows: p.rows, boardNumber: d.rampN), key: "daily",
               seed: d.day * 7 + attempt, aim: LevelCatalog.baseAim("daily"), baked: nil, attempt: attempt,
-              title: "Day \(dayCount) · \(p.name)", subtitle: "Current Streak - \(streakNow) 🔥", label: "Daily puzzle")
+              title: "\(streakNow) 🔥", subtitle: "Current Streak", label: "Daily puzzle")
     }
 
     /// The same kind of board again with a fresh build (attempt n).

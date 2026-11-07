@@ -125,11 +125,20 @@ private struct SplashTitle: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
                 .cssLine(Theme.uiDisplay(52), 52 - 2.0 / 3)
-            Text(model.title)
-                .font(Theme.body(20, 800))
-                .foregroundStyle(Color(hex: 0x3A4A30))
-                .lineLimit(1)
-                .minimumScaleFactor(0.7)
+            if model.mode == .daily {
+                // The daily puzzle: "Current Streak" over the streak itself, both big.
+                Text(model.title)
+                    .font(Theme.display(52))
+                    .foregroundStyle(Color(hex: 0x1F2A18))
+                    .lineLimit(1)
+                    .cssLine(Theme.uiDisplay(52), 52 - 2.0 / 3)
+            } else {
+                Text(model.title)
+                    .font(Theme.body(20, 800))
+                    .foregroundStyle(Color(hex: 0x3A4A30))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+            }
                 .cssLine(Theme.uiBody(20, 800), 24)
             let n = model.introReady ? model.tier : nil
             Text(n.map { String(repeating: "🌰", count: $0) } ?? " ")
