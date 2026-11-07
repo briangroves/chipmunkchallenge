@@ -23,12 +23,9 @@ final class PickupTests: XCTestCase {
         var at: [Int]
         var tools: [String]
         var keys: [String]
-        var b: [Int]
-        var left: Int
-        var debt: [Int]
     }
 
-    func testSamePocketsAsTheWebGame() {
+    func testSameBoxesAsTheWebGame() {
         loadJS()
         var boards: [(li: Int, board: PickupBoard, id: String)] = []
         for i in [2, 5, 7, 9, 11, 14, 17, 19] { boards.append((i, .warmup(i + 1), catalog.levelPlay[i].id)) }
@@ -42,63 +39,64 @@ final class PickupTests: XCTestCase {
             let e = js.decode(Out.self, """
             (()=>{const b=testBase(\(li)),def={...b,...DIFF.normal},a=parseArt(def);lv={...a,slots:5,lanes:[],seed:\(seed)};
               li=\(li);__s=initState(lv);setupPickups();
-              return {at:pickups.map(p=>p.i),tools:pickups.map(p=>p.t),keys:pickups.map(p=>p.key),b:Array.from(__s.b),
-                left:__s.left,debt:Array.from(__s.debt)}})()
+              return {at:pickups.map(p=>p.i),tools:pickups.map(p=>p.t),keys:pickups.map(p=>p.key)}})()
             """)
             let base = js.decode(ParityTests.BaseJSON.self, "testBase(\(li))").base
             let lv = Level(art: Art(base, slots: 5), slots: 5, lanes: [])
-            var s = initState(lv)
-            let p = placePickups(lv, &s, rows: base.rows, id: id, seed: seed, index: li, board: board, claimed: [])
-            let got = Out(at: p.map { $0.at }, tools: p.map { $0.tool }, keys: p.map { $0.key }, b: s.b.map(Int.init), left: s.left,
-                          debt: s.debt)
-            XCTAssertEqual(got, e, "board \(li)")
+            let s = initState(lv)
+            let p = placePickups(lv, s, rows: base.rows, id: id, seed: seed, index: li, board: board, claimed: [])
+            XCTAssertEqual(Out(at: p.map { $0.at }, tools: p.map { $0.tool }, keys: p.map { $0.key }), e, "board \(li)")
+            XCTAssertTrue(p.allSatisfy { $0.cells.allSatisfy { s.b[$0] != 0 && s.b[$0] != ROCK } }, "board \(li)")
             total += p.count
         }
         XCTAssertGreaterThan(total, 20)
     }
 
-    /// The pockets' blocks come off their nests, so the stored plan still clears the board.
-    func testBoardsWithBoxesStillClear() {
-        for i in [2, 9, 19, 29, 59, 99] {
-            let key = catalog.diffKey(forBoard: i)
-            let lv: Level
-            if let summary = catalog.baked(forBoard: i) {
-                lv = assembleLevel(base: catalog.base(forBoard: i), diffKey: key, seed: catalog.seed(forBoard: i),
-                                   summary: summary)
-            } else {
-                var o = BuildOptions.game
-                o.aim = LevelCatalog.aim(key, tailor: 1)
-                lv = generateLevel(base: catalog.base(forBoard: i), seed: catalog.seed(forBoard: i), diffKey: key, options: o)!
-            }
+    /// Played the way the game's autoplay plays (a tap as soon as a slot is free, at fast-forward), boards with boxes
+    /// clear and every box is reached on the way. These daily boards got stuck when the web game's carved pockets were
+    /// used.
+    func testBoardsWithBoxesClearInRealTime() {
+        let index = catalog.paradiseFrom + catalog.paradise.count
+        for day in [20764, 20765, 20766] {
+            let r = RNG(seed: day &* 2_654_435 &+ 11)
+            let pool = Array(5..<catalog.paradiseFrom)
+            let pic = pool[r.int(pool.count)]
+            let rampN = 50 + r.int(61)
+            var diff = Difficulty.ramp(rampN)
+            diff.label = "Daily"
+            Difficulty.custom["daily"] = diff
+            let p = catalog.levelPlay[pic]
+            var o = BuildOptions.game
+            o.aim = LevelCatalog.baseAim("daily")
+            let lv = generateLevel(base: levelBase(name: p.name, rows: p.rows, boardNumber: rampN), seed: day * 7 + 1,
+                                   diffKey: "daily", options: o)!
             var m = Sim(lv)
             m.pickupPause = 25
-            let p = placePickups(lv, &m.s, rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id,
-                                 seed: catalog.seed(forBoard: i), index: i, board: i < 20 ? .warmup(i + 1) : .level(i + 1),
-                                 claimed: [])
-            XCTAssertFalse(p.isEmpty, "board \(i) should have a box")
-            settleTimed(lv, &m)
-            for l in lv.plan! {
-                if m.s.won { break }
-                if !canTap(lv, m.s) { break }
-                tap(lv, &m.s, l)
-                settleTimed(lv, &m)
+            var boxes = placePickups(lv, m.s, rows: p.rows, id: "daily", seed: day * 7 + 1, index: index,
+                                     board: .daily, claimed: [])
+            XCTAssertEqual(boxes.count, 1, "day \(day)")
+            var t = 0.0
+            while !isCleared(m) && t < 1e7 {
+                t += 5
+                advanceTo(lv, &m, t)
+                if canTap(lv, m.s), let l = planFrom(lv, m.s.lp)?.first, legalMoves(lv, m.s).contains(l) { tap(lv, &m.s, l) }
+                for k in boxes.indices where boxes[k].reached(m.s) { boxes[k].got = true }
+                if isStuck(lv, &m) { break }
             }
-            XCTAssertTrue(m.s.won, "board \(i)")
-            XCTAssertTrue(p.allSatisfy { $0.reached(m.s) }, "board \(i): every pocket opens by the end")
+            XCTAssertTrue(isCleared(m), "day \(day)")
+            XCTAssertTrue(boxes.allSatisfy(\.got), "day \(day)")
         }
     }
 
     func testClaimedBoxesAreNotHandedOutAgain() {
         let i = 29, seed = catalog.seed(forBoard: i)
         let lv = Level(art: Art(catalog.base(forBoard: i), slots: 5), slots: 5, lanes: [])
-        var s = initState(lv)
-        let first = placePickups(lv, &s, rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, seed: seed,
+        let s = initState(lv)
+        let first = placePickups(lv, s, rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, seed: seed,
                                  index: i, board: .level(i + 1), claimed: [])
         XCTAssertEqual(first.count, 3)
-        var s2 = initState(lv)
-        let again = placePickups(lv, &s2, rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, seed: seed,
+        let again = placePickups(lv, s, rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, seed: seed,
                                  index: i, board: .level(i + 1), claimed: Set(first.map(\.key)))
         XCTAssertTrue(again.isEmpty)
-        XCTAssertEqual(s2.left, initState(lv).left)
     }
 }

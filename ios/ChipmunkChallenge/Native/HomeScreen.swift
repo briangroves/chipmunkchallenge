@@ -12,6 +12,9 @@ struct RootView: View {
             case .home: HomeScreen(model: model).transition(.opacity)
             case .play: PlayScreen(model: model).transition(.opacity)
             }
+            if let gift = model.giftShown {
+                GiftOverlay(model: model, box: gift).transition(.opacity)
+            }
             if model.settingsOpen {
                 SettingsSheet(model: model).transition(.opacity)
             }
@@ -22,14 +25,15 @@ struct RootView: View {
             }
         }
         .animation(.easeOut(duration: 0.18), value: model.settingsOpen)
+        .animation(.easeOut(duration: 0.18), value: model.giftShown)
     }
 }
 
 // MARK: - Home (.menu)
 
 /// The home screen: the title and settings gear, Level Play as the big featured card, and Coin Mining and the Daily
-/// Challenge side by side under it. Hearts and coins sit beside the Dynamic Island. (The gnome's visit and the daily
-/// gift aren't built yet.)
+/// Challenge side by side under it. Hearts and coins sit beside the Dynamic Island. The daily gift sits by the gear.
+/// (The gnome's visit isn't built yet.)
 struct HomeScreen: View {
     @ObservedObject var model: GameModel
 
@@ -56,6 +60,7 @@ struct HomeScreen: View {
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)
                         Spacer(minLength: 8)
+                        GiftButton(model: model)
                         HUDButton(icon: Icons.gear, size: 19) { model.settingsOpen = true }
                     }
                     LevelHero(model: model)

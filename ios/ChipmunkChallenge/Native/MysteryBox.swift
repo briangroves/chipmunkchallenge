@@ -89,6 +89,8 @@ struct HeldChip: View {
 /// grey with a red ✕.
 struct BoxRevealView: View {
     let box: GameModel.BoxReveal
+    /// Extra wait before it opens (seconds), so a second reveal on the same card follows the first.
+    var delay: Double = 0
     @SwiftUI.State private var phase = 0     // 0 shut, 1 shaking, 2 burst, 3 tools shown
     @SwiftUI.State private var wobble: Double = 0
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -136,7 +138,7 @@ struct BoxRevealView: View {
                 phase = 3
                 return
             }
-            try? await Task.sleep(for: .milliseconds(250))
+            try? await Task.sleep(for: .milliseconds(250 + Int(delay * 1000)))
             phase = 1
             for a in [-8.0, 8, -6, 6, -3, 0] {
                 withAnimation(.easeInOut(duration: 0.11)) { wobble = a }
@@ -145,6 +147,58 @@ struct BoxRevealView: View {
             withAnimation(.easeOut(duration: 0.35)) { phase = 2 }
             try? await Task.sleep(for: .milliseconds(150))
             withAnimation(.spring(response: 0.45, dampingFraction: 0.55)) { phase = 3 }
+        }
+    }
+}
+
+/// Home's daily gift (`.giftcard`): one free mystery box a day. Greyed once today's is opened.
+struct GiftButton: View {
+    @ObservedObject var model: GameModel
+
+    var body: some View {
+        let ready = model.giftReady
+        Button { model.openGift() } label: {
+            HStack(spacing: 5) {
+                MysteryBoxIcon(size: 24, grey: !ready)
+                Text(ready ? "Gift" : "✓").font(Theme.body(14, 800)).foregroundStyle(Theme.ink)
+            }
+            .padding(.leading, 6)
+            .padding(.trailing, 10)
+            .frame(height: HUDButton.diameter)
+            .background(Capsule().fill(.white.opacity(0.92)).shadow(color: .black.opacity(0.12), radius: 1.5, y: 1))
+            .overlay(Capsule().strokeBorder(ready ? Theme.gold : .clear, lineWidth: 3))
+            .opacity(ready ? 1 : 0.5)
+        }
+        .buttonStyle(Pressable())
+        .disabled(!ready)
+        .accessibilityLabel(ready ? "Daily gift: a free mystery box" : "Daily gift opened. Come back tomorrow")
+    }
+}
+
+/// The daily gift opening (`.giftov`): a dimmed screen with a card that shakes the box open to show the tool.
+struct GiftOverlay: View {
+    @ObservedObject var model: GameModel
+    let box: GameModel.BoxReveal
+
+    var body: some View {
+        ZStack {
+            Color(red: 20 / 255, green: 28 / 255, blue: 16 / 255, opacity: 0.55)
+                .ignoresSafeArea()
+                .onTapGesture { model.closeGift() }
+            VStack(spacing: 10) {
+                Text("🎁").font(.system(size: 34))
+                Text("Daily gift").font(Theme.display(24)).foregroundStyle(Theme.ink)
+                BoxRevealView(box: box)
+                Button { model.closeGift() } label: { Text("✓").bigLabel(alt: false).frame(minWidth: 120) }
+                    .buttonStyle(Pressable())
+                    .accessibilityLabel("Done")
+            }
+            .padding(.vertical, 22)
+            .padding(.horizontal, 28)
+            .frame(minWidth: 220)
+            .background(RoundedRectangle(cornerRadius: 24).fill(Color(hex: 0xFFFDF5))
+                .shadow(color: .black.opacity(0.3), radius: 20, y: 12))
+            .accessibilityAddTraits(.isModal)
         }
     }
 }

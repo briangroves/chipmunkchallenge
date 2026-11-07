@@ -138,7 +138,7 @@ final class GameModel: ObservableObject {
     @Published private(set) var easeNext = false
     /// Blocks cleared, all time.
     @Published private(set) var lifetime: Int
-    /// This try's mystery boxes, in their pockets (the board view draws them).
+    /// This try's mystery boxes on the board (the board view draws them).
     private(set) var pickups: [Pickup] = []
     /// Boxes reached this try, shown on the hold chip.
     @Published private(set) var held: [Held] = []
@@ -148,6 +148,9 @@ final class GameModel: ObservableObject {
     @Published private(set) var heldPop = 0
     @Published private(set) var heldShake = 0
     private var boxSource: BoxSource?
+    /// The day the free daily gift was last opened, and the gift being shown now.
+    @Published private(set) var giftDay: Int
+    @Published private(set) var giftShown: BoxReveal?
     private var boardSeed = 0
     private static let pickedKey = "native.picked"
     /// Board cell size in points, set by the layout (JS sizeBoard).
@@ -187,7 +190,12 @@ final class GameModel: ObservableObject {
         var bonus: Int
         /// The mystery boxes this win opened (or lost to help).
         var box: BoxReveal? = nil
+        /// Daily puzzle: the streak-bonus boxes this win earned.
+        var bonusBox: BoxReveal? = nil
     }
+
+    /// Daily streak days that add bonus mystery boxes, and how many (JS STREAK_BONUS).
+    static let streakBonus = [3: 1, 7: 2, 14: 3, 30: 5]
 
     /// What the win card shows of the boxes held at the win: the tools inside, or how many were lost.
     struct BoxReveal: Equatable {
@@ -240,6 +248,7 @@ final class GameModel: ObservableObject {
         autoAdvance = store.object(forKey: "native.autoAdvance") == nil ? true : store.bool(forKey: "native.autoAdvance")
         table = Table(rawValue: store.string(forKey: "native.table") ?? "") ?? .wood
         paraRound = store.integer(forKey: "native.paraRound")
+        giftDay = store.object(forKey: "native.giftDay") == nil ? -1 : store.integer(forKey: "native.giftDay")
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
         tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
@@ -462,7 +471,7 @@ final class GameModel: ObservableObject {
         if let s = lv.def?.slots, lv.slots != s { lv.setSlots(s) }
         var m = Sim(lv)
         m.pickupPause = Self.pickupPause
-        setupPickups(lv, &m)
+        setupPickups(lv, m)
         sim = m
         simT = 0
         status = .playing
@@ -605,14 +614,21 @@ final class GameModel: ObservableObject {
             return
         case .daily:
             let day = Self.dayNo()
+            var bonusTools: [Tool] = []
             if daily.last != day {
                 daily.streak = daily.last == day - 1 ? daily.streak + 1 : 1
                 daily.count += 1
                 daily.last = day
                 daily.best = max(daily.best, daily.streak)
                 saveDaily()
+                for _ in 0..<(Self.streakBonus[daily.streak] ?? 0) {
+                    let t = Tool.randomBox()
+                    bonusTools.append(t)
+                    addTools(t, 1)
+                }
             }
-            lastWin = Win(base: reward, bonus: 0)
+            lastWin = Win(base: reward, bonus: 0,
+                          bonusBox: bonusTools.isEmpty ? nil : BoxReveal(tools: bonusTools, lost: false))
             tailorPick = nil
             coins += reward
             store.set(coins, forKey: "native.coins")
@@ -1096,17 +1112,17 @@ final class GameModel: ObservableObject {
     /// Keys of boxes already opened, oldest first (the newest 500 are kept).
     private var picked: [String] { store.stringArray(forKey: Self.pickedKey) ?? [] }
 
-    /// A new try: the boxes go back in their pockets (any not opened on an earlier win) and nothing is on hold.
-    private func setupPickups(_ lv: Level, _ m: inout Sim) {
+    /// A new try: the boxes go back on the board (any not opened on an earlier win) and nothing is on hold.
+    private func setupPickups(_ lv: Level, _ m: Sim) {
         held = []
         helped = false
         pickups = []
         guard let src = boxSource else { return }
-        pickups = placePickups(lv, &m.s, rows: src.rows, id: src.id, seed: boardSeed, index: src.index,
+        pickups = placePickups(lv, m.s, rows: src.rows, id: src.id, seed: boardSeed, index: src.index,
                                board: src.board, claimed: Set(picked))
     }
 
-    /// The critters' open area has reached a pocket: its box goes on hold.
+    /// A block under a box has been eaten: the box goes on hold.
     private func checkPickups(_ m: Sim) {
         for k in pickups.indices where !pickups[k].got && pickups[k].reached(m.s) {
             pickups[k].got = true
@@ -1126,6 +1142,22 @@ final class GameModel: ObservableObject {
             buzz(.warning)
         }
     }
+
+    /// The free daily gift (one mystery box) hasn't been opened today.
+    var giftReady: Bool { giftDay != Self.dayNo() }
+
+    /// Open today's gift: a random tool goes in the backpack, shown with the box reveal.
+    func openGift() {
+        guard giftReady else { return }
+        giftDay = Self.dayNo()
+        store.set(giftDay, forKey: "native.giftDay")
+        let t = Tool.randomBox()
+        addTools(t, 1)
+        giftShown = BoxReveal(tools: [t], lost: false)
+        buzz(.success)
+    }
+
+    func closeGift() { giftShown = nil }
 
     /// The hold chip was tapped: it shakes.
     func shakeHeld() {
@@ -1187,6 +1219,8 @@ enum Tool: String, CaseIterable, Identifiable {
     case owl, peek, drop, slot, wand
 
     var id: String { rawValue }
+    /// A tool for a mystery box, with the boxes' odds.
+    static func randomBox() -> Tool { Tool(rawValue: randTool(Double.random(in: 0..<1))) ?? .owl }
     /// How many of each a new player starts with.
     static let starting = 3
 

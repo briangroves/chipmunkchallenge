@@ -326,6 +326,15 @@ struct ResultCard: View {
                 .cssLine(Theme.uiDisplay(34), 34 * 1.45)
         }
         if let box = w.box { BoxRevealView(box: box) }
+        if let bonus = w.bonusBox {
+            VStack(spacing: 0) {
+                Text("🔥 \(model.daily.streak)-day streak bonus")
+                    .font(Theme.body(13, 800))
+                    .foregroundStyle(Color(hex: 0xC2410C))
+                BoxRevealView(box: bonus, delay: w.box == nil ? 0 : 0.6)
+            }
+            .accessibilityElement(children: .combine)
+        }
         HStack(spacing: 6) {
             BlockIcon(size: 14)
             // .lifeline is a flex row: the count and the words are separate items 6 apart

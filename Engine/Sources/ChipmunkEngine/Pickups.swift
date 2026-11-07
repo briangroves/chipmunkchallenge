@@ -1,9 +1,14 @@
 import Foundation
 
 /* ---- Mystery boxes (JS setupPickups, artSpots) ----
-   A tool hides in a 3x3 pocket carved out of the board. When the critters' open area reaches it, the box goes on hold;
-   clearing the board without help opens it on the win card. The nine blocks taken out are subtracted from their nests
-   (the same bookkeeping as Acorn Drop), so the board stays solvable.
+   A tool hides under a 3x3 patch of the board, drawn as a rainbow "?" box. When the critters eat the first block under
+   it, the box goes on hold; clearing the board without help opens it on the win card.
+
+   Where the web game carves the patch out (taking its nine blocks off their nests, like Acorn Drop), the native game
+   leaves the blocks in place under the box. Carving shifts which nests come up short: the critters then leave nine
+   near blocks the board's solution expected gone, and those can wall off other colors. Played in real time, boards
+   that clear without a box got stuck with one. Leaving the blocks keeps every board exactly as it was built. Which
+   boards get boxes, the tools inside and where they sit are the web game's, pick for pick.
 
    How many: the warm-up hands out each tool on a schedule so new players meet them all; after that every third board
    has a box (sometimes two), every tenth board is a treasure board with three, and other boards sometimes have one.
@@ -37,25 +42,26 @@ public struct Pickup: Equatable, Sendable {
     public let key: String
     /// Already opened on an earlier win (Coin Mining shows it again with a check).
     public let claimed: Bool
-    /// The open area has reached it this try.
+    /// Reached this try.
     public var got: Bool
 
-    /// The open area touches the pocket.
-    public func reached(_ s: State) -> Bool { cells.contains { s.o[$0] != 0 } }
+    /// A block under the box has been eaten.
+    public func reached(_ s: State) -> Bool { cells.contains { s.b[$0] == 0 } }
 }
 
 /// Warm-up schedule (JS PICK_SCHED): board within the pack -> tools, "?" for a random one.
 let PICK_SCHED: [Int: [String]] = [3: ["owl"], 6: ["drop"], 8: ["peek"], 10: ["slot"], 12: ["?"], 15: ["wand"],
                                    18: ["?"], 20: ["?", "?"]]
 
-func randTool(_ u: Double) -> String {
+/// A box's tool from a random number in 0..<1: owl 30%, peek 20%, drop 25%, wand 12.5%, slot 12.5%.
+public func randTool(_ u: Double) -> String {
     u < 0.3 ? "owl" : u < 0.5 ? "peek" : u < 0.75 ? "drop" : u < 0.875 ? "wand" : "slot"
 }
 
-/// Cut this board's mystery-box pockets into `s` and return them. `rows` is the picture, `id` the picture's id,
+/// This board's mystery boxes, placed on the start position `s`. `rows` is the picture, `id` the picture's id,
 /// `index` the board's place in the web game's level list (it seeds the choice with `seed`), and `claimed` the keys
-/// of boxes already opened. Same picks, in the same order, as the web game.
-public func placePickups(_ lv: Level, _ s: inout State, rows: [String], id: String, seed: Int, index li: Int,
+/// of boxes already opened. Same picks, in the same order, as the web game. The board itself is left as it is.
+public func placePickups(_ lv: Level, _ s: State, rows: [String], id: String, seed: Int, index li: Int,
                          board: PickupBoard, claimed: Set<String>) -> [Pickup] {
     var h = UInt32(truncatingIfNeeded: seed &* 2_654_435_761 &+ li &* 97)
     func rnd() -> Double {
@@ -120,12 +126,6 @@ public func placePickups(_ lv: Level, _ s: inout State, rows: [String], id: Stri
         if at < 0 { continue }
         var cells: [Int] = []
         for dr in 0..<P { for dc in 0..<P { cells.append(at + dr * W + dc) } }
-        for j in cells {
-            let col = Int(s.b[j])
-            s.b[j] = 0
-            s.left -= 1
-            s.debt[col] += 1
-        }
         out.append(Pickup(at: at, r: at / W, c: at % W, cells: cells, tool: t, key: key, claimed: was, got: was))
     }
     return out
