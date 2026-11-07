@@ -1120,7 +1120,7 @@ enum Tool: String, CaseIterable, Identifiable {
     }
 }
 
-/// The pickup buzz: a single continuous vibration (Core Haptics), not a tap. While one is still running, another
+/// The pickup haptic: one deep vibration (Core Haptics), not a tap. While one is still running, another
 /// chipmunk arriving doesn't start a second, so a busy board feels like a steady hum, not a rattle.
 @MainActor
 final class PickupBuzzer {
@@ -1155,13 +1155,24 @@ final class PickupBuzzer {
             fallback.impactOccurred(intensity: 0.8)
             return
         }
-        let event = CHHapticEvent(eventType: .hapticContinuous, parameters: [
-            CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.7),
-            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.2),
+        // A deep, round pickup: a soft low thump, then a low rumble (sharpness near 0) that swells a little and fades.
+        let thump = CHHapticEvent(eventType: .hapticTransient, parameters: [
+            CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.75),
+            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.05),
+        ], relativeTime: 0)
+        let rumble = CHHapticEvent(eventType: .hapticContinuous, parameters: [
+            CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.9),
+            CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.0),
         ], relativeTime: 0, duration: d)
+        let curve = CHHapticParameterCurve(parameterID: .hapticIntensityControl, controlPoints: [
+            .init(relativeTime: 0, value: 0.8),
+            .init(relativeTime: d * 0.3, value: 1.0),
+            .init(relativeTime: d, value: 0.0),
+        ], relativeTime: 0)
         do {
             try engine.start()
-            try engine.makePlayer(with: CHHapticPattern(events: [event], parameters: [])).start(atTime: CHHapticTimeImmediate)
+            let pattern = try CHHapticPattern(events: [thump, rumble], parameterCurves: [curve])
+            try engine.makePlayer(with: pattern).start(atTime: CHHapticTimeImmediate)
         } catch {
             fallback.impactOccurred(intensity: 0.8)
         }

@@ -138,8 +138,8 @@ private struct SplashTitle: View {
                     .foregroundStyle(Color(hex: 0x3A4A30))
                     .lineLimit(1)
                     .minimumScaleFactor(0.7)
+                    .cssLine(Theme.uiBody(20, 800), 24)
             }
-                .cssLine(Theme.uiBody(20, 800), 24)
             let n = model.introReady ? model.tier : nil
             Text(n.map { String(repeating: "🌰", count: $0) } ?? " ")
                 .font(.system(size: 30))
