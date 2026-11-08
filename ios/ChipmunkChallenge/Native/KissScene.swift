@@ -3,9 +3,15 @@ import UIKit
 import simd
 
 /// The win scene (the page's createKissScene): a chipmunk scampers in and hops onto a stump, a doe trots in, they
-/// kiss, little hearts burst out, their heart eyes turn red and pulse, and coins burst up. Same models and timeline.
+/// kiss, little hearts burst out and their heart eyes turn red and pulse. Same models and timeline; the coins that burst
+/// from the kiss are drawn by SwiftUI over the whole screen so they can fly to the coin counter.
 final class KissScene {
     static let end: Float = 4.6
+    /// When the coins burst from the kiss. They are drawn over the whole screen (not in this 3D view, whose edges
+    /// cut them off) and fly to the coin counter.
+    static let coinTime: Float = 3.0
+    /// Where the noses meet, in world space.
+    var kissPoint: SIMD3<Float> { KISS_POINT }
     static let fade: Double = 0.6
 
     let scene = SCNScene()
@@ -27,8 +33,6 @@ final class KissScene {
     private var legs: [Leg] = []
     private struct Pop { let m: TNode; let a: Float }
     private var pops: [Pop] = []
-    private struct Coin { let m: TNode; let delay, vx, vy, vz, spin: Float }
-    private var coins: [Coin] = []
 
     private let STUMP_H: Float = 0.26
     private let CHIP_X: Float = -0.38
@@ -223,29 +227,13 @@ final class KissScene {
         }
         flower.add(K.sph(0.016, 0xFFD54F, 0, 0, 0.008, 1, 1, 0.7, line: nil))
 
-        // ---- kiss pop + coins
+        // ---- kiss pop (little hearts)
         for i in 0..<7 {
             let m = meshNode(Toon.heart, Toon.material(i % 2 == 1 ? 0xFF6FA8 : 0xE8202A, emissive: 0x5A0025))
             m.visible = false
             root.addChildNode(m)
             pops.append(Pop(m: m, a: -.pi * 0.15 + Float(i) / 6 * .pi * 1.3))
         }
-        let coinFace = Toon.material(0xFFC928, emissive: 0x5A3A00, shader: Toon.metalShader)
-        let rimMat = Toon.material(0xD08A00, shader: Toon.metalShader)
-        for i in 0..<34 {
-            let m = TNode()
-            let disc = meshNode(Toon.cylinder(0.055, 0.055, 0.014, segments: 28), coinFace)
-            disc.rx = .pi / 2
-            m.add(disc)
-            m.add(meshNode(Toon.torus(0.055, 0.008, 8, 28), rimMat))
-            func r(_ k: Double) -> Float {
-                let x = sin(Double(i) * 12.9898 + k * 78.233) * 43758.5453
-                return Float(x - floor(x))
-            }
-            coins.append(Coin(m: m, delay: r(1) * 0.9, vx: -0.5 + r(2) * 1.6, vy: 2.6 + r(3) * 1.4, vz: (r(4) - 0.5) * 0.6, spin: 6 + r(5) * 8))
-            root.addChildNode(m)
-        }
-
         // ---- solve the kiss once: chipmunk fully reared at its mark; bend the doe's neck until the noses are level
         stump.pos(CHIP_X + 0.02, 0, 0)
         chip.pos(CHIP_X, STUMP_H, 0)
@@ -378,18 +366,6 @@ final class KissScene {
             p.m.scl(0.045 * A.back(min(1, u * 3)) * (1 - 0.3 * u))
             p.m.opacity = CGFloat(1 - A.seg(u, 0.65, 1))
             p.m.rz = sin(u * 8 + fi) * 0.3
-        }
-        // ---- coins burst up from the kiss and sail off the top
-        for c in coins {
-            let u = t - 3.0 - c.delay * 0.9
-            if u < 0 { c.m.visible = false; continue }
-            c.m.visible = true
-            c.m.pos(KISS_POINT.x + c.vx * u, KISS_POINT.y + 0.1 + c.vy * u - 0.55 * u * u, 0.1 + c.vz * u)
-            c.m.rot = [0, u * c.spin, u * 2]
-            c.m.scl(A.back(min(1, u * 4)))
-            let a = 1 - A.seg(u, 1.1, 1.6)
-            c.m.opacity = CGFloat(a)
-            if a <= 0 { c.m.visible = false }
         }
         chipShadow.pos(chip.px + 0.05, chip.py > 0.2 || t > 1.2 ? STUMP_H + 0.014 : 0.002, 0)
         chipShadow.scl(max(0.5, 1 - (chip.py - (t > 1.2 ? STUMP_H : 0)) * 2))

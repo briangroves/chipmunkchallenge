@@ -15,6 +15,8 @@ struct SceneLayer: View {
     @SwiftUI.State private var started = false
     /// The win or lose scene was tapped anywhere on screen: skip to the card.
     @SwiftUI.State private var skipTapped = false
+    /// Where the 3D view sits on the play screen, to place the kiss coins.
+    @SwiftUI.State private var canvasAt: CGPoint = .zero
 
     /// Debug `-autoplay YES`: the intro starts by itself.
     static var autoStart: Bool {
@@ -36,18 +38,30 @@ struct SceneLayer: View {
                 LinearGradient(stops: [.init(color: Color(hex: 0xBFE3FF), location: 0), .init(color: Color(hex: 0xE3F4FF), location: 0.55),
                                        .init(color: Color(hex: 0xF5FBEF), location: 1)], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
+                    // The whole screen skips the win and lose scenes, not just the 3D view in the middle of it. Only
+                    // the sky behind everything takes the tap, so the intro's Start and Home buttons still get theirs.
+                    .contentShape(Rectangle())
+                    .onTapGesture { if run.kind != .intro { skipTapped = true } }
                 if run.kind != .win {
                     // The scene is centered, so the grass below it is half the leftover height plus the bottom inset.
                     SceneLayer.grass
                         .frame(height: (geo.size.height - h) / 2 + 1 + geo.safeAreaInsets.bottom)
+                        .contentShape(Rectangle())
+                        .onTapGesture { if run.kind != .intro { skipTapped = true } }
                         .frame(maxHeight: .infinity, alignment: .bottom)
                         .offset(y: geo.safeAreaInsets.bottom)
                 }
                 SceneCanvas(run: run, size: CGSize(width: w, height: h), ready: { model.introReady },
-                            go: run.kind == .intro ? { started || SceneLayer.autoStart } : nil, skip: skipTapped) {
+                            go: run.kind == .intro ? { started || SceneLayer.autoStart } : nil, skip: skipTapped,
+                            kiss: { p in model.kissCoins(at: CGPoint(x: canvasAt.x + p.x, y: canvasAt.y + p.y)) }) {
                     finish()
                 }
                 .frame(width: w, height: h)
+                .background(GeometryReader { g in
+                    Color.clear
+                        .onAppear { canvasAt = g.frame(in: .named(PlayScreen.space)).origin }
+                        .onChange(of: g.frame(in: .named(PlayScreen.space)).origin) { _, o in canvasAt = o }
+                })
                 if run.kind == .intro && !model.introReady {
                     // While the board builds: a progress bar where the Start button will appear.
                     BuildProgress(started: model.buildStarted)
@@ -95,9 +109,6 @@ struct SceneLayer: View {
             }
         }
         .animation(.interpolatingSpring(stiffness: 260, damping: 16), value: model.introReady)
-        // The whole screen skips the win and lose scenes, not just the 3D view in the middle of it.
-        .contentShape(Rectangle())
-        .onTapGesture { if run.kind != .intro { skipTapped = true } }
         .opacity(fading ? 0 : 1)
         .allowsHitTesting(!fading)
     }
@@ -186,6 +197,8 @@ struct SceneCanvas: UIViewRepresentable {
     var go: (() -> Bool)? = nil
     /// Tapped outside the 3D view: skip, as a tap on it does.
     var skip = false
+    /// The win scene reached the kiss: where it is in this view, for the coins.
+    var kiss: ((CGPoint) -> Void)? = nil
     let done: () -> Void
 
     // Built once and reused, like the page's win3d / chip3d.
@@ -208,6 +221,7 @@ struct SceneCanvas: UIViewRepresentable {
         tap.minimumPressDuration = 0
         v.addGestureRecognizer(tap)
         p.go = go
+        p.kiss = kiss
         p.start(run, ready: ready, done: done)
         return v
     }
@@ -226,6 +240,8 @@ struct SceneCanvas: UIViewRepresentable {
         weak var view: SCNView?
         var ready: () -> Bool = { true }
         var go: (() -> Bool)?
+        var kiss: ((CGPoint) -> Void)?
+        private var kissed = false
         private var done: () -> Void = {}
         private var run: GameModel.SceneRun?
         private var link: CADisplayLink?
@@ -283,6 +299,11 @@ struct SceneCanvas: UIViewRepresentable {
             case .win:
                 end = KissScene.end
                 SceneCanvas.kiss.setTime(min(end, t))
+                if !kissed, t >= KissScene.coinTime, let v = view {
+                    kissed = true
+                    let p = v.projectPoint(SCNVector3(SceneCanvas.kiss.kissPoint))
+                    kiss?(CGPoint(x: CGFloat(p.x), y: CGFloat(p.y)))
+                }
             case .intro:
                 end = ChipScene.introEnd
                 SceneCanvas.chips.setTime(.intro, t)

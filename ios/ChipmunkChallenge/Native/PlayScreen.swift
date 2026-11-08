@@ -47,10 +47,6 @@ struct PlayScreen: View {
                     if let t = model.shopTool {
                         ToolShop(model: model, tool: t)
                     }
-                    if model.cardShown, model.status == .won, model.coinsWaiting, let from = rewardAt, let to = coinChipAt {
-                        CoinFlight(model: model, from: from, to: to)
-                            .id(model.winCount)
-                    }
                     if model.heartsCardShown {
                         OutOfHearts(model: model)
                     }
@@ -60,6 +56,34 @@ struct PlayScreen: View {
                         ProgressView().controlSize(.large).tint(Theme.ink)
                     } else if case .failed = model.status {
                         ResultCard(model: model)
+                    }
+                    // The win scene shows the coin counter over its sky, so the kiss's coins have somewhere to land.
+                    if model.scene?.kind == .win {
+                        if island {
+                            StatusRow(model: model, island: 126, screenWidth: geo.size.width,
+                                      corner: displayCornerRadius(geo.size.width + geo.safeAreaInsets.leading
+                                                                  + geo.safeAreaInsets.trailing))
+                                .offset(y: 29.5 - Chip<EmptyView>.height / 2 - geo.safeAreaInsets.top)
+                                .frame(maxHeight: .infinity, alignment: .top)
+                                .allowsHitTesting(false)
+                        } else {
+                            StatusRow(model: model)
+                                .padding(EdgeInsets(top: 10, leading: 6, bottom: 0, trailing: 6))
+                                .frame(width: w)
+                                .frame(maxHeight: .infinity, alignment: .top)
+                                .allowsHitTesting(false)
+                        }
+                    }
+                    // Coins fly to the counter: from the kiss in the win scene, or from the win card's reward if the
+                    // scene was skipped before the kiss.
+                    if model.status == .won, model.coinsWaiting, let to = coinChipAt {
+                        if let kiss = model.kissCoinsAt {
+                            CoinFlight(model: model, from: CGRect(origin: kiss, size: .zero), to: to, burst: true)
+                                .id(model.winCount)
+                        } else if model.cardShown, let from = rewardAt {
+                            CoinFlight(model: model, from: from, to: to)
+                                .id(model.winCount)
+                        }
                     }
                 }
             }
@@ -1049,6 +1073,9 @@ private struct CoinFlight: View {
     @ObservedObject var model: GameModel
     let from: CGRect
     let to: CGRect
+    /// From the kiss: the coins first pop out in a ring around it, then fly to the counter.
+    var burst = false
+    @SwiftUI.State private var popped = false
     @SwiftUI.State private var flying: [Bool] = Array(repeating: false, count: CoinFlight.count)
     @SwiftUI.State private var landed: [Bool] = Array(repeating: false, count: CoinFlight.count)
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -1057,14 +1084,20 @@ private struct CoinFlight: View {
     var body: some View {
         ZStack {
             ForEach(0..<Self.count, id: \.self) { k in
-                // Each coin starts at the reward with a little spread and arcs over to the counter.
+                // Each coin starts at the reward with a little spread (or pops out around the kiss) and flies to the
+                // counter.
                 let spread = CGFloat(k % 4) * 9 - 13
+                let a = Double(k) / Double(Self.count) * 2 * .pi - .pi / 2
+                let ring = CGPoint(x: from.midX + CGFloat(cos(a)) * (44 + CGFloat(k % 3) * 12),
+                                   y: from.midY + CGFloat(sin(a)) * (34 + CGFloat(k % 3) * 10) - 20)
+                let start = burst ? (popped ? ring : CGPoint(x: from.midX, y: from.midY))
+                    : CGPoint(x: from.minX + 15 + spread, y: from.midY)
                 CoinIcon()
                     .frame(width: 26, height: 26)
-                    .scaleEffect(flying[k] ? 0.75 : 1)
+                    .scaleEffect(flying[k] ? 0.75 : burst && !popped ? 0.3 : 1)
                     .opacity(landed[k] ? 0 : 1)
-                    .position(flying[k] ? CGPoint(x: to.midX, y: to.midY) : CGPoint(x: from.minX + 15 + spread, y: from.midY))
-                    .opacity(flying[k] || k == 0 ? 1 : 0)
+                    .position(flying[k] ? CGPoint(x: to.midX, y: to.midY) : start)
+                    .opacity(flying[k] || k == 0 || burst ? 1 : 0)
             }
         }
         .allowsHitTesting(false)
@@ -1073,7 +1106,12 @@ private struct CoinFlight: View {
                 model.countCoins(1)
                 return
             }
-            try? await Task.sleep(for: .milliseconds(450))
+            if burst {
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.6)) { popped = true }
+                try? await Task.sleep(for: .milliseconds(380))
+            } else {
+                try? await Task.sleep(for: .milliseconds(450))
+            }
             for k in 0..<Self.count {
                 withAnimation(.easeIn(duration: 0.55)) { flying[k] = true }
                 let i = k

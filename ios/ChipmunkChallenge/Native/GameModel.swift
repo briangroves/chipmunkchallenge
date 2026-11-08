@@ -136,6 +136,8 @@ final class GameModel: ObservableObject {
     @Published private(set) var coinsShown: Int
     private var holdCoins = false
     private var coinsFrom = 0
+    /// Where the win scene's kiss is on the play screen once its coins burst (they fly from there to the counter).
+    @Published private(set) var kissCoinsAt: CGPoint?
     /// Counts wins, so each win's coin flight starts fresh.
     @Published private(set) var winCount = 0
     /// Bumped as each flying coin lands on the counter (it pops).
@@ -650,6 +652,7 @@ final class GameModel: ObservableObject {
     private func payOut(_ lv: Level) {
         coinsFrom = coinsShown
         holdCoins = true
+        kissCoinsAt = nil
         winCount += 1
         var packDone: String?
         let box = claimHeld()
@@ -735,6 +738,12 @@ final class GameModel: ObservableObject {
         coinsShown = coinsFrom + Int((Double(coins - coinsFrom) * min(1, f)).rounded())
         coinLanded += 1
         if f >= 1 { releaseCoins() }
+    }
+
+    /// The win scene's kiss: its coins fly from here to the counter (unless the win card's flight already ran).
+    func kissCoins(at p: CGPoint) {
+        guard holdCoins, kissCoinsAt == nil else { return }
+        kissCoinsAt = p
     }
 
     /// Whether the counter is waiting on the win card's coins.
