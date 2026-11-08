@@ -129,7 +129,37 @@ final class GameModel: ObservableObject {
     /// The win or stuck card is up (it appears as the scene fades).
     @Published private(set) var cardShown = false
     @Published private(set) var canUndo = false
-    @Published private(set) var coins: Int
+    @Published private(set) var coins: Int {
+        didSet { if !holdCoins { coinsShown = coins } }
+    }
+    /// The coin counter as shown: after a win it holds the old amount and counts up as the coins fly in.
+    @Published private(set) var coinsShown: Int
+    private var holdCoins = false
+    private var coinsFrom = 0
+    /// Counts wins, so each win's coin flight starts fresh.
+    @Published private(set) var winCount = 0
+    /// Bumped as each flying coin lands on the counter (it pops).
+    @Published private(set) var coinLanded = 0
+    /// Hearts (Level Play only): one lost per failed or restarted try, one back every 10 minutes, at most 5.
+    @Published private(set) var hearts: Int
+    /// When the heart now refilling started (seconds since 1970), while hearts are below 5.
+    private var regenAt: Double?
+    /// Time to the next heart ("9:41"), empty when full.
+    @Published private(set) var heartClock = ""
+    /// The out-of-hearts card is up; `afterHearts` runs once hearts are bought.
+    @Published private(set) var heartsCardShown = false
+    private var afterHearts: (() -> Void)?
+    /// This try already cost a heart (a loss then a restart costs only one).
+    private var attemptCharged = false
+    private var heartTimer: Timer?
+    static let heartMax = 5
+    static let heartRegen: Double = 10 * 60
+    static let heartsPrice = 500
+    /// Finishing a pack: coins and magic wands (once per pack).
+    static let packCoins = 1000
+    static let packWands = 2
+    /// When the board now building started, for the intro's progress bar.
+    @Published private(set) var buildStarted = Date()
     /// What the last win paid.
     @Published private(set) var lastWin = Win(base: 0, bonus: 0)
     /// The win card's "Next time" choice (nil on warm-up boards).
@@ -169,14 +199,14 @@ final class GameModel: ObservableObject {
     private var tailorBefore: Double = 1
     private var failStreak = 0
     private var buildTask: Task<Void, Never>?
-    private let tapFeedback = UIImpactFeedbackGenerator(style: .light)
-    /// The small tick when a chipmunk picks up a block.
-    private let pickBuzzer = PickupBuzzer()
+    private let haptics = Haptics()
     /// Ticks a chipmunk stands at its block before heading home with it (a quarter second at normal speed).
     static let pickupPause: Double = 25
     private let notify = UINotificationFeedbackGenerator()
 
     private static let boardKey = "native.boardIndex"
+    /// Bumped if saved data ever needs converting on update. 2.0 reads 1.1's saves as they are (same keys).
+    static let saveVersion = 2
     static let continuePrice = 300
 
     struct SceneRun: Equatable {
@@ -192,6 +222,9 @@ final class GameModel: ObservableObject {
         var box: BoxReveal? = nil
         /// Daily puzzle: the streak-bonus boxes this win earned.
         var bonusBox: BoxReveal? = nil
+        /// Finishing a pack: the bonus coins and the pack's name.
+        var pack: Int = 0
+        var packName: String? = nil
     }
 
     /// Daily streak days that add bonus mystery boxes, and how many (JS STREAK_BONUS).
@@ -238,7 +271,12 @@ final class GameModel: ObservableObject {
 
     init() {
         catalog = try! LevelCatalog.bundled()
-        coins = store.object(forKey: "native.coins") == nil ? 500 : store.integer(forKey: "native.coins")
+        let startCoins = store.object(forKey: "native.coins") == nil ? 500 : store.integer(forKey: "native.coins")
+        coins = startCoins
+        coinsShown = startCoins
+        hearts = store.object(forKey: "native.hearts") == nil ? Self.heartMax
+            : min(Self.heartMax, max(0, store.integer(forKey: "native.hearts")))
+        regenAt = store.object(forKey: "native.heartRegenAt") == nil ? nil : store.double(forKey: "native.heartRegenAt")
         lifetime = store.integer(forKey: "native.lifetime")
         tailor = store.object(forKey: "native.tailor") == nil ? 1 : store.double(forKey: "native.tailor")
         hapticsOn = store.object(forKey: "native.haptics") == nil ? true : store.bool(forKey: "native.haptics")
@@ -253,6 +291,11 @@ final class GameModel: ObservableObject {
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
         tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
         boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), 169)
+        store.set(Self.saveVersion, forKey: "native.saveVersion")
+        tickHearts()
+        heartTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            Task { @MainActor in self?.tickHearts() }
+        }
         #if DEBUG
         // The debug launch arguments (`-scene`, `-autoplay`, `-screen play`) skip the home screen.
         if store.string(forKey: "scene") != nil || store.bool(forKey: "autoplay") || store.string(forKey: "screen") == "play" {
@@ -272,7 +315,7 @@ final class GameModel: ObservableObject {
     func playLevel() {
         enterPlay()
         if mode == .level, level != nil, status != .won, !isFailed { return }
-        load(boardIndex)
+        withHeart(level: true) { self.load(self.boardIndex) }
     }
 
     /// Home's Coin Mining card.
@@ -300,6 +343,7 @@ final class GameModel: ObservableObject {
     /// The play screen's home button (and the intro's). The board is kept as it is; nothing is lost, and backing out
     /// of the intro doesn't count as a try.
     func goHome() {
+        releaseCoins()
         toolsOpen = false
         shopTool = nil
         screen = .home
@@ -347,8 +391,7 @@ final class GameModel: ObservableObject {
 
     private func buzz() {
         guard hapticsOn else { return }
-        tapFeedback.impactOccurred()
-        tapFeedback.prepare()
+        haptics.tap()
     }
 
     private func buzz(_ kind: UINotificationFeedbackGenerator.FeedbackType) {
@@ -425,6 +468,7 @@ final class GameModel: ObservableObject {
         boardSeed = seed
         loadToken += 1
         let token = loadToken
+        buildStarted = Date()
         self.attempt = attempt
         self.title = title
         self.subtitle = subtitle
@@ -479,10 +523,11 @@ final class GameModel: ObservableObject {
         history = []
         canUndo = false
         queue = []
+        attemptCharged = false
+        releaseCoins()
         resetTools()
         stopFast()
-        tapFeedback.prepare()
-        pickBuzzer.prepare()
+        haptics.wake()
         boardVersion += 1
         refreshSide()
         #if DEBUG
@@ -500,16 +545,21 @@ final class GameModel: ObservableObject {
     /// The card's Restart: a fresh try at the same board (or a new, easier one after three tries without a win).
     func retry() {
         firstTry = false
-        if easeNext { reload(attempt: attempt + 1); return }
-        restart()
+        withHeart(level: mode == .level) {
+            if self.easeNext { self.reload(attempt: self.attempt + 1); return }
+            self.restart()
+        }
     }
 
-    /// The top bar's restart button counts as a failed try.
+    /// The top bar's restart button counts as a failed try (and costs a heart, unless this try already did).
     func restartButton() {
         firstTry = false
         noteFailure()
-        if easeNext { reload(attempt: attempt + 1); return }
-        restart()
+        loseHeart()
+        withHeart(level: mode == .level) {
+            if self.easeNext { self.reload(attempt: self.attempt + 1); return }
+            self.restart()
+        }
     }
 
     /// Three losses in a row make Level Play a little easier (the tailored aim). Coin Mining and the daily puzzle
@@ -533,7 +583,7 @@ final class GameModel: ObservableObject {
     /// The win card's next step: the next level, the next Coin Mining board, or home after the daily puzzle.
     func next() {
         switch mode {
-        case .level: load(boardIndex)    // payOut already moved boardIndex on to the next level
+        case .level: withHeart(level: true) { self.load(self.boardIndex) }    // payOut already moved boardIndex on
         case .mining: loadMining()
         case .daily: goHome()
         }
@@ -591,6 +641,7 @@ final class GameModel: ObservableObject {
             stopFast()
             firstTry = false
             noteFailure()
+            loseHeart()
             buzz(.error)
             play(.lose)
         }
@@ -598,6 +649,10 @@ final class GameModel: ObservableObject {
 
     /// JS payOut, without packs or hearts yet.
     private func payOut(_ lv: Level) {
+        coinsFrom = coinsShown
+        holdCoins = true
+        winCount += 1
+        var packDone: String?
         let box = claimHeld()
         defer { lastWin.box = box }
         let c = lv.botWin
@@ -635,12 +690,13 @@ final class GameModel: ObservableObject {
             return
         case .level:
             // The next level is the one after this, from now on (finished levels aren't replayed).
+            packDone = finishPack(boardIndex)
             boardIndex = min(boardIndex + 1, catalog.levelPlay.count - 1)
             store.set(boardIndex, forKey: Self.boardKey)
         }
         let base = reward
         let bonus = firstTry ? Int(JSRound(Double(base) * 0.5)) : 0
-        lastWin = Win(base: base, bonus: bonus)
+        lastWin = Win(base: base, bonus: bonus, pack: packDone == nil ? 0 : Self.packCoins, packName: packDone)
         failStreak = 0
         easeNext = false
         if lv.diff?.hasPrefix("warm") == true {
@@ -649,8 +705,128 @@ final class GameModel: ObservableObject {
             tailorBefore = tailor
             pickTailor(firstTry ? .tiny : .same)
         }
-        coins += base + bonus
+        coins += base + bonus + lastWin.pack
         store.set(coins, forKey: "native.coins")
+    }
+
+    /// If board i is the last of its pack and that pack hasn't paid out yet: 1,000 coins (added by payOut) and 2 magic
+    /// wands, and the pack's name for the win card.
+    private func finishPack(_ i: Int) -> String? {
+        var k = i
+        for p in catalog.packs {
+            if k < p.levels.count {
+                guard k == p.levels.count - 1 else { return nil }
+                var done = store.stringArray(forKey: "native.packsDone") ?? []
+                guard !done.contains(p.id) else { return nil }
+                done.append(p.id)
+                store.set(done, forKey: "native.packsDone")
+                addTools(.wand, Self.packWands)
+                return p.name
+            }
+            k -= p.levels.count
+        }
+        return nil
+    }
+
+    // MARK: - Coin counter
+
+    /// The win card's coins are landing on the counter: show fraction f (0...1) of the win added.
+    func countCoins(_ f: Double) {
+        guard holdCoins else { return }
+        coinsShown = coinsFrom + Int((Double(coins - coinsFrom) * min(1, f)).rounded())
+        coinLanded += 1
+        if f >= 1 { releaseCoins() }
+    }
+
+    /// Whether the counter is waiting on the win card's coins.
+    var coinsWaiting: Bool { holdCoins }
+
+    /// The counter catches up to the real amount.
+    func releaseCoins() {
+        holdCoins = false
+        coinsShown = coins
+    }
+
+    // MARK: - Hearts
+
+    /// Hearts that have refilled since `regenAt`, and the clock to the next one.
+    private func tickHearts() {
+        let now = Date().timeIntervalSince1970
+        if hearts >= Self.heartMax {
+            regenAt = nil
+            if !heartClock.isEmpty { heartClock = "" }
+            return
+        }
+        if regenAt == nil { regenAt = now }
+        let n = Int(((now - regenAt!) / Self.heartRegen).rounded(.down))
+        if n > 0 {
+            hearts = min(Self.heartMax, hearts + n)
+            regenAt = hearts >= Self.heartMax ? nil : regenAt! + Double(n) * Self.heartRegen
+            saveHearts()
+        }
+        guard let r = regenAt else { heartClock = ""; return }
+        let left = max(0, Int((Self.heartRegen - (now - r)).rounded(.up)))
+        let text = "\(left / 60):" + String(format: "%02d", left % 60)
+        if text != heartClock { heartClock = text }
+    }
+
+    private func saveHearts() {
+        store.set(hearts, forKey: "native.hearts")
+        if let regenAt { store.set(regenAt, forKey: "native.heartRegenAt") } else { store.removeObject(forKey: "native.heartRegenAt") }
+    }
+
+    /// A Level Play try was lost or restarted: one heart, at most once per try.
+    private func loseHeart() {
+        guard mode == .level, !attemptCharged else { return }
+        attemptCharged = true
+        if hearts >= Self.heartMax { regenAt = Date().timeIntervalSince1970 }
+        hearts = max(0, hearts - 1)
+        saveHearts()
+        tickHearts()
+    }
+
+    /// Run `then` if a Level Play try can start; with no hearts left, show the out-of-hearts card instead (buying
+    /// hearts there runs it).
+    private func withHeart(level: Bool, _ then: @escaping () -> Void) {
+        tickHearts()
+        if !level || hearts > 0 {
+            then()
+            return
+        }
+        afterHearts = then
+        heartsCardShown = true
+    }
+
+    /// The out-of-hearts card's buy button: 5 hearts for 500 coins, then the try goes ahead.
+    func buyHearts() {
+        guard coins >= Self.heartsPrice else { return }
+        coins -= Self.heartsPrice
+        store.set(coins, forKey: "native.coins")
+        hearts = Self.heartMax
+        regenAt = nil
+        saveHearts()
+        tickHearts()
+        heartsCardShown = false
+        buzz(.success)
+        let go = afterHearts
+        afterHearts = nil
+        go?()
+    }
+
+    /// A heart refilled while the out-of-hearts card was up: the try goes ahead.
+    func heartArrived() {
+        guard heartsCardShown, hearts > 0 else { return }
+        heartsCardShown = false
+        let go = afterHearts
+        afterHearts = nil
+        go?()
+    }
+
+    /// The out-of-hearts card's Home button.
+    func closeHeartsCard() {
+        heartsCardShown = false
+        afterHearts = nil
+        goHome()
     }
 
     /// Win card choice: re-applies from the target before this win, so picks replace each other.
@@ -1186,7 +1362,7 @@ final class GameModel: ObservableObject {
     private func pickupBuzz(_ m: Sim, from t0: Double, to t1: Double) {
         guard hapticsOn else { return }
         guard m.ants.contains(where: { $0.picked && $0.ta > t0 && $0.ta <= t1 }) else { return }
-        pickBuzzer.buzz(seconds: Self.pickupPause * SIM.tickSeconds / speed)
+        haptics.pickup()
     }
 
     // MARK: - Looks
@@ -1270,24 +1446,5 @@ enum Tool: String, CaseIterable, Identifiable {
         case .slot: return "A 6th holding slot for the rest of this board."
         case .wand: return "Tap a nest: its chipmunks fly straight to their color."
         }
-    }
-}
-
-/// The pickup haptic: the same kind of click as loading a nest, one step heavier (medium instead of light) and at full
-/// strength. At most 10 clicks a second: on fast-forward a busy board can reach ~50 pickups a second, and iOS quietly
-/// stops playing an app's haptics when it sends them that fast for long, which made them cut out mid-game.
-@MainActor
-final class PickupBuzzer {
-    private let click = UIImpactFeedbackGenerator(style: .medium)
-    private var last: CFTimeInterval = 0
-
-    func prepare() { click.prepare() }
-
-    func buzz(seconds: Double) {
-        let now = CACurrentMediaTime()
-        guard now - last >= 0.1 else { return }
-        last = now
-        click.impactOccurred(intensity: 1.0)
-        click.prepare()
     }
 }

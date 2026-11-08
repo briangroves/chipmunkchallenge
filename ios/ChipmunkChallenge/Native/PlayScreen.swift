@@ -5,6 +5,10 @@ import SwiftUI
 /// the HUD, the board, the holding slots, the lanes of nests and the tool bar. Sizes come from the page's CSS.
 struct PlayScreen: View {
     @ObservedObject var model: GameModel
+    /// Where the win card's reward and the coin counter are, for the coins flying between them.
+    @SwiftUI.State private var rewardAt: CGRect?
+    @SwiftUI.State private var coinChipAt: CGRect?
+    static let space = "play"
 
     var body: some View {
         GeometryReader { geo in
@@ -43,9 +47,16 @@ struct PlayScreen: View {
                     if let t = model.shopTool {
                         ToolShop(model: model, tool: t)
                     }
+                    if model.cardShown, model.status == .won, model.coinsWaiting, let from = rewardAt, let to = coinChipAt {
+                        CoinFlight(model: model, from: from, to: to)
+                            .id(model.winCount)
+                    }
+                    if model.heartsCardShown {
+                        OutOfHearts(model: model)
+                    }
                     if let run = model.scene {
                         SceneLayer(model: model, run: run).id(run.id)
-                    } else if model.status == .building {
+                    } else if model.status == .building && !model.heartsCardShown {
                         ProgressView().controlSize(.large).tint(Theme.ink)
                     } else if case .failed = model.status {
                         ResultCard(model: model)
@@ -53,6 +64,9 @@ struct PlayScreen: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .coordinateSpace(name: PlayScreen.space)
+            .onPreferenceChange(RewardFrame.self) { rewardAt = $0 }
+            .onPreferenceChange(CoinChipFrame.self) { coinChipAt = $0 }
         }
         .background(TableBackground(table: model.table).ignoresSafeArea())
     }
@@ -65,12 +79,28 @@ struct HUDButton: View {
     var size: CGFloat = 20
     var disabled = false
     var on = false
+    /// The icon in a slowly turning rainbow (the backpack).
+    var rainbow = false
     let action: () -> Void
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    static let rainbowColors = [0xFF4D4D, 0xFFA53A, 0xFFE14D, 0x5FD35F, 0x4DC3FF, 0x6B6BFF, 0xC065FF, 0xFF4D4D]
+        .map { Color(hex: UInt32($0)) }
 
     var body: some View {
         Button(action: action) {
-            icon
-                .fill(on ? Theme.gold : Theme.ink, style: FillStyle(eoFill: true))
+            Group {
+                if rainbow {
+                    TimelineView(.animation(minimumInterval: 1 / 30, paused: reduceMotion)) { tl in
+                        let turn = reduceMotion ? 0 : tl.date.timeIntervalSinceReferenceDate / 3 * 360
+                        icon.fill(AngularGradient(colors: Self.rainbowColors, center: .center,
+                                                  angle: .degrees(turn.truncatingRemainder(dividingBy: 360))),
+                                  style: FillStyle(eoFill: true))
+                    }
+                } else {
+                    icon.fill(on ? Theme.gold : Theme.ink, style: FillStyle(eoFill: true))
+                }
+            }
                 .frame(width: size, height: size)
                 .frame(width: HUDButton.diameter, height: HUDButton.diameter)
                 .background(Circle().fill(on ? Theme.darkInk : .white.opacity(0.88))
@@ -194,6 +224,7 @@ func displayCornerRadius(_ width: CGFloat) -> CGFloat {
 /// centers the clock on); otherwise they sit at the row's ends.
 struct StatusRow: View {
     @ObservedObject var model: GameModel
+    @SwiftUI.State private var pop: CGFloat = 1
     var island: CGFloat? = nil
     var screenWidth: CGFloat = 0
     var corner: CGFloat = 0
@@ -229,31 +260,53 @@ struct StatusRow: View {
     }
 
     private var hearts: some View {
-            // The heart chip also holds the (empty) refill timer, whose 4pt gap still takes room.
+            // The heart chip also holds the refill clock while hearts are below 5.
             Chip(leading: 9, trailing: 12) {
                 HStack(spacing: 4) {
                     Icons.heart
-                        .fill(Color(hex: 0xE53935))
-                        .overlay(Icons.heart.stroke(Color(hex: 0x9C1F1D), lineWidth: 1.4 * 15 / 24))
+                        .fill(model.hearts > 0 ? Color(hex: 0xE53935) : Color(hex: 0xBDBDBD))
+                        .overlay(Icons.heart.stroke(model.hearts > 0 ? Color(hex: 0x9C1F1D) : Color(hex: 0x8A8A8A),
+                                                    lineWidth: 1.4 * 15 / 24))
                         .frame(width: 19, height: 18)
                         .shadow(color: .black.opacity(0.18), radius: 0, y: 1)
-                    Text("5")
+                    Text("\(model.hearts)")
+                    if !model.heartClock.isEmpty {
+                        Text(model.heartClock)
+                            .font(Theme.body(12, 800))
+                            .monospacedDigit()
+                            .foregroundStyle(Color(hex: 0x5D6B54))
+                    }
                 }
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("\(model.hearts) of \(GameModel.heartMax) hearts"
+                                + (model.heartClock.isEmpty ? "" : ". Next heart in \(model.heartClock)"))
     }
 
     private var coins: some View {
             Chip(leading: 5, trailing: 10) {
                 HStack(spacing: 4) {
                     CoinIcon().frame(width: 20, height: 20)
-                    Text(model.coins.formatted())
+                        .background(GeometryReader { g in
+                            Color.clear.preference(key: CoinChipFrame.self, value: g.frame(in: .named(PlayScreen.space)))
+                        })
+                    Text(model.coinsShown.formatted())
+                        .monospacedDigit()
+                        .contentTransition(.numericText(value: Double(model.coinsShown)))
                 }
             }
+            .scaleEffect(pop)
+            .onChange(of: model.coinLanded) { _, _ in
+                withAnimation(.easeOut(duration: 0.08)) { pop = 1.12 }
+                withAnimation(.easeIn(duration: 0.14).delay(0.08)) { pop = 1 }
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("\(model.coinsShown) coins")
     }
 }
 
-/// Restart (after a confirmation), undo and fast on the left, then room for the warning icon and the mystery boxes on hold; the backpack
-/// (which shows the tools), home and settings on the right.
+/// Restart (after a confirmation), undo and fast on the left; the level number and any mystery boxes on hold in the
+/// middle; the backpack (which shows the tools, in a turning rainbow), home and settings on the right.
 private struct ControlRow: View {
     @ObservedObject var model: GameModel
     @SwiftUI.State private var confirmRestart = false
@@ -269,14 +322,14 @@ private struct ControlRow: View {
                 }
             HUDButton(icon: Icons.undo, disabled: !model.canUndo) { model.undo() }
             HUDButton(icon: Icons.speed, on: model.fast) { model.toggleFast() }
-            Color.clear.frame(width: HUDButton.diameter, height: HUDButton.diameter)   // warning icon
-            Group {
-                if model.held.isEmpty { Color.clear } else { HeldChip(model: model).fixedSize() }
+            Spacer(minLength: 2)
+            HStack(spacing: 4) {
+                LevelTag(model: model)
+                if !model.held.isEmpty { HeldChip(model: model).fixedSize() }
             }
-            .frame(minWidth: HUDButton.diameter)
             .frame(height: HUDButton.diameter)
-            Spacer(minLength: 4)
-            HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek) {
+            Spacer(minLength: 2)
+            HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek, rainbow: true) {
                 withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) {
                     if model.magicMode { model.cancelWand() } else { model.toolsOpen.toggle() }
                 }
@@ -907,5 +960,158 @@ private struct BoardNotice: View {
 struct Pressable: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label.offset(y: configuration.isPressed ? 2 : 0)
+    }
+}
+
+// MARK: - Level tag, coins, hearts
+
+/// The level in play, between the fast-forward button and the backpack: a small label over the number, so it fits
+/// beside the mystery boxes on hold.
+private struct LevelTag: View {
+    @ObservedObject var model: GameModel
+
+    var body: some View {
+        let (label, value): (String, String) = switch model.mode {
+        case .level: ("LEVEL", "\(model.boardIndex + (model.status == .won ? 0 : 1))")
+        case .mining: ("CHALLENGE", "\(model.paraRound + (model.status == .won ? 0 : 1))")
+        case .daily: ("DAILY", "Day \(model.dayCount)")
+        }
+        VStack(spacing: -2) {
+            Text(label)
+                .font(Theme.body(9, 900))
+                .tracking(0.6)
+                .foregroundStyle(Color(hex: 0x5D6B54))
+            Text(value)
+                .font(Theme.display(17))
+                .foregroundStyle(Theme.ink)
+        }
+        .lineLimit(1)
+        .fixedSize()
+        .padding(.horizontal, 10)
+        .frame(height: 34)
+        .background(Capsule().fill(.white.opacity(0.88)).shadow(color: .black.opacity(0.12), radius: 1.5, y: 1))
+        .opacity(model.level == nil ? 0 : 1)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(label.capitalized) \(value)")
+    }
+}
+
+struct RewardFrame: PreferenceKey {
+    static let defaultValue: CGRect? = nil
+    static func reduce(value: inout CGRect?, nextValue: () -> CGRect?) { value = nextValue() ?? value }
+}
+
+struct CoinChipFrame: PreferenceKey {
+    static let defaultValue: CGRect? = nil
+    static func reduce(value: inout CGRect?, nextValue: () -> CGRect?) { value = nextValue() ?? value }
+}
+
+/// The win card's coins fly from the reward up to the coin counter, which counts up as each one lands.
+private struct CoinFlight: View {
+    @ObservedObject var model: GameModel
+    let from: CGRect
+    let to: CGRect
+    @SwiftUI.State private var flying: [Bool] = Array(repeating: false, count: CoinFlight.count)
+    @SwiftUI.State private var landed: [Bool] = Array(repeating: false, count: CoinFlight.count)
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    static let count = 12
+
+    var body: some View {
+        ZStack {
+            ForEach(0..<Self.count, id: \.self) { k in
+                // Each coin starts at the reward with a little spread and arcs over to the counter.
+                let spread = CGFloat(k % 4) * 9 - 13
+                CoinIcon()
+                    .frame(width: 26, height: 26)
+                    .scaleEffect(flying[k] ? 0.75 : 1)
+                    .opacity(landed[k] ? 0 : 1)
+                    .position(flying[k] ? CGPoint(x: to.midX, y: to.midY) : CGPoint(x: from.minX + 15 + spread, y: from.midY))
+                    .opacity(flying[k] || k == 0 ? 1 : 0)
+            }
+        }
+        .allowsHitTesting(false)
+        .task {
+            if reduceMotion {
+                model.countCoins(1)
+                return
+            }
+            try? await Task.sleep(for: .milliseconds(450))
+            for k in 0..<Self.count {
+                withAnimation(.easeIn(duration: 0.55)) { flying[k] = true }
+                let i = k
+                Task { @MainActor in
+                    try? await Task.sleep(for: .milliseconds(550))
+                    landed[i] = true
+                    model.countCoins(Double(i + 1) / Double(Self.count))
+                }
+                try? await Task.sleep(for: .milliseconds(70))
+            }
+        }
+    }
+}
+
+/// Out of hearts (Level Play): when the next heart comes, or 5 hearts for 500 coins.
+private struct OutOfHearts: View {
+    @ObservedObject var model: GameModel
+
+    var body: some View {
+        let can = model.coins >= GameModel.heartsPrice
+        ZStack {
+            Color(red: 20 / 255, green: 30 / 255, blue: 15 / 255, opacity: 0.55)
+                .ignoresSafeArea()
+            VStack(spacing: 10) {
+                Text("Out of hearts")
+                    .font(Theme.display(30))
+                    .foregroundStyle(Theme.ink)
+                HStack(spacing: 4) {
+                    ForEach(0..<GameModel.heartMax, id: \.self) { k in
+                        Icons.heart
+                            .fill(k < model.hearts ? Color(hex: 0xE53935) : Color(hex: 0xD6D6D6))
+                            .overlay(Icons.heart.stroke(Color(hex: 0x8A8A8A), lineWidth: 1))
+                            .frame(width: 26, height: 24)
+                    }
+                }
+                .accessibilityHidden(true)
+                Text(model.heartClock.isEmpty ? "A heart is ready." : "Next heart in \(model.heartClock)")
+                    .font(Theme.body(16, 800))
+                    .monospacedDigit()
+                    .foregroundStyle(Color(hex: 0x4A5841))
+                Text("Hearts come back one every 10 minutes, up to 5.")
+                    .font(Theme.body(13, 600))
+                    .foregroundStyle(Color(hex: 0x5D6B54))
+                    .multilineTextAlignment(.center)
+                Button { model.buyHearts() } label: {
+                    HStack(spacing: 0) {
+                        Text("Get 5 hearts ")
+                        CoinIcon().frame(width: 18, height: 18).padding(.leading, 6).padding(.trailing, 4)
+                        Text(GameModel.heartsPrice.formatted())
+                    }
+                    .bigLabel(alt: false)
+                }
+                .buttonStyle(Pressable())
+                .disabled(!can)
+                .opacity(can ? 1 : 0.45)
+                .padding(.top, 4)
+                if !can {
+                    Text("You need \((GameModel.heartsPrice - model.coins).formatted()) more coins.")
+                        .font(Theme.body(13, 800))
+                        .foregroundStyle(Color(hex: 0x4A5841))
+                }
+                Button { withAnimation(.easeOut(duration: 0.2)) { model.closeHeartsCard() } } label: {
+                    Text("Home").bigLabel(alt: true)
+                }
+                .buttonStyle(Pressable())
+            }
+            .padding(20)
+            .frame(maxWidth: 340)
+            .background(RoundedRectangle(cornerRadius: 20, style: .circular).fill(.white)
+                .shadow(color: .black.opacity(0.3), radius: 15, y: 10))
+            .padding(16)
+        }
+        .transition(.opacity)
+        .onChange(of: model.hearts) { _, h in
+            // A heart came back while the card was up: carry on.
+            if h > 0 { model.heartArrived() }
+        }
     }
 }

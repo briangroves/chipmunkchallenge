@@ -13,6 +13,8 @@ struct SceneLayer: View {
     @SwiftUI.State private var fading = false
     /// The intro waits on its Start button.
     @SwiftUI.State private var started = false
+    /// The win or lose scene was tapped anywhere on screen: skip to the card.
+    @SwiftUI.State private var skipTapped = false
 
     /// Debug `-autoplay YES`: the intro starts by itself.
     static var autoStart: Bool {
@@ -42,10 +44,18 @@ struct SceneLayer: View {
                         .offset(y: geo.safeAreaInsets.bottom)
                 }
                 SceneCanvas(run: run, size: CGSize(width: w, height: h), ready: { model.introReady },
-                            go: run.kind == .intro ? { started || SceneLayer.autoStart } : nil) {
+                            go: run.kind == .intro ? { started || SceneLayer.autoStart } : nil, skip: skipTapped) {
                     finish()
                 }
                 .frame(width: w, height: h)
+                if run.kind == .intro && !model.introReady {
+                    // While the board builds: a progress bar where the Start button will appear.
+                    BuildProgress(started: model.buildStarted)
+                        .frame(height: max(80, (geo.size.height - h) / 2 + geo.safeAreaInsets.bottom))
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .offset(y: geo.safeAreaInsets.bottom)
+                        .transition(.opacity)
+                }
                 if run.kind == .intro && model.introReady && !started {
                     // Centered on the grass below the scene, down to the screen's bottom edge.
                     StartButton { started = true }
@@ -85,6 +95,9 @@ struct SceneLayer: View {
             }
         }
         .animation(.interpolatingSpring(stiffness: 260, damping: 16), value: model.introReady)
+        // The whole screen skips the win and lose scenes, not just the 3D view in the middle of it.
+        .contentShape(Rectangle())
+        .onTapGesture { if run.kind != .intro { skipTapped = true } }
         .opacity(fading ? 0 : 1)
         .allowsHitTesting(!fading)
     }
@@ -171,6 +184,8 @@ struct SceneCanvas: UIViewRepresentable {
     let ready: () -> Bool
     /// When set, the scene ends only once this says so (the intro's Start button), not on its own or on a tap.
     var go: (() -> Bool)? = nil
+    /// Tapped outside the 3D view: skip, as a tap on it does.
+    var skip = false
     let done: () -> Void
 
     // Built once and reused, like the page's win3d / chip3d.
@@ -200,6 +215,7 @@ struct SceneCanvas: UIViewRepresentable {
     func updateUIView(_ v: SCNView, context: Context) {
         context.coordinator.ready = ready
         context.coordinator.go = go
+        if skip, go == nil { context.coordinator.skipNow() }
         context.coordinator.resize(size)
     }
 
@@ -245,6 +261,8 @@ struct SceneCanvas: UIViewRepresentable {
             link?.invalidate()
             link = nil
         }
+
+        func skipNow() { skip = true }
 
         @objc func pressed(_ g: UIGestureRecognizer) {
             // pointerdown: skip (the intro only once the board is ready)
@@ -316,15 +334,19 @@ struct ResultCard: View {
                 .foregroundStyle(Color(hex: 0xC2410C))
                 .accessibilityLabel("Streak: \(model.daily.streak) days")
         } else {
-            H2(model.mode == .mining ? "Challenge cleared" : "Board cleared")
+            H2(model.mode == .mining ? "Challenge cleared"
+               : w.packName.map { "\($0) pack complete!" } ?? "Board cleared")
         }
         HStack(spacing: 8) {
             CoinIcon().frame(width: 30, height: 30)
-            Text("+\((w.base + w.bonus).formatted())")
+            Text("+\((w.base + w.bonus + w.pack).formatted())")
                 .font(Theme.display(34))
                 .foregroundStyle(Theme.ink)
                 .cssLine(Theme.uiDisplay(34), 34 * 1.45)
         }
+        .background(GeometryReader { g in
+            Color.clear.preference(key: RewardFrame.self, value: g.frame(in: .named(PlayScreen.space)))
+        })
         if let box = w.box { BoxRevealView(box: box) }
         if let bonus = w.bonusBox {
             VStack(spacing: 0) {
@@ -361,6 +383,15 @@ struct ResultCard: View {
 
     @ViewBuilder private var levelWinExtras: some View {
         let w = model.lastWin
+        if w.pack > 0 {
+            Text("Pack bonus +\(w.pack.formatted()) and \(GameModel.packWands) 🪄")
+                .font(Theme.body(13, 800))
+                .foregroundStyle(Color(hex: 0x6A3FB5))
+                .cssLine(Theme.uiBody(13, 800), 13 * 1.45)
+                .padding(.vertical, 4)
+                .padding(.horizontal, 12)
+                .background(Color(hex: 0xEDE4FF), in: Capsule())
+        }
         if w.bonus > 0 {
             Text("First-try bonus +\(w.bonus)")
                 .font(Theme.body(13, 800))
@@ -400,6 +431,10 @@ struct ResultCard: View {
         if paradise {
             Note("No hearts lost in Coin Mining. Try again!")
         } else {
+            if model.mode == .level {
+                Note(model.hearts == 0 ? "That was your last heart."
+                     : "−1 ❤️ · \(model.hearts) heart\(model.hearts == 1 ? "" : "s") left")
+            }
             if model.mode == .daily { Note("No hearts lost on the daily puzzle.") }
             let can = model.coins >= GameModel.continuePrice
             Row {
@@ -565,5 +600,33 @@ extension View {
     /// CSS line-height: pads the text so its line box is `lh` points tall, as the page lays it out.
     func cssLine(_ font: UIFont, _ lh: CGFloat) -> some View {
         padding(.vertical, (lh - font.lineHeight) / 2)
+    }
+}
+
+/// The intro's progress bar while the board builds. Building has no fixed length, so it eases toward the end (most
+/// boards take one to three seconds) and the Start button replaces it the moment the board is ready.
+private struct BuildProgress: View {
+    let started: Date
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1 / 30)) { tl in
+            let t = tl.date.timeIntervalSince(started)
+            let f = min(0.96, 1 - exp(-t / 1.4))
+            VStack(spacing: 8) {
+                ZStack(alignment: .leading) {
+                    Capsule().fill(Color.white.opacity(0.7))
+                    Capsule().fill(Theme.darkInk)
+                        .frame(width: max(14, 220 * f))
+                }
+                .frame(width: 220, height: 14)
+                .overlay(Capsule().strokeBorder(Theme.darkInk.opacity(0.35), lineWidth: 1.5))
+                Text("Building your board…")
+                    .font(Theme.body(14, 800))
+                    .foregroundStyle(Color(red: 31 / 255, green: 42 / 255, blue: 24 / 255, opacity: 0.7))
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("Building your board")
+            .accessibilityValue("\(Int(f * 100)) percent")
+        }
     }
 }
