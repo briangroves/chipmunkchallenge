@@ -38,53 +38,6 @@ struct MysteryBoxIcon: View {
     }
 }
 
-/// `.heldchip`: the boxes on hold this try, behind a lock; greyed with ✕ once help was used. It pops when a box
-/// arrives and shakes when tapped or when help loses it.
-struct HeldChip: View {
-    @ObservedObject var model: GameModel
-    @SwiftUI.State private var pop: CGFloat = 1
-    @SwiftUI.State private var shake: CGFloat = 0
-
-    var body: some View {
-        let lost = model.helped
-        Button { model.shakeHeld() } label: {
-            HStack(spacing: 3) {
-                MysteryBoxIcon(size: 20, grey: lost)
-                if model.held.count > 1 {
-                    Text("×\(model.held.count)")
-                        .font(.system(size: 13, weight: .heavy))
-                        .foregroundStyle(Color(hex: 0x1F2A18))
-                }
-                Text(lost ? "✕" : "🔒").font(.system(size: 11))
-            }
-            .padding(.horizontal, 6)
-            .frame(height: 30)
-            .background(RoundedRectangle(cornerRadius: 15).fill(lost ? Color(hex: 0xEEEEEE) : Color(hex: 0xFFF8E1)))
-            .overlay(RoundedRectangle(cornerRadius: 15)
-                .strokeBorder(lost ? Color(hex: 0xBBBBBB) : Color(hex: 0xC9A24A), style: StrokeStyle(lineWidth: 2, dash: [4, 3])))
-            .opacity(lost ? 0.7 : 1)
-            .scaleEffect(pop)
-            .rotationEffect(.degrees(Double(shake) * 1.5))
-            .offset(x: shake)
-        }
-        .buttonStyle(.plain)
-        .accessibilityLabel((model.held.count > 1 ? "\(model.held.count) mystery boxes" : "Mystery box")
-                            + (lost ? " lost: help was used" : " on hold: clear the board without help to open"))
-        .onChange(of: model.heldPop) { _, _ in
-            withAnimation(.easeOut(duration: 0.2)) { pop = 1.25 }
-            withAnimation(.easeIn(duration: 0.3).delay(0.2)) { pop = 1 }
-        }
-        .onChange(of: model.heldShake) { _, _ in
-            Task { @MainActor in
-                for x in [-4, 4, -3, 3, 0] as [CGFloat] {
-                    withAnimation(.easeInOut(duration: 0.08)) { shake = x }
-                    try? await Task.sleep(for: .milliseconds(90))
-                }
-            }
-        }
-    }
-}
-
 /// `.reveal`: the win card opens the boxes. They shake, burst, and the tools inside pop out. Boxes lost to help show
 /// grey with a red ✕.
 struct BoxRevealView: View {

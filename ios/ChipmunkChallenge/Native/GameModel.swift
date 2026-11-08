@@ -170,13 +170,12 @@ final class GameModel: ObservableObject {
     @Published private(set) var lifetime: Int
     /// This try's mystery boxes on the board (the board view draws them).
     private(set) var pickups: [Pickup] = []
-    /// Boxes reached this try, shown on the hold chip.
+    /// Boxes reached this try (the backpack shows a red dot while they wait).
     @Published private(set) var held: [Held] = []
     /// A tool, Continue or the auto-solver was used this try: every held box is lost.
     @Published private(set) var helped = false
-    /// Bumped when a box goes on hold (the chip pops) or help is used while holding (the chip shakes).
+    /// Bumped when a box goes on hold (the backpack's dot pops).
     @Published private(set) var heldPop = 0
-    @Published private(set) var heldShake = 0
     private var boxSource: BoxSource?
     /// The day the free daily gift was last opened, and the gift being shown now.
     @Published private(set) var giftDay: Int
@@ -1314,7 +1313,7 @@ final class GameModel: ObservableObject {
         guard !helped else { return }
         helped = true
         if !held.isEmpty {
-            heldShake += 1
+            say(held.count > 1 ? "Mystery boxes lost: help was used" : "Mystery box lost: help was used")
             buzz(.warning)
         }
     }
@@ -1335,11 +1334,6 @@ final class GameModel: ObservableObject {
 
     func closeGift() { giftShown = nil }
 
-    /// The hold chip was tapped: it shakes.
-    func shakeHeld() {
-        heldShake += 1
-        buzz()
-    }
 
     /// The win opens the held boxes: their tools go in the backpack, and they're remembered as opened.
     private func claimHeld() -> BoxReveal? {

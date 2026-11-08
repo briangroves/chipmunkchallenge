@@ -81,6 +81,9 @@ struct HUDButton: View {
     var on = false
     /// The icon in a slowly turning rainbow (the backpack).
     var rainbow = false
+    /// A red notification dot (a mystery box waiting); it pops each time `badgePop` changes.
+    var badge = false
+    var badgePop = 0
     let action: () -> Void
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
@@ -107,8 +110,36 @@ struct HUDButton: View {
                     .shadow(color: .black.opacity(0.12), radius: 1.5, y: 1))
         }
         .buttonStyle(Pressable())
+        .overlay(alignment: .topTrailing) {
+            if badge {
+                BadgeDot(pop: badgePop)
+                    .offset(x: 2, y: -2)
+                    .transition(.scale.combined(with: .opacity))
+            }
+        }
+        .animation(.spring(response: 0.3, dampingFraction: 0.6), value: badge)
         .disabled(disabled)
         .opacity(disabled ? 0.45 : 1)
+    }
+}
+
+/// The backpack's notification dot: red with a white ring, popping when a new box arrives.
+private struct BadgeDot: View {
+    let pop: Int
+    @SwiftUI.State private var scale: CGFloat = 1
+
+    var body: some View {
+        Circle()
+            .fill(Color(hex: 0xE53935))
+            .overlay(Circle().strokeBorder(.white, lineWidth: 2))
+            .frame(width: 13, height: 13)
+            .shadow(color: .black.opacity(0.25), radius: 1, y: 1)
+            .scaleEffect(scale)
+            .onChange(of: pop) { _, _ in
+                withAnimation(.easeOut(duration: 0.15)) { scale = 1.5 }
+                withAnimation(.spring(response: 0.3, dampingFraction: 0.5).delay(0.15)) { scale = 1 }
+            }
+            .accessibilityHidden(true)
     }
 }
 
@@ -305,8 +336,9 @@ struct StatusRow: View {
     }
 }
 
-/// Restart (after a confirmation), undo and fast on the left; the level number and any mystery boxes on hold in the
-/// middle; the backpack (which shows the tools, in a turning rainbow), home and settings on the right.
+/// Restart (after a confirmation), undo and fast on the left; the level number centered between them; the backpack
+/// (which shows the tools, in a turning rainbow, with a red dot while a mystery box waits), home and settings on the
+/// right.
 private struct ControlRow: View {
     @ObservedObject var model: GameModel
     @SwiftUI.State private var confirmRestart = false
@@ -323,13 +355,8 @@ private struct ControlRow: View {
             HUDButton(icon: Icons.undo, disabled: !model.canUndo) { model.undo() }
             HUDButton(icon: Icons.speed, on: model.fast) { model.toggleFast() }
             Spacer(minLength: 2)
-            HStack(spacing: 4) {
-                LevelTag(model: model)
-                if !model.held.isEmpty { HeldChip(model: model).fixedSize() }
-            }
-            .frame(height: HUDButton.diameter)
-            Spacer(minLength: 2)
-            HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek, rainbow: true) {
+            HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek, rainbow: true,
+                      badge: !model.held.isEmpty && !model.helped, badgePop: model.heldPop) {
                 withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) {
                     if model.magicMode { model.cancelWand() } else { model.toolsOpen.toggle() }
                 }
@@ -337,6 +364,8 @@ private struct ControlRow: View {
             HUDButton(icon: Icons.home) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
             HUDButton(icon: Icons.gear, size: 19) { model.settingsOpen = true }
         }
+        // The level, in a bubble centered on the screen (under the Dynamic Island), between the two button groups.
+        .overlay { LevelTag(model: model) }
     }
 }
 
@@ -715,6 +744,23 @@ private struct ToolTray: View {
 
     var body: some View {
         VStack(spacing: 10) {
+            if !model.held.isEmpty {
+                // Why the backpack has a red dot.
+                HStack(spacing: 8) {
+                    MysteryBoxIcon(size: 24, grey: model.helped)
+                    Text(model.helped
+                         ? "Mystery box lost: a tool or Continue was used on this try."
+                         : (model.held.count > 1 ? "\(model.held.count) mystery boxes" : "A mystery box")
+                            + " waiting. Clear the board without tools to open " + (model.held.count > 1 ? "them." : "it."))
+                        .font(Theme.body(13, 800))
+                        .foregroundStyle(Theme.ink)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(Capsule().fill(Color(hex: model.helped ? 0xEEEEEE : 0xFFF8E1)))
+                .padding(.horizontal, 14)
+            }
             if let t = asking {
                 ToolAsk(tool: t) {
                     asking = nil
@@ -965,34 +1011,26 @@ struct Pressable: ButtonStyle {
 
 // MARK: - Level tag, coins, hearts
 
-/// The level in play, between the fast-forward button and the backpack: a small label over the number, so it fits
-/// beside the mystery boxes on hold.
+/// The level in play ("Level 20", "Challenge 8", "Day 41"), in a bubble centered under the Dynamic Island.
 private struct LevelTag: View {
     @ObservedObject var model: GameModel
 
     var body: some View {
-        let (label, value): (String, String) = switch model.mode {
-        case .level: ("LEVEL", "\(model.boardIndex + (model.status == .won ? 0 : 1))")
-        case .mining: ("CHALLENGE", "\(model.paraRound + (model.status == .won ? 0 : 1))")
-        case .daily: ("DAILY", "Day \(model.dayCount)")
+        let text: String = switch model.mode {
+        case .level: "Level \(model.boardIndex + (model.status == .won ? 0 : 1))"
+        case .mining: "Challenge \(model.paraRound + (model.status == .won ? 0 : 1))"
+        case .daily: "Day \(model.dayCount)"
         }
-        VStack(spacing: -2) {
-            Text(label)
-                .font(Theme.body(9, 900))
-                .tracking(0.6)
-                .foregroundStyle(Color(hex: 0x5D6B54))
-            Text(value)
-                .font(Theme.display(17))
-                .foregroundStyle(Theme.ink)
-        }
-        .lineLimit(1)
-        .fixedSize()
-        .padding(.horizontal, 10)
-        .frame(height: 34)
-        .background(Capsule().fill(.white.opacity(0.88)).shadow(color: .black.opacity(0.12), radius: 1.5, y: 1))
-        .opacity(model.level == nil ? 0 : 1)
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(label.capitalized) \(value)")
+        Text(text)
+            .font(Theme.display(18))
+            .foregroundStyle(Theme.ink)
+            .lineLimit(1)
+            .fixedSize()
+            .padding(.horizontal, 14)
+            .frame(height: 34)
+            .background(Capsule().fill(.white.opacity(0.9)).shadow(color: .black.opacity(0.12), radius: 1.5, y: 1))
+            .opacity(model.level == nil ? 0 : 1)
+            .allowsHitTesting(false)
     }
 }
 
