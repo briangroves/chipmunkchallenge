@@ -52,11 +52,12 @@ final class PickupTests: XCTestCase {
         XCTAssertGreaterThan(total, 20)
     }
 
-    /// Played the way the game's autoplay plays (a tap as soon as a slot is free, at fast-forward), boards with boxes
-    /// clear and every box is reached on the way. These daily boards got stuck when the web game's carved pockets were
-    /// used.
-    func testBoardsWithBoxesClearInRealTime() {
-        let index = catalog.paradiseFrom + catalog.paradise.count
+    /// Boards built from a picture with its pockets cut out: the stored solution clears each one (with the pickup
+    /// pause), and the open area reaches every pocket on the way. These daily boards' solutions failed when the web
+    /// game's way (cutting the pocket out of a finished board) was used.
+    func testBoardsWithPocketsClear() {
+        var boards: [(name: String, base: LevelBase, key: String, seed: Int, id: String, index: Int, board: PickupBoard)] = []
+        let daily = catalog.paradiseFrom + catalog.paradise.count
         for day in [20764, 20765, 20766] {
             let r = RNG(seed: day &* 2_654_435 &+ 11)
             let pool = Array(5..<catalog.paradiseFrom)
@@ -66,25 +67,33 @@ final class PickupTests: XCTestCase {
             diff.label = "Daily"
             Difficulty.custom["daily"] = diff
             let p = catalog.levelPlay[pic]
+            boards.append(("day \(day)", levelBase(name: p.name, rows: p.rows, boardNumber: rampN), "daily", day * 7 + 1,
+                           "daily", daily, .daily))
+        }
+        for i in [2, 29, 59] {
+            boards.append(("board \(i)", catalog.base(forBoard: i), catalog.diffKey(forBoard: i),
+                           (i + 1) * 1000 + 7, catalog.levelPlay[i].id, i, i < 20 ? .warmup(i + 1) : .level(i + 1)))
+        }
+        for b in boards {
+            let (base, pockets) = pocketBase(b.base, id: b.id, seed: b.seed, index: b.index, board: b.board, claimed: [])
+            XCTAssertFalse(pockets.isEmpty, b.name)
             var o = BuildOptions.game
-            o.aim = LevelCatalog.baseAim("daily")
-            let lv = generateLevel(base: levelBase(name: p.name, rows: p.rows, boardNumber: rampN), seed: day * 7 + 1,
-                                   diffKey: "daily", options: o)!
+            o.aim = LevelCatalog.aim(b.key, tailor: 1)
+            let lv = generateLevel(base: base, seed: b.seed, diffKey: b.key, options: o)!
             var m = Sim(lv)
             m.pickupPause = 25
-            var boxes = placePickups(lv, m.s, rows: p.rows, id: "daily", seed: day * 7 + 1, index: index,
-                                     board: .daily, claimed: [])
-            XCTAssertEqual(boxes.count, 1, "day \(day)")
-            var t = 0.0
-            while !isCleared(m) && t < 1e7 {
-                t += 5
-                advanceTo(lv, &m, t)
-                if canTap(lv, m.s), let l = planFrom(lv, m.s.lp)?.first, legalMoves(lv, m.s).contains(l) { tap(lv, &m.s, l) }
-                for k in boxes.indices where boxes[k].reached(m.s) { boxes[k].got = true }
-                if isStuck(lv, &m) { break }
+            // The pockets are empty and sealed until the open area reaches them.
+            XCTAssertTrue(pockets.allSatisfy { p in p.cells.allSatisfy { m.s.b[$0] == 0 && m.s.o[$0] == 0 } }, b.name)
+            var got = Set<Int>()
+            settleTimed(lv, &m)
+            for l in lv.plan! {
+                if m.s.won || !canTap(lv, m.s) { break }
+                tap(lv, &m.s, l)
+                settleTimed(lv, &m)
+                for (k, p) in pockets.enumerated() where p.reached(m.s) { got.insert(k) }
             }
-            XCTAssertTrue(isCleared(m), "day \(day)")
-            XCTAssertTrue(boxes.allSatisfy(\.got), "day \(day)")
+            XCTAssertTrue(m.s.won, b.name)
+            XCTAssertEqual(got.count, pockets.count, b.name)
         }
     }
 

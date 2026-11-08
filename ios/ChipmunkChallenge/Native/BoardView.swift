@@ -297,26 +297,28 @@ private final class LiveView: UIView {
 
     // MARK: Mystery boxes (JS drawPickups, drawMystery)
 
-    /// Each box not yet reached: a gently pulsing rainbow "?" box over its 3x3 blocks, with a soft shadow. A box opened
-    /// on an earlier win (Coin Mining) shows its tool faded, with a check, until a block under it is eaten.
+    /// Each box not yet reached: an inset cream pocket (its 3x3 cut out of the picture) holding a gently pulsing rainbow
+    /// "?" box. A box opened on an earlier win (Coin Mining) shows its tool faded, with a check, until the pocket opens.
     private func drawPickups(_ g: CGContext, _ lv: Level, _ s: ChipmunkEngine.State, _ pickups: [Pickup], _ now: Double) {
         guard !pickups.isEmpty else { return }
         let P = cs * CGFloat(POCKET)
         let pulse = 1 + 0.05 * CGFloat(sin(now / 300))
         for p in pickups {
-            if (p.got && !p.claimed) || p.reached(s) { continue }
+            if p.got && !p.claimed { continue }
+            if p.claimed && p.reached(s) { continue }
             let n = lv.boardToNav(p.at)
             let x0 = CGFloat(n % lv.NW) * cs, y0 = CGFloat(n / lv.NW) * cs
             g.saveGState()
-            // One shadow under the whole box (the rainbow, rim and "?" draw as a single layer).
-            g.setShadow(offset: CGSize(width: 0, height: cs * 0.25), blur: cs * 0.6, color: UIColor(white: 0, alpha: 0.35).cgColor)
-            g.beginTransparencyLayer(auxiliaryInfo: nil)
-            defer {
-                g.endTransparencyLayer()
-                g.restoreGState()
-            }
+            defer { g.restoreGState() }
+            // The empty pocket, inset: cream, shadowed along its top and left edges.
+            g.setFillColor(UIColor(hex: 0xFFF6DC).cgColor)
+            g.fill(CGRect(x: x0, y: y0, width: P, height: P))
+            g.setFillColor(UIColor(red: 90 / 255, green: 60 / 255, blue: 10 / 255, alpha: 0.35).cgColor)
+            g.fill(CGRect(x: x0, y: y0, width: P, height: max(1, cs * 0.25)))
+            g.fill(CGRect(x: x0, y: y0, width: max(1, cs * 0.25), height: P))
             g.translateBy(x: x0 + P / 2, y: y0 + P / 2)
-            let k = CGFloat(POCKET) * 0.94 / 1.62
+            // The box sits inside the pocket with a cream border showing all round, so it reads as set into the board.
+            let k = CGFloat(POCKET) * 0.76 / 1.62
             g.scaleBy(x: k, y: k)
             if p.claimed {
                 drawClaimed(g, p.tool)

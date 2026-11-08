@@ -179,6 +179,8 @@ final class GameModel: ObservableObject {
     /// Bumped when a box goes on hold (the backpack's dot pops).
     @Published private(set) var heldPop = 0
     private var boxSource: BoxSource?
+    /// This board's boxes, whose pockets were cut into its picture when it was built.
+    private var boardPickups: [Pickup] = []
     /// The day the free daily gift was last opened, and the gift being shown now.
     @Published private(set) var giftDay: Int
     @Published private(set) var giftShown: BoxReveal?
@@ -485,15 +487,20 @@ final class GameModel: ObservableObject {
         resetTools()
         stopFast()
         play(.intro)
-        if let baked {
+        // The mystery boxes' pockets are cut out of the picture before the board is built, so its solution plans
+        // around them. A pre-built board only fits the uncut picture, so it's used only when there are no boxes.
+        let cut = pocketBase(base, id: boxes.id, seed: seed, index: boxes.index, board: boxes.board, claimed: Set(picked))
+        boardPickups = cut.pickups
+        if let baked, cut.pickups.isEmpty {
             start(assembleLevel(base: base, diffKey: key, seed: seed, summary: baked, aim: aim))
             return
         }
+        let cutBase = cut.base
         buildTask = Task { [weak self] in
             let built = await Task.detached(priority: .userInitiated) { () -> LevelBox in
                 var o = BuildOptions.game
                 o.aim = aim
-                return LevelBox(generateLevel(base: base, seed: seed, diffKey: key, options: o))
+                return LevelBox(generateLevel(base: cutBase, seed: seed, diffKey: key, options: o))
             }.value
             guard let self, !Task.isCancelled, self.loadToken == token else { return }
             self.buildTask = nil
@@ -1297,16 +1304,20 @@ final class GameModel: ObservableObject {
     private var picked: [String] { store.stringArray(forKey: Self.pickedKey) ?? [] }
 
     /// A new try: the boxes go back on the board (any not opened on an earlier win) and nothing is on hold.
+    /// A new try: this board's boxes go back in their pockets (any opened on an earlier win stay opened) and nothing
+    /// is on hold.
     private func setupPickups(_ lv: Level, _ m: Sim) {
         held = []
         helped = false
-        pickups = []
-        guard let src = boxSource else { return }
-        pickups = placePickups(lv, m.s, rows: src.rows, id: src.id, seed: boardSeed, index: src.index,
-                               board: src.board, claimed: Set(picked))
+        let opened = Set(picked)
+        pickups = boardPickups.map { p in
+            var q = p
+            q.got = p.claimed || opened.contains(p.key)
+            return q
+        }
     }
 
-    /// A block under a box has been eaten: the box goes on hold.
+    /// The critters' open area has reached a pocket: its box goes on hold.
     private func checkPickups(_ m: Sim) {
         for k in pickups.indices where !pickups[k].got && pickups[k].reached(m.s) {
             pickups[k].got = true

@@ -13,7 +13,7 @@ The game's rules, timed ant simulation, level builder and solver in Swift, porte
 | `Generator.swift` | Player model, solution sequence, lane tuning, `generateLevel` |
 | `Solver.swift` | `solve`: the stored plan, then a depth-first search |
 | `Mechanics.swift` | When rocks and the locked slot appear, and where rocks go |
-| `Pickups.swift` | Mystery boxes: how many a board gets and which 3x3 patch each sits on |
+| `Pickups.swift` | Mystery boxes: how many a board gets, where each sits, and cutting their pockets into the picture |
 
 ## Tests
 

@@ -1,14 +1,15 @@
 import Foundation
 
 /* ---- Mystery boxes (JS setupPickups, artSpots) ----
-   A tool hides under a 3x3 patch of the board, drawn as a rainbow "?" box. When the critters eat the first block under
-   it, the box goes on hold; clearing the board without help opens it on the win card.
+   A tool hides in a 3x3 pocket cut into the board. When the critters' open area reaches the pocket, the box goes on
+   hold; clearing the board without help opens it on the win card.
 
-   Where the web game carves the patch out (taking its nine blocks off their nests, like Acorn Drop), the native game
-   leaves the blocks in place under the box. Carving shifts which nests come up short: the critters then leave nine
-   near blocks the board's solution expected gone, and those can wall off other colors. Played in real time, boards
-   that clear without a box got stuck with one. Leaving the blocks keeps every board exactly as it was built. Which
-   boards get boxes, the tools inside and where they sit are the web game's, pick for pick.
+   The web game cuts the pocket out of a finished board and takes its nine blocks off their nests (like Acorn Drop).
+   That shifts which nests come up short: the critters then leave nine nearby blocks the board's solution expected
+   gone, and those can wall off other colors, so boards that clear without a box got stuck with one. Here the pocket
+   is cut out of the picture before the board is built (`pocketBase`), so the builder plans its nests around the hole
+   and the board is as solvable as any other. Which boards get boxes, the tools inside and where they sit are the web
+   game's, pick for pick.
 
    How many: the warm-up hands out each tool on a schedule so new players meet them all; after that every third board
    has a box (sometimes two), every tenth board is a treasure board with three, and other boards sometimes have one.
@@ -45,8 +46,8 @@ public struct Pickup: Equatable, Sendable {
     /// Reached this try.
     public var got: Bool
 
-    /// A block under the box has been eaten.
-    public func reached(_ s: State) -> Bool { cells.contains { s.b[$0] == 0 } }
+    /// The critters' open area reaches the pocket.
+    public func reached(_ s: State) -> Bool { cells.contains { s.o[$0] != 0 } }
 }
 
 /// Warm-up schedule (JS PICK_SCHED): board within the pack -> tools, "?" for a random one.
@@ -129,6 +130,28 @@ public func placePickups(_ lv: Level, _ s: State, rows: [String], id: String, se
         out.append(Pickup(at: at, r: at / W, c: at % W, cells: cells, tool: t, key: key, claimed: was, got: was))
     }
     return out
+}
+
+/// The board's picture with its mystery-box pockets cut out (each 3x3 left empty), and the boxes. Build the board
+/// from the returned base: the pockets are part of the picture, so the builder's solution already accounts for them.
+/// Rocks and the lock carry over unchanged (a pocket never sits on a rock).
+public func pocketBase(_ base: LevelBase, id: String, seed: Int, index: Int, board: PickupBoard,
+                       claimed: Set<String>) -> (base: LevelBase, pickups: [Pickup]) {
+    let art = Art(base, slots: 5)
+    let lv = Level(art: art, slots: 5, lanes: [])
+    let s = initState(lv)
+    let p = placePickups(lv, s, rows: base.rows, id: id, seed: seed, index: index, board: board, claimed: claimed)
+    if p.isEmpty { return (base, []) }
+    var grid = base.rows.map { Array($0) }
+    for k in p {
+        for j in k.cells {
+            let r = j / art.W, c = j % art.W
+            if r < grid.count && c < grid[r].count { grid[r][c] = "." }
+        }
+    }
+    var out = base
+    out.rows = grid.map { String($0) }
+    return (out, p)
 }
 
 /// Features of a picture a box can stand in for (JS artSpots): small patches of one colour fully ringed by another
