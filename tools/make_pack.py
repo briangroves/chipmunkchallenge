@@ -34,6 +34,7 @@ import image_to_board as conv  # noqa: E402
 ROOT = os.path.dirname(HERE)
 BOARDS = os.path.join(ROOT, "Engine/Sources/ChipmunkEngine/Resources/boards.json")
 CACHE = os.path.expanduser("~/Library/Caches/chipmunk-boards")
+LANE = (0, 1)            # (k, W): this builder only uses backdrop variants v with v % W == k (parallel builders)
 FIRST_NEW = 170          # board index of the first new board (the 170 original boards come first)
 UA = {"User-Agent": "chipmunk-board-import/0.1"}
 # Titles that are rarely a single clean subject at board size.
@@ -46,12 +47,12 @@ SKIP = ("vintage", "collage", "pattern", "seamless", "set", "frame", "line art",
         "ornament", "wreath", "pattern", "mandala")
 
 
-def search(query, n=20):
+def search(query, n=20, page=1):
     """Openverse results for a query (titles always text), cached so a rebuild doesn't search again."""
-    key = os.path.join(CACHE, "search", urllib.parse.quote(query, safe="") + ".json")
+    key = os.path.join(CACHE, "search", urllib.parse.quote(query, safe="") + (f"-p{page}" if page > 1 else "") + ".json")
     if os.path.exists(key):
         return json.load(open(key))
-    found = _search(query, n)
+    found = _search(query, n, page)
     for r in found:
         r["title"] = r.get("title") or ""
     if found:
@@ -60,9 +61,9 @@ def search(query, n=20):
     return found
 
 
-def _search(query, n=20):
+def _search(query, n=20, page=1):
     url = "https://api.openverse.org/v1/images/?" + urllib.parse.urlencode(
-        {"q": query, "license": "cc0", "page_size": n})
+        {"q": query, "license": "cc0", "page_size": n, "page": page})
     # Openverse's anonymous limit is low: space searches out and back off on errors (a 429 used to leave subjects
     # with no picture).
     time.sleep(4)
@@ -74,6 +75,36 @@ def _search(query, n=20):
             time.sleep(15 * (attempt + 1))
     print("   search failed:", query)
     return []
+
+
+def openclipart(query, page=1):
+    """Openclipart.org search results (all its clipart is public domain, CC0), shaped like Openverse results and
+    cached. Its pictures are flat cartoon vectors, which convert well; line art is rejected by the converter."""
+    key = os.path.join(CACHE, "openclipart", urllib.parse.quote(query, safe="") + f"-p{page}.json")
+    if os.path.exists(key):
+        return json.load(open(key))
+    url = "https://openclipart.org/search/?" + urllib.parse.urlencode({"query": query, "p": page})
+    time.sleep(2)
+    html = None
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+                html = r.read().decode("utf-8", "replace")
+            break
+        except Exception:
+            time.sleep(10 * (attempt + 1))
+    if html is None:
+        print("   openclipart search failed:", query)
+        return []
+    found = []
+    for num, slug in dict.fromkeys(re.findall(r'href="/detail/(\d+)/([^"]+)"', html)):
+        found.append({"id": f"openclipart-{num}", "title": slug.replace("-", " "),
+                      "url": f"https://openclipart.org/image/800px/{num}",
+                      "foreign_landing_url": f"https://openclipart.org/detail/{num}/{slug}",
+                      "license": "cc0", "license_version": "1.0", "source": "openclipart", "creator": None})
+    os.makedirs(os.path.dirname(key), exist_ok=True)
+    json.dump(found, open(key, "w"))
+    return found
 
 
 def fetch(item):
@@ -130,17 +161,27 @@ def candidates(subject, taken, taken_sigs=(), max_candidates=8):
     """Convert the best few search results for a subject, best heuristic score first."""
     # The first phrasings that return enough pictures naming the subject win; long phrasings often return nothing.
     name = subject["name"].lower()
-    match = [m.lower() for m in subject.get("match", [subject["name"].split()[-1]])]
+    if "match" in subject:
+        match = [m.lower() for m in subject["match"]]
+        names_it = lambda t: any(m in t for m in match)
+    else:
+        # Without a `match` list the title must name every main word ("ladybug on leaf" needs both), so a spare
+        # like "Beetle Car" can't turn into any old car.
+        words = [w[:-1] if w.endswith("s") and len(w) > 4 else w for w in name.replace("-", " ").split()
+                 if len(w) > 2 and w not in ("with", "the", "and")]
+        match = words
+        names_it = lambda t: all(w in t for w in words)
     queries = [subject["query"]]
     for q in (f"cute {name} cartoon", f"{name} cartoon", f"{name} clipart", f"{name} illustration",
               f"{name} png sticker", f"{name} vector"):
         if q not in queries:
             queries.append(q)
     results = []
-    for q in queries:
-        found = search(q)
+    for k, q in enumerate(queries):
+        # The first two phrasings also get a second page: good cartoons are often past the first 20 results.
+        found = search(q) + (search(q, page=2) if k < 2 else [])
         results += [r for r in found if r["id"] not in {x["id"] for x in results}]
-        if len([r for r in results if any(m in r["title"].lower() for m in match)]) >= max_candidates:
+        if len([r for r in results if names_it(r["title"].lower())]) >= 2 * max_candidates:
             break
     # The title has to name the subject (any of `match`, by default the subject's name), so a search for "goose"
     # can't hand back a snail. Skip words that are part of the subject's own name don't count ("Snow Globe").
@@ -151,14 +192,26 @@ def candidates(subject, taken, taken_sigs=(), max_candidates=8):
     # Museum scans (etchings, dissections, coats of arms) come up for rarer animals; only pictures whose title says
     # they are clipart, cartoons or stickers convert well.
     style = ("clipart", "clip art", "cartoon", "sticker", "png", "vector", "image element", "illustration")
+    # Openclipart is a second source: everything there is clipart, so its titles don't need the style words.
+    name_q = subject.get("match", [name])[0] if "match" in subject else name
+    for q in (f"cartoon {name_q}", name_q):
+        have = {x["id"] for x in results}
+        results += [r for r in openclipart(q) if r["id"] not in have]
     picks = [r for r in results
              if r["id"] not in taken and not any(w in r["title"].lower() for w in skip) and not old.search(r["title"])
-             and any(w in r["title"].lower() for w in style)
+             and (r.get("source") == "openclipart" or any(w in r["title"].lower() for w in style))
              and not any(w in r["title"].lower() for w in ("etching", "dissection", "coloured", "lithograph"))
-             and any(m in r["title"].lower() for m in match)]
-    picks.sort(key=lambda r: r.get("source") != "rawpixel")
+             and names_it(r["title"].lower())]
+    # Cartoon characters first (they pass the blind check far more often than plain "illustration"s), rawpixel's
+    # clean cut-outs before other sources.
+    cute = ("cute", "cartoon", "character", "kawaii", "happy", "smiling", "sticker", "baby")
+    picks.sort(key=lambda r: (-sum(w in r["title"].lower() for w in cute), r.get("source") != "rawpixel"))
+    # Alternate the two libraries so each subject tries some of both.
+    a = [r for r in picks if r.get("source") != "openclipart"]
+    b = [r for r in picks if r.get("source") == "openclipart"]
+    picks = [r for pair in zip(a, b) for r in pair] + a[len(b):] + b[len(a):]
     out = []
-    for item in picks[:max_candidates + 2]:
+    for item in picks[:max_candidates * 2]:
         if len(out) >= max_candidates:
             break
         try:
@@ -275,7 +328,16 @@ def main():
     ap.add_argument("--next", type=int, help="build the next N packs from a queue file that aren't built yet")
     ap.add_argument("--until", type=int, help="build queued packs not built yet until the game has this many levels")
     ap.add_argument("--no-check", action="store_true", help="skip the blind check (no API calls)")
+    ap.add_argument("--boards", help="write to this board file instead of the game's (a parallel builder)")
+    ap.add_argument("--lane", help="k/W: use only backdrop variants v with v %% W == k, so W parallel builders "
+                                   "never draw the same background")
+    ap.add_argument("--only", help="comma-separated pack ids: build these (not yet built) in queue order")
     a = ap.parse_args()
+    global BOARDS, LANE
+    if a.boards:
+        BOARDS = os.path.abspath(a.boards)
+    if a.lane:
+        LANE = tuple(int(x) for x in a.lane.split("/"))
     client = None
     if not a.no_check:
         import anthropic
@@ -295,6 +357,12 @@ def main():
             build(normalize(spec), os.path.join(os.path.dirname(a.file), spec["id"] + ".json"), client)
         have = FIRST_NEW + sum(len(p["levels"]) for p in json.load(open(BOARDS))["packs"])
         print(f"{have} levels" + ("" if have >= a.until else f": the queue ran out {a.until - have} short"))
+        return
+    if a.only:
+        ids = a.only.split(",")
+        for spec in [p for p in doc["packs"] if p["id"] in ids and p["id"] not in built]:
+            print(f"=== {spec['name']}")
+            build(normalize(spec), os.path.join(os.path.dirname(a.file), spec["id"] + ".json"), client)
         return
     todo = [p for p in doc["packs"] if (a.pack and p["id"] == a.pack) or (a.next and p["id"] not in built)]
     for spec in todo[: a.next or len(todo)]:
@@ -331,7 +399,11 @@ def build(spec, sheet_base, client=None):
         if sum(map(good, made)) >= PACK_SIZE or (spare and not client and len(made) >= PACK_SIZE):
             break
         print(f"{'Spare' if spare else 'Subject'} {k + 1}: {subject['name']}")
-        board = best_board(subject, lambda **kw: backdrops.pick_themes(groups, used, recent, **kw),
+        k_, w_ = LANE
+        lane_used = {i: v + (k_ - v) % w_ for i, v in used.items()}
+        for i in range(len(names)):
+            lane_used.setdefault(i, k_)
+        board = best_board(subject, lambda **kw: backdrops.pick_themes(groups, lane_used, recent, **kw),
                            taken | {B["source"]["id"] for B in made},
                            others_sigs + [set(B["sig"]) for B in made], client)
         if not board:

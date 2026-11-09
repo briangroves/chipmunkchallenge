@@ -1,0 +1,411 @@
+{
+ "ladybug-266": {
+  "guess": "ladybug",
+  "alternatives": [
+   "red beetle",
+   "red mushroom cap with a creature"
+  ],
+  "readability": 4,
+  "features": [
+   "red shell with black spots",
+   "dark blue head",
+   "big white cartoon eyes",
+   "smiling mouth",
+   "grass ground",
+   "sunset sky with sun"
+  ],
+  "problems": [
+   "no visible legs or antennae",
+   "dark blue head blends with purple background",
+   "shell shape is a bit blobby",
+   "eyes look separate from the body"
+  ],
+  "digest": "863f4bc0db764af1",
+  "grade": "pass",
+  "score": 82
+ },
+ "bee-267": {
+  "guess": "bumblebee",
+  "alternatives": [
+   "wasp",
+   "yellow bird"
+  ],
+  "readability": 5,
+  "features": [
+   "yellow and black striped body",
+   "large white wings",
+   "big cartoon eyes",
+   "antennae with orange tips",
+   "stinger area at back",
+   "flowers and grass background",
+   "blue sky"
+  ],
+  "problems": [
+   "no clear legs",
+   "face/mouth area is a bit blobby",
+   "antennae are small and detached-looking"
+  ],
+  "digest": "f6d4a0b9ed9aa411",
+  "grade": "pass",
+  "score": 88
+ },
+ "butterfly-268": {
+  "guess": "butterfly on a flower",
+  "alternatives": [
+   "moth",
+   "fairy"
+  ],
+  "readability": 4,
+  "features": [
+   "large purple wings with white and yellow spots",
+   "dark outlines on wings",
+   "small white head with eyes",
+   "orange body",
+   "light green leaves or petals below",
+   "red flower beneath"
+  ],
+  "problems": [
+   "head is tiny and hard to read as a face",
+   "green leaves overlap the body and confuse the shape",
+   "pink striped background clashes with the red and purple"
+  ],
+  "digest": "4e79a11a962814a2",
+  "grade": "pass",
+  "score": 82
+ },
+ "snail-269": {
+  "guess": "snail with orange spiral shell",
+  "alternatives": [
+   "slug",
+   "hermit crab"
+  ],
+  "readability": 4,
+  "features": [
+   "orange spiral shell",
+   "big cartoon eyes on stalks",
+   "brown-beige body/foot",
+   "sunset sky with moon",
+   "castle in background",
+   "green bushes"
+  ],
+  "problems": [
+   "eye stalks and head blend slightly with green background",
+   "eyes look like goggles, somewhat odd",
+   "body underside merges with dark ground"
+  ],
+  "digest": "f5abaadce5021d5b",
+  "grade": "pass",
+  "score": 78
+ },
+ "caterpillar-270": {
+  "guess": "green worm or caterpillar standing up",
+  "alternatives": [
+   "pickle character",
+   "green snake"
+  ],
+  "readability": 2,
+  "features": [
+   "tall rounded green body with dark outline",
+   "white eyes near the bottom",
+   "small yellow spots",
+   "red flower at its base"
+  ],
+  "problems": [
+   "eyes are placed oddly low, unclear where the head is",
+   "green body blends into the green grass background",
+   "no clear mouth or limbs",
+   "dark patches on body look like noise rather than features"
+  ],
+  "digest": "1de0a3cf20d532b0",
+  "grade": "weak",
+  "score": 70
+ },
+ "dragonfly-271": {
+  "guess": "red dragonfly (Flygon-like desert dragon)",
+  "alternatives": [
+   "Flygon Pok\u00e9mon",
+   "red dragon flying"
+  ],
+  "readability": 4,
+  "features": [
+   "red body with long segmented tail",
+   "four light-blue wings with dark outlines",
+   "head with white eyes",
+   "desert background with sun and dunes",
+   "small bird silhouette in sky"
+  ],
+  "problems": [
+   "head is small and eyes are hard to read",
+   "red tail blends somewhat with orange background",
+   "wings dominate and overlap body, making shape busy"
+  ],
+  "digest": "c08b97a4a8161de2",
+  "grade": "pass",
+  "score": 86
+ },
+ "ant-272": {
+  "guess": "red ant",
+  "alternatives": [
+   "red caterpillar",
+   "red bug with big eyes"
+  ],
+  "readability": 2,
+  "features": [
+   "big cartoon eyes on top",
+   "antennae dots above head",
+   "dark red body",
+   "small dark legs",
+   "yellow and white shapes near bottom (possibly feet or flowers)"
+  ],
+  "problems": [
+   "body is a large blobby red mass with no clear segments",
+   "eyes float above body, head not defined",
+   "legs barely visible and blend with dark green grass",
+   "yellow/white shapes at bottom are confusing",
+   "green foliage overlaps and breaks the silhouette"
+  ],
+  "digest": "d18b834dc0e76426",
+  "grade": "weak",
+  "score": 78
+ },
+ "beetle-273": {
+  "guess": "striped beetle (yellow and black bug)",
+  "alternatives": [
+   "bumblebee",
+   "Colorado potato beetle"
+  ],
+  "readability": 3,
+  "features": [
+   "large rounded black body with yellow stripes",
+   "orange head/front section",
+   "grey spiky legs sticking out to the sides",
+   "outdoor setting with grass, trees, stream and flowers"
+  ],
+  "problems": [
+   "no clear eyes or face",
+   "head area is a messy mix of orange, brown and blue",
+   "legs are short grey fragments that blend with the ground",
+   "body shape is a blob, hard to tell front from back",
+   "dark outline merges with dark green grass"
+  ],
+  "digest": "9c0eaaac5b0ec244",
+  "grade": "pass",
+  "score": 72
+ },
+ "spider-274": {
+  "guess": "Spider-Man crouching",
+  "alternatives": [
+   "red superhero leaping",
+   "red robot"
+  ],
+  "readability": 2,
+  "features": [
+   "red suit with black web lines",
+   "white eye patch on head",
+   "outstretched arm",
+   "bent legs/crouching pose"
+  ],
+  "problems": [
+   "head is hard to read, white eye looks like a beak",
+   "body is a blobby mass of red and black",
+   "limbs merge together",
+   "pose is unclear",
+   "black outlines make it busy"
+  ],
+  "digest": "3a8ac186387ec491",
+  "grade": "weak",
+  "score": 70
+ },
+ "moth-275": {
+  "guess": "moth or butterfly (black and orange)",
+  "alternatives": [
+   "beetle",
+   "bat"
+  ],
+  "readability": 2,
+  "features": [
+   "spread black wings with grey and white markings",
+   "orange and yellow center patterns",
+   "small head/antenna nub at top",
+   "second similar winged shape below on orange ground"
+  ],
+  "problems": [
+   "no clear body, antennae or legs",
+   "shape is a wide blob that could be many things",
+   "duplicate figure in lower half is confusing",
+   "lower figure's dark red and orange blend into orange ground",
+   "no recognizable face"
+  ],
+  "digest": "634db03b5a8aa304",
+  "grade": "weak",
+  "score": 66
+ },
+ "bumblebee-276": {
+  "guess": "sleeping bumblebee",
+  "alternatives": [
+   "yellow caterpillar",
+   "striped bug"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow and black striped body",
+   "large white wing",
+   "head with closed sleepy eyes",
+   "small antenna-like dark tuft",
+   "grass and flowers background"
+  ],
+  "problems": [
+   "wing is huge and blobby, dominates the image",
+   "bee is lying sideways so the body reads oddly as vertical stripes",
+   "face is small and squashed at the edge",
+   "no visible legs or stinger"
+  ],
+  "digest": "ca4f715b22327f0d",
+  "grade": "pass",
+  "score": 76
+ },
+ "beehive-277": {
+  "guess": "beehive",
+  "alternatives": [
+   "tiger-striped rock",
+   "striped pumpkin"
+  ],
+  "readability": 3,
+  "features": [
+   "dome-shaped body",
+   "orange and black horizontal stripes",
+   "dark entrance/base area",
+   "dark branch shape above with a bird-like blob"
+  ],
+  "problems": [
+   "no bees visible to confirm it's a hive",
+   "dark shape above is unclear (branch? bird? kettle spout?)",
+   "stripes are irregular, making the shape blobby",
+   "blue blob on the right is unexplained"
+  ],
+  "digest": "fd8013b893e217e0",
+  "grade": "pass",
+  "score": 68
+ },
+ "wasp-278": {
+  "guess": "yellow and black bird (oriole) lying in grass",
+  "alternatives": [
+   "bee or wasp",
+   "tiger"
+  ],
+  "readability": 2,
+  "features": [
+   "yellow and black striped body",
+   "dark wing/tail feathers with grey tips",
+   "brown beak-like part on left",
+   "small red eye spot",
+   "dark legs"
+  ],
+  "problems": [
+   "no clear head or face",
+   "pose is lying sideways and confusing",
+   "body is a blobby yellow-black mass",
+   "hard to tell where head and tail are",
+   "legs and stripes blend together"
+  ],
+  "digest": "bac6f8ea376f100b",
+  "grade": "weak",
+  "score": 52
+ },
+ "scorpion-279": {
+  "guess": "scorpion in the desert",
+  "alternatives": [
+   "desert lizard",
+   "giant spider"
+  ],
+  "readability": 3,
+  "features": [
+   "curled tail with stinger raised over the body",
+   "red eye near the stinger tip",
+   "dark red body",
+   "legs with dark joints spreading out",
+   "desert setting with sun, cacti, sand"
+  ],
+  "problems": [
+   "no clear pincers/claws visible",
+   "body is a blobby mass of dark red and black",
+   "tail looks like a thin hook and could be read as a neck",
+   "legs blend together with dark patches and orange outline",
+   "viewed from behind/top so no face"
+  ],
+  "digest": "d2b1d815a3412dcf",
+  "grade": "pass",
+  "score": 84
+ },
+ "butterfly-on-flower-280": {
+  "guess": "black dragon on a fire-colored flower",
+  "alternatives": [
+   "crow or raven spreading wings",
+   "black cat lying on autumn leaves"
+  ],
+  "readability": 2,
+  "features": [
+   "black body with blue highlights",
+   "pointed shapes like wings or ears on top",
+   "large red-orange-yellow star/flower shape underneath",
+   "mountain and sun background, grass"
+  ],
+  "problems": [
+   "no clear face or eyes",
+   "black blob shape with no recognizable silhouette",
+   "lower red/orange mass is ambiguous (flower, fire, or leaves)",
+   "subject parts merge together and black edges blend with dark outlines"
+  ],
+  "digest": "7643605fe6304e7b",
+  "grade": "weak",
+  "score": 70
+ },
+ "spider-web-281": {
+  "guess": "spider web",
+  "alternatives": [
+   "pentagon-shaped rock",
+   "dark star or shield emblem"
+  ],
+  "readability": 2,
+  "features": [
+   "dark pentagon-like outline with a pointed top",
+   "white concentric rings forming web-like strands",
+   "central swirl in the middle",
+   "sunset sky background with sun",
+   "green grass ground"
+  ],
+  "problems": [
+   "no spider shown, so the web is hard to identify",
+   "web strands are irregular and broken, looking like scribbles",
+   "dark filled background behind the web makes it read as a solid blob or rock",
+   "overall shape is an odd pentagon rather than a typical web",
+   "busy striped purple background competes with the subject"
+  ],
+  "digest": "a51a7890c46b604b",
+  "grade": "weak",
+  "score": 62
+ },
+ "beetle-car-282": {
+  "guess": "green car",
+  "alternatives": [
+   "green beetle-style buggy",
+   "race car"
+  ],
+  "readability": 4,
+  "features": [
+   "rounded car body",
+   "white windows",
+   "two dark wheels with grey hubs",
+   "dark outline",
+   "roof"
+  ],
+  "problems": [
+   "green car blends into green grass and trees",
+   "wheels partly merged with dark body outline",
+   "windows look a bit like eyes, could read as a creature"
+  ],
+  "digest": "86b64ebdd5637bdf",
+  "grade": "pass",
+  "score": 78
+ }
+}
