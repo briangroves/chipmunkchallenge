@@ -2,6 +2,8 @@
 """Build a pack of new boards from free clipart.
 
     python3 -I tools/make_pack.py tools/packs/farm.json
+    python3 -I tools/make_pack.py tools/packs/queue.json --next 2     # the next 2 packs from the queue not yet built
+    python3 -I tools/make_pack.py tools/packs/queue.json --pack woodland
 
 The pack file lists the subjects and a search phrase for each:
     {"id": "farm", "name": "Farm Animals", "subjects": [{"name": "Cow", "query": "cow cartoon"}, ...]}
@@ -143,8 +145,35 @@ def sheet(levels, out):
     os.remove(out + ".ppm")
 
 
+def normalize(spec):
+    """Subjects may be plain names: the search phrase and title match then come from the name."""
+    subs = []
+    for s in spec["subjects"]:
+        if isinstance(s, str):
+            s = {"name": s}
+        s.setdefault("query", f"{s['name'].lower()} cartoon clipart")
+        subs.append(s)
+    return dict(spec, subjects=subs)
+
+
 def main():
-    spec = json.load(open(sys.argv[1]))
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("file")
+    ap.add_argument("--pack", help="build this pack from a queue file")
+    ap.add_argument("--next", type=int, help="build the next N packs from a queue file that aren't built yet")
+    a = ap.parse_args()
+    doc = json.load(open(a.file))
+    if "packs" not in doc:
+        build(normalize(doc), a.file)
+        return
+    built = {p["id"] for p in json.load(open(BOARDS))["packs"]} if os.path.exists(BOARDS) else set()
+    todo = [p for p in doc["packs"] if (a.pack and p["id"] == a.pack) or (a.next and p["id"] not in built)]
+    for spec in todo[: a.next or len(todo)]:
+        build(normalize(spec), os.path.join(os.path.dirname(a.file), spec["id"] + ".json"))
+
+
+def build(spec, sheet_base):
     data = json.load(open(BOARDS)) if os.path.exists(BOARDS) else {"format": 1, "packs": []}
     others = [p for p in data["packs"] if p["id"] != spec["id"]]
     start = FIRST_NEW + sum(len(p["levels"]) for p in others)
@@ -182,7 +211,7 @@ def main():
         allsig[L["id"]] = L.pop("sig")
     json.dump(allsig, open(sigfile, "w"))
     json.dump(data, open(BOARDS, "w"), separators=(",", ":"))
-    out = os.path.splitext(sys.argv[1])[0] + "-sheet.png"
+    out = os.path.splitext(sheet_base)[0] + "-sheet.png"
     sheet(levels, out)
     print(f"Wrote {len(levels)} boards to {BOARDS}; review sheet {out}")
 

@@ -1,0 +1,1223 @@
+{
+ "note": "Packs queued after Farm Animals (levels 171-190). Each pack is 20 boards; run with `python3 -I tools/make_pack.py tools/packs/queue.json --next 1` (or --pack ID), review the sheet, fix any subject with \"query\"/\"match\"/\"avoid\" in a pack file, and rerun.",
+ "packs": [
+  {
+   "id": "woodland",
+   "name": "Woodland Critters",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Fox",
+    "Owl",
+    "Hedgehog",
+    "Squirrel",
+    "Raccoon",
+    "Deer",
+    "Bear",
+    "Badger",
+    "Beaver",
+    "Skunk",
+    "Porcupine",
+    "Chipmunk",
+    "Moose",
+    "Wolf",
+    "Mole",
+    "Woodpecker",
+    "Bluebird",
+    "Frog",
+    "Toad",
+    "Opossum"
+   ]
+  },
+  {
+   "id": "jungle",
+   "name": "Jungle Safari",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Lion",
+    "Tiger",
+    "Elephant",
+    "Giraffe",
+    "Zebra",
+    "Monkey",
+    "Gorilla",
+    "Hippo",
+    "Rhino",
+    "Crocodile",
+    "Parrot",
+    "Toucan",
+    "Flamingo",
+    "Sloth",
+    "Leopard",
+    "Cheetah",
+    "Chameleon",
+    "Snake",
+    "Lemur",
+    "Peacock"
+   ]
+  },
+  {
+   "id": "ocean2",
+   "name": "Ocean Friends",
+   "themes": [
+    "water",
+    "land"
+   ],
+   "subjects": [
+    "Whale",
+    "Dolphin",
+    "Octopus",
+    "Crab",
+    "Lobster",
+    "Seahorse",
+    "Sea Turtle",
+    "Shark",
+    "Jellyfish",
+    "Starfish",
+    "Pufferfish",
+    "Clownfish",
+    "Seal",
+    "Walrus",
+    "Squid",
+    "Stingray",
+    "Narwhal",
+    "Otter",
+    "Pelican",
+    "Orca"
+   ]
+  },
+  {
+   "id": "arctic",
+   "name": "Arctic Pals",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Polar Bear",
+    "Penguin",
+    "Arctic Fox",
+    "Snowy Owl",
+    "Reindeer",
+    "Husky",
+    "Seal Pup",
+    "Puffin",
+    "Arctic Hare",
+    "Musk Ox",
+    "Beluga",
+    "Snow Leopard",
+    "Ermine",
+    "Igloo",
+    "Sled",
+    "Snowman",
+    "Ice Skates",
+    "Mittens",
+    "Snow Globe",
+    "Yeti"
+   ]
+  },
+  {
+   "id": "bugs",
+   "name": "Bugs & Critters",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Ladybug",
+    "Bee",
+    "Butterfly",
+    "Snail",
+    "Caterpillar",
+    "Dragonfly",
+    "Ant",
+    "Grasshopper",
+    "Beetle",
+    "Firefly",
+    "Spider",
+    "Worm",
+    "Moth",
+    "Cricket",
+    "Bumblebee",
+    "Praying Mantis",
+    "Stag Beetle",
+    "Honeycomb",
+    "Beehive",
+    "Cocoon"
+   ]
+  },
+  {
+   "id": "birds",
+   "name": "Feathered Friends",
+   "themes": [
+    "land",
+    "city"
+   ],
+   "subjects": [
+    "Robin",
+    "Cardinal",
+    "Blue Jay",
+    "Hummingbird",
+    "Eagle",
+    "Swan",
+    "Pigeon",
+    "Crow",
+    "Sparrow",
+    "Kingfisher",
+    "Ostrich",
+    "Stork",
+    "Seagull",
+    "Macaw",
+    "Cockatoo",
+    "Canary",
+    "Heron",
+    "Pelican",
+    "Owlet",
+    "Goldfinch"
+   ]
+  },
+  {
+   "id": "fruit",
+   "name": "Fruit Basket",
+   "themes": [
+    "land",
+    "indoor"
+   ],
+   "subjects": [
+    "Apple",
+    "Banana",
+    "Cherries",
+    "Grapes",
+    "Lemon",
+    "Orange",
+    "Pear",
+    "Pineapple",
+    "Strawberry",
+    "Watermelon",
+    "Kiwi",
+    "Mango",
+    "Peach",
+    "Plum",
+    "Coconut",
+    "Blueberries",
+    "Avocado",
+    "Pomegranate",
+    "Lime",
+    "Raspberry"
+   ]
+  },
+  {
+   "id": "veggies",
+   "name": "Veggie Patch",
+   "themes": [
+    "land",
+    "indoor"
+   ],
+   "subjects": [
+    "Carrot",
+    "Broccoli",
+    "Corn",
+    "Tomato",
+    "Potato",
+    "Pumpkin",
+    "Eggplant",
+    "Bell Pepper",
+    "Onion",
+    "Mushroom",
+    "Peas",
+    "Cucumber",
+    "Lettuce",
+    "Radish",
+    "Garlic",
+    "Cabbage",
+    "Beet",
+    "Chili Pepper",
+    "Sweet Potato",
+    "Artichoke"
+   ]
+  },
+  {
+   "id": "sweets",
+   "name": "Sweet Treats",
+   "themes": [
+    "indoor",
+    "land",
+    "city"
+   ],
+   "subjects": [
+    "Cupcake",
+    "Donut",
+    "Ice Cream",
+    "Lollipop",
+    "Candy",
+    "Birthday Cake",
+    "Cookie",
+    "Chocolate Bar",
+    "Pie",
+    "Cotton Candy",
+    "Macaron",
+    "Popsicle",
+    "Pudding",
+    "Waffle",
+    "Pancakes",
+    "Muffin",
+    "Gingerbread Man",
+    "Candy Cane",
+    "Cherry Pie",
+    "Jelly"
+   ]
+  },
+  {
+   "id": "meals",
+   "name": "Lunch Time",
+   "themes": [
+    "indoor",
+    "city"
+   ],
+   "subjects": [
+    "Pizza",
+    "Burger",
+    "Hot Dog",
+    "Taco",
+    "Sandwich",
+    "Sushi",
+    "Noodles",
+    "French Fries",
+    "Fried Egg",
+    "Toast",
+    "Cheese",
+    "Soup",
+    "Pretzel",
+    "Popcorn",
+    "Burrito",
+    "Bagel",
+    "Croissant",
+    "Salad",
+    "Milk",
+    "Orange Juice"
+   ]
+  },
+  {
+   "id": "cityride",
+   "name": "City Rides",
+   "themes": [
+    "city",
+    "land"
+   ],
+   "subjects": [
+    "Car",
+    "Bus",
+    "Taxi",
+    "Fire Truck",
+    "Police Car",
+    "Ambulance",
+    "Garbage Truck",
+    "Scooter",
+    "Bicycle",
+    "Motorcycle",
+    "Tram",
+    "Van",
+    "Ice Cream Truck",
+    "School Bus",
+    "Delivery Truck",
+    "Race Car",
+    "Jeep",
+    "Limousine",
+    "Tow Truck",
+    "Train"
+   ]
+  },
+  {
+   "id": "skysea",
+   "name": "Sky & Sea",
+   "themes": [
+    "land",
+    "water"
+   ],
+   "subjects": [
+    "Airplane",
+    "Helicopter",
+    "Hot Air Balloon",
+    "Rocket",
+    "Sailboat",
+    "Ship",
+    "Submarine",
+    "Canoe",
+    "Blimp",
+    "Glider",
+    "Seaplane",
+    "Ferry",
+    "Tugboat",
+    "Speedboat",
+    "Kayak",
+    "Yacht",
+    "Paper Plane",
+    "Kite",
+    "Parachute",
+    "Flying Saucer"
+   ]
+  },
+  {
+   "id": "space2",
+   "name": "Star Voyage",
+   "themes": [
+    "space",
+    "city",
+    "land"
+   ],
+   "subjects": [
+    "Astronaut",
+    "Planet",
+    "Moon",
+    "Sun",
+    "Shooting Star",
+    "Comet",
+    "Satellite",
+    "Alien",
+    "Telescope",
+    "Space Rocket",
+    "Space Station",
+    "Rover",
+    "Spaceship",
+    "Asteroid",
+    "Galaxy",
+    "Constellation",
+    "Moon Lander",
+    "Space Helmet",
+    "Jetpack",
+    "Robot Dog"
+   ]
+  },
+  {
+   "id": "music",
+   "name": "Music Room",
+   "themes": [
+    "indoor",
+    "city"
+   ],
+   "subjects": [
+    "Guitar",
+    "Piano",
+    "Drum",
+    "Violin",
+    "Trumpet",
+    "Saxophone",
+    "Flute",
+    "Harp",
+    "Ukulele",
+    "Accordion",
+    "Tambourine",
+    "Xylophone",
+    "Cello",
+    "Banjo",
+    "Harmonica",
+    "Maracas",
+    "Microphone",
+    "Headphones",
+    "Radio",
+    "Bell"
+   ]
+  },
+  {
+   "id": "sports",
+   "name": "Game Day",
+   "themes": [
+    "land",
+    "city"
+   ],
+   "subjects": [
+    "Soccer Ball",
+    "Basketball",
+    "Baseball",
+    "Tennis Racket",
+    "Football",
+    "Bowling Pin",
+    "Golf Ball",
+    "Skateboard",
+    "Surfboard",
+    "Skis",
+    "Hockey Stick",
+    "Trophy",
+    "Medal",
+    "Boxing Glove",
+    "Volleyball",
+    "Roller Skates",
+    "Ping Pong",
+    "Badminton",
+    "Frisbee",
+    "Whistle"
+   ]
+  },
+  {
+   "id": "toys",
+   "name": "Toy Box",
+   "themes": [
+    "indoor"
+   ],
+   "subjects": [
+    "Teddy Bear",
+    "Robot",
+    "Doll",
+    "Yo-yo",
+    "Spinning Top",
+    "Building Blocks",
+    "Rocking Horse",
+    "Toy Train",
+    "Beach Ball",
+    "Jigsaw Puzzle",
+    "Jack in the Box",
+    "Marbles",
+    "Toy Dinosaur",
+    "Toy Car",
+    "Toy Drum",
+    "Balloon",
+    "Puppet",
+    "Kite",
+    "Rubber Duck",
+    "Dollhouse"
+   ]
+  },
+  {
+   "id": "dinos",
+   "name": "Dino Land",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "T-Rex",
+    "Triceratops",
+    "Stegosaurus",
+    "Brachiosaurus",
+    "Pterodactyl",
+    "Velociraptor",
+    "Ankylosaurus",
+    "Parasaurolophus",
+    "Dinosaur Egg",
+    "Baby Dinosaur",
+    "Diplodocus",
+    "Spinosaurus",
+    "Iguanodon",
+    "Plesiosaur",
+    "Volcano",
+    "Fossil",
+    "Mammoth",
+    "Saber Tooth Cat",
+    "Dodo",
+    "Caveman"
+   ]
+  },
+  {
+   "id": "fantasy",
+   "name": "Fairy Tales",
+   "themes": [
+    "land",
+    "city"
+   ],
+   "subjects": [
+    "Dragon",
+    "Unicorn",
+    "Wizard",
+    "Fairy",
+    "Castle",
+    "Mermaid",
+    "Knight",
+    "Princess",
+    "Crown",
+    "Magic Wand",
+    "Potion",
+    "Treasure Chest",
+    "Genie Lamp",
+    "Pegasus",
+    "Troll",
+    "Elf",
+    "Phoenix",
+    "Crystal Ball",
+    "Spell Book",
+    "Gnome"
+   ]
+  },
+  {
+   "id": "halloween",
+   "name": "Spooky Night",
+   "themes": [
+    "land",
+    "city"
+   ],
+   "subjects": [
+    "Jack-o-lantern",
+    "Ghost",
+    "Witch Hat",
+    "Bat",
+    "Black Cat",
+    "Candy Bucket",
+    "Mummy",
+    "Vampire",
+    "Haunted House",
+    "Cauldron",
+    "Broomstick",
+    "Spider",
+    "Zombie",
+    "Monster",
+    "Candle",
+    "Scarecrow",
+    "Frankenstein",
+    "Witch",
+    "Owl",
+    "Candy Corn"
+   ]
+  },
+  {
+   "id": "winter",
+   "name": "Winter Wonderland",
+   "themes": [
+    "land",
+    "indoor"
+   ],
+   "subjects": [
+    "Snowman",
+    "Christmas Tree",
+    "Santa",
+    "Reindeer",
+    "Gift Box",
+    "Ornament",
+    "Stocking",
+    "Candy Cane",
+    "Gingerbread House",
+    "Sled",
+    "Mittens",
+    "Bell",
+    "Wreath",
+    "Penguin",
+    "Hot Cocoa",
+    "Ice Skates",
+    "Holly",
+    "Star",
+    "Elf",
+    "Snow Globe"
+   ]
+  },
+  {
+   "id": "spring",
+   "name": "Springtime",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Easter Egg",
+    "Easter Bunny",
+    "Chick",
+    "Tulip",
+    "Daisy",
+    "Rainbow",
+    "Umbrella",
+    "Rain Boots",
+    "Kite",
+    "Lamb",
+    "Flower Basket",
+    "Bird Nest",
+    "Watering Can",
+    "Seed Packet",
+    "Cherry Blossom",
+    "Garden Gnome",
+    "Rain Cloud",
+    "Frog",
+    "Duckling",
+    "Bunny"
+   ]
+  },
+  {
+   "id": "beach",
+   "name": "Beach Day",
+   "themes": [
+    "land",
+    "water"
+   ],
+   "subjects": [
+    "Beach Ball",
+    "Sandcastle",
+    "Sunglasses",
+    "Flip Flops",
+    "Beach Umbrella",
+    "Surfboard",
+    "Palm Tree",
+    "Crab",
+    "Seashell",
+    "Bucket and Spade",
+    "Lifebuoy",
+    "Swimsuit",
+    "Lemonade",
+    "Beach Chair",
+    "Cooler",
+    "Sun Hat",
+    "Snorkel",
+    "Ice Pop",
+    "Pool Float",
+    "Sun"
+   ]
+  },
+  {
+   "id": "autumn",
+   "name": "Autumn Harvest",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Maple Leaf",
+    "Acorn",
+    "Apple Pie",
+    "Scarecrow",
+    "Hay Bale",
+    "Corn Cob",
+    "Sunflower",
+    "Basket of Apples",
+    "Rake",
+    "Wheelbarrow",
+    "Pumpkin Pie",
+    "Hot Cider",
+    "Squirrel",
+    "Owl",
+    "Mushroom",
+    "Pinecone",
+    "Leaf Pile",
+    "Harvest Moon",
+    "Turkey",
+    "Cornucopia"
+   ]
+  },
+  {
+   "id": "kitchen",
+   "name": "Kitchen Helpers",
+   "themes": [
+    "indoor"
+   ],
+   "subjects": [
+    "Teapot",
+    "Kettle",
+    "Frying Pan",
+    "Mug",
+    "Rolling Pin",
+    "Whisk",
+    "Toaster",
+    "Blender",
+    "Spoon",
+    "Cookie Jar",
+    "Oven Mitt",
+    "Cooking Pot",
+    "Apron",
+    "Cutting Board",
+    "Measuring Cup",
+    "Salt Shaker",
+    "Coffee Pot",
+    "Microwave",
+    "Chef Hat",
+    "Lunch Box"
+   ]
+  },
+  {
+   "id": "home",
+   "name": "Home Sweet Home",
+   "themes": [
+    "indoor"
+   ],
+   "subjects": [
+    "Lamp",
+    "Sofa",
+    "Armchair",
+    "Clock",
+    "Bed",
+    "Bathtub",
+    "Plant Pot",
+    "Bookshelf",
+    "Television",
+    "Washing Machine",
+    "Vacuum",
+    "Key",
+    "Door",
+    "Window",
+    "Mirror",
+    "Chair",
+    "Table",
+    "Candle",
+    "Rug",
+    "Fireplace"
+   ]
+  },
+  {
+   "id": "workshop",
+   "name": "Workshop",
+   "themes": [
+    "indoor",
+    "city"
+   ],
+   "subjects": [
+    "Hammer",
+    "Saw",
+    "Wrench",
+    "Screwdriver",
+    "Toolbox",
+    "Drill",
+    "Ladder",
+    "Paint Bucket",
+    "Paintbrush",
+    "Tape Measure",
+    "Wheelbarrow",
+    "Shovel",
+    "Garden Rake",
+    "Axe",
+    "Pliers",
+    "Flashlight",
+    "Hard Hat",
+    "Work Gloves",
+    "Sawhorse",
+    "Level"
+   ]
+  },
+  {
+   "id": "school",
+   "name": "School Days",
+   "themes": [
+    "indoor",
+    "city"
+   ],
+   "subjects": [
+    "Backpack",
+    "Pencil",
+    "Crayons",
+    "Book",
+    "Ruler",
+    "Scissors",
+    "Globe",
+    "Notebook",
+    "Eraser",
+    "Calculator",
+    "Chalkboard",
+    "Glue",
+    "Paint Palette",
+    "Microscope",
+    "Desk",
+    "School Bell",
+    "Graduation Cap",
+    "Lunch Bag",
+    "Magnifying Glass",
+    "Pencil Case"
+   ]
+  },
+  {
+   "id": "clothes",
+   "name": "Dress Up",
+   "themes": [
+    "indoor",
+    "city"
+   ],
+   "subjects": [
+    "Top Hat",
+    "Boots",
+    "Sneakers",
+    "T-shirt",
+    "Dress",
+    "Jacket",
+    "Scarf",
+    "Socks",
+    "Glasses",
+    "Bow Tie",
+    "Handbag",
+    "Sweater",
+    "Baseball Cap",
+    "Raincoat",
+    "Necklace",
+    "Ring",
+    "Wristwatch",
+    "Bowler Hat",
+    "Sandals",
+    "Tiara"
+   ]
+  },
+  {
+   "id": "jobs",
+   "name": "When I Grow Up",
+   "themes": [
+    "city",
+    "indoor",
+    "land"
+   ],
+   "subjects": [
+    "Chef",
+    "Firefighter",
+    "Doctor",
+    "Police Officer",
+    "Farmer",
+    "Pilot",
+    "Teacher",
+    "Nurse",
+    "Builder",
+    "Painter",
+    "Mail Carrier",
+    "Scientist",
+    "Pirate",
+    "Sailor",
+    "Cowboy",
+    "Ninja",
+    "Clown",
+    "Magician",
+    "Superhero",
+    "Detective"
+   ]
+  },
+  {
+   "id": "pirates",
+   "name": "Pirate Cove",
+   "themes": [
+    "land",
+    "water"
+   ],
+   "subjects": [
+    "Pirate Ship",
+    "Treasure Map",
+    "Anchor",
+    "Compass",
+    "Cannon",
+    "Pirate Hat",
+    "Lighthouse",
+    "Desert Island",
+    "Message in a Bottle",
+    "Barrel",
+    "Ship Wheel",
+    "Gold Coins",
+    "Jewels",
+    "Treasure Chest",
+    "Pirate Parrot",
+    "Spyglass",
+    "Rowboat",
+    "Hook",
+    "Kraken",
+    "Mermaid"
+   ]
+  },
+  {
+   "id": "buildings",
+   "name": "Around Town",
+   "themes": [
+    "city",
+    "land"
+   ],
+   "subjects": [
+    "House",
+    "Windmill",
+    "Barn",
+    "Church",
+    "Skyscraper",
+    "Tent",
+    "Igloo",
+    "Treehouse",
+    "Pagoda",
+    "Pyramid",
+    "Temple",
+    "Bridge",
+    "Tower",
+    "Log Cabin",
+    "Shop",
+    "School",
+    "Hospital",
+    "Fire Station",
+    "Castle",
+    "Lighthouse"
+   ]
+  },
+  {
+   "id": "weather",
+   "name": "Wild Weather",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Cloud",
+    "Lightning",
+    "Tornado",
+    "Rainbow",
+    "Snowflake",
+    "Umbrella",
+    "Volcano",
+    "Mountain",
+    "Waterfall",
+    "Oak Tree",
+    "Cactus",
+    "Flower",
+    "Leaf",
+    "Rock",
+    "Crystal",
+    "Campfire",
+    "Sun",
+    "Moon",
+    "Raindrop",
+    "Wind"
+   ]
+  },
+  {
+   "id": "pets2",
+   "name": "Pet Parade",
+   "themes": [
+    "indoor",
+    "land"
+   ],
+   "subjects": [
+    "Puppy",
+    "Kitten",
+    "Hamster",
+    "Goldfish",
+    "Guinea Pig",
+    "Lizard",
+    "Ferret",
+    "Budgie",
+    "Chinchilla",
+    "Axolotl",
+    "Tortoise",
+    "Corgi",
+    "Dachshund",
+    "Poodle",
+    "Bunny",
+    "Hermit Crab",
+    "Gecko",
+    "Pug",
+    "Persian Cat",
+    "Cockatiel"
+   ]
+  },
+  {
+   "id": "sea2",
+   "name": "Deep Blue",
+   "themes": [
+    "water"
+   ],
+   "subjects": [
+    "Manatee",
+    "Sea Lion",
+    "Hermit Crab",
+    "Sea Urchin",
+    "Coral",
+    "Anglerfish",
+    "Eel",
+    "Swordfish",
+    "Tuna",
+    "Clam",
+    "Oyster",
+    "Shrimp",
+    "Beluga",
+    "Hammerhead",
+    "Manta Ray",
+    "Nautilus",
+    "Barracuda",
+    "Cuttlefish",
+    "Sea Slug",
+    "Blue Tang"
+   ]
+  },
+  {
+   "id": "exotic",
+   "name": "Around the World",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Kangaroo",
+    "Koala",
+    "Platypus",
+    "Wombat",
+    "Emu",
+    "Kookaburra",
+    "Panda",
+    "Red Panda",
+    "Capybara",
+    "Armadillo",
+    "Meerkat",
+    "Camel",
+    "Yak",
+    "Okapi",
+    "Tapir",
+    "Aardvark",
+    "Hyena",
+    "Llama",
+    "Alpaca",
+    "Lemur"
+   ]
+  },
+  {
+   "id": "tech",
+   "name": "Gadgets",
+   "themes": [
+    "indoor",
+    "city"
+   ],
+   "subjects": [
+    "Robot",
+    "Computer",
+    "Smartphone",
+    "Camera",
+    "Game Controller",
+    "Drone",
+    "Laptop",
+    "Tablet",
+    "Battery",
+    "Light Bulb",
+    "Magnet",
+    "Gear",
+    "Television",
+    "Keyboard",
+    "Alarm Clock",
+    "Calculator",
+    "Printer",
+    "Speaker",
+    "Smart Watch",
+    "Video Camera"
+   ]
+  },
+  {
+   "id": "drinks",
+   "name": "Cafe Corner",
+   "themes": [
+    "indoor",
+    "city"
+   ],
+   "subjects": [
+    "Milkshake",
+    "Smoothie",
+    "Teacup",
+    "Coffee Cup",
+    "Hot Chocolate",
+    "Soda",
+    "Juice Box",
+    "Boba Tea",
+    "Sundae",
+    "Cheesecake",
+    "Brownie",
+    "Churro",
+    "Crepe",
+    "Jelly Beans",
+    "Cinnamon Roll",
+    "Tart",
+    "Eclair",
+    "Frozen Yogurt",
+    "Cake Slice",
+    "Cookie Jar"
+   ]
+  },
+  {
+   "id": "party",
+   "name": "Party Time",
+   "themes": [
+    "indoor",
+    "city"
+   ],
+   "subjects": [
+    "Birthday Cake",
+    "Balloons",
+    "Party Hat",
+    "Present",
+    "Fireworks",
+    "Pinata",
+    "Trophy",
+    "Crown",
+    "Cupcake",
+    "Lantern",
+    "Candles",
+    "Ribbon",
+    "Medal",
+    "Bouquet",
+    "Music Note",
+    "Disco Ball",
+    "Cake Pop",
+    "Party Popper",
+    "Confetti",
+    "Invitation"
+   ]
+  },
+  {
+   "id": "camping",
+   "name": "Great Outdoors",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Tent",
+    "Campfire",
+    "Hiking Backpack",
+    "Canoe",
+    "Compass",
+    "Camping Lantern",
+    "Sleeping Bag",
+    "Marshmallow",
+    "Binoculars",
+    "Map",
+    "Hiking Boots",
+    "Fishing Rod",
+    "Bear",
+    "Pine Tree",
+    "Log Cabin",
+    "Axe",
+    "Flashlight",
+    "Thermos",
+    "Kayak",
+    "Trail Sign"
+   ]
+  },
+  {
+   "id": "story2",
+   "name": "Little Stories",
+   "themes": [
+    "land",
+    "indoor"
+   ],
+   "subjects": [
+    "Bear Reading",
+    "Bunny Gardening",
+    "Cat with Yarn",
+    "Dog with Ball",
+    "Mouse with Cheese",
+    "Owl with Book",
+    "Squirrel with Acorn",
+    "Fox with Scarf",
+    "Penguin Skating",
+    "Elephant with Balloon",
+    "Pig in Mud",
+    "Frog on Lily Pad",
+    "Duck with Umbrella",
+    "Bee with Honey",
+    "Monkey with Banana",
+    "Lion with Crown",
+    "Bird in Nest",
+    "Hedgehog with Apple",
+    "Turtle Racing",
+    "Koala Sleeping"
+   ]
+  },
+  {
+   "id": "garden",
+   "name": "Flower Garden",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Rose",
+    "Tulip",
+    "Daisy",
+    "Sunflower",
+    "Lily",
+    "Orchid",
+    "Lotus",
+    "Daffodil",
+    "Poppy",
+    "Lavender",
+    "Bonsai",
+    "Potted Plant",
+    "Hibiscus",
+    "Marigold",
+    "Pansy",
+    "Violet",
+    "Iris",
+    "Water Lily",
+    "Morning Glory",
+    "Bluebell"
+   ]
+  }
+ ]
+}
