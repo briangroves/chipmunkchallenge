@@ -301,7 +301,13 @@ final class GameModel: ObservableObject {
         }
         #if DEBUG
         // The debug launch arguments (`-scene`, `-autoplay`, `-screen play`) skip the home screen.
-        if store.string(forKey: "scene") != nil || store.bool(forKey: "autoplay") || store.string(forKey: "screen") == "play" {
+        // `-boardFile path.json` ({"name", "rows"}, e.g. from tools/image_to_board.py) plays that picture instead.
+        if let file = store.string(forKey: "boardFile"),
+           let data = FileManager.default.contents(atPath: file),
+           let pic = try? JSONDecoder().decode(ImportedPicture.self, from: data) {
+            screen = .play
+            loadImported(pic)
+        } else if store.string(forKey: "scene") != nil || store.bool(forKey: "autoplay") || store.string(forKey: "screen") == "play" {
             screen = .play
             if store.bool(forKey: "fast") { fast = true }
             load(boardIndex)
@@ -443,6 +449,22 @@ final class GameModel: ObservableObject {
               boxes: BoxSource(rows: p.rows, id: "daily", index: catalog.paradiseFrom + catalog.paradise.count,
                                board: .daily))
     }
+
+    #if DEBUG
+    struct ImportedPicture: Decodable {
+        let name: String
+        let rows: [String]
+    }
+
+    /// Debug: build and play a picture from a file, on the ramp's settings for board 40, with no mystery boxes.
+    func loadImported(_ pic: ImportedPicture) {
+        mode = .level
+        build(base: levelBase(name: pic.name, rows: pic.rows, boardNumber: 40), key: "lv40", seed: 40_007,
+              aim: LevelCatalog.baseAim("lv40"), baked: nil, attempt: 1, title: pic.name, subtitle: "Imported",
+              label: "Imported picture",
+              boxes: BoxSource(rows: pic.rows, id: "import", index: 0, board: .warmup(1)))
+    }
+    #endif
 
     /// The same kind of board again with a fresh build (attempt n).
     private func reload(attempt n: Int) {

@@ -530,8 +530,10 @@ button:focus-visible{outline:3px solid var(--cheese);outline-offset:2px}
 
 <script id="engine">/* ================= ENGINE (port 1:1 to Swift) ================= */
 /* Eighteen standard colors, chosen to be easy to tell apart at a glance. */
-const PALETTE={R:'#E53935',O:'#FB8C00',Y:'#FDD835',G:'#43A047',B:'#1E88E5',V:'#8E24AA',P:'#F48FB1',N:'#795548',W:'#F5F5F5',K:'#263238',T:'#D2B48C',A:'#9E9E9E',L:'#9CCC65',D:'#1B5E20',M:'#8E1B1B',C:'#81D4FA',U:'#283593',I:'#B39DDB'};
-const CNAME={R:'red',O:'orange',Y:'yellow',G:'green',B:'blue',V:'purple',P:'pink',N:'brown',W:'white',K:'black',T:'tan',A:'grey',L:'light green',D:'dark green',M:'maroon',C:'sky blue',U:'navy',I:'lavender'};
+const PALETTE={R:'#E53935',O:'#FB8C00',Y:'#FDD835',G:'#43A047',B:'#1E88E5',V:'#8E24AA',P:'#F48FB1',N:'#795548',W:'#F5F5F5',K:'#263238',T:'#D2B48C',A:'#9E9E9E',L:'#9CCC65',D:'#1B5E20',M:'#8E1B1B',C:'#81D4FA',U:'#283593',I:'#B39DDB',
+  /* in-between shades, for shadows, highlights and soft skies */
+  Q:'#E65100',J:'#FFB74D',H:'#B3E5FC',E:'#4E342E',S:'#D81B60',Z:'#FFF59D',X:'#D7CCC8'};
+const CNAME={R:'red',O:'orange',Y:'yellow',G:'green',B:'blue',V:'purple',P:'pink',N:'brown',W:'white',K:'black',T:'tan',A:'grey',L:'light green',D:'dark green',M:'maroon',C:'sky blue',U:'navy',I:'lavender',Q:'deep orange',J:'peach',H:'pale blue',E:'dark brown',S:'raspberry',Z:'pale yellow',X:'stone'};
 
 /* ---- 50×50 scenes, painted from shapes and noise so they scale ----
    Each scene fills the whole frame like a real pixel illustration: subjects carry a black outline and sit on a
