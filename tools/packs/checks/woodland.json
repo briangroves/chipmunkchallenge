@@ -1,0 +1,453 @@
+{
+ "fox-248": {
+  "guess": "orange fox",
+  "alternatives": [
+   "red panda",
+   "orange cat"
+  ],
+  "readability": 4,
+  "features": [
+   "orange head with pointed ears",
+   "dark eyes",
+   "white muzzle/cheeks",
+   "small nose",
+   "orange body",
+   "white-tipped tail on left",
+   "white paws",
+   "sun, sky, trees, flowers in background"
+  ],
+  "problems": [
+   "head and body merge into one orange blob",
+   "eyes are tiny and low contrast",
+   "ears are small and flat at top corners",
+   "body pose is hard to read, legs unclear",
+   "dark red shading looks like smudges"
+  ],
+  "digest": "c817f759a23800bf",
+  "grade": "pass",
+  "score": 94
+ },
+ "owl-249": {
+  "guess": "orange owl",
+  "alternatives": [
+   "orange cat",
+   "fox"
+  ],
+  "readability": 3,
+  "features": [
+   "big round eyes with dark pupils",
+   "pointed ear tufts",
+   "round orange body",
+   "small yellow feet",
+   "dark outline"
+  ],
+  "problems": [
+   "no clear beak",
+   "ear tufts uneven and blobby",
+   "body shape is a lumpy blob without distinct wings",
+   "ambiguous between owl and cat"
+  ],
+  "digest": "8076c45749449c50",
+  "grade": "pass",
+  "score": 80
+ },
+ "hedgehog-250": {
+  "guess": "hedgehog",
+  "alternatives": [
+   "porcupine",
+   "black bird"
+  ],
+  "readability": 4,
+  "features": [
+   "spiky dark body with jagged edge",
+   "yellow face pointing left",
+   "red nose",
+   "white eye",
+   "yellow foot",
+   "red-brown spines mixed in"
+  ],
+  "problems": [
+   "face is small compared to the large dark blob body",
+   "dark body has few internal details",
+   "orange autumn ground blends with orange chest/feet",
+   "yellow face could read as a beak, suggesting a bird"
+  ],
+  "digest": "61e3333fa9883b5b",
+  "grade": "pass",
+  "score": 86
+ },
+ "squirrel-251": {
+  "guess": "orange fox on a skateboard",
+  "alternatives": [
+   "squirrel riding a skateboard",
+   "orange cat skateboarding"
+  ],
+  "readability": 3,
+  "features": [
+   "orange head with white face",
+   "pointed ears",
+   "dark eye",
+   "big bushy orange tail",
+   "red shirt or body",
+   "grey skateboard with white wheels",
+   "sun in the sky",
+   "bird in the sky"
+  ],
+  "problems": [
+   "orange body blends into the orange-yellow striped background",
+   "pose is jumbled and hard to follow",
+   "face is small compared to the large tail",
+   "limbs are unclear"
+  ],
+  "digest": "b4480490a2aa54bd",
+  "grade": "weak",
+  "score": 58
+ },
+ "raccoon-252": {
+  "guess": "raccoon with a parrot",
+  "alternatives": [
+   "red panda lying in grass",
+   "badger with a bird"
+  ],
+  "readability": 2,
+  "features": [
+   "brown and white striped fluffy tail",
+   "head with dark ear tips",
+   "red, yellow and blue parrot-like bird in the middle",
+   "grass, flowers and sky background"
+  ],
+  "problems": [
+   "head shape is jumbled and hard to read",
+   "no clear eyes or face",
+   "body parts blend together into a blob",
+   "colorful middle section is confusing",
+   "dark outlines are messy"
+  ],
+  "digest": "10b7251dfdbb952e",
+  "grade": "weak",
+  "score": 70
+ },
+ "deer-253": {
+  "guess": "red deer at a pond",
+  "alternatives": [
+   "red fox",
+   "red horse"
+  ],
+  "readability": 3,
+  "features": [
+   "long neck stretched forward",
+   "head with pink snout/ears on left",
+   "long thin legs",
+   "body with pink back highlight",
+   "tail/rear",
+   "dark outline"
+  ],
+  "problems": [
+   "head is small and hard to read, no clear eye",
+   "pose is awkward, neck and head blend into body",
+   "legs are odd, front legs merge together",
+   "rear legs look like a blob with dark red shading",
+   "unnatural red color makes the animal hard to identify"
+  ],
+  "digest": "210d88a169ad66d4",
+  "grade": "pass",
+  "score": 84
+ },
+ "bear-254": {
+  "guess": "red teddy bear",
+  "alternatives": [
+   "red bear cub",
+   "red hamster"
+  ],
+  "readability": 3,
+  "features": [
+   "round head with two ears",
+   "pink inner ears",
+   "dark eyes",
+   "brown muzzle/belly patch",
+   "arms and legs",
+   "sitting pose"
+  ],
+  "problems": [
+   "face details are muddled with dark red shading",
+   "body is one blobby red mass",
+   "limbs hard to separate from body",
+   "brown patch reads unclearly as belly or paw"
+  ],
+  "digest": "6cf407067dd82af2",
+  "grade": "pass",
+  "score": 84
+ },
+ "badger-255": {
+  "guess": "badger sleeping at night",
+  "alternatives": [
+   "skunk",
+   "raccoon"
+  ],
+  "readability": 2,
+  "features": [
+   "grey body",
+   "black and white striped head on left",
+   "dark legs",
+   "night sky with moon and stars",
+   "grass"
+  ],
+  "problems": [
+   "no clear eye or face",
+   "black parts blend into dark background",
+   "head shape is hard to separate from body",
+   "body looks like a blob or rock"
+  ],
+  "digest": "edfdd65757090601",
+  "grade": "weak",
+  "score": 66
+ },
+ "beaver-256": {
+  "guess": "beaver",
+  "alternatives": [
+   "orange cat",
+   "squirrel"
+  ],
+  "readability": 3,
+  "features": [
+   "orange body",
+   "flat brown tail",
+   "white teeth",
+   "eye",
+   "small ears",
+   "feet"
+  ],
+  "problems": [
+   "face is hard to read",
+   "dark outline pixels look messy",
+   "purple background busy",
+   "head shape unclear"
+  ],
+  "digest": "88e6a46e11e29811",
+  "grade": "pass",
+  "score": 84
+ },
+ "wolf-257": {
+  "guess": "husky dog (or wolf) on a farm",
+  "alternatives": [
+   "raccoon",
+   "cat"
+  ],
+  "readability": 3,
+  "features": [
+   "two pointed ears with white inner parts",
+   "grey and white face mask",
+   "dark body",
+   "white chest/muzzle area"
+  ],
+  "problems": [
+   "eyes and nose are not clearly defined, face is a jumble of grey and dark pixels",
+   "body is a blobby dark shape with no visible legs or tail",
+   "dark body blends with the brown soil background",
+   "red mailbox-like object partly hidden behind the head is confusing"
+  ],
+  "digest": "c13acfa2295573cb",
+  "grade": "pass",
+  "score": 80
+ },
+ "frog-258": {
+  "guess": "green frog",
+  "alternatives": [
+   "toad",
+   "turtle"
+  ],
+  "readability": 4,
+  "features": [
+   "big bulging eyes on top of head",
+   "nostrils",
+   "wide green head",
+   "light green belly",
+   "bent front legs/arms",
+   "dark outline",
+   "grass and flowers around",
+   "sunset sky with sun"
+  ],
+  "problems": [
+   "no visible mouth",
+   "lower body and back legs blend into the dark green grass",
+   "legs are blobby and hard to separate from body"
+  ],
+  "digest": "a85a777c60ac43e3",
+  "grade": "pass",
+  "score": 82
+ },
+ "bison-259": {
+  "guess": "bison",
+  "alternatives": [
+   "buffalo",
+   "musk ox"
+  ],
+  "readability": 2,
+  "features": [
+   "large brown furry body",
+   "tan shaggy hump/mane",
+   "white horns",
+   "white hooves",
+   "dark tail tuft"
+  ],
+  "problems": [
+   "no clear face or eyes",
+   "body is a round blob, hard to tell head from rear",
+   "dark patch in middle reads as a hole rather than a feature",
+   "orientation unclear",
+   "horns scattered around edges look like spikes"
+  ],
+  "digest": "2dc4ca048e79b361",
+  "grade": "weak",
+  "score": 70
+ },
+ "tree-stump-260": {
+  "guess": "red tree stump",
+  "alternatives": [
+   "red flower pot with soil",
+   "red sack or bag"
+  ],
+  "readability": 2,
+  "features": [
+   "large dark red cylindrical body",
+   "light brown and tan top like cut wood rings or soil",
+   "small dark spots on the body",
+   "green leafy bit on the right side",
+   "grass, flowers, sun and clouds background"
+  ],
+  "problems": [
+   "red color is unusual for a stump, so it reads more like a blob or bag",
+   "shape is lumpy with no clear defining details",
+   "top texture is ambiguous (wood rings vs. dirt vs. bread)",
+   "no roots or bark texture to confirm it is a stump",
+   "stray dark pixels look like noise"
+  ],
+  "digest": "abb41d01ed4eb076",
+  "grade": "weak",
+  "score": 62
+ },
+ "maple-leaf-261": {
+  "guess": "red maple leaf",
+  "alternatives": [
+   "red bird (cardinal)",
+   "red flower"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed lobes like a maple leaf",
+   "dark red shaded right side",
+   "small brown stem-like stub at upper right",
+   "dark outline with pink highlights"
+  ],
+  "problems": [
+   "no clear stem at the bottom, so the leaf shape is ambiguous",
+   "irregular blobby outline could read as an animal or splash",
+   "no face or details if it is meant to be a creature",
+   "dark red shading on the right blends into the dark green grass"
+  ],
+  "digest": "d085179c23944e70",
+  "grade": "pass",
+  "score": 68
+ },
+ "scarecrow-262": {
+  "guess": "scarecrow in a field at night",
+  "alternatives": [
+   "witch in a green cloak",
+   "wizard standing by a pond"
+  ],
+  "readability": 3,
+  "features": [
+   "black pointed/brimmed hat",
+   "small tan face",
+   "green cloak or shirt with outstretched arms",
+   "blue trousers with orange patch",
+   "wooden post at bottom",
+   "pond, trees, moon and stars in background"
+  ],
+  "problems": [
+   "no facial features on the face",
+   "green clothing blends into green trees and grass",
+   "arms are short and hard to see as a crossbar",
+   "post and legs are unclear"
+  ],
+  "digest": "6c94b4aeddbdc119",
+  "grade": "pass",
+  "score": 72
+ },
+ "sunflower-263": {
+  "guess": "sunflower with a face at night",
+  "alternatives": [
+   "smiling sun flower plant",
+   "lion head"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow petals",
+   "orange center face with eyes and smile",
+   "green leaves",
+   "green stem/body",
+   "night sky with moon and stars",
+   "grass field",
+   "gray stone or sword at base"
+  ],
+  "problems": [
+   "dark green outline and leaves blend into grass background",
+   "face small and partly obscured by orange shading",
+   "gray shape at bottom unclear",
+   "lower body shape blobby"
+  ],
+  "digest": "21f348ed832b9710",
+  "grade": "pass",
+  "score": 82
+ },
+ "wheelbarrow-264": {
+  "guess": "red wheelbarrow",
+  "alternatives": [
+   "ladybug",
+   "red wagon"
+  ],
+  "readability": 3,
+  "features": [
+   "red rounded tub/body",
+   "two tan handles extending to upper right",
+   "black wheel at front bottom left",
+   "light blue/white legs or support at bottom",
+   "grass with flowers",
+   "sunset sky with sun"
+  ],
+  "problems": [
+   "red tub shape is blobby and reads somewhat like a ladybug or apple",
+   "wheel is small and partly hidden",
+   "handles blend into orange sky",
+   "angled perspective is confusing"
+  ],
+  "digest": "295431949eaf3c3b",
+  "grade": "pass",
+  "score": 76
+ },
+ "mushroom-265": {
+  "guess": "red mushroom (toadstool)",
+  "alternatives": [
+   "fly agaric mushroom",
+   "mushroom house"
+  ],
+  "readability": 5,
+  "features": [
+   "red cap with white spots",
+   "pale yellow stem",
+   "orange base/volva",
+   "sun in sky",
+   "birds",
+   "grass and soil background",
+   "small orange fruits/sprouts"
+  ],
+  "problems": [
+   "dark spots on cap could be confused with a face",
+   "orange base blends a bit with the orange sprouts",
+   "busy striped soil background"
+  ],
+  "digest": "a3433609c3517485",
+  "grade": "pass",
+  "score": 80
+ }
+}

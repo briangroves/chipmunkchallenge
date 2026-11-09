@@ -3,9 +3,29 @@
  "packs": [
   {
    "id": "woodland",
-   "name": "Woodland Critters",
+   "name": "Woodland & Harvest",
    "themes": [
-    "land"
+    "Pine forest",
+    "Misty pines",
+    "Autumn woods",
+    "Riverbank",
+    "Garden pond",
+    "Moonlit pond",
+    "Waterfall",
+    "Alpine meadow",
+    "Spring meadow",
+    "Summer hills",
+    "Overcast moor",
+    "Snowy pines",
+    "Orchard",
+    "Dawn fields",
+    "Starry hilltop",
+    "Rainy day",
+    "Sunset meadow",
+    "Mountain pass",
+    "Harvest farm",
+    "Red barn",
+    "Golden wheat"
    ],
    "subjects": [
     "Fox",
@@ -27,14 +47,68 @@
     "Bluebird",
     "Frog",
     "Toad",
-    "Opossum"
+    "Opossum",
+    "Groundhog",
+    "Bison",
+    "Elk",
+    "Bobcat",
+    "Weasel",
+    "Hare",
+    "Lynx",
+    "Fawn",
+    "Bear Cub",
+    "Fox Cub",
+    "Baby Raccoon",
+    "Wild Boar",
+    "Birdhouse",
+    "Honey Pot",
+    "Tree Stump",
+    "Mushroom House",
+    "Maple Leaf",
+    "Acorn",
+    "Apple Pie",
+    "Scarecrow",
+    "Hay Bale",
+    "Corn Cob",
+    "Sunflower",
+    "Basket of Apples",
+    "Rake",
+    "Wheelbarrow",
+    "Pumpkin Pie",
+    "Hot Cider",
+    "Mushroom",
+    "Pinecone",
+    "Leaf Pile",
+    "Harvest Moon",
+    "Turkey",
+    "Cornucopia"
+   ],
+   "spares": [],
+   "merged": [
+    "autumn"
    ]
   },
   {
    "id": "jungle",
-   "name": "Jungle Safari",
+   "name": "Wild Safari",
    "themes": [
-    "land"
+    "Bamboo grove",
+    "Waterfall",
+    "Riverbank",
+    "Tropical beach",
+    "Golden wheat",
+    "Sunset meadow",
+    "Dawn fields",
+    "Mountain sunset",
+    "Summer hills",
+    "Garden pond",
+    "Moonlit pond",
+    "Rainy day",
+    "Desert dunes",
+    "Cactus canyon",
+    "Desert night",
+    "Mountain pass",
+    "Alpine meadow"
    ],
    "subjects": [
     "Lion",
@@ -56,7 +130,44 @@
     "Chameleon",
     "Snake",
     "Lemur",
-    "Peacock"
+    "Peacock",
+    "Jaguar",
+    "Orangutan",
+    "Baboon",
+    "Gazelle",
+    "Warthog",
+    "Panther",
+    "Gibbon",
+    "Baby Elephant",
+    "Lion Cub",
+    "Baby Giraffe",
+    "Tree Frog",
+    "Baby Monkey",
+    "Baby Hippo",
+    "Jungle Explorer",
+    "Kangaroo",
+    "Koala",
+    "Platypus",
+    "Wombat",
+    "Emu",
+    "Kookaburra",
+    "Panda",
+    "Red Panda",
+    "Capybara",
+    "Armadillo",
+    "Meerkat",
+    "Camel",
+    "Yak",
+    "Okapi",
+    "Tapir",
+    "Aardvark",
+    "Hyena",
+    "Llama",
+    "Alpaca"
+   ],
+   "spares": [],
+   "merged": [
+    "exotic"
    ]
   },
   {
@@ -64,7 +175,10 @@
    "name": "Ocean Friends",
    "themes": [
     "water",
-    "land"
+    "Tropical beach",
+    "Beach sunset",
+    "Seaside cliffs",
+    "Stormy coast"
    ],
    "subjects": [
     "Whale",
@@ -86,14 +200,60 @@
     "Narwhal",
     "Otter",
     "Pelican",
-    "Orca"
+    "Orca",
+    "Angelfish",
+    "Lionfish",
+    "Humpback Whale",
+    "Sunfish",
+    "Parrotfish",
+    "Sea Snail",
+    "Sardine",
+    "Tropical Fish",
+    "Baby Shark",
+    "Baby Whale",
+    "Scuba Diver",
+    "Baby Turtle",
+    "Baby Octopus",
+    "Manatee",
+    "Sea Lion",
+    "Hermit Crab",
+    "Sea Urchin",
+    "Coral",
+    "Anglerfish",
+    "Eel",
+    "Swordfish",
+    "Tuna",
+    "Clam",
+    "Oyster",
+    "Shrimp",
+    "Beluga",
+    "Hammerhead",
+    "Manta Ray",
+    "Nautilus",
+    "Barracuda",
+    "Cuttlefish",
+    "Sea Slug",
+    "Blue Tang"
+   ],
+   "spares": [],
+   "merged": [
+    "sea2"
    ]
   },
   {
    "id": "arctic",
-   "name": "Arctic Pals",
+   "name": "Snow & Ice",
    "themes": [
-    "land"
+    "Ice field",
+    "Snowy pines",
+    "Winter night",
+    "Northern lights",
+    "Aurora lake",
+    "Mountain pass",
+    "Misty pines",
+    "Cabin",
+    "Living room",
+    "indoor"
    ],
    "subjects": [
     "Polar Bear",
@@ -115,7 +275,45 @@
     "Ice Skates",
     "Mittens",
     "Snow Globe",
-    "Yeti"
+    "Yeti",
+    "Arctic Wolf",
+    "Lemming",
+    "Snowboard",
+    "Earmuffs",
+    "Snowshoe Hare",
+    "Ice Cube",
+    "Caribou",
+    "Polar Bear Cub",
+    "Baby Penguin",
+    "Snow Owl",
+    "Ski Lodge",
+    "Narwhal Calf",
+    "Ice Fishing",
+    "Sleigh",
+    "Ice Castle",
+    "Arctic Explorer",
+    "Snow Bunny",
+    "Winter Owl",
+    "Snowmobile",
+    "Polar Bear Family",
+    "Christmas Penguin",
+    "Christmas Tree",
+    "Santa",
+    "Gift Box",
+    "Ornament",
+    "Stocking",
+    "Candy Cane",
+    "Gingerbread House",
+    "Bell",
+    "Wreath",
+    "Hot Cocoa",
+    "Holly",
+    "Star",
+    "Elf"
+   ],
+   "spares": [],
+   "merged": [
+    "winter"
    ]
   },
   {
@@ -145,6 +343,23 @@
     "Honeycomb",
     "Beehive",
     "Cocoon"
+   ],
+   "spares": [
+    "Wasp",
+    "Scorpion",
+    "Centipede",
+    "Slug",
+    "Hornet",
+    "Stick Insect",
+    "Bee with Flower",
+    "Butterfly on Flower",
+    "Ladybug on Leaf",
+    "Snail with Shell House",
+    "Ant Carrying Leaf",
+    "Spider Web",
+    "Bug Jar",
+    "Beetle Car",
+    "Moth at Lamp"
    ]
   },
   {
@@ -175,6 +390,23 @@
     "Pelican",
     "Owlet",
     "Goldfinch"
+   ],
+   "spares": [
+    "Parakeet",
+    "Toucan Chick",
+    "Puffin Chick",
+    "Vulture",
+    "Woodpecker Chick",
+    "Magpie",
+    "Penguin Chick",
+    "Hawk",
+    "Falcon",
+    "Lovebirds",
+    "Bird House",
+    "Duck Family",
+    "Flamingo Pair",
+    "Parrot on Branch",
+    "Bird Bath"
    ]
   },
   {
@@ -205,6 +437,23 @@
     "Pomegranate",
     "Lime",
     "Raspberry"
+   ],
+   "spares": [
+    "Melon",
+    "Fig",
+    "Papaya",
+    "Dragon Fruit",
+    "Apricot",
+    "Cranberries",
+    "Grapefruit",
+    "Passion Fruit",
+    "Star Fruit",
+    "Fruit Bowl",
+    "Banana Bunch",
+    "Apple Slice",
+    "Orange Slice",
+    "Watermelon Slice",
+    "Strawberry Basket"
    ]
   },
   {
@@ -235,6 +484,23 @@
     "Chili Pepper",
     "Sweet Potato",
     "Artichoke"
+   ],
+   "spares": [
+    "Zucchini",
+    "Asparagus",
+    "Leek",
+    "Celery",
+    "Green Beans",
+    "Spinach",
+    "Turnip",
+    "Cauliflower",
+    "Kale",
+    "Ginger",
+    "Veggie Basket",
+    "Corn Field",
+    "Pea Pod",
+    "Garden Box",
+    "Salad Bowl"
    ]
   },
   {
@@ -266,6 +532,23 @@
     "Candy Cane",
     "Cherry Pie",
     "Jelly"
+   ],
+   "spares": [
+    "Brigadeiro",
+    "Fudge",
+    "Gummy Bear",
+    "Candy Apple",
+    "Ice Cream Cone",
+    "Cake Roll",
+    "Strawberry Cake",
+    "Chocolate Cake",
+    "Pie Slice",
+    "Cookie Stack",
+    "Sprinkle Donut",
+    "Caramel",
+    "Marshmallow Pop",
+    "Toffee",
+    "Ice Cream Sandwich"
    ]
   },
   {
@@ -296,6 +579,23 @@
     "Salad",
     "Milk",
     "Orange Juice"
+   ],
+   "spares": [
+    "Spaghetti",
+    "Dumplings",
+    "Ramen",
+    "Fried Chicken",
+    "Pancake Stack",
+    "Omelette",
+    "Rice Bowl",
+    "Hamburger Meal",
+    "Pizza Slice",
+    "Nachos",
+    "Hot Pot",
+    "Kebab",
+    "Bento",
+    "Breakfast Plate",
+    "Cereal Bowl"
    ]
   },
   {
@@ -326,6 +626,23 @@
     "Limousine",
     "Tow Truck",
     "Train"
+   ],
+   "spares": [
+    "Fire Engine",
+    "Cement Mixer",
+    "Bulldozer",
+    "Excavator",
+    "Forklift",
+    "Crane Truck",
+    "Camper Van",
+    "Electric Car",
+    "Vintage Car",
+    "Dump Truck",
+    "Mail Truck",
+    "Food Truck",
+    "Unicycle",
+    "Go Kart",
+    "Tractor Trailer"
    ]
   },
   {
@@ -356,6 +673,23 @@
     "Kite",
     "Parachute",
     "Flying Saucer"
+   ],
+   "spares": [
+    "Biplane",
+    "Jet",
+    "Cargo Ship",
+    "Cruise Ship",
+    "Fishing Boat",
+    "Raft",
+    "Paddle Boat",
+    "Steamboat",
+    "Airship",
+    "Hang Glider",
+    "Jet Ski",
+    "Gondola",
+    "Hovercraft",
+    "Cable Car",
+    "Water Taxi"
    ]
   },
   {
@@ -387,6 +721,23 @@
     "Space Helmet",
     "Jetpack",
     "Robot Dog"
+   ],
+   "spares": [
+    "Space Dog",
+    "UFO",
+    "Saturn",
+    "Earth",
+    "Mars",
+    "Rocket Launch",
+    "Space Cat",
+    "Lunar Rover",
+    "Star",
+    "Space Capsule",
+    "Space Shuttle",
+    "Alien Ship",
+    "Black Hole",
+    "Solar System",
+    "Spacesuit"
    ]
   },
   {
@@ -417,6 +768,23 @@
     "Headphones",
     "Radio",
     "Bell"
+   ],
+   "spares": [
+    "Keyboard Piano",
+    "Bongo Drums",
+    "Triangle",
+    "Clarinet",
+    "Trombone",
+    "French Horn",
+    "Tuba",
+    "Electric Guitar",
+    "Record Player",
+    "Music Box",
+    "Gramophone",
+    "Drum Set",
+    "Bagpipes",
+    "Conductor",
+    "Boombox"
    ]
   },
   {
@@ -447,6 +815,23 @@
     "Badminton",
     "Frisbee",
     "Whistle"
+   ],
+   "spares": [
+    "Rugby Ball",
+    "Cricket Bat",
+    "Ice Hockey",
+    "Bowling Ball",
+    "Dumbbell",
+    "Jump Rope",
+    "Golf Club",
+    "Baseball Bat",
+    "Archery Target",
+    "Kayak Paddle",
+    "Swim Goggles",
+    "Snowboarder",
+    "Soccer Goal",
+    "Basketball Hoop",
+    "Finish Flag"
    ]
   },
   {
@@ -476,6 +861,23 @@
     "Kite",
     "Rubber Duck",
     "Dollhouse"
+   ],
+   "spares": [
+    "Lego Brick",
+    "Toy Robot",
+    "Kaleidoscope",
+    "Pinwheel",
+    "Slinky",
+    "Rubik Cube",
+    "Toy Boat",
+    "Toy Plane",
+    "Toy Soldier",
+    "Rag Doll",
+    "Plush Bunny",
+    "Toy Blocks",
+    "Wind-up Mouse",
+    "Bouncy Ball",
+    "Hula Hoop"
    ]
   },
   {
@@ -505,6 +907,23 @@
     "Saber Tooth Cat",
     "Dodo",
     "Caveman"
+   ],
+   "spares": [
+    "Dino Footprint",
+    "Pteranodon",
+    "Allosaurus",
+    "Pachycephalosaurus",
+    "Mosasaurus",
+    "Dimetrodon",
+    "Dino Skeleton",
+    "Dino Nest",
+    "Baby T-Rex",
+    "Cave Painting",
+    "Woolly Rhino",
+    "Dinosaur Park",
+    "Ammonite",
+    "Amber",
+    "Ichthyosaur"
    ]
   },
   {
@@ -535,6 +954,23 @@
     "Crystal Ball",
     "Spell Book",
     "Gnome"
+   ],
+   "spares": [
+    "Magic Carpet",
+    "Fairy House",
+    "Goblin",
+    "Giant",
+    "Griffin",
+    "Centaur",
+    "Witch's Hut",
+    "Sword in Stone",
+    "Magic Mirror",
+    "Sea Serpent",
+    "Ogre",
+    "Enchanted Tree",
+    "Treasure Cave",
+    "Gingerbread Witch",
+    "Fairy Wings"
    ]
   },
   {
@@ -565,36 +1001,23 @@
     "Witch",
     "Owl",
     "Candy Corn"
-   ]
-  },
-  {
-   "id": "winter",
-   "name": "Winter Wonderland",
-   "themes": [
-    "land",
-    "indoor"
    ],
-   "subjects": [
-    "Snowman",
-    "Christmas Tree",
-    "Santa",
-    "Reindeer",
-    "Gift Box",
-    "Ornament",
-    "Stocking",
-    "Candy Cane",
-    "Gingerbread House",
-    "Sled",
-    "Mittens",
-    "Bell",
-    "Wreath",
-    "Penguin",
-    "Hot Cocoa",
-    "Ice Skates",
-    "Holly",
-    "Star",
-    "Elf",
-    "Snow Globe"
+   "spares": [
+    "Skeleton Hand",
+    "Spider Web",
+    "Tombstone",
+    "Haunted Tree",
+    "Owl Moon",
+    "Black Cat Witch",
+    "Ghost Pumpkin",
+    "Monster Truck",
+    "Werewolf",
+    "Potion Bottle",
+    "Trick or Treat Bag",
+    "Bat House",
+    "Candy Basket",
+    "Wizard Hat",
+    "Spooky Lantern"
    ]
   },
   {
@@ -624,6 +1047,23 @@
     "Frog",
     "Duckling",
     "Bunny"
+   ],
+   "spares": [
+    "Butterfly Garden",
+    "Seedling",
+    "Flower Pot",
+    "Birdhouse Spring",
+    "Picnic Basket",
+    "Hatching Egg",
+    "Robin Egg",
+    "Lily of the Valley",
+    "Garden Hose",
+    "Bee Garden",
+    "Spring Rain",
+    "Puddle Jumper",
+    "Blossom Branch",
+    "Baby Duck",
+    "Clover"
    ]
   },
   {
@@ -654,35 +1094,23 @@
     "Ice Pop",
     "Pool Float",
     "Sun"
-   ]
-  },
-  {
-   "id": "autumn",
-   "name": "Autumn Harvest",
-   "themes": [
-    "land"
    ],
-   "subjects": [
-    "Maple Leaf",
-    "Acorn",
-    "Apple Pie",
-    "Scarecrow",
-    "Hay Bale",
-    "Corn Cob",
-    "Sunflower",
-    "Basket of Apples",
-    "Rake",
-    "Wheelbarrow",
-    "Pumpkin Pie",
-    "Hot Cider",
-    "Squirrel",
-    "Owl",
-    "Mushroom",
-    "Pinecone",
-    "Leaf Pile",
-    "Harvest Moon",
-    "Turkey",
-    "Cornucopia"
+   "spares": [
+    "Shell Necklace",
+    "Beach Towel",
+    "Starfish Beach",
+    "Sand Dollar",
+    "Beach Hut",
+    "Surf Van",
+    "Ice Cream Stand",
+    "Sun Lotion",
+    "Boogie Board",
+    "Swim Ring",
+    "Fishing Pier",
+    "Coconut Drink",
+    "Seagull Beach",
+    "Life Guard Chair",
+    "Tiki Hut"
    ]
   },
   {
@@ -712,6 +1140,23 @@
     "Microwave",
     "Chef Hat",
     "Lunch Box"
+   ],
+   "spares": [
+    "Ladle",
+    "Grater",
+    "Colander",
+    "Spatula",
+    "Pepper Grinder",
+    "Sauce Pan",
+    "Wok",
+    "Mixing Bowl",
+    "Tea Kettle",
+    "Rice Cooker",
+    "Fridge",
+    "Oven",
+    "Dish Rack",
+    "Baking Tray",
+    "Pizza Cutter"
    ]
   },
   {
@@ -741,6 +1186,23 @@
     "Candle",
     "Rug",
     "Fireplace"
+   ],
+   "spares": [
+    "Bunk Bed",
+    "Bookcase",
+    "Laundry Basket",
+    "Ceiling Fan",
+    "Coat Rack",
+    "Dresser",
+    "Wardrobe",
+    "Picture Frame",
+    "Doorbell",
+    "Mailbox",
+    "Teddy Chair",
+    "Rocking Chair",
+    "Bean Bag",
+    "Night Light",
+    "Pillow"
    ]
   },
   {
@@ -771,6 +1233,23 @@
     "Work Gloves",
     "Sawhorse",
     "Level"
+   ],
+   "spares": [
+    "Tool Belt",
+    "Nails",
+    "Vise",
+    "Sander",
+    "Chisel",
+    "Mallet",
+    "Stepladder",
+    "Workbench",
+    "Measuring Tape",
+    "Paint Roller",
+    "Trowel",
+    "Pickaxe",
+    "Spirit Level",
+    "Crowbar",
+    "Bolt"
    ]
   },
   {
@@ -801,6 +1280,23 @@
     "Lunch Bag",
     "Magnifying Glass",
     "Pencil Case"
+   ],
+   "spares": [
+    "School Desk",
+    "Abacus",
+    "Stapler",
+    "Paper Clip",
+    "Highlighter",
+    "Protractor",
+    "Bookworm",
+    "Teacher Desk",
+    "Classroom Clock",
+    "Science Beaker",
+    "Atlas",
+    "Ruler Set",
+    "Pencil Sharpener",
+    "School Locker",
+    "Report Card"
    ]
   },
   {
@@ -831,6 +1327,23 @@
     "Bowler Hat",
     "Sandals",
     "Tiara"
+   ],
+   "spares": [
+    "Hoodie",
+    "Mittens Pair",
+    "Rain Hat",
+    "Overalls",
+    "Tutu",
+    "Pajamas",
+    "Slippers",
+    "Beanie",
+    "Kimono",
+    "Cowboy Hat",
+    "Sun Dress",
+    "Ballet Shoes",
+    "Belt",
+    "Backpack Purse",
+    "Earrings"
    ]
   },
   {
@@ -862,6 +1375,23 @@
     "Magician",
     "Superhero",
     "Detective"
+   ],
+   "spares": [
+    "Astronaut Kid",
+    "Vet",
+    "Dentist",
+    "Mechanic",
+    "Baker",
+    "Gardener",
+    "Librarian",
+    "Plumber",
+    "Electrician",
+    "Fisherman",
+    "Photographer",
+    "Musician",
+    "Dancer",
+    "Artist",
+    "Zookeeper"
    ]
   },
   {
@@ -892,6 +1422,23 @@
     "Hook",
     "Kraken",
     "Mermaid"
+   ],
+   "spares": [
+    "Pirate Flag",
+    "Pirate Captain",
+    "Parrot Pirate",
+    "Pirate Sword",
+    "Plank",
+    "Cannonball",
+    "Treasure Island",
+    "Pirate Map",
+    "Pirate Boot",
+    "Rum Barrel",
+    "Pirate Cat",
+    "Skull Island",
+    "Sea Chest",
+    "Ship Anchor",
+    "Bottle Ship"
    ]
   },
   {
@@ -922,6 +1469,23 @@
     "Fire Station",
     "Castle",
     "Lighthouse"
+   ],
+   "spares": [
+    "Apartment",
+    "Farmhouse",
+    "Cottage",
+    "Bakery Shop",
+    "Police Station",
+    "Library",
+    "Museum",
+    "Stadium",
+    "Train Station",
+    "Airport",
+    "Castle Tower",
+    "Gas Station",
+    "Post Office",
+    "Cafe",
+    "Bank"
    ]
   },
   {
@@ -951,6 +1515,23 @@
     "Moon",
     "Raindrop",
     "Wind"
+   ],
+   "spares": [
+    "Snow Cloud",
+    "Thunder Cloud",
+    "Hail",
+    "Fog",
+    "Sunrise",
+    "Sunset",
+    "Rain Puddle",
+    "Windsock",
+    "Weather Vane",
+    "Thermometer",
+    "Hurricane",
+    "Ice Crystal",
+    "Sun Cloud",
+    "Storm",
+    "Dew Drop"
    ]
   },
   {
@@ -981,64 +1562,23 @@
     "Pug",
     "Persian Cat",
     "Cockatiel"
-   ]
-  },
-  {
-   "id": "sea2",
-   "name": "Deep Blue",
-   "themes": [
-    "water"
    ],
-   "subjects": [
-    "Manatee",
-    "Sea Lion",
-    "Hermit Crab",
-    "Sea Urchin",
-    "Coral",
-    "Anglerfish",
-    "Eel",
-    "Swordfish",
-    "Tuna",
-    "Clam",
-    "Oyster",
-    "Shrimp",
-    "Beluga",
-    "Hammerhead",
-    "Manta Ray",
-    "Nautilus",
-    "Barracuda",
-    "Cuttlefish",
-    "Sea Slug",
-    "Blue Tang"
-   ]
-  },
-  {
-   "id": "exotic",
-   "name": "Around the World",
-   "themes": [
-    "land"
-   ],
-   "subjects": [
-    "Kangaroo",
-    "Koala",
-    "Platypus",
-    "Wombat",
-    "Emu",
-    "Kookaburra",
-    "Panda",
-    "Red Panda",
-    "Capybara",
-    "Armadillo",
-    "Meerkat",
-    "Camel",
-    "Yak",
-    "Okapi",
-    "Tapir",
-    "Aardvark",
-    "Hyena",
-    "Llama",
-    "Alpaca",
-    "Lemur"
+   "spares": [
+    "Parrot Pet",
+    "Fish Bowl",
+    "Dog House",
+    "Cat Bed",
+    "Bunny Hutch",
+    "Rat",
+    "Mouse Pet",
+    "Hedgehog Pet",
+    "Turtle Pet",
+    "Dalmatian",
+    "Labrador",
+    "Beagle",
+    "Siamese Cat",
+    "Tabby Cat",
+    "Shih Tzu"
    ]
   },
   {
@@ -1069,6 +1609,23 @@
     "Speaker",
     "Smart Watch",
     "Video Camera"
+   ],
+   "spares": [
+    "Robot Arm",
+    "Satellite Dish",
+    "Joystick",
+    "Floppy Disk",
+    "Calculator Watch",
+    "VR Headset",
+    "Walkie Talkie",
+    "Telephone",
+    "Flash Drive",
+    "Robot Vacuum",
+    "Charging Cable",
+    "Webcam",
+    "Mouse Computer",
+    "Server",
+    "Arcade Machine"
    ]
   },
   {
@@ -1099,6 +1656,23 @@
     "Frozen Yogurt",
     "Cake Slice",
     "Cookie Jar"
+   ],
+   "spares": [
+    "Lemonade Glass",
+    "Iced Tea",
+    "Cappuccino",
+    "Juice Glass",
+    "Water Bottle",
+    "Milk Carton",
+    "Tea Set",
+    "Hot Cider Mug",
+    "Fruit Punch",
+    "Coconut Water",
+    "Smoothie Bowl",
+    "Soda Can",
+    "Latte",
+    "Milk Bottle",
+    "Tea Bag"
    ]
   },
   {
@@ -1129,6 +1703,23 @@
     "Party Popper",
     "Confetti",
     "Invitation"
+   ],
+   "spares": [
+    "Gift Bag",
+    "Streamers",
+    "Party Balloon",
+    "Cake Topper",
+    "Birthday Hat",
+    "Party Horn",
+    "Banner",
+    "Goodie Bag",
+    "Pinata Donkey",
+    "Paper Lantern",
+    "Sparkler",
+    "Karaoke",
+    "Party Cup",
+    "Gift Stack",
+    "Bunting"
    ]
   },
   {
@@ -1158,6 +1749,23 @@
     "Thermos",
     "Kayak",
     "Trail Sign"
+   ],
+   "spares": [
+    "Camper",
+    "Hammock",
+    "Camp Stove",
+    "Smores",
+    "Fishing Boat",
+    "Backpacker",
+    "Pocket Knife",
+    "First Aid Kit",
+    "Picnic Table",
+    "Water Canteen",
+    "Cabin Tent",
+    "Rope",
+    "Ranger Hat",
+    "Forest Path",
+    "Bonfire"
    ]
   },
   {
@@ -1188,6 +1796,23 @@
     "Hedgehog with Apple",
     "Turtle Racing",
     "Koala Sleeping"
+   ],
+   "spares": [
+    "Cat with Fish",
+    "Dog Sleeping",
+    "Rabbit with Carrot",
+    "Bear with Honey",
+    "Mouse Reading",
+    "Panda with Bamboo",
+    "Fox Sleeping",
+    "Pig with Flower",
+    "Cow with Bell",
+    "Sheep Knitting",
+    "Bird Singing",
+    "Turtle with Hat",
+    "Owl Sleeping",
+    "Squirrel Sleeping",
+    "Frog Prince"
    ]
   },
   {
@@ -1217,6 +1842,421 @@
     "Water Lily",
     "Morning Glory",
     "Bluebell"
+   ],
+   "spares": [
+    "Rose Bush",
+    "Peony",
+    "Carnation",
+    "Dandelion",
+    "Cactus Flower",
+    "Snapdragon",
+    "Zinnia",
+    "Hydrangea",
+    "Magnolia",
+    "Camellia",
+    "Gerbera",
+    "Cosmos",
+    "Begonia",
+    "Foxglove",
+    "Flower Bed"
+   ]
+  },
+  {
+   "id": "baby",
+   "name": "Baby Animals",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Baby Elephant",
+    "Baby Panda",
+    "Baby Fox",
+    "Baby Owl",
+    "Baby Bear",
+    "Baby Bunny",
+    "Baby Deer",
+    "Baby Lion",
+    "Baby Tiger",
+    "Baby Seal",
+    "Baby Penguin",
+    "Baby Goat",
+    "Baby Pig",
+    "Baby Koala",
+    "Baby Sloth",
+    "Baby Giraffe",
+    "Baby Hedgehog",
+    "Baby Turtle",
+    "Baby Duck",
+    "Baby Chick",
+    "Kitten Playing",
+    "Puppy Playing",
+    "Baby Monkey",
+    "Baby Raccoon",
+    "Baby Zebra",
+    "Baby Horse",
+    "Baby Squirrel",
+    "Baby Hippo",
+    "Baby Dolphin",
+    "Baby Otter"
+   ]
+  },
+  {
+   "id": "vehicles2",
+   "name": "Big Machines",
+   "themes": [
+    "land",
+    "city"
+   ],
+   "subjects": [
+    "Bulldozer",
+    "Excavator",
+    "Dump Truck",
+    "Cement Truck",
+    "Crane",
+    "Forklift",
+    "Road Roller",
+    "Steam Train",
+    "Monster Truck",
+    "Fire Engine",
+    "Tractor",
+    "Combine Harvester",
+    "Snow Plow",
+    "Bus Double Decker",
+    "Garbage Truck",
+    "Digger",
+    "Cherry Picker",
+    "Tanker Truck",
+    "Logging Truck",
+    "Street Sweeper",
+    "Steamroller",
+    "Tow Truck Hook",
+    "Car Carrier",
+    "Big Rig",
+    "Mining Cart",
+    "Hot Rod",
+    "Taxi Cab",
+    "Rickshaw",
+    "Trolley",
+    "Sports Car"
+   ]
+  },
+  {
+   "id": "cute",
+   "name": "Cute Critters",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Kawaii Cat",
+    "Kawaii Dog",
+    "Kawaii Bunny",
+    "Kawaii Bear",
+    "Kawaii Panda",
+    "Kawaii Unicorn",
+    "Kawaii Frog",
+    "Kawaii Penguin",
+    "Kawaii Fox",
+    "Kawaii Owl",
+    "Kawaii Whale",
+    "Kawaii Octopus",
+    "Kawaii Dinosaur",
+    "Kawaii Hamster",
+    "Kawaii Pig",
+    "Kawaii Cow",
+    "Kawaii Chick",
+    "Kawaii Koala",
+    "Kawaii Sloth",
+    "Kawaii Narwhal",
+    "Kawaii Bee",
+    "Kawaii Ladybug",
+    "Kawaii Snail",
+    "Kawaii Duck",
+    "Kawaii Mouse",
+    "Kawaii Raccoon",
+    "Kawaii Seal",
+    "Kawaii Turtle",
+    "Kawaii Llama",
+    "Kawaii Axolotl"
+   ]
+  },
+  {
+   "id": "treats2",
+   "name": "Snack Attack",
+   "themes": [
+    "indoor",
+    "land",
+    "city"
+   ],
+   "subjects": [
+    "Cheese Wedge",
+    "Pickle",
+    "Peanut",
+    "Pretzel Stick",
+    "Jelly Toast",
+    "Corn Dog",
+    "Ice Cream Bar",
+    "Frozen Pop",
+    "Cracker",
+    "Grilled Cheese",
+    "Fruit Kebab",
+    "Yogurt Cup",
+    "Cheese Pizza",
+    "Tortilla Chips",
+    "Chicken Nugget",
+    "Hot Pretzel",
+    "Mini Pancakes",
+    "Egg Roll",
+    "Spring Roll",
+    "Onigiri",
+    "Mochi",
+    "Dango",
+    "Baklava",
+    "Tiramisu",
+    "Pudding Cup",
+    "Cupcake Tower",
+    "Donut Stack",
+    "Waffle Cone",
+    "Popcorn Bucket",
+    "Lollipop Swirl"
+   ]
+  },
+  {
+   "id": "ocean3",
+   "name": "Coral Kingdom",
+   "themes": [
+    "water"
+   ],
+   "subjects": [
+    "Butterflyfish",
+    "Angelfish",
+    "Clownfish Pair",
+    "Sea Horse Pair",
+    "Puffer Fish",
+    "Moray Eel",
+    "Grouper",
+    "Sea Anemone",
+    "Sea Star",
+    "Coral Reef Fish",
+    "Hermit Crab Shell",
+    "Spider Crab",
+    "Mantis Shrimp",
+    "Sea Cucumber",
+    "Sea Dragon",
+    "Flounder",
+    "Catfish",
+    "Piranha",
+    "Koi",
+    "Betta Fish",
+    "Goldfish Bowl",
+    "Whale Shark",
+    "Sea Turtle Swimming",
+    "Dolphin Jumping",
+    "Octopus Ink",
+    "Jellyfish Glow",
+    "Shell",
+    "Pearl",
+    "Submarine Toy",
+    "Diver Helmet"
+   ]
+  },
+  {
+   "id": "farm2",
+   "name": "Barnyard Babies",
+   "themes": [
+    "land"
+   ],
+   "subjects": [
+    "Calf",
+    "Piglet",
+    "Foal",
+    "Kid Goat",
+    "Duckling Swimming",
+    "Gosling",
+    "Chick Hatching",
+    "Lamb Jumping",
+    "Puppy Farm",
+    "Barn Owl",
+    "Hen with Chicks",
+    "Rooster Crowing",
+    "Cow Grazing",
+    "Pig Sleeping",
+    "Horse Running",
+    "Goat Climbing",
+    "Sheep Flock",
+    "Donkey Cart",
+    "Hay Wagon",
+    "Milk Can",
+    "Egg Basket",
+    "Farmer Boy",
+    "Farm Girl",
+    "Scarecrow Farm",
+    "Barn Cat Kitten",
+    "Turkey Chick",
+    "Bunny Farm",
+    "Bee Farm",
+    "Pony Ride",
+    "Tractor Red"
+   ]
+  },
+  {
+   "id": "monsters",
+   "name": "Friendly Monsters",
+   "themes": [
+    "land",
+    "city",
+    "cave"
+   ],
+   "subjects": [
+    "Cute Monster",
+    "Blue Monster",
+    "Green Monster",
+    "Purple Monster",
+    "One Eyed Monster",
+    "Furry Monster",
+    "Slime Monster",
+    "Robot Monster",
+    "Spiky Monster",
+    "Baby Dragon",
+    "Little Ghost",
+    "Friendly Alien",
+    "Bigfoot",
+    "Loch Ness",
+    "Gremlin",
+    "Imp",
+    "Cyclops",
+    "Dragon Egg",
+    "Monster Truck Toy",
+    "Jelly Monster",
+    "Monster Cupcake",
+    "Kraken Baby",
+    "Sea Monster",
+    "Yeti Cute",
+    "Pumpkin Monster",
+    "Fluffy Monster",
+    "Spotted Monster",
+    "Horned Monster",
+    "Three Eyed Monster",
+    "Monster Family"
+   ]
+  },
+  {
+   "id": "sports2",
+   "name": "Sports Stars",
+   "themes": [
+    "land",
+    "city"
+   ],
+   "subjects": [
+    "Soccer Player",
+    "Basketball Player",
+    "Baseball Player",
+    "Tennis Player",
+    "Swimmer",
+    "Runner",
+    "Cyclist",
+    "Skier",
+    "Ice Skater",
+    "Gymnast",
+    "Karate Kid",
+    "Surfer",
+    "Skateboarder",
+    "Golfer",
+    "Boxer",
+    "Football Player",
+    "Hockey Player",
+    "Ballerina",
+    "Rock Climber",
+    "Jockey",
+    "Archer",
+    "Fencer",
+    "Weightlifter",
+    "Volleyball Player",
+    "Diver Athlete",
+    "Rower",
+    "Sailor Boy",
+    "Bowler",
+    "Cheerleader",
+    "Referee"
+   ]
+  },
+  {
+   "id": "world",
+   "name": "Wonders of the World",
+   "themes": [
+    "land",
+    "city"
+   ],
+   "subjects": [
+    "Eiffel Tower",
+    "Statue of Liberty",
+    "Big Ben",
+    "Taj Mahal",
+    "Great Wall",
+    "Pyramids",
+    "Colosseum",
+    "Leaning Tower",
+    "Sydney Opera House",
+    "Golden Gate Bridge",
+    "Mount Fuji",
+    "Christ the Redeemer",
+    "Stonehenge",
+    "Windmill Holland",
+    "Tower Bridge",
+    "Moai",
+    "Sphinx",
+    "Parthenon",
+    "Kremlin",
+    "Empire State Building",
+    "Space Needle",
+    "Mount Rushmore",
+    "Pagoda Japan",
+    "Temple Thailand",
+    "Castle Germany",
+    "Lighthouse Maine",
+    "Igloo Village",
+    "Pueblo",
+    "Totem Pole",
+    "Hot Air Balloons Turkey"
+   ]
+  },
+  {
+   "id": "tiny",
+   "name": "Tiny Things",
+   "themes": [
+    "land",
+    "indoor"
+   ],
+   "subjects": [
+    "Button",
+    "Thimble",
+    "Acorn Cap",
+    "Paper Boat",
+    "Origami Crane",
+    "Snow Cone",
+    "Teacup Pig",
+    "Bonsai Tree",
+    "Pinecone Small",
+    "Feather",
+    "Seashell Small",
+    "Four Leaf Clover",
+    "Pebble",
+    "Sewing Kit",
+    "Yarn Ball",
+    "Safety Pin",
+    "Key Ring",
+    "Lock",
+    "Coin",
+    "Stamp",
+    "Envelope",
+    "Postcard",
+    "Bookmark",
+    "Candle Small",
+    "Matchbox",
+    "Dice",
+    "Chess Piece",
+    "Playing Card",
+    "Domino",
+    "Marble"
    ]
   }
  ]

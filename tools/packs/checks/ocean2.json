@@ -1,0 +1,420 @@
+{
+ "whale-239": {
+  "guess": "orca (killer whale) on a sandy seabed",
+  "alternatives": [
+   "beached whale",
+   "seal"
+  ],
+  "readability": 3,
+  "features": [
+   "black body",
+   "white belly/chin patch",
+   "tail flukes on the right",
+   "water and sky above",
+   "sandy ground with seaweed"
+  ],
+  "problems": [
+   "no visible eye or eye patch",
+   "head shape is blobby and hard to read",
+   "missing dorsal fin",
+   "whale sits on sand below the water, which is confusing",
+   "busy orange speckled sand competes with the outline"
+  ],
+  "digest": "64c5e6199f949bdc",
+  "grade": "pass",
+  "score": 72
+ },
+ "dolphin-240": {
+  "guess": "red dolphin jumping",
+  "alternatives": [
+   "orca",
+   "red fish"
+  ],
+  "readability": 4,
+  "features": [
+   "curved arched body",
+   "pointed snout/beak",
+   "dark eye",
+   "white belly",
+   "dorsal fin",
+   "pectoral fin",
+   "tail fluke",
+   "purple flower near snout",
+   "sea and sandy background with seaweed"
+  ],
+  "problems": [
+   "unusual red color for a dolphin",
+   "head is turned toward the right edge and snout is small",
+   "dark outline and brown shadows merge with the sand",
+   "tail at bottom blends with orange ground"
+  ],
+  "digest": "5177b79dd89e97e4",
+  "grade": "pass",
+  "score": 94
+ },
+ "octopus-241": {
+  "guess": "red octopus wearing a sailor hat",
+  "alternatives": [
+   "squid",
+   "red crab"
+  ],
+  "readability": 4,
+  "features": [
+   "red rounded head",
+   "white sailor cap",
+   "brown eyes and mouth",
+   "multiple curling tentacles with pink suckers",
+   "raised tentacle waving",
+   "underwater background with seaweed"
+  ],
+  "problems": [
+   "tentacles overlap and tangle into a busy mass",
+   "face is small and brown spots read unclearly",
+   "dark red shading on lower right blends into body"
+  ],
+  "digest": "927396e79da7139c",
+  "grade": "pass",
+  "score": 82
+ },
+ "crab-242": {
+  "guess": "red crab on a sign",
+  "alternatives": [
+   "lobster",
+   "red octopus"
+  ],
+  "readability": 4,
+  "features": [
+   "two raised claws",
+   "eyes on top",
+   "smiling mouth",
+   "round red body",
+   "side legs",
+   "darker red shading"
+  ],
+  "problems": [
+   "eyes are separated from the body and float near the top",
+   "the white sign/board background takes up a lot of the frame",
+   "the claws merge a bit into the body"
+  ],
+  "digest": "24456d63b2b0190b",
+  "grade": "pass",
+  "score": 86
+ },
+ "seahorse-243": {
+  "guess": "seahorse on a beach at sunset",
+  "alternatives": [
+   "dark chess knight piece",
+   "dragon silhouette"
+  ],
+  "readability": 4,
+  "features": [
+   "head with long snout",
+   "blue eye",
+   "curved body",
+   "curled tail at bottom",
+   "beach, sea and sunset background"
+  ],
+  "problems": [
+   "very dark silhouette with little interior detail",
+   "no fin or belly ridges visible",
+   "eye is tiny and easy to miss"
+  ],
+  "digest": "ff2ca51590d975d1",
+  "grade": "pass",
+  "score": 86
+ },
+ "sea-turtle-244": {
+  "guess": "turtle on a beach",
+  "alternatives": [
+   "tortoise",
+   "green beetle"
+  ],
+  "readability": 3,
+  "features": [
+   "green patterned shell with dark segments",
+   "gray head on the left",
+   "gray legs underneath",
+   "yellow-orange belly edge",
+   "beach background with palm trees, sun and clouds"
+  ],
+  "problems": [
+   "head is blocky and has no clear eye or face",
+   "legs blend into each other and look like wheels",
+   "dark outline makes the body heavy and blobby",
+   "palm trees seem to sprout from the shell, which is confusing"
+  ],
+  "digest": "200d0ed14763f989",
+  "grade": "pass",
+  "score": 72
+ },
+ "shark-245": {
+  "guess": "beached shark",
+  "alternatives": [
+   "dolphin on the beach",
+   "big fish"
+  ],
+  "readability": 4,
+  "features": [
+   "grey streamlined body",
+   "dorsal fin",
+   "forked tail fin",
+   "pectoral fins",
+   "pointed snout",
+   "lighter purple-white belly",
+   "sand and sea background"
+  ],
+  "problems": [
+   "no visible eye",
+   "mouth not clearly drawn",
+   "dark red marks make it look injured or confusing",
+   "tail blends with dark outlines and brown sand",
+   "purple belly is an unusual color"
+  ],
+  "digest": "4d56fdc91b6bf205",
+  "grade": "pass",
+  "score": 82
+ },
+ "starfish-246": {
+  "guess": "red starfish",
+  "alternatives": [
+   "sea star with cartoon eyes",
+   "red octopus"
+  ],
+  "readability": 5,
+  "features": [
+   "five pointed arms",
+   "big cartoon eyes with white highlights",
+   "pink highlight edges and dark red shading",
+   "dark outline",
+   "underwater setting with coral, seaweed and bubbles"
+  ],
+  "problems": [
+   "no visible mouth",
+   "lower right arm is shaded dark red and blends somewhat into the dark blue water",
+   "busy patterned background"
+  ],
+  "digest": "806639b73475969b",
+  "grade": "pass",
+  "score": 84
+ },
+ "clownfish-247": {
+  "guess": "clownfish",
+  "alternatives": [
+   "goldfish",
+   "orange fish lying on rocks"
+  ],
+  "readability": 4,
+  "features": [
+   "orange body with white stripes outlined in black",
+   "rounded fins on top",
+   "red pectoral fin",
+   "tail on the right",
+   "head on the left"
+  ],
+  "problems": [
+   "no clear eye visible",
+   "fish appears lying on its side on rocks rather than swimming",
+   "shape is somewhat blobby and the head and tail are hard to tell apart",
+   "rocky gray background makes the black outline a bit busy"
+  ],
+  "digest": "8635caa1bab04128",
+  "grade": "pass",
+  "score": 78
+ },
+ "seal-248": {
+  "guess": "baby seal on the beach",
+  "alternatives": [
+   "sea lion",
+   "penguin"
+  ],
+  "readability": 3,
+  "features": [
+   "white rounded body",
+   "dark head with white face patches",
+   "dark eyes",
+   "small black nose/muzzle area",
+   "flippers at bottom",
+   "sandy beach and ocean background"
+  ],
+  "problems": [
+   "face is confusing with black and white patches, hard to see eyes and nose",
+   "body shape is blobby",
+   "flippers not clearly defined",
+   "black outline patches look like spots"
+  ],
+  "digest": "023f9aa81838dbb2",
+  "grade": "pass",
+  "score": 84
+ },
+ "stingray-249": {
+  "guess": "white stingray (manta ray) swimming underwater",
+  "alternatives": [
+   "ghost",
+   "white blob fish"
+  ],
+  "readability": 3,
+  "features": [
+   "flat white diamond-shaped body",
+   "small dark eyes/face marks",
+   "long thin curling tail with pink tip",
+   "seaweed and water background"
+  ],
+  "problems": [
+   "body shape is blobby and irregular",
+   "face marks are vague dashes",
+   "tail is thin and hard to read against water",
+   "could be mistaken for a ghost or cloud"
+  ],
+  "digest": "58fd3fd5ce998fbb",
+  "grade": "pass",
+  "score": 80
+ },
+ "humpback-whale-250": {
+  "guess": "humpback whale",
+  "alternatives": [
+   "orca",
+   "shark"
+  ],
+  "readability": 3,
+  "features": [
+   "long dark body",
+   "blue-edged pectoral fins",
+   "tapering tail end",
+   "sea and sky background with clouds and birds"
+  ],
+  "problems": [
+   "no visible eye or face",
+   "whale appears to be on a stone wall rather than in water",
+   "dark blobby shape with jagged edges",
+   "tail fluke not clearly shown",
+   "fins read as odd blue streaks"
+  ],
+  "digest": "a8580cc5dd514ffd",
+  "grade": "pass",
+  "score": 72
+ },
+ "tropical-fish-251": {
+  "guess": "clownfish",
+  "alternatives": [
+   "goldfish",
+   "koi fish"
+  ],
+  "readability": 3,
+  "features": [
+   "orange and white striped body",
+   "black outlines on stripes",
+   "tail fin on left",
+   "dorsal fin on top",
+   "red-tipped fins",
+   "water surface with bubbles"
+  ],
+  "problems": [
+   "no clearly visible eye",
+   "head on right is cluttered and hard to read",
+   "busy rocky background with similar grays and whites blends with white stripes",
+   "fish shape is blobby and fragmented"
+  ],
+  "digest": "386e3d58aea1919e",
+  "grade": "pass",
+  "score": 76
+ },
+ "baby-turtle-252": {
+  "guess": "sea turtle swimming underwater",
+  "alternatives": [
+   "tortoise",
+   "frog"
+  ],
+  "readability": 3,
+  "features": [
+   "green patterned shell with brown outlines",
+   "tan head on the left",
+   "white mouth/beak area",
+   "green flippers",
+   "coral and bubbles in background"
+  ],
+  "problems": [
+   "no clear eye on the head",
+   "head shape is blobby and reads more like a dog or bear face",
+   "flippers are separated and blend with the dark seabed",
+   "brown outlines blend into the dark blue water",
+   "shell and body are oddly proportioned"
+  ],
+  "digest": "1af045351fc58d08",
+  "grade": "pass",
+  "score": 76
+ },
+ "coral-253": {
+  "guess": "red coral in an orange pot",
+  "alternatives": [
+   "red dragon with orange belly",
+   "flower bouquet in vase"
+  ],
+  "readability": 2,
+  "features": [
+   "branching red shapes with pink highlights",
+   "orange rounded base like a pot or vase",
+   "dark outline",
+   "brick wall and water background"
+  ],
+  "problems": [
+   "subject is ambiguous, branches look tangled",
+   "no clear face or recognizable silhouette",
+   "red branches blend into a messy shape",
+   "busy background with water and bricks distracts"
+  ],
+  "digest": "4963e7a8a8da28a5",
+  "grade": "weak",
+  "score": 62
+ },
+ "swordfish-254": {
+  "guess": "blue marlin (swordfish) leaping",
+  "alternatives": [
+   "swordfish",
+   "sailfish"
+  ],
+  "readability": 4,
+  "features": [
+   "long pointed bill",
+   "dorsal fin",
+   "dark blue back",
+   "white belly",
+   "yellow stripe",
+   "curved tail fin",
+   "dark eye"
+  ],
+  "problems": [
+   "tail curls into a hook shape that is hard to read",
+   "eye is small and not clearly visible",
+   "body is compact and twisted so the fish outline is a bit unusual",
+   "stone wall background is busy"
+  ],
+  "digest": "4a95977ddebc2da9",
+  "grade": "pass",
+  "score": 82
+ },
+ "shrimp-255": {
+  "guess": "red shrimp on a beach",
+  "alternatives": [
+   "lobster",
+   "crab"
+  ],
+  "readability": 2,
+  "features": [
+   "curled red segmented body",
+   "long antennae",
+   "white and black head area",
+   "tail fan at bottom",
+   "beach and sea background with sun and clouds"
+  ],
+  "problems": [
+   "shape is blobby and hard to read",
+   "no clear eyes or face",
+   "black outlines and white patches make it confusing",
+   "green antennae tips blend with sky details",
+   "legs not distinguishable"
+  ],
+  "digest": "d06cc5547d613e5f",
+  "grade": "weak",
+  "score": 66
+ }
+}

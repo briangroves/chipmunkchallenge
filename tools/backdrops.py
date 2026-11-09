@@ -649,7 +649,9 @@ for t in THEMES:
 def pick_themes(groups, used, recent, n=6, dark_subject=False):
     """Up to n candidate themes for the next board: from the allowed groups, least used first, skipping the ones
     used on the last few boards. Each comes with its next unused variant, so no background is ever repeated."""
-    ok = [i for i, t in enumerate(THEMES) if t["group"] in groups and not (dark_subject and t["dark"])]
+    # `groups` may name whole groups ("land") or single themes ("Snowy pines").
+    ok = [i for i, t in enumerate(THEMES) if (t["group"] in groups or t["name"] in groups)
+          and not (dark_subject and t["dark"])]
     pool = [i for i in ok if i not in recent] or ok
     pool.sort(key=lambda i: (used.get(i, 0), (i * 37) % len(THEMES)))
     return [(i, used.get(i, 0)) for i in pool[:n]]

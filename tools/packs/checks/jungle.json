@@ -1,0 +1,523 @@
+{
+ "lion-230": {
+  "guess": "lion",
+  "alternatives": [
+   "dog",
+   "bear"
+  ],
+  "readability": 3,
+  "features": [
+   "big brown mane",
+   "tan body",
+   "four legs",
+   "tail with tuft",
+   "face inside mane with eyes and nose"
+  ],
+  "problems": [
+   "face is hard to read inside the busy mane pattern",
+   "mane is very large compared to body",
+   "dark outlines and shading make the head look blobby",
+   "legs blend into dark green grass"
+  ],
+  "digest": "e82da1ed0a9e4666",
+  "grade": "pass",
+  "score": 88
+ },
+ "tiger-231": {
+  "guess": "tiger cub",
+  "alternatives": [
+   "orange cat",
+   "lion cub"
+  ],
+  "readability": 5,
+  "features": [
+   "orange fur with black stripes",
+   "round face with two dark eyes",
+   "red nose",
+   "pink inner ears",
+   "white muzzle and chest",
+   "sitting body with front paws",
+   "white tail tip wrapped at left",
+   "mountains, clouds and grass background",
+   "small stream at bottom"
+  ],
+  "problems": [
+   "paws and lower body are a bit cluttered with stripes",
+   "white tail blends slightly with grey rocks",
+   "small blue stream patch near the tail can be confusing"
+  ],
+  "digest": "d926231c4f9a4129",
+  "grade": "pass",
+  "score": 100
+ },
+ "elephant-232": {
+  "guess": "baby blue elephant",
+  "alternatives": [
+   "blue mouse",
+   "blue koala"
+  ],
+  "readability": 4,
+  "features": [
+   "large pink-lined ears",
+   "dark eyes",
+   "short trunk",
+   "round blue head",
+   "sitting body with legs/feet",
+   "sun and desert background"
+  ],
+  "problems": [
+   "trunk is very short and hard to see",
+   "body is a blobby mass of blue shades",
+   "lower body and feet blend into dark outline"
+  ],
+  "digest": "5199458ef89707e1",
+  "grade": "pass",
+  "score": 90
+ },
+ "giraffe-233": {
+  "guess": "giraffe",
+  "alternatives": [
+   "horse",
+   "llama"
+  ],
+  "readability": 4,
+  "features": [
+   "head with long snout",
+   "eye",
+   "nostril",
+   "ossicones/horns on top",
+   "small ear",
+   "long neck",
+   "brown spots on neck",
+   "dark outline"
+  ],
+  "problems": [
+   "only head and neck shown, no body or legs",
+   "snout is very long and could read as a horse",
+   "few spots, mostly on the neck",
+   "dark green shading on the neck blends with the grass"
+  ],
+  "digest": "3eb10537fbddc5d5",
+  "grade": "pass",
+  "score": 90
+ },
+ "zebra-234": {
+  "guess": "zebra",
+  "alternatives": [
+   "horse",
+   "cow"
+  ],
+  "readability": 4,
+  "features": [
+   "black and white stripes",
+   "four legs",
+   "head with mane on the right",
+   "ear",
+   "body in side view"
+  ],
+  "problems": [
+   "head is hard to make out, no clear eye or muzzle",
+   "stripes are irregular and blobby",
+   "face blends into the stripe pattern",
+   "tail not visible"
+  ],
+  "digest": "ef008e2d63899eee",
+  "grade": "pass",
+  "score": 82
+ },
+ "monkey-235": {
+  "guess": "monkey jumping in a meadow",
+  "alternatives": [
+   "kid with a red hood waving",
+   "bear cub playing"
+  ],
+  "readability": 3,
+  "features": [
+   "tan face with white eye",
+   "pink mouth",
+   "raised arm waving",
+   "dark red/maroon body outline like fur or a cape",
+   "legs with dark shoes kicking",
+   "blue item (maybe a bag or cloth) near the legs",
+   "sun, grass, flowers in background"
+  ],
+  "problems": [
+   "head shape is unclear and partly mixed with red and brown blocks",
+   "only one eye visible, so the face is hard to read",
+   "dark outlines blend with the dark green bushes",
+   "limbs and body overlap in a confusing pose",
+   "blue patch near the legs is ambiguous"
+  ],
+  "digest": "41f006dd3ff36c83",
+  "grade": "pass",
+  "score": 88
+ },
+ "gorilla-236": {
+  "guess": "gorilla beating its chest at night",
+  "alternatives": [
+   "chimpanzee",
+   "yeti"
+  ],
+  "readability": 3,
+  "features": [
+   "dark fur body",
+   "grey chest and face area",
+   "raised arm with fist",
+   "white eyes/brow",
+   "legs standing on rocks",
+   "night sky with moon and stars"
+  ],
+  "problems": [
+   "face is unclear, no visible nose or mouth",
+   "grey chest blob merges with face",
+   "dark body blends with dark night sky at the top",
+   "pose is hard to read, raised arm looks like a separate shape"
+  ],
+  "digest": "e643bbe6cbd99af2",
+  "grade": "pass",
+  "score": 80
+ },
+ "hippo-237": {
+  "guess": "hippopotamus",
+  "alternatives": [
+   "rhinoceros",
+   "pig"
+  ],
+  "readability": 3,
+  "features": [
+   "large gray rounded body",
+   "head on left with ears",
+   "small brown eye",
+   "short stubby legs",
+   "dark shadow underside"
+  ],
+  "problems": [
+   "head blends into body with no clear snout shape",
+   "body is a blobby gray mass",
+   "legs are hard to distinguish",
+   "dark shading on right merges with green background edges",
+   "no visible mouth or nostrils"
+  ],
+  "digest": "96323551003e4a5b",
+  "grade": "pass",
+  "score": 80
+ },
+ "rhino-238": {
+  "guess": "rhinoceros",
+  "alternatives": [
+   "hippo",
+   "warthog"
+  ],
+  "readability": 4,
+  "features": [
+   "brown horn on snout",
+   "pink inner ear",
+   "eye",
+   "nostril",
+   "gray body",
+   "legs",
+   "desert background with sun and cactus"
+  ],
+  "problems": [
+   "body blends into dark shadow and reddish dirt at the bottom",
+   "legs are hard to make out",
+   "pose is unclear, looks like it's lying or charging through sand"
+  ],
+  "digest": "b483f162dc75aaad",
+  "grade": "pass",
+  "score": 94
+ },
+ "parrot-239": {
+  "guess": "scarlet macaw (parrot) flying",
+  "alternatives": [
+   "red dragon",
+   "phoenix bird"
+  ],
+  "readability": 3,
+  "features": [
+   "red wings spread out",
+   "long yellow and blue tail feathers",
+   "yellow and blue body colors",
+   "dark head area with pink patches"
+  ],
+  "problems": [
+   "head and beak are hard to find, dark blob on left blends with shadows",
+   "no clear eye",
+   "wings and body merge into a jumble of colors",
+   "busy green background with trees competes with subject"
+  ],
+  "digest": "8714e8bd2921128c",
+  "grade": "pass",
+  "score": 76
+ },
+ "toucan-240": {
+  "guess": "toucan",
+  "alternatives": [
+   "hornbill",
+   "puffin"
+  ],
+  "readability": 4,
+  "features": [
+   "large yellow-orange beak with dark tip",
+   "white throat/chest patch",
+   "black body",
+   "eye with orange ring",
+   "grey perch/branch",
+   "sunset sky with sun, mountains, grass"
+  ],
+  "problems": [
+   "black lower body blends into dark ground and lacks clear legs or tail outline",
+   "beak merges with orange sunset sky",
+   "body shape is blobby below the head"
+  ],
+  "digest": "8a0d42c627e0c02e",
+  "grade": "pass",
+  "score": 82
+ },
+ "flamingo-241": {
+  "guess": "black flamingo on a beach",
+  "alternatives": [
+   "black swan",
+   "ostrich"
+  ],
+  "readability": 3,
+  "features": [
+   "curved S-shaped neck",
+   "small hooked head at top",
+   "round dark body",
+   "long single leg",
+   "beach with sand, sea, sun, clouds",
+   "palm trees behind"
+  ],
+  "problems": [
+   "bird is all dark with no visible eye or beak detail",
+   "head blends with palm leaves",
+   "body is a blobby silhouette",
+   "leg is thick and looks like a post",
+   "palm trunks overlap the bird and confuse the outline"
+  ],
+  "digest": "9eb91308acae511c",
+  "grade": "pass",
+  "score": 72
+ },
+ "chameleon-242": {
+  "guess": "green chameleon in the desert",
+  "alternatives": [
+   "green frog",
+   "lizard"
+  ],
+  "readability": 3,
+  "features": [
+   "curled spiral tail",
+   "humped green body",
+   "head with crest on the right",
+   "legs gripping the ground",
+   "sun in the sky",
+   "desert sand background"
+  ],
+  "problems": [
+   "no clear eye visible",
+   "head and legs blend into one blob",
+   "dark outlines inside body make legs hard to separate",
+   "body shape is lumpy and could read as a frog"
+  ],
+  "digest": "59dc353ab18d064b",
+  "grade": "pass",
+  "score": 76
+ },
+ "baby-elephant-243": {
+  "guess": "white elephant",
+  "alternatives": [
+   "polar bear",
+   "white hippo"
+  ],
+  "readability": 3,
+  "features": [
+   "large white body",
+   "two dark eyes",
+   "trunk curling down to the left",
+   "big ear outlined in lavender",
+   "legs with lavender shading",
+   "night sky with moon and stars",
+   "brown ground"
+  ],
+  "problems": [
+   "trunk blends into the body and is hard to separate",
+   "no tusks or clear ear flap shape",
+   "white body shape is blobby",
+   "pale shading makes the outline unclear in places"
+  ],
+  "digest": "68ab4786413ba591",
+  "grade": "pass",
+  "score": 80
+ },
+ "lion-cub-244": {
+  "guess": "lion cub (like Simba) in a savanna at sunset",
+  "alternatives": [
+   "yellow dog",
+   "lioness"
+  ],
+  "readability": 3,
+  "features": [
+   "head with tan muzzle on right",
+   "ear",
+   "yellow body",
+   "tan legs",
+   "tail extending left",
+   "sunset sky with sun",
+   "mountains",
+   "green grass",
+   "bird in sky"
+  ],
+  "problems": [
+   "face lacks clear eyes and nose",
+   "orange and yellow body blends with orange sunset sky behind head",
+   "legs and tail are blobby and merge with the brown and green ground",
+   "body shape is lumpy, hard to tell which way it faces"
+  ],
+  "digest": "346f63d42d15b004",
+  "grade": "pass",
+  "score": 84
+ },
+ "tree-frog-245": {
+  "guess": "frog on a beach",
+  "alternatives": [
+   "toad sitting on sand",
+   "green turtle"
+  ],
+  "readability": 4,
+  "features": [
+   "green body",
+   "bulging eyes on top of head",
+   "one closed/winking eye",
+   "pink smiling mouth",
+   "pink cheek blush",
+   "front legs/feet",
+   "white belly patch",
+   "sun",
+   "clouds",
+   "sea",
+   "sandy beach",
+   "palm tree fronds"
+  ],
+  "problems": [
+   "palm fronds and trunks overlap the head and look confusing",
+   "dark outline and sand debris blur the bottom edge",
+   "white/black blobs around the frog are unclear",
+   "eyes are small and partly hidden by yellow highlight"
+  ],
+  "digest": "85ce7b2e6e8a694a",
+  "grade": "pass",
+  "score": 90
+ },
+ "baby-monkey-246": {
+  "guess": "monkey in a red raincoat",
+  "alternatives": [
+   "mouse in a red hood",
+   "teddy bear in red clothes"
+  ],
+  "readability": 3,
+  "features": [
+   "tan face with eyes",
+   "big round ears",
+   "red hood/hat",
+   "red coat with tan belly",
+   "curled red tail",
+   "sitting legs/feet",
+   "rain drops and green bushes background"
+  ],
+  "problems": [
+   "face is muddled with grey and brown patches",
+   "eyes and mouth hard to read",
+   "red tail blends with coat",
+   "ears could suggest mouse or bear",
+   "busy background with bushes competes with the figure"
+  ],
+  "digest": "346a3ea4c94b93b4",
+  "grade": "pass",
+  "score": 88
+ },
+ "kangaroo-247": {
+  "guess": "yellow kangaroo",
+  "alternatives": [
+   "yellow dragon",
+   "yellow fox"
+  ],
+  "readability": 3,
+  "features": [
+   "head with pointed ears",
+   "pink inner ear",
+   "closed eye",
+   "snout",
+   "long tail extending left",
+   "big hind legs/feet",
+   "tan belly",
+   "blue water splash at feet",
+   "blue wing-like shape behind"
+  ],
+  "problems": [
+   "body pose is crouched and twisted, hard to read",
+   "blue shape behind body is confusing (wing or water?)",
+   "yellow and orange shading makes body look blobby",
+   "face details small"
+  ],
+  "digest": "cdda87a280fd78c7",
+  "grade": "pass",
+  "score": 88
+ },
+ "koala-248": {
+  "guess": "koala in the desert",
+  "alternatives": [
+   "mouse",
+   "elephant"
+  ],
+  "readability": 3,
+  "features": [
+   "large round ears with white insides",
+   "gray head",
+   "dark eye",
+   "dark nose/mouth area",
+   "white chest",
+   "arm holding a yellow item",
+   "dark legs/feet",
+   "desert background with sun and bones"
+  ],
+  "problems": [
+   "face is hard to read, eye and nose merge into dark patches",
+   "body silhouette is blobby and tilted",
+   "dark outline and red/brown shading clutter the right side",
+   "only one clear eye visible",
+   "legs blend together at bottom"
+  ],
+  "digest": "87072412a8c4546b",
+  "grade": "pass",
+  "score": 88
+ },
+ "panda-249": {
+  "guess": "panda eating bamboo",
+  "alternatives": [
+   "black and white bear",
+   "raccoon"
+  ],
+  "readability": 4,
+  "features": [
+   "white face with black eye patches",
+   "black ears",
+   "pink cheek",
+   "red tongue/mouth",
+   "black body",
+   "pink paw pads",
+   "green bamboo leaves",
+   "rocky mountains and clouds background"
+  ],
+  "problems": [
+   "black body is a large blob with little limb definition",
+   "grey rocks clutter the edges",
+   "face is small and slightly off-center",
+   "bamboo overlaps body making shape busy"
+  ],
+  "digest": "b99c98fc470f40c6",
+  "grade": "pass",
+  "score": 94
+ }
+}

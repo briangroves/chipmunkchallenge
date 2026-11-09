@@ -1,0 +1,37 @@
+{
+ "note": "Cow, level 171: the face redrawn (horns, ears, eyes, muzzle, mouth); the converted tongue cleared.",
+ "layers": [
+  {
+   "at": [
+    10,
+    1
+   ],
+   "rows": [
+    ".....KTK...KTK....",
+    ".....KTK...KTK....",
+    "..KK.KTKKKKKTK.KK.",
+    ".KPPKWWWWWWWWWKPPK",
+    ".KPPWWWWWWWWWWWPPK",
+    "..KKWWWWWWWWWWWKK.",
+    "...KWKWWWWWKWWWX..",
+    "...KWKKWWWWKKWWXK.",
+    "...KWWWWWWWWWWWXK.",
+    "..KPPPPPPPPPPPPPK.",
+    ".KPPPPKPPPPKPPPPSK",
+    ".KPPPPPPPPPPPPPPSK",
+    "..KPPPKKKKKKPPPSK.",
+    "...KSPPPRRPPPPSK..",
+    "....KKKKKKKKKKKK.."
+   ]
+  },
+  {
+   "at": [
+    26,
+    9
+   ],
+   "rows": [
+    "WW"
+   ]
+  }
+ ]
+}

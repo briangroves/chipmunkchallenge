@@ -28,10 +28,11 @@ PALETTE = {
     "Q": 0xE65100, "J": 0xFFB74D, "H": 0xB3E5FC, "E": 0x4E342E, "S": 0xD81B60, "Z": 0xFFF59D, "X": 0xD7CCC8,
 }
 RGB = {k: ((v >> 16) & 255, (v >> 8) & 255, v & 255) for k, v in PALETTE.items()}
-# Colors the subject's source is matched against: the 18 standard ones, minus the backdrop's sky and grass so it can't
-# vanish into them. The in-between shades are kept for shading, which works from these base colors.
+# Colors the subject's source is matched against: the 18 standard ones (blue eyes need blue). The in-between shades
+# are kept for shading, which works from these base colors; the backdrop is chosen to contrast with the subject.
 SHADES = ("Q", "J", "H", "E", "S", "Z", "X")
-SUBJECT = [k for k in PALETTE if k not in ("C", "L", "D", "G", "B", "I") + SHADES]
+SUBJECT = [k for k in PALETTE if k not in SHADES]
+NEUTRAL = ["W", "A", "K"]
 
 
 def dist(a, b):
@@ -102,27 +103,68 @@ def subject_cells(px, mask, box, dark_win=0.25):
     left = bl + (bw - cw) // 2
     top = bt + bh - ch                             # stand on the bottom of the box
     cells = {}
+    place = lambda y, x: (top + int((y - y0) * scale), left + int((x - x0) * scale))
     for cy in range(ch):
         for cx in range(cw):
             votes, cov, tot = {}, 0, 0
-            for y in range(int(y0 + cy / scale), int(y0 + (cy + 1) / scale)):
-                for x in range(int(x0 + cx / scale), int(x0 + (cx + 1) / scale)):
+            for y in range(int(y0 + cy / scale), min(h, int(y0 + (cy + 1) / scale))):
+                for x in range(int(x0 + cx / scale), min(w, int(x0 + (cx + 1) / scale))):
                     tot += 1
                     if mask[y][x]:
                         cov += 1
-                        k = nearest(px[y][x], SUBJECT)
+                        p = px[y][x]
+                        # Grey pixels stay grey: with every color allowed, light grey fur would match lavender.
+                        k = nearest(p, NEUTRAL if max(p) - min(p) < 28 else SUBJECT)
                         votes[k] = votes.get(k, 0) + 1
             if tot and cov / tot >= 0.45:
                 # Small dark features (eyes, nose) win a block if they cover a quarter of it, so they survive.
                 dark = [k for k in votes if k in DARK and votes[k] >= dark_win * cov]
                 cells[(top + cy, left + cx)] = max(dark or votes, key=votes.get)
+    # Features too small to win a block (pupils, nostrils, small dark eyes): each small dark spot inside the subject
+    # gets one block of its own, at its center, so faces keep their eyes.
+    cell_px = 1 / scale
+    for comp in dark_spots(px, mask, (y0, y1, x0, x1), cell_px):
+        cy = sum(p[0] for p in comp) / len(comp)
+        cx = sum(p[1] for p in comp) / len(comp)
+        rc = place(cy, cx)
+        if rc in cells:
+            cells[rc] = "K"
     return cells
+
+
+def dark_spots(px, mask, box, cell_px):
+    """Small, compact dark blobs inside the subject (bigger than a speck, smaller than about 4 blocks)."""
+    y0, y1, x0, x1 = box
+    dark = lambda p: max(p) < 110 or (p[2] > 120 and p[0] < 90 and p[1] < 140)   # black/brown, or a blue iris
+    seen, out = set(), []
+    lo, hi = 0.08 * cell_px * cell_px, 4.0 * cell_px * cell_px
+    for y in range(y0, y1):
+        for x in range(x0, x1):
+            if (y, x) in seen or not mask[y][x] or not dark(px[y][x]):
+                continue
+            comp, stack = [], [(y, x)]
+            seen.add((y, x))
+            while stack and len(comp) <= hi:
+                a, b = stack.pop()
+                comp.append((a, b))
+                for da, db in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    q = (a + da, b + db)
+                    if y0 <= q[0] < y1 and x0 <= q[1] < x1 and q not in seen and mask[q[0]][q[1]] \
+                            and dark(px[q[0]][q[1]]):
+                        seen.add(q)
+                        stack.append(q)
+            if lo <= len(comp) <= hi:
+                hgt = max(p[0] for p in comp) - min(p[0] for p in comp) + 1
+                wid = max(p[1] for p in comp) - min(p[1] for p in comp) + 1
+                if max(hgt, wid) <= 3 * min(hgt, wid) and len(comp) >= 0.35 * hgt * wid:
+                    out.append(comp)
+    return out
 
 
 DARK = ("K", "N", "U", "M", "E")
 
 
-def simplify(cells, keep=5):
+def simplify(cells, keep=6):
     """At most `keep` colors (plus dark features): rarer colors move to the nearest kept one."""
     count = {}
     for k in cells.values():
@@ -155,6 +197,23 @@ def dark_share(px, mask):
                 n += 1
                 d += max(p) < 70
     return d / max(1, n)
+
+
+def drop_ground(px, mask):
+    """Clipart often stands its subject on a patch of grass or a grey shadow: drop green and grey pixels in the
+    bottom fifth of the subject, plus anything left below the subject's lowest non-ground part."""
+    h, w = len(px), len(px[0])
+    ys = [y for y in range(h) if any(mask[y])]
+    if not ys:
+        return
+    top, bot = min(ys), max(ys)
+    cut = bot - (bot - top) * 0.2
+    green = lambda p: p[1] > p[0] + 25 and p[1] > p[2] + 15
+    grey = lambda p: max(p) - min(p) < 18 and 70 < max(p) < 225
+    for y in range(int(cut), bot + 1):
+        for x in range(w):
+            if mask[y][x] and (green(px[y][x]) or grey(px[y][x])):
+                mask[y][x] = False
 
 
 def fill_ratio(mask):
@@ -366,6 +425,7 @@ def make_subject(path):
     mask = cut_out(px)
     if not any(any(r) for r in mask):
         raise Rejected("nothing to cut out")
+    drop_ground(px, mask)
     fill = fill_ratio(mask)
     if fill < 0.25:
         raise Rejected(f"the subject fills only {fill:.0%} of its box (line art or a thin drawing)")

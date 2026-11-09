@@ -1,0 +1,712 @@
+{
+ "cow-171": {
+  "guess": "cow",
+  "alternatives": [
+   "dairy calf",
+   "black-and-white goat"
+  ],
+  "readability": 5,
+  "features": [
+   "large white head with pink muzzle and nostrils",
+   "eyes (closed/happy lines)",
+   "smiling mouth with tongue",
+   "small horns",
+   "pink ears",
+   "black-and-white spotted body",
+   "pink udder",
+   "legs with orange hooves",
+   "tail with dark tuft raised up",
+   "grassy meadow, flowers, clouds, sun, purple hills"
+  ],
+  "problems": [
+   "body spots are somewhat irregular and blobby",
+   "hooves are orange, which is unusual",
+   "white body edges slightly blend into the light sky and clouds",
+   "legs are short and partly hidden in the grass"
+  ],
+  "digest": "78825c8de897d47b",
+  "grade": "pass",
+  "score": 100,
+  "colors": 21,
+  "black": 0.163,
+  "biggest_patch": 0.174,
+  "theme": "Spring meadow",
+  "name": "Cow",
+  "pack": "farm",
+  "touched": true,
+  "verify": {
+   "guess": "cow",
+   "score": 100,
+   "agrees": true
+  }
+ },
+ "pig-172": {
+  "guess": "pink pig",
+  "alternatives": [
+   "piglet with big ears",
+   "pink cow"
+  ],
+  "readability": 4,
+  "features": [
+   "pink body",
+   "big floppy white ears",
+   "snout with nostrils",
+   "eye",
+   "four legs",
+   "curly tail",
+   "red scarf/neck patch"
+  ],
+  "problems": [
+   "red/dark patches on body and legs look messy",
+   "ears are oversized and white, less pig-like",
+   "legs partly blend with dark background",
+   "busy striped/brick background"
+  ],
+  "digest": "07183af9ccd14583",
+  "grade": "pass",
+  "score": 94,
+  "colors": 11,
+  "black": 0.293,
+  "biggest_patch": 0.163,
+  "theme": "Stormy coast",
+  "name": "Pig",
+  "pack": "farm",
+  "touched": false,
+  "verify": {
+   "guess": "pink pig",
+   "score": 94,
+   "agrees": true
+  }
+ },
+ "sheep-173": {
+  "guess": "white sheep (ram) lying in grass",
+  "alternatives": [
+   "goat",
+   "fluffy dog"
+  ],
+  "readability": 3,
+  "features": [
+   "white woolly body",
+   "curled tan horns/ears on both sides",
+   "dark eyes",
+   "dark nose/mouth",
+   "yellow bell or tag at neck",
+   "small legs at bottom",
+   "grass and trees background with sunset sky"
+  ],
+  "problems": [
+   "face is hard to separate from the wool body because it is also white with only thin outlines",
+   "dark outline lines inside the body are confusing and look like extra shapes",
+   "legs are tiny and mostly hidden",
+   "no clear head silhouette, overall blobby shape"
+  ],
+  "digest": "0f7dc3501cc4c554",
+  "grade": "pass",
+  "score": 88,
+  "colors": 12,
+  "black": 0.172,
+  "biggest_patch": 0.133,
+  "theme": "Bamboo grove",
+  "name": "Sheep",
+  "pack": "farm",
+  "touched": false,
+  "verify": {
+   "guess": "white sheep (ram) lying in the grass",
+   "score": 88,
+   "agrees": true
+  }
+ },
+ "horse-174": {
+  "guess": "red horse (pony) with yellow mane",
+  "alternatives": [
+   "foal",
+   "donkey"
+  ],
+  "readability": 4,
+  "features": [
+   "horse head with muzzle",
+   "white eye",
+   "ear",
+   "yellow mane",
+   "yellow/orange tail",
+   "red body",
+   "legs with white hooves",
+   "sun and meadow background"
+  ],
+  "problems": [
+   "front legs are cluttered with tan, blue and dark blocks, hard to read",
+   "body is a large flat red block with little shading",
+   "head and neck shape a bit blocky",
+   "legs short and stubby"
+  ],
+  "digest": "20ce55094de30d21",
+  "grade": "pass",
+  "score": 94,
+  "colors": 18,
+  "black": 0.042,
+  "biggest_patch": 0.203,
+  "theme": "Garden pond",
+  "name": "Horse",
+  "pack": "farm",
+  "touched": false,
+  "verify": {
+   "guess": "red pony",
+   "score": 64,
+   "agrees": false
+  }
+ },
+ "chicken-175": {
+  "guess": "white chicken (hen)",
+  "alternatives": [
+   "rooster",
+   "duck"
+  ],
+  "readability": 5,
+  "features": [
+   "red comb",
+   "yellow beak",
+   "red wattle",
+   "eye",
+   "white feathered body",
+   "raised tail",
+   "yellow feet",
+   "dark outline",
+   "night sky with moon and stars",
+   "desert ground with cactus"
+  ],
+  "problems": [
+   "eye is small and brownish, a bit hard to spot",
+   "wattle blends slightly with dark beak shading",
+   "grey shading on body makes some areas look patchy"
+  ],
+  "digest": "15aa2a3469516213",
+  "grade": "pass",
+  "score": 96,
+  "colors": 14,
+  "black": 0.219,
+  "biggest_patch": 0.234,
+  "theme": "Desert night",
+  "name": "Chicken",
+  "pack": "farm",
+  "touched": false,
+  "verify": {
+   "guess": "white chicken (hen) at night",
+   "score": 96,
+   "agrees": true
+  }
+ },
+ "rooster-176": {
+  "guess": "rooster",
+  "alternatives": [
+   "hen",
+   "turkey"
+  ],
+  "readability": 4,
+  "features": [
+   "red comb on head",
+   "orange and yellow neck feathers",
+   "dark body",
+   "large dark tail feathers",
+   "red wattle",
+   "yellow legs and feet",
+   "raised head as if crowing"
+  ],
+  "problems": [
+   "no visible eye or clear beak",
+   "dark tail blends with dark green grass",
+   "head pointing up is slightly hard to read",
+   "body shape somewhat blobby"
+  ],
+  "digest": "8e563da0d1f6a51a",
+  "grade": "pass",
+  "score": 90,
+  "colors": 19,
+  "black": 0.138,
+  "biggest_patch": 0.173,
+  "theme": "Sunflower farm",
+  "name": "Rooster",
+  "pack": "farm",
+  "touched": false,
+  "verify": {
+   "guess": "rooster",
+   "score": 90,
+   "agrees": true
+  }
+ },
+ "duck-177": {
+  "guess": "white seagull",
+  "alternatives": [
+   "white dove",
+   "white duck"
+  ],
+  "readability": 4,
+  "features": [
+   "white bird body",
+   "tan beak",
+   "dark outline",
+   "tail feathers",
+   "one tan leg",
+   "sunset sky with sun",
+   "small birds flying in sky",
+   "grassy ground"
+  ],
+  "problems": [
+   "no visible eye",
+   "beak is small and blends into the head",
+   "only one leg shown",
+   "body is a large blob with little wing detail"
+  ],
+  "digest": "66cf6832ade406d8",
+  "grade": "weak",
+  "score": 56,
+  "colors": 14,
+  "black": 0.123,
+  "biggest_patch": 0.158,
+  "theme": "Mountain sunset",
+  "name": "Duck",
+  "pack": "farm",
+  "touched": false
+ },
+ "goat-178": {
+  "guess": "brown horse galloping in a meadow",
+  "alternatives": [
+   "goat",
+   "donkey"
+  ],
+  "readability": 3,
+  "features": [
+   "brown body",
+   "head with muzzle pointing right",
+   "white mane spikes along back",
+   "four legs with white socks and hooves",
+   "raised tail on left",
+   "red harness/marks",
+   "clouds, birds and flowers in background"
+  ],
+  "problems": [
+   "head is small and oddly shaped, no clear eye",
+   "mane looks like grey spikes",
+   "red patches are confusing",
+   "pose is stretched and awkward",
+   "legs blend with dark outlines and grass"
+  ],
+  "digest": "8b2f500b65b0ef75",
+  "grade": "weak",
+  "score": 50,
+  "colors": 19,
+  "black": 0.057,
+  "biggest_patch": 0.177,
+  "theme": "Castle hill",
+  "name": "Goat",
+  "pack": "farm",
+  "touched": false
+ },
+ "donkey-179": {
+  "guess": "okapi",
+  "alternatives": [
+   "zebra",
+   "donkey"
+  ],
+  "readability": 3,
+  "features": [
+   "large pink-lined ears",
+   "brown forehead patch",
+   "white cheek/muzzle",
+   "grey body",
+   "striped black-and-white legs",
+   "brown hooves"
+  ],
+  "problems": [
+   "no visible eyes",
+   "face is flat and blends into the body",
+   "grey body merges with the light background",
+   "striped legs are fragmented and hard to read against the green bushes",
+   "body shape is blobby, with no clear neck or tail"
+  ],
+  "digest": "3d71145f706ad7ff",
+  "grade": "weak",
+  "score": 50,
+  "colors": 11,
+  "black": 0.096,
+  "biggest_patch": 0.188,
+  "theme": "Misty pines",
+  "name": "Donkey",
+  "pack": "farm",
+  "touched": false
+ },
+ "turkey-180": {
+  "guess": "turkey",
+  "alternatives": [
+   "vulture",
+   "rooster"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow beak",
+   "red wattle",
+   "long brown neck",
+   "dark red body",
+   "black tail feathers",
+   "orange legs and feet",
+   "head crest"
+  ],
+  "problems": [
+   "tail feathers look messy and blobby",
+   "body shape is lumpy",
+   "no clear eye",
+   "snowy background makes the lower area busy"
+  ],
+  "digest": "964f31e2bad53423",
+  "grade": "pass",
+  "score": 84,
+  "colors": 16,
+  "black": 0.095,
+  "biggest_patch": 0.203,
+  "theme": "Ice field",
+  "name": "Turkey",
+  "pack": "farm",
+  "touched": false
+ },
+ "goose-181": {
+  "guess": "goose silhouette at sunset",
+  "alternatives": [
+   "swan",
+   "duck"
+  ],
+  "readability": 4,
+  "features": [
+   "long curved neck",
+   "head with beak",
+   "large rounded body",
+   "tail feathers",
+   "leg(s) with a white highlight"
+  ],
+  "problems": [
+   "fully dark silhouette with no eye or face details",
+   "only one leg clearly visible",
+   "body is a blobby shape",
+   "beak is barely separated from the head"
+  ],
+  "digest": "9e918d6e5912091d",
+  "grade": "pass",
+  "score": 86,
+  "colors": 16,
+  "black": 0.165,
+  "biggest_patch": 0.165,
+  "theme": "Sunset meadow",
+  "name": "Goose",
+  "pack": "farm",
+  "touched": false
+ },
+ "field-mouse-182": {
+  "guess": "purple mouse on a beach at sunset",
+  "alternatives": [
+   "koala",
+   "rat"
+  ],
+  "readability": 3,
+  "features": [
+   "big round white-and-purple ears",
+   "small dark eyes",
+   "snout with nose",
+   "red smile/mouth",
+   "small paws",
+   "legs and feet",
+   "dark outline",
+   "sunset sky with sun and bird",
+   "sea and sandy beach"
+  ],
+  "problems": [
+   "face is small and features sparse compared to the large head",
+   "body shape is blobby and lopsided",
+   "purple body blends somewhat with the purple sky band",
+   "no clear tail visible",
+   "dark outline near the feet is messy and merges with shadow"
+  ],
+  "digest": "9a8ce17431fceedf",
+  "grade": "pass",
+  "score": 88,
+  "colors": 19,
+  "black": 0.088,
+  "biggest_patch": 0.098,
+  "theme": "Beach sunset",
+  "name": "Field Mouse",
+  "pack": "farm",
+  "touched": false,
+  "verify": {
+   "guess": "purple mouse on a beach at sunset",
+   "score": 88,
+   "agrees": true
+  }
+ },
+ "chick-183": {
+  "guess": "yellow baby chick",
+  "alternatives": [
+   "yellow bird",
+   "duckling"
+  ],
+  "readability": 4,
+  "features": [
+   "round yellow body",
+   "two black eyes",
+   "orange beak",
+   "orange feet",
+   "shaded orange side",
+   "wing hint"
+  ],
+  "problems": [
+   "beak is a flat orange blob that is hard to read",
+   "body is a simple round blob with no clear wings or head separation",
+   "busy background with mountains, aurora and water competes for attention"
+  ],
+  "digest": "a16e9dd387939083",
+  "grade": "pass",
+  "score": 90,
+  "colors": 16,
+  "black": 0.224,
+  "biggest_patch": 0.189,
+  "theme": "Aurora lake",
+  "name": "Chick",
+  "pack": "farm",
+  "touched": false,
+  "verify": {
+   "guess": "yellow baby chick",
+   "score": 90,
+   "agrees": true
+  }
+ },
+ "lamb-184": {
+  "guess": "fluffy white sheep",
+  "alternatives": [
+   "white hamster",
+   "snowball/cloud creature"
+  ],
+  "readability": 3,
+  "features": [
+   "round white woolly body",
+   "two small eyes",
+   "pink cheeks",
+   "pink ears on both sides",
+   "tan curved line (horn or mouth)",
+   "farm field background with carrots and sun"
+  ],
+  "problems": [
+   "body is a big round blob with no visible legs",
+   "face features are small and scattered",
+   "tan curve is unclear (horn vs smile)",
+   "stray dark pixels on body look like noise",
+   "ears are tiny and easy to miss"
+  ],
+  "digest": "e58c838078b13eb4",
+  "grade": "pass",
+  "score": 84,
+  "colors": 16,
+  "black": 0.122,
+  "biggest_patch": 0.222,
+  "theme": "Harvest farm",
+  "name": "Lamb",
+  "pack": "farm",
+  "touched": false
+ },
+ "pony-185": {
+  "guess": "black bull in the desert",
+  "alternatives": [
+   "black horse",
+   "wild boar"
+  ],
+  "readability": 2,
+  "features": [
+   "dark body silhouette",
+   "white eye highlight",
+   "legs with white hooves",
+   "green horns or sprouts on top",
+   "desert background with sun and birds"
+  ],
+  "problems": [
+   "blobby shape with no clear head or face",
+   "black mass hard to read as an animal",
+   "legs tangled with red/orange pixels",
+   "green bits unclear (horns or plants)",
+   "no distinct tail or snout"
+  ],
+  "digest": "d0f3a49ecb537423",
+  "grade": "weak",
+  "score": 44,
+  "colors": 17,
+  "black": 0.258,
+  "biggest_patch": 0.244,
+  "theme": "Cactus canyon",
+  "name": "Pony",
+  "pack": "farm",
+  "touched": false
+ },
+ "bull-186": {
+  "guess": "gray wolf or dog at night",
+  "alternatives": [
+   "sheep",
+   "boulder/rock"
+  ],
+  "readability": 2,
+  "features": [
+   "large gray rounded body",
+   "dark legs below",
+   "brown patch possibly an eye or ear on left",
+   "night sky with moon and stars",
+   "grassy field with small torches"
+  ],
+  "problems": [
+   "body is a big blobby gray shape",
+   "no clear face, eyes or nose",
+   "dark legs and outline blend into dark background",
+   "head is not distinguishable from body",
+   "no clear tail"
+  ],
+  "digest": "249449d752347eed",
+  "grade": "fail",
+  "score": 24,
+  "colors": 15,
+  "black": 0.354,
+  "biggest_patch": 0.227,
+  "theme": "Starry hilltop",
+  "name": "Bull",
+  "pack": "farm",
+  "touched": false
+ },
+ "farm-dog-187": {
+  "guess": "orange puppy dog with red collar",
+  "alternatives": [
+   "teddy bear",
+   "bear cub"
+  ],
+  "readability": 4,
+  "features": [
+   "large floppy ears with tan patches",
+   "dark eyes (one winking)",
+   "tan muzzle with dark nose",
+   "red collar",
+   "sitting body",
+   "raised tail on right",
+   "feet in water"
+  ],
+  "problems": [
+   "one eye looks like a wink/squint, making face slightly odd",
+   "ears are huge and round, could read as bear",
+   "body and head merge into one orange blob",
+   "feet hidden at bottom near water"
+  ],
+  "digest": "2e99536b4b1188bb",
+  "grade": "pass",
+  "score": 94,
+  "colors": 17,
+  "black": 0.214,
+  "biggest_patch": 0.134,
+  "theme": "Rainy day",
+  "name": "Farm Dog",
+  "pack": "farm",
+  "touched": false,
+  "verify": {
+   "guess": "orange puppy dog with red collar",
+   "score": 94,
+   "agrees": true
+  }
+ },
+ "barn-cat-188": {
+  "guess": "blue fox sitting in a lavender field",
+  "alternatives": [
+   "blue cat",
+   "blue wolf pup"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed ears",
+   "head turned to the side",
+   "dark eye",
+   "white chest/belly",
+   "dark blue tail curling up",
+   "sitting body",
+   "small bird in the sky"
+  ],
+  "problems": [
+   "face details are small and hard to read",
+   "pose is twisted so the head and body overlap",
+   "light blue body is close to the pale sky colors",
+   "brown spot on chest is confusing"
+  ],
+  "digest": "a1eda27ae0fa9798",
+  "grade": "weak",
+  "score": 50,
+  "colors": 12,
+  "black": 0.076,
+  "biggest_patch": 0.247,
+  "theme": "Overcast moor",
+  "name": "Barn Cat",
+  "pack": "farm",
+  "touched": false
+ },
+ "bunny-189": {
+  "guess": "white rabbit holding flowers",
+  "alternatives": [
+   "white sheep",
+   "white dog"
+  ],
+  "readability": 3,
+  "features": [
+   "long floppy ear with pink inside",
+   "closed/squinting eye",
+   "snout/nose on right",
+   "pink paw/foot",
+   "bouquet of orange and red flowers",
+   "blue bow or scarf",
+   "grassy meadow with trees, clouds and flowers"
+  ],
+  "problems": [
+   "head and body merge into one big white blob",
+   "only one ear clearly shown, and it looks floppy like a dog's",
+   "face is small and placed oddly to the right",
+   "pose is hard to read: unclear where legs and arms are",
+   "light gray shading blends with the white body"
+  ],
+  "digest": "df07056e988113d7",
+  "grade": "pass",
+  "score": 88,
+  "colors": 20,
+  "black": 0.081,
+  "biggest_patch": 0.152,
+  "theme": "Riverbank",
+  "name": "Bunny",
+  "pack": "farm",
+  "touched": false
+ },
+ "tractor-190": {
+  "guess": "red tractor (front view)",
+  "alternatives": [
+   "red go-kart",
+   "red lawn mower"
+  ],
+  "readability": 3,
+  "features": [
+   "red body/hood",
+   "purple-tinted cab window",
+   "big gray wheels on both sides",
+   "black front grille",
+   "front bumper",
+   "side mirrors"
+  ],
+  "problems": [
+   "front-on view makes it look squat and blobby",
+   "wheels are gray and partly blend with the gray mountains",
+   "grille looks like an odd black shape or letter",
+   "no clear exhaust pipe or classic tractor silhouette"
+  ],
+  "digest": "0b7f06298370a321",
+  "grade": "pass",
+  "score": 72,
+  "colors": 18,
+  "black": 0.105,
+  "biggest_patch": 0.122,
+  "theme": "Alpine meadow",
+  "name": "Tractor",
+  "pack": "farm",
+  "touched": false
+ }
+}

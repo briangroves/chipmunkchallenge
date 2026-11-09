@@ -1,0 +1,497 @@
+{
+ "polar-bear-246": {
+  "guess": "polar bear lying on a rug",
+  "alternatives": [
+   "white dog sleeping",
+   "sheep"
+  ],
+  "readability": 3,
+  "features": [
+   "white furry body",
+   "head on left with small eye",
+   "front legs/paws",
+   "back leg",
+   "red rug underneath",
+   "wooden wall and window"
+  ],
+  "problems": [
+   "no clear nose or ears",
+   "body shape is blobby and hard to read",
+   "legs tangle together",
+   "head not clearly separated from body"
+  ],
+  "digest": "3fea98475d9bff1a",
+  "grade": "pass",
+  "score": 80
+ },
+ "penguin-247": {
+  "guess": "two penguins",
+  "alternatives": [
+   "puffins",
+   "penguin couple holding flippers"
+  ],
+  "readability": 5,
+  "features": [
+   "black bodies with white bellies",
+   "eyes",
+   "small tan beaks",
+   "tan feet",
+   "flippers spread out and touching",
+   "tuft on head",
+   "brick wall background",
+   "checkered floor",
+   "small green plant on ledge"
+  ],
+  "problems": [
+   "dark flippers blend slightly with gray floor tiles",
+   "beaks are tiny",
+   "middle flippers merge so the two penguins appear joined"
+  ],
+  "digest": "6c0a32c233f96666",
+  "grade": "pass",
+  "score": 92
+ },
+ "reindeer-248": {
+  "guess": "reindeer with red nose",
+  "alternatives": [
+   "moose",
+   "deer"
+  ],
+  "readability": 4,
+  "features": [
+   "brown antlers",
+   "tan head",
+   "black eyes",
+   "red nose",
+   "pink ears",
+   "red collar",
+   "legs with brown hooves",
+   "snowy winter background with trees"
+  ],
+  "problems": [
+   "body is small and partly blends with white/grey snow inside the frame",
+   "body shape is blocky and thin",
+   "busy frame and background distract from the subject"
+  ],
+  "digest": "7183d0d38da588dd",
+  "grade": "pass",
+  "score": 90
+ },
+ "husky-249": {
+  "guess": "husky dog with a fluffy tail",
+  "alternatives": [
+   "skunk",
+   "raccoon"
+  ],
+  "readability": 3,
+  "features": [
+   "black and white fur pattern",
+   "pointed ears",
+   "face with eyes and nose",
+   "big curled fluffy tail",
+   "white chest and paws",
+   "sitting by a fence"
+  ],
+  "problems": [
+   "face is small and hard to read",
+   "tail outline blends with the light background",
+   "pose is cramped and blobby",
+   "black patches make it look like a skunk"
+  ],
+  "digest": "57fc4465471ff760",
+  "grade": "pass",
+  "score": 88
+ },
+ "puffin-250": {
+  "guess": "puffin head close-up",
+  "alternatives": [
+   "toucan",
+   "penguin"
+  ],
+  "readability": 3,
+  "features": [
+   "white face patch",
+   "dark eye with triangular shape",
+   "large orange-yellow-green striped beak",
+   "red beak base",
+   "black cap/head"
+  ],
+  "problems": [
+   "extreme close-up crop shows only head, no body",
+   "eye is a dark triangle that reads oddly",
+   "busy background with green and blue bands competes with subject",
+   "beak colors blend into green grass background"
+  ],
+  "digest": "bb580a77cb21dc51",
+  "grade": "pass",
+  "score": 80
+ },
+ "snowman-251": {
+  "guess": "snowman with brown hat",
+  "alternatives": [
+   "ghost",
+   "white bird"
+  ],
+  "readability": 4,
+  "features": [
+   "white two-ball body",
+   "brown top hat",
+   "closed eyes",
+   "red smiling mouth",
+   "black buttons",
+   "dark outline"
+  ],
+  "problems": [
+   "no carrot nose",
+   "no stick arms",
+   "head blends with snowy wall behind",
+   "tilted pose makes body shape a bit blobby",
+   "busy grey brick background"
+  ],
+  "digest": "15d3f4c63dcb3136",
+  "grade": "pass",
+  "score": 82
+ },
+ "snow-globe-252": {
+  "guess": "snow globe with a snowman",
+  "alternatives": [
+   "snowman in a crystal ball",
+   "snowman ornament on a shelf"
+  ],
+  "readability": 4,
+  "features": [
+   "round glass dome with dark outline and highlights",
+   "snowman with black eyes and coal buttons",
+   "red hat and red scarf",
+   "stick arms",
+   "brown wooden base with yellow label",
+   "window and wooden wall background",
+   "shelf below"
+  ],
+  "problems": [
+   "grey interior makes the white snowman less distinct",
+   "snowman's face is small and simple",
+   "stick arms blend into the grey background",
+   "dark rim on the right side looks heavy and uneven"
+  ],
+  "digest": "eb7d1535d092b87a",
+  "grade": "pass",
+  "score": 78
+ },
+ "baby-penguin-253": {
+  "guess": "penguin family huddle (emperor penguins)",
+  "alternatives": [
+   "killer whale",
+   "person in a black coat sitting at a window"
+  ],
+  "readability": 2,
+  "features": [
+   "black and white body",
+   "yellow neck patch like an emperor penguin",
+   "small head with beak at top",
+   "white belly patches",
+   "flat platform or ice at the bottom",
+   "window grid background"
+  ],
+  "problems": [
+   "shape is a big black blob",
+   "no clear face or eyes",
+   "several figures merge together",
+   "head is tiny relative to the body",
+   "white patches are confusing and don't outline a clear belly"
+  ],
+  "digest": "4a018957315a11de",
+  "grade": "weak",
+  "score": 66
+ },
+ "sleigh-254": {
+  "guess": "Santa Claus riding a red sleigh with a gift",
+  "alternatives": [
+   "Santa on a red sled sliding downhill",
+   "gnome in a red boat"
+  ],
+  "readability": 3,
+  "features": [
+   "red hat with white trim",
+   "face with pink nose",
+   "red sleigh body",
+   "yellow-wrapped present with ribbon",
+   "snowy mountains and northern-light sky background",
+   "green hill"
+  ],
+  "problems": [
+   "face is tiny and has no clear eyes",
+   "Santa's red suit blends into the red sleigh",
+   "no visible beard or arms",
+   "busy aurora background distracts",
+   "landscape is green rather than snowy, so the Christmas context is weaker"
+  ],
+  "digest": "f892512198aeb36f",
+  "grade": "pass",
+  "score": 76
+ },
+ "christmas-tree-255": {
+  "guess": "Christmas tree in the snow",
+  "alternatives": [
+   "pine tree",
+   "fir tree in a pot"
+  ],
+  "readability": 5,
+  "features": [
+   "triangular green tree body with light and dark shading",
+   "yellow star or flag on top",
+   "red/brown pot or trunk base",
+   "snowy ground",
+   "blue sky with clouds and sun"
+  ],
+  "problems": [
+   "topper looks more like a small flag than a star",
+   "red base is ambiguous between pot and trunk",
+   "no ornaments, so it may read as a plain pine tree"
+  ],
+  "digest": "e6aa5406708df527",
+  "grade": "pass",
+  "score": 80
+ },
+ "santa-256": {
+  "guess": "two snowmen with Santa hat in a forest",
+  "alternatives": [
+   "Santa and a snowman hugging",
+   "two ghosts in the woods"
+  ],
+  "readability": 2,
+  "features": [
+   "white rounded bodies",
+   "red Santa hat with white trim",
+   "red scarf or cloak",
+   "small black eyes",
+   "beige sack or bag on the left",
+   "green fir trees behind",
+   "grey sky with birds"
+  ],
+  "problems": [
+   "two white figures merge into one blob",
+   "faces are tiny and hard to find",
+   "outlines broken by tree pixels",
+   "unclear which parts belong to which figure",
+   "beige shape is ambiguous"
+  ],
+  "digest": "dc6913dbf34df31f",
+  "grade": "weak",
+  "score": 66
+ },
+ "gift-box-257": {
+  "guess": "wrapped gift box with orange ribbon and bow",
+  "alternatives": [
+   "green armchair",
+   "green frog"
+  ],
+  "readability": 3,
+  "features": [
+   "green rounded box shape",
+   "orange ribbon crossing it vertically",
+   "orange bow on top with two loops",
+   "small legs/feet at bottom",
+   "patterned rug under it",
+   "window and striped wallpaper behind"
+  ],
+  "problems": [
+   "green body is lumpy and rounded, not boxy, so it could read as a cushion or frog",
+   "bow loops look like ears, suggesting an animal",
+   "no clear edges or lid to show it is a present",
+   "ribbon shading is blotchy and blends with the bow"
+  ],
+  "digest": "5c6d8f7754d2d8fd",
+  "grade": "pass",
+  "score": 76
+ },
+ "stocking-258": {
+  "guess": "Christmas stocking",
+  "alternatives": [
+   "red Christmas boot",
+   "Santa's boot"
+  ],
+  "readability": 4,
+  "features": [
+   "red boot shape with toe pointing left",
+   "white fluffy cuff at top",
+   "green holly leaves with red berries",
+   "pink highlight on toe edge",
+   "darker red shading and texture dots"
+  ],
+  "problems": [
+   "boot lies on its side so the shape is a bit unusual",
+   "holly overlaps the cuff and is slightly cluttered",
+   "small yellow and green objects on shelf could distract"
+  ],
+  "digest": "5313c3476501f7a6",
+  "grade": "pass",
+  "score": 74
+ },
+ "candy-cane-259": {
+  "guess": "candy cane",
+  "alternatives": [
+   "walking cane",
+   "striped hook"
+  ],
+  "readability": 5,
+  "features": [
+   "curved hook top",
+   "red and white diagonal stripes",
+   "long straight shaft",
+   "dark outline and shadow"
+  ],
+  "problems": [
+   "grey brick wall and mountains in background are busy",
+   "dark shadow merges with the dark zigzag border at the bottom",
+   "hook end is small and a bit cramped"
+  ],
+  "digest": "78e3a02091140e4a",
+  "grade": "pass",
+  "score": 80
+ },
+ "gingerbread-house-260": {
+  "guess": "snow-covered house or igloo-like hut",
+  "alternatives": [
+   "white cat sleeping in snow",
+   "snow-covered rock"
+  ],
+  "readability": 2,
+  "features": [
+   "large white rounded roof shape with dark outline",
+   "dark window-like openings at lower left",
+   "snowy ground and pine trees in background",
+   "icy water strip at bottom"
+  ],
+  "problems": [
+   "white subject blends into white snowy background",
+   "outline is broken and fragmented",
+   "no clear face or defining details",
+   "shape is blobby and ambiguous"
+  ],
+  "digest": "cbfbd50127776a8a",
+  "grade": "weak",
+  "score": 62
+ },
+ "bell-261": {
+  "guess": "green bell pepper",
+  "alternatives": [
+   "green apple",
+   "green pumpkin"
+  ],
+  "readability": 4,
+  "features": [
+   "lumpy rounded green body",
+   "curved green stem on top",
+   "darker green shading on lower right",
+   "grey highlight shine",
+   "dark outline",
+   "sitting on a table with a window behind"
+  ],
+  "problems": [
+   "lobed shape could be read as an apple or tomato",
+   "few distinct bell pepper ridges",
+   "stem is thin and blends slightly with brown wall"
+  ],
+  "digest": "8393c40ca796b58c",
+  "grade": "pass",
+  "score": 74
+ },
+ "wreath-262": {
+  "guess": "Christmas laurel wreath in a window by a brick wall",
+  "alternatives": [
+   "holly wreath on a fireplace",
+   "laurel victory wreath on a sign"
+  ],
+  "readability": 3,
+  "features": [
+   "green leafy branches curving in a U shape",
+   "red berries or bow at the bottom",
+   "dark frame around white panel",
+   "red brick wall above",
+   "snow-like gray shading at the bottom right"
+  ],
+  "problems": [
+   "wreath is open at the top so it looks like a laurel, not a full Christmas wreath",
+   "red bow at the bottom is small and messy",
+   "gray shading in the corner is unclear, could be snow or shadow",
+   "setting (window or fireplace) is ambiguous"
+  ],
+  "digest": "b75ea5d9acbc6186",
+  "grade": "pass",
+  "score": 68
+ },
+ "holly-263": {
+  "guess": "holly leaves with red berries (Christmas decoration)",
+  "alternatives": [
+   "poinsettia plant",
+   "Christmas wreath on a table"
+  ],
+  "readability": 2,
+  "features": [
+   "green spiky leaves spreading left, right and up",
+   "red cluster in the center like berries or a bow",
+   "small white highlight",
+   "red and yellow patterned ribbon or garland at the bottom",
+   "window and falling snow in the background"
+  ],
+  "problems": [
+   "red center is a blob with no clear berry or petal shapes",
+   "leaves merge into one large green mass",
+   "no clear outline of a single object",
+   "bottom ribbon is cut off and confusing",
+   "subject sits low and is partly cropped"
+  ],
+  "digest": "855b6e44fe4e0b8a",
+  "grade": "weak",
+  "score": 62
+ },
+ "star-264": {
+  "guess": "yellow star with a face",
+  "alternatives": [
+   "starfish",
+   "star cookie"
+  ],
+  "readability": 4,
+  "features": [
+   "five-pointed star shape",
+   "dark outline",
+   "yellow and orange shading",
+   "dark eye shapes",
+   "mouth-like dark patch",
+   "white highlights"
+  ],
+  "problems": [
+   "the dark face shapes are big and blobby, so they read more like holes than eyes and a mouth",
+   "the star's points are uneven and bent, which makes the silhouette a bit lumpy",
+   "the busy background with arches, plants and snow dots competes with the subject"
+  ],
+  "digest": "968823b07edab520",
+  "grade": "pass",
+  "score": 82
+ },
+ "elf-265": {
+  "guess": "gnome or elf with a tall green hat",
+  "alternatives": [
+   "Christmas tree",
+   "witch in green hood"
+  ],
+  "readability": 2,
+  "features": [
+   "tall pointed green hat with a pom-pom tip",
+   "tan face area with orange detail",
+   "dark outline body",
+   "red legs or boots",
+   "shelf with jars behind"
+  ],
+  "problems": [
+   "face is barely readable, no clear eyes",
+   "hat and body merge into one green blob",
+   "orange and red patches look like ornaments, confusing it with a Christmas tree",
+   "brown shapes at the bottom blend with the wooden floor"
+  ],
+  "digest": "6407aabd3c8cfc22",
+  "grade": "weak",
+  "score": 74
+ }
+}
