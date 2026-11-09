@@ -14,18 +14,19 @@ final class CatalogTests: XCTestCase {
     }
 
     func testShape() {
-        XCTAssertEqual(catalog.levelPlay.count, js.decode(Int.self, "RAMP_N"))
+        let original = catalog.packs.flatMap(\.levels)
+        XCTAssertEqual(original.count, js.decode(Int.self, "RAMP_N"))
         XCTAssertEqual(catalog.paradiseFrom, js.decode(Int.self, "PARADISE_FROM"))
         XCTAssertEqual(catalog.paradise.count, js.decode(Int.self, "LEVELS.filter(L=>L.pack==='paradise').length"))
         XCTAssertEqual(catalog.packs.map(\.id), js.decode([String].self, "PACKS.map(p=>p.id)"))
         XCTAssertEqual(catalog.packs.map(\.name), js.decode([String].self, "PACKS.map(p=>p.name)"))
-        XCTAssertEqual(catalog.levelPlay.map(\.name), js.decode([String].self, "LEVELS.slice(0,RAMP_N).map(L=>L.name)"))
+        XCTAssertEqual(original.map(\.name), js.decode([String].self, "LEVELS.slice(0,RAMP_N).map(L=>L.name)"))
         XCTAssertEqual(catalog.bonus(forPack: "storybook"), 2500)
         XCTAssertEqual(catalog.bonus(forPack: "food"), 5000)
     }
 
     func testPicturesMatchTheWebGame() {
-        for i in stride(from: 0, to: catalog.levelPlay.count, by: 7) {
+        for i in stride(from: 0, to: catalog.paradiseFrom, by: 7) {
             XCTAssertEqual(catalog.levelPlay[i].rows, js.decode([String].self, "LEVELS[\(i)].rows"), "board \(i)")
         }
         for r in [0, 7, 19, 20, 33, 59, 140, 259] {

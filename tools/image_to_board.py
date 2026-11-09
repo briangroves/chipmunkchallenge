@@ -269,13 +269,16 @@ def form_shade(cells, min_patch=50):
     return out
 
 
-def ground_shadow(g, cells, ground=("L", "G", "I")):
-    """The subject's shadow on the grass: one or two blocks out from its lower-right side, in dark green."""
+def ground_shadow(g, cells, horizon=20):
+    """The subject's shadow on the ground: one or two blocks out from its lower-right side, in each ground color's
+    darker tone."""
     for (r, c) in list(cells):
         for dr, dc in ((1, 0), (1, 1), (0, 1), (1, 2)):
             q = (r + dr, c + dc)
-            if q not in cells and 0 <= q[0] < N and 0 <= q[1] < N and g[q[0]][q[1]] in ground and q[0] >= 20:
-                g[q[0]][q[1]] = "D"
+            if q not in cells and 0 <= q[0] < N and 0 <= q[1] < N and q[0] >= horizon:
+                lo = SHADE.get(g[q[0]][q[1]], (None, None))[1]
+                if lo:
+                    g[q[0]][q[1]] = lo
 
 
 def flowers(g, taken, n=6):
@@ -353,34 +356,81 @@ def place_cloud(g, taken):
                     g[r][c] = "Y" if d <= 3.2 else "O"
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("image")
-    ap.add_argument("--name", default="Imported")
-    ap.add_argument("--out", required=True)
-    a = ap.parse_args()
-    px = load(a.image)
+class Rejected(Exception):
+    """A source image that can't make a good board (line art, nothing to cut out)."""
+
+
+def make_subject(path):
+    """The subject from an image: shaded, outlined cells keyed by (row, col), plus facts used to judge the source."""
+    px = load(path)
     mask = cut_out(px)
+    if not any(any(r) for r in mask):
+        raise Rejected("nothing to cut out")
     fill = fill_ratio(mask)
     if fill < 0.25:
-        sys.exit(f"rejected: the subject fills only {fill:.0%} of its box (line art or a thin drawing)")
+        raise Rejected(f"the subject fills only {fill:.0%} of its box (line art or a thin drawing)")
     # Art drawn with thick black outlines would turn all black at board size if dark pixels won easily (which is
     # what keeps small eyes alive in flat art), so for outlined art a dark color needs half a block to win.
     ink = dark_share(px, mask)
     cells = subject_cells(px, mask, (2, 9, N - 4, N - 12), dark_win=0.5 if ink > 0.12 else 0.25)
     body = tidy(simplify(cells))
     cells = shade(outline(form_shade(body)), body=body)
-    g = backdrop()
-    place_cloud(g, list(cells))
-    flowers(g, list(cells))
-    ground_shadow(g, cells)
+    colors = {}
+    for k in body.values():
+        colors[k] = colors.get(k, 0) + 1
+    return cells, dict(fill=fill, ink=ink, size=len(body), colors=colors)
+
+
+def clash(g, cells, info):
+    """How much of the backdrop right around the subject is close in color to the subject's main colors (0-1)."""
+    main = [k for k, _ in sorted(info["colors"].items(), key=lambda kv: -kv[1])[:3]]
+    ring = set()
+    for (r, c) in cells:
+        for dr in (-2, -1, 0, 1, 2):
+            for dc in (-2, -1, 0, 1, 2):
+                q = (r + dr, c + dc)
+                if q not in cells and 0 <= q[0] < N and 0 <= q[1] < N:
+                    ring.add(q)
+    close = sum(1 for (r, c) in ring if min(dist(RGB[g[r][c]], RGB[k]) for k in main) < 9000)
+    return close / max(1, len(ring))
+
+
+def compose(cells, info, candidates, seed_base=0):
+    """Put the subject on the first candidate (theme, variant) backdrop whose colors don't clash with it (else the
+    least clashing). Returns rows, theme index and variant."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import backdrops
+    best = None
+    for theme, variant in candidates:
+        g, h = backdrops.draw(theme, variant, avoid=list(cells), seed_base=seed_base)
+        score = clash(g, cells, info)
+        if best is None or score < best[0]:
+            best = (score, g, h, theme, variant)
+        if score < 0.18:
+            break
+    _, g, h, theme, variant = best
+    ground_shadow(g, cells, h)
     for (r, c), k in cells.items():
         g[r][c] = k
-    rows = ["".join(r) for r in g]
-    json.dump({"name": a.name, "rows": rows}, open(a.out, "w"), indent=1)
+    return ["".join(r) for r in g], theme, variant
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("image")
+    ap.add_argument("--name", default="Imported")
+    ap.add_argument("--board", type=int, default=0, help="board number, which picks the backdrop theme and variant")
+    ap.add_argument("--out", required=True)
+    a = ap.parse_args()
+    try:
+        cells, info = make_subject(a.image)
+    except Rejected as e:
+        sys.exit(f"rejected: {e}")
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import backdrops
+    rows, theme, variant = compose(cells, info, [backdrops.theme_for(a.board)])
+    json.dump({"name": a.name, "rows": rows, "theme": backdrops.THEMES[theme]["name"]}, open(a.out, "w"), indent=1)
     print("\n".join(rows))
-    used = sorted({ch for r in rows for ch in r})
-    print("colors:", " ".join(f"{k}={sum(r.count(k) for r in rows)}" for k in used), file=sys.stderr)
 
 
 if __name__ == "__main__":

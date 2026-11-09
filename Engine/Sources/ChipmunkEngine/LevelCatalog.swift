@@ -1,6 +1,8 @@
 import Foundation
 
-/// Every picture in the game, exported from the web version by tools/export_levels.sh into Resources/levels.json.
+/// Every picture in the game. The original 170 Level Play boards and Coin Mining come from the web version
+/// (tools/export_levels.sh writes Resources/levels.json); new packs made from clipart by tools/make_pack.py come from
+/// Resources/boards.json and follow them as Level Play boards 171 on.
 ///
 /// Board numbering follows the web game's level index `i` (0-based): Level Play boards are 0..<170 (pack order),
 /// Coin Mining pictures follow at 170..<190. A board's challenge, seed and aim come from that index, exactly as the
@@ -35,29 +37,48 @@ public struct LevelCatalog: Decodable, Sendable {
     public let paradise: [ParadisePicture]
     /// Pre-built boards, keyed "levelId|diffKey" (Food 1-5 on their ramp settings).
     public let baked: [String: LevelSummary]
+    /// Packs made from clipart (Resources/boards.json), played after the original ones.
+    public private(set) var newPacks: [Pack] = []
+
+    private enum CodingKeys: String, CodingKey {
+        case format, source, packSize, packBonus, rampN, packs, paradise, baked
+    }
+
+    private struct NewBoards: Decodable {
+        let packs: [Pack]
+    }
 
     /// The catalog that ships inside the engine.
     public static func bundled() throws -> LevelCatalog {
         guard let url = Bundle.module.url(forResource: "levels", withExtension: "json") else {
             throw CocoaError(.fileNoSuchFile)
         }
-        return try JSONDecoder().decode(LevelCatalog.self, from: Data(contentsOf: url))
+        var c = try JSONDecoder().decode(LevelCatalog.self, from: Data(contentsOf: url))
+        if let extra = Bundle.module.url(forResource: "boards", withExtension: "json") {
+            c.newPacks = try JSONDecoder().decode(NewBoards.self, from: Data(contentsOf: extra)).packs
+        }
+        return c
     }
 
     // MARK: - Level Play
 
-    /// Level Play boards in play order (index = board number - 1).
-    public var levelPlay: [Picture] { packs.flatMap(\.levels) }
+    /// Every Level Play pack in play order: the original ones, then the new ones.
+    public var allPacks: [Pack] { packs + newPacks }
 
+    /// Level Play boards in play order (index = board number - 1).
+    public var levelPlay: [Picture] { allPacks.flatMap(\.levels) }
+
+    /// Where Coin Mining's numbering starts: right after the original 170 boards, whatever packs are added after
+    /// them, so Coin Mining boards and the daily puzzle stay the same.
     public var paradiseFrom: Int { packs.reduce(0) { $0 + $1.levels.count } }
 
     /// Completion bonus for a pack (5,000 for 20 levels, scaled by size).
     public func bonus(forPack id: String) -> Int {
-        let size = packs.first { $0.id == id }?.levels.count ?? packSize
+        let size = allPacks.first { $0.id == id }?.levels.count ?? packSize
         return JS.roundInt(Double(packBonus * size) / Double(packSize))
     }
 
-    /// Challenge key for Level Play board index i: warm1...warm20, then lv21...lv170.
+    /// Challenge key for Level Play board index i: warm1...warm20, then lv21 on.
     public func diffKey(forBoard i: Int) -> String {
         i < 20 ? "warm\(i + 1)" : "lv\(i + 1)"
     }

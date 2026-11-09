@@ -49,10 +49,22 @@ public struct Difficulty: Codable, Equatable, Sendable {
     static let rampTop = 0.97, rampEnd = 0.25
 
     public static func rampGoal(_ n: Int) -> Double {
-        n <= 5 ? rampTop : rampTop - (rampTop - rampEnd) * pow(min(1, Double(n - 5) / Double(rampN - 5)), 0.7)
+        if n > rampN { return packGoal(n) }
+        return n <= 5 ? rampTop : rampTop - (rampTop - rampEnd) * pow(min(1, Double(n - 5) / Double(rampN - 5)), 0.7)
     }
 
-    /// Board n of the Level Play ramp. Food keeps the key names warm1...warm20; later boards are lv21...lv170.
+    /// Boards after 170 come in packs of 20. Each pack starts gentler than the last one ended and climbs to its end,
+    /// and the whole run gets slowly harder up to board 1000: from 42% -> 28% in the first new pack to about
+    /// 30% -> 16% in the last.
+    static func packGoal(_ n: Int) -> Double {
+        let k = n - rampN - 1
+        let overall = min(1, Double(k) / 829)
+        let inPack = Double(k % 20) / 19
+        return 0.42 - 0.12 * overall - 0.14 * inPack
+    }
+
+    /// Board n of the Level Play ramp. Food keeps the key names warm1...warm20; later boards are lv21 on. Past 170
+    /// the nest sizes and pressure stay at board 170's, and the target follows `packGoal`.
     public static func ramp(_ n: Int) -> Difficulty {
         let u = n <= 5 ? 0 : min(1, Double(n - 5) / Double(rampN - 5))
         let cg = rampGoal(n)

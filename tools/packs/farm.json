@@ -1,0 +1,161 @@
+{
+ "id": "farm",
+ "name": "Farm Animals",
+ "subjects": [
+  {
+   "name": "Cow",
+   "query": "cow cartoon clipart"
+  },
+  {
+   "name": "Pig",
+   "query": "pig cartoon clipart"
+  },
+  {
+   "name": "Sheep",
+   "query": "sheep cartoon clipart"
+  },
+  {
+   "name": "Horse",
+   "query": "horse clipart cartoon",
+   "match": [
+    "horse"
+   ],
+   "avoid": [
+    "saddle",
+    "shoe",
+    "rocking",
+    "toy"
+   ]
+  },
+  {
+   "name": "Chicken",
+   "query": "chicken cartoon clipart"
+  },
+  {
+   "name": "Rooster",
+   "query": "rooster cartoon clipart"
+  },
+  {
+   "name": "Duck",
+   "query": "duck clipart vector",
+   "match": [
+    "duck"
+   ],
+   "avoid": [
+    "rubber"
+   ]
+  },
+  {
+   "name": "Goat",
+   "query": "goat clipart vector",
+   "match": [
+    "goat"
+   ]
+  },
+  {
+   "name": "Donkey",
+   "query": "donkey cartoon clipart"
+  },
+  {
+   "name": "Turkey",
+   "query": "turkey bird clipart",
+   "match": [
+    "turkey"
+   ]
+  },
+  {
+   "name": "Goose",
+   "query": "goose clipart vector",
+   "match": [
+    "goose"
+   ]
+  },
+  {
+   "name": "Field Mouse",
+   "query": "mouse cartoon clipart",
+   "match": [
+    "mouse"
+   ],
+   "avoid": [
+    "computer",
+    "cursor"
+   ]
+  },
+  {
+   "name": "Chick",
+   "query": "chick clipart",
+   "match": [
+    "chick"
+   ]
+  },
+  {
+   "name": "Lamb",
+   "query": "lamb clipart",
+   "match": [
+    "lamb",
+    "sheep"
+   ]
+  },
+  {
+   "name": "Pony",
+   "query": "pony horse clipart",
+   "match": [
+    "pony",
+    "horse"
+   ],
+   "avoid": [
+    "unicorn",
+    "pegasus",
+    "wing",
+    "rocking",
+    "toy"
+   ]
+  },
+  {
+   "name": "Bull",
+   "query": "bull cartoon clipart"
+  },
+  {
+   "name": "Farm Dog",
+   "query": "dog clipart vector",
+   "match": [
+    "dog",
+    "puppy"
+   ],
+   "avoid": [
+    "bone"
+   ]
+  },
+  {
+   "name": "Barn Cat",
+   "query": "kitten clipart cartoon",
+   "match": [
+    "cat",
+    "kitten"
+   ],
+   "avoid": [
+    "pillow",
+    "toy",
+    "basket"
+   ]
+  },
+  {
+   "name": "Bunny",
+   "query": "rabbit clipart vector",
+   "match": [
+    "rabbit",
+    "bunny"
+   ]
+  },
+  {
+   "name": "Tractor",
+   "query": "red tractor clipart",
+   "match": [
+    "tractor"
+   ]
+  }
+ ],
+ "themes": [
+  "land"
+ ]
+}

@@ -293,7 +293,7 @@ final class GameModel: ObservableObject {
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
         tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
-        boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), 169)
+        boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), catalog.levelPlay.count - 1)
         store.set(Self.saveVersion, forKey: "native.saveVersion")
         tickHearts()
         heartTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
@@ -477,7 +477,7 @@ final class GameModel: ObservableObject {
 
     private func packName(_ i: Int) -> String {
         var k = i
-        for p in catalog.packs {
+        for p in catalog.allPacks {
             if k < p.levels.count { return p.name }
             k -= p.levels.count
         }
@@ -744,7 +744,7 @@ final class GameModel: ObservableObject {
     /// wands, and the pack's name for the win card.
     private func finishPack(_ i: Int) -> String? {
         var k = i
-        for p in catalog.packs {
+        for p in catalog.allPacks {
             if k < p.levels.count {
                 guard k == p.levels.count - 1 else { return nil }
                 var done = store.stringArray(forKey: "native.packsDone") ?? []
