@@ -142,7 +142,7 @@ def tidy(cells):
         nb = [cells.get((r + dr, c + dc)) for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1))]
         nb = [n for n in nb if n]
         if len(nb) >= 3 and k not in nb:
-            out[(r, c)] = max(set(nb), key=nb.count)
+            out[(r, c)] = max(sorted(set(nb)), key=nb.count)
     return out
 
 
