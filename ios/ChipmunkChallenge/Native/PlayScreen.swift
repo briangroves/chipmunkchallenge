@@ -20,10 +20,13 @@ struct PlayScreen: View {
             let island = geo.safeAreaInsets.top >= 55
             ZStack(alignment: .top) {
                 Stage(model: model, width: w, maxHeight: geo.size.height, showsHUD: !island)
+                // The tray slides up to show and back down to hide, however it's closed (backpack, board tap, or
+                // using a tool). The zIndex keeps it in place in the ZStack while it slides out.
                 if model.toolsOpen && model.status == .playing {
                     ToolTray(model: model)
                         .frame(maxHeight: .infinity, alignment: .bottom)
                         .transition(.move(edge: .bottom))
+                        .zIndex(1)
                 }
                 // Scenes and cards cover the whole screen, edge to edge; the HUD stays on top of the cards.
                 ZStack {
@@ -86,6 +89,7 @@ struct PlayScreen: View {
                         }
                     }
                 }
+                .zIndex(2)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .coordinateSpace(name: PlayScreen.space)

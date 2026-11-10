@@ -67,7 +67,8 @@ final class BoardView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        live.frame = bounds
+        // The live layer runs past the board on every side, so a chipmunk walking the edge isn't cut in half.
+        live.frame = bounds.insetBy(dx: -live.pad, dy: -live.pad)
         offLayer.frame = bounds
     }
 
@@ -149,6 +150,8 @@ final class BoardView: UIView {
         off = ctx
         sprites = SpriteCache(cs: cs, scale: scale, chars: lv.art.chars)
         live.cs = cs
+        live.pad = (cs * 3).rounded(.up)
+        setNeedsLayout()
         live.reset()
         shown = model.sim?.s.b ?? lv.art.cells
         paintOff(lv)
@@ -241,6 +244,8 @@ final class BoardView: UIView {
 private final class LiveView: UIView {
     weak var board: BoardView?
     var cs: CGFloat = 0
+    /// How far this layer reaches past the board on each side (room for a chipmunk and its block at the edge).
+    var pad: CGFloat = 0
     private var tones: [Int: Tone] = [:]
     /// Each chipmunk pose drawn once (by color, cheeks, paw step and tail flick), then stamped every frame. Drawing
     /// them from shapes every frame took 15-25 ms with a few dozen out and dropped fast-forward to ~25 fps.
@@ -284,6 +289,7 @@ private final class LiveView: UIView {
             draws += 1
         }
         #endif
+        g.translateBy(x: pad, y: pad)
         let NW = lv.NW
         drawHole(g, (CGFloat(lv.drain % NW) + 0.5) * cs, (CGFloat(lv.drain / NW) + 0.5) * cs, cs * 2.4)
         let now = CACurrentMediaTime() * 1000

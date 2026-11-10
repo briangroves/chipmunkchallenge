@@ -84,6 +84,8 @@ final class GameModel: ObservableObject {
     enum Screen { case home, play }
     @Published var screen: Screen = .home
     @Published var settingsOpen = false
+    /// Home's Daily Challenge chooser: clear a Level Play level or a Coin Mining board to keep the streak.
+    @Published var dailyPickOpen = false
     /// Settings, saved on this device.
     @Published var hapticsOn: Bool { didSet { store.set(hapticsOn, forKey: "native.haptics") } }
     /// Playback speed at normal and at fast-forward (multiples of the game's base pace).
@@ -225,6 +227,8 @@ final class GameModel: ObservableObject {
         var box: BoxReveal? = nil
         /// Daily puzzle: the streak-bonus boxes this win earned.
         var bonusBox: BoxReveal? = nil
+        /// This win was the first of the day, so it cleared today's Daily Challenge.
+        var dailyCleared = false
         /// Finishing a pack: the bonus coins and the pack's name.
         var pack: Int = 0
         var packName: String? = nil
@@ -307,6 +311,8 @@ final class GameModel: ObservableObject {
            let pic = try? JSONDecoder().decode(ImportedPicture.self, from: data) {
             screen = .play
             loadImported(pic)
+        } else if store.string(forKey: "screen") == "dailyPick" {
+            dailyPickOpen = true
         } else if store.string(forKey: "scene") != nil || store.bool(forKey: "autoplay") || store.string(forKey: "screen") == "play" {
             screen = .play
             if store.bool(forKey: "fast") { fast = true }
@@ -334,12 +340,43 @@ final class GameModel: ObservableObject {
         loadMining()
     }
 
-    /// Home's Daily Challenge card (only until today's puzzle is cleared).
+    /// Home's Daily Challenge card (only until today's is cleared): a chooser, since clearing either the next
+    /// Level Play level or a Coin Mining board counts.
     func playDaily() {
         guard !dailyDone else { return }
-        enterPlay()
-        if mode == .daily, level != nil, status != .won, !isFailed, dailyBoard.day == Self.dayNo() { return }
-        loadDaily()
+        dailyPickOpen = true
+    }
+
+    /// The chooser's two buttons.
+    func pickDaily(mining: Bool) {
+        dailyPickOpen = false
+        if mining { playMining() } else { playLevel() }
+    }
+
+    /// The first win of the day clears the Daily Challenge: the streak goes on (or starts again at 1) and streak
+    /// days earn bonus mystery boxes. Returns those boxes' tools, or nil when today was already cleared.
+    private func creditDaily() -> [Tool]? {
+        let day = Self.dayNo()
+        guard daily.last != day else { return nil }
+        daily.streak = daily.last == day - 1 ? daily.streak + 1 : 1
+        daily.count += 1
+        daily.last = day
+        daily.best = max(daily.best, daily.streak)
+        saveDaily()
+        var tools: [Tool] = []
+        for _ in 0..<(Self.streakBonus[daily.streak] ?? 0) {
+            let t = Tool.randomBox()
+            tools.append(t)
+            addTools(t, 1)
+        }
+        return tools
+    }
+
+    /// Mark the win card when this win cleared today's challenge, with any streak-bonus boxes.
+    private func noteDaily(_ tools: [Tool]?) {
+        guard let tools else { return }
+        lastWin.dailyCleared = true
+        if !tools.isEmpty { lastWin.bonusBox = BoxReveal(tools: tools, lost: false) }
     }
 
     private var isFailed: Bool { if case .failed = status { return true } else { return false } }
@@ -694,27 +731,14 @@ final class GameModel: ObservableObject {
             paraRound += 1
             store.set(paraRound, forKey: "native.paraRound")
             lastWin = Win(base: 100, bonus: 0)
+            noteDaily(creditDaily())
             tailorPick = nil
             coins += 100
             store.set(coins, forKey: "native.coins")
             return
         case .daily:
-            let day = Self.dayNo()
-            var bonusTools: [Tool] = []
-            if daily.last != day {
-                daily.streak = daily.last == day - 1 ? daily.streak + 1 : 1
-                daily.count += 1
-                daily.last = day
-                daily.best = max(daily.best, daily.streak)
-                saveDaily()
-                for _ in 0..<(Self.streakBonus[daily.streak] ?? 0) {
-                    let t = Tool.randomBox()
-                    bonusTools.append(t)
-                    addTools(t, 1)
-                }
-            }
-            lastWin = Win(base: reward, bonus: 0,
-                          bonusBox: bonusTools.isEmpty ? nil : BoxReveal(tools: bonusTools, lost: false))
+            lastWin = Win(base: reward, bonus: 0)
+            noteDaily(creditDaily())
             tailorPick = nil
             coins += reward
             store.set(coins, forKey: "native.coins")
@@ -728,6 +752,7 @@ final class GameModel: ObservableObject {
         let base = reward
         let bonus = firstTry ? Int(JSRound(Double(base) * 0.5)) : 0
         lastWin = Win(base: base, bonus: bonus, pack: packDone == nil ? 0 : Self.packCoins, packName: packDone)
+        noteDaily(creditDaily())
         failStreak = 0
         easeNext = false
         if lv.diff?.hasPrefix("warm") == true {

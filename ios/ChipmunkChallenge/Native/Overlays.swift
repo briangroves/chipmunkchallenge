@@ -369,6 +369,15 @@ struct ResultCard: View {
             Color.clear.preference(key: RewardFrame.self, value: g.frame(in: .named(PlayScreen.space)))
         })
         if let box = w.box { BoxRevealView(box: box) }
+        if w.dailyCleared, model.mode != .daily {
+            Text("🔥 Daily Challenge done · \(model.daily.streak)-day streak")
+                .font(Theme.body(13, 800))
+                .foregroundStyle(Color(hex: 0xC2410C))
+                .cssLine(Theme.uiBody(13, 800), 13 * 1.45)
+                .padding(.vertical, 4)
+                .padding(.horizontal, 12)
+                .background(Color(hex: 0xFFE9D6), in: Capsule())
+        }
         if let bonus = w.bonusBox {
             VStack(spacing: 0) {
                 Text("🔥 \(model.daily.streak)-day streak bonus")
