@@ -43,9 +43,16 @@ final class BoardView: UIView {
         offLayer.contentsGravity = .resize
         live.board = self
         addSubview(live)
+        // Tapping the board does what the backpack button does: show or hide the tools.
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped)))
     }
 
     required init?(coder: NSCoder) { fatalError() }
+
+    @objc private func tapped() {
+        guard model.status == .playing else { return }
+        withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.toggleBackpack() }
+    }
 
     override func didMoveToWindow() {
         super.didMoveToWindow()

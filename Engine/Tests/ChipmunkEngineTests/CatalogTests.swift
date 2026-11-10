@@ -26,8 +26,10 @@ final class CatalogTests: XCTestCase {
     }
 
     func testPicturesMatchTheWebGame() {
+        // The exported originals (before any redrawn boards from boards.json replace them in play).
+        let original = catalog.packs.flatMap(\.levels)
         for i in stride(from: 0, to: catalog.paradiseFrom, by: 7) {
-            XCTAssertEqual(catalog.levelPlay[i].rows, js.decode([String].self, "LEVELS[\(i)].rows"), "board \(i)")
+            XCTAssertEqual(original[i].rows, js.decode([String].self, "LEVELS[\(i)].rows"), "board \(i)")
         }
         for r in [0, 7, 19, 20, 33, 59, 140, 259] {
             let (i, base, _) = catalog.paradiseRound(r)
@@ -110,7 +112,10 @@ final class CatalogTests: XCTestCase {
         for i in [29, 64, 171 - 1] {
             let isPara = i >= catalog.paradiseFrom
             let key = isPara ? "paradise" : catalog.diffKey(forBoard: i)
-            let base = isPara ? catalog.paradiseRound(i - catalog.paradiseFrom).base : catalog.base(forBoard: i)
+            // The exported original picture (a redrawn board replaces it in play, but the web game has the original).
+            let pic = isPara ? nil : catalog.packs.flatMap(\.levels)[i]
+            let base = pic.map { levelBase(name: $0.name, rows: $0.rows, boardNumber: i + 1) }
+                ?? catalog.paradiseRound(i - catalog.paradiseFrom).base
             let seed = isPara ? catalog.paradiseRound(i - catalog.paradiseFrom).seed : catalog.seed(forBoard: i)
             let aim = LevelCatalog.aim(key, tailor: 1)
             var o = ParityTests.quick

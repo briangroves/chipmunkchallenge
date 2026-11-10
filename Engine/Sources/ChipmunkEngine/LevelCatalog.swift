@@ -39,6 +39,9 @@ public struct LevelCatalog: Decodable, Sendable {
     public let baked: [String: LevelSummary]
     /// Packs made from clipart (Resources/boards.json), played after the original ones.
     public private(set) var newPacks: [Pack] = []
+    /// Original boards redrawn from clipart (boards.json "replace", keyed by the original board's id). The board
+    /// keeps its place, pack and number; only the picture (and so its id) changes. Coin Mining is unaffected.
+    public private(set) var replacements: [String: Picture] = [:]
 
     private enum CodingKeys: String, CodingKey {
         case format, source, packSize, packBonus, rampN, packs, paradise, baked
@@ -46,6 +49,7 @@ public struct LevelCatalog: Decodable, Sendable {
 
     private struct NewBoards: Decodable {
         let packs: [Pack]
+        let replace: [String: Picture]?
     }
 
     /// The catalog that ships inside the engine.
@@ -55,15 +59,22 @@ public struct LevelCatalog: Decodable, Sendable {
         }
         var c = try JSONDecoder().decode(LevelCatalog.self, from: Data(contentsOf: url))
         if let extra = Bundle.module.url(forResource: "boards", withExtension: "json") {
-            c.newPacks = try JSONDecoder().decode(NewBoards.self, from: Data(contentsOf: extra)).packs
+            let nb = try JSONDecoder().decode(NewBoards.self, from: Data(contentsOf: extra))
+            c.newPacks = nb.packs
+            c.replacements = nb.replace ?? [:]
         }
         return c
     }
 
     // MARK: - Level Play
 
-    /// Every Level Play pack in play order: the original ones, then the new ones.
-    public var allPacks: [Pack] { packs + newPacks }
+    /// Every Level Play pack in play order: the original ones (with any redrawn boards), then the new ones.
+    public var allPacks: [Pack] {
+        let originals = replacements.isEmpty ? packs : packs.map { p in
+            Pack(id: p.id, name: p.name, levels: p.levels.map { replacements[$0.id] ?? $0 })
+        }
+        return originals + newPacks
+    }
 
     /// Level Play boards in play order (index = board number - 1).
     public var levelPlay: [Picture] { allPacks.flatMap(\.levels) }

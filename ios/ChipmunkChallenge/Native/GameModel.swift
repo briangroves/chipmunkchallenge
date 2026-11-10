@@ -1131,7 +1131,9 @@ final class GameModel: ObservableObject {
         switch t {
         case .owl:
             say("🦉 Thinking…")
-            let box = LevelBox(lv), start = m, token = loadToken
+            // The solver gets its own copy of the level: routing uses scratch buffers stored on the Level, and the
+            // live game is routing critters on the main thread at the same time (a shared Level crashed the app).
+            let box = LevelBox(lv.copy()), start = m, token = loadToken
             Task { [weak self] in
                 let r = await Task.detached(priority: .userInitiated) { solve(box.level!, start) }.value
                 guard let self, self.loadToken == token, self.status == .playing, let now = self.sim else { return }
@@ -1208,6 +1210,11 @@ final class GameModel: ObservableObject {
 
     func cancelWand() {
         magicMode = false
+    }
+
+    /// The backpack button (and a tap on the board): put an armed wand away, or show or hide the tools.
+    func toggleBackpack() {
+        if magicMode { cancelWand() } else { toolsOpen.toggle() }
     }
 
     /// The light tap used for small confirmations.

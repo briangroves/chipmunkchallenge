@@ -181,7 +181,9 @@ private struct Stage: View {
     /// Height of a slot, the full lane box (three rows plus a fifth of the fourth) and one row of lanes, for slots
     /// and lanes `w` wide.
     private func rows(_ w: CGFloat) -> (slot: CGFloat, lanes: CGFloat, nest: CGFloat) {
-        let n = CGFloat(max(1, model.side.slots.count)), cols = CGFloat(max(1, model.side.columns))
+        // The extra slot (Add a Nest) doesn't change the slot size, so the layout doesn't jump when it's added.
+        let n = CGFloat(max(1, model.side.slots.count - (model.extraUsed ? 1 : 0)))
+        let cols = CGFloat(max(1, model.side.columns))
         let nest = (w - (cols - 1) * 6) / cols * 0.88
         return ((w - (n - 1) * 6) / n, CGFloat(JSRound(Double(3 * nest + 18 + nest * Lanes.peek))), nest)
     }
@@ -237,7 +239,7 @@ private struct Stage: View {
                 .onAppear { model.cellSize = cs }
                 .onChange(of: cs) { _, v in model.cellSize = v }
             VStack(spacing: 12) {
-                Slots(model: model, width: laneW)
+                Slots(model: model, width: laneW, maxWidth: width - 16)
                 Lanes(model: model, width: laneW, height: lanesH)
             }
             .frame(width: laneW)
@@ -381,9 +383,7 @@ private struct ControlRow: View {
             Spacer(minLength: 2)
             HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek, rainbow: true,
                       badge: !model.held.isEmpty && !model.helped, badgePop: model.heldPop) {
-                withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) {
-                    if model.magicMode { model.cancelWand() } else { model.toolsOpen.toggle() }
-                }
+                withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.toggleBackpack() }
             }
             HUDButton(icon: Icons.home) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
             HUDButton(icon: Icons.gear, size: 19) { model.settingsOpen = true }
@@ -440,10 +440,16 @@ struct CoinIcon: View {
 private struct Slots: View {
     @ObservedObject var model: GameModel
     let width: CGFloat
+    /// How wide the row may grow with the extra slot (nearly the screen's width).
+    let maxWidth: CGFloat
 
     var body: some View {
+        // Slots keep the size they have without the extra slot; the extra one makes the row wider, out toward the
+        // screen's edges, and only if six of that size don't fit do they shrink (just enough).
         let n = max(1, model.side.slots.count)
-        let size = (width - CGFloat(n - 1) * 6) / CGFloat(n)
+        let base = max(1, n - (model.extraUsed ? 1 : 0))
+        let size = min((width - CGFloat(base - 1) * 6) / CGFloat(base), (maxWidth - CGFloat(n - 1) * 6) / CGFloat(n))
+        let rowW = CGFloat(n) * size + CGFloat(n - 1) * 6
         HStack(spacing: 6) {
             ForEach(0..<n, id: \.self) { k in
                 let item = k < model.side.slots.count ? model.side.slots[k] : nil
@@ -464,6 +470,7 @@ private struct Slots: View {
                 }
             }
         }
+        .frame(width: rowW)
         .frame(width: width)
     }
 }

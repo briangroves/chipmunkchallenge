@@ -44,6 +44,8 @@ from image_to_board import RGB  # noqa: E402
 
 ROOT = os.path.dirname(HERE)
 BOARDS = os.path.join(ROOT, "Engine/Sources/ChipmunkEngine/Resources/boards.json")
+ORIGINALS = os.path.join(ROOT, "Engine/Sources/ChipmunkEngine/Resources/levels.json")
+SUFFIX = ""   # "-originals" when checking the original 170 boards (separate report and sheets)
 CHECKS = os.path.join(HERE, "packs", "checks")
 MODEL = "claude-opus-5-5"
 
@@ -90,7 +92,12 @@ SYNONYMS = {
     "orangutan": {"ape", "monkey"}, "baboon": {"monkey"}, "lemur": {"monkey"}, "gazelle": {"antelope", "deer"},
     "warthog": {"boar", "pig"}, "crocodile": {"alligator"}, "earmuffs": {"ear muffs", "headphones"},
     "snowboard": {"snowboarder"}, "angelfish": {"angel fish", "fish"}, "lionfish": {"lion fish"},
-    "sunfish": {"sun fish", "mola"}, "fawn": {"deer", "bambi"}, "cub": {"bear", "lion", "fox", "tiger"},
+    "sunfish": {"sun fish", "mola"}, "leaning tower of pisa": {"leaning tower", "tower of pisa"},
+    "big ben": {"clock tower", "elizabeth tower"}, "kremlin": {"basil", "onion dome", "cathedral", "kremlin"},
+    "space needle": {"needle", "observation tower"}, "taj mahal": {"taj"}, "mosque": {"minaret"},
+    "seashell": {"shell", "conch", "scallop"}, "succulent": {"cactus", "aloe", "plant"},
+    "comet": {"shooting star", "meteor"}, "dalmatian": {"dog", "puppy"}, "gecko": {"lizard"},
+    "doe": {"deer", "fawn"}, "gondola": {"boat", "canoe"}, "fawn": {"deer", "bambi"}, "cub": {"bear", "lion", "fox", "tiger"},
     "explorer": {"hiker", "adventurer", "eskimo", "inuit", "person", "boy", "girl", "kid", "child"},
     "diver": {"scuba", "swimmer", "snorkel"}, "boar": {"pig", "hog", "warthog"}, "family": {"bear", "bears"},
     "tropical fish": {"fish"}, "stump": {"log", "tree"}, "honey pot": {"honey", "jar"},
@@ -233,8 +240,15 @@ def main():
     ap.add_argument("--dry-run", action="store_true", help="render images and sheets, but don't call the API")
     ap.add_argument("--all", action="store_true", help="re-check boards even if their picture hasn't changed")
     ap.add_argument("--verify-top", type=int, default=10, help="ask again about the N best boards (0 to skip)")
+    ap.add_argument("--originals", action="store_true",
+                    help="check the original 170 boards (levels.json) instead; report goes to ranking-originals.md")
     a = ap.parse_args()
-    data = json.load(open(BOARDS))
+    global SUFFIX
+    if a.originals:
+        SUFFIX = "-originals"
+        data = {"packs": [dict(p, id="orig-" + p["id"]) for p in json.load(open(ORIGINALS))["packs"]]}
+    else:
+        data = json.load(open(BOARDS))
     os.makedirs(CHECKS, exist_ok=True)
     client = None
     if not a.dry_run:
@@ -335,10 +349,10 @@ def report(everything):
                  f"{sum(e[1]['touched'] for e in bottom)}/{k} |")
     themes = lambda group: ", ".join(sorted({e[1]['theme'] or '?' for e in group}))
     lines += ["", f"Best third's themes: {themes(top)}", "", f"Worst third's themes: {themes(bottom)}"]
-    open(os.path.join(CHECKS, "ranking.md"), "w").write("\n".join(lines) + "\n")
-    sheet([(L["rows"], r["grade"]) for L, r in scored[-15:][::-1]], os.path.join(CHECKS, "worst.png"))
-    sheet([(L["rows"], r["grade"]) for L, r in scored[:15]], os.path.join(CHECKS, "best.png"))
-    print(f"Ranking: {os.path.join(CHECKS, 'ranking.md')}")
+    open(os.path.join(CHECKS, f"ranking{SUFFIX}.md"), "w").write("\n".join(lines) + "\n")
+    sheet([(L["rows"], r["grade"]) for L, r in scored[-15:][::-1]], os.path.join(CHECKS, f"worst{SUFFIX}.png"))
+    sheet([(L["rows"], r["grade"]) for L, r in scored[:15]], os.path.join(CHECKS, f"best{SUFFIX}.png"))
+    print(f"Ranking: {os.path.join(CHECKS, f'ranking{SUFFIX}.md')}")
 
 
 if __name__ == "__main__":

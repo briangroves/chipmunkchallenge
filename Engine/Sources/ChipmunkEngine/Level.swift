@@ -183,6 +183,36 @@ public final class Level {
         self.lanes = lanes
     }
 
+    /// An independent copy. Routing borrows scratch buffers stored on the level (`dist`, `buckets`) and fills a cache
+    /// (`byColor`) as it goes, so two threads must never simulate on the same Level: anything that solves or plays
+    /// out a board off the main thread (the Wise Owl) works on a copy.
+    public func copy() -> Level {
+        let c = Level(art: art, slots: slots, lanes: lanes)
+        c.hasNav = hasNav
+        c.NW = NW
+        c.NH = NH
+        c.inBoard = inBoard
+        c.drain = drain
+        c.entry = entry
+        c.dist = dist
+        c.buckets = buckets
+        c.byColor = byColor
+        c.def = def
+        c.diff = diff
+        c.seed = seed
+        c.plan = plan
+        c.nests = nests
+        c.small = small
+        c.minNest = minNest
+        c.maxNest = maxNest
+        c.botWin = botWin
+        c.randWin = randWin
+        c.randN = randN
+        c.tuneIters = tuneIters
+        c.aim = aim
+        return c
+    }
+
     /// JS navSetup.
     public func navSetup() {
         NW = W + MG.l + MG.r

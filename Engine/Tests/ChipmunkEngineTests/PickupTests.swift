@@ -28,9 +28,11 @@ final class PickupTests: XCTestCase {
     func testSameBoxesAsTheWebGame() {
         loadJS()
         var boards: [(li: Int, board: PickupBoard, id: String)] = []
-        for i in [2, 5, 7, 9, 11, 14, 17, 19] { boards.append((i, .warmup(i + 1), catalog.levelPlay[i].id)) }
+        // The exported originals: the web game has these pictures even where boards.json redraws one.
+        let original = catalog.packs.flatMap(\.levels)
+        for i in [2, 5, 7, 9, 11, 14, 17, 19] { boards.append((i, .warmup(i + 1), original[i].id)) }
         for i in [20, 23, 26, 29, 39, 44, 59, 64, 98, 99, 120, 140, 149, 158, 169] {
-            boards.append((i, .level(i + 1), catalog.levelPlay[i].id))
+            boards.append((i, .level(i + 1), original[i].id))
         }
         for r in [0, 3, 11, 19] { boards.append((catalog.paradiseFrom + r, .mining, catalog.paradise[r].id)) }
         var total = 0

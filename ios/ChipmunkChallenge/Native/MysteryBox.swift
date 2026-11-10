@@ -70,10 +70,7 @@ struct BoxRevealView: View {
                     .opacity(phase == 2 ? 1 : 0)
                 HStack(spacing: n > 1 ? 10 : 14) {
                     ForEach(Array(box.tools.enumerated()), id: \.offset) { _, t in
-                        HStack(spacing: 3) {
-                            Text(t.icon).font(.system(size: n > 1 ? 34 : 46))
-                            Text("+1").font(.system(size: n > 1 ? 16 : 20, weight: .heavy)).foregroundStyle(Color(hex: 0x2E7D32))
-                        }
+                        ToolIcon(tool: t, size: n > 1 ? 34 : 46)
                     }
                 }
                 .scaleEffect(phase >= 3 ? 1 : 0.2)
