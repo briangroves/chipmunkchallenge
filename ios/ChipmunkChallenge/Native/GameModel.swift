@@ -86,6 +86,8 @@ final class GameModel: ObservableObject {
     @Published var settingsOpen = false
     /// Home's Daily Challenge chooser: clear a Level Play level or a Coin Mining board to keep the streak.
     @Published var dailyPickOpen = false
+    /// The board review screen (test builds): swipe through every board and rate it.
+    @Published var reviewOpen = false
     /// Settings, saved on this device.
     @Published var hapticsOn: Bool { didSet { store.set(hapticsOn, forKey: "native.haptics") } }
     /// Playback speed at normal and at fast-forward (multiples of the game's base pace).
@@ -311,6 +313,8 @@ final class GameModel: ObservableObject {
            let pic = try? JSONDecoder().decode(ImportedPicture.self, from: data) {
             screen = .play
             loadImported(pic)
+        } else if store.string(forKey: "screen") == "review" {
+            reviewOpen = true
         } else if store.string(forKey: "screen") == "dailyPick" {
             dailyPickOpen = true
         } else if store.string(forKey: "scene") != nil || store.bool(forKey: "autoplay") || store.string(forKey: "screen") == "play" {
