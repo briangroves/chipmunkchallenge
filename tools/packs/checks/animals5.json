@@ -1,0 +1,677 @@
+{
+ "cartoon-lion-958": {
+  "guess": "lion",
+  "alternatives": [
+   "orange cat",
+   "fox"
+  ],
+  "readability": 3,
+  "features": [
+   "big orange mane",
+   "tan muzzle area",
+   "yellow body",
+   "legs",
+   "curled tail on left",
+   "sunset sky with moon"
+  ],
+  "problems": [
+   "no clear eyes or facial details",
+   "mane blends with orange sunset background",
+   "head is a blobby mass",
+   "pose is hard to read"
+  ],
+  "digest": "f0dc8bc5db84cfad",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.136,
+  "biggest_patch": 0.09,
+  "theme": "Castle at dusk",
+  "name": "Cartoon Lion",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-elephant-959": {
+  "guess": "grey elephant on a beach",
+  "alternatives": [
+   "hippo",
+   "rhino"
+  ],
+  "readability": 3,
+  "features": [
+   "big grey head",
+   "large ears on the left",
+   "two eyes with heavy brows",
+   "curled trunk area",
+   "white tusks or feet at the bottom",
+   "beach background with sun and sea"
+  ],
+  "problems": [
+   "trunk is not clearly separated from the body",
+   "shape is a blocky square blob",
+   "dark shading at the bottom blends shapes together",
+   "hard to tell the head from the body"
+  ],
+  "digest": "da8423d304c58255",
+  "grade": "pass",
+  "score": 80,
+  "colors": 20,
+  "black": 0.175,
+  "biggest_patch": 0.231,
+  "theme": "Tropical beach",
+  "name": "Cartoon Elephant",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-giraffe-960": {
+  "guess": "giraffe",
+  "alternatives": [
+   "llama",
+   "deer"
+  ],
+  "readability": 4,
+  "features": [
+   "long neck",
+   "head with ossicone horns",
+   "pink ears",
+   "eye",
+   "red mouth/nose",
+   "orange spots",
+   "legs with dark hooves",
+   "tail tuft",
+   "savanna background with mountains, sun, clouds, flowers"
+  ],
+  "problems": [
+   "head is small and a bit abstract",
+   "few spots, more like orange patches",
+   "legs are short and bunched for a giraffe",
+   "red mouth looks odd"
+  ],
+  "digest": "7101dc743d5996b7",
+  "grade": "pass",
+  "score": 94,
+  "colors": 18,
+  "black": 0.054,
+  "biggest_patch": 0.189,
+  "theme": "Spring meadow",
+  "name": "Cartoon Giraffe",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-zebra-961": {
+  "guess": "zebra",
+  "alternatives": [
+   "striped cow",
+   "panda"
+  ],
+  "readability": 3,
+  "features": [
+   "black and white stripes",
+   "pointed ears with blue inner",
+   "round body",
+   "dark legs/hooves",
+   "eyes as small dark marks",
+   "muzzle area"
+  ],
+  "problems": [
+   "face hard to distinguish from stripes",
+   "no clear eyes or nose",
+   "blobby front-facing shape",
+   "stripes make the head and body merge",
+   "dark blue patch near legs is confusing"
+  ],
+  "digest": "6b10c948a0adf1ff",
+  "grade": "pass",
+  "score": 84,
+  "colors": 18,
+  "black": 0.16,
+  "biggest_patch": 0.145,
+  "theme": "Garden pond",
+  "name": "Cartoon Zebra",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-bear-962": {
+  "guess": "tan bear standing with arms out",
+  "alternatives": [
+   "hamster",
+   "teddy bear"
+  ],
+  "readability": 4,
+  "features": [
+   "round ears",
+   "two big eyes",
+   "open red mouth",
+   "raised arms",
+   "two legs",
+   "brown spots on body",
+   "dark outline"
+  ],
+  "problems": [
+   "no clear snout or nose",
+   "body is a blocky rectangle",
+   "legs merge into one shape at the bottom",
+   "busy brick and stripe background"
+  ],
+  "digest": "cd9ab02b5b55ad09",
+  "grade": "pass",
+  "score": 90,
+  "colors": 11,
+  "black": 0.279,
+  "biggest_patch": 0.206,
+  "theme": "Stormy coast",
+  "name": "Cartoon Bear",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-fox-963": {
+  "guess": "orange fox sitting in a meadow",
+  "alternatives": [
+   "red panda",
+   "orange cat"
+  ],
+  "readability": 5,
+  "features": [
+   "pointed ears",
+   "face with eyes and nose",
+   "white chest and muzzle",
+   "bushy tail with white tip",
+   "sitting body",
+   "mountains and sunset background"
+  ],
+  "problems": [
+   "legs not clearly defined",
+   "face is small relative to body",
+   "grey mountains behind ears slightly busy"
+  ],
+  "digest": "77f1f68ee41dd875",
+  "grade": "pass",
+  "score": 100,
+  "colors": 14,
+  "black": 0.116,
+  "biggest_patch": 0.145,
+  "theme": "Mountain sunset",
+  "name": "Cartoon Fox",
+  "pack": "animals5",
+  "touched": false,
+  "verify": {
+   "guess": "orange fox sitting in a meadow",
+   "score": 96,
+   "agrees": true
+  }
+ },
+ "cartoon-owl-964": {
+  "guess": "two owls in a meadow",
+  "alternatives": [
+   "two sparrows",
+   "two penguins"
+  ],
+  "readability": 4,
+  "features": [
+   "two round brown bodies",
+   "white face discs with closed sleepy eyes",
+   "orange beak on left owl",
+   "white bellies",
+   "orange feet",
+   "flowers and grass around",
+   "castle ruin and birds in background",
+   "clouds and sky"
+  ],
+  "problems": [
+   "right owl has no visible beak",
+   "closed eyes make faces less clear",
+   "dark green grass blends with dark wing edges",
+   "no ear tufts, so could read as other birds"
+  ],
+  "digest": "39f1e80bba7d4ce4",
+  "grade": "pass",
+  "score": 90,
+  "colors": 17,
+  "black": 0.071,
+  "biggest_patch": 0.214,
+  "theme": "Castle hill",
+  "name": "Cartoon Owl",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-rabbit-965": {
+  "guess": "white rabbit",
+  "alternatives": [
+   "hare",
+   "white goat"
+  ],
+  "readability": 4,
+  "features": [
+   "long upright ear with pink inside",
+   "pink nose/mouth area",
+   "white body sitting upright",
+   "small front paw",
+   "dark outline",
+   "grass and mushrooms background",
+   "birds in sky"
+  ],
+  "problems": [
+   "no clearly visible eye",
+   "head shape is a bit flat and odd",
+   "second ear partly hidden",
+   "body is a tall blocky column without clear legs"
+  ],
+  "digest": "a4f1fb29c765491b",
+  "grade": "pass",
+  "score": 90,
+  "colors": 9,
+  "black": 0.066,
+  "biggest_patch": 0.184,
+  "theme": "Misty pines",
+  "name": "Cartoon Rabbit",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-cat-966": {
+  "guess": "yellow cat sitting in a meadow at sunset",
+  "alternatives": [
+   "fox",
+   "puppy"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed ears with brown insides",
+   "green eyes",
+   "white muzzle and chest",
+   "yellow body",
+   "front paws",
+   "curled orange tail",
+   "grass with flowers",
+   "setting sun"
+  ],
+  "problems": [
+   "face details are tiny and the white muzzle looks blobby",
+   "closed/sleepy eyes and mouth hard to read",
+   "orange body parts blend with the orange sunset stripes",
+   "pose is compact so legs and tail are hard to separate"
+  ],
+  "digest": "de7e4ab66a198009",
+  "grade": "pass",
+  "score": 88,
+  "colors": 17,
+  "black": 0.093,
+  "biggest_patch": 0.138,
+  "theme": "Sunset meadow",
+  "name": "Cartoon Cat",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-cow-967": {
+  "guess": "cow at night",
+  "alternatives": [
+   "sheep",
+   "goat"
+  ],
+  "readability": 4,
+  "features": [
+   "black and white spotted body",
+   "pink snout with nostrils",
+   "horns",
+   "ears",
+   "closed eyes",
+   "pink udder",
+   "legs with red hooves",
+   "crescent moon and stars in sky",
+   "grass field"
+  ],
+  "problems": [
+   "head shape a bit blocky and merges with body",
+   "legs short and hard to separate",
+   "eyes look closed/hard to read",
+   "white body edges blend with grey shading"
+  ],
+  "digest": "5de24ad4a83179f7",
+  "grade": "pass",
+  "score": 94,
+  "colors": 18,
+  "black": 0.339,
+  "biggest_patch": 0.207,
+  "theme": "Starry hilltop",
+  "name": "Cartoon Cow",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-horse-968": {
+  "guess": "white horse galloping on a beach at sunset",
+  "alternatives": [
+   "unicorn",
+   "pony"
+  ],
+  "readability": 3,
+  "features": [
+   "white body",
+   "yellow flowing mane",
+   "yellow tail",
+   "raised head and neck",
+   "legs with dark hooves",
+   "sunset sky with sun",
+   "sea and sandy beach",
+   "small bird in sky"
+  ],
+  "problems": [
+   "head lacks a clear face, eye or muzzle",
+   "legs are tangled and hard to separate",
+   "dark outlines and shading make the lower body look blobby",
+   "pose is awkward, so the horse shape takes effort to read"
+  ],
+  "digest": "b73f051a94a89fbd",
+  "grade": "pass",
+  "score": 80,
+  "colors": 18,
+  "black": 0.097,
+  "biggest_patch": 0.182,
+  "theme": "Beach sunset",
+  "name": "Cartoon Horse",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-sheep-969": {
+  "guess": "sheep carrying a pink flower",
+  "alternatives": [
+   "goat with a flower",
+   "lamb lying in the grass"
+  ],
+  "readability": 3,
+  "features": [
+   "white woolly body",
+   "tan face/snout",
+   "ear",
+   "small legs/hooves",
+   "pink flower with purple outline",
+   "yellow flower on body",
+   "grass and trees background",
+   "rain drops and water"
+  ],
+  "problems": [
+   "no clear eye visible",
+   "large pink flower overlaps the head and dominates the image",
+   "white body blends with grey sky area at top",
+   "face is small and hard to read",
+   "legs barely visible"
+  ],
+  "digest": "1acf87a8d890727e",
+  "grade": "pass",
+  "score": 84,
+  "colors": 18,
+  "black": 0.163,
+  "biggest_patch": 0.164,
+  "theme": "Rainy day",
+  "name": "Cartoon Sheep",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-duck-970": {
+  "guess": "mallard duck",
+  "alternatives": [
+   "goose",
+   "wild duck walking in snow"
+  ],
+  "readability": 4,
+  "features": [
+   "green head",
+   "eye",
+   "orange beak",
+   "brown body",
+   "grey wing",
+   "tail feathers",
+   "orange webbed feet",
+   "sun and clouds in background"
+  ],
+  "problems": [
+   "body shape is a bit blobby and stretched",
+   "legs/feet look cramped under the body",
+   "snowy background with scattered blue pixels is noisy",
+   "tail blends somewhat with light background"
+  ],
+  "digest": "4bf1f6cbe58c5261",
+  "grade": "pass",
+  "score": 94,
+  "colors": 16,
+  "black": 0.082,
+  "biggest_patch": 0.164,
+  "theme": "Ice field",
+  "name": "Cartoon Duck",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-frog-971": {
+  "guess": "green frog sitting on sand",
+  "alternatives": [
+   "toad",
+   "turtle"
+  ],
+  "readability": 5,
+  "features": [
+   "bulging eyes on top of head",
+   "dark green body",
+   "light green belly",
+   "front legs",
+   "back legs folded at sides",
+   "dark outline",
+   "sun in sky",
+   "desert plants"
+  ],
+  "problems": [
+   "no visible mouth",
+   "legs merge into body as one blob",
+   "dark red shadow under frog is slightly confusing"
+  ],
+  "digest": "3ac6fa257ee13051",
+  "grade": "pass",
+  "score": 88,
+  "colors": 19,
+  "black": 0.071,
+  "biggest_patch": 0.193,
+  "theme": "Cactus canyon",
+  "name": "Cartoon Frog",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-turtle-972": {
+  "guess": "green turtle with orange shell",
+  "alternatives": [
+   "frog carrying an orange",
+   "tortoise on a skateboard"
+  ],
+  "readability": 3,
+  "features": [
+   "green head with eye",
+   "open red mouth",
+   "orange domed shell with green patches",
+   "green legs/feet",
+   "dark base or wheels underneath"
+  ],
+  "problems": [
+   "shell pattern of orange and green blobs is confusing",
+   "head is small and off to the side",
+   "purple and gray background clutter near the base",
+   "dark base underneath is unclear"
+  ],
+  "digest": "2dbd54747266380f",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.104,
+  "biggest_patch": 0.211,
+  "theme": "Overcast moor",
+  "name": "Cartoon Turtle",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-crocodile-973": {
+  "guess": "crocodile in water at sunset",
+  "alternatives": [
+   "alligator",
+   "green dragon"
+  ],
+  "readability": 4,
+  "features": [
+   "long green snout",
+   "open mouth with yellow teeth",
+   "eye",
+   "raised spiky tail or back ridge",
+   "light green belly/jaw",
+   "water ripples around body",
+   "sun and sunset sky"
+  ],
+  "problems": [
+   "eye is small and hard to spot",
+   "raised tail shape is ambiguous and could read as a hand or wing",
+   "body is a dark green blob with little definition",
+   "no legs visible"
+  ],
+  "digest": "9788f85860cd1e0b",
+  "grade": "pass",
+  "score": 90,
+  "colors": 12,
+  "black": 0.067,
+  "biggest_patch": 0.19,
+  "theme": "Lavender fields",
+  "name": "Cartoon Crocodile",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-penguin-974": {
+  "guess": "penguin",
+  "alternatives": [
+   "puffin",
+   "seal"
+  ],
+  "readability": 5,
+  "features": [
+   "black head and back",
+   "white belly and face",
+   "two black eyes",
+   "tan beak",
+   "flipper wings spread out",
+   "small tan feet"
+  ],
+  "problems": [
+   "beak is small and tan rather than orange",
+   "water splash at the bottom overlaps the feet",
+   "penguin in a grassy meadow is an odd setting"
+  ],
+  "digest": "40401cc79efeb2a2",
+  "grade": "pass",
+  "score": 100,
+  "colors": 19,
+  "black": 0.097,
+  "biggest_patch": 0.171,
+  "theme": "Riverbank",
+  "name": "Cartoon Penguin",
+  "pack": "animals5",
+  "touched": false,
+  "verify": {
+   "guess": "penguin",
+   "score": 96,
+   "agrees": true
+  }
+ },
+ "cartoon-panda-975": {
+  "guess": "sleeping panda lying in grass",
+  "alternatives": [
+   "badger",
+   "sheep"
+  ],
+  "readability": 4,
+  "features": [
+   "white body with black band across shoulders",
+   "black eye patches",
+   "closed sleepy eyes",
+   "pink cheeks",
+   "black nose",
+   "black ear",
+   "black front legs/paws",
+   "grass and flowers",
+   "sun in sky"
+  ],
+  "problems": [
+   "lying-down pose makes body shape a bit blobby",
+   "ears and legs blend into one black mass",
+   "back half of body is large and featureless",
+   "no clear hind legs"
+  ],
+  "digest": "87fe995711911b4f",
+  "grade": "pass",
+  "score": 94,
+  "colors": 15,
+  "black": 0.203,
+  "biggest_patch": 0.14,
+  "theme": "Alpine meadow",
+  "name": "Cartoon Panda",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-koala-976": {
+  "guess": "koala",
+  "alternatives": [
+   "mouse",
+   "elephant"
+  ],
+  "readability": 3,
+  "features": [
+   "big round fluffy ears with white insides",
+   "grey body",
+   "large black nose",
+   "small eye",
+   "white chest/belly",
+   "arms and legs",
+   "dark outline"
+  ],
+  "problems": [
+   "body is tilted and blobby, so the pose is hard to read",
+   "face is small and only one eye is clearly visible",
+   "big dark nose patch could be read as an open mouth",
+   "grey shape blends slightly with the light parts of the background",
+   "legs are not clearly separated"
+  ],
+  "digest": "57e2f985dd5e78f0",
+  "grade": "pass",
+  "score": 84,
+  "colors": 17,
+  "black": 0.091,
+  "biggest_patch": 0.134,
+  "theme": "Orchard",
+  "name": "Cartoon Koala",
+  "pack": "animals5",
+  "touched": false
+ },
+ "cartoon-tiger-977": {
+  "guess": "yellow tiger cub",
+  "alternatives": [
+   "lion cub",
+   "yellow cat"
+  ],
+  "readability": 4,
+  "features": [
+   "round head with brown outline",
+   "two rounded ears with pink insides",
+   "black eyes",
+   "black nose and mouth on white muzzle",
+   "white chest",
+   "sitting body with legs",
+   "dark brown tail curling on the ground",
+   "orange stripes/patches"
+  ],
+  "problems": [
+   "stripes are few and patchy, so it could read as a generic cat or bear",
+   "tail is dark and blends with the dark ground",
+   "brown outline merges with dirt at the bottom"
+  ],
+  "digest": "7823f1fe249c053f",
+  "grade": "pass",
+  "score": 94,
+  "colors": 16,
+  "black": 0.037,
+  "biggest_patch": 0.167,
+  "theme": "Pine forest",
+  "name": "Cartoon Tiger",
+  "pack": "animals5",
+  "touched": false
+ }
+}

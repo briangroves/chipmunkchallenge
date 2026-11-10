@@ -1,0 +1,616 @@
+{
+ "red-car-920": {
+  "guess": "red car",
+  "alternatives": [
+   "toy car",
+   "red taxi"
+  ],
+  "readability": 5,
+  "features": [
+   "red rounded car body",
+   "light blue windows",
+   "window divider pillar",
+   "two black wheels with gray hubcaps",
+   "white headlight",
+   "darker red shading on rear",
+   "night sky with moon and stars above",
+   "framed white background like a garage or picture"
+  ],
+  "problems": [
+   "dark red shading patch looks a bit blocky/noisy",
+   "frame and night sky add clutter around the subject",
+   "small pink pixel on roof looks stray"
+  ],
+  "digest": "4812663032dd044f",
+  "grade": "pass",
+  "score": 88,
+  "colors": 14,
+  "black": 0.311,
+  "biggest_patch": 0.204,
+  "theme": "Desert night",
+  "name": "Red Car",
+  "pack": "transport3",
+  "touched": false
+ },
+ "blue-car-921": {
+  "guess": "blue sports car driving near a castle at sunset",
+  "alternatives": [
+   "blue convertible on a country road",
+   "race car in front of a castle"
+  ],
+  "readability": 4,
+  "features": [
+   "long low blue car body",
+   "two grey wheels with dark tires",
+   "grey windows/windshield",
+   "white headlight and red taillight",
+   "castle with battlements on hill",
+   "crescent moon",
+   "sunset striped sky",
+   "green hills and bushes"
+  ],
+  "problems": [
+   "dark blue car blends with dark green bushes and road",
+   "car's front and back are hard to tell apart",
+   "wheels are small and partly hidden",
+   "bushes and stray dots clutter the outline"
+  ],
+  "digest": "8c5b789644de2845",
+  "grade": "pass",
+  "score": 82,
+  "colors": 18,
+  "black": 0.11,
+  "biggest_patch": 0.185,
+  "theme": "Castle at dusk",
+  "name": "Blue Car",
+  "pack": "transport3",
+  "touched": false
+ },
+ "mail-van-922": {
+  "guess": "red van with a dog in the window",
+  "alternatives": [
+   "red delivery truck",
+   "red car carrying a dog"
+  ],
+  "readability": 3,
+  "features": [
+   "red boxy vehicle body",
+   "wheels with white hubcaps",
+   "side window",
+   "orange and pink stripes on the side",
+   "white and tan dog head with black eye",
+   "grass and flowers around",
+   "castle in background",
+   "clouds and birds in sky"
+  ],
+  "problems": [
+   "wheels mostly hidden by grass",
+   "dog face blends into the orange and red stripes",
+   "vehicle shape is boxy and blends with green bushes at edges",
+   "busy background with castle and birds distracts"
+  ],
+  "digest": "ea51237b3faa7e2e",
+  "grade": "pass",
+  "score": 76,
+  "colors": 19,
+  "black": 0.05,
+  "biggest_patch": 0.182,
+  "theme": "Castle hill",
+  "name": "Mail Van",
+  "pack": "transport3",
+  "touched": false
+ },
+ "camper-car-923": {
+  "guess": "red car and gray car parked in a field at night",
+  "alternatives": [
+   "campsite at night with red car and gray boulder",
+   "night picnic scene with cars and torches"
+  ],
+  "readability": 3,
+  "features": [
+   "night sky with crescent moon and stars",
+   "dark hills",
+   "green grass field",
+   "red car with light blue windshield and tan roof edge",
+   "gray vehicle or rock with small blue window",
+   "three small torches/campfire flames"
+  ],
+  "problems": [
+   "gray object is blobby and could be a rock or car",
+   "red car has no clear wheels",
+   "dark outlines blend into the dark ground",
+   "main subject small relative to background scenery"
+  ],
+  "digest": "e86f4435a0c13198",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.332,
+  "biggest_patch": 0.294,
+  "theme": "Starry hilltop",
+  "name": "Camper Car",
+  "pack": "transport3",
+  "touched": false
+ },
+ "blue-plane-924": {
+  "guess": "WWII fighter plane at sunset",
+  "alternatives": [
+   "propeller airplane landing",
+   "whale"
+  ],
+  "readability": 3,
+  "features": [
+   "long dark fuselage",
+   "red propeller spinner at nose",
+   "propeller blade (vertical grey bar)",
+   "cockpit canopy",
+   "tail fin at right",
+   "landing gear wheels with white",
+   "wing"
+  ],
+  "problems": [
+   "dark plane blends with purple striped background",
+   "propeller and wing hard to distinguish",
+   "shape is blobby and low detail",
+   "side view perspective confusing with landing gear in front"
+  ],
+  "digest": "580ebf21f17c6940",
+  "grade": "pass",
+  "score": 88,
+  "colors": 13,
+  "black": 0.124,
+  "biggest_patch": 0.214,
+  "theme": "Lavender fields",
+  "name": "Blue Plane",
+  "pack": "transport3",
+  "touched": false
+ },
+ "yellow-submarine-925": {
+  "guess": "yellow submarine",
+  "alternatives": [
+   "yellow boat",
+   "toy ship"
+  ],
+  "readability": 4,
+  "features": [
+   "long rounded hull",
+   "conning tower on top",
+   "periscope",
+   "small portholes",
+   "dark outline",
+   "water at the bottom"
+  ],
+  "problems": [
+   "sitting on grass instead of underwater, which is confusing",
+   "portholes are tiny and blend into the yellow",
+   "orange shading at the back looks like a separate part"
+  ],
+  "digest": "662511679045f26b",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.166,
+  "biggest_patch": 0.199,
+  "theme": "Rainy day",
+  "name": "Yellow Submarine",
+  "pack": "transport3",
+  "touched": false
+ },
+ "green-tractor-926": {
+  "guess": "green tractor",
+  "alternatives": [
+   "farm truck",
+   "bulldozer"
+  ],
+  "readability": 4,
+  "features": [
+   "large rear wheel with yellow hub",
+   "smaller front wheel with yellow hub",
+   "dark cab with green roof",
+   "green hood/engine body",
+   "exhaust/side window frame",
+   "grass, flowers, trees and sun background"
+  ],
+  "problems": [
+   "cab and tires are the same dark color and merge into one blob",
+   "cab windows are not visible, so it reads as a solid black shape",
+   "green body blends with green grass and trees"
+  ],
+  "digest": "80d9ac3f0c5266fd",
+  "grade": "pass",
+  "score": 82,
+  "colors": 15,
+  "black": 0.279,
+  "biggest_patch": 0.198,
+  "theme": "Orchard",
+  "name": "Green Tractor",
+  "pack": "transport3",
+  "touched": false
+ },
+ "sailing-ship-927": {
+  "guess": "sailing ship at sunset",
+  "alternatives": [
+   "rocky mountain island",
+   "sailboat on water"
+  ],
+  "readability": 3,
+  "features": [
+   "white and tan sails",
+   "dark masts",
+   "red flag on top",
+   "blue hull/water at bottom",
+   "sun in sky",
+   "birds flying"
+  ],
+  "problems": [
+   "sails look like rocky mountain shapes",
+   "hull is thin and hard to see",
+   "brown shading blends sails into a blob",
+   "orange striped background is busy"
+  ],
+  "digest": "514c3c510d015fcf",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.088,
+  "biggest_patch": 0.121,
+  "theme": "Golden wheat",
+  "name": "Sailing Ship",
+  "pack": "transport3",
+  "touched": false
+ },
+ "rocket-ship-928": {
+  "guess": "rocket ship on a snowy planet",
+  "alternatives": [
+   "space shuttle",
+   "lighthouse"
+  ],
+  "readability": 4,
+  "features": [
+   "pointed nose cone",
+   "round blue portholes",
+   "red side fins",
+   "gray and black body",
+   "blue exhaust at the bottom",
+   "crescent moon and stars in the sky",
+   "snowy mountains behind"
+  ],
+  "problems": [
+   "gray rocket body blends with the gray mountains",
+   "dark right half of the rocket looks lumpy and uneven",
+   "fins sit low and look detached from the body"
+  ],
+  "digest": "bbdd7737b992a88c",
+  "grade": "pass",
+  "score": 78,
+  "colors": 12,
+  "black": 0.257,
+  "biggest_patch": 0.151,
+  "theme": "Winter night",
+  "name": "Rocket Ship",
+  "pack": "transport3",
+  "touched": false
+ },
+ "golf-cart-929": {
+  "guess": "light blue golf cart",
+  "alternatives": [
+   "vintage car",
+   "motorcycle with sidecar"
+  ],
+  "readability": 3,
+  "features": [
+   "black canopy roof frame on top",
+   "two large black wheels with white hubs",
+   "light blue rounded body",
+   "white seats",
+   "steering area in the middle"
+  ],
+  "problems": [
+   "roof canopy floats with no visible support posts",
+   "dark blue and green shading inside the body makes the middle confusing",
+   "front and back of the vehicle are hard to tell apart",
+   "white seat parts blend with the mountain snow and clouds behind"
+  ],
+  "digest": "02ffc6d932ba7fa4",
+  "grade": "pass",
+  "score": 72,
+  "colors": 11,
+  "black": 0.149,
+  "biggest_patch": 0.138,
+  "theme": "Waterfall",
+  "name": "Golf Cart",
+  "pack": "transport3",
+  "touched": false
+ },
+ "tricycle-930": {
+  "guess": "person riding a motorbike",
+  "alternatives": [
+   "child on a red tricycle",
+   "man on a quad bike"
+  ],
+  "readability": 3,
+  "features": [
+   "head with tan face and dark hair",
+   "black shirt and arms reaching to handlebars",
+   "two big black wheels",
+   "red and yellow bike body",
+   "grey legs/pants",
+   "grassy hill, sun, clouds, birds, flowers background"
+  ],
+  "problems": [
+   "face has no clear eyes or features, looks like a mask",
+   "black wheels and black shirt merge into one dark blob",
+   "bike shape is jumbled with red, yellow, grey patches",
+   "rider's pose and legs are hard to separate from the bike"
+  ],
+  "digest": "5fafba59235675f7",
+  "grade": "weak",
+  "score": 50,
+  "colors": 20,
+  "black": 0.157,
+  "biggest_patch": 0.204,
+  "theme": "Summer hills",
+  "name": "Tricycle",
+  "pack": "transport3",
+  "touched": false
+ },
+ "bulldozer-931": {
+  "guess": "orange bulldozer in a city",
+  "alternatives": [
+   "orange cartoon tank",
+   "orange car with eyes"
+  ],
+  "readability": 3,
+  "features": [
+   "orange body",
+   "dark window/cab area",
+   "dark red tracks or wheels underneath",
+   "front blade or bumper on left",
+   "white and blue eye-like shapes",
+   "city buildings and sun in background"
+  ],
+  "problems": [
+   "shape is blobby and cluttered",
+   "unclear which way it faces",
+   "eye shapes don't clearly form a face",
+   "dark outline merges with gray road and buildings",
+   "tracks and body details are noisy with many orange and red shades"
+  ],
+  "digest": "6efb7d5bfcd97cd0",
+  "grade": "pass",
+  "score": 76,
+  "colors": 17,
+  "black": 0.103,
+  "biggest_patch": 0.201,
+  "theme": "City dawn",
+  "name": "Bulldozer",
+  "pack": "transport3",
+  "touched": false
+ },
+ "excavator-932": {
+  "guess": "yellow excavator digger",
+  "alternatives": [
+   "crane",
+   "bulldozer"
+  ],
+  "readability": 3,
+  "features": [
+   "arched boom arm",
+   "bucket at the end of the arm",
+   "cab with window",
+   "dark tracks/base",
+   "yellow body",
+   "sunset sky and grass background"
+  ],
+  "problems": [
+   "arm and bucket shape is chunky and hard to follow",
+   "orange/yellow arm blends with orange sunset sky",
+   "black tracks blob together with no visible wheels",
+   "cab window is small and unclear"
+  ],
+  "digest": "35da3d1f1e89b58d",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.158,
+  "biggest_patch": 0.1,
+  "theme": "Sunset meadow",
+  "name": "Excavator",
+  "pack": "transport3",
+  "touched": false
+ },
+ "dump-truck-933": {
+  "guess": "red pickup truck on a beach",
+  "alternatives": [
+   "dump truck",
+   "off-road jeep"
+  ],
+  "readability": 3,
+  "features": [
+   "red cab/front with windshield",
+   "grey truck bed",
+   "dark chunky wheels",
+   "sunset sky with sun",
+   "ocean and sand",
+   "birds"
+  ],
+  "problems": [
+   "wheels blend into dark body as one blob",
+   "vehicle shape is boxy and distorted, front hard to read",
+   "grey bed looks like a large blocky mass",
+   "few details like headlights or windows"
+  ],
+  "digest": "596df2a2423d2ec7",
+  "grade": "pass",
+  "score": 72,
+  "colors": 19,
+  "black": 0.158,
+  "biggest_patch": 0.122,
+  "theme": "Beach sunset",
+  "name": "Dump Truck",
+  "pack": "transport3",
+  "touched": false
+ },
+ "crane-934": {
+  "guess": "red-crowned crane sitting in grass",
+  "alternatives": [
+   "white swan",
+   "goose"
+  ],
+  "readability": 3,
+  "features": [
+   "red crown patch on head",
+   "white head",
+   "grey/dark neck",
+   "white body",
+   "dark grey tail feathers",
+   "black outline"
+  ],
+  "problems": [
+   "head is a round blob with no clear beak or eyes",
+   "face looks oddly like a mask",
+   "no legs visible",
+   "neck shading is ambiguous",
+   "could easily be read as a swan or goose"
+  ],
+  "digest": "369a6dbe21c60635",
+  "grade": "pass",
+  "score": 72,
+  "colors": 16,
+  "black": 0.056,
+  "biggest_patch": 0.242,
+  "theme": "Rose garden",
+  "name": "Crane",
+  "pack": "transport3",
+  "touched": false
+ },
+ "steam-train-935": {
+  "guess": "steam locomotive train",
+  "alternatives": [
+   "green tank",
+   "toy train engine"
+  ],
+  "readability": 4,
+  "features": [
+   "smokestack with red band",
+   "white steam cloud puffing out",
+   "green boiler body",
+   "cab with red panel",
+   "orange wheels",
+   "dark chassis"
+  ],
+  "problems": [
+   "front is somewhat blocky and could read as a tank",
+   "wheels are small and partly blend with dark underside",
+   "dark outline merges with gray brick wall in places"
+  ],
+  "digest": "c4c8cfe1baea2b88",
+  "grade": "pass",
+  "score": 78,
+  "colors": 11,
+  "black": 0.156,
+  "biggest_patch": 0.156,
+  "theme": "Seaside cliffs",
+  "name": "Steam Train",
+  "pack": "transport3",
+  "touched": false
+ },
+ "tractor-936": {
+  "guess": "red tractor in snow",
+  "alternatives": [
+   "red truck",
+   "farm machine"
+  ],
+  "readability": 3,
+  "features": [
+   "red body/hood",
+   "large dark rear wheel on left with red hub",
+   "smaller front wheel on right",
+   "exhaust stack on top",
+   "pink highlight along hood",
+   "pine trees and snowy field background"
+  ],
+  "problems": [
+   "tractor is tilted at an angle",
+   "red body is broken up by dark red and black patches, looks blobby",
+   "wheels blend with dark body outline",
+   "no clear driver seat or cab",
+   "background trees crowd the top edge"
+  ],
+  "digest": "e003db08fe6975f6",
+  "grade": "pass",
+  "score": 76,
+  "colors": 12,
+  "black": 0.177,
+  "biggest_patch": 0.202,
+  "theme": "Snowy pines",
+  "name": "Tractor",
+  "pack": "transport3",
+  "touched": false
+ },
+ "bus-double-decker-937": {
+  "guess": "red double-decker bus",
+  "alternatives": [
+   "red tram",
+   "red house with windows"
+  ],
+  "readability": 4,
+  "features": [
+   "red boxy body with two decks",
+   "upper row of white windows",
+   "lower row of windows",
+   "front door/window on right",
+   "dark rectangle like a sign or windshield",
+   "wheels hidden partly by grass"
+  ],
+  "problems": [
+   "wheels are mostly hidden by bushes and grass",
+   "window shapes are irregular and blocky",
+   "bus fills almost the whole frame so outline is cut off",
+   "no clear front or headlights"
+  ],
+  "digest": "3a9325d522945fed",
+  "grade": "pass",
+  "score": 78,
+  "colors": 15,
+  "black": 0.016,
+  "biggest_patch": 0.282,
+  "theme": "Sunflower farm",
+  "name": "Bus Double Decker",
+  "pack": "transport3",
+  "touched": false
+ },
+ "sports-car-938": {
+  "guess": "yellow car at night",
+  "alternatives": [
+   "yellow taxi",
+   "yellow sports car"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow body",
+   "light blue windows/windshield",
+   "white wheels",
+   "orange shading underneath",
+   "headlight area at front",
+   "night sky with moon and stars",
+   "green grass background"
+  ],
+  "problems": [
+   "wheels are white and blobby, look more like clouds or rocks",
+   "car shape is low and slanted, a bit lumpy",
+   "window area is large and merges with sky-blue tones",
+   "dark tire outlines blend into dark ground"
+  ],
+  "digest": "88b66c0b5793b7d2",
+  "grade": "pass",
+  "score": 78,
+  "colors": 14,
+  "black": 0.316,
+  "biggest_patch": 0.291,
+  "theme": "Starry hilltop",
+  "name": "Sports Car",
+  "pack": "transport3",
+  "touched": false
+ }
+}

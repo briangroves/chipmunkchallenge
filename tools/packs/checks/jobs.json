@@ -1,0 +1,474 @@
+{
+ "chef-618": {
+  "guess": "chef cooking in the desert",
+  "alternatives": [
+   "chef holding a frying pan",
+   "cook carrying a pan of food"
+  ],
+  "readability": 4,
+  "features": [
+   "white chef hat",
+   "face with big nose and mustache",
+   "red neckerchief",
+   "white chef jacket",
+   "red apron",
+   "arm holding a black frying pan",
+   "food in the pan",
+   "brown shoes",
+   "desert background with cacti and sun"
+  ],
+  "problems": [
+   "pan and food are dark and hard to make out",
+   "legs and shoes blend into the orange sand",
+   "lower body looks a bit blobby",
+   "face is small, with eye barely visible"
+  ],
+  "digest": "3b42b7dae5f87295",
+  "grade": "pass",
+  "score": 82,
+  "colors": 19,
+  "black": 0.094,
+  "biggest_patch": 0.223,
+  "theme": "Cactus canyon",
+  "name": "Chef",
+  "pack": "jobs",
+  "touched": false
+ },
+ "firefighter-619": {
+  "guess": "firefighter in red uniform",
+  "alternatives": [
+   "superhero in red costume",
+   "city worker in red suit"
+  ],
+  "readability": 3,
+  "features": [
+   "red firefighter helmet with white badge",
+   "face with eyes",
+   "long brown hair",
+   "red suit with yellow reflective stripes",
+   "hands on hips",
+   "dark boots",
+   "city street background with buildings and road"
+  ],
+  "problems": [
+   "face is small and mostly blank",
+   "hair and helmet merge into a confusing head shape",
+   "suit lacks clear firefighter equipment like a hose or axe",
+   "dark outline makes body look blocky"
+  ],
+  "digest": "e7c81dc7b7391cfd",
+  "grade": "pass",
+  "score": 76,
+  "colors": 17,
+  "black": 0.085,
+  "biggest_patch": 0.15,
+  "theme": "City day",
+  "name": "Firefighter",
+  "pack": "jobs",
+  "touched": false
+ },
+ "police-officer-620": {
+  "guess": "police officer",
+  "alternatives": [
+   "security guard",
+   "mail carrier"
+  ],
+  "readability": 3,
+  "features": [
+   "navy cap with yellow badge",
+   "light blue uniform shirt with yellow badge",
+   "dark blue trousers",
+   "skin-colored face and arms",
+   "dark hair",
+   "boots",
+   "window behind",
+   "wooden wall and floor",
+   "red-yellow rug"
+  ],
+  "problems": [
+   "no facial features visible",
+   "arms blend into a cluttered dark outline",
+   "legs merge into a single column",
+   "feet blend into the patterned rug",
+   "body proportions narrow and stretched"
+  ],
+  "digest": "57f5d9a085bf754f",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.034,
+  "biggest_patch": 0.226,
+  "theme": "Cabin",
+  "name": "Police Officer",
+  "pack": "jobs",
+  "touched": false
+ },
+ "pilot-621": {
+  "guess": "crow with goggles (aviator bird)",
+  "alternatives": [
+   "owl",
+   "penguin pilot"
+  ],
+  "readability": 3,
+  "features": [
+   "dark round body",
+   "orange beak",
+   "grey goggles with eyes",
+   "brown straps",
+   "white wing/feather marks",
+   "raised wing/hand on right",
+   "orange feet"
+  ],
+  "problems": [
+   "dark body blends with dark helmet and ground",
+   "goggles make face confusing",
+   "straps clutter the body",
+   "busy background with sunset and bushes"
+  ],
+  "digest": "6b51c5ddad6c8bff",
+  "grade": "weak",
+  "score": 54,
+  "colors": 19,
+  "black": 0.249,
+  "biggest_patch": 0.106,
+  "theme": "Castle at dusk",
+  "name": "Pilot",
+  "pack": "jobs",
+  "touched": false
+ },
+ "teacher-622": {
+  "guess": "blackboard with a student (teacher) beside it",
+  "alternatives": [
+   "chalkboard sign outdoors",
+   "school classroom scene"
+  ],
+  "readability": 3,
+  "features": [
+   "large green chalkboard with brown/tan wooden frame",
+   "dark chalk tray at bottom",
+   "small figure with black hair and white shirt",
+   "yellow object (chalk or book) held by figure",
+   "grass, flowers, sky with clouds"
+  ],
+  "problems": [
+   "figure is tiny and partly merges with board frame",
+   "figure's face has no eyes or details",
+   "outdoor setting is odd for a blackboard",
+   "yellow item is unclear"
+  ],
+  "digest": "d3669e81850ffeca",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.075,
+  "biggest_patch": 0.326,
+  "theme": "Red barn",
+  "name": "Teacher",
+  "pack": "jobs",
+  "touched": false
+ },
+ "painter-623": {
+  "guess": "artist painting at an easel",
+  "alternatives": [
+   "panda painter with canvas",
+   "person holding a palette outdoors"
+  ],
+  "readability": 3,
+  "features": [
+   "easel with canvas showing pink, yellow and blue paint",
+   "white face with black eyes",
+   "pink beret",
+   "tan shirt/body",
+   "palette with blue and yellow paint in hand",
+   "grassy meadow with flowers",
+   "sun and clouds"
+  ],
+  "problems": [
+   "figure's body is jumbled and hard to separate from the easel",
+   "black outlines merge with dark green grass",
+   "face lacks clear features like a mouth or nose",
+   "legs and arms are hard to make out"
+  ],
+  "digest": "c7c8d8e07a44029c",
+  "grade": "weak",
+  "score": 50,
+  "colors": 19,
+  "black": 0.115,
+  "biggest_patch": 0.163,
+  "theme": "Spring meadow",
+  "name": "Painter",
+  "pack": "jobs",
+  "touched": false
+ },
+ "scientist-624": {
+  "guess": "Professor Oak (old scientist with white hair and lab coat)",
+  "alternatives": [
+   "grumpy old professor",
+   "mad scientist grandpa"
+  ],
+  "readability": 4,
+  "features": [
+   "bald head with grey tufts of hair",
+   "big white eyes with angry eyebrows",
+   "tan face with shading",
+   "grey mustache",
+   "white lab coat",
+   "blue collar",
+   "red tie",
+   "grassy field with flowers",
+   "sun in sky"
+  ],
+  "problems": [
+   "face shading on right side looks like a dark brown blob",
+   "eyes are oversized and oddly shaped",
+   "no visible mouth",
+   "mustache blends with collar area",
+   "body cut off at bottom"
+  ],
+  "digest": "48be076a4e535c62",
+  "grade": "pass",
+  "score": 82,
+  "colors": 20,
+  "black": 0.103,
+  "biggest_patch": 0.16,
+  "theme": "Garden pond",
+  "name": "Scientist",
+  "pack": "jobs",
+  "touched": false
+ },
+ "pirate-625": {
+  "guess": "pirate ship with black sail",
+  "alternatives": [
+   "pirate flag on a boat",
+   "skunk"
+  ],
+  "readability": 2,
+  "features": [
+   "large black sail with white skull-like symbol",
+   "red flag on top",
+   "brown wooden hull",
+   "water underneath",
+   "white and red details on hull"
+  ],
+  "problems": [
+   "sail shape is blobby and dark, hard to read as a sail",
+   "skull symbol looks like a white squiggle, not clearly a skull",
+   "hull is small and cluttered with brown, tan and red blocks",
+   "boat overlaps green bushes so outline is unclear",
+   "no clear mast or rigging"
+  ],
+  "digest": "00c4a1da570cda16",
+  "grade": "weak",
+  "score": 66,
+  "colors": 19,
+  "black": 0.181,
+  "biggest_patch": 0.183,
+  "theme": "Sunflower farm",
+  "name": "Pirate",
+  "pack": "jobs",
+  "touched": false
+ },
+ "cowboy-626": {
+  "guess": "smiling white ghost wearing a green cowboy hat",
+  "alternatives": [
+   "cowboy egg character",
+   "white blob creature with a hat in the desert"
+  ],
+  "readability": 3,
+  "features": [
+   "white rounded body/face",
+   "two small black eyes",
+   "smiling mouth",
+   "green wide-brimmed hat with red feathers/band",
+   "night sky with crescent moon and stars",
+   "cactus",
+   "desert ground"
+  ],
+  "problems": [
+   "subject's body is a vague blob shape, unclear what creature it is",
+   "hat is oversized and dominates the image",
+   "dark outline around the body merges with dark shading",
+   "small cactus is easy to confuse with part of the hat",
+   "face is small relative to the body"
+  ],
+  "digest": "36393f121de1e9c9",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.278,
+  "biggest_patch": 0.181,
+  "theme": "Desert night",
+  "name": "Cowboy",
+  "pack": "jobs",
+  "touched": false
+ },
+ "ninja-627": {
+  "guess": "purple ninja",
+  "alternatives": [
+   "female warrior with long black hair",
+   "assassin character in purple outfit"
+  ],
+  "readability": 3,
+  "features": [
+   "long black hair blowing to the side",
+   "purple outfit and mask covering lower face",
+   "skin-toned eye area and arms",
+   "red belt",
+   "dark legs and boots",
+   "weapon or chain in hand at right",
+   "sun and clouds in sky",
+   "snowy white background"
+  ],
+  "problems": [
+   "face is tiny with no clear eyes",
+   "dark hair and limbs make the silhouette jagged and noisy",
+   "white speckled snow background is busy and distracting",
+   "pose and held object are hard to make out",
+   "figure fills only the left-center, so the shape reads loosely"
+  ],
+  "digest": "0a8b4aa8bcf3e123",
+  "grade": "pass",
+  "score": 84,
+  "colors": 16,
+  "black": 0.084,
+  "biggest_patch": 0.182,
+  "theme": "Ice field",
+  "name": "Ninja",
+  "pack": "jobs",
+  "touched": false
+ },
+ "clown-628": {
+  "guess": "clown in red costume",
+  "alternatives": [
+   "jester with red hat",
+   "puppet or gnome"
+  ],
+  "readability": 2,
+  "features": [
+   "round red nose",
+   "two dark eyes",
+   "beige face",
+   "red hat with pointed flaps",
+   "red-pink bow or hat",
+   "brown beard or mouth area"
+  ],
+  "problems": [
+   "face is small and tilted, hard to read",
+   "red costume shapes are blobby and unclear",
+   "no clear body, arms or legs",
+   "dark red and bright red regions merge into one shape",
+   "grey and dark bits around hat are confusing"
+  ],
+  "digest": "4284c046e885e88c",
+  "grade": "weak",
+  "score": 82,
+  "colors": 17,
+  "black": 0.027,
+  "biggest_patch": 0.157,
+  "theme": "Castle hill",
+  "name": "Clown",
+  "pack": "jobs",
+  "touched": false
+ },
+ "magician-629": {
+  "guess": "magician in top hat",
+  "alternatives": [
+   "gentleman in tuxedo",
+   "Professor Layton-style character"
+  ],
+  "readability": 4,
+  "features": [
+   "tall gray top hat with red band",
+   "face with eye and smile",
+   "dark hair",
+   "black suit/tailcoat",
+   "red bow tie",
+   "white gloved hand",
+   "arm raised",
+   "legs/feet at bottom"
+  ],
+  "problems": [
+   "dark suit blends with dark green grass shading",
+   "body shape is somewhat blobby below the waist",
+   "legs mostly hidden by grass",
+   "face is small with only one visible eye"
+  ],
+  "digest": "fd1802ddcf26101d",
+  "grade": "pass",
+  "score": 94,
+  "colors": 12,
+  "black": 0.095,
+  "biggest_patch": 0.286,
+  "theme": "Misty pines",
+  "name": "Magician",
+  "pack": "jobs",
+  "touched": false
+ },
+ "fisherman-630": {
+  "guess": "bearded fisherman in red shirt",
+  "alternatives": [
+   "lumberjack with axe",
+   "dwarf miner"
+  ],
+  "readability": 3,
+  "features": [
+   "black hair",
+   "beard",
+   "face skin",
+   "red shirt",
+   "blue pants",
+   "dark curved fishing rod or tool",
+   "orange/yellow fire or lantern",
+   "purple ground",
+   "birds in sky"
+  ],
+  "problems": [
+   "no eyes on face",
+   "rod/tool shape unclear and blends with blue-purple background",
+   "purple field busy with speckles",
+   "yellow-orange blob ambiguous",
+   "legs hard to see"
+  ],
+  "digest": "23d51c3066e0c806",
+  "grade": "pass",
+  "score": 76,
+  "colors": 15,
+  "black": 0.125,
+  "biggest_patch": 0.239,
+  "theme": "Overcast moor",
+  "name": "Fisherman",
+  "pack": "jobs",
+  "touched": false
+ },
+ "artist-631": {
+  "guess": "artist's paint palette",
+  "alternatives": [
+   "burrito",
+   "sleeping bag"
+  ],
+  "readability": 2,
+  "features": [
+   "tilted oblong tan body with brown edge",
+   "white upper area",
+   "blobs of yellow, orange, red, green and blue paint along the rim",
+   "dark outline"
+  ],
+  "problems": [
+   "no thumb hole clearly visible, so it does not read as a palette",
+   "white area makes it look like a tortilla wrap or sleeping bag",
+   "paint dabs are small and few",
+   "odd oblong shape does not match the classic palette silhouette",
+   "dark blue blob could read as an eye, suggesting a creature"
+  ],
+  "digest": "8706bb5e665e0fbe",
+  "grade": "weak",
+  "score": 62,
+  "colors": 19,
+  "black": 0.037,
+  "biggest_patch": 0.163,
+  "theme": "Alpine meadow",
+  "name": "Artist",
+  "pack": "jobs",
+  "touched": false
+ }
+}

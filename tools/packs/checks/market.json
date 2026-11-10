@@ -1,0 +1,319 @@
+{
+ "shopping-cart-1012": {
+  "guess": "shopping cart full of oranges",
+  "alternatives": [
+   "wire basket of fruit",
+   "wheelbarrow with vegetables"
+  ],
+  "readability": 3,
+  "features": [
+   "metal cart basket with grid bars",
+   "handle with red grip on the left",
+   "oranges/carrots inside",
+   "green leaves on top",
+   "red item (apple or tomato)",
+   "small wheels/legs underneath"
+  ],
+  "problems": [
+   "wheels are tiny and blend into the dark grass",
+   "cart bars overlap the orange contents, making it busy",
+   "handle is short and hard to read",
+   "contents are a blobby orange mass, not clearly individual fruits",
+   "green leaves blend with the background trees"
+  ],
+  "digest": "6b39c1fcc3b7fc85",
+  "grade": "pass",
+  "score": 76,
+  "colors": 16,
+  "black": 0.098,
+  "biggest_patch": 0.15,
+  "theme": "Bamboo grove",
+  "name": "Shopping Cart",
+  "pack": "market",
+  "touched": false
+ },
+ "shopping-bag-1013": {
+  "guess": "brown paper shopping bag",
+  "alternatives": [
+   "leather handbag",
+   "sack with handle"
+  ],
+  "readability": 3,
+  "features": [
+   "rectangular brown bag body",
+   "dark curved handle on top",
+   "shaded side giving depth",
+   "dark red rim/opening at top"
+  ],
+  "problems": [
+   "handle merges with busy sunset background",
+   "no clear details like folds or logo to confirm it's a bag",
+   "bag body is a plain blob of brown",
+   "top edge is lumpy and unclear"
+  ],
+  "digest": "f0533c446cddc0bb",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.048,
+  "biggest_patch": 0.146,
+  "theme": "Sunset meadow",
+  "name": "Shopping Bag",
+  "pack": "market",
+  "touched": false
+ },
+ "bread-loaf-1014": {
+  "guess": "loaf of bread with sliced piece",
+  "alternatives": [
+   "toast and bread roll",
+   "bag of flour and bread"
+  ],
+  "readability": 2,
+  "features": [
+   "white slice with dark dots (seeds or holes)",
+   "tan loaf body",
+   "brown crust top",
+   "night sky with moon and stars",
+   "stone wall background with torches"
+  ],
+  "problems": [
+   "subject shapes merge together into one blob",
+   "white slice looks more like a sack or paper with dots",
+   "brown crust is irregular and blobby",
+   "grey patches blend with stone background",
+   "busy background competes with subject"
+  ],
+  "digest": "f8a6322500c08289",
+  "grade": "weak",
+  "score": 62,
+  "colors": 13,
+  "black": 0.389,
+  "biggest_patch": 0.177,
+  "theme": "Lantern festival",
+  "name": "Bread Loaf",
+  "pack": "market",
+  "touched": false
+ },
+ "milk-jug-1015": {
+  "guess": "blue jug on a beach",
+  "alternatives": [
+   "blue teapot",
+   "water pitcher"
+  ],
+  "readability": 3,
+  "features": [
+   "large round blue body",
+   "handle on the right side",
+   "dark rim/opening at top",
+   "dark shading on right side",
+   "beach background with sand, sea, palm trees, sun, clouds"
+  ],
+  "problems": [
+   "no spout visible so could be a vase or bag",
+   "body is a big blobby shape",
+   "small green tuft on top is confusing",
+   "handle blends with palm trunk and sea area",
+   "top opening is unclear"
+  ],
+  "digest": "d240fed3eadab84b",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.046,
+  "biggest_patch": 0.302,
+  "theme": "Tropical beach",
+  "name": "Milk Jug",
+  "pack": "market",
+  "touched": false
+ },
+ "egg-carton-1016": {
+  "guess": "carton of eggs",
+  "alternatives": [
+   "sushi rolls",
+   "bakery box of buns"
+  ],
+  "readability": 2,
+  "features": [
+   "white box or tray outline",
+   "three tan round items in a row",
+   "one tan round item at front left",
+   "lid-like top section",
+   "green grass and blue sky background"
+  ],
+  "problems": [
+   "tan blobs don't clearly read as eggs",
+   "dark outlines are messy and confusing",
+   "box shape is irregular",
+   "no clear opening or lid hinge",
+   "grey shading blends with white"
+  ],
+  "digest": "83c11a0a6dc3c1c4",
+  "grade": "weak",
+  "score": 62,
+  "colors": 11,
+  "black": 0.221,
+  "biggest_patch": 0.15,
+  "theme": "Rose garden",
+  "name": "Egg Carton",
+  "pack": "market",
+  "touched": false
+ },
+ "market-fish-1017": {
+  "guess": "blue and gray fish standing upright in the desert",
+  "alternatives": [
+   "shark",
+   "dolphin"
+  ],
+  "readability": 2,
+  "features": [
+   "streamlined blue body",
+   "gray head with dark eye",
+   "gray tail fin at bottom",
+   "small fins along side",
+   "dark outline"
+  ],
+  "problems": [
+   "vertical pose makes the fish shape hard to read",
+   "the eye is tiny and hard to spot",
+   "no clear mouth",
+   "tail blends into the dark ground",
+   "a fish in a desert is an unexpected setting"
+  ],
+  "digest": "a483d32ab003c364",
+  "grade": "weak",
+  "score": 70,
+  "colors": 15,
+  "black": 0.064,
+  "biggest_patch": 0.126,
+  "theme": "Desert dunes",
+  "name": "Market Fish",
+  "pack": "market",
+  "touched": false
+ },
+ "jar-of-pickles-1018": {
+  "guess": "green pickle",
+  "alternatives": [
+   "cactus",
+   "green caterpillar"
+  ],
+  "readability": 2,
+  "features": [
+   "rounded elongated green body",
+   "dark outline",
+   "light highlights on top",
+   "brown patches on lower part",
+   "small waist dividing top and bottom"
+  ],
+  "problems": [
+   "no face or eyes",
+   "blobby shape with no clear identifying parts",
+   "brown spots are confusing",
+   "subject could be many green objects",
+   "sits against busy wall and sky background"
+  ],
+  "digest": "18bf62b29571781a",
+  "grade": "weak",
+  "score": 62,
+  "colors": 12,
+  "black": 0.076,
+  "biggest_patch": 0.163,
+  "theme": "Seaside cliffs",
+  "name": "Jar of Pickles",
+  "pack": "market",
+  "touched": false
+ },
+ "ketchup-1019": {
+  "guess": "red bottle with a label (potion or ketchup bottle)",
+  "alternatives": [
+   "hot sauce bottle",
+   "wine bottle"
+  ],
+  "readability": 4,
+  "features": [
+   "long narrow neck",
+   "rounded wide body",
+   "beige label on the front",
+   "pink highlight on the left side",
+   "dark shading on the right",
+   "snowy ground and northern lights night sky background"
+  ],
+  "problems": [
+   "label is an irregular blob and doesn't read clearly as a label",
+   "no cap or cork at top, so the neck just ends",
+   "unclear what is inside, so the exact kind of bottle is ambiguous",
+   "busy aurora and forest background competes a bit with the subject"
+  ],
+  "digest": "936afe345d33be8b",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.263,
+  "biggest_patch": 0.118,
+  "theme": "Northern lights",
+  "name": "Ketchup",
+  "pack": "market",
+  "touched": false
+ },
+ "mustard-1020": {
+  "guess": "hot dog with mustard and ketchup",
+  "alternatives": [
+   "sausage roll",
+   "loaf of bread"
+  ],
+  "readability": 3,
+  "features": [
+   "tan bun shape with darker shading",
+   "yellow mustard zigzag",
+   "red ketchup streaks",
+   "dark red sausage ends poking out both sides",
+   "outline around bun"
+  ],
+  "problems": [
+   "sausage barely visible except dark red ends",
+   "diagonal tilted shape is a bit blobby",
+   "bun color close to the sunset orange and pink",
+   "busy background with sun, flowers and stripes distracts"
+  ],
+  "digest": "927487c5e33ad018",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.031,
+  "biggest_patch": 0.177,
+  "theme": "Dawn fields",
+  "name": "Mustard",
+  "pack": "market",
+  "touched": false
+ },
+ "olive-oil-1021": {
+  "guess": "bottle of honey or oil",
+  "alternatives": [
+   "glass jar of honey",
+   "lemon-shaped potion bottle"
+  ],
+  "readability": 3,
+  "features": [
+   "bottle neck with cork/stopper",
+   "rounded glass body",
+   "golden yellow-orange liquid inside",
+   "white highlight/cloth tied at neck",
+   "outline shading"
+  ],
+  "problems": [
+   "neck area is messy with white blob that could be cloth or reflection",
+   "no label to identify contents",
+   "shape is somewhat lumpy and asymmetric",
+   "could be read as a pear or gourd"
+  ],
+  "digest": "3bc503ce637a6849",
+  "grade": "pass",
+  "score": 68,
+  "colors": 20,
+  "black": 0.041,
+  "biggest_patch": 0.21,
+  "theme": "Spring meadow",
+  "name": "Olive Oil",
+  "pack": "market",
+  "touched": false
+ }
+}

@@ -291,3 +291,16 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
     }
     return nil
 }
+
+/// `generateLevel`, but if this seed can't make a board, try a few others before giving up. A handful of the clipart
+/// pictures fail on one seed and build on the next; without this the player would be stuck on "couldn't build".
+/// The extra seeds are far from the per-attempt seeds (seed + attempt), so a retry never repeats another attempt.
+public func generateLevelRetrying(base: LevelBase, seed: Int, diffKey: String = "normal",
+                                  options: BuildOptions = BuildOptions(), tries: Int = 6) -> Level? {
+    for k in 0..<max(1, tries) {
+        if let lv = generateLevel(base: base, seed: seed + k * 100_003, diffKey: diffKey, options: options) {
+            return lv
+        }
+    }
+    return nil
+}

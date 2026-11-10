@@ -1,0 +1,357 @@
+{
+ "butterflyfish-820": {
+  "guess": "tropical fish (butterflyfish)",
+  "alternatives": [
+   "seashell",
+   "angelfish"
+  ],
+  "readability": 3,
+  "features": [
+   "round flat fish body",
+   "white and yellow stripes",
+   "red eye",
+   "pointed snout on the right",
+   "orange fins",
+   "dark outline",
+   "sandy seafloor and water background"
+  ],
+  "problems": [
+   "head/snout direction is confusing, eye appears on the left while snout points right",
+   "body is a blobby rounded shape",
+   "no clear tail fin",
+   "white and yellow pattern looks like a shell or flower",
+   "fish appears to lie on the sand rather than swim"
+  ],
+  "digest": "360c2bf2565a330e",
+  "grade": "pass",
+  "score": 76,
+  "colors": 18,
+  "black": 0.079,
+  "biggest_patch": 0.228,
+  "theme": "Kelp forest",
+  "name": "Butterflyfish",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "angelfish-821": {
+  "guess": "angelfish swimming in the sea",
+  "alternatives": [
+   "shark",
+   "dolphin"
+  ],
+  "readability": 3,
+  "features": [
+   "tall triangular dorsal fin",
+   "long trailing lower fin",
+   "pink/red mouth or fins at left",
+   "orange fin at right",
+   "tan body with gray stripes",
+   "underwater setting with bubbles and seaweed"
+  ],
+  "problems": [
+   "no clear eye",
+   "body shape is jagged and unusual",
+   "head direction is ambiguous",
+   "orange and pink fin bits look detached from the body",
+   "tan color does not strongly suggest a typical fish"
+  ],
+  "digest": "6067a5be37f3c9aa",
+  "grade": "pass",
+  "score": 72,
+  "colors": 16,
+  "black": 0.111,
+  "biggest_patch": 0.228,
+  "theme": "Deep sea",
+  "name": "Angelfish",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "puffer-fish-822": {
+  "guess": "yellow pufferfish",
+  "alternatives": [
+   "sea urchin",
+   "yellow blowfish on the sand"
+  ],
+  "readability": 2,
+  "features": [
+   "round spiky yellow body",
+   "dark spots/markings",
+   "orange shading on lower right",
+   "small spikes on top",
+   "underwater setting with sand, coral and seaweed"
+  ],
+  "problems": [
+   "no clear eye or mouth",
+   "dark markings look random and don't form a face",
+   "no visible fins or tail",
+   "blobby round shape reads as a generic ball or sponge",
+   "pink coral on left blends with body edge"
+  ],
+  "digest": "006f50c279803189",
+  "grade": "weak",
+  "score": 62,
+  "colors": 20,
+  "black": 0.116,
+  "biggest_patch": 0.229,
+  "theme": "Coral reef",
+  "name": "Puffer Fish",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "sea-star-823": {
+  "guess": "yellow starfish",
+  "alternatives": [
+   "cartoon star character",
+   "yellow sea creature"
+  ],
+  "readability": 4,
+  "features": [
+   "five-pointed star shape",
+   "big white cartoon eyes with dark pupils",
+   "orange shading on lower arms",
+   "sandy seabed",
+   "blue ocean water background",
+   "small seaweed plants",
+   "motion/surprise marks above head"
+  ],
+  "problems": [
+   "no visible mouth",
+   "eyes are large and blobby, partly merging into one white shape",
+   "star arms are uneven and tilted, so the shape is a bit lumpy",
+   "yellow and orange body sits close in tone to the tan sand at the bottom"
+  ],
+  "digest": "383013f5760ceeaa",
+  "grade": "pass",
+  "score": 78,
+  "colors": 18,
+  "black": 0.073,
+  "biggest_patch": 0.226,
+  "theme": "Kelp forest",
+  "name": "Sea Star",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "spider-crab-824": {
+  "guess": "octopus underwater",
+  "alternatives": [
+   "crab",
+   "spider crab"
+  ],
+  "readability": 4,
+  "features": [
+   "round head",
+   "two dark eyes",
+   "mouth/nose dots",
+   "many curling tentacles",
+   "underwater background with water surface",
+   "seaweed",
+   "pink starfish/coral shapes"
+  ],
+  "problems": [
+   "beige color looks more like a spider or crab than a typical octopus",
+   "tentacles are thin and tangled",
+   "dark outlines blend with dark blue sea floor"
+  ],
+  "digest": "ee5b5bf6a95aeced",
+  "grade": "weak",
+  "score": 60,
+  "colors": 14,
+  "black": 0.154,
+  "biggest_patch": 0.228,
+  "theme": "Deep sea",
+  "name": "Spider Crab",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "flounder-825": {
+  "guess": "flatfish (flounder) on the sea floor",
+  "alternatives": [
+   "sea cucumber",
+   "seal pup"
+  ],
+  "readability": 3,
+  "features": [
+   "oval flat white body with dark outline",
+   "small eyes on the left",
+   "dark tail fin on the right",
+   "fin edges around body",
+   "sandy sea floor, coral and seaweed background"
+  ],
+  "problems": [
+   "eyes are tiny and look like dashes",
+   "no clear mouth or face",
+   "dark outline makes it look like a blob or hole",
+   "tail blends into dark border"
+  ],
+  "digest": "e80c57960e59e420",
+  "grade": "pass",
+  "score": 76,
+  "colors": 19,
+  "black": 0.132,
+  "biggest_patch": 0.228,
+  "theme": "Coral reef",
+  "name": "Flounder",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "piranha-826": {
+  "guess": "grey fish with red fins",
+  "alternatives": [
+   "grouper",
+   "piranha"
+  ],
+  "readability": 3,
+  "features": [
+   "large white eye with dark pupil",
+   "dark open mouth with white tooth",
+   "red dorsal fin",
+   "red tail fin",
+   "red pectoral/bottom fin",
+   "grey body",
+   "underwater setting with coral, seaweed and sand"
+  ],
+  "problems": [
+   "body shape is blobby and round",
+   "dark mouth area blends with eye and is hard to read",
+   "red fins blend into the dark red tail and sand area",
+   "busy background with coral and seaweed competes with subject"
+  ],
+  "digest": "64b8eccdda1922c3",
+  "grade": "weak",
+  "score": 50,
+  "colors": 18,
+  "black": 0.079,
+  "biggest_patch": 0.233,
+  "theme": "Coral reef",
+  "name": "Piranha",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "koi-827": {
+  "guess": "koi fish (red and white)",
+  "alternatives": [
+   "goldfish",
+   "shark"
+  ],
+  "readability": 3,
+  "features": [
+   "red and white patterned body",
+   "tail fin pointing up",
+   "pectoral fins",
+   "fish swimming near sandy bottom",
+   "water and bubbles background",
+   "seaweed"
+  ],
+  "problems": [
+   "no clear eye or face visible",
+   "head end is hard to identify",
+   "body is diagonal and twisted, looks blobby",
+   "red-white patches break up the outline"
+  ],
+  "digest": "660f2f4c6600bfdc",
+  "grade": "pass",
+  "score": 76,
+  "colors": 18,
+  "black": 0.057,
+  "biggest_patch": 0.228,
+  "theme": "Kelp forest",
+  "name": "Koi",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "goldfish-bowl-828": {
+  "guess": "round glass fishbowl of water",
+  "alternatives": [
+   "water bubble",
+   "blue slime blob"
+  ],
+  "readability": 3,
+  "features": [
+   "round dark outline of a bowl",
+   "wide rim opening at top",
+   "light blue water with white shine highlights",
+   "red starfish or coral at bottom",
+   "sandy ground and orange floor"
+  ],
+  "problems": [
+   "no fish inside, so it reads as just a blue circle",
+   "bowl outline blends into the blue sea stripe behind it",
+   "wavy top edge is confusing",
+   "shine marks look like random white blocks"
+  ],
+  "digest": "be772c6ef14859b6",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.071,
+  "biggest_patch": 0.217,
+  "theme": "Coral reef",
+  "name": "Goldfish Bowl",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "dolphin-jumping-829": {
+  "guess": "dolphin jumping out of the sea",
+  "alternatives": [
+   "shark",
+   "whale"
+  ],
+  "readability": 3,
+  "features": [
+   "grey curved body",
+   "dark rounded head/snout at top",
+   "white belly highlights",
+   "fin on the side",
+   "tail curving at bottom",
+   "water splashes/bubbles"
+  ],
+  "problems": [
+   "no clear eye or face",
+   "body shape is jagged and hard to read as a fish",
+   "dolphin stands over sandy beach area so setting is confusing",
+   "red/orange pixels along the body look odd",
+   "tail blends into the sand"
+  ],
+  "digest": "88898099accb6b72",
+  "grade": "pass",
+  "score": 76,
+  "colors": 16,
+  "black": 0.058,
+  "biggest_patch": 0.228,
+  "theme": "Kelp forest",
+  "name": "Dolphin Jumping",
+  "pack": "ocean3",
+  "touched": false
+ },
+ "shell-830": {
+  "guess": "scallop seashell underwater",
+  "alternatives": [
+   "clam shell",
+   "snail shell"
+  ],
+  "readability": 3,
+  "features": [
+   "rounded fan-shaped shell outline with dark border",
+   "yellow and beige ridged top",
+   "orange hinge/base at bottom",
+   "underwater background with sky, sea and seafloor",
+   "small seaweed and coral bits"
+  ],
+  "problems": [
+   "shell ridges are unclear, looks blobby",
+   "brown and orange patches inside make it look messy or like something else",
+   "the orange base could be read as fire",
+   "no clear fan rib lines typical of a scallop"
+  ],
+  "digest": "b7aece2bdf57ab93",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.099,
+  "biggest_patch": 0.221,
+  "theme": "Deep sea",
+  "name": "Shell",
+  "pack": "ocean3",
+  "touched": false
+ }
+}

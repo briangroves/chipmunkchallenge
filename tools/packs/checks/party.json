@@ -1,0 +1,476 @@
+{
+ "birthday-cake-742": {
+  "guess": "strawberry cake with candles",
+  "alternatives": [
+   "fruit tart",
+   "dessert bowl with ice cream"
+  ],
+  "readability": 3,
+  "features": [
+   "round cake shape with dark outline",
+   "red strawberries on top",
+   "white cream layer",
+   "beige sponge with pink bits",
+   "lavender candles with flames",
+   "orange/yellow plate rim",
+   "night city background with moon and stars"
+  ],
+  "problems": [
+   "top view is cluttered; strawberries form a confusing red blob with dark red center",
+   "candles are thin and blend with purple buildings",
+   "cake edges merge into busy city background",
+   "sponge texture is noisy"
+  ],
+  "digest": "10597e995a6359df",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.27,
+  "biggest_patch": 0.174,
+  "theme": "City night",
+  "name": "Birthday Cake",
+  "pack": "party",
+  "touched": false
+ },
+ "balloons-743": {
+  "guess": "red balloon",
+  "alternatives": [
+   "red apple",
+   "red ball"
+  ],
+  "readability": 4,
+  "features": [
+   "round red body",
+   "white shine highlight",
+   "small knot at bottom",
+   "dark outline",
+   "darker red shading on right"
+  ],
+  "problems": [
+   "no string visible",
+   "shape slightly lumpy and tilted",
+   "dark brown bits at top could read as an apple stem",
+   "busy city/brick background competes for attention"
+  ],
+  "digest": "bd0af3fe2054084c",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.253,
+  "biggest_patch": 0.146,
+  "theme": "Lantern festival",
+  "name": "Balloons",
+  "pack": "party",
+  "touched": false
+ },
+ "party-hat-744": {
+  "guess": "woman in a striped dress with a hat",
+  "alternatives": [
+   "princess in a gown",
+   "bird in a striped coat"
+  ],
+  "readability": 2,
+  "features": [
+   "yellow and orange head or hat shape on top",
+   "long flowing striped purple and blue dress",
+   "dark outline",
+   "white edge along one side"
+  ],
+  "problems": [
+   "no visible face, eyes or arms",
+   "head is just a yellow and orange blob that could be hair, a hat or a bird",
+   "overall shape is a lumpy cone that is hard to identify",
+   "busy city background with a sun, buildings and a brick wall competes for attention"
+  ],
+  "digest": "2b9d689473b42ff8",
+  "grade": "weak",
+  "score": 66,
+  "colors": 15,
+  "black": 0.07,
+  "biggest_patch": 0.182,
+  "theme": "City dawn",
+  "name": "Party Hat",
+  "pack": "party",
+  "touched": false
+ },
+ "present-745": {
+  "guess": "Christmas tree with presents",
+  "alternatives": [
+   "pile of wrapped gifts and toys",
+   "Christmas stocking and decorations scene"
+  ],
+  "readability": 3,
+  "features": [
+   "green triangular tree shape",
+   "yellow star on top",
+   "red and white ornaments/ribbons",
+   "window with snowy sky behind",
+   "wrapped presents and bows piled at the base",
+   "pink items like toys or bows on gifts"
+  ],
+  "problems": [
+   "tree is lumpy and asymmetric, not a clean triangle",
+   "presents at the bottom blend into a busy jumble of red, pink and white",
+   "no clear outlines separating individual gifts",
+   "tree partly hidden by the pile"
+  ],
+  "digest": "8bc8cfd078f36883",
+  "grade": "pass",
+  "score": 68,
+  "colors": 20,
+  "black": 0.083,
+  "biggest_patch": 0.44,
+  "theme": "Nursery",
+  "name": "Present",
+  "pack": "party",
+  "touched": false
+ },
+ "trophy-746": {
+  "guess": "gold trophy cup",
+  "alternatives": [
+   "golden goblet",
+   "chalice"
+  ],
+  "readability": 4,
+  "features": [
+   "wide golden cup bowl",
+   "side handles",
+   "narrow stem",
+   "base/foot",
+   "shiny highlight on left",
+   "dark outline",
+   "striped background and wooden shelf with ribbon"
+  ],
+  "problems": [
+   "handles are small and blend into outline",
+   "no visible top rim/opening depth, cup looks flat",
+   "light blue square at top left is unclear",
+   "stem and base are short and partly cropped at bottom"
+  ],
+  "digest": "fbac7755ae5111cc",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.095,
+  "biggest_patch": 0.234,
+  "theme": "Living room",
+  "name": "Trophy",
+  "pack": "party",
+  "touched": false
+ },
+ "crown-747": {
+  "guess": "golden crown",
+  "alternatives": [
+   "tipped-over crown on the floor",
+   "yellow hand/glove"
+  ],
+  "readability": 4,
+  "features": [
+   "crown points with round ball tips",
+   "golden yellow body with orange shading",
+   "dark outline",
+   "red brick wall background",
+   "grey checkered floor"
+  ],
+  "problems": [
+   "crown is tilted and lying on its side, so the shape is less obvious",
+   "the uneven points could look like fingers",
+   "no jewels to clearly mark it as a crown"
+  ],
+  "digest": "dc7b1f2a13cdc424",
+  "grade": "pass",
+  "score": 74,
+  "colors": 10,
+  "black": 0.135,
+  "biggest_patch": 0.164,
+  "theme": "Brick cellar",
+  "name": "Crown",
+  "pack": "party",
+  "touched": false
+ },
+ "cupcake-748": {
+  "guess": "cupcake with a cherry on top",
+  "alternatives": [
+   "purple jelly pudding",
+   "ice cream sundae in a bowl"
+  ],
+  "readability": 4,
+  "features": [
+   "red cherry on top",
+   "white frosting",
+   "orange and cream band of icing",
+   "purple striped cupcake wrapper",
+   "dark outline",
+   "window and wooden wall background",
+   "red striped cloth or table edge"
+  ],
+  "problems": [
+   "cherry stem blends with the window above",
+   "frosting top is lumpy and flat-ish",
+   "wrapper drips look a bit blobby, could read as jelly",
+   "busy background competes with the subject"
+  ],
+  "digest": "16beaf1d3ee4f0a3",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.057,
+  "biggest_patch": 0.138,
+  "theme": "Cabin",
+  "name": "Cupcake",
+  "pack": "party",
+  "touched": false
+ },
+ "lantern-749": {
+  "guess": "jack-o'-lantern pumpkin",
+  "alternatives": [
+   "smiling orange ball",
+   "Halloween candy bucket"
+  ],
+  "readability": 4,
+  "features": [
+   "round orange body",
+   "dark outline",
+   "angry slanted eyes",
+   "triangle nose",
+   "wide jagged grin with teeth",
+   "short stem on top",
+   "shading on lower right",
+   "red highlight accents"
+  ],
+  "problems": [
+   "stem is very small and hard to see",
+   "no green stem or vertical ribs, so it could read as an orange ball",
+   "orange body is close in color to the orange wall background"
+  ],
+  "digest": "1561434800ead0cf",
+  "grade": "pass",
+  "score": 82,
+  "colors": 10,
+  "black": 0.159,
+  "biggest_patch": 0.338,
+  "theme": "Bakery",
+  "name": "Lantern",
+  "pack": "party",
+  "touched": false
+ },
+ "candles-750": {
+  "guess": "birthday cake with candles",
+  "alternatives": [
+   "pizza with candles",
+   "strawberry tart"
+  ],
+  "readability": 3,
+  "features": [
+   "three white candles with yellow flames",
+   "red frosting/icing dripping on top",
+   "tan cake base",
+   "dark outline",
+   "night city skyline background with moon and stars"
+  ],
+  "problems": [
+   "cake looks blobby and flat, more like a pizza or pie",
+   "candle flames blend with dark wicks and purple buildings",
+   "busy background competes with the subject",
+   "cake is wide and low, side view unclear"
+  ],
+  "digest": "a9ccd2eeeece01f7",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.249,
+  "biggest_patch": 0.158,
+  "theme": "City night",
+  "name": "Candles",
+  "pack": "party",
+  "touched": false
+ },
+ "disco-ball-751": {
+  "guess": "giant snowball or boulder crashing through a wall",
+  "alternatives": [
+   "wrecking ball smashing a brick wall",
+   "meteor hitting a city"
+  ],
+  "readability": 2,
+  "features": [
+   "large round white-and-dark sphere",
+   "shaded side in dark gray",
+   "cracked/broken edge outline",
+   "gray brick wall around it",
+   "city buildings and sunset sky behind"
+  ],
+  "problems": [
+   "no clear identifying details on the sphere",
+   "speckled texture looks like noise",
+   "black and white halves read as abstract blob",
+   "hard to tell if it's a ball, rock, or hole in the wall"
+  ],
+  "digest": "c40e7db65b5fcba9",
+  "grade": "weak",
+  "score": 62,
+  "colors": 12,
+  "black": 0.185,
+  "biggest_patch": 0.153,
+  "theme": "City dawn",
+  "name": "Disco Ball",
+  "pack": "party",
+  "touched": false
+ },
+ "party-balloon-752": {
+  "guess": "yellow balloon",
+  "alternatives": [
+   "lemon",
+   "light bulb"
+  ],
+  "readability": 4,
+  "features": [
+   "oval yellow balloon body",
+   "white shine highlight",
+   "orange shading",
+   "knot at bottom",
+   "dark curly string",
+   "brick wall and checkered floor background"
+  ],
+  "problems": [
+   "string is dark and short, partly blends with floor",
+   "shape is slightly lumpy, could read as a lemon",
+   "shelves behind cut through visually"
+  ],
+  "digest": "5ec7ee79434f556d",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.046,
+  "biggest_patch": 0.198,
+  "theme": "Brick cellar",
+  "name": "Party Balloon",
+  "pack": "party",
+  "touched": false
+ },
+ "bunting-753": {
+  "guess": "patriotic bunting banner over a city street",
+  "alternatives": [
+   "red white and blue parade float",
+   "Fourth of July decoration on a bridge"
+  ],
+  "readability": 3,
+  "features": [
+   "semicircular fan of red, white and blue stripes",
+   "dark blue top band",
+   "city skyline with lit windows behind",
+   "clouds and birds in sky",
+   "road with yellow lane markings",
+   "crosswalk stripes at bottom"
+  ],
+  "problems": [
+   "bunting is huge and fills the street, so its scale is confusing",
+   "fan shape could be read as a bowl or shield",
+   "no stars or flag detail to make the patriotic theme clear",
+   "busy background competes with the subject"
+  ],
+  "digest": "c6a298365e91c425",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.079,
+  "biggest_patch": 0.135,
+  "theme": "City day",
+  "name": "Bunting",
+  "pack": "party",
+  "touched": false
+ },
+ "ferris-wheel-754": {
+  "guess": "Ferris wheel",
+  "alternatives": [
+   "wagon wheel",
+   "ship's steering wheel"
+  ],
+  "readability": 3,
+  "features": [
+   "round wheel rim",
+   "white gondolas/cabins around the edge",
+   "spokes from center",
+   "support legs forming an A-frame",
+   "base at bottom"
+  ],
+  "problems": [
+   "dark filled interior makes it look like a solid blob instead of an open wheel",
+   "spokes are thin and messy, hard to read",
+   "gondolas look like white blocks rather than cabins",
+   "dark wheel blends with the dark green bushes at the bottom",
+   "no visible ground structure or base to anchor it"
+  ],
+  "digest": "8731c6e8cc884956",
+  "grade": "pass",
+  "score": 76,
+  "colors": 18,
+  "black": 0.232,
+  "biggest_patch": 0.172,
+  "theme": "Sunflower farm",
+  "name": "Ferris Wheel",
+  "pack": "party",
+  "touched": false
+ },
+ "carousel-755": {
+  "guess": "carousel (merry-go-round)",
+  "alternatives": [
+   "circus tent",
+   "gazebo"
+  ],
+  "readability": 3,
+  "features": [
+   "striped red and yellow conical roof",
+   "blue scalloped trim",
+   "red support poles",
+   "round blue and red base platform",
+   "dark interior"
+  ],
+  "problems": [
+   "no horses or riders visible inside",
+   "interior is a big dark blob",
+   "base blends with white/grey surroundings",
+   "could be read as a tent"
+  ],
+  "digest": "d166ac9ccf119bcd",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.229,
+  "biggest_patch": 0.209,
+  "theme": "Ice field",
+  "name": "Carousel",
+  "pack": "party",
+  "touched": false
+ },
+ "circus-tent-756": {
+  "guess": "circus tent",
+  "alternatives": [
+   "striped camping tent",
+   "carnival pavilion"
+  ],
+  "readability": 4,
+  "features": [
+   "red and white striped tent canopy",
+   "dark open entrance in the middle",
+   "pointed top with pole",
+   "yellow and black flag on top",
+   "sunset sky with sun",
+   "grass and flowers around"
+  ],
+  "problems": [
+   "white stripes are jagged and uneven, looking a bit messy",
+   "dark outline and entrance blend with the dark green ground at the bottom",
+   "flag is small and dark against the sky"
+  ],
+  "digest": "3f710b4e5d1d72f3",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.091,
+  "biggest_patch": 0.1,
+  "theme": "Sunset meadow",
+  "name": "Circus Tent",
+  "pack": "party",
+  "touched": false
+ }
+}

@@ -1,0 +1,436 @@
+{
+ "apple-tree-998": {
+  "guess": "tree with a round leafy crown",
+  "alternatives": [
+   "broccoli",
+   "bush"
+  ],
+  "readability": 4,
+  "features": [
+   "round light-green crown with dark outline",
+   "yellow sunlit highlights on top",
+   "gray trunk",
+   "small red fruits or berries",
+   "forest and mushroom background"
+  ],
+  "problems": [
+   "crown is a bit blobby and could look like a slime or creature",
+   "red dots read like eyes, making it look like a face",
+   "green trunk shadows and leaves blend into the green background"
+  ],
+  "digest": "936543725e6f3d70",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.058,
+  "biggest_patch": 0.149,
+  "theme": "Pine forest",
+  "name": "Apple Tree",
+  "pack": "trees",
+  "touched": false
+ },
+ "palm-999": {
+  "guess": "waving hand (palm)",
+  "alternatives": [
+   "white glove",
+   "high-five hand"
+  ],
+  "readability": 4,
+  "features": [
+   "four fingers spread upward",
+   "thumb sticking out left",
+   "palm with crease shading",
+   "wrist at bottom",
+   "dark outline"
+  ],
+  "problems": [
+   "fingers are thin and somewhat irregular, the right fingers look bent or uneven",
+   "white/beige shading makes it look like a glove more than skin",
+   "wrist cut off at bottom so it floats over the grass",
+   "background sun, trees, flowers add clutter"
+  ],
+  "digest": "129340eedb11b7d7",
+  "grade": "pass",
+  "score": 74,
+  "colors": 18,
+  "black": 0.076,
+  "biggest_patch": 0.171,
+  "theme": "Orchard",
+  "name": "Palm",
+  "pack": "trees",
+  "touched": false
+ },
+ "pine-1000": {
+  "guess": "pine tree in snow under northern lights",
+  "alternatives": [
+   "Christmas tree in a snowy forest",
+   "aurora borealis winter night scene"
+  ],
+  "readability": 4,
+  "features": [
+   "green conical tree with dark outline",
+   "brown trunk",
+   "shadow on the snow",
+   "snowy ground with falling snow dots",
+   "forest line of trees behind",
+   "night sky with stars",
+   "green and blue aurora bands"
+  ],
+  "problems": [
+   "tree is lopsided and ragged, leaning shape",
+   "tree green blends with the background forest at the top",
+   "shadow is dark and blobby under the tree",
+   "busy aurora sky competes for attention"
+  ],
+  "digest": "d03865dddcd63d08",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.255,
+  "biggest_patch": 0.158,
+  "theme": "Northern lights",
+  "name": "Pine",
+  "pack": "trees",
+  "touched": false
+ },
+ "birch-tree-1001": {
+  "guess": "birch tree in a desert",
+  "alternatives": [
+   "tree with white trunk",
+   "bonsai tree"
+  ],
+  "readability": 4,
+  "features": [
+   "round green leafy crown",
+   "white and black striped birch-like trunk",
+   "roots at base",
+   "desert sand background with sun"
+  ],
+  "problems": [
+   "trunk pattern is choppy and could look like an animal",
+   "red/orange marks on trunk are unclear",
+   "crown is slightly blobby"
+  ],
+  "digest": "336d2c418623a497",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.064,
+  "biggest_patch": 0.132,
+  "theme": "Desert dunes",
+  "name": "Birch Tree",
+  "pack": "trees",
+  "touched": false
+ },
+ "cherry-tree-1002": {
+  "guess": "snow-covered tree",
+  "alternatives": [
+   "cotton tree",
+   "white cloud on a stick"
+  ],
+  "readability": 3,
+  "features": [
+   "round white canopy with dark outline",
+   "brown trunk with roots",
+   "snowy mountains and stone wall behind",
+   "sky with clouds"
+  ],
+  "problems": [
+   "canopy is a plain white blob with no leaves or branches visible",
+   "white crown blends with grey-white background",
+   "trunk is small compared to the huge crown",
+   "could read as a cloud or mushroom"
+  ],
+  "digest": "8db626863bfb9ee8",
+  "grade": "pass",
+  "score": 68,
+  "colors": 9,
+  "black": 0.138,
+  "biggest_patch": 0.242,
+  "theme": "Mountain pass",
+  "name": "Cherry Tree",
+  "pack": "trees",
+  "touched": false
+ },
+ "christmas-tree-pine-1003": {
+  "guess": "pine tree in snow",
+  "alternatives": [
+   "green mountain",
+   "Christmas tree"
+  ],
+  "readability": 3,
+  "features": [
+   "tall green triangular shape with dark outline",
+   "light green highlight on left edge",
+   "smaller pine trees in background",
+   "snowy ground",
+   "icy blue water at bottom",
+   "tiny figure or object below (orange, red, blue pixels)"
+  ],
+  "problems": [
+   "main shape has no trunk and looks like a hill or mountain",
+   "no branch layers, just a smooth triangle",
+   "small colored figure at bottom is unclear and unexplained",
+   "background trees are more tree-like than the main subject"
+  ],
+  "digest": "c8e37e9718a62080",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.059,
+  "biggest_patch": 0.211,
+  "theme": "Snowy pines",
+  "name": "Christmas Tree Pine",
+  "pack": "trees",
+  "touched": false
+ },
+ "bamboo-1004": {
+  "guess": "bamboo sprout in a doorway",
+  "alternatives": [
+   "plant growing in a window",
+   "seedling in a frame on a wall"
+  ],
+  "readability": 3,
+  "features": [
+   "green stalk with leaves",
+   "small dark base/pot",
+   "white doorway or frame",
+   "stone brick wall",
+   "blue water stripe",
+   "light shadow on right"
+  ],
+  "problems": [
+   "plant is thin and small against large white area",
+   "floating green leaf bits look disconnected",
+   "unclear whether the frame is a door, window, or canvas",
+   "background stripes compete for attention"
+  ],
+  "digest": "8e432554433c850f",
+  "grade": "pass",
+  "score": 68,
+  "colors": 11,
+  "black": 0.241,
+  "biggest_patch": 0.232,
+  "theme": "Stormy coast",
+  "name": "Bamboo",
+  "pack": "trees",
+  "touched": false
+ },
+ "ivy-1005": {
+  "guess": "seaside stone wall with ivy",
+  "alternatives": [
+   "beach promenade by the sea",
+   "garden wall with hedge"
+  ],
+  "readability": 3,
+  "features": [
+   "blue sky with clouds",
+   "birds flying",
+   "sea horizon stripe",
+   "grey stone brick wall",
+   "green leafy plants/ivy on dark bushes",
+   "grass at bottom"
+  ],
+  "problems": [
+   "no single clear main subject, it's a landscape scene",
+   "dark bush area with green squiggles is hard to read as plants",
+   "wall blends with pale ground"
+  ],
+  "digest": "dbc37079e0b1ec2d",
+  "grade": "pass",
+  "score": 68,
+  "colors": 10,
+  "black": 0.116,
+  "biggest_patch": 0.27,
+  "theme": "Seaside cliffs",
+  "name": "Ivy",
+  "pack": "trees",
+  "touched": false
+ },
+ "aloe-1006": {
+  "guess": "potted plant (succulent/aloe in a red pot)",
+  "alternatives": [
+   "cactus in a pot",
+   "green hand rising from a pot"
+  ],
+  "readability": 3,
+  "features": [
+   "red/maroon flower pot with dark rim",
+   "green spiky leaves with dark outlines",
+   "leaves spreading upward from the pot"
+  ],
+  "problems": [
+   "leaf shape looks like a hand or claw, which is confusing",
+   "green plant blends into the green grass background",
+   "leaves are blobby with few distinct individual leaves"
+  ],
+  "digest": "ef9203d48ea13900",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.059,
+  "biggest_patch": 0.182,
+  "theme": "Spring meadow",
+  "name": "Aloe",
+  "pack": "trees",
+  "touched": false
+ },
+ "orange-tree-1007": {
+  "guess": "orange tree at night",
+  "alternatives": [
+   "fruit tree",
+   "apple tree"
+  ],
+  "readability": 5,
+  "features": [
+   "round green leafy crown with light and dark shading",
+   "orange fruits",
+   "red-brown trunk",
+   "crescent moon",
+   "stars in night sky",
+   "striped ground/fields",
+   "small green sprout on right"
+  ],
+  "problems": [
+   "trunk is red rather than brown",
+   "fruit could be read as oranges, apricots or peaches",
+   "striped tan background is busy and slightly ambiguous",
+   "small sprout on the right is unclear"
+  ],
+  "digest": "69b54dfaac96efbd",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.217,
+  "biggest_patch": 0.172,
+  "theme": "Desert night",
+  "name": "Orange Tree",
+  "pack": "trees",
+  "touched": false
+ },
+ "lemon-tree-1008": {
+  "guess": "tree with yellow flowers at sunset",
+  "alternatives": [
+   "fruit tree in a meadow",
+   "bush on a hill"
+  ],
+  "readability": 4,
+  "features": [
+   "large round green leafy crown",
+   "tan trunk with branches",
+   "yellow flowers or fruit in the leaves",
+   "dark outline around canopy",
+   "sun and sunset sky",
+   "grey mountains",
+   "grass ground"
+  ],
+  "problems": [
+   "trunk branches drawn on top of the leaves look flat",
+   "right side of canopy blends into the green grass",
+   "yellow spots could be fruit, flowers, or light patches"
+  ],
+  "digest": "6f774e1d5fb9b86d",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.113,
+  "biggest_patch": 0.181,
+  "theme": "Mountain sunset",
+  "name": "Lemon Tree",
+  "pack": "trees",
+  "touched": false
+ },
+ "bush-1009": {
+  "guess": "green bush on a rock",
+  "alternatives": [
+   "frog",
+   "leafy tree top"
+  ],
+  "readability": 2,
+  "features": [
+   "large light-green leafy blob with dark outline",
+   "brown/tan rocks or dirt at base",
+   "flowers in the grass",
+   "sky with cloud and sun"
+  ],
+  "problems": [
+   "subject is a shapeless blob with no clear identifying features",
+   "no face or distinct parts if it is meant to be an animal",
+   "green subject blends into green grass background",
+   "jagged outline is noisy and confusing"
+  ],
+  "digest": "8088a332e0028c3f",
+  "grade": "weak",
+  "score": 62,
+  "colors": 20,
+  "black": 0.114,
+  "biggest_patch": 0.17,
+  "theme": "Sunflower farm",
+  "name": "Bush",
+  "pack": "trees",
+  "touched": false
+ },
+ "sprout-1010": {
+  "guess": "seed sprouting from soil",
+  "alternatives": [
+   "plant sprout in a pot",
+   "worm coming out of dirt"
+  ],
+  "readability": 2,
+  "features": [
+   "brown dirt mound",
+   "dark tall stem",
+   "small green leaf at top",
+   "red top layer on dirt",
+   "sun and clouds in sky"
+  ],
+  "problems": [
+   "stem is dark and thin, hard to read as a plant",
+   "dark red top looks odd for soil",
+   "no clear pot or ground context",
+   "white background blocks blend with clouds"
+  ],
+  "digest": "bcac5e358e6875e3",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.051,
+  "biggest_patch": 0.223,
+  "theme": "Ice field",
+  "name": "Sprout",
+  "pack": "trees",
+  "touched": false
+ },
+ "coconut-tree-1011": {
+  "guess": "palm tree at night",
+  "alternatives": [
+   "tree in a jungle at night",
+   "banana plant"
+  ],
+  "readability": 4,
+  "features": [
+   "brown trunk",
+   "large green fronds/leaf canopy",
+   "crescent moon",
+   "stars in night sky",
+   "grassy ground",
+   "small flames or torches"
+  ],
+  "problems": [
+   "canopy is a blobby mass rather than distinct fronds",
+   "dark green leaves and grass blend with each other",
+   "trunk is thin and partly hidden by dark shadow",
+   "small orange/red objects are unclear (fire? fruit?)"
+  ],
+  "digest": "1266495957ee2d95",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.303,
+  "biggest_patch": 0.269,
+  "theme": "Starry hilltop",
+  "name": "Coconut Tree",
+  "pack": "trees",
+  "touched": false
+ }
+}

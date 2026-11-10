@@ -522,7 +522,7 @@ final class GameModel: ObservableObject {
             let built = await Task.detached(priority: .userInitiated) { () -> LevelBox in
                 var o = BuildOptions.game
                 o.aim = aim
-                return LevelBox(generateLevel(base: cutBase, seed: seed, diffKey: key, options: o))
+                return LevelBox(generateLevelRetrying(base: cutBase, seed: seed, diffKey: key, options: o))
             }.value
             guard let self, !Task.isCancelled, self.loadToken == token else { return }
             self.buildTask = nil

@@ -1,0 +1,486 @@
+{
+ "cute-monster-831": {
+  "guess": "green slime monster in a sewer",
+  "alternatives": [
+   "green octopus",
+   "frog-like blob creature"
+  ],
+  "readability": 3,
+  "features": [
+   "round green blob body",
+   "squinting tired eyes",
+   "angry eyebrows",
+   "pink open mouth with tongue",
+   "tentacle-like arms spreading out",
+   "sweat drops",
+   "shadow under body",
+   "sewer water stripe and brick wall background"
+  ],
+  "problems": [
+   "no clear species, just a blob",
+   "mouth/tongue shape is confusing",
+   "arms blend into dark shadow",
+   "busy striped background competes with the subject"
+  ],
+  "digest": "b48fe22b6bc50a83",
+  "grade": "pass",
+  "score": 76,
+  "colors": 13,
+  "black": 0.326,
+  "biggest_patch": 0.191,
+  "theme": "Stormy coast",
+  "name": "Cute Monster",
+  "pack": "monsters",
+  "touched": false
+ },
+ "blue-monster-832": {
+  "guess": "blue slime ghost monster in the desert at night",
+  "alternatives": [
+   "blue yeti",
+   "water drop creature"
+  ],
+  "readability": 3,
+  "features": [
+   "blob-shaped blue body",
+   "single large eye with white highlight",
+   "open dark mouth",
+   "small white horns or ears",
+   "drippy legs at bottom",
+   "night sky with moon and stars",
+   "cacti and desert ground"
+  ],
+  "problems": [
+   "blobby body shape without a clear outline",
+   "only one eye, which looks more like a squint",
+   "no clear arms or legs",
+   "creature isn't a familiar real-world animal or object, so harder to name"
+  ],
+  "digest": "be70716d16550e3c",
+  "grade": "pass",
+  "score": 88,
+  "colors": 12,
+  "black": 0.248,
+  "biggest_patch": 0.211,
+  "theme": "Desert night",
+  "name": "Blue Monster",
+  "pack": "monsters",
+  "touched": false
+ },
+ "green-monster-833": {
+  "guess": "green slime monster",
+  "alternatives": [
+   "green blob ghost",
+   "frog"
+  ],
+  "readability": 3,
+  "features": [
+   "rounded blob body",
+   "two eyes",
+   "pink open mouth",
+   "dark outline",
+   "small bumps on top"
+  ],
+  "problems": [
+   "no limbs, so the creature type is unclear",
+   "green body blends into the green grass at the bottom",
+   "eyes are small and partly hidden",
+   "shape reads as a hill or mound"
+  ],
+  "digest": "a6c3b51c50bcb43b",
+  "grade": "pass",
+  "score": 76,
+  "colors": 17,
+  "black": 0.109,
+  "biggest_patch": 0.172,
+  "theme": "Mountain sunset",
+  "name": "Green Monster",
+  "pack": "monsters",
+  "touched": false
+ },
+ "purple-monster-834": {
+  "guess": "purple horned monster",
+  "alternatives": [
+   "purple devil",
+   "purple blob creature"
+  ],
+  "readability": 4,
+  "features": [
+   "white horns",
+   "two eyes (one winking)",
+   "wide open mouth",
+   "red tongue",
+   "waving arms/hands",
+   "blob body with blue lower part",
+   "orange spots"
+  ],
+  "problems": [
+   "no clear legs, body is a blob",
+   "left arm blends with dark green grass",
+   "orange spots and blue base are slightly confusing"
+  ],
+  "digest": "2443b5bcd3981cdb",
+  "grade": "pass",
+  "score": 86,
+  "colors": 16,
+  "black": 0.102,
+  "biggest_patch": 0.138,
+  "theme": "Bamboo grove",
+  "name": "Purple Monster",
+  "pack": "monsters",
+  "touched": false
+ },
+ "one-eyed-monster-835": {
+  "guess": "green one-eyed monster with horns",
+  "alternatives": [
+   "cyclops ogre",
+   "green dragon"
+  ],
+  "readability": 4,
+  "features": [
+   "single big blue eye",
+   "curled orange horns",
+   "wide open mouth with red tongue",
+   "white claws/arms spread out",
+   "orange feet",
+   "round green body"
+  ],
+  "problems": [
+   "body is a dark green blob that blends with the green grass",
+   "arms are thin white shapes that look like wings or bones",
+   "horns look like ears or headphones",
+   "no clear outline separating body from background"
+  ],
+  "digest": "346a9c8883ea09ed",
+  "grade": "pass",
+  "score": 90,
+  "colors": 19,
+  "black": 0.105,
+  "biggest_patch": 0.154,
+  "theme": "Spring meadow",
+  "name": "One Eyed Monster",
+  "pack": "monsters",
+  "touched": false
+ },
+ "slime-monster-836": {
+  "guess": "green slime monster in a city at night",
+  "alternatives": [
+   "green blob creature",
+   "frog-like jelly"
+  ],
+  "readability": 3,
+  "features": [
+   "large green dome-shaped body",
+   "light green highlight on top",
+   "sleepy half-closed white eyes",
+   "red mouth",
+   "small orange feet",
+   "night city background with moon and stars"
+  ],
+  "problems": [
+   "blobby shape with no clear limbs",
+   "eyes are small and hard to read",
+   "dark green outline blends with dark background",
+   "feet are tiny and separated from body"
+  ],
+  "digest": "d2fb53c84e049738",
+  "grade": "pass",
+  "score": 80,
+  "colors": 15,
+  "black": 0.244,
+  "biggest_patch": 0.226,
+  "theme": "City night",
+  "name": "Slime Monster",
+  "pack": "monsters",
+  "touched": false
+ },
+ "little-ghost-837": {
+  "guess": "ghost",
+  "alternatives": [
+   "onigiri rice ball",
+   "rock with a face"
+  ],
+  "readability": 4,
+  "features": [
+   "white rounded body",
+   "two dark eyes",
+   "open round mouth",
+   "shaded bottom-right side",
+   "dark outline"
+  ],
+  "problems": [
+   "flat bottom and wide base look more like a rock or rice ball than a floating ghost",
+   "no wavy tail or arms",
+   "sunny meadow setting is unusual for a ghost",
+   "grey shading on right could read as stone"
+  ],
+  "digest": "5eff489d1ffbf6cd",
+  "grade": "pass",
+  "score": 82,
+  "colors": 16,
+  "black": 0.075,
+  "biggest_patch": 0.175,
+  "theme": "Garden pond",
+  "name": "Little Ghost",
+  "pack": "monsters",
+  "touched": false
+ },
+ "cyclops-838": {
+  "guess": "one-eyed black monster on a beach",
+  "alternatives": [
+   "black cat at sunset",
+   "cyclops creature"
+  ],
+  "readability": 3,
+  "features": [
+   "single large white eye with black pupil",
+   "small green-tipped ears or horns",
+   "dark rounded body",
+   "two short legs",
+   "green patch on belly",
+   "beach, sea and sunset background"
+  ],
+  "problems": [
+   "no mouth or other facial features",
+   "body is a dark blob with little detail",
+   "the stray blue and green marks on the body are confusing",
+   "subject type is ambiguous and could be any creature"
+  ],
+  "digest": "48a56c646de6f595",
+  "grade": "weak",
+  "score": 54,
+  "colors": 19,
+  "black": 0.217,
+  "biggest_patch": 0.259,
+  "theme": "Beach sunset",
+  "name": "Cyclops",
+  "pack": "monsters",
+  "touched": false
+ },
+ "pterodactyl-839": {
+  "guess": "orange pterodactyl",
+  "alternatives": [
+   "orange dragon",
+   "orange bird"
+  ],
+  "readability": 3,
+  "features": [
+   "head crest pointing up",
+   "big single eye",
+   "spread wings",
+   "body with brown belly/legs",
+   "tail to the right",
+   "yellow feet",
+   "night sky with moon and stars",
+   "green grass"
+  ],
+  "problems": [
+   "head and body merge into one orange blob",
+   "no clear beak or mouth",
+   "single large eye looks odd",
+   "wings, body and tail all same orange so outline is muddled",
+   "brown details blend into dark shading"
+  ],
+  "digest": "59323659dec940a5",
+  "grade": "pass",
+  "score": 88,
+  "colors": 14,
+  "black": 0.326,
+  "biggest_patch": 0.174,
+  "theme": "Starry hilltop",
+  "name": "Pterodactyl",
+  "pack": "monsters",
+  "touched": false
+ },
+ "volcano-840": {
+  "guess": "erupting volcano",
+  "alternatives": [
+   "mountain with fire",
+   "anthill with flower"
+  ],
+  "readability": 5,
+  "features": [
+   "brown cone-shaped mountain",
+   "red lava flowing down the side",
+   "yellow and orange eruption burst at the top",
+   "darker shaded side",
+   "grassy field with flowers",
+   "sun, clouds and a bird in the sky"
+  ],
+  "problems": [
+   "the eruption burst looks a bit like a yellow star or a bird shape",
+   "the lava is small relative to the cone",
+   "some flowers next to the volcano add clutter"
+  ],
+  "digest": "b185ad9ef2985e5e",
+  "grade": "pass",
+  "score": 84,
+  "colors": 21,
+  "black": 0.043,
+  "biggest_patch": 0.183,
+  "theme": "Summer hills",
+  "name": "Volcano",
+  "pack": "monsters",
+  "touched": false
+ },
+ "fossil-841": {
+  "guess": "dinosaur skull fossil",
+  "alternatives": [
+   "animal skull in the dirt",
+   "white rock or boulder"
+  ],
+  "readability": 3,
+  "features": [
+   "long white skull shape lying sideways",
+   "jaw with teeth along the bottom",
+   "eye socket holes",
+   "nasal opening near the front",
+   "dug-out dirt pit around it"
+  ],
+  "problems": [
+   "skull outline is blobby and hard to read",
+   "teeth and holes are small dark specks that look like noise",
+   "grey patches make it look like a spotted rock",
+   "no clear sense of which end is the front"
+  ],
+  "digest": "fe76470cf63dd2fe",
+  "grade": "pass",
+  "score": 76,
+  "colors": 15,
+  "black": 0.112,
+  "biggest_patch": 0.208,
+  "theme": "Autumn woods",
+  "name": "Fossil",
+  "pack": "monsters",
+  "touched": false
+ },
+ "mammoth-842": {
+  "guess": "white woolly mammoth",
+  "alternatives": [
+   "white elephant",
+   "sheep"
+  ],
+  "readability": 3,
+  "features": [
+   "domed head with hump",
+   "trunk curling down at front left",
+   "short tusk area near mouth",
+   "four thick legs",
+   "small tail at back right",
+   "shaggy fur marks",
+   "desert sunset background with sun"
+  ],
+  "problems": [
+   "no clear eye or face",
+   "trunk and tusks hard to distinguish",
+   "fur dashes look like scribbles",
+   "body is a big white blob",
+   "orange shadow blends with background"
+  ],
+  "digest": "5467d076e0c48f33",
+  "grade": "pass",
+  "score": 84,
+  "colors": 10,
+  "black": 0.129,
+  "biggest_patch": 0.2,
+  "theme": "Golden wheat",
+  "name": "Mammoth",
+  "pack": "monsters",
+  "touched": false
+ },
+ "dodo-843": {
+  "guess": "dodo bird",
+  "alternatives": [
+   "duck",
+   "goose"
+  ],
+  "readability": 3,
+  "features": [
+   "head with hooked beak",
+   "eye",
+   "long curved neck",
+   "round bulky body",
+   "wing markings",
+   "small feet"
+  ],
+  "problems": [
+   "no clear legs, body looks like a blob",
+   "black and white patches make body confusing",
+   "feet barely visible and detached",
+   "dark body blends with dark green grass"
+  ],
+  "digest": "a8526b3a46fd5e65",
+  "grade": "pass",
+  "score": 84,
+  "colors": 13,
+  "black": 0.118,
+  "biggest_patch": 0.222,
+  "theme": "Rose garden",
+  "name": "Dodo",
+  "pack": "monsters",
+  "touched": false
+ },
+ "caveman-844": {
+  "guess": "caveman with a club",
+  "alternatives": [
+   "bearded dwarf warrior",
+   "hairy wild man / Bigfoot"
+  ],
+  "readability": 2,
+  "features": [
+   "bushy brown hair and beard",
+   "angry eyes with heavy brows",
+   "tan skin arms",
+   "club or weapon held to the right",
+   "grey rocks around",
+   "blue stream at bottom",
+   "mountains and clouds background"
+  ],
+  "problems": [
+   "figure is a jumble of brown and tan with no clear outline",
+   "face is hard to find, only eyes stand out",
+   "limbs and weapon blend into body",
+   "grey rocks merge with the figure",
+   "pose and body shape are unclear at this resolution"
+  ],
+  "digest": "2bc1da725e8bab70",
+  "grade": "weak",
+  "score": 70,
+  "colors": 15,
+  "black": 0.067,
+  "biggest_patch": 0.138,
+  "theme": "Waterfall",
+  "name": "Caveman",
+  "pack": "monsters",
+  "touched": false
+ },
+ "dinosaur-park-845": {
+  "guess": "Jurassic Park style dinosaur logo",
+  "alternatives": [
+   "T-rex emblem badge",
+   "red sunset with dinosaur silhouette sign"
+  ],
+  "readability": 3,
+  "features": [
+   "red circular badge with yellow border",
+   "dark dinosaur skeleton/silhouette in the middle",
+   "black banner with white letters",
+   "snowy ground with pine trees and clouds behind"
+  ],
+  "problems": [
+   "dinosaur silhouette is small and blobby",
+   "banner text is unreadable at this resolution",
+   "logo concept may be unfamiliar to young kids",
+   "dark red shading blends with dinosaur shape"
+  ],
+  "digest": "050185591b66a8c7",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.282,
+  "biggest_patch": 0.234,
+  "theme": "Snowy pines",
+  "name": "Dinosaur Park",
+  "pack": "monsters",
+  "touched": false
+ }
+}

@@ -1,0 +1,618 @@
+{
+ "car-381": {
+  "guess": "car crash at night in the city",
+  "alternatives": [
+   "orange taxi and blue car racing",
+   "traffic jam on a city street"
+  ],
+  "readability": 3,
+  "features": [
+   "orange car body with light blue windows",
+   "blue and white car on the left",
+   "headlights",
+   "dark wheels",
+   "night sky with crescent moon and stars",
+   "city buildings with lit windows",
+   "road"
+  ],
+  "problems": [
+   "the two cars overlap and merge into one blob",
+   "blue car has no clear shape or windows",
+   "wheels blend into the dark shadows",
+   "busy background competes with the subject"
+  ],
+  "digest": "fd89470a7fde5769",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.286,
+  "biggest_patch": 0.187,
+  "theme": "City night",
+  "name": "Car",
+  "pack": "cityride",
+  "touched": false
+ },
+ "bus-382": {
+  "guess": "orange school bus in snow at night",
+  "alternatives": [
+   "orange train car",
+   "camper van"
+  ],
+  "readability": 3,
+  "features": [
+   "long orange body",
+   "row of windows",
+   "dark wheels",
+   "front hood on right",
+   "snowy mountains and night sky with moon and stars"
+  ],
+  "problems": [
+   "bus shape is flat and stretched, looks somewhat tilted",
+   "windows are grey and blend with snow colors",
+   "wheels are blobby dark shapes merging with the underside",
+   "front end is unclear"
+  ],
+  "digest": "6a0e625e354456df",
+  "grade": "pass",
+  "score": 72,
+  "colors": 13,
+  "black": 0.265,
+  "biggest_patch": 0.191,
+  "theme": "Winter night",
+  "name": "Bus",
+  "pack": "cityride",
+  "touched": false
+ },
+ "taxi-383": {
+  "guess": "yellow taxi car in a night city",
+  "alternatives": [
+   "yellow sports car",
+   "yellow bus"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow car body",
+   "windows on top",
+   "headlight/taillight streaks",
+   "city skyline with lit windows",
+   "night sky with stars and moon",
+   "road with dashed lines"
+  ],
+  "problems": [
+   "no clearly visible wheels",
+   "car shape is blobby and stretched",
+   "orange shading blends with body",
+   "front and back hard to tell apart"
+  ],
+  "digest": "731edf51695332aa",
+  "grade": "pass",
+  "score": 72,
+  "colors": 12,
+  "black": 0.296,
+  "biggest_patch": 0.156,
+  "theme": "Lantern festival",
+  "name": "Taxi",
+  "pack": "cityride",
+  "touched": false
+ },
+ "fire-truck-384": {
+  "guess": "red truck driving in the city",
+  "alternatives": [
+   "red car",
+   "fire truck"
+  ],
+  "readability": 2,
+  "features": [
+   "red body",
+   "white headlight/bumper area",
+   "dark wheels",
+   "small blue window",
+   "city buildings and sky in background",
+   "road"
+  ],
+  "problems": [
+   "vehicle shape is blobby and distorted",
+   "wheels not clearly round",
+   "white patches break up the body",
+   "hard to tell front from back",
+   "dark and grey parts blend with road"
+  ],
+  "digest": "b28c7cbcd32f9871",
+  "grade": "weak",
+  "score": 66,
+  "colors": 13,
+  "black": 0.117,
+  "biggest_patch": 0.162,
+  "theme": "City day",
+  "name": "Fire Truck",
+  "pack": "cityride",
+  "touched": false
+ },
+ "police-car-385": {
+  "guess": "police car",
+  "alternatives": [
+   "sheriff car",
+   "taxi"
+  ],
+  "readability": 4,
+  "features": [
+   "black and white body",
+   "pink siren light on roof",
+   "light blue windows",
+   "yellow star badge on door",
+   "dark wheels",
+   "grey bumpers"
+  ],
+  "problems": [
+   "car looks squashed and very low, almost flat",
+   "wheels blend into the black body",
+   "siren is small and pink rather than red/blue",
+   "car drawn in odd perspective, front and back hard to tell"
+  ],
+  "digest": "3d1c8fd5eeb211f6",
+  "grade": "pass",
+  "score": 78,
+  "colors": 15,
+  "black": 0.107,
+  "biggest_patch": 0.263,
+  "theme": "Rose garden",
+  "name": "Police Car",
+  "pack": "cityride",
+  "touched": false
+ },
+ "ambulance-386": {
+  "guess": "ambulance",
+  "alternatives": [
+   "white van",
+   "rescue vehicle"
+  ],
+  "readability": 4,
+  "features": [
+   "white vehicle body",
+   "red cross on side",
+   "red stripe along side",
+   "dark wheels",
+   "window outline at front",
+   "city buildings and sunset background"
+  ],
+  "problems": [
+   "wheels are dark blobs that are not clearly round",
+   "no clear windows or lights, front and back hard to tell apart",
+   "white body blends a little with the light gray road",
+   "vehicle shape is boxy and slightly blobby"
+  ],
+  "digest": "c049267a0de8eb79",
+  "grade": "pass",
+  "score": 78,
+  "colors": 14,
+  "black": 0.117,
+  "biggest_patch": 0.124,
+  "theme": "City dawn",
+  "name": "Ambulance",
+  "pack": "cityride",
+  "touched": false
+ },
+ "scooter-387": {
+  "guess": "person riding a red scooter",
+  "alternatives": [
+   "girl on a red motorbike",
+   "rider on a red horse"
+  ],
+  "readability": 3,
+  "features": [
+   "rider's head with tan hair and pink face",
+   "blue pants/legs",
+   "red body of vehicle",
+   "two wheels with white/black",
+   "handlebar/mirror at front",
+   "red backpack or seat behind"
+  ],
+  "problems": [
+   "rider's face is unclear, no visible eyes",
+   "red vehicle blends with pink/red striped background",
+   "blocky dark red mass makes vehicle shape hard to read",
+   "wheels small and partly hidden"
+  ],
+  "digest": "d0f5a8720338f6df",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.041,
+  "biggest_patch": 0.187,
+  "theme": "Tulip fields",
+  "name": "Scooter",
+  "pack": "cityride",
+  "touched": false
+ },
+ "bicycle-388": {
+  "guess": "bicycle at night",
+  "alternatives": [
+   "sleeping sheep",
+   "motorcycle"
+  ],
+  "readability": 3,
+  "features": [
+   "two large round wheels outlined in dark",
+   "frame with handlebars on right",
+   "brown seat on left",
+   "white fluffy wheel fills",
+   "night sky with crescent moon and stars",
+   "trees and grass background"
+  ],
+  "problems": [
+   "wheels filled with white look like fluffy sheep bodies",
+   "dark frame lines blend with tree trunks and background",
+   "seat and handlebars small and hard to spot",
+   "busy background of trees competes with subject"
+  ],
+  "digest": "d8d422d671b853e0",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.283,
+  "biggest_patch": 0.182,
+  "theme": "Moonlit pond",
+  "name": "Bicycle",
+  "pack": "cityride",
+  "touched": false
+ },
+ "motorcycle-389": {
+  "guess": "red and black motorcycle",
+  "alternatives": [
+   "scooter",
+   "dirt bike"
+  ],
+  "readability": 4,
+  "features": [
+   "two black wheels with white/grey hubs",
+   "red fuel tank and body",
+   "black seat",
+   "handlebars and windscreen at front",
+   "exhaust pipe",
+   "pink headlight/mirror detail"
+  ],
+  "problems": [
+   "black wheels and body merge into one dark mass",
+   "dark green trees behind blend with black outline",
+   "no rider, so the scale and orientation take a moment to read"
+  ],
+  "digest": "e04037f186bd8b1a",
+  "grade": "pass",
+  "score": 82,
+  "colors": 14,
+  "black": 0.179,
+  "biggest_patch": 0.138,
+  "theme": "Bamboo grove",
+  "name": "Motorcycle",
+  "pack": "cityride",
+  "touched": false
+ },
+ "tram-390": {
+  "guess": "red and white tram (streetcar)",
+  "alternatives": [
+   "train front",
+   "bus"
+  ],
+  "readability": 4,
+  "features": [
+   "front view of vehicle",
+   "brown roof",
+   "white upper body",
+   "three brown windows",
+   "red lower body",
+   "headlight",
+   "green wheels/track contact",
+   "railway tracks below",
+   "overhead wire with sparks"
+  ],
+  "problems": [
+   "no visible wheels, only small green bits",
+   "windows are blobby",
+   "dark outline merges with dark track background",
+   "could read as a bus or train"
+  ],
+  "digest": "505d0d51659904c2",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.256,
+  "biggest_patch": 0.18,
+  "theme": "Stormy coast",
+  "name": "Tram",
+  "pack": "cityride",
+  "touched": false
+ },
+ "van-391": {
+  "guess": "orange camper van in the desert at night",
+  "alternatives": [
+   "orange bus",
+   "orange car/SUV"
+  ],
+  "readability": 3,
+  "features": [
+   "orange body",
+   "white roof",
+   "row of windows",
+   "dark wheels",
+   "bumper",
+   "cactus behind",
+   "moon and stars"
+  ],
+  "problems": [
+   "wheels blend into dark ground",
+   "no clear front or back of vehicle",
+   "body shape is blobby",
+   "cactus looks like it sits on the roof"
+  ],
+  "digest": "f5ca42dcf9d39f57",
+  "grade": "pass",
+  "score": 72,
+  "colors": 17,
+  "black": 0.27,
+  "biggest_patch": 0.29,
+  "theme": "Desert night",
+  "name": "Van",
+  "pack": "cityride",
+  "touched": false
+ },
+ "school-bus-392": {
+  "guess": "yellow school bus at night",
+  "alternatives": [
+   "orange car",
+   "yellow taxi"
+  ],
+  "readability": 3,
+  "features": [
+   "orange-yellow body",
+   "white windshield",
+   "light blue headlights",
+   "black wheels",
+   "brown mud splats",
+   "night city background with moon and lit windows",
+   "road"
+  ],
+  "problems": [
+   "brown blobs on roof and front look like dirt and hide the grille",
+   "front view makes it look like a car more than a bus",
+   "headlights and mud could be read as a face"
+  ],
+  "digest": "04775996765fb523",
+  "grade": "pass",
+  "score": 72,
+  "colors": 17,
+  "black": 0.293,
+  "biggest_patch": 0.184,
+  "theme": "City night",
+  "name": "School Bus",
+  "pack": "cityride",
+  "touched": false
+ },
+ "race-car-393": {
+  "guess": "cartoon character driving a red go-kart in the snow",
+  "alternatives": [
+   "penguin or animal on a red sled car",
+   "person in a hat riding a red toy car"
+  ],
+  "readability": 3,
+  "features": [
+   "red kart body with yellow lights",
+   "black wheels",
+   "big tan hat or hair with blue bows",
+   "white face with eyes",
+   "orange hair or ears",
+   "snowy background with sun and clouds"
+  ],
+  "problems": [
+   "the character's head is cluttered and hard to read",
+   "the large tan shape is ambiguous (hat, hair, or wings?)",
+   "the white face blends into the snowy background",
+   "the kart is seen head-on, so its shape reads as a blob"
+  ],
+  "digest": "7a6195e9e79382d0",
+  "grade": "pass",
+  "score": 84,
+  "colors": 16,
+  "black": 0.12,
+  "biggest_patch": 0.154,
+  "theme": "Ice field",
+  "name": "Race Car",
+  "pack": "cityride",
+  "touched": false
+ },
+ "train-394": {
+  "guess": "red steam train with blue carriage",
+  "alternatives": [
+   "toy locomotive",
+   "train on a railway at night"
+  ],
+  "readability": 4,
+  "features": [
+   "red locomotive cab with white window",
+   "blue wagon/carriage",
+   "wheels on track",
+   "light blue steam puff",
+   "night sky with aurora and stars",
+   "snowy mountains",
+   "lake",
+   "green grass"
+  ],
+  "problems": [
+   "steam cloud is blobby and blends with sky colors",
+   "wheels are small grey blocks, hard to see",
+   "train is small relative to busy background",
+   "locomotive front shape is unclear"
+  ],
+  "digest": "88b701ff5f9825d7",
+  "grade": "pass",
+  "score": 78,
+  "colors": 15,
+  "black": 0.258,
+  "biggest_patch": 0.143,
+  "theme": "Aurora lake",
+  "name": "Train",
+  "pack": "cityride",
+  "touched": false
+ },
+ "bulldozer-395": {
+  "guess": "orange bulldozer",
+  "alternatives": [
+   "orange tank",
+   "construction truck"
+  ],
+  "readability": 3,
+  "features": [
+   "orange body",
+   "dark cab window",
+   "exhaust pipe/antenna on top",
+   "dark red tracks with wheels",
+   "blade/scoop at front left",
+   "birds in sky"
+  ],
+  "problems": [
+   "shape is blobby and hard to read",
+   "cab and engine parts merge into one orange mass",
+   "front blade not clearly defined",
+   "tracks blend with dark red details",
+   "white/blue patches look like eyes, confusing"
+  ],
+  "digest": "56d33f6564733c35",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.072,
+  "biggest_patch": 0.284,
+  "theme": "Overcast moor",
+  "name": "Bulldozer",
+  "pack": "cityride",
+  "touched": false
+ },
+ "excavator-396": {
+  "guess": "black and yellow excavator digger",
+  "alternatives": [
+   "toucan bird",
+   "construction crane arm"
+  ],
+  "readability": 3,
+  "features": [
+   "curved yellow boom arm",
+   "bucket at end of arm",
+   "black cab body with window",
+   "yellow body panels",
+   "dark tracks/base at bottom"
+  ],
+  "problems": [
+   "arm loops into a confusing arch shape",
+   "bucket blends with blue flower and dark outlines",
+   "black body is a large blob with few details",
+   "no clear tracks or wheels",
+   "busy grassy background with flowers competes for attention"
+  ],
+  "digest": "7877eab753d99479",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.158,
+  "biggest_patch": 0.162,
+  "theme": "Riverbank",
+  "name": "Excavator",
+  "pack": "cityride",
+  "touched": false
+ },
+ "camper-van-397": {
+  "guess": "blue van in a city",
+  "alternatives": [
+   "blue bus",
+   "blue car"
+  ],
+  "readability": 3,
+  "features": [
+   "boxy blue body",
+   "dark windshield",
+   "dark side windows",
+   "front bumper/headlight area",
+   "city buildings with lit windows behind",
+   "clouds and sky"
+  ],
+  "problems": [
+   "no clearly visible wheels",
+   "vehicle is viewed at an odd angle and looks blobby",
+   "dark windows look like a face/mask",
+   "front and back are hard to tell apart",
+   "dark blue shading blends into the dark outline"
+  ],
+  "digest": "f62dce20eb47f00a",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.224,
+  "biggest_patch": 0.149,
+  "theme": "City day",
+  "name": "Camper Van",
+  "pack": "cityride",
+  "touched": false
+ },
+ "vintage-car-398": {
+  "guess": "dark blue car",
+  "alternatives": [
+   "vintage convertible car",
+   "blue sedan with a driver"
+  ],
+  "readability": 3,
+  "features": [
+   "long dark blue car body",
+   "dark wheels at front and back",
+   "windows in purple/lavender",
+   "driver with pink head and red detail",
+   "white highlight or windshield",
+   "grey bumpers/lights"
+  ],
+  "problems": [
+   "wheels blend with dark car outline and dark grass",
+   "driver figure is tiny and unclear",
+   "car shape is blobby and slanted",
+   "lower part merges into dark green grass"
+  ],
+  "digest": "f9e99cf48284cc7c",
+  "grade": "pass",
+  "score": 76,
+  "colors": 19,
+  "black": 0.081,
+  "biggest_patch": 0.244,
+  "theme": "Orchard",
+  "name": "Vintage Car",
+  "pack": "cityride",
+  "touched": false
+ },
+ "dump-truck-399": {
+  "guess": "yellow dump truck at night",
+  "alternatives": [
+   "mining haul truck",
+   "snow plow truck"
+  ],
+  "readability": 4,
+  "features": [
+   "large yellow dump bed",
+   "orange cab",
+   "light blue window",
+   "black wheels with tan hubs",
+   "snowy mountains background",
+   "crescent moon and stars"
+  ],
+  "problems": [
+   "cab is small and blends with the bed",
+   "wheels are dark and merge with the dark outlines",
+   "truck looks oddly squashed and blobby",
+   "snowman-like white shape at left can distract"
+  ],
+  "digest": "e45833bce85c2515",
+  "grade": "pass",
+  "score": 78,
+  "colors": 15,
+  "black": 0.271,
+  "biggest_patch": 0.151,
+  "theme": "Winter night",
+  "name": "Dump Truck",
+  "pack": "cityride",
+  "touched": false
+ }
+}

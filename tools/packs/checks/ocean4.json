@@ -1,0 +1,649 @@
+{
+ "cartoon-fish-978": {
+  "guess": "goldfish",
+  "alternatives": [
+   "orange fish",
+   "koi carp"
+  ],
+  "readability": 5,
+  "features": [
+   "large eye with white highlight",
+   "orange rounded body",
+   "red tail fin on right",
+   "red pectoral/front fin on left",
+   "dorsal fin on top",
+   "gill line",
+   "bubbles in water",
+   "sandy bottom with plants"
+  ],
+  "problems": [
+   "fish faces left with tail on right, body is very round and blobby",
+   "dark outline merges with brown seabed at bottom",
+   "fins somewhat cut off at edges"
+  ],
+  "digest": "c6e9d6d85dbd95ce",
+  "grade": "pass",
+  "score": 88,
+  "colors": 17,
+  "black": 0.079,
+  "biggest_patch": 0.232,
+  "theme": "Kelp forest",
+  "name": "Cartoon Fish",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-octopus-979": {
+  "guess": "octopus",
+  "alternatives": [
+   "squid",
+   "sea monster"
+  ],
+  "readability": 4,
+  "features": [
+   "dome-shaped head",
+   "two eyes with side-glancing pupils",
+   "mouth line",
+   "multiple tentacles spreading out",
+   "underwater background with bubbles",
+   "coral and seaweed"
+  ],
+  "problems": [
+   "green seaweed overlaps tentacles and confuses their shape",
+   "tentacles are blocky and blend together",
+   "brown stick/tentacle on right is unclear",
+   "beige body is plain with no suckers or detail"
+  ],
+  "digest": "46e3a10a36595add",
+  "grade": "pass",
+  "score": 82,
+  "colors": 16,
+  "black": 0.138,
+  "biggest_patch": 0.228,
+  "theme": "Deep sea",
+  "name": "Cartoon Octopus",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-crab-980": {
+  "guess": "red crab",
+  "alternatives": [
+   "red lobster",
+   "red cartoon creature with big eyes"
+  ],
+  "readability": 4,
+  "features": [
+   "big white googly eyes on top",
+   "sleepy half-closed eyelids",
+   "red rounded body",
+   "two large red claws on the sides",
+   "small mouth between eyes",
+   "dark outline",
+   "sandy seabed with water and bubbles above",
+   "purple flower or seaweed and coral in background"
+  ],
+  "problems": [
+   "legs are not visible, only claws",
+   "claws merge with body into one big red blob",
+   "dark shaded areas make the shape a bit muddy",
+   "no clear separation between claws and body"
+  ],
+  "digest": "efcba925b7774dbf",
+  "grade": "pass",
+  "score": 82,
+  "colors": 19,
+  "black": 0.065,
+  "biggest_patch": 0.226,
+  "theme": "Coral reef",
+  "name": "Cartoon Crab",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-shark-981": {
+  "guess": "shark on the sea floor",
+  "alternatives": [
+   "whale",
+   "dolphin"
+  ],
+  "readability": 3,
+  "features": [
+   "grey body",
+   "dorsal fin",
+   "tail fin",
+   "open mouth with white teeth",
+   "dark eye",
+   "sandy seabed and water background"
+  ],
+  "problems": [
+   "head area is a dark blob, mouth hard to read",
+   "body shape is chunky and lumpy",
+   "eye and gills are just scattered dark pixels",
+   "lower body blends into dark shadow"
+  ],
+  "digest": "242b8fbfc82867b4",
+  "grade": "pass",
+  "score": 80,
+  "colors": 16,
+  "black": 0.149,
+  "biggest_patch": 0.227,
+  "theme": "Kelp forest",
+  "name": "Cartoon Shark",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-dolphin-982": {
+  "guess": "jumping dolphin",
+  "alternatives": [
+   "shark",
+   "whale"
+  ],
+  "readability": 4,
+  "features": [
+   "curved grey body",
+   "pointed snout/beak at top right",
+   "dorsal and pectoral fins",
+   "tail flukes at bottom left",
+   "dark outline",
+   "sea and sandy beach background with coral and seaweed"
+  ],
+  "problems": [
+   "brown and navy patches on the body look like messy shading or dirt",
+   "no clear eye visible",
+   "head area is cluttered with dark blocks",
+   "tail blends into the orange and red bottom edge"
+  ],
+  "digest": "0e114adc3bf765fe",
+  "grade": "pass",
+  "score": 86,
+  "colors": 19,
+  "black": 0.074,
+  "biggest_patch": 0.223,
+  "theme": "Coral reef",
+  "name": "Cartoon Dolphin",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-seahorse-983": {
+  "guess": "seahorse",
+  "alternatives": [
+   "duck",
+   "dragon"
+  ],
+  "readability": 4,
+  "features": [
+   "long tube snout",
+   "eye",
+   "curled tail",
+   "yellow belly",
+   "orange body",
+   "underwater background with coral and seaweed"
+  ],
+  "problems": [
+   "snout and head look a bit like a duck's bill",
+   "dark outline around eye area is heavy",
+   "no visible fin"
+  ],
+  "digest": "fb1f31f31dfb92c7",
+  "grade": "pass",
+  "score": 86,
+  "colors": 15,
+  "black": 0.116,
+  "biggest_patch": 0.224,
+  "theme": "Deep sea",
+  "name": "Cartoon Seahorse",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-jellyfish-984": {
+  "guess": "penguin wearing a jellyfish/blue hat at the beach",
+  "alternatives": [
+   "penguin with a blue helmet",
+   "blue-headed bird on the seabed"
+  ],
+  "readability": 3,
+  "features": [
+   "white belly",
+   "black outline body",
+   "big swirly eyes",
+   "blue dome head or hat",
+   "small feet at bottom",
+   "beach sand and coral background"
+  ],
+  "problems": [
+   "no clear beak",
+   "blue head blends with blue sea background",
+   "swirly eyes look odd",
+   "no distinct flippers",
+   "busy background with coral and shells"
+  ],
+  "digest": "d2b4773d2c3f1c56",
+  "grade": "pass",
+  "score": 76,
+  "colors": 19,
+  "black": 0.081,
+  "biggest_patch": 0.224,
+  "theme": "Coral reef",
+  "name": "Cartoon Jellyfish",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-starfish-985": {
+  "guess": "smiling starfish",
+  "alternatives": [
+   "sea star cookie",
+   "gingerbread man"
+  ],
+  "readability": 5,
+  "features": [
+   "five-pointed star shape",
+   "eyes",
+   "winking/side-glancing eyes",
+   "big smiling mouth",
+   "spots on arms",
+   "underwater background with seaweed and coral",
+   "water surface and sky"
+  ],
+  "problems": [
+   "lower right arm is shaded dark brown and blends a bit with the dark blue water",
+   "dark outline missing on some edges so arms merge with background in places"
+  ],
+  "digest": "0fb900097099d7ec",
+  "grade": "pass",
+  "score": 92,
+  "colors": 15,
+  "black": 0.111,
+  "biggest_patch": 0.231,
+  "theme": "Deep sea",
+  "name": "Cartoon Starfish",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-whale-986": {
+  "guess": "blue whale",
+  "alternatives": [
+   "seal",
+   "fish"
+  ],
+  "readability": 4,
+  "features": [
+   "round light-blue body",
+   "dark outline",
+   "eye",
+   "tail fin curled up on right",
+   "water spout bubbles above",
+   "sea water background",
+   "sandy seabed with seaweed"
+  ],
+  "problems": [
+   "no mouth visible",
+   "tail blends with dark rocks and seabed",
+   "body is a blobby rounded shape",
+   "whale sits on seabed oddly"
+  ],
+  "digest": "49b6d6caa27a8941",
+  "grade": "pass",
+  "score": 82,
+  "colors": 17,
+  "black": 0.081,
+  "biggest_patch": 0.242,
+  "theme": "Kelp forest",
+  "name": "Cartoon Whale",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-sea-turtle-987": {
+  "guess": "sea turtle swimming",
+  "alternatives": [
+   "tortoise",
+   "otter"
+  ],
+  "readability": 4,
+  "features": [
+   "orange and red patterned shell",
+   "tan head with dark top",
+   "white eye",
+   "flippers",
+   "tan neck and belly",
+   "underwater setting with bubbles and seaweed"
+  ],
+  "problems": [
+   "dark outline blends into dark blue water",
+   "head shape is small and somewhat ambiguous",
+   "flippers not clearly defined",
+   "shell pattern is busy"
+  ],
+  "digest": "764556b3aa6ccfe1",
+  "grade": "pass",
+  "score": 78,
+  "colors": 16,
+  "black": 0.163,
+  "biggest_patch": 0.224,
+  "theme": "Deep sea",
+  "name": "Cartoon Sea Turtle",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-clownfish-988": {
+  "guess": "clownfish",
+  "alternatives": [
+   "goldfish",
+   "tropical fish"
+  ],
+  "readability": 4,
+  "features": [
+   "orange head with white face stripe",
+   "eye",
+   "red-orange body with white stripes",
+   "black outlines",
+   "dorsal fins on top",
+   "tail fin on right",
+   "water with bubbles",
+   "sandy seabed"
+  ],
+  "problems": [
+   "body is mostly red instead of orange, less typical clownfish color",
+   "fish lies low on the seabed so the bottom edge blends with dark ground",
+   "head and eye are small and a bit cluttered",
+   "fins on top look lumpy"
+  ],
+  "digest": "c4ee476adb8b2216",
+  "grade": "pass",
+  "score": 86,
+  "colors": 18,
+  "black": 0.099,
+  "biggest_patch": 0.249,
+  "theme": "Kelp forest",
+  "name": "Cartoon Clownfish",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-lobster-989": {
+  "guess": "red lobster on the seabed",
+  "alternatives": [
+   "crab",
+   "crayfish"
+  ],
+  "readability": 3,
+  "features": [
+   "red shell body",
+   "big claws spread to the sides",
+   "black and white eyes on top",
+   "segmented legs",
+   "sandy sea floor with coral and seaweed",
+   "water and sky background"
+  ],
+  "problems": [
+   "body is a blobby mass of red shades",
+   "claws and legs merge into each other",
+   "dark outlines make the shape busy",
+   "head and eyes are small and hard to pick out",
+   "pose is unclear, so it is hard to tell front from back"
+  ],
+  "digest": "39477caed36c6539",
+  "grade": "pass",
+  "score": 76,
+  "colors": 17,
+  "black": 0.092,
+  "biggest_patch": 0.234,
+  "theme": "Coral reef",
+  "name": "Cartoon Lobster",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-squid-990": {
+  "guess": "red squid",
+  "alternatives": [
+   "octopus",
+   "red blob monster"
+  ],
+  "readability": 3,
+  "features": [
+   "tall rounded red body",
+   "single large eye",
+   "short dark tentacles at bottom",
+   "underwater bubbles",
+   "sandy seabed with seaweed"
+  ],
+  "problems": [
+   "tentacles are tiny and hard to see",
+   "body is a plain blob shape",
+   "only one eye, no clear mouth",
+   "dark outline tentacles blend into body"
+  ],
+  "digest": "c7c287b00b71ef4e",
+  "grade": "pass",
+  "score": 72,
+  "colors": 16,
+  "black": 0.019,
+  "biggest_patch": 0.229,
+  "theme": "Kelp forest",
+  "name": "Cartoon Squid",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-seal-991": {
+  "guess": "seal lying on the beach",
+  "alternatives": [
+   "sea lion",
+   "walrus"
+  ],
+  "readability": 3,
+  "features": [
+   "dark body with raised rear/head end",
+   "small grey eye",
+   "snout at left",
+   "flippers hinted in dark red at bottom"
+  ],
+  "problems": [
+   "head and body form one blob",
+   "eye is tiny",
+   "no clear flippers or whiskers",
+   "tall right part looks like a rock",
+   "coral in background distracts"
+  ],
+  "digest": "cbc3f661766b93a8",
+  "grade": "pass",
+  "score": 80,
+  "colors": 18,
+  "black": 0.229,
+  "biggest_patch": 0.231,
+  "theme": "Coral reef",
+  "name": "Cartoon Seal",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-submarine-992": {
+  "guess": "yellow and blue submarine underwater",
+  "alternatives": [
+   "toy boat",
+   "diving bell"
+  ],
+  "readability": 4,
+  "features": [
+   "rounded hull with yellow bottom and blue top",
+   "three round portholes with orange rims",
+   "conning tower",
+   "periscope on top",
+   "propeller (dark red) at the back",
+   "sand seabed",
+   "bubbles rising"
+  ],
+  "problems": [
+   "periscope is small and blocky",
+   "red propeller looks like a blob",
+   "sandy background colors near the yellow hull blend slightly"
+  ],
+  "digest": "91c3c8964d5dd48f",
+  "grade": "pass",
+  "score": 74,
+  "colors": 19,
+  "black": 0.071,
+  "biggest_patch": 0.259,
+  "theme": "Kelp forest",
+  "name": "Cartoon Submarine",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-treasure-chest-993": {
+  "guess": "open treasure chest underwater",
+  "alternatives": [
+   "sunken pirate chest with jewels",
+   "red and gold seashell"
+  ],
+  "readability": 3,
+  "features": [
+   "dark red open lid",
+   "gold trim and rim",
+   "red body with white swirls",
+   "blue gem",
+   "pink coral on left",
+   "seaweed on right",
+   "water surface and bubbles"
+  ],
+  "problems": [
+   "chest shape is rounded and blobby, not boxy",
+   "lid and body blend in similar reds",
+   "no clear lock or treasure contents",
+   "perspective is confusing"
+  ],
+  "digest": "c6a9a5d468ff1acf",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.104,
+  "biggest_patch": 0.229,
+  "theme": "Deep sea",
+  "name": "Cartoon Treasure Chest",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-shell-994": {
+  "guess": "yellow chick in an eggshell underwater",
+  "alternatives": [
+   "yellow duckling on a rock",
+   "baby bird hatching from an egg"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow body",
+   "dark eye area",
+   "orange beak",
+   "beige eggshell or rock shape behind it",
+   "small wing",
+   "water and seaweed background"
+  ],
+  "problems": [
+   "face is unclear, eyes look like a dark mask or sunglasses",
+   "beak is not distinct from the orange body shading",
+   "beige egg/rock shape is ambiguous",
+   "purple shape on the right is unclear",
+   "chick shape is somewhat blobby"
+  ],
+  "digest": "885b13ee0067f5dc",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.101,
+  "biggest_patch": 0.224,
+  "theme": "Deep sea",
+  "name": "Cartoon Shell",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-diver-995": {
+  "guess": "scuba diver swimming underwater",
+  "alternatives": [
+   "snorkeler",
+   "swimmer in wetsuit"
+  ],
+  "readability": 3,
+  "features": [
+   "dark wetsuit body stretched horizontally",
+   "yellow air tank on back",
+   "diving mask/goggles (grey-white)",
+   "brown hand/arm",
+   "legs and fins trailing left",
+   "bubbles rising",
+   "coral and seaweed in background"
+  ],
+  "problems": [
+   "dark wetsuit blends into dark blue water",
+   "no visible face",
+   "body shape is blobby and hard to separate from background",
+   "fins and legs unclear"
+  ],
+  "digest": "baf3b3f532b7cfcc",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.164,
+  "biggest_patch": 0.231,
+  "theme": "Deep sea",
+  "name": "Cartoon Diver",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-walrus-996": {
+  "guess": "walrus",
+  "alternatives": [
+   "sea lion",
+   "seal"
+  ],
+  "readability": 4,
+  "features": [
+   "brown blobby body",
+   "eyes with heavy brows",
+   "white tusks",
+   "whisker dots on muzzle",
+   "flipper on right side",
+   "beach setting with sea and coral"
+  ],
+  "problems": [
+   "body is a shapeless brown mound",
+   "tusks are small",
+   "flippers blend with dark shading",
+   "brown body merges into sandy ground at bottom"
+  ],
+  "digest": "aec7ef6d4f4cffc0",
+  "grade": "pass",
+  "score": 82,
+  "colors": 18,
+  "black": 0.054,
+  "biggest_patch": 0.224,
+  "theme": "Coral reef",
+  "name": "Cartoon Walrus",
+  "pack": "ocean4",
+  "touched": false
+ },
+ "cartoon-shrimp-997": {
+  "guess": "red sea creature (shrimp or lobster) underwater",
+  "alternatives": [
+   "red fish",
+   "mermaid"
+  ],
+  "readability": 2,
+  "features": [
+   "red curved body",
+   "white spiky top like fins or antennae",
+   "tan patch possibly a claw or face",
+   "pink eye-like spot",
+   "underwater background with coral and seaweed"
+  ],
+  "problems": [
+   "no clear face or eyes",
+   "blobby irregular shape",
+   "tan and brown patch confusing",
+   "red body blends into dark blue water stripes",
+   "unclear what the white spikes are"
+  ],
+  "digest": "2afa536ee9fb071b",
+  "grade": "weak",
+  "score": 70,
+  "colors": 14,
+  "black": 0.074,
+  "biggest_patch": 0.233,
+  "theme": "Deep sea",
+  "name": "Cartoon Shrimp",
+  "pack": "ocean4",
+  "touched": false
+ }
+}

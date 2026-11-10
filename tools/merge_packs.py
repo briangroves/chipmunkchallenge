@@ -16,6 +16,36 @@ sys.path.insert(0, HERE)
 import make_pack as mp  # noqa: E402
 
 
+# Packs that came out too small to stand alone, folded into a related pack (boards appended at its end), and the
+# merged pack's new name where it changes.
+FOLD = {"robots": "tech", "fair": "party", "picnic": "fruit", "dinos": "monsters", "cats": "cute",
+        "dogs": "pets2", "story2": "baby", "farm2": "spring", "bakery": "drinks", "treats2": "sweets",
+        "workshop": "home", "world": "buildings", "vehicles2": "transport3", "breakfast": "meals",
+        "seasons": "garden", "magic": "fantasy", "food4": "fruitfaces"}
+RENAME = {"monsters": "Monsters & Dinos", "cute": "Cute Critters & Cats", "transport3": "On the Move",
+          "garden": "Garden Seasons", "home": "Home & Workshop", "buildings": "Around the World"}
+
+
+def fold(data):
+    packs = {p["id"]: p for p in data["packs"]}
+    for small, big in FOLD.items():
+        if small in packs and big in packs:
+            packs[big]["levels"] += packs[small]["levels"]
+            packs[big].setdefault("merged", []).append(small)
+            data["packs"].remove(packs[small])
+            # The small pack's blind-check results move with its boards.
+            src = os.path.join(HERE, "packs", "checks", small + ".json")
+            dst = os.path.join(HERE, "packs", "checks", big + ".json")
+            if os.path.exists(src):
+                both = json.load(open(dst)) if os.path.exists(dst) else {}
+                both.update(json.load(open(src)))
+                json.dump(both, open(dst, "w"), indent=1)
+                os.remove(src)
+    for pid, name in RENAME.items():
+        if pid in packs:
+            packs[pid]["name"] = name
+
+
 def main():
     data = json.load(open(mp.BOARDS))
     have = {p["id"] for p in data["packs"]}
@@ -24,6 +54,7 @@ def main():
             if p["id"] not in have:
                 data["packs"].append(p)
                 have.add(p["id"])
+    fold(data)
     order = ["farm"] + [p["id"] for p in json.load(open(os.path.join(HERE, "packs", "queue.json")))["packs"]]
     data["packs"].sort(key=lambda p: order.index(p["id"]) if p["id"] in order else len(order))
     n = mp.FIRST_NEW

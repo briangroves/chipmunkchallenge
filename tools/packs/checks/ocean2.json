@@ -1,5 +1,5 @@
 {
- "whale-239": {
+ "whale-229": {
   "guess": "orca (killer whale) on a sandy seabed",
   "alternatives": [
    "beached whale",
@@ -22,9 +22,16 @@
   ],
   "digest": "64c5e6199f949bdc",
   "grade": "pass",
-  "score": 72
+  "score": 72,
+  "colors": 16,
+  "black": 0.184,
+  "biggest_patch": 0.244,
+  "theme": "Kelp forest",
+  "name": "Whale",
+  "pack": "ocean2",
+  "touched": false
  },
- "dolphin-240": {
+ "dolphin-230": {
   "guess": "red dolphin jumping",
   "alternatives": [
    "orca",
@@ -50,9 +57,16 @@
   ],
   "digest": "5177b79dd89e97e4",
   "grade": "pass",
-  "score": 94
+  "score": 94,
+  "colors": 19,
+  "black": 0.084,
+  "biggest_patch": 0.219,
+  "theme": "Coral reef",
+  "name": "Dolphin",
+  "pack": "ocean2",
+  "touched": false
  },
- "octopus-241": {
+ "octopus-231": {
   "guess": "red octopus wearing a sailor hat",
   "alternatives": [
    "squid",
@@ -74,9 +88,16 @@
   ],
   "digest": "927396e79da7139c",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 14,
+  "black": 0.117,
+  "biggest_patch": 0.223,
+  "theme": "Deep sea",
+  "name": "Octopus",
+  "pack": "ocean2",
+  "touched": false
  },
- "crab-242": {
+ "crab-232": {
   "guess": "red crab on a sign",
   "alternatives": [
    "lobster",
@@ -98,9 +119,16 @@
   ],
   "digest": "24456d63b2b0190b",
   "grade": "pass",
-  "score": 86
+  "score": 86,
+  "colors": 12,
+  "black": 0.106,
+  "biggest_patch": 0.181,
+  "theme": "Seaside cliffs",
+  "name": "Crab",
+  "pack": "ocean2",
+  "touched": false
  },
- "seahorse-243": {
+ "seahorse-233": {
   "guess": "seahorse on a beach at sunset",
   "alternatives": [
    "dark chess knight piece",
@@ -121,9 +149,16 @@
   ],
   "digest": "ff2ca51590d975d1",
   "grade": "pass",
-  "score": 86
+  "score": 86,
+  "colors": 16,
+  "black": 0.113,
+  "biggest_patch": 0.319,
+  "theme": "Beach sunset",
+  "name": "Seahorse",
+  "pack": "ocean2",
+  "touched": false
  },
- "sea-turtle-244": {
+ "sea-turtle-234": {
   "guess": "turtle on a beach",
   "alternatives": [
    "tortoise",
@@ -145,9 +180,16 @@
   ],
   "digest": "200d0ed14763f989",
   "grade": "pass",
-  "score": 72
+  "score": 72,
+  "colors": 22,
+  "black": 0.154,
+  "biggest_patch": 0.174,
+  "theme": "Tropical beach",
+  "name": "Sea Turtle",
+  "pack": "ocean2",
+  "touched": false
  },
- "shark-245": {
+ "shark-235": {
   "guess": "beached shark",
   "alternatives": [
    "dolphin on the beach",
@@ -172,9 +214,16 @@
   ],
   "digest": "4d56fdc91b6bf205",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 18,
+  "black": 0.079,
+  "biggest_patch": 0.287,
+  "theme": "Kelp forest",
+  "name": "Shark",
+  "pack": "ocean2",
+  "touched": false
  },
- "starfish-246": {
+ "starfish-236": {
   "guess": "red starfish",
   "alternatives": [
    "sea star with cartoon eyes",
@@ -195,9 +244,16 @@
   ],
   "digest": "806639b73475969b",
   "grade": "pass",
-  "score": 84
+  "score": 84,
+  "colors": 13,
+  "black": 0.133,
+  "biggest_patch": 0.225,
+  "theme": "Deep sea",
+  "name": "Starfish",
+  "pack": "ocean2",
+  "touched": false
  },
- "clownfish-247": {
+ "clownfish-237": {
   "guess": "clownfish",
   "alternatives": [
    "goldfish",
@@ -219,9 +275,16 @@
   ],
   "digest": "8635caa1bab04128",
   "grade": "pass",
-  "score": 78
+  "score": 78,
+  "colors": 14,
+  "black": 0.117,
+  "biggest_patch": 0.226,
+  "theme": "Seaside cliffs",
+  "name": "Clownfish",
+  "pack": "ocean2",
+  "touched": false
  },
- "seal-248": {
+ "seal-238": {
   "guess": "baby seal on the beach",
   "alternatives": [
    "sea lion",
@@ -244,9 +307,16 @@
   ],
   "digest": "023f9aa81838dbb2",
   "grade": "pass",
-  "score": 84
+  "score": 84,
+  "colors": 16,
+  "black": 0.11,
+  "biggest_patch": 0.229,
+  "theme": "Kelp forest",
+  "name": "Seal",
+  "pack": "ocean2",
+  "touched": false
  },
- "stingray-249": {
+ "stingray-239": {
   "guess": "white stingray (manta ray) swimming underwater",
   "alternatives": [
    "ghost",
@@ -267,9 +337,16 @@
   ],
   "digest": "58fd3fd5ce998fbb",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 11,
+  "black": 0.143,
+  "biggest_patch": 0.227,
+  "theme": "Deep sea",
+  "name": "Stingray",
+  "pack": "ocean2",
+  "touched": false
  },
- "humpback-whale-250": {
+ "humpback-whale-240": {
   "guess": "humpback whale",
   "alternatives": [
    "orca",
@@ -291,9 +368,16 @@
   ],
   "digest": "a8580cc5dd514ffd",
   "grade": "pass",
-  "score": 72
+  "score": 72,
+  "colors": 9,
+  "black": 0.17,
+  "biggest_patch": 0.228,
+  "theme": "Seaside cliffs",
+  "name": "Humpback Whale",
+  "pack": "ocean2",
+  "touched": false
  },
- "tropical-fish-251": {
+ "tropical-fish-241": {
   "guess": "clownfish",
   "alternatives": [
    "goldfish",
@@ -316,9 +400,16 @@
   ],
   "digest": "386e3d58aea1919e",
   "grade": "pass",
-  "score": 76
+  "score": 76,
+  "colors": 13,
+  "black": 0.333,
+  "biggest_patch": 0.237,
+  "theme": "Stormy coast",
+  "name": "Tropical Fish",
+  "pack": "ocean2",
+  "touched": false
  },
- "baby-turtle-252": {
+ "baby-turtle-242": {
   "guess": "sea turtle swimming underwater",
   "alternatives": [
    "tortoise",
@@ -341,9 +432,16 @@
   ],
   "digest": "1af045351fc58d08",
   "grade": "pass",
-  "score": 76
+  "score": 76,
+  "colors": 16,
+  "black": 0.074,
+  "biggest_patch": 0.233,
+  "theme": "Deep sea",
+  "name": "Baby Turtle",
+  "pack": "ocean2",
+  "touched": false
  },
- "coral-253": {
+ "coral-243": {
   "guess": "red coral in an orange pot",
   "alternatives": [
    "red dragon with orange belly",
@@ -364,9 +462,16 @@
   ],
   "digest": "4963e7a8a8da28a5",
   "grade": "weak",
-  "score": 62
+  "score": 62,
+  "colors": 13,
+  "black": 0.27,
+  "biggest_patch": 0.199,
+  "theme": "Stormy coast",
+  "name": "Coral",
+  "pack": "ocean2",
+  "touched": false
  },
- "swordfish-254": {
+ "swordfish-244": {
   "guess": "blue marlin (swordfish) leaping",
   "alternatives": [
    "swordfish",
@@ -390,9 +495,16 @@
   ],
   "digest": "4a95977ddebc2da9",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 11,
+  "black": 0.054,
+  "biggest_patch": 0.194,
+  "theme": "Seaside cliffs",
+  "name": "Swordfish",
+  "pack": "ocean2",
+  "touched": false
  },
- "shrimp-255": {
+ "shrimp-245": {
   "guess": "red shrimp on a beach",
   "alternatives": [
    "lobster",
@@ -415,6 +527,13 @@
   ],
   "digest": "d06cc5547d613e5f",
   "grade": "weak",
-  "score": 66
+  "score": 66,
+  "colors": 21,
+  "black": 0.091,
+  "biggest_patch": 0.245,
+  "theme": "Tropical beach",
+  "name": "Shrimp",
+  "pack": "ocean2",
+  "touched": false
  }
 }

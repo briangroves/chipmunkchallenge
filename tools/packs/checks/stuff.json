@@ -1,0 +1,631 @@
+{
+ "hourglass-1022": {
+  "guess": "hourglass",
+  "alternatives": [
+   "sand timer",
+   "egg timer"
+  ],
+  "readability": 5,
+  "features": [
+   "orange top and bottom caps",
+   "glass bulbs with narrow waist",
+   "yellow sand in both halves",
+   "falling sand stream",
+   "dark outline"
+  ],
+  "problems": [
+   "busy striped background with blue band behind the glass",
+   "white glass blends slightly with light gray bricks"
+  ],
+  "digest": "219157ddcda115fc",
+  "grade": "pass",
+  "score": 80,
+  "colors": 14,
+  "black": 0.237,
+  "biggest_patch": 0.176,
+  "theme": "Stormy coast",
+  "name": "Hourglass",
+  "pack": "stuff",
+  "touched": false
+ },
+ "bucket-1023": {
+  "guess": "bucket of purple paint",
+  "alternatives": [
+   "cauldron with potion",
+   "grey cooking pot"
+  ],
+  "readability": 2,
+  "features": [
+   "dark outlined container shape",
+   "grey metal body with highlights",
+   "purple liquid at top",
+   "purple drips running down the side"
+  ],
+  "problems": [
+   "no clear handle or rim shape",
+   "object is a blocky square that reads as a box",
+   "dark outline blends with night sky",
+   "purple spill looks like abstract blobs",
+   "grey patches look patchy and unclear"
+  ],
+  "digest": "d2ba43e8c3347cbc",
+  "grade": "weak",
+  "score": 62,
+  "colors": 13,
+  "black": 0.325,
+  "biggest_patch": 0.151,
+  "theme": "Desert night",
+  "name": "Bucket",
+  "pack": "stuff",
+  "touched": false
+ },
+ "basket-1024": {
+  "guess": "Easter chicks with a basket of eggs",
+  "alternatives": [
+   "yellow birds in a nest",
+   "chicks around a bowl of fruit"
+  ],
+  "readability": 3,
+  "features": [
+   "three yellow chick heads",
+   "dark eyes",
+   "orange beaks",
+   "brown basket handle",
+   "red basket",
+   "colored eggs (red, green, pink)",
+   "grass",
+   "sun and sunset sky"
+  ],
+  "problems": [
+   "chicks blend together into one yellow mass",
+   "faces are crowded and hard to separate",
+   "eggs are blobby and merge with each other",
+   "basket shape is vague",
+   "busy background colors compete with subject"
+  ],
+  "digest": "ddd3e203ee05ffb0",
+  "grade": "pass",
+  "score": 76,
+  "colors": 20,
+  "black": 0.131,
+  "biggest_patch": 0.091,
+  "theme": "Mountain sunset",
+  "name": "Basket",
+  "pack": "stuff",
+  "touched": false
+ },
+ "teddy-1025": {
+  "guess": "teddy bear",
+  "alternatives": [
+   "koala",
+   "puppy"
+  ],
+  "readability": 3,
+  "features": [
+   "round tan head",
+   "two ears with lighter inner parts",
+   "two dark eyes",
+   "white muzzle with dark nose",
+   "white belly patch",
+   "brown body",
+   "white feet/paws",
+   "arm raised"
+  ],
+  "problems": [
+   "face is small and off-center, eyes far apart and uneven",
+   "body shape is blobby and merges with the head",
+   "brown body blends with dark green grass shadows",
+   "ears look jagged and irregular",
+   "pose is hard to read (sitting vs walking)"
+  ],
+  "digest": "1d064212f652d8db",
+  "grade": "pass",
+  "score": 88,
+  "colors": 19,
+  "black": 0.076,
+  "biggest_patch": 0.159,
+  "theme": "Sunflower farm",
+  "name": "Teddy",
+  "pack": "stuff",
+  "touched": false
+ },
+ "blanket-1026": {
+  "guess": "bed with blue blanket",
+  "alternatives": [
+   "hammock",
+   "flying carpet"
+  ],
+  "readability": 3,
+  "features": [
+   "blue blanket",
+   "white sheet",
+   "grey pillow",
+   "dark outline",
+   "bedroom wall with window",
+   "patterned rug on floor"
+  ],
+  "problems": [
+   "bed is tilted at an odd angle",
+   "no visible bed frame or legs",
+   "shape looks like a floating cloth",
+   "pillow is small and hard to spot"
+  ],
+  "digest": "318c544f5461f0c6",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.051,
+  "biggest_patch": 0.127,
+  "theme": "Cabin",
+  "name": "Blanket",
+  "pack": "stuff",
+  "touched": false
+ },
+ "toothbrush-1027": {
+  "guess": "cute tooth character with toothbrush",
+  "alternatives": [
+   "tooth wearing a blue hat at night",
+   "ghost holding a torch"
+  ],
+  "readability": 4,
+  "features": [
+   "white molar shape with two roots",
+   "face with eyes, pink blush cheeks, small mouth",
+   "blue cap/toothpaste on top",
+   "yellow-orange toothbrush on left",
+   "night sky with moon and stars",
+   "city buildings background"
+  ],
+  "problems": [
+   "toothbrush is thin and could look like a torch or wand",
+   "busy city background competes with subject",
+   "blue top could be read as hat rather than toothpaste",
+   "dark outline merges with dark roots area"
+  ],
+  "digest": "1d61c403400ad3e8",
+  "grade": "pass",
+  "score": 86,
+  "colors": 15,
+  "black": 0.307,
+  "biggest_patch": 0.176,
+  "theme": "City night",
+  "name": "Toothbrush",
+  "pack": "stuff",
+  "touched": false
+ },
+ "toothpaste-1028": {
+  "guess": "smiling tooth with toothpaste tube",
+  "alternatives": [
+   "tooth character with toothbrush",
+   "marshmallow creature"
+  ],
+  "readability": 4,
+  "features": [
+   "white molar-shaped body with two roots",
+   "blue eyes with eyelashes",
+   "red smiling mouth",
+   "toothpaste tube in red, white and blue beside it",
+   "red toothpaste squiggle",
+   "birds in sky",
+   "grass background"
+  ],
+  "problems": [
+   "the tube on the left is cramped and hard to read",
+   "red smears on the tooth look like blood",
+   "grass and white speckles make the edges busy"
+  ],
+  "digest": "70268827d9baf3bf",
+  "grade": "pass",
+  "score": 82,
+  "colors": 13,
+  "black": 0.088,
+  "biggest_patch": 0.159,
+  "theme": "Misty pines",
+  "name": "Toothpaste",
+  "pack": "stuff",
+  "touched": false
+ },
+ "sewing-machine-1029": {
+  "guess": "sewing machine",
+  "alternatives": [
+   "white boat or ferry",
+   "white tow truck"
+  ],
+  "readability": 3,
+  "features": [
+   "white C-shaped body with open arm gap",
+   "top arm with small dark slots",
+   "needle area on left with thread",
+   "yellow spool or thread pin on top",
+   "flat base"
+  ],
+  "problems": [
+   "green landscape shows through the arm gap and looks like a background scene",
+   "no clear needle, presser foot, or handwheel",
+   "rain and grass setting doesn't suggest sewing",
+   "the shape could read as a boat or building"
+  ],
+  "digest": "611e08f574d45434",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.269,
+  "biggest_patch": 0.191,
+  "theme": "Rainy day",
+  "name": "Sewing Machine",
+  "pack": "stuff",
+  "touched": false
+ },
+ "calendar-1030": {
+  "guess": "wall calendar showing 31",
+  "alternatives": [
+   "tear-off calendar page",
+   "date sign on a brick wall"
+  ],
+  "readability": 5,
+  "features": [
+   "red calendar header",
+   "white page with large black number 31",
+   "metal binder rings at top",
+   "tan/brown frame border",
+   "brick wall background",
+   "checkered floor"
+  ],
+  "problems": [
+   "red header blends slightly with the red brick wall",
+   "ragged white-red edge in header looks a bit messy",
+   "grey shading on page near the 1 is slightly noisy"
+  ],
+  "digest": "e30a7dda7a6106e2",
+  "grade": "pass",
+  "score": 80,
+  "colors": 10,
+  "black": 0.132,
+  "biggest_patch": 0.136,
+  "theme": "Brick cellar",
+  "name": "Calendar",
+  "pack": "stuff",
+  "touched": false
+ },
+ "clipboard-1031": {
+  "guess": "clipboard with paper",
+  "alternatives": [
+   "notepad",
+   "document / checklist"
+  ],
+  "readability": 4,
+  "features": [
+   "brown board",
+   "grey metal clip at top",
+   "white paper sheet",
+   "grey text lines",
+   "curled page corner at bottom right",
+   "orange edge on left"
+  ],
+  "problems": [
+   "orange strip on left is unclear (could read as a folder or notebook spine)",
+   "bottom right corner of board has odd dark/green notch",
+   "clip is blocky and slightly irregular",
+   "abstract concept for young kids"
+  ],
+  "digest": "685901f796de1ff2",
+  "grade": "pass",
+  "score": 74,
+  "colors": 19,
+  "black": 0.052,
+  "biggest_patch": 0.158,
+  "theme": "Orchard",
+  "name": "Clipboard",
+  "pack": "stuff",
+  "touched": false
+ },
+ "folder-1032": {
+  "guess": "yellow file folder",
+  "alternatives": [
+   "envelope",
+   "open box"
+  ],
+  "readability": 4,
+  "features": [
+   "back tab of folder in beige",
+   "white paper sticking out",
+   "yellow front flap",
+   "orange shading at bottom right",
+   "dark outline"
+  ],
+  "problems": [
+   "folder is an abstract computer icon some kids may not know",
+   "beige back part could read as bread or a hat",
+   "fills almost whole frame so little context"
+  ],
+  "digest": "f8180c8dccc0d6b2",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.09,
+  "biggest_patch": 0.349,
+  "theme": "Pine forest",
+  "name": "Folder",
+  "pack": "stuff",
+  "touched": false
+ },
+ "suitcase-1033": {
+  "guess": "blue bird-shaped suitcase",
+  "alternatives": [
+   "blue bird",
+   "fish in a tank"
+  ],
+  "readability": 3,
+  "features": [
+   "rounded rectangular body",
+   "handle on top",
+   "eye with white highlight and red mark",
+   "orange beak",
+   "dark blue shading at bottom",
+   "sun and birds in background"
+  ],
+  "problems": [
+   "subject is ambiguous between suitcase and bird",
+   "no legs, wings or tail for the bird",
+   "handle and beak conflict in meaning",
+   "dark shading makes the lower half look like a separate shape"
+  ],
+  "digest": "6e8ce49bbef56674",
+  "grade": "pass",
+  "score": 76,
+  "colors": 14,
+  "black": 0.048,
+  "biggest_patch": 0.24,
+  "theme": "Golden wheat",
+  "name": "Suitcase",
+  "pack": "stuff",
+  "touched": false
+ },
+ "map-pin-1034": {
+  "guess": "red map location pin",
+  "alternatives": [
+   "red balloon",
+   "red teardrop"
+  ],
+  "readability": 4,
+  "features": [
+   "teardrop pin shape",
+   "round dark hole in center",
+   "pointed bottom tip",
+   "pink highlight on left",
+   "dark red shading on right"
+  ],
+  "problems": [
+   "dark hole could read as an eye or mouth",
+   "snowy night background with mountains and moon is busy and unrelated",
+   "small snowman-like detail at bottom right distracts",
+   "pin symbol is abstract for young children"
+  ],
+  "digest": "48d3fad861eb23b4",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.209,
+  "biggest_patch": 0.151,
+  "theme": "Winter night",
+  "name": "Map Pin",
+  "pack": "stuff",
+  "touched": false
+ },
+ "flag-pole-1035": {
+  "guess": "beach flag on a pole",
+  "alternatives": [
+   "parrot on a perch",
+   "toucan"
+  ],
+  "readability": 3,
+  "features": [
+   "black pole stuck in sand",
+   "red and yellow checkered flag",
+   "beach with sand, sea, sun, palm trees and clouds"
+  ],
+  "problems": [
+   "flag pattern is blocky and could read as a bird",
+   "flag shape is irregular with a dark blue piece at the bottom",
+   "palm trees and clouds overlap the subject and add clutter"
+  ],
+  "digest": "26649a87aaf85302",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.038,
+  "biggest_patch": 0.296,
+  "theme": "Tropical beach",
+  "name": "Flag Pole",
+  "pack": "stuff",
+  "touched": false
+ },
+ "megaphone-1036": {
+  "guess": "megaphone",
+  "alternatives": [
+   "loudspeaker / bullhorn",
+   "trumpet horn"
+  ],
+  "readability": 3,
+  "features": [
+   "red cone-shaped back end",
+   "wide white flared bell opening",
+   "white handle underneath",
+   "dark outline"
+  ],
+  "problems": [
+   "white bell blends with white clouds and grey mountains behind it",
+   "handle shape is chunky and unclear",
+   "blue river under it confuses the shape",
+   "no buttons or grip detail to confirm it's a megaphone"
+  ],
+  "digest": "a4ba3e5271ef7b7c",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.072,
+  "biggest_patch": 0.163,
+  "theme": "Waterfall",
+  "name": "Megaphone",
+  "pack": "stuff",
+  "touched": false
+ },
+ "red-bell-pepper-1037": {
+  "guess": "red bell pepper",
+  "alternatives": [
+   "red apple",
+   "tomato"
+  ],
+  "readability": 4,
+  "features": [
+   "green stem on top",
+   "glossy red body with pink/white highlights",
+   "lobed bumpy shape",
+   "dark outline",
+   "shadow at base on grass"
+  ],
+  "problems": [
+   "lumpy shape could read as apple or tomato",
+   "white highlights at bottom look odd",
+   "darker red shading is a bit blotchy"
+  ],
+  "digest": "92d386e7b87f7f97",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.042,
+  "biggest_patch": 0.187,
+  "theme": "Rose garden",
+  "name": "Red Bell Pepper",
+  "pack": "stuff",
+  "touched": false
+ },
+ "fan-1038": {
+  "guess": "electric desk fan",
+  "alternatives": [
+   "hand mirror",
+   "trophy"
+  ],
+  "readability": 3,
+  "features": [
+   "round fan head with grille outline",
+   "light blue blades in center",
+   "gray hub",
+   "thin stand/neck",
+   "wide base with purple button"
+  ],
+  "problems": [
+   "blades are blurry and hard to make out as a fan",
+   "shape resembles a mirror or magnifying glass",
+   "odd outdoor sunset background doesn't hint at a fan",
+   "small horn-like bumps at top of head are confusing"
+  ],
+  "digest": "26c1f0613dc77299",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.108,
+  "biggest_patch": 0.162,
+  "theme": "Castle at dusk",
+  "name": "Fan",
+  "pack": "stuff",
+  "touched": false
+ },
+ "radiator-1039": {
+  "guess": "old cast-iron radiator",
+  "alternatives": [
+   "trash can",
+   "rolling suitcase"
+  ],
+  "readability": 2,
+  "features": [
+   "vertical grey fins/columns",
+   "dark iron frame",
+   "white handle-like shape on top",
+   "small feet",
+   "purple patterned rug underneath",
+   "wall and wooden floor"
+  ],
+  "problems": [
+   "white rectangle on top looks like a suitcase handle, confusing",
+   "fins blend into a blobby dark shape",
+   "uneven bottom edge with odd white spots",
+   "radiator is not a familiar object for kids"
+  ],
+  "digest": "d3b4d724127214b9",
+  "grade": "weak",
+  "score": 66,
+  "colors": 11,
+  "black": 0.216,
+  "biggest_patch": 0.329,
+  "theme": "Nursery",
+  "name": "Radiator",
+  "pack": "stuff",
+  "touched": false
+ },
+ "bin-1040": {
+  "guess": "recycling bin / trash can with recycle symbol",
+  "alternatives": [
+   "jar of pickles",
+   "compost bucket"
+  ],
+  "readability": 3,
+  "features": [
+   "green lid with handle",
+   "dark outlined bin body",
+   "white/light body with shine",
+   "green recycling arrows symbol",
+   "city skyline and sun background",
+   "brick wall behind"
+  ],
+  "problems": [
+   "recycling symbol is blobby and hard to read",
+   "lid looks lumpy",
+   "bin body colors blend with gray brick wall",
+   "busy background competes with subject"
+  ],
+  "digest": "832f1cf46116efb2",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.085,
+  "biggest_patch": 0.119,
+  "theme": "City dawn",
+  "name": "Bin",
+  "pack": "stuff",
+  "touched": false
+ },
+ "box-1041": {
+  "guess": "cartoon boxer with red boxing gloves",
+  "alternatives": [
+   "white bird boxing (penguin or goose)",
+   "cartoon dog in boxing gear"
+  ],
+  "readability": 3,
+  "features": [
+   "red boxing gloves",
+   "blue shorts",
+   "red shoes",
+   "brown hair or cap",
+   "white body with black outline",
+   "eye area on the head",
+   "punch action effect near the left glove"
+  ],
+  "problems": [
+   "the face is unclear and there is no readable eye or mouth",
+   "the head shape is odd, so it is hard to tell if it is a person or an animal",
+   "the arms blend into the white body",
+   "the pose is awkward and slightly blobby"
+  ],
+  "digest": "a6654ee793fe5da8",
+  "grade": "pass",
+  "score": 76,
+  "colors": 18,
+  "black": 0.061,
+  "biggest_patch": 0.193,
+  "theme": "Red barn",
+  "name": "Box",
+  "pack": "stuff",
+  "touched": false
+ }
+}

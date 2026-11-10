@@ -1,0 +1,698 @@
+{
+ "cupcake-334": {
+  "guess": "cupcake with white frosting",
+  "alternatives": [
+   "muffin",
+   "ice cream sundae"
+  ],
+  "readability": 4,
+  "features": [
+   "white frosting top with chocolate chips",
+   "tan cake/muffin body",
+   "white and grey striped paper wrapper",
+   "small chocolate piece on top",
+   "night city background with moon and stars"
+  ],
+  "problems": [
+   "busy city background with lit windows competes with the subject",
+   "grey wrapper blends somewhat with grey buildings and ground",
+   "frosting is blobby and lacks a clear swirl shape"
+  ],
+  "digest": "5a95a1be2aa542a0",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.184,
+  "biggest_patch": 0.149,
+  "theme": "City night",
+  "name": "Cupcake",
+  "pack": "sweets",
+  "touched": false
+ },
+ "donut-335": {
+  "guess": "chocolate glazed donut on a plate",
+  "alternatives": [
+   "donut with orange glaze at night",
+   "cake roll slice"
+  ],
+  "readability": 3,
+  "features": [
+   "round ring shape with center hole",
+   "dark red/chocolate icing top",
+   "orange dough bottom edge",
+   "white plate rim",
+   "night sky with crescent moon and city buildings"
+  ],
+  "problems": [
+   "dark red color reads ambiguously as chocolate or jam",
+   "plate and donut outlines blend into one big circle",
+   "busy background of buildings and wall",
+   "orange part looks like flames"
+  ],
+  "digest": "0fd2c1f479281b13",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.321,
+  "biggest_patch": 0.181,
+  "theme": "Lantern festival",
+  "name": "Donut",
+  "pack": "sweets",
+  "touched": false
+ },
+ "ice-cream-336": {
+  "guess": "ice cream cone with a face",
+  "alternatives": [
+   "strawberry ice cream character",
+   "pink-haired creature in a cone"
+  ],
+  "readability": 4,
+  "features": [
+   "pink strawberry scoop",
+   "two dark eyes on the scoop",
+   "brown waffle cone with darker chocolate tip",
+   "dark red drip or sauce",
+   "snowy night scene with moon and snowflakes",
+   "tiny snowman face at right edge"
+  ],
+  "problems": [
+   "the face is faint and could read as a mask",
+   "cream-colored top edge of the cone blends with the white snowy background",
+   "small snowman at the edge is cut off and confusing"
+  ],
+  "digest": "ed4fc07f96fc2bb4",
+  "grade": "pass",
+  "score": 82,
+  "colors": 16,
+  "black": 0.199,
+  "biggest_patch": 0.154,
+  "theme": "Winter night",
+  "name": "Ice Cream",
+  "pack": "sweets",
+  "touched": false
+ },
+ "lollipop-337": {
+  "guess": "smiling lollipop",
+  "alternatives": [
+   "sunflower with a face",
+   "balloon on a stick"
+  ],
+  "readability": 4,
+  "features": [
+   "round swirled candy head in yellow, orange and pink",
+   "two dark eyes",
+   "pink smile",
+   "red wrapper or knot at the base",
+   "white stick",
+   "grassy field, mountains and sunset behind"
+  ],
+  "problems": [
+   "orange candy blends into the orange sunset sky",
+   "the swirl pattern is hard to read at this size",
+   "the face is subtle and small",
+   "the stick is thin and could pass for a flower stem"
+  ],
+  "digest": "06fba95e9b8396a2",
+  "grade": "pass",
+  "score": 78,
+  "colors": 18,
+  "black": 0.108,
+  "biggest_patch": 0.164,
+  "theme": "Mountain sunset",
+  "name": "Lollipop",
+  "pack": "sweets",
+  "touched": false
+ },
+ "candy-338": {
+  "guess": "cotton candy on a stick",
+  "alternatives": [
+   "ice cream popsicle",
+   "lollipop"
+  ],
+  "readability": 3,
+  "features": [
+   "fluffy white and pink cloud-like top",
+   "pink swirls",
+   "white stick",
+   "pink rim at base of fluff",
+   "window and wooden wall background",
+   "purple striped rug"
+  ],
+  "problems": [
+   "fluffy shape could read as a cloud or ghost",
+   "white blob lacks distinctive detail",
+   "stick is thick and short, like a popsicle handle",
+   "window behind overlaps the shape"
+  ],
+  "digest": "052848aa3dee567e",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.043,
+  "biggest_patch": 0.21,
+  "theme": "Cabin",
+  "name": "Candy",
+  "pack": "sweets",
+  "touched": false
+ },
+ "birthday-cake-339": {
+  "guess": "strawberry cream cake",
+  "alternatives": [
+   "fruit parfait",
+   "strawberry dessert bowl"
+  ],
+  "readability": 3,
+  "features": [
+   "red strawberries on top",
+   "white whipped cream",
+   "purple wafer/candle sticks",
+   "dark bowl or plate rim",
+   "orange/yellow base edge",
+   "brown crumbly cake layer"
+  ],
+  "problems": [
+   "busy city background competes with subject",
+   "dark outline makes it look like a bowl or monster mouth",
+   "dark red center reads like an open mouth",
+   "shape is a blob without clear cake layers"
+  ],
+  "digest": "a7e948473bef7c41",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.094,
+  "biggest_patch": 0.201,
+  "theme": "City dawn",
+  "name": "Birthday Cake",
+  "pack": "sweets",
+  "touched": false
+ },
+ "cookie-340": {
+  "guess": "chocolate chip cookie",
+  "alternatives": [
+   "donut",
+   "rock or boulder"
+  ],
+  "readability": 3,
+  "features": [
+   "round tan disc with dark outline",
+   "brown chocolate-chip-like spots",
+   "hole or dark spot near center",
+   "bite-like bumpy edge"
+  ],
+  "problems": [
+   "central hole makes it look like a donut",
+   "irregular lumpy outline",
+   "no clear context for food in a meadow scene",
+   "brown patches could read as rock or dirt"
+  ],
+  "digest": "c3c0505e2df3f1d8",
+  "grade": "pass",
+  "score": 72,
+  "colors": 18,
+  "black": 0.11,
+  "biggest_patch": 0.169,
+  "theme": "Castle hill",
+  "name": "Cookie",
+  "pack": "sweets",
+  "touched": false
+ },
+ "popsicle-341": {
+  "guess": "popsicles melting in the desert heat",
+  "alternatives": [
+   "ice lollies on sticks",
+   "colorful tombstones"
+  ],
+  "readability": 4,
+  "features": [
+   "four rounded popsicle shapes (black, pink, dark red, green)",
+   "wooden sticks at the bottom",
+   "white/yellow highlight edges",
+   "darker shading drips on pink and green",
+   "hot sun in the sky",
+   "birds",
+   "cacti behind",
+   "orange hot sand/lava ground"
+  ],
+  "problems": [
+   "black and dark red popsicles lack highlights and look like blobs",
+   "dark red popsicle blends with the red ground",
+   "sticks partly hidden by the orange ground pattern",
+   "cacti behind them could be confused with leaves on top"
+  ],
+  "digest": "954268a60765390c",
+  "grade": "pass",
+  "score": 74,
+  "colors": 21,
+  "black": 0.151,
+  "biggest_patch": 0.23,
+  "theme": "Cactus canyon",
+  "name": "Popsicle",
+  "pack": "sweets",
+  "touched": false
+ },
+ "pudding-342": {
+  "guess": "Christmas pudding",
+  "alternatives": [
+   "cake with cherry sauce",
+   "strawberry panna cotta"
+  ],
+  "readability": 3,
+  "features": [
+   "dome-shaped white pudding",
+   "dark red sauce dripping down the top",
+   "red cherry or holly berry on top",
+   "dark dots like raisins",
+   "blue plate edge at the bottom"
+  ],
+  "problems": [
+   "no green holly leaves, so the Christmas link is weak",
+   "white body blends with the white and grey background stripes",
+   "the side shading is lumpy and makes the outline hard to read",
+   "stray black specks in the sky are distracting"
+  ],
+  "digest": "48949c0b619fac15",
+  "grade": "pass",
+  "score": 68,
+  "colors": 10,
+  "black": 0.013,
+  "biggest_patch": 0.286,
+  "theme": "Overcast moor",
+  "name": "Pudding",
+  "pack": "sweets",
+  "touched": false
+ },
+ "pancakes-343": {
+  "guess": "stack of pancakes with whipped cream and strawberry syrup",
+  "alternatives": [
+   "layered cake",
+   "burger"
+  ],
+  "readability": 4,
+  "features": [
+   "stacked pancake layers in tan and orange",
+   "white whipped cream on top",
+   "red syrup dripping down the side",
+   "pink strawberry topping",
+   "dark plate underneath",
+   "night city skyline with moon in background"
+  ],
+  "problems": [
+   "orange top and edges blend with tan layers",
+   "dark outline merges with dark background buildings",
+   "syrup drip reads a bit like a red stripe",
+   "busy city background distracts from subject"
+  ],
+  "digest": "0515dbfeb87603fe",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.234,
+  "biggest_patch": 0.152,
+  "theme": "City night",
+  "name": "Pancakes",
+  "pack": "sweets",
+  "touched": false
+ },
+ "muffin-344": {
+  "guess": "muffin monster / cupcake with angry face",
+  "alternatives": [
+   "pot of chocolate pudding with a lid",
+   "haunted cupcake in a wrapper"
+  ],
+  "readability": 3,
+  "features": [
+   "cupcake top with tan and brown frosting",
+   "dark swirl/stem on top",
+   "red angry eyes",
+   "white and brown striped wrapper base",
+   "shelf with pink and yellow items in background"
+  ],
+  "problems": [
+   "red eyes are small and blend with brick wall colors",
+   "face is hard to read in the frosting",
+   "dark outline swirl looks odd",
+   "busy brick and checkered background competes with subject"
+  ],
+  "digest": "b155f37e491aa685",
+  "grade": "pass",
+  "score": 72,
+  "colors": 9,
+  "black": 0.136,
+  "biggest_patch": 0.194,
+  "theme": "Brick cellar",
+  "name": "Muffin",
+  "pack": "sweets",
+  "touched": false
+ },
+ "gingerbread-man-345": {
+  "guess": "gingerbread man",
+  "alternatives": [
+   "teddy bear",
+   "brown cookie monster"
+  ],
+  "readability": 4,
+  "features": [
+   "round head",
+   "two dark eyes",
+   "mouth",
+   "red bow tie",
+   "outstretched arms",
+   "two legs",
+   "bite mark on head",
+   "dark outline"
+  ],
+  "problems": [
+   "bite/light patch on head is small and unclear",
+   "face is minimal with tiny eyes",
+   "dark shading on right side makes body look uneven",
+   "green background somewhat busy"
+  ],
+  "digest": "c342d8d72f7def1f",
+  "grade": "pass",
+  "score": 86,
+  "colors": 13,
+  "black": 0.105,
+  "biggest_patch": 0.159,
+  "theme": "Pine forest",
+  "name": "Gingerbread Man",
+  "pack": "sweets",
+  "touched": false
+ },
+ "candy-cane-346": {
+  "guess": "candy cane",
+  "alternatives": [
+   "walking cane",
+   "striped umbrella handle"
+  ],
+  "readability": 5,
+  "features": [
+   "hooked top",
+   "long straight shaft",
+   "red and white diagonal stripes",
+   "dark outline",
+   "shadow on the right side"
+  ],
+  "problems": [
+   "busy striped background competes slightly with the subject",
+   "grey shading on the white stripes makes them look a bit dull"
+  ],
+  "digest": "3b278b7a6e2fdad0",
+  "grade": "pass",
+  "score": 80,
+  "colors": 10,
+  "black": 0.054,
+  "biggest_patch": 0.108,
+  "theme": "Golden wheat",
+  "name": "Candy Cane",
+  "pack": "sweets",
+  "touched": false
+ },
+ "jelly-347": {
+  "guess": "giant red jelly blob monster in a city at night",
+  "alternatives": [
+   "red jelly dessert",
+   "brain"
+  ],
+  "readability": 2,
+  "features": [
+   "large dome-shaped red body",
+   "pink highlight streaks",
+   "dark red outline",
+   "night sky with moon and stars",
+   "city buildings with lit windows",
+   "small orange feet or flames at the base"
+  ],
+  "problems": [
+   "no face or eyes to show it is a creature",
+   "shape is a blobby dome with no clear features",
+   "the pink streaks look like brain folds or jelly ridges, which makes it ambiguous",
+   "it fills most of the frame, so its scale is unclear"
+  ],
+  "digest": "343fd181c27032ed",
+  "grade": "weak",
+  "score": 66,
+  "colors": 13,
+  "black": 0.257,
+  "biggest_patch": 0.204,
+  "theme": "Lantern festival",
+  "name": "Jelly",
+  "pack": "sweets",
+  "touched": false
+ },
+ "strawberry-cake-348": {
+  "guess": "cupcake card with a cherry on top",
+  "alternatives": [
+   "strawberry cake slice",
+   "ice cream sundae"
+  ],
+  "readability": 3,
+  "features": [
+   "white card/frame with dark border",
+   "red cherry with green stem on top",
+   "dark red chocolate/jam topping",
+   "pink frosting",
+   "orange and yellow striped cupcake wrapper"
+  ],
+  "problems": [
+   "cherry floats separately above the cake",
+   "dark red top layer is jagged and unclear",
+   "wrapper colors look like flames",
+   "cake fills only part of the card, background scene competes"
+  ],
+  "digest": "cd82ff80f9c2ff1d",
+  "grade": "pass",
+  "score": 68,
+  "colors": 20,
+  "black": 0.062,
+  "biggest_patch": 0.14,
+  "theme": "Waterfall",
+  "name": "Strawberry Cake",
+  "pack": "sweets",
+  "touched": false
+ },
+ "chocolate-cake-349": {
+  "guess": "chocolate birthday cake with a candle",
+  "alternatives": [
+   "brownie with a candle",
+   "pie on a plate"
+  ],
+  "readability": 3,
+  "features": [
+   "brown cake body",
+   "single yellow-orange candle with flame on top",
+   "white plate underneath",
+   "orange fruit/decoration pieces on the side",
+   "purple bow or flower and blue decoration on top",
+   "tan frosting edge"
+  ],
+  "problems": [
+   "candle flame and candle blend together as one yellow shape",
+   "cake is a blobby square without clear layers or frosting",
+   "orange spots look random rather than like decorations",
+   "top decorations are small and unclear"
+  ],
+  "digest": "4d9d163d85f0caf3",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.051,
+  "biggest_patch": 0.233,
+  "theme": "Rose garden",
+  "name": "Chocolate Cake",
+  "pack": "sweets",
+  "touched": false
+ },
+ "pie-slice-350": {
+  "guess": "slice of pie or cake",
+  "alternatives": [
+   "slice of cheese",
+   "sandwich wedge"
+  ],
+  "readability": 2,
+  "features": [
+   "triangular wedge shape",
+   "tan/beige filling",
+   "dark crust-like top edge",
+   "red/dark red drips like jam or sauce",
+   "small red cherry-like dot"
+  ],
+  "problems": [
+   "wedge shape is irregular and tilted",
+   "red drips blend into pink striped background",
+   "no clear crust or layers to identify food type",
+   "outline is uneven and blobby"
+  ],
+  "digest": "c155dca4dfa0c619",
+  "grade": "weak",
+  "score": 62,
+  "colors": 15,
+  "black": 0.046,
+  "biggest_patch": 0.161,
+  "theme": "Tulip fields",
+  "name": "Pie Slice",
+  "pack": "sweets",
+  "touched": false
+ },
+ "corn-dog-351": {
+  "guess": "corn dog on a stick",
+  "alternatives": [
+   "hot dog with ketchup and mustard",
+   "popsicle"
+  ],
+  "readability": 4,
+  "features": [
+   "tan breaded sausage body",
+   "red ketchup zigzag",
+   "yellow mustard dots",
+   "dark outline",
+   "wooden stick handle",
+   "snowy background with trees"
+  ],
+  "problems": [
+   "ketchup covers so much it could read as a hot dog or popsicle",
+   "stick is dark and blends with outline",
+   "small stray black-orange pixels in snow are distracting",
+   "no clear bun vs sausage distinction"
+  ],
+  "digest": "da007f28b8b7c026",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.05,
+  "biggest_patch": 0.176,
+  "theme": "Snowy pines",
+  "name": "Corn Dog",
+  "pack": "sweets",
+  "touched": false
+ },
+ "cheese-pizza-352": {
+  "guess": "slice of pizza",
+  "alternatives": [
+   "cheese wedge",
+   "nacho chip"
+  ],
+  "readability": 3,
+  "features": [
+   "triangular slice shape",
+   "yellow melted cheese",
+   "red tomato sauce spots",
+   "brown crust edge",
+   "orange baked area",
+   "dark face-like marks on top"
+  ],
+  "problems": [
+   "slice lies on its side so the triangle reads oddly",
+   "dark marks look like a face or holes and confuse the subject",
+   "busy gray brick and blue stripe background competes with the slice",
+   "crust blends into dark background on the right"
+  ],
+  "digest": "f990db46510b295b",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.254,
+  "biggest_patch": 0.239,
+  "theme": "Stormy coast",
+  "name": "Cheese Pizza",
+  "pack": "sweets",
+  "touched": false
+ },
+ "onigiri-353": {
+  "guess": "three onigiri rice balls on a grassy hill",
+  "alternatives": [
+   "picnic snacks in a meadow",
+   "castle ruins landscape with rice balls"
+  ],
+  "readability": 4,
+  "features": [
+   "three white triangular rice balls with dark outlines",
+   "black seaweed wrap on left onigiri",
+   "green filling/wrap on middle onigiri",
+   "red umeboshi on right onigiri",
+   "grassy hill with flowers",
+   "castle ruins in background",
+   "clouds and blue sky",
+   "bird in sky"
+  ],
+  "problems": [
+   "rice balls cut off at the bottom edge",
+   "small tan blobs on sides are ambiguous",
+   "middle onigiri's green band blends with grass",
+   "background scenery competes for attention"
+  ],
+  "digest": "02c352f19b876bd3",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.074,
+  "biggest_patch": 0.195,
+  "theme": "Castle hill",
+  "name": "Onigiri",
+  "pack": "sweets",
+  "touched": false
+ },
+ "mochi-354": {
+  "guess": "kagami mochi (white rice cake topped with orange)",
+  "alternatives": [
+   "snow-capped green birdhouse",
+   "ice cream on a green cup"
+  ],
+  "readability": 2,
+  "features": [
+   "white rounded dome",
+   "small orange fruit on top with green leaf",
+   "green base with dark opening",
+   "night sky with crescent moon and stars",
+   "cacti and wooden fence background"
+  ],
+  "problems": [
+   "unusual combination of white dome on green base is hard to identify",
+   "dark hole in green base makes it look like a birdhouse",
+   "subject not familiar to many children",
+   "shape is blobby and ambiguous"
+  ],
+  "digest": "295a3358edca16ba",
+  "grade": "weak",
+  "score": 62,
+  "colors": 14,
+  "black": 0.219,
+  "biggest_patch": 0.264,
+  "theme": "Desert night",
+  "name": "Mochi",
+  "pack": "sweets",
+  "touched": false
+ },
+ "waffle-cone-355": {
+  "guess": "strawberry ice cream cone",
+  "alternatives": [
+   "pink mushroom",
+   "ice cream with cherry sauce"
+  ],
+  "readability": 3,
+  "features": [
+   "pink scoop on top",
+   "tan/brown cone shape tapering down",
+   "dark outline around the scoop",
+   "red drip on the cone",
+   "white highlight edges"
+  ],
+  "problems": [
+   "cone is brown and mottled, looks like a stick or rock rather than a waffle cone",
+   "cone tip blends into the dark green grass",
+   "no waffle pattern",
+   "busy sunset, mountain and grass background competes with the subject",
+   "the scoop's pink matches the pink sky band"
+  ],
+  "digest": "ff93152fd45e1920",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.084,
+  "biggest_patch": 0.148,
+  "theme": "Mountain sunset",
+  "name": "Waffle Cone",
+  "pack": "sweets",
+  "touched": false
+ }
+}

@@ -1,0 +1,466 @@
+{
+ "button-858": {
+  "guess": "red button with white writing",
+  "alternatives": [
+   "red rock or meteorite with white marks",
+   "red slime blob"
+  ],
+  "readability": 2,
+  "features": [
+   "large red dome shape",
+   "white squiggly marks like letters on top",
+   "pink highlight at top left",
+   "darker red shading at bottom right",
+   "gray stone rim or base around it",
+   "night sky with moon and stars",
+   "grass, trees and water around it"
+  ],
+  "problems": [
+   "white marks are unclear and don't read as clear letters or a face",
+   "no clear details that say what the red object is",
+   "flat blobby shape without a recognizable outline",
+   "gray rim looks like rocks, making it unclear if it is a button, a rock, or a creature"
+  ],
+  "digest": "9afd9f82d8d14824",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.23,
+  "biggest_patch": 0.189,
+  "theme": "Moonlit pond",
+  "name": "Button",
+  "pack": "tiny",
+  "touched": false
+ },
+ "paper-boat-859": {
+  "guess": "sailboat",
+  "alternatives": [
+   "toy boat",
+   "yacht"
+  ],
+  "readability": 5,
+  "features": [
+   "blue hull",
+   "purple sail",
+   "white sail",
+   "mast",
+   "red flag",
+   "dark outline",
+   "birds in sky",
+   "pine trees",
+   "sunset sky"
+  ],
+  "problems": [
+   "boat sits on grass instead of water",
+   "green grass background can make the scene a bit busy",
+   "purple sail has patchy shading"
+  ],
+  "digest": "cc867d28ebceeb5d",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.046,
+  "biggest_patch": 0.147,
+  "theme": "Bamboo grove",
+  "name": "Paper Boat",
+  "pack": "tiny",
+  "touched": false
+ },
+ "origami-crane-860": {
+  "guess": "origami paper crane",
+  "alternatives": [
+   "white bird flying",
+   "paper airplane"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed folded wing rising up",
+   "long thin neck on left",
+   "head/beak tip on right",
+   "tail point",
+   "pointed bottom body"
+  ],
+  "problems": [
+   "no face or eyes",
+   "angular folded shape hard to read as a bird",
+   "head and tail look alike",
+   "white body blends slightly with clouds and light sky"
+  ],
+  "digest": "0f6cb6497bb6cf79",
+  "grade": "pass",
+  "score": 80,
+  "colors": 15,
+  "black": 0.066,
+  "biggest_patch": 0.197,
+  "theme": "Sunflower farm",
+  "name": "Origami Crane",
+  "pack": "tiny",
+  "touched": false
+ },
+ "bonsai-tree-861": {
+  "guess": "tree at sunset",
+  "alternatives": [
+   "bonsai tree",
+   "oak tree on a hill"
+  ],
+  "readability": 3,
+  "features": [
+   "brown trunk with spreading roots",
+   "wide canopy",
+   "sun in the sky",
+   "sunset stripes of purple, pink and orange",
+   "grass meadow with small flowers"
+  ],
+  "problems": [
+   "canopy is mostly gray with black outlines, so it reads like rocks or storm clouds instead of leaves",
+   "green leaves blend into the green grass",
+   "busy black outlines make the crown look cluttered"
+  ],
+  "digest": "ae313737465ff419",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.106,
+  "biggest_patch": 0.098,
+  "theme": "Sunset meadow",
+  "name": "Bonsai Tree",
+  "pack": "tiny",
+  "touched": false
+ },
+ "feather-862": {
+  "guess": "feather",
+  "alternatives": [
+   "skunk tail",
+   "white leaf or corn husk"
+  ],
+  "readability": 2,
+  "features": [
+   "tall pointed white shape with gray shading",
+   "black outline along edges",
+   "narrow stem-like base at bottom",
+   "farm background with barn, fields, pumpkins, sun, birds"
+  ],
+  "problems": [
+   "no face, eyes, legs or other animal features",
+   "subject is an abstract elongated blob",
+   "black and white pattern could suggest a skunk but has no body",
+   "doesn't clearly fit the farm scene, so context doesn't help identify it"
+  ],
+  "digest": "d98a7ae6e27b0e6b",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.066,
+  "biggest_patch": 0.122,
+  "theme": "Harvest farm",
+  "name": "Feather",
+  "pack": "tiny",
+  "touched": false
+ },
+ "four-leaf-clover-863": {
+  "guess": "four-leaf clover",
+  "alternatives": [
+   "shamrock",
+   "green flower"
+  ],
+  "readability": 4,
+  "features": [
+   "four heart-shaped green leaves",
+   "dark outline separating leaves",
+   "short stem at bottom",
+   "lighter green highlights on leaves",
+   "night sky with crescent moon and stars",
+   "grassy field with small torches/flowers"
+  ],
+  "problems": [
+   "clover green is close to the green grass background",
+   "stem is short and hard to see",
+   "leaf divisions are thin, so leaves can merge into one blob"
+  ],
+  "digest": "d79a52576feedb85",
+  "grade": "pass",
+  "score": 78,
+  "colors": 11,
+  "black": 0.304,
+  "biggest_patch": 0.248,
+  "theme": "Starry hilltop",
+  "name": "Four Leaf Clover",
+  "pack": "tiny",
+  "touched": false
+ },
+ "yarn-ball-864": {
+  "guess": "pink planet or ball flying through a mountain landscape",
+  "alternatives": [
+   "pink comet with a trail",
+   "pink blob creature like Kirby"
+  ],
+  "readability": 2,
+  "features": [
+   "large round pink shape with red outline",
+   "white shine highlight",
+   "darker pink shading on lower side",
+   "red/pink trail extending to the right",
+   "mountains, sky with green and blue arcs, grass, water in background"
+  ],
+  "problems": [
+   "no clear face or identifying details on the pink shape",
+   "trail blends with water and grass",
+   "busy background competes with subject",
+   "shape is a generic blob, so its purpose is unclear"
+  ],
+  "digest": "712a5ce208cc208d",
+  "grade": "weak",
+  "score": 62,
+  "colors": 15,
+  "black": 0.299,
+  "biggest_patch": 0.122,
+  "theme": "Aurora lake",
+  "name": "Yarn Ball",
+  "pack": "tiny",
+  "touched": false
+ },
+ "safety-pin-865": {
+  "guess": "pink rock arch",
+  "alternatives": [
+   "pink jelly blob / slime",
+   "pink mushroom or ham shape"
+  ],
+  "readability": 2,
+  "features": [
+   "arch shape with opening at bottom",
+   "white highlight on left edge",
+   "darker pink shaded right side",
+   "two blue feet-like bits at the base",
+   "dark outline"
+  ],
+  "problems": [
+   "no face or distinctive details",
+   "blobby shape that could be many things",
+   "opening filled with green blends into the grass background",
+   "unclear what the arch represents"
+  ],
+  "digest": "de456e6f34d3e504",
+  "grade": "weak",
+  "score": 66,
+  "colors": 15,
+  "black": 0.171,
+  "biggest_patch": 0.174,
+  "theme": "Rainy day",
+  "name": "Safety Pin",
+  "pack": "tiny",
+  "touched": false
+ },
+ "lock-866": {
+  "guess": "golden padlock",
+  "alternatives": [
+   "locked treasure chest",
+   "yellow handbag"
+  ],
+  "readability": 5,
+  "features": [
+   "curved dark shackle on top",
+   "yellow-orange lock body",
+   "black keyhole",
+   "shading on right side",
+   "small birds in sky"
+  ],
+  "problems": [
+   "shackle slightly uneven/broken with gray patch",
+   "purple and gray background is busy around the lock bottom",
+   "keyhole shape a bit irregular"
+  ],
+  "digest": "ea9574c79d7fef53",
+  "grade": "pass",
+  "score": 80,
+  "colors": 11,
+  "black": 0.138,
+  "biggest_patch": 0.218,
+  "theme": "Overcast moor",
+  "name": "Lock",
+  "pack": "tiny",
+  "touched": false
+ },
+ "coin-867": {
+  "guess": "gold coin with 500",
+  "alternatives": [
+   "medal",
+   "500 yen coin"
+  ],
+  "readability": 4,
+  "features": [
+   "round coin shape",
+   "silver/white rim",
+   "golden face with shading",
+   "number 500 in dark outline",
+   "shine highlights"
+  ],
+  "problems": [
+   "the zeros in 500 are cramped and look like 'SOO' or 'SOW'",
+   "coin rim is octagon-like rather than round",
+   "busy landscape background competes a bit"
+  ],
+  "digest": "b269368d06145c33",
+  "grade": "pass",
+  "score": 78,
+  "colors": 16,
+  "black": 0.111,
+  "biggest_patch": 0.147,
+  "theme": "Riverbank",
+  "name": "Coin",
+  "pack": "tiny",
+  "touched": false
+ },
+ "envelope-868": {
+  "guess": "envelope (letter)",
+  "alternatives": [
+   "mail icon",
+   "white pillow"
+  ],
+  "readability": 5,
+  "features": [
+   "rectangular white envelope body",
+   "V-shaped flap fold lines",
+   "dark outline",
+   "grey shading at bottom right",
+   "sun in pink sky background",
+   "green grass strip at bottom"
+  ],
+  "problems": [
+   "busy striped background competes slightly",
+   "bold purple and pink bands draw attention away from the subject",
+   "flap lines are a bit thin and broken"
+  ],
+  "digest": "e0b9ae97d3937f23",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.088,
+  "biggest_patch": 0.177,
+  "theme": "Lavender fields",
+  "name": "Envelope",
+  "pack": "tiny",
+  "touched": false
+ },
+ "postcard-869": {
+  "guess": "letter or postcard with a stamp",
+  "alternatives": [
+   "newspaper page",
+   "note paper with writing"
+  ],
+  "readability": 3,
+  "features": [
+   "white paper sheet with dark outline",
+   "lines of text",
+   "blue stamp-like shape in top right corner",
+   "shaded folded/curled corner bottom right",
+   "sun and sky background"
+  ],
+  "problems": [
+   "text lines look like scribbles",
+   "blue shape in corner is unclear (stamp or bird?)",
+   "no envelope shape, so letter vs paper is ambiguous",
+   "shaded corner is blocky and hard to read"
+  ],
+  "digest": "ed841d6f08547ae7",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.133,
+  "biggest_patch": 0.333,
+  "theme": "Orchard",
+  "name": "Postcard",
+  "pack": "tiny",
+  "touched": false
+ },
+ "dice-870": {
+  "guess": "red dice",
+  "alternatives": [
+   "red gift box",
+   "red cube block"
+  ],
+  "readability": 4,
+  "features": [
+   "cube shape with three visible faces",
+   "white pips on top and left faces",
+   "dark shaded right side",
+   "pink highlights on edges",
+   "black outline",
+   "sunny desert-like background with sun and birds"
+  ],
+  "problems": [
+   "pips are irregular and don't form clear standard dice patterns",
+   "right face pip is grey and barely visible",
+   "rounded blobby corners make it look soft rather than a sharp cube"
+  ],
+  "digest": "e6beaea7704118e7",
+  "grade": "pass",
+  "score": 78,
+  "colors": 11,
+  "black": 0.037,
+  "biggest_patch": 0.173,
+  "theme": "Golden wheat",
+  "name": "Dice",
+  "pack": "tiny",
+  "touched": false
+ },
+ "chess-piece-871": {
+  "guess": "chess knight piece on a card",
+  "alternatives": [
+   "horse head silhouette",
+   "chess tile or sign"
+  ],
+  "readability": 4,
+  "features": [
+   "horse head silhouette with ear",
+   "snout and neck curve",
+   "mane notches on the back",
+   "flat base with grey highlights",
+   "white card or tile behind it with a dark border and grey shading"
+  ],
+  "problems": [
+   "no eye or face details, just a silhouette",
+   "a child may not know chess pieces and see only a horse shape",
+   "the card backing is a bit unclear: it could be a tile, sign or block"
+  ],
+  "digest": "60a82d900bdba433",
+  "grade": "pass",
+  "score": 82,
+  "colors": 17,
+  "black": 0.211,
+  "biggest_patch": 0.151,
+  "theme": "Summer hills",
+  "name": "Chess Piece",
+  "pack": "tiny",
+  "touched": false
+ },
+ "playing-card-872": {
+  "guess": "red heart in a snowy night landscape",
+  "alternatives": [
+   "heart-shaped balloon",
+   "valentine card"
+  ],
+  "readability": 5,
+  "features": [
+   "classic heart shape with two rounded lobes and a pointed bottom",
+   "pink highlight on upper left",
+   "darker red shading on right",
+   "dark outline",
+   "crescent moon and stars in night sky",
+   "snowy ground and grey mountains"
+  ],
+  "problems": [
+   "small stray details like the orange dot are unclear",
+   "the heart's bottom tip trails off slightly into the snow"
+  ],
+  "digest": "007eb49e07d79401",
+  "grade": "weak",
+  "score": 54,
+  "colors": 13,
+  "black": 0.209,
+  "biggest_patch": 0.229,
+  "theme": "Winter night",
+  "name": "Playing Card",
+  "pack": "tiny",
+  "touched": false
+ }
+}

@@ -1,0 +1,431 @@
+{
+ "soccer-ball-440": {
+  "guess": "soccer ball",
+  "alternatives": [
+   "panda curled up",
+   "cow lying down"
+  ],
+  "readability": 3,
+  "features": [
+   "round white shape with black patches",
+   "pentagon-like black spots",
+   "shading on right side",
+   "ball sitting in a dirt dent",
+   "sky with clouds and trees behind"
+  ],
+  "problems": [
+   "patches are irregular rather than clear pentagons",
+   "shape is lumpy, not perfectly round",
+   "black-and-white pattern could read as an animal's fur",
+   "dark outline blends with dark red shadow in the ground"
+  ],
+  "digest": "b55ea44f6b4edafe",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.152,
+  "biggest_patch": 0.144,
+  "theme": "Autumn woods",
+  "name": "Soccer Ball",
+  "pack": "sports",
+  "touched": false
+ },
+ "basketball-441": {
+  "guess": "basketball (red and orange ball)",
+  "alternatives": [
+   "beach ball",
+   "fruit like a peach or apple"
+  ],
+  "readability": 4,
+  "features": [
+   "round ball shape",
+   "dark seam lines curving across it",
+   "highlight on the upper left",
+   "shadow on the lower right",
+   "sitting on grass under a sunny sky"
+  ],
+  "problems": [
+   "the red and orange halves are unusual for a basketball",
+   "the seam lines are a bit irregular and partly broken",
+   "the bottom edge blends slightly into the dark grass"
+  ],
+  "digest": "75db101f25492784",
+  "grade": "pass",
+  "score": 74,
+  "colors": 18,
+  "black": 0.114,
+  "biggest_patch": 0.149,
+  "theme": "Summer hills",
+  "name": "Basketball",
+  "pack": "sports",
+  "touched": false
+ },
+ "baseball-442": {
+  "guess": "baseball player card",
+  "alternatives": [
+   "photo of a person with a dog",
+   "trading card of an athlete"
+  ],
+  "readability": 2,
+  "features": [
+   "white card frame with dark border",
+   "figure with dark hair and blue cap",
+   "grey shirt with blue sleeves/patches",
+   "brown legs or pants",
+   "tan round shape like a glove or ball at bottom",
+   "dark shoes at bottom left"
+  ],
+  "problems": [
+   "figure inside card is jumbled and hard to parse",
+   "no clear face or limbs",
+   "tan blob with dots is ambiguous (glove, dog, bread?)",
+   "too much detail squeezed into small area",
+   "shapes blend together with no clear outline"
+  ],
+  "digest": "51edd7b658f98945",
+  "grade": "weak",
+  "score": 66,
+  "colors": 19,
+  "black": 0.107,
+  "biggest_patch": 0.128,
+  "theme": "Red barn",
+  "name": "Baseball",
+  "pack": "sports",
+  "touched": false
+ },
+ "bowling-pin-443": {
+  "guess": "bowling pin",
+  "alternatives": [
+   "white goose",
+   "milk bottle"
+  ],
+  "readability": 4,
+  "features": [
+   "white rounded body",
+   "narrow neck",
+   "red stripe band at neck",
+   "round head top",
+   "gray shading",
+   "dark outline"
+  ],
+  "problems": [
+   "odd setting in a park at night makes it unclear",
+   "could be mistaken for a goose or bottle",
+   "head top blends slightly with dark sky"
+  ],
+  "digest": "d424587ec410be3d",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.211,
+  "biggest_patch": 0.176,
+  "theme": "Moonlit pond",
+  "name": "Bowling Pin",
+  "pack": "sports",
+  "touched": false
+ },
+ "golf-ball-444": {
+  "guess": "giant cookies and cream ball (Oreo-style cookie) in a city",
+  "alternatives": [
+   "wrecking ball smashing a wall",
+   "boulder or meteor rolling into a city"
+  ],
+  "readability": 2,
+  "features": [
+   "large round shape",
+   "white surface with dark speckles like cookie crumbs",
+   "dark crescent on the lower right like a cookie or shadow",
+   "jagged edge on the dark part",
+   "city skyline with lit windows",
+   "setting sun",
+   "grey brick wall behind"
+  ],
+  "problems": [
+   "round blob with no clear defining details",
+   "speckled pattern is ambiguous: could be a cookie, a rock, or cratered moon",
+   "dark crescent is hard to read as a cookie or as shading",
+   "no context showing scale or what it is doing"
+  ],
+  "digest": "1a64b0a30d587a90",
+  "grade": "weak",
+  "score": 66,
+  "colors": 12,
+  "black": 0.238,
+  "biggest_patch": 0.177,
+  "theme": "City dawn",
+  "name": "Golf Ball",
+  "pack": "sports",
+  "touched": false
+ },
+ "trophy-445": {
+  "guess": "winged golden trophy cup",
+  "alternatives": [
+   "hourglass with wings",
+   "winged torch on a pedestal"
+  ],
+  "readability": 4,
+  "features": [
+   "orange-gold cup bowl",
+   "white wings on both sides",
+   "narrow stem",
+   "dark red base with gold plaque",
+   "night city street background with moon"
+  ],
+  "problems": [
+   "stem is thin and dark, blends with dark outline",
+   "orange cup shading is a bit blobby",
+   "busy city background competes with subject",
+   "wings could read as handles or flames"
+  ],
+  "digest": "d7e29db09548f97a",
+  "grade": "pass",
+  "score": 78,
+  "colors": 16,
+  "black": 0.241,
+  "biggest_patch": 0.179,
+  "theme": "City night",
+  "name": "Trophy",
+  "pack": "sports",
+  "touched": false
+ },
+ "medal-446": {
+  "guess": "gold medal with ribbon",
+  "alternatives": [
+   "hot air balloon upside down",
+   "orange ball with ribbon"
+  ],
+  "readability": 4,
+  "features": [
+   "round gold disc",
+   "red white and blue ribbon in V shape",
+   "dark outline rim",
+   "shading on disc"
+  ],
+  "problems": [
+   "ribbon is small compared to disc",
+   "brown/dark shading on lower edge looks dirty",
+   "white cloudy background is busy and blends with ribbon whites"
+  ],
+  "digest": "927a69fa06b8822a",
+  "grade": "pass",
+  "score": 74,
+  "colors": 18,
+  "black": 0.034,
+  "biggest_patch": 0.164,
+  "theme": "Ice field",
+  "name": "Medal",
+  "pack": "sports",
+  "touched": false
+ },
+ "boxing-glove-447": {
+  "guess": "red boxing gloves hanging on a card",
+  "alternatives": [
+   "cherries on a card",
+   "red apples / fruit sign"
+  ],
+  "readability": 2,
+  "features": [
+   "white card or sign with dark border",
+   "black hook/string at top",
+   "two red rounded shapes with darker red shading",
+   "pinkish highlights"
+  ],
+  "problems": [
+   "red shapes are blobby and overlap, hard to separate into two objects",
+   "no clear thumbs or cuffs to identify gloves",
+   "the white card frame adds confusion about what the object is",
+   "dark outline lines inside the red shapes are cluttered"
+  ],
+  "digest": "96d223409e76dd1f",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.127,
+  "biggest_patch": 0.145,
+  "theme": "Castle hill",
+  "name": "Boxing Glove",
+  "pack": "sports",
+  "touched": false
+ },
+ "volleyball-448": {
+  "guess": "volleyball flying with fire trail",
+  "alternatives": [
+   "comet crashing into grass",
+   "fireball meteor"
+  ],
+  "readability": 3,
+  "features": [
+   "blue, yellow and white striped ball on the left",
+   "red-to-orange flame trail streaking right",
+   "dark outline around the flames",
+   "grass, pine trees and birds in the background"
+  ],
+  "problems": [
+   "flame trail is blocky and reads as a blob rather than flames",
+   "ball is small compared to the trail",
+   "pink and red bits make it look a bit like an animal or fish",
+   "no clear motion lines; could be read as a creature lying in grass"
+  ],
+  "digest": "0e4f33e62499dbb0",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.085,
+  "biggest_patch": 0.204,
+  "theme": "Misty pines",
+  "name": "Volleyball",
+  "pack": "sports",
+  "touched": false
+ },
+ "rugby-ball-449": {
+  "guess": "beach ball or round patterned rug on a beach",
+  "alternatives": [
+   "pile of trash on the beach",
+   "crab shell"
+  ],
+  "readability": 1,
+  "features": [
+   "sunset sky with sun and birds",
+   "sea and sandy beach",
+   "large round dark-outlined blob with red, white, blue and green patches"
+  ],
+  "problems": [
+   "main subject is a chaotic noisy blob with no clear shape",
+   "no recognizable parts like face or limbs",
+   "random color scatter reads as noise",
+   "dark outline merges with mixed interior colors"
+  ],
+  "digest": "363eae0c706c9bec",
+  "grade": "weak",
+  "score": 56,
+  "colors": 19,
+  "black": 0.151,
+  "biggest_patch": 0.095,
+  "theme": "Beach sunset",
+  "name": "Rugby Ball",
+  "pack": "sports",
+  "touched": false
+ },
+ "cricket-bat-450": {
+  "guess": "cricket bat and red ball",
+  "alternatives": [
+   "rolling pin",
+   "baseball bat and ball"
+  ],
+  "readability": 3,
+  "features": [
+   "long diagonal bat blade with cream face",
+   "brown/tan edges and wooden tip",
+   "green handle at top",
+   "red ball with pink highlight",
+   "grass field, mountains, night sky with aurora"
+  ],
+  "problems": [
+   "bat blends with white-grey mountains behind it",
+   "handle green merges with grass/aurora colors",
+   "ball sits in a blue splash that is unclear",
+   "bat shape is chunky and could read as a scroll or bottle"
+  ],
+  "digest": "975363795ebb49cc",
+  "grade": "pass",
+  "score": 72,
+  "colors": 18,
+  "black": 0.278,
+  "biggest_patch": 0.1,
+  "theme": "Aurora lake",
+  "name": "Cricket Bat",
+  "pack": "sports",
+  "touched": false
+ },
+ "dumbbell-451": {
+  "guess": "dumbbell",
+  "alternatives": [
+   "barbell",
+   "bone"
+  ],
+  "readability": 4,
+  "features": [
+   "two large dark weight plates",
+   "white/silver handle bar between them",
+   "end caps on the outer sides",
+   "symmetrical shape"
+  ],
+  "problems": [
+   "dark plates are very large and blocky, could read as rocks or tires",
+   "outdoor meadow setting with mountains is unexpected for gym equipment",
+   "handle is short relative to plates"
+  ],
+  "digest": "70c023bb177c05b6",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.134,
+  "biggest_patch": 0.224,
+  "theme": "Alpine meadow",
+  "name": "Dumbbell",
+  "pack": "sports",
+  "touched": false
+ },
+ "baseball-bat-452": {
+  "guess": "two crossed baseball bats in front of a night city skyline",
+  "alternatives": [
+   "crossed wooden sticks on a brick wall",
+   "crossed swords over a city at night"
+  ],
+  "readability": 3,
+  "features": [
+   "two long tan wooden shapes crossed in an X",
+   "thicker barrel ends at top, thinner handles at bottom",
+   "brick wall behind",
+   "city buildings with lit windows",
+   "night sky with crescent moon and stars"
+  ],
+  "problems": [
+   "bats lack clear knobs or details, could read as plain sticks",
+   "busy background of bricks and buildings competes with the subject",
+   "tan bats blend somewhat with light gray bricks",
+   "small orange flame-like marks are unclear"
+  ],
+  "digest": "f63503a010f4e92f",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.276,
+  "biggest_patch": 0.127,
+  "theme": "Lantern festival",
+  "name": "Baseball Bat",
+  "pack": "sports",
+  "touched": false
+ },
+ "archery-target-453": {
+  "guess": "archery target",
+  "alternatives": [
+   "dartboard",
+   "bullseye target on a field"
+  ],
+  "readability": 5,
+  "features": [
+   "concentric rings: white, black, blue, red, yellow center",
+   "yellow bullseye",
+   "shading on lower right rings",
+   "grassy field and trees in background",
+   "road/wall behind",
+   "water at bottom"
+  ],
+  "problems": [
+   "no arrow shown",
+   "background details (blue squiggles at top) are unclear",
+   "white outer ring partly blends with gray background"
+  ],
+  "digest": "c1e7c73b1fbe5cfe",
+  "grade": "pass",
+  "score": 84,
+  "colors": 16,
+  "black": 0.291,
+  "biggest_patch": 0.15,
+  "theme": "Rainy day",
+  "name": "Archery Target",
+  "pack": "sports",
+  "touched": false
+ }
+}

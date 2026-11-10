@@ -1,0 +1,809 @@
+{
+ "lamp-561": {
+  "guess": "magic genie lamp with red parrot",
+  "alternatives": [
+   "golden teapot",
+   "oil lamp with a bird"
+  ],
+  "readability": 4,
+  "features": [
+   "golden lamp body",
+   "curved handle",
+   "long spout",
+   "lid knob",
+   "base",
+   "red bird perched behind",
+   "blue potion bottles on shelf"
+  ],
+  "problems": [
+   "red bird is blocky and hard to read as a parrot",
+   "lamp outline merges with shelf and table edges",
+   "handle and lid shapes are somewhat lumpy"
+  ],
+  "digest": "b1c878bfb7769b2e",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.103,
+  "biggest_patch": 0.264,
+  "theme": "Cozy kitchen",
+  "name": "Lamp",
+  "pack": "home",
+  "touched": false
+ },
+ "sofa-562": {
+  "guess": "yellow sofa",
+  "alternatives": [
+   "couch in a living room",
+   "yellow bed"
+  ],
+  "readability": 4,
+  "features": [
+   "rounded backrest",
+   "seat cushion with white highlight",
+   "armrests on both sides",
+   "dark outline",
+   "patterned base/rug below",
+   "window on dotted wallpaper"
+  ],
+  "problems": [
+   "armrests are not clearly separated from the backrest",
+   "seat and back blend together into one blob",
+   "legs are not visible, base looks like a rug",
+   "could be mistaken for a cake or a bed"
+  ],
+  "digest": "f56f934802d49cc8",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.065,
+  "biggest_patch": 0.414,
+  "theme": "Nursery",
+  "name": "Sofa",
+  "pack": "home",
+  "touched": false
+ },
+ "armchair-563": {
+  "guess": "blue armchair",
+  "alternatives": [
+   "rocking chair",
+   "recliner seat"
+  ],
+  "readability": 3,
+  "features": [
+   "tall blue backrest",
+   "seat cushion",
+   "wooden armrest/frame",
+   "white cushion or base under seat",
+   "colorful rug beneath",
+   "pink striped wallpaper background"
+  ],
+  "problems": [
+   "side view makes chair shape a bit abstract",
+   "white lower part blends with white wallpaper stripes",
+   "dark outline sections merge with brown floor",
+   "light blue window shape behind looks confusing"
+  ],
+  "digest": "c81d09a4a631fb70",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.083,
+  "biggest_patch": 0.089,
+  "theme": "Living room",
+  "name": "Armchair",
+  "pack": "home",
+  "touched": false
+ },
+ "clock-564": {
+  "guess": "wall clock",
+  "alternatives": [
+   "round plate",
+   "golf ball"
+  ],
+  "readability": 3,
+  "features": [
+   "round white face",
+   "dark rim",
+   "hour marks around edge",
+   "center dot",
+   "shading on lower right"
+  ],
+  "problems": [
+   "no clock hands visible",
+   "marks look like dimples or random spots",
+   "odd tilted perspective makes it look like a ball",
+   "small pink and yellow pixels unexplained"
+  ],
+  "digest": "516377ad504d1af0",
+  "grade": "pass",
+  "score": 72,
+  "colors": 8,
+  "black": 0.119,
+  "biggest_patch": 0.269,
+  "theme": "Brick cellar",
+  "name": "Clock",
+  "pack": "home",
+  "touched": false
+ },
+ "bed-565": {
+  "guess": "orange cat sleeping under a blue blanket in bed",
+  "alternatives": [
+   "fox sleeping in a basket",
+   "orange cat lying on a blue cushion"
+  ],
+  "readability": 2,
+  "features": [
+   "pointed ears outlined in black",
+   "closed eye line",
+   "orange head and paw",
+   "blue blanket",
+   "red and pink bed or basket edge",
+   "shelf with cups in background"
+  ],
+  "problems": [
+   "face lacks clear eyes, nose or mouth",
+   "head outline is messy and hard to read",
+   "orange cat blends into orange wallpaper",
+   "blanket is a large blobby shape covering the body"
+  ],
+  "digest": "6b551e73309934de",
+  "grade": "weak",
+  "score": 74,
+  "colors": 13,
+  "black": 0.136,
+  "biggest_patch": 0.383,
+  "theme": "Bakery",
+  "name": "Bed",
+  "pack": "home",
+  "touched": false
+ },
+ "bathtub-566": {
+  "guess": "bathtub with bubbles",
+  "alternatives": [
+   "bubble bath",
+   "washtub full of water"
+  ],
+  "readability": 4,
+  "features": [
+   "clawfoot tub body",
+   "white rim",
+   "bubbles floating above",
+   "window on wooden wall",
+   "rug under tub",
+   "tub feet"
+  ],
+  "problems": [
+   "tub feet hard to see",
+   "water and tub colors blend together",
+   "bubbles look like water drops"
+  ],
+  "digest": "68fcb5742ee002a6",
+  "grade": "pass",
+  "score": 78,
+  "colors": 17,
+  "black": 0.087,
+  "biggest_patch": 0.161,
+  "theme": "Cabin",
+  "name": "Bathtub",
+  "pack": "home",
+  "touched": false
+ },
+ "plant-pot-567": {
+  "guess": "snowy Christmas tree in a red pot",
+  "alternatives": [
+   "potted pine plant",
+   "bonsai tree"
+  ],
+  "readability": 4,
+  "features": [
+   "green tree foliage with snow patches",
+   "brown trunk",
+   "red pot",
+   "dark outline"
+  ],
+  "problems": [
+   "no star or ornaments, so it may not read as a Christmas tree",
+   "snow patches look like random white spots",
+   "pot is small and partly blends with the dark outline",
+   "shelf line behind the tree adds clutter"
+  ],
+  "digest": "fb1e8c44a64547a2",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.062,
+  "biggest_patch": 0.302,
+  "theme": "Cozy kitchen",
+  "name": "Plant Pot",
+  "pack": "home",
+  "touched": false
+ },
+ "bookshelf-568": {
+  "guess": "bookshelf with books",
+  "alternatives": [
+   "cabinet",
+   "toy shelf"
+  ],
+  "readability": 4,
+  "features": [
+   "wooden frame",
+   "three shelves",
+   "colorful book spines",
+   "dark outline",
+   "rug underneath",
+   "striped wallpaper and window background"
+  ],
+  "problems": [
+   "frame is slightly tilted and irregular",
+   "books are small and blocky",
+   "busy striped background competes with the subject"
+  ],
+  "digest": "5168a9d2668a3bfe",
+  "grade": "pass",
+  "score": 74,
+  "colors": 18,
+  "black": 0.069,
+  "biggest_patch": 0.082,
+  "theme": "Living room",
+  "name": "Bookshelf",
+  "pack": "home",
+  "touched": false
+ },
+ "television-569": {
+  "guess": "old red television",
+  "alternatives": [
+   "retro TV set with antenna",
+   "red radio"
+  ],
+  "readability": 4,
+  "features": [
+   "boxy red TV body",
+   "grey screen",
+   "rabbit-ear antenna",
+   "short legs",
+   "orange knob/top detail",
+   "window background",
+   "wooden floor"
+  ],
+  "problems": [
+   "screen partly covered by dark shape making it look broken",
+   "right side dark red blends into shadows",
+   "legs look blobby"
+  ],
+  "digest": "2d1e5ac1cd90c829",
+  "grade": "pass",
+  "score": 86,
+  "colors": 13,
+  "black": 0.103,
+  "biggest_patch": 0.294,
+  "theme": "Cozy kitchen",
+  "name": "Television",
+  "pack": "home",
+  "touched": false
+ },
+ "washing-machine-570": {
+  "guess": "washing machine",
+  "alternatives": [
+   "dryer",
+   "front-loading laundry machine with water"
+  ],
+  "readability": 3,
+  "features": [
+   "white boxy body with dark outline",
+   "round door window with blue water inside",
+   "small plus-shaped button on top right",
+   "shading on lower right side",
+   "dark feet at bottom corners"
+  ],
+  "problems": [
+   "door is not clearly circular, looks like a blob",
+   "water area looks like a blue bird or splash",
+   "no control panel or dials to clearly mark it as a washer",
+   "white body blends somewhat with the white window frame behind"
+  ],
+  "digest": "9585a472396e6505",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.088,
+  "biggest_patch": 0.292,
+  "theme": "Nursery",
+  "name": "Washing Machine",
+  "pack": "home",
+  "touched": false
+ },
+ "key-571": {
+  "guess": "golden key",
+  "alternatives": [
+   "yellow fish",
+   "banana"
+  ],
+  "readability": 4,
+  "features": [
+   "round bow with dark hole on the left",
+   "long shaft",
+   "teeth/bit on the right end",
+   "yellow-orange shading and highlights",
+   "dark outline"
+  ],
+  "problems": [
+   "bit teeth are small and not clearly notched",
+   "bow is lumpy rather than round",
+   "shape could read as a fish or blob at a glance"
+  ],
+  "digest": "650e3789e642f8e7",
+  "grade": "pass",
+  "score": 74,
+  "colors": 11,
+  "black": 0.081,
+  "biggest_patch": 0.302,
+  "theme": "Cozy kitchen",
+  "name": "Key",
+  "pack": "home",
+  "touched": false
+ },
+ "window-572": {
+  "guess": "window with a view of hills",
+  "alternatives": [
+   "framed landscape painting",
+   "glass door"
+  ],
+  "readability": 4,
+  "features": [
+   "dark window frame",
+   "white mullion dividing panes",
+   "blue sky through glass",
+   "green hills",
+   "brown dirt ground",
+   "white frame top extending upward",
+   "colorful sill/rug at bottom"
+  ],
+  "problems": [
+   "outside wallpaper with dots looks like sky, confusing indoor/outdoor",
+   "extra white frame piece above top is odd",
+   "landscape is blocky and could read as a painting"
+  ],
+  "digest": "33282ddab4c91a5e",
+  "grade": "pass",
+  "score": 74,
+  "colors": 18,
+  "black": 0.074,
+  "biggest_patch": 0.291,
+  "theme": "Nursery",
+  "name": "Window",
+  "pack": "home",
+  "touched": false
+ },
+ "chair-573": {
+  "guess": "wooden chair",
+  "alternatives": [
+   "armchair",
+   "stool"
+  ],
+  "readability": 3,
+  "features": [
+   "chair back with white cushion",
+   "seat",
+   "four legs",
+   "dark outline",
+   "floor tiles and wallpaper background",
+   "wall rail"
+  ],
+  "problems": [
+   "legs tangle together in perspective",
+   "orange chair close in color to orange wallpaper",
+   "shading makes shape busy and blobby",
+   "seat and legs hard to separate"
+  ],
+  "digest": "64cf26621b5363bb",
+  "grade": "pass",
+  "score": 72,
+  "colors": 10,
+  "black": 0.073,
+  "biggest_patch": 0.438,
+  "theme": "Bakery",
+  "name": "Chair",
+  "pack": "home",
+  "touched": false
+ },
+ "candle-574": {
+  "guess": "blue candle with a flame",
+  "alternatives": [
+   "penguin",
+   "bird by a window"
+  ],
+  "readability": 3,
+  "features": [
+   "tall blue body",
+   "yellow-orange flame-like top",
+   "white dripping wax/snow at top",
+   "grey wing-like shape at right",
+   "orange feet at bottom",
+   "window in background",
+   "purple striped rug"
+  ],
+  "problems": [
+   "no clear face or eyes",
+   "grey shape at right is ambiguous (wing? knife? feather?)",
+   "orange bits at bottom look like feet, confusing whether it's an animal or object",
+   "blue body is a plain rectangle with little detail",
+   "busy striped background"
+  ],
+  "digest": "0513f4d89b2bf176",
+  "grade": "pass",
+  "score": 76,
+  "colors": 15,
+  "black": 0.058,
+  "biggest_patch": 0.092,
+  "theme": "Living room",
+  "name": "Candle",
+  "pack": "home",
+  "touched": false
+ },
+ "rug-575": {
+  "guess": "red rug on a checkered floor",
+  "alternatives": [
+   "red car seen from the side",
+   "red sofa/bed"
+  ],
+  "readability": 2,
+  "features": [
+   "brick wall background",
+   "shelf with small colored jars/books",
+   "checkered tile floor",
+   "large red oval shape with dark shadow underneath",
+   "brown and tan patches on the red shape"
+  ],
+  "problems": [
+   "main red shape is a flat blob with no clear details",
+   "red subject blends with red brick wall color",
+   "small brown/tan marks are hard to interpret",
+   "no clear identifying parts like wheels or legs",
+   "background details compete for attention"
+  ],
+  "digest": "7f8124b718030fe1",
+  "grade": "weak",
+  "score": 62,
+  "colors": 10,
+  "black": 0.027,
+  "biggest_patch": 0.172,
+  "theme": "Brick cellar",
+  "name": "Rug",
+  "pack": "home",
+  "touched": false
+ },
+ "fireplace-576": {
+  "guess": "fireplace with fire",
+  "alternatives": [
+   "wood stove",
+   "barbecue grill"
+  ],
+  "readability": 2,
+  "features": [
+   "grey mantel shelf on top",
+   "dark firebox opening",
+   "red and yellow flames",
+   "brown bricks/wood around"
+  ],
+  "problems": [
+   "mantel floats far above the firebox with no clear connection",
+   "busy brick and plank patterns blend with the subject",
+   "fire is small and partly hidden by grey shape",
+   "overall layout is cluttered and abstract"
+  ],
+  "digest": "467a1086e60a092f",
+  "grade": "weak",
+  "score": 62,
+  "colors": 12,
+  "black": 0.139,
+  "biggest_patch": 0.221,
+  "theme": "Cozy kitchen",
+  "name": "Fireplace",
+  "pack": "home",
+  "touched": false
+ },
+ "bookcase-577": {
+  "guess": "bookshelf full of books",
+  "alternatives": [
+   "bookcase cabinet",
+   "library shelf"
+  ],
+  "readability": 4,
+  "features": [
+   "dark frame with top",
+   "three shelves",
+   "colorful book spines",
+   "short legs/feet",
+   "small yellow cup on wall shelf beside it"
+  ],
+  "problems": [
+   "frame is slightly warped and lumpy",
+   "grey shading makes edges noisy",
+   "legs look uneven"
+  ],
+  "digest": "bb2cc780ec4ff793",
+  "grade": "weak",
+  "score": 52,
+  "colors": 12,
+  "black": 0.149,
+  "biggest_patch": 0.381,
+  "theme": "Bakery",
+  "name": "Bookcase",
+  "pack": "home",
+  "touched": false
+ },
+ "picture-frame-578": {
+  "guess": "framed painting on a brick wall",
+  "alternatives": [
+   "portrait of a clown",
+   "picture of a dragon"
+  ],
+  "readability": 3,
+  "features": [
+   "brick wall background",
+   "wooden picture frame",
+   "white mat border",
+   "blue painted background",
+   "tan figure with red marks and green/blue hair-like shapes"
+  ],
+  "problems": [
+   "the subject inside the frame is a jumbled blob",
+   "no clear face or eyes in the painting",
+   "colors of the figure blend with the frame",
+   "frame is drawn at a skewed angle"
+  ],
+  "digest": "4259b5992ba010c6",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.084,
+  "biggest_patch": 0.122,
+  "theme": "Brick cellar",
+  "name": "Picture Frame",
+  "pack": "home",
+  "touched": false
+ },
+ "hammer-579": {
+  "guess": "claw hammer",
+  "alternatives": [
+   "pickaxe",
+   "axe"
+  ],
+  "readability": 5,
+  "features": [
+   "gray metal hammer head",
+   "curved claw at the back",
+   "red handle",
+   "tan grip end",
+   "dark outline"
+  ],
+  "problems": [
+   "pink and white striped background is busy",
+   "red handle is close in color to the red and yellow strip at the bottom",
+   "small blue window behind the head can distract"
+  ],
+  "digest": "b32bc8fb3dd61913",
+  "grade": "pass",
+  "score": 80,
+  "colors": 14,
+  "black": 0.092,
+  "biggest_patch": 0.113,
+  "theme": "Living room",
+  "name": "Hammer",
+  "pack": "home",
+  "touched": false
+ },
+ "saw-580": {
+  "guess": "hand saw on a workbench",
+  "alternatives": [
+   "kitchen knife",
+   "razor blade"
+  ],
+  "readability": 3,
+  "features": [
+   "long silver blade tapering to a point",
+   "dark handle with red trim and grip hole on the right",
+   "wooden workbench surface",
+   "tiled wall with shelf of small jars"
+  ],
+  "problems": [
+   "no visible teeth on the blade, so it reads like a knife",
+   "handle is dark and small, blending with the dark blade outline",
+   "background tiles and shelf distract from the subject"
+  ],
+  "digest": "ccef127f428d3865",
+  "grade": "pass",
+  "score": 72,
+  "colors": 12,
+  "black": 0.071,
+  "biggest_patch": 0.369,
+  "theme": "Cozy kitchen",
+  "name": "Saw",
+  "pack": "home",
+  "touched": false
+ },
+ "wrench-581": {
+  "guess": "wrench",
+  "alternatives": [
+   "spanner tool",
+   "bone"
+  ],
+  "readability": 4,
+  "features": [
+   "open jaw head with U-shaped opening",
+   "long handle",
+   "gray shading and dark outline",
+   "window in background",
+   "blue and yellow striped rug/strip at bottom"
+  ],
+  "problems": [
+   "handle bottom end is cluttered with colored pixels and looks messy",
+   "white tool against light blue background has low contrast in places",
+   "jaw shape is a bit irregular"
+  ],
+  "digest": "17b4c61e705fe99f",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.056,
+  "biggest_patch": 0.394,
+  "theme": "Nursery",
+  "name": "Wrench",
+  "pack": "home",
+  "touched": false
+ },
+ "drill-582": {
+  "guess": "power drill",
+  "alternatives": [
+   "glue gun",
+   "hair dryer"
+  ],
+  "readability": 4,
+  "features": [
+   "blue drill body",
+   "orange handle grip",
+   "gray drill bit tip",
+   "dashed line showing drilling direction",
+   "brick wall background",
+   "white sign/frame"
+  ],
+  "problems": [
+   "handle partly blends with gray shading",
+   "drill bit is very short",
+   "drill sits inside a framed panel which could confuse scale"
+  ],
+  "digest": "d649aed78932257e",
+  "grade": "pass",
+  "score": 78,
+  "colors": 9,
+  "black": 0.148,
+  "biggest_patch": 0.313,
+  "theme": "Brick cellar",
+  "name": "Drill",
+  "pack": "home",
+  "touched": false
+ },
+ "axe-583": {
+  "guess": "axe",
+  "alternatives": [
+   "hatchet",
+   "hammer"
+  ],
+  "readability": 4,
+  "features": [
+   "wooden brown handle",
+   "grey metal axe head",
+   "dark outline",
+   "shadow on floor"
+  ],
+  "problems": [
+   "axe head shape is irregular and blobby",
+   "light highlight patch on head looks odd",
+   "head blends slightly with grey tones"
+  ],
+  "digest": "9546555abb4f59f6",
+  "grade": "pass",
+  "score": 74,
+  "colors": 9,
+  "black": 0.071,
+  "biggest_patch": 0.474,
+  "theme": "Bakery",
+  "name": "Axe",
+  "pack": "home",
+  "touched": false
+ },
+ "paint-roller-584": {
+  "guess": "paint roller",
+  "alternatives": [
+   "rolling pin",
+   "hair dryer"
+  ],
+  "readability": 4,
+  "features": [
+   "cylindrical roller with beige/tan cover",
+   "metal frame bent down",
+   "orange handle",
+   "dark outline",
+   "brick wall and tiled floor background",
+   "small colored paint dots on a shelf"
+  ],
+  "problems": [
+   "roller has no visible paint color, looks like plain beige",
+   "red bricks are busy behind the roller",
+   "handle frame connection is thin and short"
+  ],
+  "digest": "8656b8c32cc59f7f",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.084,
+  "biggest_patch": 0.135,
+  "theme": "Brick cellar",
+  "name": "Paint Roller",
+  "pack": "home",
+  "touched": false
+ },
+ "trowel-585": {
+  "guess": "trowel",
+  "alternatives": [
+   "kitchen knife",
+   "spatula"
+  ],
+  "readability": 3,
+  "features": [
+   "flat pointed grey metal blade",
+   "white highlight edge",
+   "dark outline",
+   "brown wooden handle",
+   "tang connecting blade to handle"
+  ],
+  "problems": [
+   "blade is oversized and wedge-shaped, could read as a knife or shovel",
+   "dark grey shading blends with outline making shape blobby",
+   "handle is small and partially overlaps the red rope/rug, confusing the end",
+   "indoor wall/window background gives little context for a tool"
+  ],
+  "digest": "696ad1f9327e1f05",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.066,
+  "biggest_patch": 0.449,
+  "theme": "Nursery",
+  "name": "Trowel",
+  "pack": "home",
+  "touched": false
+ },
+ "bolt-586": {
+  "guess": "yellow lightning bolt",
+  "alternatives": [
+   "cheese wedge",
+   "yellow banana"
+  ],
+  "readability": 4,
+  "features": [
+   "zigzag bolt shape",
+   "yellow fill with light highlight edge",
+   "orange shading on right side",
+   "dark outline",
+   "pointed bottom tip"
+  ],
+  "problems": [
+   "zigzag is shallow, so it looks a bit like a thick slanted blob",
+   "the top is very wide and flat, unlike a typical bolt",
+   "busy kitchen background with a shelf and tiles competes for attention",
+   "no clear reason a lightning bolt is indoors"
+  ],
+  "digest": "ea8ec54f3aa71df1",
+  "grade": "pass",
+  "score": 74,
+  "colors": 11,
+  "black": 0.068,
+  "biggest_patch": 0.269,
+  "theme": "Cozy kitchen",
+  "name": "Bolt",
+  "pack": "home",
+  "touched": false
+ }
+}

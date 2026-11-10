@@ -1,0 +1,421 @@
+{
+ "guitar-427": {
+  "guess": "red electric guitar",
+  "alternatives": [
+   "bass guitar",
+   "ukulele"
+  ],
+  "readability": 4,
+  "features": [
+   "red and white guitar body",
+   "white pickguard",
+   "long dark neck",
+   "tan headstock with tuning peg",
+   "grey bridge",
+   "leaning against wall in a room with window and rug"
+  ],
+  "problems": [
+   "dark neck blends with dark brown wall stripes",
+   "body shape is a bit jagged and asymmetric",
+   "no visible strings",
+   "bottom of guitar merges with blue rug pattern"
+  ],
+  "digest": "9f5ffe26ec146c61",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.035,
+  "biggest_patch": 0.217,
+  "theme": "Cabin",
+  "name": "Guitar",
+  "pack": "music",
+  "touched": false
+ },
+ "piano-428": {
+  "guess": "street musician playing keyboard",
+  "alternatives": [
+   "kid at a piano by a brick wall",
+   "flower seller at a stall"
+  ],
+  "readability": 3,
+  "features": [
+   "dark-skinned face with eyes",
+   "black hair/cap",
+   "red open mouth (singing)",
+   "purple shirt",
+   "arms reaching to piano keys",
+   "white and black piano keys",
+   "brick wall background",
+   "pink lollipop or flower",
+   "red rose with green leaf",
+   "grey pavement"
+  ],
+  "problems": [
+   "brown arm/stick lines across the image are confusing",
+   "piano keyboard shape is chunky and looks like a bed or counter",
+   "red mouth looks like a blob",
+   "small props (lollipop, rose) are unclear",
+   "busy brick background competes with the figure"
+  ],
+  "digest": "23825fed2737bc6f",
+  "grade": "weak",
+  "score": 50,
+  "colors": 14,
+  "black": 0.201,
+  "biggest_patch": 0.171,
+  "theme": "Brick cellar",
+  "name": "Piano",
+  "pack": "music",
+  "touched": false
+ },
+ "violin-429": {
+  "guess": "girl in pink dress playing violin on a city rooftop at night",
+  "alternatives": [
+   "princess singing in the city at night",
+   "woman dancing on a wall at night"
+  ],
+  "readability": 3,
+  "features": [
+   "long black hair",
+   "face with eyes",
+   "pink and red dress",
+   "brown violin held under chin",
+   "arm with bow",
+   "night city skyline with lit windows",
+   "crescent moon",
+   "brick wall with torches"
+  ],
+  "problems": [
+   "violin is small and blends with brown skin/arm",
+   "black hair merges with dark outline and body area",
+   "dress shape is blobby, no visible legs or feet",
+   "face has only two dots for eyes, no mouth",
+   "busy background competes with subject"
+  ],
+  "digest": "a209cb9920b080bd",
+  "grade": "pass",
+  "score": 76,
+  "colors": 17,
+  "black": 0.321,
+  "biggest_patch": 0.177,
+  "theme": "Lantern festival",
+  "name": "Violin",
+  "pack": "music",
+  "touched": false
+ },
+ "trumpet-430": {
+  "guess": "orange trumpet",
+  "alternatives": [
+   "orange airplane",
+   "orange saxophone"
+  ],
+  "readability": 3,
+  "features": [
+   "flared bell on the right",
+   "long tube body",
+   "three valves on top",
+   "curved tubing loop below",
+   "mouthpiece on the left"
+  ],
+  "problems": [
+   "thick dark outline and lumpy shape make it look like a plane or blob",
+   "valves and loop are chunky and hard to read",
+   "busy city background competes with the subject",
+   "orange body blends with orange sky band and sun"
+  ],
+  "digest": "208493e301a3afb8",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.142,
+  "biggest_patch": 0.166,
+  "theme": "City dawn",
+  "name": "Trumpet",
+  "pack": "music",
+  "touched": false
+ },
+ "saxophone-431": {
+  "guess": "white cat in a red Santa hat playing a saxophone",
+  "alternatives": [
+   "polar bear playing a saxophone",
+   "Christmas snowman musician"
+  ],
+  "readability": 3,
+  "features": [
+   "white round head",
+   "red Santa hat with white trim",
+   "red shirt or scarf",
+   "yellow-orange saxophone with black keys",
+   "green item held in the hands",
+   "dark legs and feet",
+   "patterned rug on the floor",
+   "window and polka-dot wallpaper background"
+  ],
+  "problems": [
+   "no clear eyes, nose or mouth",
+   "white body blends with the pale blue background and the white window frame",
+   "heavy black outlines make the body shape blocky and hard to read",
+   "hard to tell what kind of animal it is",
+   "green part of the hands is confusing"
+  ],
+  "digest": "aaf0ebf03ec17449",
+  "grade": "pass",
+  "score": 76,
+  "colors": 17,
+  "black": 0.113,
+  "biggest_patch": 0.384,
+  "theme": "Nursery",
+  "name": "Saxophone",
+  "pack": "music",
+  "touched": false
+ },
+ "harp-432": {
+  "guess": "woman playing a harp",
+  "alternatives": [
+   "witch playing a harp",
+   "musician with a lyre"
+  ],
+  "readability": 3,
+  "features": [
+   "orange and red harp with white strings",
+   "figure in black dress with dark hair",
+   "tan face and arms reaching to strings",
+   "window on striped pink wall",
+   "wooden floor and patterned rug"
+  ],
+  "problems": [
+   "face is small and hard to read",
+   "black dress and hair merge into one dark blob",
+   "arms blend with harp colors",
+   "figure's pose is cramped behind the harp"
+  ],
+  "digest": "cdca8e566b78e76d",
+  "grade": "pass",
+  "score": 72,
+  "colors": 17,
+  "black": 0.119,
+  "biggest_patch": 0.065,
+  "theme": "Living room",
+  "name": "Harp",
+  "pack": "music",
+  "touched": false
+ },
+ "cello-433": {
+  "guess": "double bass (cello) against a city wall at sunset",
+  "alternatives": [
+   "cello",
+   "violin"
+  ],
+  "readability": 4,
+  "features": [
+   "curvy wooden body with waist",
+   "long neck",
+   "scroll/tuning head at top",
+   "red center strip like strings/fingerboard",
+   "dark outline",
+   "small end at bottom"
+  ],
+  "problems": [
+   "brown body blends somewhat with dark shading",
+   "strings not clearly separated",
+   "neck thin and partly lost against buildings",
+   "busy background with buildings and brick wall"
+  ],
+  "digest": "4ca3ad7f6dcbff3e",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.043,
+  "biggest_patch": 0.161,
+  "theme": "City dawn",
+  "name": "Cello",
+  "pack": "music",
+  "touched": false
+ },
+ "radio-434": {
+  "guess": "old wooden radio",
+  "alternatives": [
+   "vintage television set",
+   "clock radio"
+  ],
+  "readability": 3,
+  "features": [
+   "boxy brown wooden cabinet with rounded corners",
+   "grey speaker grille on left",
+   "round white dial with black needle on right",
+   "short feet at bottom"
+  ],
+  "problems": [
+   "dial could be read as a clock face",
+   "speaker grille pattern is noisy and unclear",
+   "two-tone tan/brown split looks odd",
+   "street background with buildings distracts slightly"
+  ],
+  "digest": "df4428dd64e9c9e9",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.126,
+  "biggest_patch": 0.139,
+  "theme": "City day",
+  "name": "Radio",
+  "pack": "music",
+  "touched": false
+ },
+ "keyboard-piano-435": {
+  "guess": "piano keyboard",
+  "alternatives": [
+   "toy piano",
+   "piano-shaped shoe"
+  ],
+  "readability": 4,
+  "features": [
+   "white keys",
+   "black keys",
+   "keyboard body with grey shading",
+   "small blue feet",
+   "pink striped wall with window behind"
+  ],
+  "problems": [
+   "shape is a rounded blob rather than a full piano",
+   "grey shading at bottom right looks odd",
+   "black keys are irregularly spaced",
+   "no piano legs or lid, only the keys"
+  ],
+  "digest": "80f7f3aaab9bb128",
+  "grade": "pass",
+  "score": 78,
+  "colors": 10,
+  "black": 0.213,
+  "biggest_patch": 0.201,
+  "theme": "Living room",
+  "name": "Keyboard Piano",
+  "pack": "music",
+  "touched": false
+ },
+ "bongo-drums-436": {
+  "guess": "bongo drums",
+  "alternatives": [
+   "two red pots",
+   "drum set"
+  ],
+  "readability": 3,
+  "features": [
+   "two round drum heads with white tops",
+   "tan rims",
+   "red drum bodies with dark outlines",
+   "brick wall background",
+   "shelf with small items"
+  ],
+  "problems": [
+   "drums merge into one blob",
+   "bottom shape is irregular",
+   "little contrast with red brick wall",
+   "heads seen from odd angle"
+  ],
+  "digest": "0cabfc36176124e7",
+  "grade": "pass",
+  "score": 68,
+  "colors": 10,
+  "black": 0.146,
+  "biggest_patch": 0.172,
+  "theme": "Brick cellar",
+  "name": "Bongo Drums",
+  "pack": "music",
+  "touched": false
+ },
+ "french-horn-437": {
+  "guess": "french horn",
+  "alternatives": [
+   "tuba",
+   "golden trumpet"
+  ],
+  "readability": 3,
+  "features": [
+   "flared golden bell",
+   "coiled tubing",
+   "gray valves/keys",
+   "mouthpiece pipe at top right",
+   "resting on a rug by a window"
+  ],
+  "problems": [
+   "coiled tubing is a dark tangled mass that's hard to read",
+   "dark outline blends with brown wall",
+   "valves look like random gray shapes"
+  ],
+  "digest": "e3b69d313e042cd6",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.195,
+  "biggest_patch": 0.074,
+  "theme": "Cabin",
+  "name": "French Horn",
+  "pack": "music",
+  "touched": false
+ },
+ "electric-guitar-438": {
+  "guess": "electric guitar",
+  "alternatives": [
+   "bass guitar",
+   "ukulele"
+  ],
+  "readability": 4,
+  "features": [
+   "light blue guitar body",
+   "long dark neck",
+   "tan fretboard",
+   "headstock at top",
+   "dark outline",
+   "bridge/pickguard detail",
+   "shelf with jars behind"
+  ],
+  "problems": [
+   "neck is thick and dark, blending with outline",
+   "body shape somewhat blobby",
+   "headstock small and hard to read",
+   "busy polka-dot and checkered background"
+  ],
+  "digest": "b04bd6fa780eaacd",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.056,
+  "biggest_patch": 0.556,
+  "theme": "Bakery",
+  "name": "Electric Guitar",
+  "pack": "music",
+  "touched": false
+ },
+ "boombox-439": {
+  "guess": "boombox radio in a city at night",
+  "alternatives": [
+   "cassette player",
+   "old television"
+  ],
+  "readability": 3,
+  "features": [
+   "boxy body with handle on top",
+   "antenna sticking up diagonally",
+   "two round speakers on the sides",
+   "brown cassette window in the middle",
+   "night city background with moon, stars and lit buildings"
+  ],
+  "problems": [
+   "speakers are drawn as messy black-and-white patches instead of clear circles",
+   "white and gray body blends into the gray street and pavement",
+   "antenna is thin and hard to read against the dark sky",
+   "cluttered detail makes the object look blobby at a glance"
+  ],
+  "digest": "affd126c7c74c646",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.379,
+  "biggest_patch": 0.18,
+  "theme": "City night",
+  "name": "Boombox",
+  "pack": "music",
+  "touched": false
+ }
+}

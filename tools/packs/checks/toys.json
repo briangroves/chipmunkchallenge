@@ -1,0 +1,491 @@
+{
+ "teddy-bear-454": {
+  "guess": "teddy bear",
+  "alternatives": [
+   "puppy",
+   "hamster"
+  ],
+  "readability": 3,
+  "features": [
+   "tan head with round ears",
+   "small dark eyes",
+   "white muzzle with dark nose",
+   "brown body",
+   "white paws/feet",
+   "dark outline",
+   "brick wall and checkered floor background",
+   "small shelf with blocks"
+  ],
+  "problems": [
+   "head and body blend together into one blobby shape",
+   "face is small and hard to read",
+   "ears are irregular and look jagged",
+   "pose is unclear, limbs hard to distinguish",
+   "tan color is close to the light background tiles"
+  ],
+  "digest": "4a02fe5379699ed8",
+  "grade": "pass",
+  "score": 88,
+  "colors": 11,
+  "black": 0.094,
+  "biggest_patch": 0.172,
+  "theme": "Brick cellar",
+  "name": "Teddy Bear",
+  "pack": "toys",
+  "touched": false
+ },
+ "robot-455": {
+  "guess": "white robot head on a stand (monitor-like)",
+  "alternatives": [
+   "vintage computer monitor",
+   "bathroom sink / mirror"
+  ],
+  "readability": 3,
+  "features": [
+   "rounded white head shape",
+   "two light-blue eyes with grey brows",
+   "short neck/stand",
+   "flat base",
+   "window in background",
+   "purple-yellow striped rug",
+   "wooden plank wall"
+  ],
+  "problems": [
+   "no mouth or other facial details",
+   "shape could be a monitor, lamp or appliance",
+   "white body with grey shading looks blobby",
+   "unclear what the object is meant to be without context"
+  ],
+  "digest": "f4a5460de8268fa4",
+  "grade": "pass",
+  "score": 72,
+  "colors": 11,
+  "black": 0.105,
+  "biggest_patch": 0.164,
+  "theme": "Cabin",
+  "name": "Robot",
+  "pack": "toys",
+  "touched": false
+ },
+ "doll-456": {
+  "guess": "daruma doll",
+  "alternatives": [
+   "red Easter egg with a face",
+   "red bird (Japanese kokeshi-style toy)"
+  ],
+  "readability": 3,
+  "features": [
+   "round egg-shaped red body",
+   "white face area",
+   "closed curved eyes",
+   "dark outline",
+   "decorative patterned red base",
+   "sits on a mat/table with a window behind"
+  ],
+  "problems": [
+   "face is small and off-center",
+   "red body has messy blotchy shading in dark red and brown",
+   "white swirls on top are confusing",
+   "no clear mustache or eyebrows typical of a daruma",
+   "pink patch on left side looks random"
+  ],
+  "digest": "8cc2302f83b5dc8c",
+  "grade": "pass",
+  "score": 76,
+  "colors": 15,
+  "black": 0.049,
+  "biggest_patch": 0.373,
+  "theme": "Nursery",
+  "name": "Doll",
+  "pack": "toys",
+  "touched": false
+ },
+ "rocking-horse-457": {
+  "guess": "rocking horse",
+  "alternatives": [
+   "gray horse lying down",
+   "toy pony on a rug"
+  ],
+  "readability": 3,
+  "features": [
+   "horse head with ear and muzzle",
+   "dark mane",
+   "dark tail at right",
+   "red saddle",
+   "gray body with white belly",
+   "red rocker base",
+   "pink item at left"
+  ],
+  "problems": [
+   "no clear eye or face details",
+   "head and neck shape is jagged and hard to read",
+   "legs not visible, body merges into white blob",
+   "red rockers blend with red rug",
+   "busy wood plank background"
+  ],
+  "digest": "8919c0139ccc5091",
+  "grade": "pass",
+  "score": 80,
+  "colors": 16,
+  "black": 0.106,
+  "biggest_patch": 0.085,
+  "theme": "Cabin",
+  "name": "Rocking Horse",
+  "pack": "toys",
+  "touched": false
+ },
+ "toy-train-458": {
+  "guess": "blue steam train",
+  "alternatives": [
+   "toy train set on a shelf",
+   "subway train"
+  ],
+  "readability": 4,
+  "features": [
+   "blue carriages",
+   "steam locomotive at front",
+   "white and black smoke puffs",
+   "yellow wheels",
+   "red brick wall background",
+   "shelf with small colored blocks",
+   "tracks/rails"
+  ],
+  "problems": [
+   "locomotive front blends with carriages",
+   "wheels are small and partly hidden by dark outlines",
+   "gray ground and dark shading make the bottom busy",
+   "smoke shape is abstract"
+  ],
+  "digest": "5a09640d302922b2",
+  "grade": "pass",
+  "score": 78,
+  "colors": 12,
+  "black": 0.101,
+  "biggest_patch": 0.29,
+  "theme": "Brick cellar",
+  "name": "Toy Train",
+  "pack": "toys",
+  "touched": false
+ },
+ "beach-ball-459": {
+  "guess": "beach ball",
+  "alternatives": [
+   "egg with colorful shell",
+   "round cushion"
+  ],
+  "readability": 3,
+  "features": [
+   "round ball shape with dark outline",
+   "colored segments: blue, white, red, yellow, orange",
+   "white highlight",
+   "small shadow/stand at bottom"
+  ],
+  "problems": [
+   "red segment looks like a blob rather than a curved panel",
+   "shape is slightly egg-like and tilted",
+   "segments don't meet at a clear center point",
+   "dark bit at bottom is confusing"
+  ],
+  "digest": "3e04855d5f63c3cf",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.093,
+  "biggest_patch": 0.151,
+  "theme": "Brick cellar",
+  "name": "Beach Ball",
+  "pack": "toys",
+  "touched": false
+ },
+ "jigsaw-puzzle-460": {
+  "guess": "colorful jigsaw puzzle pieces",
+  "alternatives": [
+   "paint splashes on a canvas",
+   "stained glass window"
+  ],
+  "readability": 2,
+  "features": [
+   "four colored sections: green, yellow-orange, blue, red",
+   "dark outline around a square shape",
+   "interlocking blob-like edges",
+   "sits on a purple-yellow rug in a room with striped wallpaper and a window"
+  ],
+  "problems": [
+   "pieces lack clear puzzle tabs, look like irregular blobs",
+   "no distinct object silhouette",
+   "overall square shape could be many things",
+   "busy background stripes compete with subject"
+  ],
+  "digest": "9885ac0053078b38",
+  "grade": "weak",
+  "score": 62,
+  "colors": 19,
+  "black": 0.068,
+  "biggest_patch": 0.085,
+  "theme": "Living room",
+  "name": "Jigsaw Puzzle",
+  "pack": "toys",
+  "touched": false
+ },
+ "toy-car-461": {
+  "guess": "red toy car",
+  "alternatives": [
+   "red race car",
+   "red bumper car"
+  ],
+  "readability": 4,
+  "features": [
+   "red car body",
+   "light blue windshield and windows",
+   "dark outline",
+   "dark wheels underneath",
+   "shelf with paint jars in background",
+   "checkered floor"
+  ],
+  "problems": [
+   "wheels are hard to distinguish, blending into the dark outline and shadow",
+   "rear of car has dark red blotchy area that looks messy",
+   "car shape is somewhat squashed and asymmetric"
+  ],
+  "digest": "5a9daba6d7377f3d",
+  "grade": "pass",
+  "score": 78,
+  "colors": 12,
+  "black": 0.081,
+  "biggest_patch": 0.509,
+  "theme": "Bakery",
+  "name": "Toy Car",
+  "pack": "toys",
+  "touched": false
+ },
+ "balloon-462": {
+  "guess": "hot air balloon",
+  "alternatives": [
+   "hot air balloon toy on a shelf",
+   "lantern"
+  ],
+  "readability": 4,
+  "features": [
+   "striped red, yellow and orange balloon envelope",
+   "dark outline",
+   "narrowing bottom with burner",
+   "small basket area at bottom",
+   "background of pink striped wallpaper, window and wooden wall"
+  ],
+  "problems": [
+   "basket is small and dark, blends with brown wood and red rope border",
+   "balloon is cut off at bottom by the patterned rope strip",
+   "busy background competes with subject"
+  ],
+  "digest": "21f3c7170f5e9976",
+  "grade": "pass",
+  "score": 78,
+  "colors": 12,
+  "black": 0.056,
+  "biggest_patch": 0.079,
+  "theme": "Living room",
+  "name": "Balloon",
+  "pack": "toys",
+  "touched": false
+ },
+ "rubber-duck-463": {
+  "guess": "yellow rubber duck",
+  "alternatives": [
+   "baby chick",
+   "yellow duckling"
+  ],
+  "readability": 5,
+  "features": [
+   "round yellow head",
+   "orange beak",
+   "eye",
+   "tuft on top of head",
+   "plump body",
+   "raised tail",
+   "orange shading on wing/body",
+   "bathroom tile background with shelf and cups"
+  ],
+  "problems": [
+   "eye is small and light-colored, a bit faint",
+   "wing area is only suggested by shading",
+   "bottom edge sits on a wooden floor rather than water, so 'bath' context is weaker"
+  ],
+  "digest": "86b770cb7d726dcf",
+  "grade": "pass",
+  "score": 96,
+  "colors": 12,
+  "black": 0.074,
+  "biggest_patch": 0.256,
+  "theme": "Cozy kitchen",
+  "name": "Rubber Duck",
+  "pack": "toys",
+  "touched": false,
+  "verify": {
+   "guess": "yellow rubber duck",
+   "score": 92,
+   "agrees": true
+  }
+ },
+ "toy-robot-464": {
+  "guess": "robot with a helmet",
+  "alternatives": [
+   "knight in armor",
+   "black cat in a bucket helmet"
+  ],
+  "readability": 3,
+  "features": [
+   "gray helmet or head",
+   "big yellow eyes",
+   "dark body with gray belly",
+   "arms stretched out with white trim",
+   "short legs with white highlights",
+   "red object in one hand",
+   "feet on a red patterned rug",
+   "wooden wall and window in background"
+  ],
+  "problems": [
+   "dark body blends with the dark outlines and brown wall",
+   "head shape is ambiguous, could be helmet or bucket",
+   "no clear mouth or nose",
+   "red item in hand is hard to identify"
+  ],
+  "digest": "4a4aae6b6ed6314d",
+  "grade": "pass",
+  "score": 80,
+  "colors": 14,
+  "black": 0.199,
+  "biggest_patch": 0.179,
+  "theme": "Cabin",
+  "name": "Toy Robot",
+  "pack": "toys",
+  "touched": false
+ },
+ "pinwheel-465": {
+  "guess": "pinwheel",
+  "alternatives": [
+   "colorful star toy",
+   "paper windmill"
+  ],
+  "readability": 3,
+  "features": [
+   "multicolored pointed blades (green, yellow, orange, red, pink, purple, gray)",
+   "dark outline around blades",
+   "gray stick/handle at bottom",
+   "window background with shelf and red cup"
+  ],
+  "problems": [
+   "blades are irregular and jagged, not a clean spiral shape",
+   "no clear center pin",
+   "handle is short and partly hidden by the fence",
+   "shelf line passing behind makes it look like it is sitting on a rod",
+   "busy multicolor shape can read as a blob or flower"
+  ],
+  "digest": "7659c18e0184705a",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.051,
+  "biggest_patch": 0.304,
+  "theme": "Cozy kitchen",
+  "name": "Pinwheel",
+  "pack": "toys",
+  "touched": false
+ },
+ "rubik-cube-466": {
+  "guess": "Rubik's cube",
+  "alternatives": [
+   "colorful puzzle dice",
+   "toy block"
+  ],
+  "readability": 3,
+  "features": [
+   "cube shape with three visible faces",
+   "yellow top face",
+   "green left face",
+   "red right face",
+   "dark grid lines suggesting squares",
+   "table and window background"
+  ],
+  "problems": [
+   "faces are lumpy and irregular rather than a clean 3x3 grid",
+   "shape looks rounded and blobby",
+   "inner lines are noisy so stickers aren't clear",
+   "could read as a heap of leaves or a fruit"
+  ],
+  "digest": "0c40870344d46b89",
+  "grade": "pass",
+  "score": 72,
+  "colors": 20,
+  "black": 0.094,
+  "biggest_patch": 0.315,
+  "theme": "Nursery",
+  "name": "Rubik Cube",
+  "pack": "toys",
+  "touched": false
+ },
+ "rag-doll-467": {
+  "guess": "girl with red hair in a blue dress",
+  "alternatives": [
+   "maid or waitress in a kitchen",
+   "doll"
+  ],
+  "readability": 4,
+  "features": [
+   "red hair",
+   "pale face with one dark eye",
+   "blue dress",
+   "white belt/apron band",
+   "white hands/arms",
+   "white socks and dark shoes",
+   "brick wall with shelf holding blue and yellow items",
+   "checkered floor"
+  ],
+  "problems": [
+   "face is tiny with only one eye visible",
+   "hair partly covers face",
+   "arms are small blobs",
+   "dark outline merges with wall in places"
+  ],
+  "digest": "fff327ce2d07d05d",
+  "grade": "weak",
+  "score": 52,
+  "colors": 10,
+  "black": 0.05,
+  "biggest_patch": 0.154,
+  "theme": "Brick cellar",
+  "name": "Rag Doll",
+  "pack": "toys",
+  "touched": false
+ },
+ "plush-bunny-468": {
+  "guess": "white rabbit sitting with its back turned",
+  "alternatives": [
+   "white cat seen from behind",
+   "white dog sitting on a rug"
+  ],
+  "readability": 3,
+  "features": [
+   "two tall pointed ears",
+   "white rounded body",
+   "curled hind leg/foot",
+   "sitting on a blue rug",
+   "room with window and wooden floor"
+  ],
+  "problems": [
+   "no visible face, eyes or nose",
+   "body shape is blobby and ambiguous",
+   "pose is hard to interpret (back view)",
+   "shadow shading muddles the lower body"
+  ],
+  "digest": "d162e986d0a69ac4",
+  "grade": "pass",
+  "score": 76,
+  "colors": 15,
+  "black": 0.066,
+  "biggest_patch": 0.45,
+  "theme": "Nursery",
+  "name": "Plush Bunny",
+  "pack": "toys",
+  "touched": false
+ }
+}

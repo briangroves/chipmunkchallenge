@@ -1,0 +1,319 @@
+{
+ "tent-757": {
+  "guess": "circus tent with flag",
+  "alternatives": [
+   "red tent",
+   "carousel"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed dark top of tent",
+   "red tent body",
+   "dark triangular entrance flap",
+   "red flag on pole",
+   "framed picture/window border",
+   "sunset sky with sun outside"
+  ],
+  "problems": [
+   "tent has no stripes typical of a circus tent",
+   "dark red tent blends with pink/magenta background",
+   "top cone is dark and merges with outline",
+   "busy framed background with pink gradient distracts"
+  ],
+  "digest": "e7e44ec4c610e6a0",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.158,
+  "biggest_patch": 0.217,
+  "theme": "Beach sunset",
+  "name": "Tent",
+  "pack": "camping",
+  "touched": false
+ },
+ "campfire-758": {
+  "guess": "campfire",
+  "alternatives": [
+   "bonfire",
+   "burning log pile"
+  ],
+  "readability": 5,
+  "features": [
+   "orange and yellow flames",
+   "dark outline around fire",
+   "brown logs at base",
+   "charred dark wood inside",
+   "grass, trees, sky, mushrooms background"
+  ],
+  "problems": [
+   "dark charred area inside flames is a bit blobby",
+   "logs blend slightly with brown dirt at bottom",
+   "flames lean right and look a bit like a leaf shape"
+  ],
+  "digest": "ff772a8fffd37816",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.098,
+  "biggest_patch": 0.192,
+  "theme": "Pine forest",
+  "name": "Campfire",
+  "pack": "camping",
+  "touched": false
+ },
+ "compass-759": {
+  "guess": "compass",
+  "alternatives": [
+   "clock",
+   "dreamcatcher"
+  ],
+  "readability": 2,
+  "features": [
+   "round dark outline",
+   "tan rim",
+   "needle-like dark line across center",
+   "small brown center pivot",
+   "orange and purple accents"
+  ],
+  "problems": [
+   "interior is a jumble of lilac, blue and white patches with no clear markings",
+   "no cardinal letters or clear needle shape",
+   "orange bits look random",
+   "subject is ambiguous between compass, clock or plate"
+  ],
+  "digest": "f86a664dc571e3a7",
+  "grade": "weak",
+  "score": 62,
+  "colors": 18,
+  "black": 0.066,
+  "biggest_patch": 0.139,
+  "theme": "Castle hill",
+  "name": "Compass",
+  "pack": "camping",
+  "touched": false
+ },
+ "map-760": {
+  "guess": "old world map (treasure map)",
+  "alternatives": [
+   "burnt parchment scroll",
+   "stone tablet with world map"
+  ],
+  "readability": 4,
+  "features": [
+   "tan parchment sheet with ragged dark outline",
+   "dark red continents shaped like the Americas, Europe, Africa and Asia",
+   "brown burnt or shaded lower-right corner",
+   "grey curled edges",
+   "sun and sky in the background",
+   "orange lava or desert ground below"
+  ],
+  "problems": [
+   "the burnt brown corner and the red-orange ground blend together at the bottom right",
+   "the continents are blocky and only roughly shaped",
+   "the grey edges could read as rock, so it may look like a stone instead of paper"
+  ],
+  "digest": "60a093675b55a779",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.069,
+  "biggest_patch": 0.228,
+  "theme": "Cactus canyon",
+  "name": "Map",
+  "pack": "camping",
+  "touched": false
+ },
+ "bear-761": {
+  "guess": "brown bear head",
+  "alternatives": [
+   "marmot",
+   "beaver"
+  ],
+  "readability": 3,
+  "features": [
+   "round brown head",
+   "two small ears on top",
+   "two dark eyes",
+   "dark nose",
+   "tan highlight on left edge",
+   "meadow with flowers and mountains background"
+  ],
+  "problems": [
+   "head is a big round blob with no body",
+   "no muzzle shape, so the face reads as flat",
+   "eyes are large dark ovals that look more like holes or sockets",
+   "ears are tiny and dark, easy to miss",
+   "brown shading makes it look like a rock or potato"
+  ],
+  "digest": "2709cc55dbe9c539",
+  "grade": "pass",
+  "score": 80,
+  "colors": 19,
+  "black": 0.061,
+  "biggest_patch": 0.232,
+  "theme": "Alpine meadow",
+  "name": "Bear",
+  "pack": "camping",
+  "touched": false
+ },
+ "pine-tree-762": {
+  "guess": "pine trees in a snowy night forest",
+  "alternatives": [
+   "winter mountain landscape",
+   "Christmas trees in snow"
+  ],
+  "readability": 4,
+  "features": [
+   "several dark green evergreen trees",
+   "brown trunks",
+   "lighter green small tree in middle",
+   "snowy ground",
+   "grey snow-capped mountains",
+   "crescent moon",
+   "stars in night sky"
+  ],
+  "problems": [
+   "trees merge into one green blob with no clear separate outlines",
+   "tree shapes are lumpy rather than classic triangular pines",
+   "busy speckled snow background"
+  ],
+  "digest": "16e7c78c97c32a95",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.26,
+  "biggest_patch": 0.177,
+  "theme": "Winter night",
+  "name": "Pine Tree",
+  "pack": "camping",
+  "touched": false
+ },
+ "axe-763": {
+  "guess": "axe lying in the grass",
+  "alternatives": [
+   "hatchet",
+   "hammer"
+  ],
+  "readability": 4,
+  "features": [
+   "grey metal axe head with dark outline",
+   "light highlight on blade",
+   "wooden handle diagonal",
+   "red grip wrap",
+   "orange/dark pommel end"
+  ],
+  "problems": [
+   "handle is thin and partly blends with background stripes",
+   "red and brown on handle look muddy",
+   "pommel end is an unclear orange blob",
+   "head shape is a bit rounded, could read as a rock or hammer"
+  ],
+  "digest": "f067a76d638a8eff",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.051,
+  "biggest_patch": 0.217,
+  "theme": "Pine forest",
+  "name": "Axe",
+  "pack": "camping",
+  "touched": false
+ },
+ "kayak-764": {
+  "guess": "person in a yellow kayak raising a paddle",
+  "alternatives": [
+   "warrior on a yellow boat with a sword",
+   "knight in a canoe at sunset"
+  ],
+  "readability": 2,
+  "features": [
+   "yellow boat/kayak",
+   "raised yellow paddle or sword",
+   "dark figure with white patches",
+   "light blue water splash",
+   "sunset sky with crescent moon",
+   "green hills"
+  ],
+  "problems": [
+   "figure has no clear face",
+   "black and white figure is jumbled and hard to read",
+   "grey/brown shape behind head is unclear (helmet? hair?)",
+   "raised object blends into sky colors",
+   "boat and splash shapes are blobby"
+  ],
+  "digest": "e15135dd72392d4b",
+  "grade": "weak",
+  "score": 62,
+  "colors": 20,
+  "black": 0.149,
+  "biggest_patch": 0.099,
+  "theme": "Castle at dusk",
+  "name": "Kayak",
+  "pack": "camping",
+  "touched": false
+ },
+ "hammock-765": {
+  "guess": "person relaxing in a hammock",
+  "alternatives": [
+   "cow lying in a hammock",
+   "panda sleeping in a hammock"
+  ],
+  "readability": 2,
+  "features": [
+   "hammock slung between two poles",
+   "white head/body shape with black outlines",
+   "purple and blue blanket or clothing",
+   "small tan hand or face patch",
+   "purple ball or balloon above",
+   "trees, sun, cloud, flowers in background"
+  ],
+  "problems": [
+   "main figure is blobby and hard to read",
+   "no clear face or eyes",
+   "purple/blue body blends into hammock",
+   "white and purple shapes don't clearly form a person or animal",
+   "busy green background competes with subject"
+  ],
+  "digest": "9eb503514613f107",
+  "grade": "weak",
+  "score": 66,
+  "colors": 20,
+  "black": 0.075,
+  "biggest_patch": 0.18,
+  "theme": "Summer hills",
+  "name": "Hammock",
+  "pack": "camping",
+  "touched": false
+ },
+ "pocket-knife-766": {
+  "guess": "red pocket knife (Swiss army knife)",
+  "alternatives": [
+   "red sports car",
+   "kitchen knife"
+  ],
+  "readability": 4,
+  "features": [
+   "red handle with highlight",
+   "white/silver blade with dark outline",
+   "blue emblem on handle",
+   "grey pivot/hinge at end",
+   "red barn in background",
+   "flowers and grass"
+  ],
+  "problems": [
+   "no cross emblem, blue square is vague",
+   "blade angle makes it look a bit like a wing or car",
+   "background barn competes for attention"
+  ],
+  "digest": "67fa6b2cb762d03c",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.065,
+  "biggest_patch": 0.201,
+  "theme": "Red barn",
+  "name": "Pocket Knife",
+  "pack": "camping",
+  "touched": false
+ }
+}

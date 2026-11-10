@@ -22,7 +22,14 @@
   ],
   "digest": "3fea98475d9bff1a",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 14,
+  "black": 0.092,
+  "biggest_patch": 0.151,
+  "theme": "Cabin",
+  "name": "Polar Bear",
+  "pack": "arctic",
+  "touched": false
  },
  "penguin-247": {
   "guess": "two penguins",
@@ -49,7 +56,14 @@
   ],
   "digest": "6c0a32c233f96666",
   "grade": "pass",
-  "score": 92
+  "score": 92,
+  "colors": 8,
+  "black": 0.171,
+  "biggest_patch": 0.199,
+  "theme": "Brick cellar",
+  "name": "Penguin",
+  "pack": "arctic",
+  "touched": false
  },
  "reindeer-248": {
   "guess": "reindeer with red nose",
@@ -75,7 +89,14 @@
   ],
   "digest": "7183d0d38da588dd",
   "grade": "pass",
-  "score": 90
+  "score": 90,
+  "colors": 17,
+  "black": 0.251,
+  "biggest_patch": 0.174,
+  "theme": "Northern lights",
+  "name": "Reindeer",
+  "pack": "arctic",
+  "touched": false
  },
  "husky-249": {
   "guess": "husky dog with a fluffy tail",
@@ -100,7 +121,14 @@
   ],
   "digest": "57fc4465471ff760",
   "grade": "pass",
-  "score": 88
+  "score": 88,
+  "colors": 11,
+  "black": 0.093,
+  "biggest_patch": 0.295,
+  "theme": "Cozy kitchen",
+  "name": "Husky",
+  "pack": "arctic",
+  "touched": false
  },
  "puffin-250": {
   "guess": "puffin head close-up",
@@ -124,7 +152,14 @@
   ],
   "digest": "bb580a77cb21dc51",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 18,
+  "black": 0.339,
+  "biggest_patch": 0.121,
+  "theme": "Aurora lake",
+  "name": "Puffin",
+  "pack": "arctic",
+  "touched": false
  },
  "snowman-251": {
   "guess": "snowman with brown hat",
@@ -150,7 +185,14 @@
   ],
   "digest": "15d3f4c63dcb3136",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 10,
+  "black": 0.117,
+  "biggest_patch": 0.204,
+  "theme": "Mountain pass",
+  "name": "Snowman",
+  "pack": "arctic",
+  "touched": false
  },
  "snow-globe-252": {
   "guess": "snow globe with a snowman",
@@ -176,7 +218,14 @@
   ],
   "digest": "eb7d1535d092b87a",
   "grade": "pass",
-  "score": 78
+  "score": 78,
+  "colors": 17,
+  "black": 0.079,
+  "biggest_patch": 0.149,
+  "theme": "Cabin",
+  "name": "Snow Globe",
+  "pack": "arctic",
+  "touched": false
  },
  "baby-penguin-253": {
   "guess": "penguin family huddle (emperor penguins)",
@@ -202,7 +251,14 @@
   ],
   "digest": "4a018957315a11de",
   "grade": "weak",
-  "score": 66
+  "score": 66,
+  "colors": 11,
+  "black": 0.212,
+  "biggest_patch": 0.307,
+  "theme": "Cozy kitchen",
+  "name": "Baby Penguin",
+  "pack": "arctic",
+  "touched": false
  },
  "sleigh-254": {
   "guess": "Santa Claus riding a red sleigh with a gift",
@@ -228,7 +284,14 @@
   ],
   "digest": "f892512198aeb36f",
   "grade": "pass",
-  "score": 76
+  "score": 76,
+  "colors": 17,
+  "black": 0.317,
+  "biggest_patch": 0.083,
+  "theme": "Aurora lake",
+  "name": "Sleigh",
+  "pack": "arctic",
+  "touched": false
  },
  "christmas-tree-255": {
   "guess": "Christmas tree in the snow",
@@ -251,7 +314,14 @@
   ],
   "digest": "e6aa5406708df527",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 15,
+  "black": 0.055,
+  "biggest_patch": 0.195,
+  "theme": "Ice field",
+  "name": "Christmas Tree",
+  "pack": "arctic",
+  "touched": false
  },
  "santa-256": {
   "guess": "two snowmen with Santa hat in a forest",
@@ -278,7 +348,14 @@
   ],
   "digest": "dc6913dbf34df31f",
   "grade": "weak",
-  "score": 66
+  "score": 66,
+  "colors": 11,
+  "black": 0.129,
+  "biggest_patch": 0.164,
+  "theme": "Misty pines",
+  "name": "Santa",
+  "pack": "arctic",
+  "touched": false
  },
  "gift-box-257": {
   "guess": "wrapped gift box with orange ribbon and bow",
@@ -303,7 +380,14 @@
   ],
   "digest": "5c6d8f7754d2d8fd",
   "grade": "pass",
-  "score": 76
+  "score": 76,
+  "colors": 18,
+  "black": 0.085,
+  "biggest_patch": 0.052,
+  "theme": "Living room",
+  "name": "Gift Box",
+  "pack": "arctic",
+  "touched": false
  },
  "stocking-258": {
   "guess": "Christmas stocking",
@@ -326,7 +410,14 @@
   ],
   "digest": "5313c3476501f7a6",
   "grade": "pass",
-  "score": 74
+  "score": 74,
+  "colors": 12,
+  "black": 0.075,
+  "biggest_patch": 0.379,
+  "theme": "Bakery",
+  "name": "Stocking",
+  "pack": "arctic",
+  "touched": false
  },
  "candy-cane-259": {
   "guess": "candy cane",
@@ -348,7 +439,14 @@
   ],
   "digest": "78e3a02091140e4a",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 9,
+  "black": 0.126,
+  "biggest_patch": 0.112,
+  "theme": "Mountain pass",
+  "name": "Candy Cane",
+  "pack": "arctic",
+  "touched": false
  },
  "gingerbread-house-260": {
   "guess": "snow-covered house or igloo-like hut",
@@ -371,7 +469,14 @@
   ],
   "digest": "cbfbd50127776a8a",
   "grade": "weak",
-  "score": 62
+  "score": 62,
+  "colors": 9,
+  "black": 0.128,
+  "biggest_patch": 0.195,
+  "theme": "Snowy pines",
+  "name": "Gingerbread House",
+  "pack": "arctic",
+  "touched": false
  },
  "bell-261": {
   "guess": "green bell pepper",
@@ -395,7 +500,14 @@
   ],
   "digest": "8393c40ca796b58c",
   "grade": "pass",
-  "score": 74
+  "score": 74,
+  "colors": 13,
+  "black": 0.058,
+  "biggest_patch": 0.138,
+  "theme": "Cabin",
+  "name": "Bell",
+  "pack": "arctic",
+  "touched": false
  },
  "wreath-262": {
   "guess": "Christmas laurel wreath in a window by a brick wall",
@@ -419,7 +531,14 @@
   ],
   "digest": "b75ea5d9acbc6186",
   "grade": "pass",
-  "score": 68
+  "score": 68,
+  "colors": 8,
+  "black": 0.151,
+  "biggest_patch": 0.302,
+  "theme": "Brick cellar",
+  "name": "Wreath",
+  "pack": "arctic",
+  "touched": false
  },
  "holly-263": {
   "guess": "holly leaves with red berries (Christmas decoration)",
@@ -444,7 +563,14 @@
   ],
   "digest": "855b6e44fe4e0b8a",
   "grade": "weak",
-  "score": 62
+  "score": 62,
+  "colors": 16,
+  "black": 0.067,
+  "biggest_patch": 0.506,
+  "theme": "Nursery",
+  "name": "Holly",
+  "pack": "arctic",
+  "touched": false
  },
  "star-264": {
   "guess": "yellow star with a face",
@@ -468,7 +594,14 @@
   ],
   "digest": "968823b07edab520",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 16,
+  "black": 0.324,
+  "biggest_patch": 0.09,
+  "theme": "Northern lights",
+  "name": "Star",
+  "pack": "arctic",
+  "touched": false
  },
  "elf-265": {
   "guess": "gnome or elf with a tall green hat",
@@ -492,6 +625,13 @@
   ],
   "digest": "6407aabd3c8cfc22",
   "grade": "weak",
-  "score": 74
+  "score": 74,
+  "colors": 14,
+  "black": 0.064,
+  "biggest_patch": 0.341,
+  "theme": "Cozy kitchen",
+  "name": "Elf",
+  "pack": "arctic",
+  "touched": false
  }
 }

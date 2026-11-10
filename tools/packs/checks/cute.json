@@ -1,0 +1,597 @@
+{
+ "kawaii-cat-802": {
+  "guess": "sleeping cat curled up",
+  "alternatives": [
+   "rock boulder in desert",
+   "hamster"
+  ],
+  "readability": 2,
+  "features": [
+   "rounded body shape",
+   "two pointed ears on top",
+   "closed eyes/face markings in middle",
+   "gray patches",
+   "small gray round thing like a paw or stone beside it",
+   "desert sunset background with sun and birds"
+  ],
+  "problems": [
+   "no clear face, eyes or nose",
+   "gray patches make it look like a rock",
+   "tan color blends with the yellow background",
+   "shape is blobby",
+   "the gray circle on the right is unclear"
+  ],
+  "digest": "927ea20f559ad803",
+  "grade": "weak",
+  "score": 78,
+  "colors": 12,
+  "black": 0.015,
+  "biggest_patch": 0.164,
+  "theme": "Golden wheat",
+  "name": "Kawaii Cat",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-bunny-803": {
+  "guess": "pink bunny peeking out of a blue trash can",
+  "alternatives": [
+   "pink rabbit in a blue bucket",
+   "pink pig with long ears in a box"
+  ],
+  "readability": 3,
+  "features": [
+   "long pink ears with white inner parts",
+   "pink face",
+   "dark eye",
+   "red cheek or nose",
+   "blue container with white stripes",
+   "grey brick wall background",
+   "sky with clouds",
+   "grey mountains"
+  ],
+  "problems": [
+   "face is small and partly hidden by the container rim",
+   "only one eye clearly visible",
+   "right ear blends with the grey mountains",
+   "red patch on face is unclear (nose? cheek?)",
+   "no body visible, just head peeking out"
+  ],
+  "digest": "b773c9e98ee6bad7",
+  "grade": "pass",
+  "score": 84,
+  "colors": 10,
+  "black": 0.111,
+  "biggest_patch": 0.206,
+  "theme": "Mountain pass",
+  "name": "Kawaii Bunny",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-panda-804": {
+  "guess": "panda with pink flowers",
+  "alternatives": [
+   "panda wearing a flower crown",
+   "fairy panda with pink wings"
+  ],
+  "readability": 3,
+  "features": [
+   "white face",
+   "black eye patches",
+   "black ears",
+   "small red mouth or nose",
+   "dark outline body",
+   "pink and red flowers around it",
+   "small legs at bottom"
+  ],
+  "problems": [
+   "pink flowers on all four corners look like wings or ears and confuse the silhouette",
+   "body blends into the dark green grass at the bottom",
+   "the face looks a bit like a skull",
+   "no clear black arms or paws"
+  ],
+  "digest": "5263ef2cd0045522",
+  "grade": "pass",
+  "score": 88,
+  "colors": 19,
+  "black": 0.136,
+  "biggest_patch": 0.133,
+  "theme": "Spring meadow",
+  "name": "Kawaii Panda",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-frog-805": {
+  "guess": "group of green frogs in grass",
+  "alternatives": [
+   "sleepy green slimes in a hedge",
+   "frog choir on a pond bank"
+  ],
+  "readability": 3,
+  "features": [
+   "six round green faces in two rows",
+   "closed sleepy eyes with dark lids",
+   "pink cheeks on bottom row",
+   "smiling mouth on middle frog",
+   "yellow highlights on heads",
+   "grass tufts and dirt ground",
+   "small red mushrooms",
+   "bird in sky"
+  ],
+  "problems": [
+   "faces packed tightly and overlap",
+   "green bodies blend into green grass background",
+   "no clear legs or distinct frog body shape",
+   "bottom row faces partly hidden and fragmented",
+   "busy dark outlines make it cluttered"
+  ],
+  "digest": "d2e67defb9a3472c",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.133,
+  "biggest_patch": 0.21,
+  "theme": "Misty pines",
+  "name": "Kawaii Frog",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-penguin-806": {
+  "guess": "penguin",
+  "alternatives": [
+   "seal",
+   "snowman"
+  ],
+  "readability": 4,
+  "features": [
+   "black head and back outline",
+   "white belly",
+   "two black eyes",
+   "red beak",
+   "flipper outlines at sides",
+   "feet/base at bottom"
+  ],
+  "problems": [
+   "body is a wide blob with no clear flippers or feet",
+   "red beak looks like an open mouth/tongue",
+   "setting in green grass and sunset is unusual for a penguin",
+   "grey shading on the belly makes the lower body look lumpy"
+  ],
+  "digest": "28604e9a7f1afa38",
+  "grade": "pass",
+  "score": 86,
+  "colors": 12,
+  "black": 0.109,
+  "biggest_patch": 0.136,
+  "theme": "Bamboo grove",
+  "name": "Kawaii Penguin",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-owl-807": {
+  "guess": "pink owl",
+  "alternatives": [
+   "pink bird",
+   "pink cat"
+  ],
+  "readability": 4,
+  "features": [
+   "round pink body",
+   "ear tufts",
+   "big dark eyes with white rims",
+   "orange beak",
+   "white heart-shaped belly",
+   "darker pink wing on the side",
+   "small feet at the bottom",
+   "grassy meadow with flowers and sky background"
+  ],
+  "problems": [
+   "eyes are half-closed slanted shapes that could read as sleepy or angry",
+   "ear tufts make it look a bit like a cat",
+   "feet are small and mixed with dark outline pixels",
+   "grey rock behind the owl's head is a bit confusing"
+  ],
+  "digest": "b9a0ae5e16b586cd",
+  "grade": "pass",
+  "score": 94,
+  "colors": 17,
+  "black": 0.086,
+  "biggest_patch": 0.14,
+  "theme": "Castle hill",
+  "name": "Kawaii Owl",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-octopus-808": {
+  "guess": "red octopus",
+  "alternatives": [
+   "red squid",
+   "red alien"
+  ],
+  "readability": 4,
+  "features": [
+   "round red head",
+   "two dark eyes",
+   "small mouth dots",
+   "multiple curling tentacles",
+   "pink highlight on head edge",
+   "dark outline"
+  ],
+  "problems": [
+   "tentacles blend together into a dark red mass",
+   "eyes look like empty sockets, slightly skull-like",
+   "busy green and blue background arches compete for attention",
+   "white snowy ground setting is unusual for an octopus"
+  ],
+  "digest": "32adf8565fec7353",
+  "grade": "pass",
+  "score": 82,
+  "colors": 16,
+  "black": 0.283,
+  "biggest_patch": 0.133,
+  "theme": "Northern lights",
+  "name": "Kawaii Octopus",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-pig-809": {
+  "guess": "pink pig waving in the snow",
+  "alternatives": [
+   "pink piglet toy",
+   "pink bear"
+  ],
+  "readability": 4,
+  "features": [
+   "pink body",
+   "pig snout with nostrils",
+   "ears with tan inner parts",
+   "eyes",
+   "raised arm/hoof waving",
+   "small mouth",
+   "dark outline",
+   "sun and snowy background"
+  ],
+  "problems": [
+   "body is a blobby shape with no visible legs",
+   "eyes are small and partly blend with dark outline",
+   "snout is tan rather than pink, slightly unusual",
+   "bottom of the pig merges into snow shadows"
+  ],
+  "digest": "6151c01deac17871",
+  "grade": "pass",
+  "score": 94,
+  "colors": 16,
+  "black": 0.09,
+  "biggest_patch": 0.186,
+  "theme": "Ice field",
+  "name": "Kawaii Pig",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-cow-810": {
+  "guess": "two cows in costumes (one with a red hat, one with a crown)",
+  "alternatives": [
+   "two pandas dressed up",
+   "two cow farmers sitting in a field"
+  ],
+  "readability": 3,
+  "features": [
+   "black and white cow faces",
+   "pink snouts/muzzles",
+   "eyes",
+   "pink hooves",
+   "red hat on left cow",
+   "yellow crown on right cow",
+   "purple capes/clothing",
+   "black spots on bodies"
+  ],
+  "problems": [
+   "faces are small and eyes are hard to see",
+   "black outlines merge with the dark brown fence background",
+   "costumes and capes make the body shape confusing",
+   "snouts are pink and tan but could read as a mouth or beard",
+   "no visible ears or horns, so it could be another animal"
+  ],
+  "digest": "f1c33b0e8f1510d5",
+  "grade": "pass",
+  "score": 84,
+  "colors": 20,
+  "black": 0.148,
+  "biggest_patch": 0.145,
+  "theme": "Harvest farm",
+  "name": "Kawaii Cow",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-ladybug-811": {
+  "guess": "red ladybug next to a smiling green bush",
+  "alternatives": [
+   "red spotted mushroom cap",
+   "red ball with black spots"
+  ],
+  "readability": 3,
+  "features": [
+   "red dome shell with black spots",
+   "pink highlight on shell",
+   "green blob character with eyes and smiling mouth",
+   "grey sky with rain drops",
+   "trees and water in background"
+  ],
+  "problems": [
+   "ladybug has no visible head, legs or antennae",
+   "shell is cropped and dominates the frame",
+   "green character blends into the green background",
+   "unclear which is the main subject"
+  ],
+  "digest": "297717df0e999571",
+  "grade": "pass",
+  "score": 76,
+  "colors": 15,
+  "black": 0.241,
+  "biggest_patch": 0.17,
+  "theme": "Rainy day",
+  "name": "Kawaii Ladybug",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-snail-812": {
+  "guess": "snail with a sword stuck in its shell",
+  "alternatives": [
+   "coconut with a knife and a cactus",
+   "brown pot with a lid in the desert"
+  ],
+  "readability": 2,
+  "features": [
+   "brown round body or shell with grey top",
+   "dark eyes or face markings on brown body",
+   "sword or knife sticking up from the top",
+   "green and yellow plant or leaf shape on the left",
+   "desert background with cacti, sun and birds"
+  ],
+  "problems": [
+   "main subject is unclear and could be a coconut, pot or creature",
+   "green shape on left blends with the subject and is hard to interpret",
+   "face is faint, dark on brown",
+   "busy desert background with orange sand competes with subject"
+  ],
+  "digest": "c370f59d4848ca97",
+  "grade": "weak",
+  "score": 70,
+  "colors": 19,
+  "black": 0.116,
+  "biggest_patch": 0.212,
+  "theme": "Cactus canyon",
+  "name": "Kawaii Snail",
+  "pack": "cute",
+  "touched": false
+ },
+ "kawaii-turtle-813": {
+  "guess": "ninja turtle (Leonardo) meditating",
+  "alternatives": [
+   "green frog sitting",
+   "turtle holding a yellow ball"
+  ],
+  "readability": 3,
+  "features": [
+   "green head with blue bandana mask",
+   "green arms raised",
+   "yellow-orange belly/shell front",
+   "brown shell edges",
+   "green legs crossed",
+   "sword hilt behind shoulder",
+   "blue mat or cushion"
+  ],
+  "problems": [
+   "no visible eyes or face details",
+   "arms and head merge into a green blob",
+   "large yellow belly looks like a ball or sun",
+   "sword is hard to read against background",
+   "busy purple speckled background"
+  ],
+  "digest": "7451081393705a07",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.059,
+  "biggest_patch": 0.226,
+  "theme": "Overcast moor",
+  "name": "Kawaii Turtle",
+  "pack": "cute",
+  "touched": false
+ },
+ "orange-cat-814": {
+  "guess": "fat orange cat",
+  "alternatives": [
+   "orange hamster",
+   "chubby fox"
+  ],
+  "readability": 4,
+  "features": [
+   "pointed ears",
+   "squinting eyes",
+   "nose and mouth with whiskers",
+   "dark paws",
+   "round chubby body",
+   "window and wooden wall behind",
+   "cushion under the cat"
+  ],
+  "problems": [
+   "body is a large blob with little detail",
+   "eyes are tiny and squinty",
+   "dark paws look like holes",
+   "no visible tail or legs",
+   "face markings could be read as a mustache"
+  ],
+  "digest": "042cfd345fc666e6",
+  "grade": "pass",
+  "score": 94,
+  "colors": 14,
+  "black": 0.163,
+  "biggest_patch": 0.182,
+  "theme": "Cabin",
+  "name": "Orange Cat",
+  "pack": "cute",
+  "touched": false
+ },
+ "grey-cat-815": {
+  "guess": "grumpy gray cat lying in grass",
+  "alternatives": [
+   "gray wolf",
+   "gray rock with cat face"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed ears with light inner edges",
+   "grumpy half-closed eyes",
+   "nose and mouth area",
+   "dark paw/patch on the left",
+   "loaf-shaped lying body",
+   "grass, flowers, cloud and birds background"
+  ],
+  "problems": [
+   "body is a blocky blob with no visible legs or tail",
+   "dark patches on the face and body make it look like a rock",
+   "the face is hard to read because the eyes are thin slits",
+   "dark shadow side merges with the outline"
+  ],
+  "digest": "72ec7819865d9709",
+  "grade": "pass",
+  "score": 88,
+  "colors": 15,
+  "black": 0.163,
+  "biggest_patch": 0.173,
+  "theme": "Castle hill",
+  "name": "Grey Cat",
+  "pack": "cute",
+  "touched": false
+ },
+ "white-cat-816": {
+  "guess": "white cat face peeking from grass",
+  "alternatives": [
+   "white kitten",
+   "white fox"
+  ],
+  "readability": 4,
+  "features": [
+   "round white head",
+   "pointed ears with pink insides",
+   "yellow eyes",
+   "small red nose",
+   "pink tongue/mouth",
+   "grass bushes around",
+   "grey shading on right cheek"
+  ],
+  "problems": [
+   "eyes are odd yellow shapes, not clearly eye-like",
+   "pink mouth blob looks more like a tongue or snout than a cat mouth",
+   "no whiskers",
+   "only head shown, no body or tail"
+  ],
+  "digest": "9d030816c537287b",
+  "grade": "pass",
+  "score": 90,
+  "colors": 11,
+  "black": 0.096,
+  "biggest_patch": 0.199,
+  "theme": "Misty pines",
+  "name": "White Cat",
+  "pack": "cute",
+  "touched": false
+ },
+ "cat-sleeping-817": {
+  "guess": "sleeping white cat curled up",
+  "alternatives": [
+   "white rock",
+   "sleeping polar bear"
+  ],
+  "readability": 2,
+  "features": [
+   "curled round body outline",
+   "closed eye line",
+   "ear shape at top right",
+   "tail wrapped around body"
+  ],
+  "problems": [
+   "white body blends with white background panel",
+   "only thin outlines define the shape",
+   "no clear face details",
+   "framed in a box that looks like a sign"
+  ],
+  "digest": "d95ab2ed548a05cb",
+  "grade": "weak",
+  "score": 74,
+  "colors": 11,
+  "black": 0.249,
+  "biggest_patch": 0.287,
+  "theme": "Rainy day",
+  "name": "Cat Sleeping",
+  "pack": "cute",
+  "touched": false
+ },
+ "cat-face-818": {
+  "guess": "black and white cat face at night in a city",
+  "alternatives": [
+   "panda",
+   "raccoon"
+  ],
+  "readability": 3,
+  "features": [
+   "large white face",
+   "dark eye patches with eyes",
+   "pointed ears",
+   "nose and mouth",
+   "crescent moon",
+   "night sky with stars",
+   "city buildings with lit windows",
+   "brick wall"
+  ],
+  "problems": [
+   "face fills most of the frame so no body is visible",
+   "eye patches make it look like a panda or raccoon",
+   "mouth and nose lines are messy and hard to read",
+   "the dark outline blends into the dark background at the bottom"
+  ],
+  "digest": "f684bb768548264a",
+  "grade": "pass",
+  "score": 88,
+  "colors": 12,
+  "black": 0.365,
+  "biggest_patch": 0.156,
+  "theme": "Lantern festival",
+  "name": "Cat Face",
+  "pack": "cute",
+  "touched": false
+ },
+ "cat-with-bow-819": {
+  "guess": "gray cat with red bow sitting on floor",
+  "alternatives": [
+   "dog with red bandana",
+   "rat"
+  ],
+  "readability": 3,
+  "features": [
+   "head with two pointed ears",
+   "dark face patch/mask",
+   "red bow or scarf at neck",
+   "gray chest and body",
+   "curled tail on right",
+   "window and striped wallpaper background",
+   "blue-yellow rug"
+  ],
+  "problems": [
+   "face lacks clear eyes and nose, dark patch reads as a blob",
+   "dark outline areas merge with dark body parts",
+   "legs and paws not clearly defined",
+   "head shape ambiguous between cat and dog"
+  ],
+  "digest": "aa89e21e838339f8",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.131,
+  "biggest_patch": 0.068,
+  "theme": "Living room",
+  "name": "Cat with Bow",
+  "pack": "cute",
+  "touched": false
+ }
+}

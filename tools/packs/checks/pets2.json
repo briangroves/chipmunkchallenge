@@ -1,0 +1,732 @@
+{
+ "puppy-684": {
+  "guess": "brown puppy with red collar",
+  "alternatives": [
+   "teddy bear",
+   "brown bear cub"
+  ],
+  "readability": 3,
+  "features": [
+   "floppy ears",
+   "dark eyes and nose area",
+   "red collar/bow",
+   "sitting body",
+   "tail on right",
+   "bones on grass",
+   "sunset sky with bird",
+   "green trees and grass"
+  ],
+  "problems": [
+   "face is small and muddled, eyes and nose blend together",
+   "brown body is a large blob with little detail",
+   "legs and paws hard to separate",
+   "ears spread wide making head shape unclear"
+  ],
+  "digest": "12dbf48ef5150642",
+  "grade": "pass",
+  "score": 84,
+  "colors": 14,
+  "black": 0.03,
+  "biggest_patch": 0.131,
+  "theme": "Bamboo grove",
+  "name": "Puppy",
+  "pack": "pets2",
+  "touched": false
+ },
+ "kitten-685": {
+  "guess": "sleeping gray cat at night",
+  "alternatives": [
+   "sleeping mouse",
+   "gray kitten curled up"
+  ],
+  "readability": 4,
+  "features": [
+   "closed sleepy eyes",
+   "pink ears",
+   "gray head",
+   "white fluffy chest/paws",
+   "curled tail",
+   "night sky with moon and stars",
+   "grass"
+  ],
+  "problems": [
+   "no clear nose or mouth",
+   "body shape is blobby",
+   "white tail/paws blend into one mass",
+   "dark outline merges with dark background"
+  ],
+  "digest": "af1fec321cec4718",
+  "grade": "pass",
+  "score": 90,
+  "colors": 16,
+  "black": 0.379,
+  "biggest_patch": 0.186,
+  "theme": "Starry hilltop",
+  "name": "Kitten",
+  "pack": "pets2",
+  "touched": false
+ },
+ "hamster-686": {
+  "guess": "hamster (white and brown with pink ears)",
+  "alternatives": [
+   "mouse",
+   "guinea pig"
+  ],
+  "readability": 4,
+  "features": [
+   "large pink ears",
+   "black eyes",
+   "small red mouth",
+   "white and tan fur patches",
+   "brown patch around one eye",
+   "halo-like ring above head",
+   "round body"
+  ],
+  "problems": [
+   "no clear nose or paws",
+   "body shape blends into a blobby mass",
+   "busy background with vines, rocks and water competes for attention",
+   "halo is ambiguous"
+  ],
+  "digest": "a1f86f4ddfc6af2d",
+  "grade": "pass",
+  "score": 86,
+  "colors": 19,
+  "black": 0.253,
+  "biggest_patch": 0.116,
+  "theme": "Aurora lake",
+  "name": "Hamster",
+  "pack": "pets2",
+  "touched": false
+ },
+ "goldfish-687": {
+  "guess": "orange goldfish",
+  "alternatives": [
+   "orange bird",
+   "fox"
+  ],
+  "readability": 3,
+  "features": [
+   "big eye",
+   "orange round body",
+   "yellow dorsal fin on top",
+   "striped tail fin on left",
+   "small fins underneath",
+   "red mouth area"
+  ],
+  "problems": [
+   "fish is out of water on a snowy night scene, confusing context",
+   "tail stripes look busy",
+   "mouth not clearly defined",
+   "dark outline blends with fins making shape blobby"
+  ],
+  "digest": "6e8cb4d25c686325",
+  "grade": "pass",
+  "score": 80,
+  "colors": 16,
+  "black": 0.224,
+  "biggest_patch": 0.171,
+  "theme": "Winter night",
+  "name": "Goldfish",
+  "pack": "pets2",
+  "touched": false
+ },
+ "guinea-pig-688": {
+  "guess": "guinea pig",
+  "alternatives": [
+   "hamster",
+   "rabbit"
+  ],
+  "readability": 3,
+  "features": [
+   "round furry body with red, white and black patches",
+   "white face on right side",
+   "dark eye",
+   "small nose/mouth",
+   "little feet at bottom",
+   "red barn in background"
+  ],
+  "problems": [
+   "face is small and hard to find within large patches",
+   "patchy colors break up the body shape",
+   "body is a blobby round shape with no clear ears or legs",
+   "dark red fur blends with pink/red striped background"
+  ],
+  "digest": "b366b20d744d95ac",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.068,
+  "biggest_patch": 0.146,
+  "theme": "Tulip fields",
+  "name": "Guinea Pig",
+  "pack": "pets2",
+  "touched": false
+ },
+ "tortoise-689": {
+  "guess": "desert tortoise",
+  "alternatives": [
+   "turtle",
+   "lizard"
+  ],
+  "readability": 3,
+  "features": [
+   "domed green shell with yellow pattern",
+   "grey head with dark eye on right",
+   "stubby brown legs",
+   "short tail on left",
+   "desert background with sun and birds"
+  ],
+  "problems": [
+   "head is blocky and hard to read as a face",
+   "orange background blends with dark red shadows and legs",
+   "legs are small and muddled with outlines",
+   "shell greens look like a bush"
+  ],
+  "digest": "aed778e6304d2f0c",
+  "grade": "pass",
+  "score": 80,
+  "colors": 15,
+  "black": 0.082,
+  "biggest_patch": 0.166,
+  "theme": "Golden wheat",
+  "name": "Tortoise",
+  "pack": "pets2",
+  "touched": false
+ },
+ "corgi-690": {
+  "guess": "corgi dog",
+  "alternatives": [
+   "fox",
+   "shiba inu dog"
+  ],
+  "readability": 5,
+  "features": [
+   "big pointed ears with pink insides",
+   "face with white muzzle",
+   "closed/squinting eyes",
+   "black nose",
+   "orange and white fur",
+   "short white legs",
+   "fluffy white rear/tail area",
+   "long low body"
+  ],
+  "problems": [
+   "eyes are just dark lines, could read as sleeping",
+   "nose and mouth area slightly cramped",
+   "rear leg/tail area a bit blobby"
+  ],
+  "digest": "4a0c55b94bc6217d",
+  "grade": "pass",
+  "score": 100,
+  "colors": 19,
+  "black": 0.081,
+  "biggest_patch": 0.159,
+  "theme": "Orchard",
+  "name": "Corgi",
+  "pack": "pets2",
+  "touched": false,
+  "verify": {
+   "guess": "corgi dog",
+   "score": 94,
+   "agrees": true
+  }
+ },
+ "dachshund-691": {
+  "guess": "dachshund dog",
+  "alternatives": [
+   "Yorkshire terrier",
+   "badger"
+  ],
+  "readability": 3,
+  "features": [
+   "head with tan muzzle",
+   "dark eye",
+   "grey ears/head fur",
+   "long low body",
+   "tan paws",
+   "short tail",
+   "black and tan coat"
+  ],
+  "problems": [
+   "head shape is blocky and the face is hard to read",
+   "grey and black patches make the body look patchy",
+   "long flat body could read as a badger or other animal",
+   "dark body edges merge with dark green trees"
+  ],
+  "digest": "837502340da91eb0",
+  "grade": "pass",
+  "score": 88,
+  "colors": 13,
+  "black": 0.129,
+  "biggest_patch": 0.168,
+  "theme": "Pine forest",
+  "name": "Dachshund",
+  "pack": "pets2",
+  "touched": false
+ },
+ "bunny-692": {
+  "guess": "white bunny sitting in a meadow",
+  "alternatives": [
+   "white cat",
+   "hamster"
+  ],
+  "readability": 3,
+  "features": [
+   "round white head",
+   "sleepy/grumpy eyes with brows",
+   "small nose",
+   "pink cheeks",
+   "pink-lined ears drooping at sides",
+   "front paws",
+   "feet at bottom",
+   "grey shading on body"
+  ],
+  "problems": [
+   "ears are short and droop down beside the face, so it doesn't clearly read as a rabbit",
+   "body is a blobby white shape without a clear outline separating head, body and limbs",
+   "odd expression with heavy eyebrows looks confusing",
+   "grey right side blends into a shapeless mass",
+   "white body similar to clouds"
+  ],
+  "digest": "057a0d1341ca7e2f",
+  "grade": "pass",
+  "score": 88,
+  "colors": 18,
+  "black": 0.094,
+  "biggest_patch": 0.154,
+  "theme": "Summer hills",
+  "name": "Bunny",
+  "pack": "pets2",
+  "touched": false
+ },
+ "pug-693": {
+  "guess": "pug dog face sticking out tongue",
+  "alternatives": [
+   "puppy in snow",
+   "pug under a blanket at night"
+  ],
+  "readability": 4,
+  "features": [
+   "tan face",
+   "big round black eyes",
+   "dark muzzle with nose",
+   "pink tongue",
+   "folded dark ears",
+   "brown patch over one eye",
+   "night sky with crescent moon and stars",
+   "snowy white foreground"
+  ],
+  "problems": [
+   "face is cropped at bottom and sides",
+   "eyes look large and cartoonish, may read as other animal",
+   "grey ears blend into grey/white background",
+   "snow dots add visual noise"
+  ],
+  "digest": "60a730912a829ccb",
+  "grade": "pass",
+  "score": 94,
+  "colors": 15,
+  "black": 0.287,
+  "biggest_patch": 0.154,
+  "theme": "Winter night",
+  "name": "Pug",
+  "pack": "pets2",
+  "touched": false
+ },
+ "persian-cat-694": {
+  "guess": "white cat",
+  "alternatives": [
+   "ghost",
+   "white bear cub"
+  ],
+  "readability": 3,
+  "features": [
+   "two pointed ears on top",
+   "face with dark eyes and purple eyelids",
+   "small nose/mouth dots",
+   "chunky white body",
+   "raised paw on left side",
+   "dark tail curling on the ground at left",
+   "feet at the bottom"
+  ],
+  "problems": [
+   "body is a big blocky rectangle with no clear head/body separation",
+   "ears are small and squarish",
+   "face is oddly placed and sleepy-looking, so it could read as a ghost",
+   "tail is dark and blends into the grass",
+   "no visible legs, just a flat bottom edge"
+  ],
+  "digest": "0fee37f717c0ceb7",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.069,
+  "biggest_patch": 0.201,
+  "theme": "Rose garden",
+  "name": "Persian Cat",
+  "pack": "pets2",
+  "touched": false
+ },
+ "fish-bowl-695": {
+  "guess": "goldfish in a fishbowl",
+  "alternatives": [
+   "aquarium with two fish",
+   "orange fish swimming in water"
+  ],
+  "readability": 4,
+  "features": [
+   "round glass bowl with dark outline",
+   "light blue water with white highlights",
+   "two orange goldfish",
+   "fish tails and fins",
+   "water surface at top",
+   "sun in the sky",
+   "table or ground below"
+  ],
+  "problems": [
+   "fish have no visible eyes",
+   "second fish is partly cut/blends with tan highlight",
+   "fish shapes are blocky",
+   "bottom ground area is noisy"
+  ],
+  "digest": "053a8b2d2b0b1a96",
+  "grade": "pass",
+  "score": 82,
+  "colors": 17,
+  "black": 0.087,
+  "biggest_patch": 0.226,
+  "theme": "Desert dunes",
+  "name": "Fish Bowl",
+  "pack": "pets2",
+  "touched": false
+ },
+ "rat-696": {
+  "guess": "white mouse sleeping",
+  "alternatives": [
+   "white rat",
+   "hamster"
+  ],
+  "readability": 3,
+  "features": [
+   "rounded white body",
+   "large round ear",
+   "pointed snout",
+   "small dark eye",
+   "long dark curling tail"
+  ],
+  "problems": [
+   "body is a featureless white blob",
+   "head and ear blend with the grey rocky background",
+   "no visible legs",
+   "eye is tiny and hard to spot",
+   "busy grey stone patterns around the subject"
+  ],
+  "digest": "1becdbc612c911d5",
+  "grade": "weak",
+  "score": 54,
+  "colors": 7,
+  "black": 0.216,
+  "biggest_patch": 0.128,
+  "theme": "Mountain pass",
+  "name": "Rat",
+  "pack": "pets2",
+  "touched": false
+ },
+ "dalmatian-697": {
+  "guess": "white winged unicorn (pegasus) with a golden horn",
+  "alternatives": [
+   "white horse",
+   "dalmatian dog"
+  ],
+  "readability": 3,
+  "features": [
+   "horse-like head facing right",
+   "yellow horn on head",
+   "gray wing on back",
+   "four legs in running pose",
+   "tail extended left",
+   "white body with dark outline",
+   "sunset sky and green grass background"
+  ],
+  "problems": [
+   "head is small and blocky with no clear eye",
+   "gray wing blends into the gray-white body and looks like a fence or castle wall",
+   "legs are thin and tangled, hard to count",
+   "dark gray patches inside body look like spots, making it read like a dog",
+   "horn is near the sky edge and reads like a moon"
+  ],
+  "digest": "2a5c9864dd7d239e",
+  "grade": "weak",
+  "score": 54,
+  "colors": 16,
+  "black": 0.166,
+  "biggest_patch": 0.099,
+  "theme": "Castle at dusk",
+  "name": "Dalmatian",
+  "pack": "pets2",
+  "touched": false
+ },
+ "siamese-cat-698": {
+  "guess": "cat in a red hoodie",
+  "alternatives": [
+   "fox in a costume",
+   "raccoon in a red suit"
+  ],
+  "readability": 3,
+  "features": [
+   "white face with blue eyes",
+   "grey pointed ears",
+   "grey nose/mouth",
+   "red hooded body",
+   "grey and white tail",
+   "yellow boots",
+   "sunset sky with sun",
+   "grassy field with flowers"
+  ],
+  "problems": [
+   "body is a blocky red blob with no clear arms or legs",
+   "tail looks like a separate object, possibly an arm",
+   "eyes are mismatched colors and small",
+   "species is unclear since it is mostly covered by the red suit"
+  ],
+  "digest": "b8fda574c09180d3",
+  "grade": "pass",
+  "score": 88,
+  "colors": 15,
+  "black": 0.041,
+  "biggest_patch": 0.171,
+  "theme": "Dawn fields",
+  "name": "Siamese Cat",
+  "pack": "pets2",
+  "touched": false
+ },
+ "tabby-cat-699": {
+  "guess": "raccoon lying on grass",
+  "alternatives": [
+   "badger",
+   "cat"
+  ],
+  "readability": 2,
+  "features": [
+   "pointed ears on the right side head",
+   "dark mask-like face markings with grey/white",
+   "red spot possibly eye or nose",
+   "brown furry body with dark stripes",
+   "tan/light patches on left (possibly tail or back)",
+   "red collar-like patch"
+  ],
+  "problems": [
+   "body is a blobby brown mass with no clear outline",
+   "face is hard to read; eyes and nose not distinct",
+   "legs and tail not clearly identifiable",
+   "dark stripes look like noise rather than markings",
+   "pose unclear (lying, curled?)"
+  ],
+  "digest": "6f252528f2763fee",
+  "grade": "weak",
+  "score": 52,
+  "colors": 23,
+  "black": 0.104,
+  "biggest_patch": 0.199,
+  "theme": "Spring meadow",
+  "name": "Tabby Cat",
+  "pack": "pets2",
+  "touched": false
+ },
+ "bulldog-700": {
+  "guess": "white dog face (bulldog) at the beach",
+  "alternatives": [
+   "polar bear",
+   "panda"
+  ],
+  "readability": 3,
+  "features": [
+   "white head shape",
+   "brown patch over one eye",
+   "dark eyes",
+   "blue-tinted nose area",
+   "grey muzzle",
+   "open mouth with red tongue",
+   "floppy ears outline"
+  ],
+  "problems": [
+   "face is tilted and features are scattered, hard to read",
+   "eyes and nose are small dark blobs that blend together",
+   "blue nose color matches the sea behind",
+   "busy sunset/beach background competes with subject",
+   "ears not clearly defined"
+  ],
+  "digest": "c7654d5f26e14b61",
+  "grade": "pass",
+  "score": 88,
+  "colors": 19,
+  "black": 0.128,
+  "biggest_patch": 0.211,
+  "theme": "Beach sunset",
+  "name": "Bulldog",
+  "pack": "pets2",
+  "touched": false
+ },
+ "pomeranian-701": {
+  "guess": "black dog (Pomeranian/spitz)",
+  "alternatives": [
+   "black cat",
+   "bear"
+  ],
+  "readability": 2,
+  "features": [
+   "pointed ears at top right",
+   "fluffy body silhouette",
+   "short legs at bottom",
+   "raised fluffy tail/back on left"
+  ],
+  "problems": [
+   "solid dark silhouette with no face, eyes or nose",
+   "shape is blobby and hard to tell head from body",
+   "legs blend into grass",
+   "no clear tail outline"
+  ],
+  "digest": "eb3605e985fdcb48",
+  "grade": "weak",
+  "score": 74,
+  "colors": 11,
+  "black": 0.276,
+  "biggest_patch": 0.276,
+  "theme": "Pine forest",
+  "name": "Pomeranian",
+  "pack": "pets2",
+  "touched": false
+ },
+ "boxer-dog-702": {
+  "guess": "brown dog face (Saint Bernard)",
+  "alternatives": [
+   "bear",
+   "beaver"
+  ],
+  "readability": 2,
+  "features": [
+   "large brown head shape",
+   "tan muzzle/blaze stripe down center",
+   "dark patches around eyes",
+   "floppy dark ears",
+   "red shape at side (tongue or collar/bag)",
+   "mountain and meadow background"
+  ],
+  "problems": [
+   "eyes not clearly visible, dark patches merge into one mask",
+   "no clear nose or mouth",
+   "red blob on the side is ambiguous",
+   "dark ears blend with green foliage outline",
+   "face reads as abstract blocks rather than an animal"
+  ],
+  "digest": "eb83aeded0995e51",
+  "grade": "weak",
+  "score": 74,
+  "colors": 17,
+  "black": 0.113,
+  "biggest_patch": 0.139,
+  "theme": "Waterfall",
+  "name": "Boxer Dog",
+  "pack": "pets2",
+  "touched": false
+ },
+ "jack-russell-703": {
+  "guess": "Jack Russell terrier dog",
+  "alternatives": [
+   "goat",
+   "beagle puppy"
+  ],
+  "readability": 3,
+  "features": [
+   "white body with orange patches",
+   "orange head with ear",
+   "dark outline",
+   "four legs",
+   "raised tail",
+   "stone wall background",
+   "sky with clouds and birds"
+  ],
+  "problems": [
+   "face lacks clear eye and nose details",
+   "head is a blob of orange",
+   "legs blend into dark ground and wall",
+   "white body edges merge with white clouds/grey wall on right"
+  ],
+  "digest": "5bc49663730cac44",
+  "grade": "pass",
+  "score": 80,
+  "colors": 10,
+  "black": 0.182,
+  "biggest_patch": 0.171,
+  "theme": "Mountain pass",
+  "name": "Jack Russell",
+  "pack": "pets2",
+  "touched": false
+ },
+ "pit-bull-704": {
+  "guess": "black and white dog (border collie)",
+  "alternatives": [
+   "cow",
+   "panda"
+  ],
+  "readability": 3,
+  "features": [
+   "black floppy ears",
+   "black and white fur patches",
+   "dark eye patches/eyes",
+   "grey-ish muzzle area",
+   "front paws at bottom",
+   "sitting in grassy field with flowers and sunset sky"
+  ],
+  "problems": [
+   "face is hard to read: eyes and nose blend into black patches",
+   "muzzle is low-contrast light grey on white",
+   "patchy black and white pattern could suggest a cow or panda",
+   "head and body merge into one blobby shape"
+  ],
+  "digest": "4e35c76ca594e6c1",
+  "grade": "weak",
+  "score": 54,
+  "colors": 15,
+  "black": 0.214,
+  "biggest_patch": 0.146,
+  "theme": "Dawn fields",
+  "name": "Pit Bull",
+  "pack": "pets2",
+  "touched": false
+ },
+ "rottweiler-705": {
+  "guess": "black dog (Rottweiler) standing on a wall",
+  "alternatives": [
+   "black bear",
+   "black horse"
+  ],
+  "readability": 3,
+  "features": [
+   "black body in side view",
+   "tan muzzle with dark nose",
+   "small ear at top of head",
+   "tan paws on front leg",
+   "back legs with brown markings",
+   "standing pose on stone wall"
+  ],
+  "problems": [
+   "head is small and blocky with no visible eye",
+   "body is one large dark blob with little shading",
+   "legs are short and hard to separate",
+   "no clear tail",
+   "black figure merges into itself, making shape hard to read"
+  ],
+  "digest": "e5eaf7b79957d48d",
+  "grade": "pass",
+  "score": 88,
+  "colors": 11,
+  "black": 0.258,
+  "biggest_patch": 0.251,
+  "theme": "Seaside cliffs",
+  "name": "Rottweiler",
+  "pack": "pets2",
+  "touched": false
+ }
+}

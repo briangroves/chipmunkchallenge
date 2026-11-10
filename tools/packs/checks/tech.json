@@ -1,0 +1,537 @@
+{
+ "robot-706": {
+  "guess": "white robot head / helmet on a stand",
+  "alternatives": [
+   "desk fan",
+   "egg-shaped mirror on a pedestal"
+  ],
+  "readability": 2,
+  "features": [
+   "oval white head shape with dark outline",
+   "two light-blue eye slits",
+   "brow line",
+   "thin neck stem",
+   "flat oval base",
+   "small side knobs or ears"
+  ],
+  "problems": [
+   "subject is ambiguous; could be a fan, helmet, or robot",
+   "white body blends with the white tile background",
+   "no mouth or other clear identifying details",
+   "brownish shading on the lower right looks like a stain"
+  ],
+  "digest": "05986d9323363e83",
+  "grade": "weak",
+  "score": 70,
+  "colors": 9,
+  "black": 0.106,
+  "biggest_patch": 0.229,
+  "theme": "Cozy kitchen",
+  "name": "Robot",
+  "pack": "tech",
+  "touched": false
+ },
+ "computer-707": {
+  "guess": "old computer monitor",
+  "alternatives": [
+   "television set",
+   "computer with keyboard"
+  ],
+  "readability": 3,
+  "features": [
+   "blue screen",
+   "grey monitor frame",
+   "dark base/keyboard",
+   "white side panel",
+   "window in background",
+   "table with purple patterned cloth"
+  ],
+  "problems": [
+   "monitor shown at an odd angled perspective",
+   "white side part looks like a separate object",
+   "dark base is blobby and hard to read as a keyboard",
+   "grey frame blends with dark outline"
+  ],
+  "digest": "653e1c08b95574f9",
+  "grade": "pass",
+  "score": 68,
+  "colors": 12,
+  "black": 0.13,
+  "biggest_patch": 0.355,
+  "theme": "Nursery",
+  "name": "Computer",
+  "pack": "tech",
+  "touched": false
+ },
+ "camera-708": {
+  "guess": "blue camera",
+  "alternatives": [
+   "photo camera with flash",
+   "toy camera"
+  ],
+  "readability": 4,
+  "features": [
+   "camera body",
+   "large round lens with grey ring",
+   "lens highlight",
+   "viewfinder window on top",
+   "flash/light panel at upper right",
+   "shutter top section",
+   "orange dots along bottom"
+  ],
+  "problems": [
+   "window behind blends with the camera top and could look like part of it",
+   "body shape is slightly blobby and tilted",
+   "dark navy shading on right merges into a large area that reads less clearly"
+  ],
+  "digest": "a18a25001b393951",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.127,
+  "biggest_patch": 0.161,
+  "theme": "Cabin",
+  "name": "Camera",
+  "pack": "tech",
+  "touched": false
+ },
+ "game-controller-709": {
+  "guess": "white video game controller",
+  "alternatives": [
+   "gamepad joystick",
+   "toy car"
+  ],
+  "readability": 4,
+  "features": [
+   "controller body with two handles",
+   "D-pad cross on left",
+   "buttons on right",
+   "center select/start buttons",
+   "dark outline",
+   "brick wall background",
+   "checkered floor"
+  ],
+  "problems": [
+   "white body blends with light gray floor tiles in lower half",
+   "buttons drawn as dark blobs, a bit abstract",
+   "colored blocks on wall are unclear"
+  ],
+  "digest": "d52ad7bec199f566",
+  "grade": "pass",
+  "score": 74,
+  "colors": 9,
+  "black": 0.15,
+  "biggest_patch": 0.197,
+  "theme": "Brick cellar",
+  "name": "Game Controller",
+  "pack": "tech",
+  "touched": false
+ },
+ "magnet-710": {
+  "guess": "red horseshoe magnet",
+  "alternatives": [
+   "red arch sculpture",
+   "red travel neck pillow"
+  ],
+  "readability": 2,
+  "features": [
+   "thick red upside-down U shape",
+   "two legs standing on the street",
+   "pink highlight on left edge",
+   "darker red shading on right side",
+   "dark outline"
+  ],
+  "problems": [
+   "no silver/grey tips that usually mark a magnet",
+   "shape is blobby and uneven, right leg wider than left",
+   "looks like a generic arch or pillow",
+   "city night background competes for attention"
+  ],
+  "digest": "81154c80647d3768",
+  "grade": "weak",
+  "score": 66,
+  "colors": 15,
+  "black": 0.232,
+  "biggest_patch": 0.159,
+  "theme": "City night",
+  "name": "Magnet",
+  "pack": "tech",
+  "touched": false
+ },
+ "keyboard-711": {
+  "guess": "electronic keyboard (piano)",
+  "alternatives": [
+   "piano",
+   "synthesizer"
+  ],
+  "readability": 4,
+  "features": [
+   "white keys",
+   "black keys in groups",
+   "dark casing",
+   "green display/light strip",
+   "wooden wall background with window"
+  ],
+  "problems": [
+   "keyboard is cropped at the bottom and sides",
+   "grey shading on keys looks a bit messy",
+   "window and wall stripes draw attention from the subject"
+  ],
+  "digest": "502c0b56f14cde68",
+  "grade": "pass",
+  "score": 74,
+  "colors": 10,
+  "black": 0.176,
+  "biggest_patch": 0.176,
+  "theme": "Cabin",
+  "name": "Keyboard",
+  "pack": "tech",
+  "touched": false
+ },
+ "alarm-clock-712": {
+  "guess": "green alarm clock at night in the city",
+  "alternatives": [
+   "turtle with white shell",
+   "green bell clock"
+  ],
+  "readability": 4,
+  "features": [
+   "round white clock face",
+   "black clock hands showing time",
+   "green clock body/rim",
+   "two green bells on top",
+   "purple hammer/connector pieces",
+   "night sky with crescent moon and stars",
+   "city buildings with lit windows",
+   "gray stone ground"
+  ],
+  "problems": [
+   "no numbers on clock face so it reads partly as a plate or egg",
+   "bells look like leafy bushes or hats",
+   "busy city background competes with subject",
+   "clock shape is wide and squat, cut off at bottom edges",
+   "legs are not clearly visible"
+  ],
+  "digest": "9c4dda942b46e62a",
+  "grade": "pass",
+  "score": 82,
+  "colors": 15,
+  "black": 0.346,
+  "biggest_patch": 0.156,
+  "theme": "Lantern festival",
+  "name": "Alarm Clock",
+  "pack": "tech",
+  "touched": false
+ },
+ "printer-713": {
+  "guess": "white 3D printer",
+  "alternatives": [
+   "photocopier",
+   "bathroom scale with frame"
+  ],
+  "readability": 2,
+  "features": [
+   "white boxy frame",
+   "top gantry with grey print head/nozzle",
+   "inner open build area",
+   "dark build plate at bottom",
+   "green indicator light"
+  ],
+  "problems": [
+   "white body blends into light grey floor",
+   "object outline is lumpy and asymmetric",
+   "print head is small and hard to read",
+   "3D printer is an unfamiliar object for kids"
+  ],
+  "digest": "d1a05b1bc5bf6772",
+  "grade": "weak",
+  "score": 62,
+  "colors": 7,
+  "black": 0.163,
+  "biggest_patch": 0.15,
+  "theme": "Brick cellar",
+  "name": "Printer",
+  "pack": "tech",
+  "touched": false
+ },
+ "speaker-714": {
+  "guess": "loudspeaker",
+  "alternatives": [
+   "bear head",
+   "boombox"
+  ],
+  "readability": 3,
+  "features": [
+   "boxy brown cabinet",
+   "large round woofer cone at bottom",
+   "smaller tweeter circle at top",
+   "tan front face with darker side panel"
+  ],
+  "problems": [
+   "perspective is skewed and warped, making the box look lumpy",
+   "tan and brown shapes look like an animal's face or fur",
+   "speaker cones are dark blobs rather than clean circles",
+   "little contrast between dark parts and the grey city background"
+  ],
+  "digest": "e13f6755883978fb",
+  "grade": "pass",
+  "score": 72,
+  "colors": 13,
+  "black": 0.178,
+  "biggest_patch": 0.117,
+  "theme": "City day",
+  "name": "Speaker",
+  "pack": "tech",
+  "touched": false
+ },
+ "video-camera-715": {
+  "guess": "fiery movie camera / film projector",
+  "alternatives": [
+   "video play button with flames",
+   "goldfish with a play symbol"
+  ],
+  "readability": 2,
+  "features": [
+   "round orange body",
+   "white circle with red play triangle",
+   "side flared piece like a lens or tail",
+   "legs/tripod stand below",
+   "flame-like top",
+   "night city background with moon"
+  ],
+  "problems": [
+   "shape is blobby and flame-like, unclear object",
+   "play button lens is confusing",
+   "side piece could read as a fish tail",
+   "orange body is busy with flame shading"
+  ],
+  "digest": "585c0dc41d70c44f",
+  "grade": "weak",
+  "score": 70,
+  "colors": 15,
+  "black": 0.274,
+  "biggest_patch": 0.175,
+  "theme": "Lantern festival",
+  "name": "Video Camera",
+  "pack": "tech",
+  "touched": false
+ },
+ "joystick-716": {
+  "guess": "arcade joystick / game controller",
+  "alternatives": [
+   "robot face",
+   "black car seen from front"
+  ],
+  "readability": 2,
+  "features": [
+   "large dark rounded square body",
+   "red ball-top joystick in center with stick base",
+   "two red buttons at bottom corners",
+   "grey base area at bottom"
+  ],
+  "problems": [
+   "joystick stick barely visible, just a small grey square",
+   "dark body is a plain blob with little detail",
+   "red shapes look like hearts or blobs rather than buttons",
+   "city background busy and unrelated",
+   "could be read as a face with nose and cheeks"
+  ],
+  "digest": "3a18b7c0e55a329d",
+  "grade": "weak",
+  "score": 62,
+  "colors": 14,
+  "black": 0.421,
+  "biggest_patch": 0.42,
+  "theme": "City day",
+  "name": "Joystick",
+  "pack": "tech",
+  "touched": false
+ },
+ "floppy-disk-717": {
+  "guess": "floppy disk",
+  "alternatives": [
+   "cassette tape",
+   "lunchbox"
+  ],
+  "readability": 4,
+  "features": [
+   "dark square body",
+   "gray metal shutter at top",
+   "white label area with lines",
+   "small write-protect notch corners"
+  ],
+  "problems": [
+   "no clear slot hole in the shutter",
+   "unrelated window and red strip background details may distract",
+   "floppy disks are unfamiliar to many children"
+  ],
+  "digest": "0a9fab7403b6f95a",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.268,
+  "biggest_patch": 0.281,
+  "theme": "Nursery",
+  "name": "Floppy Disk",
+  "pack": "tech",
+  "touched": false
+ },
+ "walkie-talkie-718": {
+  "guess": "walkie-talkie radio",
+  "alternatives": [
+   "fire hydrant",
+   "robot with antenna"
+  ],
+  "readability": 2,
+  "features": [
+   "tall thin antenna",
+   "dark rounded body",
+   "small blue button/screen",
+   "small red light",
+   "wide base at bottom",
+   "second dark blocky shape to the left"
+  ],
+  "problems": [
+   "dark silhouette with almost no detail",
+   "left dark shape merges confusingly with main object",
+   "busy city background with buildings competes for attention",
+   "antenna blends with building outlines",
+   "no clear identifying features like speaker grille or buttons"
+  ],
+  "digest": "a7794dbd1d1fd8b5",
+  "grade": "weak",
+  "score": 62,
+  "colors": 14,
+  "black": 0.128,
+  "biggest_patch": 0.193,
+  "theme": "City day",
+  "name": "Walkie Talkie",
+  "pack": "tech",
+  "touched": false
+ },
+ "telephone-719": {
+  "guess": "red rotary telephone",
+  "alternatives": [
+   "red donut",
+   "red tire or ring"
+  ],
+  "readability": 2,
+  "features": [
+   "round red ring shape",
+   "dark center with tan finger-hole area",
+   "pink highlight on top left",
+   "darker red shading on lower right",
+   "city night background with buildings and moon"
+  ],
+  "problems": [
+   "no clear handset or cord visible",
+   "shape is a blobby tilted ring",
+   "center details are muddy and hard to interpret",
+   "busy background competes with subject"
+  ],
+  "digest": "eba448caaac2c822",
+  "grade": "weak",
+  "score": 62,
+  "colors": 17,
+  "black": 0.326,
+  "biggest_patch": 0.169,
+  "theme": "City night",
+  "name": "Telephone",
+  "pack": "tech",
+  "touched": false
+ },
+ "webcam-720": {
+  "guess": "webcam",
+  "alternatives": [
+   "robot head",
+   "astronaut helmet"
+  ],
+  "readability": 3,
+  "features": [
+   "round white spherical body",
+   "dark lens/face area on left with blue eye",
+   "green indicator light",
+   "black base/stand",
+   "shadow under base"
+  ],
+  "problems": [
+   "lens faces sideways so the front is hard to read",
+   "base could be mistaken for a pot or blob",
+   "no clear cable or details identifying a camera",
+   "white body blends slightly with the white checkered floor"
+  ],
+  "digest": "01615a4789ad3150",
+  "grade": "pass",
+  "score": 76,
+  "colors": 8,
+  "black": 0.148,
+  "biggest_patch": 0.424,
+  "theme": "Bakery",
+  "name": "Webcam",
+  "pack": "tech",
+  "touched": false
+ },
+ "mouse-computer-721": {
+  "guess": "computer mouse",
+  "alternatives": [
+   "urinal",
+   "white egg"
+  ],
+  "readability": 3,
+  "features": [
+   "white oval body",
+   "cord coming out the top",
+   "grey button/scroll wheel",
+   "dark outline",
+   "shading on right side"
+  ],
+  "problems": [
+   "oriented vertically with cord on top so it looks like a wall-mounted urinal against brick wall and tiles",
+   "no visible split between left and right buttons",
+   "background scene (brick wall, shelf, checkered floor) suggests a bathroom, confusing the subject",
+   "small colored blocks on shelf are unclear"
+  ],
+  "digest": "9e5c940889128efa",
+  "grade": "pass",
+  "score": 72,
+  "colors": 9,
+  "black": 0.054,
+  "biggest_patch": 0.234,
+  "theme": "Brick cellar",
+  "name": "Mouse Computer",
+  "pack": "tech",
+  "touched": false
+ },
+ "retro-robot-722": {
+  "guess": "armored robot knight sitting at a bar",
+  "alternatives": [
+   "Halo-style space soldier",
+   "ninja robot with a drink"
+  ],
+  "readability": 3,
+  "features": [
+   "helmet with red visor/crest",
+   "gray chest armor with blue trim",
+   "arm reaching for red drink glass",
+   "bent legs with lavender boots",
+   "bar counter shelf",
+   "window background"
+  ],
+  "problems": [
+   "pose is twisted and hard to parse",
+   "dark body parts merge together",
+   "legs and boots scattered, unclear limb structure",
+   "shelf line cuts through the figure"
+  ],
+  "digest": "47f0d18f03353393",
+  "grade": "pass",
+  "score": 72,
+  "colors": 11,
+  "black": 0.12,
+  "biggest_patch": 0.306,
+  "theme": "Cozy kitchen",
+  "name": "Retro Robot",
+  "pack": "tech",
+  "touched": false
+ }
+}

@@ -1,5 +1,5 @@
 {
- "fox-248": {
+ "fox-191": {
   "guess": "orange fox",
   "alternatives": [
    "red panda",
@@ -25,9 +25,16 @@
   ],
   "digest": "c817f759a23800bf",
   "grade": "pass",
-  "score": 94
+  "score": 94,
+  "colors": 20,
+  "black": 0.072,
+  "biggest_patch": 0.149,
+  "theme": "Orchard",
+  "name": "Fox",
+  "pack": "woodland",
+  "touched": false
  },
- "owl-249": {
+ "owl-192": {
   "guess": "orange owl",
   "alternatives": [
    "orange cat",
@@ -49,9 +56,16 @@
   ],
   "digest": "8076c45749449c50",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 16,
+  "black": 0.091,
+  "biggest_patch": 0.154,
+  "theme": "Pine forest",
+  "name": "Owl",
+  "pack": "woodland",
+  "touched": false
  },
- "hedgehog-250": {
+ "hedgehog-193": {
   "guess": "hedgehog",
   "alternatives": [
    "porcupine",
@@ -74,9 +88,16 @@
   ],
   "digest": "61e3333fa9883b5b",
   "grade": "pass",
-  "score": 86
+  "score": 86,
+  "colors": 17,
+  "black": 0.329,
+  "biggest_patch": 0.289,
+  "theme": "Autumn woods",
+  "name": "Hedgehog",
+  "pack": "woodland",
+  "touched": false
  },
- "squirrel-251": {
+ "squirrel-194": {
   "guess": "orange fox on a skateboard",
   "alternatives": [
    "squirrel riding a skateboard",
@@ -101,9 +122,16 @@
   ],
   "digest": "b4480490a2aa54bd",
   "grade": "weak",
-  "score": 58
+  "score": 58,
+  "colors": 12,
+  "black": 0.111,
+  "biggest_patch": 0.122,
+  "theme": "Golden wheat",
+  "name": "Squirrel",
+  "pack": "woodland",
+  "touched": false
  },
- "raccoon-252": {
+ "raccoon-195": {
   "guess": "raccoon with a parrot",
   "alternatives": [
    "red panda lying in grass",
@@ -125,9 +153,16 @@
   ],
   "digest": "10b7251dfdbb952e",
   "grade": "weak",
-  "score": 70
+  "score": 70,
+  "colors": 18,
+  "black": 0.07,
+  "biggest_patch": 0.159,
+  "theme": "Red barn",
+  "name": "Raccoon",
+  "pack": "woodland",
+  "touched": false
  },
- "deer-253": {
+ "deer-196": {
   "guess": "red deer at a pond",
   "alternatives": [
    "red fox",
@@ -151,9 +186,16 @@
   ],
   "digest": "210d88a169ad66d4",
   "grade": "pass",
-  "score": 84
+  "score": 84,
+  "colors": 15,
+  "black": 0.215,
+  "biggest_patch": 0.171,
+  "theme": "Moonlit pond",
+  "name": "Deer",
+  "pack": "woodland",
+  "touched": false
  },
- "bear-254": {
+ "bear-197": {
   "guess": "red teddy bear",
   "alternatives": [
    "red bear cub",
@@ -176,9 +218,16 @@
   ],
   "digest": "6cf407067dd82af2",
   "grade": "pass",
-  "score": 84
+  "score": 84,
+  "colors": 20,
+  "black": 0.052,
+  "biggest_patch": 0.145,
+  "theme": "Spring meadow",
+  "name": "Bear",
+  "pack": "woodland",
+  "touched": false
  },
- "badger-255": {
+ "badger-198": {
   "guess": "badger sleeping at night",
   "alternatives": [
    "skunk",
@@ -200,9 +249,16 @@
   ],
   "digest": "edfdd65757090601",
   "grade": "weak",
-  "score": 66
+  "score": 66,
+  "colors": 12,
+  "black": 0.356,
+  "biggest_patch": 0.284,
+  "theme": "Starry hilltop",
+  "name": "Badger",
+  "pack": "woodland",
+  "touched": false
  },
- "beaver-256": {
+ "beaver-199": {
   "guess": "beaver",
   "alternatives": [
    "orange cat",
@@ -225,9 +281,16 @@
   ],
   "digest": "88e6a46e11e29811",
   "grade": "pass",
-  "score": 84
+  "score": 84,
+  "colors": 15,
+  "black": 0.077,
+  "biggest_patch": 0.226,
+  "theme": "Overcast moor",
+  "name": "Beaver",
+  "pack": "woodland",
+  "touched": false
  },
- "wolf-257": {
+ "wolf-200": {
   "guess": "husky dog (or wolf) on a farm",
   "alternatives": [
    "raccoon",
@@ -248,9 +311,16 @@
   ],
   "digest": "c13acfa2295573cb",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 15,
+  "black": 0.147,
+  "biggest_patch": 0.133,
+  "theme": "Harvest farm",
+  "name": "Wolf",
+  "pack": "woodland",
+  "touched": false
  },
- "frog-258": {
+ "frog-201": {
   "guess": "green frog",
   "alternatives": [
    "toad",
@@ -274,9 +344,16 @@
   ],
   "digest": "a85a777c60ac43e3",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 15,
+  "black": 0.072,
+  "biggest_patch": 0.181,
+  "theme": "Dawn fields",
+  "name": "Frog",
+  "pack": "woodland",
+  "touched": false
  },
- "bison-259": {
+ "bison-202": {
   "guess": "bison",
   "alternatives": [
    "buffalo",
@@ -299,9 +376,16 @@
   ],
   "digest": "2dc4ca048e79b361",
   "grade": "weak",
-  "score": 70
+  "score": 70,
+  "colors": 21,
+  "black": 0.078,
+  "biggest_patch": 0.166,
+  "theme": "Alpine meadow",
+  "name": "Bison",
+  "pack": "woodland",
+  "touched": false
  },
- "tree-stump-260": {
+ "tree-stump-203": {
   "guess": "red tree stump",
   "alternatives": [
    "red flower pot with soil",
@@ -324,9 +408,16 @@
   ],
   "digest": "abb41d01ed4eb076",
   "grade": "weak",
-  "score": 62
+  "score": 62,
+  "colors": 19,
+  "black": 0.021,
+  "biggest_patch": 0.269,
+  "theme": "Summer hills",
+  "name": "Tree Stump",
+  "pack": "woodland",
+  "touched": false
  },
- "maple-leaf-261": {
+ "maple-leaf-204": {
   "guess": "red maple leaf",
   "alternatives": [
    "red bird (cardinal)",
@@ -347,9 +438,16 @@
   ],
   "digest": "d085179c23944e70",
   "grade": "pass",
-  "score": 68
+  "score": 68,
+  "colors": 16,
+  "black": 0.061,
+  "biggest_patch": 0.21,
+  "theme": "Red barn",
+  "name": "Maple Leaf",
+  "pack": "woodland",
+  "touched": false
  },
- "scarecrow-262": {
+ "scarecrow-205": {
   "guess": "scarecrow in a field at night",
   "alternatives": [
    "witch in a green cloak",
@@ -372,9 +470,16 @@
   ],
   "digest": "6c94b4aeddbdc119",
   "grade": "pass",
-  "score": 72
+  "score": 72,
+  "colors": 16,
+  "black": 0.195,
+  "biggest_patch": 0.161,
+  "theme": "Moonlit pond",
+  "name": "Scarecrow",
+  "pack": "woodland",
+  "touched": false
  },
- "sunflower-263": {
+ "sunflower-206": {
   "guess": "sunflower with a face at night",
   "alternatives": [
    "smiling sun flower plant",
@@ -398,9 +503,16 @@
   ],
   "digest": "21f348ed832b9710",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 14,
+  "black": 0.307,
+  "biggest_patch": 0.209,
+  "theme": "Starry hilltop",
+  "name": "Sunflower",
+  "pack": "woodland",
+  "touched": false
  },
- "wheelbarrow-264": {
+ "wheelbarrow-207": {
   "guess": "red wheelbarrow",
   "alternatives": [
    "ladybug",
@@ -423,9 +535,16 @@
   ],
   "digest": "295431949eaf3c3b",
   "grade": "pass",
-  "score": 76
+  "score": 76,
+  "colors": 18,
+  "black": 0.1,
+  "biggest_patch": 0.091,
+  "theme": "Sunset meadow",
+  "name": "Wheelbarrow",
+  "pack": "woodland",
+  "touched": false
  },
- "mushroom-265": {
+ "mushroom-208": {
   "guess": "red mushroom (toadstool)",
   "alternatives": [
    "fly agaric mushroom",
@@ -448,6 +567,13 @@
   ],
   "digest": "a3433609c3517485",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 17,
+  "black": 0.095,
+  "biggest_patch": 0.128,
+  "theme": "Harvest farm",
+  "name": "Mushroom",
+  "pack": "woodland",
+  "touched": false
  }
 }

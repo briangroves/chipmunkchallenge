@@ -150,9 +150,9 @@
   "pack": "farm",
   "touched": false,
   "verify": {
-   "guess": "red pony",
-   "score": 64,
-   "agrees": false
+   "guess": "red horse (pony)",
+   "score": 94,
+   "agrees": true
   }
  },
  "chicken-175": {
@@ -190,7 +190,7 @@
   "pack": "farm",
   "touched": false,
   "verify": {
-   "guess": "white chicken (hen) at night",
+   "guess": "white chicken (hen)",
    "score": 96,
    "agrees": true
   }

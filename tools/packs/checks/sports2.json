@@ -1,0 +1,405 @@
+{
+ "soccer-player-846": {
+  "guess": "girl running on a track (athlete)",
+  "alternatives": [
+   "hurdler jumping",
+   "soccer player kicking"
+  ],
+  "readability": 3,
+  "features": [
+   "brown hair",
+   "skin-colored face without details",
+   "blue shirt",
+   "white shorts",
+   "bent arm",
+   "legs with green shoe",
+   "red running track lanes",
+   "red barn and green hills in background",
+   "blue sky with clouds"
+  ],
+  "problems": [
+   "no facial features",
+   "pose is awkward and hard to read, limbs tangled",
+   "dark red shadow blends with track",
+   "arm outline extends oddly, body proportions confusing"
+  ],
+  "digest": "a24042d5e17de370",
+  "grade": "weak",
+  "score": 50,
+  "colors": 16,
+  "black": 0.046,
+  "biggest_patch": 0.214,
+  "theme": "Tulip fields",
+  "name": "Soccer Player",
+  "pack": "sports2",
+  "touched": false
+ },
+ "basketball-player-847": {
+  "guess": "basketball player jumping to dunk",
+  "alternatives": [
+   "person jumping with a ball in a city",
+   "dancer leaping in front of buildings"
+  ],
+  "readability": 3,
+  "features": [
+   "orange basketball held up high",
+   "raised arms",
+   "white shirt/body",
+   "light blue shorts",
+   "bent legs with dark shoes",
+   "city skyline background with lit windows",
+   "sunset sky and sun",
+   "brick wall ground"
+  ],
+  "problems": [
+   "figure is drawn in black and white outlines that look jumbled",
+   "no clear face or head details",
+   "body pose is hard to parse at this resolution",
+   "figure overlaps busy buildings, making the silhouette less clear"
+  ],
+  "digest": "d9206f4d83538990",
+  "grade": "pass",
+  "score": 72,
+  "colors": 16,
+  "black": 0.07,
+  "biggest_patch": 0.168,
+  "theme": "City dawn",
+  "name": "Basketball Player",
+  "pack": "sports2",
+  "touched": false
+ },
+ "baseball-player-848": {
+  "guess": "baseball player swinging a bat",
+  "alternatives": [
+   "batter at night in the desert",
+   "cricket player hitting a ball"
+  ],
+  "readability": 4,
+  "features": [
+   "white uniform with red trim",
+   "red cap/helmet",
+   "arms raised in swing pose",
+   "dark bat extending to upper right",
+   "legs in wide stance",
+   "red shoes",
+   "night sky with moon and stars",
+   "cacti and desert ground"
+  ],
+  "problems": [
+   "no visible face details",
+   "head and arms merge into a blob",
+   "bat is thin and blends with dark blue sky",
+   "pose is somewhat hard to parse at small scale"
+  ],
+  "digest": "4d37a41d8320df88",
+  "grade": "pass",
+  "score": 82,
+  "colors": 12,
+  "black": 0.256,
+  "biggest_patch": 0.241,
+  "theme": "Desert night",
+  "name": "Baseball Player",
+  "pack": "sports2",
+  "touched": false
+ },
+ "runner-849": {
+  "guess": "runner jogging at sunset",
+  "alternatives": [
+   "person jumping over a meadow",
+   "athlete sprinting in a field"
+  ],
+  "readability": 4,
+  "features": [
+   "head with brown hair",
+   "yellow tank top with white number bib",
+   "red shorts",
+   "bent arms",
+   "long striding legs",
+   "red sneakers",
+   "setting sun",
+   "striped sunset sky",
+   "grass with flowers"
+  ],
+  "problems": [
+   "face has no features, just a skin-colored shape",
+   "head blends into the orange sky",
+   "pose is a bit awkward and stiff",
+   "back arm is hard to make out"
+  ],
+  "digest": "6295fe4da98be40f",
+  "grade": "pass",
+  "score": 78,
+  "colors": 18,
+  "black": 0.059,
+  "biggest_patch": 0.106,
+  "theme": "Sunset meadow",
+  "name": "Runner",
+  "pack": "sports2",
+  "touched": false
+ },
+ "cyclist-850": {
+  "guess": "cyclist riding a bicycle",
+  "alternatives": [
+   "person on a motorbike",
+   "ninja running"
+  ],
+  "readability": 2,
+  "features": [
+   "dark helmet/head",
+   "red jersey body",
+   "red arms reaching to handlebars",
+   "red legs",
+   "bicycle wheels outlined in dark dots",
+   "yellow pedal/light"
+  ],
+  "problems": [
+   "wheels are sparse broken outlines that fade into dark blue background",
+   "dark gray body parts blend with navy background",
+   "no clear face",
+   "rider shape is blobby and tangled",
+   "frame of bike hard to separate from rider"
+  ],
+  "digest": "21ec134353c6abad",
+  "grade": "weak",
+  "score": 70,
+  "colors": 15,
+  "black": 0.099,
+  "biggest_patch": 0.457,
+  "theme": "Riverbank",
+  "name": "Cyclist",
+  "pack": "sports2",
+  "touched": false
+ },
+ "surfer-851": {
+  "guess": "surfer riding a big wave",
+  "alternatives": [
+   "bird diving into the sea",
+   "person swimming in water"
+  ],
+  "readability": 2,
+  "features": [
+   "large curling blue wave with white foam",
+   "tan figure that looks like a person or animal",
+   "brown board or body shape",
+   "white spray at the bottom",
+   "sun and pink sky in the background"
+  ],
+  "problems": [
+   "the figure is small and blobby with no clear face or limbs",
+   "tan and brown shape is ambiguous, could be a bird or a person",
+   "wave framed like a window, so the scene is confusing",
+   "figure has little contrast and gets lost in the busy water details"
+  ],
+  "digest": "16b8236c69870ec8",
+  "grade": "weak",
+  "score": 62,
+  "colors": 17,
+  "black": 0.066,
+  "biggest_patch": 0.224,
+  "theme": "Lavender fields",
+  "name": "Surfer",
+  "pack": "sports2",
+  "touched": false
+ },
+ "golfer-852": {
+  "guess": "golfer swinging a club",
+  "alternatives": [
+   "cat in striped shirt",
+   "person playing hockey"
+  ],
+  "readability": 2,
+  "features": [
+   "dark figure with raised arm holding a stick/club",
+   "tan face area with white patch",
+   "purple cap/ear shapes on head",
+   "red and white striped shirt",
+   "grey trousers or belly",
+   "dark boots with red at bottom"
+  ],
+  "problems": [
+   "no clear face or eyes",
+   "dark outline blob merges limbs and body",
+   "club head small and brown, hard to read",
+   "purple bits ambiguous as ears or hat",
+   "figure shape lumpy, unclear if human or animal",
+   "dark green shadow blends with figure edges"
+  ],
+  "digest": "048a7330fc89241f",
+  "grade": "weak",
+  "score": 70,
+  "colors": 20,
+  "black": 0.109,
+  "biggest_patch": 0.166,
+  "theme": "Orchard",
+  "name": "Golfer",
+  "pack": "sports2",
+  "touched": false
+ },
+ "boxer-853": {
+  "guess": "cartoon boxer with red boxing gloves",
+  "alternatives": [
+   "white dog boxing",
+   "cartoon character punching"
+  ],
+  "readability": 3,
+  "features": [
+   "red boxing gloves",
+   "brown hat or hair",
+   "white body",
+   "blue shorts",
+   "red shoes",
+   "black eye area",
+   "punch impact star"
+  ],
+  "problems": [
+   "face is hard to read, no clear eyes or mouth",
+   "head blends into white body",
+   "unclear whether it is a person or an animal",
+   "bright green background is busy"
+  ],
+  "digest": "85786b3bec022a0f",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.068,
+  "biggest_patch": 0.162,
+  "theme": "Pine forest",
+  "name": "Boxer",
+  "pack": "sports2",
+  "touched": false
+ },
+ "football-player-854": {
+  "guess": "soccer player",
+  "alternatives": [
+   "boy in sports uniform",
+   "runner"
+  ],
+  "readability": 3,
+  "features": [
+   "dark hair",
+   "face with one eye",
+   "blue jersey with white mark",
+   "black shorts with white stripe",
+   "arms at sides",
+   "knees/legs",
+   "dark shoes"
+  ],
+  "problems": [
+   "face is small and partly hidden by hair",
+   "orange autumn field is very busy and bright, competing with the figure",
+   "dark red outline/shadow blends with orange background",
+   "legs and feet are cramped and hard to read",
+   "no ball or clear context to show it's a sport"
+  ],
+  "digest": "b5be684ea4b3c8b4",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.081,
+  "biggest_patch": 0.164,
+  "theme": "Autumn woods",
+  "name": "Football Player",
+  "pack": "sports2",
+  "touched": false
+ },
+ "ballerina-855": {
+  "guess": "ballerina goose (white bird in pink tutu)",
+  "alternatives": [
+   "dancing duck",
+   "ballerina girl"
+  ],
+  "readability": 3,
+  "features": [
+   "white body with black outline",
+   "orange beak",
+   "arms raised above head in ballet pose",
+   "red top",
+   "pink tutu",
+   "one leg standing with red ballet shoe",
+   "background of grass, flowers, clouds, sun, birds"
+  ],
+  "problems": [
+   "head and raised arms merge into one shape",
+   "no visible eye",
+   "beak is small and could read as a hair bow",
+   "the bird identity is unclear; it could also be a person",
+   "grey and black scattered pixels on the body look messy"
+  ],
+  "digest": "f812c3cfba19d6c3",
+  "grade": "pass",
+  "score": 76,
+  "colors": 18,
+  "black": 0.059,
+  "biggest_patch": 0.182,
+  "theme": "Summer hills",
+  "name": "Ballerina",
+  "pack": "sports2",
+  "touched": false
+ },
+ "archer-856": {
+  "guess": "red-haired archer kid with a bow",
+  "alternatives": [
+   "adventurer hiker in the mountains",
+   "hunter boy sitting on grass"
+  ],
+  "readability": 4,
+  "features": [
+   "red hair",
+   "face with dark eyes and orange cheeks",
+   "white shirt",
+   "blue pants",
+   "brown boots",
+   "bow with orange accents held at left",
+   "mountains and sky background",
+   "stream of water"
+  ],
+  "problems": [
+   "body pose is cramped and hard to read",
+   "bow blends with dark outlines",
+   "legs and arms merge into a jumbled area",
+   "green grass and dark outlines clutter the lower half"
+  ],
+  "digest": "7a16d9929254f206",
+  "grade": "pass",
+  "score": 82,
+  "colors": 16,
+  "black": 0.053,
+  "biggest_patch": 0.148,
+  "theme": "Waterfall",
+  "name": "Archer",
+  "pack": "sports2",
+  "touched": false
+ },
+ "cheerleader-857": {
+  "guess": "cheerleader girl with yellow pom-poms",
+  "alternatives": [
+   "dancing cartoon girl",
+   "girl cheering on a wall"
+  ],
+  "readability": 3,
+  "features": [
+   "white round face with eyes and blush",
+   "gray hair",
+   "raised arms holding yellow pom-poms",
+   "red dress",
+   "black legs/shoes",
+   "brick wall and sky with clouds background"
+  ],
+  "problems": [
+   "gray hair blends into gray wall and mountains",
+   "black outline merges with dark limbs",
+   "face details tiny and hard to read",
+   "pose is cluttered by spiky pom-pom outlines"
+  ],
+  "digest": "147ff8d469b75377",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.179,
+  "biggest_patch": 0.141,
+  "theme": "Mountain pass",
+  "name": "Cheerleader",
+  "pack": "sports2",
+  "touched": false
+ }
+}

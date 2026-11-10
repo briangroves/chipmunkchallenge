@@ -1,0 +1,558 @@
+{
+ "baby-elephant-785": {
+  "guess": "gray elephant in blue overalls",
+  "alternatives": [
+   "mouse",
+   "koala"
+  ],
+  "readability": 3,
+  "features": [
+   "large round ears with blue insides",
+   "gray face with two dark eyes",
+   "short trunk",
+   "pink cheeks",
+   "blue overalls",
+   "raised arm",
+   "gray foot"
+  ],
+  "problems": [
+   "trunk is very short and barely visible, so it reads like a mouse",
+   "dark shadow shape on right side is confusing",
+   "body proportions blobby, legs unclear"
+  ],
+  "digest": "3a1c38a1e1db0d01",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.074,
+  "biggest_patch": 0.126,
+  "theme": "Bamboo grove",
+  "name": "Baby Elephant",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-panda-786": {
+  "guess": "panda",
+  "alternatives": [
+   "raccoon",
+   "badger"
+  ],
+  "readability": 3,
+  "features": [
+   "white round head",
+   "black ears with tan inner parts",
+   "black eye patches",
+   "black nose/mouth area",
+   "white body",
+   "dark legs/feet"
+  ],
+  "problems": [
+   "eye patches look like swirly squiggles rather than clear eyes",
+   "no clear eyes inside patches",
+   "dark legs blend into the dark green grass",
+   "body shape is blobby and slightly lopsided",
+   "tan ear and paw colors are unusual for a panda"
+  ],
+  "digest": "24cdbf7d3ad4341f",
+  "grade": "pass",
+  "score": 88,
+  "colors": 18,
+  "black": 0.113,
+  "biggest_patch": 0.169,
+  "theme": "Sunflower farm",
+  "name": "Baby Panda",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-bear-787": {
+  "guess": "white hamster looking up at the night sky",
+  "alternatives": [
+   "white mouse",
+   "polar bear cub"
+  ],
+  "readability": 3,
+  "features": [
+   "white round body",
+   "pink ears",
+   "black eye",
+   "open red mouth",
+   "pink paws/feet",
+   "crescent moon and stars",
+   "grass field"
+  ],
+  "problems": [
+   "face is in profile looking upward, hard to read",
+   "body is a blobby white shape",
+   "grey shading merges with dark background on right side",
+   "eye patch looks like a dark smudge"
+  ],
+  "digest": "5f755757fde9f8a4",
+  "grade": "weak",
+  "score": 58,
+  "colors": 15,
+  "black": 0.309,
+  "biggest_patch": 0.184,
+  "theme": "Starry hilltop",
+  "name": "Baby Bear",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-deer-788": {
+  "guess": "fox sitting in a lavender field",
+  "alternatives": [
+   "owl",
+   "deer"
+  ],
+  "readability": 3,
+  "features": [
+   "orange and white face",
+   "dark closed eyes",
+   "dark nose",
+   "brown body with tan belly",
+   "folded legs/paws",
+   "dark antler-like ears",
+   "background birds in sky"
+  ],
+  "problems": [
+   "dark branching ears look like antlers, confusing the animal type",
+   "face is small and the eyes are just dark slits",
+   "body is a blocky brown shape without clear limbs",
+   "blue shadow on one side looks odd",
+   "lavender field speckles add busy noise"
+  ],
+  "digest": "d79623cbd7aa2dc3",
+  "grade": "weak",
+  "score": 58,
+  "colors": 13,
+  "black": 0.056,
+  "biggest_patch": 0.256,
+  "theme": "Overcast moor",
+  "name": "Baby Deer",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-lion-789": {
+  "guess": "owl",
+  "alternatives": [
+   "lion cub",
+   "brown bird"
+  ],
+  "readability": 3,
+  "features": [
+   "round brown head",
+   "yellow eye with dark pupil",
+   "beak",
+   "white chest/belly",
+   "yellow wings",
+   "feet at bottom",
+   "feathered head tufts"
+  ],
+  "problems": [
+   "only one eye visible, face looks odd",
+   "head shape and mane-like outline could read as a lion",
+   "yellow wing blocks look disconnected from body",
+   "busy background of trees and grass competes with subject"
+  ],
+  "digest": "3d50c78c00889338",
+  "grade": "weak",
+  "score": 54,
+  "colors": 16,
+  "black": 0.184,
+  "biggest_patch": 0.198,
+  "theme": "Rainy day",
+  "name": "Baby Lion",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-penguin-790": {
+  "guess": "penguin",
+  "alternatives": [
+   "black bird",
+   "Tux the Linux penguin"
+  ],
+  "readability": 4,
+  "features": [
+   "black rounded body",
+   "tuft on top of head",
+   "big white eyes with pupils",
+   "yellow beak",
+   "white belly",
+   "angry/eyebrow expression"
+  ],
+  "problems": [
+   "no visible feet or wings",
+   "orange background bushes are busy and draw attention",
+   "dark red shading on the right side blends oddly with body edge",
+   "eyes look more like an owl or blob monster at first glance"
+  ],
+  "digest": "50d05e5b07e315d5",
+  "grade": "pass",
+  "score": 82,
+  "colors": 14,
+  "black": 0.194,
+  "biggest_patch": 0.194,
+  "theme": "Autumn woods",
+  "name": "Baby Penguin",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-pig-791": {
+  "guess": "pink pig on a farm",
+  "alternatives": [
+   "pink worm",
+   "pink dinosaur"
+  ],
+  "readability": 2,
+  "features": [
+   "pink body",
+   "one eye",
+   "sunset sky with sun",
+   "farm field with pumpkins",
+   "red barn behind"
+  ],
+  "problems": [
+   "no clear pig snout or ears",
+   "blobby upright shape that looks like a worm or sock",
+   "face hard to locate; eye placed oddly to the right",
+   "legs and tail not distinguishable",
+   "scattered darker pink speckles make the body noisy"
+  ],
+  "digest": "df6f8f7fffc144f4",
+  "grade": "weak",
+  "score": 66,
+  "colors": 17,
+  "black": 0.08,
+  "biggest_patch": 0.159,
+  "theme": "Harvest farm",
+  "name": "Baby Pig",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-koala-792": {
+  "guess": "koala",
+  "alternatives": [
+   "mouse",
+   "gray bear cub"
+  ],
+  "readability": 3,
+  "features": [
+   "big round ears with white insides",
+   "dark nose/eye area on face",
+   "gray body",
+   "white belly",
+   "feet at bottom",
+   "sunset desert background with sun and bird"
+  ],
+  "problems": [
+   "face is vague, eyes and nose merge into a dark blob",
+   "body shape is lumpy and leans, no clear arms or legs",
+   "busy striped background competes with the figure",
+   "no tree or branch to cue koala"
+  ],
+  "digest": "3a3a4df86e79cc7c",
+  "grade": "pass",
+  "score": 88,
+  "colors": 10,
+  "black": 0.083,
+  "biggest_patch": 0.107,
+  "theme": "Golden wheat",
+  "name": "Baby Koala",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-chick-793": {
+  "guess": "round yellow chick",
+  "alternatives": [
+   "yellow lemon with a face",
+   "yellow bird (Pikachu-like blob)"
+  ],
+  "readability": 3,
+  "features": [
+   "round yellow body",
+   "closed sleepy eyes",
+   "pink blush cheeks",
+   "small tan beak",
+   "tuft on top of head",
+   "orange shading on lower right",
+   "snowy ground and pine trees with northern-light sky behind"
+  ],
+  "problems": [
+   "no legs, wings or tail visible, so it is just a round blob",
+   "beak is tiny and pale, hard to spot",
+   "could read as a fruit or ball with a face",
+   "busy background stripes above compete for attention"
+  ],
+  "digest": "09c3637e6f886f7f",
+  "grade": "pass",
+  "score": 76,
+  "colors": 18,
+  "black": 0.284,
+  "biggest_patch": 0.197,
+  "theme": "Northern lights",
+  "name": "Baby Chick",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-hippo-794": {
+  "guess": "purple hippo",
+  "alternatives": [
+   "purple rhino",
+   "purple dinosaur"
+  ],
+  "readability": 3,
+  "features": [
+   "big rounded snout",
+   "small ears on top",
+   "eye area",
+   "pink tongue/open mouth",
+   "white belly/feet",
+   "sitting pose",
+   "black outline"
+  ],
+  "problems": [
+   "eye is light blue and blends with sky",
+   "face details are sparse and hard to read",
+   "purple shading patches look blotchy",
+   "limbs and body merge into one blob",
+   "pose is unclear"
+  ],
+  "digest": "661c96655e7857fc",
+  "grade": "pass",
+  "score": 88,
+  "colors": 13,
+  "black": 0.085,
+  "biggest_patch": 0.172,
+  "theme": "Seaside cliffs",
+  "name": "Baby Hippo",
+  "pack": "baby",
+  "touched": false
+ },
+ "baby-dolphin-795": {
+  "guess": "dolphin (or orca) jumping",
+  "alternatives": [
+   "orca whale",
+   "shark"
+  ],
+  "readability": 3,
+  "features": [
+   "curved body arching",
+   "tail fluke at bottom",
+   "dorsal fin on top",
+   "dark outline with white belly patches",
+   "pointed snout at right"
+  ],
+  "problems": [
+   "no clear eye or face",
+   "head and body blend into one grey blob",
+   "odd pose with tail curling down onto grass",
+   "sea animal placed on a meadow is confusing",
+   "white patches look random"
+  ],
+  "digest": "1c35fc432a352a4e",
+  "grade": "pass",
+  "score": 76,
+  "colors": 16,
+  "black": 0.087,
+  "biggest_patch": 0.186,
+  "theme": "Spring meadow",
+  "name": "Baby Dolphin",
+  "pack": "baby",
+  "touched": false
+ },
+ "dog-with-ball-796": {
+  "guess": "dog playing with a blue ball",
+  "alternatives": [
+   "hamster with a ball",
+   "rat running in snow"
+  ],
+  "readability": 2,
+  "features": [
+   "tan body",
+   "small dark eye",
+   "ear",
+   "thin tail",
+   "stubby legs",
+   "blue and green ball"
+  ],
+  "problems": [
+   "body is a blobby shape with unclear head",
+   "face lacks detail, ball covers the front",
+   "tan blends with light gray shading",
+   "legs hard to tell from shadow"
+  ],
+  "digest": "b891add21e3e2378",
+  "grade": "weak",
+  "score": 78,
+  "colors": 17,
+  "black": 0.087,
+  "biggest_patch": 0.244,
+  "theme": "Cactus canyon",
+  "name": "Dog with Ball",
+  "pack": "baby",
+  "touched": false
+ },
+ "elephant-with-balloon-797": {
+  "guess": "blue creature holding a big pink heart",
+  "alternatives": [
+   "blue elephant with a heart balloon",
+   "blue mouse carrying a heart"
+  ],
+  "readability": 3,
+  "features": [
+   "large pink/red heart on top",
+   "blue body with arms",
+   "grey ears or shoulder patches",
+   "legs/feet at bottom",
+   "desert background with sun"
+  ],
+  "problems": [
+   "no clear face visible, heart covers the head",
+   "blue figure shape is blobby and hard to identify",
+   "subject's species is ambiguous",
+   "orange/brown speckles around the outline add noise"
+  ],
+  "digest": "aeb1eeb9e400b892",
+  "grade": "weak",
+  "score": 50,
+  "colors": 19,
+  "black": 0.083,
+  "biggest_patch": 0.124,
+  "theme": "Desert dunes",
+  "name": "Elephant with Balloon",
+  "pack": "baby",
+  "touched": false
+ },
+ "bird-in-nest-798": {
+  "guess": "yellow duckling sleeping on a log at night",
+  "alternatives": [
+   "yellow bird resting in a nest",
+   "chick on a rock"
+  ],
+  "readability": 3,
+  "features": [
+   "round yellow head",
+   "orange beak",
+   "closed sleepy eye",
+   "wing with orange feathers",
+   "tail feathers pointing up on the right",
+   "brown log/rock underneath",
+   "night sky with moon and stars",
+   "green bushes"
+  ],
+  "problems": [
+   "body is a blobby mix of yellow and orange shapes that is hard to separate into head, wing and tail",
+   "the right part (wing/tail) looks like a separate creature or flame",
+   "closed eye is just a dark line, so the face is weak",
+   "no legs visible",
+   "orange blends with the yellow, giving the outline little contrast"
+  ],
+  "digest": "f905372aed89dcdb",
+  "grade": "weak",
+  "score": 54,
+  "colors": 19,
+  "black": 0.264,
+  "biggest_patch": 0.175,
+  "theme": "Moonlit pond",
+  "name": "Bird in Nest",
+  "pack": "baby",
+  "touched": false
+ },
+ "panda-with-bamboo-799": {
+  "guess": "panda eating bamboo",
+  "alternatives": [
+   "black and white bear",
+   "skunk"
+  ],
+  "readability": 3,
+  "features": [
+   "black and white body",
+   "white face with dark eye patches",
+   "light muzzle",
+   "green bamboo stalk held near mouth",
+   "dark paws/arms",
+   "mountains, sunset and sun in background"
+  ],
+  "problems": [
+   "head shape is irregular and lacks clear round ears",
+   "eyes hard to distinguish within the black patches",
+   "black body blends into dark ground at bottom",
+   "body pose is blobby with confusing white patches on legs"
+  ],
+  "digest": "5140f53f68f63222",
+  "grade": "pass",
+  "score": 88,
+  "colors": 14,
+  "black": 0.266,
+  "biggest_patch": 0.16,
+  "theme": "Mountain sunset",
+  "name": "Panda with Bamboo",
+  "pack": "baby",
+  "touched": false
+ },
+ "fox-sleeping-800": {
+  "guess": "sleeping orange fox (Fennekin-like) curled up",
+  "alternatives": [
+   "sleeping orange cat",
+   "goldfish lying on rocks"
+  ],
+  "readability": 2,
+  "features": [
+   "orange body",
+   "tan face/muzzle area",
+   "red pointed fin or ear shape on top",
+   "bushy orange tail on right",
+   "closed eye marks",
+   "white bed/cushion under it"
+  ],
+  "problems": [
+   "face is hard to read, eyes and nose are small brown dots",
+   "red pointed shape on top is ambiguous (ear or fin)",
+   "pose is a blob with no clear legs",
+   "busy grey brick background competes with subject",
+   "colors of tail and body merge"
+  ],
+  "digest": "d7910dc4afca5b92",
+  "grade": "weak",
+  "score": 82,
+  "colors": 16,
+  "black": 0.251,
+  "biggest_patch": 0.228,
+  "theme": "Stormy coast",
+  "name": "Fox Sleeping",
+  "pack": "baby",
+  "touched": false
+ },
+ "pig-with-flower-801": {
+  "guess": "purple watering can watering flowers",
+  "alternatives": [
+   "purple bird",
+   "purple blob creature with a bow tie"
+  ],
+  "readability": 2,
+  "features": [
+   "purple round body with two eyes",
+   "red and yellow band like a mouth or bow",
+   "dark blue spout on the left",
+   "water splashing near a white daisy",
+   "dark blue handle shape on the right",
+   "sun and flowers in the background"
+  ],
+  "problems": [
+   "the body is a blobby, unclear shape",
+   "dark blue parts blend into the dark green grass",
+   "the face makes it look like a creature, not an object",
+   "the spout and handle are hard to pick out",
+   "the water is small and reads weakly"
+  ],
+  "digest": "d7023b56002e8340",
+  "grade": "weak",
+  "score": 74,
+  "colors": 17,
+  "black": 0.051,
+  "biggest_patch": 0.207,
+  "theme": "Garden pond",
+  "name": "Pig with Flower",
+  "pack": "baby",
+  "touched": false
+ }
+}

@@ -1,0 +1,428 @@
+{
+ "cardinal-283": {
+  "guess": "red bird in a city (cardinal-like chick)",
+  "alternatives": [
+   "red ninja bird",
+   "red cartoon blob with a mask"
+  ],
+  "readability": 3,
+  "features": [
+   "red round body",
+   "dark mask face with white eyes",
+   "yellow beak",
+   "yellow feet",
+   "pointed crest on head",
+   "city skyline and road background"
+  ],
+  "problems": [
+   "beak is small and looks like a yellow symbol on the chest",
+   "body is a blobby shape with no clear wings",
+   "dark face mask makes it look less like a bird",
+   "busy city background competes with the subject"
+  ],
+  "digest": "24335c13087d1224",
+  "grade": "pass",
+  "score": 84,
+  "colors": 17,
+  "black": 0.095,
+  "biggest_patch": 0.107,
+  "theme": "City day",
+  "name": "Cardinal",
+  "pack": "birds",
+  "touched": false
+ },
+ "eagle-284": {
+  "guess": "bald eagle flying",
+  "alternatives": [
+   "red bird",
+   "chicken lying on grass"
+  ],
+  "readability": 2,
+  "features": [
+   "white head with yellow beak",
+   "dark eye",
+   "white tail feathers on left",
+   "dark red body and wing"
+  ],
+  "problems": [
+   "body is a blocky dark red blob with no clear wing shape",
+   "head is huge and oddly placed at bottom right",
+   "wing shape unclear, looks like a map or stain",
+   "no legs or talons",
+   "colors are not typical eagle brown, red body confuses identity",
+   "subject hard to separate from busy background"
+  ],
+  "digest": "14198b18c9aea8fa",
+  "grade": "weak",
+  "score": 78,
+  "colors": 19,
+  "black": 0.025,
+  "biggest_patch": 0.19,
+  "theme": "Spring meadow",
+  "name": "Eagle",
+  "pack": "birds",
+  "touched": false
+ },
+ "swan-285": {
+  "guess": "white swan on a pond",
+  "alternatives": [
+   "goose",
+   "duck"
+  ],
+  "readability": 4,
+  "features": [
+   "long curved S-shaped neck",
+   "head with dark blue beak area",
+   "folded white wings with blue feather outlines",
+   "body floating on light blue water",
+   "sunset sky with flying birds",
+   "pine trees and grass background"
+  ],
+  "problems": [
+   "no clearly visible eye",
+   "beak not distinct, head blends into dark blue outline",
+   "heavy blue shading on wings makes swan look patterned rather than white",
+   "neck partly overlaps busy tree background"
+  ],
+  "digest": "381d8afe67bc3854",
+  "grade": "pass",
+  "score": 82,
+  "colors": 15,
+  "black": 0.039,
+  "biggest_patch": 0.131,
+  "theme": "Bamboo grove",
+  "name": "Swan",
+  "pack": "birds",
+  "touched": false
+ },
+ "pigeon-286": {
+  "guess": "blue and gray bird (pigeon)",
+  "alternatives": [
+   "blue jay",
+   "magpie"
+  ],
+  "readability": 2,
+  "features": [
+   "dark blue body and wings",
+   "gray and white chest area",
+   "pink foot or beak",
+   "long dark tail extending to lower right",
+   "raised dark blue wing or head at upper left"
+  ],
+  "problems": [
+   "no clear head, eye or beak",
+   "pose is confusing and twisted",
+   "body reads as a blob of blue, gray and lavender",
+   "dark blue edges blend into the dark green grass",
+   "hard to tell which end is the front"
+  ],
+  "digest": "1d3291791deb93cd",
+  "grade": "weak",
+  "score": 74,
+  "colors": 20,
+  "black": 0.053,
+  "biggest_patch": 0.181,
+  "theme": "Sunflower farm",
+  "name": "Pigeon",
+  "pack": "birds",
+  "touched": false
+ },
+ "crow-287": {
+  "guess": "black crow",
+  "alternatives": [
+   "blackbird",
+   "raven"
+  ],
+  "readability": 4,
+  "features": [
+   "round black body",
+   "white eyes with grumpy expression",
+   "yellow-orange beak",
+   "raised wing on right",
+   "orange feet",
+   "grass and flowers background",
+   "sun in sky"
+  ],
+  "problems": [
+   "body is a round blob with little head/body separation",
+   "wing is hard to distinguish from body",
+   "dark outline green blends near edges"
+  ],
+  "digest": "dc69268096f3671a",
+  "grade": "pass",
+  "score": 90,
+  "colors": 13,
+  "black": 0.209,
+  "biggest_patch": 0.206,
+  "theme": "Garden pond",
+  "name": "Crow",
+  "pack": "birds",
+  "touched": false
+ },
+ "kingfisher-288": {
+  "guess": "kingfisher bird on a coconut",
+  "alternatives": [
+   "robin on a nest",
+   "bird badge or emblem"
+  ],
+  "readability": 3,
+  "features": [
+   "blue head",
+   "dark eye",
+   "long dark beak",
+   "orange breast",
+   "blue wing",
+   "red feet/tail",
+   "brown round shape behind the bird (coconut or nest)",
+   "sun and cloud in sky"
+  ],
+  "problems": [
+   "large brown round shape dominates and is unclear",
+   "bird is small and partly merges with the brown shape",
+   "beak blends into the dark brown background",
+   "dark outline makes the whole thing look like a badge"
+  ],
+  "digest": "eac8da654c66c472",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.082,
+  "biggest_patch": 0.149,
+  "theme": "Ice field",
+  "name": "Kingfisher",
+  "pack": "birds",
+  "touched": false
+ },
+ "stork-289": {
+  "guess": "crane bird pecking at a scarecrow/creature in a field",
+  "alternatives": [
+   "stork",
+   "egret"
+  ],
+  "readability": 3,
+  "features": [
+   "white body",
+   "long yellow beak",
+   "red patch on head",
+   "black wingtips",
+   "long thin legs",
+   "sun in sky",
+   "carrots/pumpkins in plowed field"
+  ],
+  "problems": [
+   "head shape is awkward and hard to read",
+   "second figure on right (brown/gray) is unclear blob",
+   "red block on left looks detached from bird",
+   "legs blend with brown soil",
+   "composition cluttered"
+  ],
+  "digest": "d9543a6b1b930cb7",
+  "grade": "weak",
+  "score": 50,
+  "colors": 17,
+  "black": 0.146,
+  "biggest_patch": 0.126,
+  "theme": "Harvest farm",
+  "name": "Stork",
+  "pack": "birds",
+  "touched": false
+ },
+ "seagull-290": {
+  "guess": "seagull on a beach at night",
+  "alternatives": [
+   "duck",
+   "white pigeon"
+  ],
+  "readability": 4,
+  "features": [
+   "white head",
+   "dark eye",
+   "yellow beak",
+   "grey wing",
+   "black tail feathers",
+   "yellow feet",
+   "crescent moon and stars",
+   "sand and grass background"
+  ],
+  "problems": [
+   "black tail and shadow blend into dark outline",
+   "body pose slightly blobby",
+   "beak merges with green grass and sand near edge"
+  ],
+  "digest": "34d361947a9610e7",
+  "grade": "pass",
+  "score": 94,
+  "colors": 13,
+  "black": 0.28,
+  "biggest_patch": 0.251,
+  "theme": "Desert night",
+  "name": "Seagull",
+  "pack": "birds",
+  "touched": false
+ },
+ "macaw-291": {
+  "guess": "blue-and-yellow macaw parrot",
+  "alternatives": [
+   "toucan",
+   "yellow bird at night"
+  ],
+  "readability": 4,
+  "features": [
+   "green head crown",
+   "white face patch",
+   "black eye",
+   "curved black beak",
+   "yellow chest/belly",
+   "blue wings",
+   "red tail feathers",
+   "night sky with moon and stars",
+   "grassy background"
+  ],
+  "problems": [
+   "beak and eye are small and blend into dark tones",
+   "body is a large yellow blob without clear legs",
+   "red tail looks detached from body",
+   "green head partly blends with green background"
+  ],
+  "digest": "270ab07bf831b0c9",
+  "grade": "pass",
+  "score": 94,
+  "colors": 14,
+  "black": 0.314,
+  "biggest_patch": 0.194,
+  "theme": "Starry hilltop",
+  "name": "Macaw",
+  "pack": "birds",
+  "touched": false
+ },
+ "magpie-292": {
+  "guess": "magpie bird",
+  "alternatives": [
+   "penguin",
+   "puffin"
+  ],
+  "readability": 3,
+  "features": [
+   "black head with big white eyes",
+   "grey beak",
+   "blue wings",
+   "white belly",
+   "long black tail",
+   "grassy meadow with flowers",
+   "mountains and sun in background"
+  ],
+  "problems": [
+   "black tail blends into dark grey rock/mountain behind",
+   "no visible legs or feet",
+   "body is blocky and upright like a penguin",
+   "beak is grey and small, hard to spot"
+  ],
+  "digest": "a36c1109563abcb9",
+  "grade": "pass",
+  "score": 84,
+  "colors": 18,
+  "black": 0.159,
+  "biggest_patch": 0.166,
+  "theme": "Alpine meadow",
+  "name": "Magpie",
+  "pack": "birds",
+  "touched": false
+ },
+ "penguin-chick-293": {
+  "guess": "penguin in a pink cat-ear hoodie",
+  "alternatives": [
+   "chubby bird in a costume",
+   "snowman with cat ears"
+  ],
+  "readability": 3,
+  "features": [
+   "round body",
+   "black eyes",
+   "orange beak",
+   "cat ears on hood",
+   "pink hoodie/costume",
+   "orange feet",
+   "city street background"
+  ],
+  "problems": [
+   "face is small and muddled by black and white patches",
+   "pink costume overlaps the body and makes the shape blobby",
+   "ears suggest a cat, which confuses the identity",
+   "busy city background competes with the subject"
+  ],
+  "digest": "1f2092278cbac0e6",
+  "grade": "weak",
+  "score": 54,
+  "colors": 16,
+  "black": 0.123,
+  "biggest_patch": 0.13,
+  "theme": "City day",
+  "name": "Penguin Chick",
+  "pack": "birds",
+  "touched": false
+ },
+ "falcon-294": {
+  "guess": "hawk perched at sunset",
+  "alternatives": [
+   "eagle",
+   "falcon"
+  ],
+  "readability": 3,
+  "features": [
+   "bird head with light face",
+   "grey folded wing",
+   "brown body",
+   "tail feathers pointing down-right",
+   "perch/feet at bottom",
+   "sun and sunset sky"
+  ],
+  "problems": [
+   "no clear eye or beak visible",
+   "head small and blends with sky",
+   "pose diagonal and blobby",
+   "purple striped background busy",
+   "feet merge into perch"
+  ],
+  "digest": "1b65a0cdfb12f249",
+  "grade": "weak",
+  "score": 54,
+  "colors": 15,
+  "black": 0.031,
+  "biggest_patch": 0.143,
+  "theme": "Lavender fields",
+  "name": "Falcon",
+  "pack": "birds",
+  "touched": false
+ },
+ "bird-house-295": {
+  "guess": "birdhouse on a pole",
+  "alternatives": [
+   "mailbox on a post",
+   "signpost"
+  ],
+  "readability": 3,
+  "features": [
+   "brown pointed roof",
+   "white house box with dark holes",
+   "brown wooden pole",
+   "grass tuft at base",
+   "framed card/panel background"
+  ],
+  "problems": [
+   "house front is white on white panel, blends in",
+   "entrance hole unclear, looks like scattered dark marks",
+   "small subject inside a large frame",
+   "roof shape only partly defined"
+  ],
+  "digest": "fcdee65e193b17fa",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.091,
+  "biggest_patch": 0.169,
+  "theme": "Orchard",
+  "name": "Bird House",
+  "pack": "birds",
+  "touched": false
+ }
+}

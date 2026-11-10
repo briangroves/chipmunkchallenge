@@ -1,0 +1,683 @@
+{
+ "house-643": {
+  "guess": "small house with grey roof",
+  "alternatives": [
+   "cottage with chimney",
+   "face with grey hair"
+  ],
+  "readability": 3,
+  "features": [
+   "grey sloped roof",
+   "light blue windows",
+   "tan walls",
+   "dark doorway with green bush",
+   "brown shaded side wall",
+   "sunset sky with sun",
+   "purple hills and grass"
+  ],
+  "problems": [
+   "windows and door layout look like a face, confusing",
+   "roof shape is irregular and blobby",
+   "house front is narrow and tall, unclear proportions",
+   "green and dark blue blob at bottom is hard to read"
+  ],
+  "digest": "5946cbc949246d11",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.072,
+  "biggest_patch": 0.164,
+  "theme": "Lavender fields",
+  "name": "House",
+  "pack": "buildings",
+  "touched": false
+ },
+ "barn-644": {
+  "guess": "red barn",
+  "alternatives": [
+   "farmhouse",
+   "red shed"
+  ],
+  "readability": 4,
+  "features": [
+   "rounded red barn roof with white trim",
+   "white loft window",
+   "white door cross-bracing",
+   "sky with sun and birds",
+   "cactus",
+   "hay/field ground"
+  ],
+  "problems": [
+   "door X-brace pattern is irregular and looks like a figure",
+   "red marks in the loft window look like a face, confusing",
+   "barn shape is blobby/dome-like rather than classic barn gable",
+   "cactus is unusual for a farm scene"
+  ],
+  "digest": "67f2ea4dfeeb536d",
+  "grade": "pass",
+  "score": 74,
+  "colors": 18,
+  "black": 0.046,
+  "biggest_patch": 0.273,
+  "theme": "Cactus canyon",
+  "name": "Barn",
+  "pack": "buildings",
+  "touched": false
+ },
+ "tent-645": {
+  "guess": "circus tent",
+  "alternatives": [
+   "carnival big top",
+   "striped festival marquee"
+  ],
+  "readability": 5,
+  "features": [
+   "red and white striped canopy",
+   "pointed peaked roof",
+   "flagpole with yellow flag",
+   "dark open entrance",
+   "scalloped tent edges"
+  ],
+  "problems": [
+   "entrance and outline are very dark and blend together",
+   "stripes are irregular and a bit blobby",
+   "gray brick wall behind could be confusing"
+  ],
+  "digest": "c0a23a79e1917429",
+  "grade": "pass",
+  "score": 80,
+  "colors": 10,
+  "black": 0.114,
+  "biggest_patch": 0.222,
+  "theme": "Seaside cliffs",
+  "name": "Tent",
+  "pack": "buildings",
+  "touched": false
+ },
+ "igloo-646": {
+  "guess": "igloo",
+  "alternatives": [
+   "snow mound",
+   "polar bear den"
+  ],
+  "readability": 3,
+  "features": [
+   "white dome shape",
+   "dark entrance hole at bottom right",
+   "snow ground",
+   "blue icy sky background",
+   "sunset sky with sun above frame"
+  ],
+  "problems": [
+   "dome blends into white snow and pale sky",
+   "no ice block lines on the dome",
+   "entrance small and offset, looks more like a hole in a snowdrift",
+   "framed picture style adds clutter"
+  ],
+  "digest": "30fb496aa75a91e0",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.124,
+  "biggest_patch": 0.258,
+  "theme": "Mountain sunset",
+  "name": "Igloo",
+  "pack": "buildings",
+  "touched": false
+ },
+ "temple-647": {
+  "guess": "Japanese shrine or temple with a curved roof",
+  "alternatives": [
+   "pagoda gate",
+   "Asian house in a garden"
+  ],
+  "readability": 2,
+  "features": [
+   "dark curved roof with upturned corners",
+   "tan symbol or emblem on the roof",
+   "red panels or windows",
+   "brown wooden beams",
+   "red posts",
+   "green bushes around",
+   "grey sky and ground strip"
+  ],
+  "problems": [
+   "dense jumble of dark pixels in the middle",
+   "roof and walls merge together",
+   "tan symbol looks like random scribbles",
+   "small details too noisy for 40x40",
+   "no clear outline separating the building from the bushes"
+  ],
+  "digest": "9b79523e199ea62d",
+  "grade": "weak",
+  "score": 62,
+  "colors": 11,
+  "black": 0.182,
+  "biggest_patch": 0.177,
+  "theme": "Misty pines",
+  "name": "Temple",
+  "pack": "buildings",
+  "touched": false
+ },
+ "tower-648": {
+  "guess": "Eiffel Tower at sunset",
+  "alternatives": [
+   "witch hat",
+   "red and black tower or rocket"
+  ],
+  "readability": 3,
+  "features": [
+   "tall tapering tower shape",
+   "wide splayed legs at the base",
+   "arch between the legs",
+   "small spire at the top",
+   "sunset sky with sun",
+   "grassy field with flowers"
+  ],
+  "problems": [
+   "odd red and black coloring with a pink patch at the base makes it look like a hat or creature",
+   "the lattice structure is missing, so it reads as a solid cone",
+   "the spire tip is detached and floats in the sky",
+   "the dark top blends into the dark purple and blue of the sky"
+  ],
+  "digest": "afa748d4f4994cc3",
+  "grade": "pass",
+  "score": 72,
+  "colors": 16,
+  "black": 0.051,
+  "biggest_patch": 0.124,
+  "theme": "Sunset meadow",
+  "name": "Tower",
+  "pack": "buildings",
+  "touched": false
+ },
+ "castle-649": {
+  "guess": "ruined stone castle tower",
+  "alternatives": [
+   "dark rock formation",
+   "haunted tower"
+  ],
+  "readability": 3,
+  "features": [
+   "tall dark tower body",
+   "crenellated broken top",
+   "grey stone patches",
+   "dark doorway/base",
+   "moat water at bottom",
+   "snow or white patch on top"
+  ],
+  "problems": [
+   "shape is irregular and blobby, battlements not clearly defined",
+   "grey and black patches look like random noise rather than bricks",
+   "no clear windows or door outline",
+   "white patch on top is confusing (cloud or snow?)"
+  ],
+  "digest": "619f1b15f50c4ae5",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.217,
+  "biggest_patch": 0.189,
+  "theme": "Riverbank",
+  "name": "Castle",
+  "pack": "buildings",
+  "touched": false
+ },
+ "lighthouse-650": {
+  "guess": "red and white striped lighthouse",
+  "alternatives": [
+   "striped tower",
+   "rocket"
+  ],
+  "readability": 5,
+  "features": [
+   "red and white horizontal stripes",
+   "red pointed lamp top",
+   "gray door at base",
+   "dark outline",
+   "sun in pink sky",
+   "purple striped sea/background",
+   "green grassy ground"
+  ],
+  "problems": [
+   "no visible lamp/light room windows",
+   "purple striped background is busy and could be confusing",
+   "blue shading on right blends into purple"
+  ],
+  "digest": "11d6cc656dd60666",
+  "grade": "pass",
+  "score": 80,
+  "colors": 15,
+  "black": 0.044,
+  "biggest_patch": 0.167,
+  "theme": "Lavender fields",
+  "name": "Lighthouse",
+  "pack": "buildings",
+  "touched": false
+ },
+ "cottage-651": {
+  "guess": "cottage with thatched roof",
+  "alternatives": [
+   "mushroom house",
+   "witch's hut"
+  ],
+  "readability": 3,
+  "features": [
+   "beige thatched/snowy roof",
+   "orange chimney top",
+   "dark walls",
+   "windows with red shutters",
+   "white wall section",
+   "wooden pole or ladder on side",
+   "grass and flowers around",
+   "sun and trees in background"
+  ],
+  "problems": [
+   "roof is a messy patchwork of beige, white and gray",
+   "dark walls form a blobby shape",
+   "right side has confusing gray structure and stick",
+   "no clear door",
+   "house outline is irregular and hard to read"
+  ],
+  "digest": "b7afff784d3bc083",
+  "grade": "pass",
+  "score": 68,
+  "colors": 20,
+  "black": 0.186,
+  "biggest_patch": 0.167,
+  "theme": "Orchard",
+  "name": "Cottage",
+  "pack": "buildings",
+  "touched": false
+ },
+ "stadium-652": {
+  "guess": "football stadium on a beach",
+  "alternatives": [
+   "sandcastle arena",
+   "volcano crater with grass"
+  ],
+  "readability": 2,
+  "features": [
+   "oval bowl shape",
+   "green field in the center",
+   "grey and brown seating tiers",
+   "white roof rim",
+   "dark outline",
+   "palm tree behind",
+   "sun and cloud in sky",
+   "sandy ground"
+  ],
+  "problems": [
+   "tilted perspective makes the oval hard to read",
+   "field is an irregular green blob without pitch markings",
+   "grey, white and brown tiers blend into a messy texture",
+   "could look like a rock, crater or dish",
+   "no clear clue that it is a stadium"
+  ],
+  "digest": "fda60abcc421dcd9",
+  "grade": "weak",
+  "score": 62,
+  "colors": 21,
+  "black": 0.11,
+  "biggest_patch": 0.164,
+  "theme": "Tropical beach",
+  "name": "Stadium",
+  "pack": "buildings",
+  "touched": false
+ },
+ "airport-653": {
+  "guess": "airport sign with control tower and airplane",
+  "alternatives": [
+   "airport terminal icon",
+   "airplane flying over a building"
+  ],
+  "readability": 3,
+  "features": [
+   "dark square sign background",
+   "white control tower with antenna",
+   "white airplane silhouette flying",
+   "terminal building with windows at bottom",
+   "mountains, clouds and grass scenery behind"
+  ],
+  "problems": [
+   "airplane shape is fragmented and partly shaded grey, hard to read",
+   "tower looks like a bottle or blocky shape",
+   "icon style is abstract for kids",
+   "grey shading breaks up the white shapes"
+  ],
+  "digest": "8598f3d0911bcfb1",
+  "grade": "pass",
+  "score": 68,
+  "colors": 11,
+  "black": 0.331,
+  "biggest_patch": 0.301,
+  "theme": "Waterfall",
+  "name": "Airport",
+  "pack": "buildings",
+  "touched": false
+ },
+ "castle-tower-654": {
+  "guess": "white stone tower in the desert",
+  "alternatives": [
+   "lighthouse",
+   "castle turret"
+  ],
+  "readability": 3,
+  "features": [
+   "white cylindrical tower",
+   "crenellated battlements",
+   "small windows",
+   "dark roof cap with spire",
+   "blue water/moat at base",
+   "small dark door",
+   "desert background with sun"
+  ],
+  "problems": [
+   "top section is cluttered and hard to read",
+   "bird-like shape above roof is ambiguous",
+   "tower shape slightly lumpy",
+   "purpose of tower unclear (lighthouse vs castle)"
+  ],
+  "digest": "47744b394551c7d6",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.101,
+  "biggest_patch": 0.201,
+  "theme": "Desert dunes",
+  "name": "Castle Tower",
+  "pack": "buildings",
+  "touched": false
+ },
+ "bank-655": {
+  "guess": "pink piggy bank",
+  "alternatives": [
+   "pink pig",
+   "pink blob creature"
+  ],
+  "readability": 3,
+  "features": [
+   "round pink body",
+   "coin slot on top (brown)",
+   "small red eye",
+   "snout/ear bump on right",
+   "darker pink shading underneath",
+   "small legs at bottom"
+  ],
+  "problems": [
+   "shape is blobby and hard to read",
+   "no clear face or snout",
+   "legs barely visible",
+   "busy gray rocky background with dark outline competes with subject"
+  ],
+  "digest": "e31f7cb02bdecc63",
+  "grade": "pass",
+  "score": 84,
+  "colors": 12,
+  "black": 0.151,
+  "biggest_patch": 0.302,
+  "theme": "Mountain pass",
+  "name": "Bank",
+  "pack": "buildings",
+  "touched": false
+ },
+ "eiffel-tower-656": {
+  "guess": "dark tower with a sword and white cloth",
+  "alternatives": [
+   "knight's shield or banner with a sword",
+   "black ghost or creature holding a staff"
+  ],
+  "readability": 2,
+  "features": [
+   "tall dark rectangular shape",
+   "grey diagonal sword or staff running top to bottom",
+   "white fluffy area in the middle like a cloth or wings",
+   "brown patches like eyes or brows",
+   "dark red stripe on right side"
+  ],
+  "problems": [
+   "no clear face or recognizable outline",
+   "dark blocky shape looks like a slab",
+   "grey line ambiguous (sword, crack, or staff)",
+   "white area shapeless and confusing",
+   "composition reads as abstract against the bright landscape"
+  ],
+  "digest": "c796f90965f5f4f5",
+  "grade": "weak",
+  "score": 70,
+  "colors": 16,
+  "black": 0.183,
+  "biggest_patch": 0.178,
+  "theme": "Autumn woods",
+  "name": "Eiffel Tower",
+  "pack": "buildings",
+  "touched": false
+ },
+ "golden-gate-bridge-657": {
+  "guess": "dark bridge over a river",
+  "alternatives": [
+   "crocodile in water",
+   "submarine"
+  ],
+  "readability": 2,
+  "features": [
+   "dark grey horizontal span across blue water",
+   "dark pillars/supports on left and right",
+   "small red dots like lights along the span",
+   "blue water above and below",
+   "sky with clouds, birds and a grey castle in the background",
+   "green grassy banks"
+  ],
+  "problems": [
+   "main shape is a dark irregular blob with no clear outline",
+   "dark grey blends with dark navy water",
+   "unclear whether it is a bridge, creature or vehicle",
+   "red dots are tiny and ambiguous",
+   "background castle draws attention away from the subject"
+  ],
+  "digest": "a7567c4a01af405f",
+  "grade": "weak",
+  "score": 62,
+  "colors": 13,
+  "black": 0.198,
+  "biggest_patch": 0.191,
+  "theme": "Castle hill",
+  "name": "Golden Gate Bridge",
+  "pack": "buildings",
+  "touched": false
+ },
+ "christ-the-redeemer-658": {
+  "guess": "Christ the Redeemer statue",
+  "alternatives": [
+   "cross on a hill",
+   "scarecrow"
+  ],
+  "readability": 3,
+  "features": [
+   "outstretched arms",
+   "head",
+   "long robe body",
+   "pedestal base",
+   "green hill",
+   "sun and clouds",
+   "flowers"
+  ],
+  "problems": [
+   "dark grey/black coloring makes statue look like a silhouette",
+   "no face details",
+   "head is tiny and blends into arms",
+   "shape could read as a cross or scarecrow",
+   "kids may not know the landmark"
+  ],
+  "digest": "e135baec9b7aab4d",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.068,
+  "biggest_patch": 0.349,
+  "theme": "Sunflower farm",
+  "name": "Christ the Redeemer",
+  "pack": "buildings",
+  "touched": false
+ },
+ "moai-659": {
+  "guess": "Easter Island moai statue",
+  "alternatives": [
+   "stone head in a picture frame",
+   "grey rock in a window"
+  ],
+  "readability": 3,
+  "features": [
+   "grey stone head in side profile",
+   "heavy brow and deep eye socket",
+   "long nose",
+   "mouth/chin area",
+   "framed window or portal with blue sky",
+   "night sky with crescent moon and stars",
+   "grassy field with small torches/flowers"
+  ],
+  "problems": [
+   "face details are blocky and hard to read at this size",
+   "grey statue partly blends with white/light blue patches behind it",
+   "the dark frame around it may confuse what the subject is",
+   "moai may be unfamiliar to young children"
+  ],
+  "digest": "9d5e19de1d3e981b",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.328,
+  "biggest_patch": 0.204,
+  "theme": "Starry hilltop",
+  "name": "Moai",
+  "pack": "buildings",
+  "touched": false
+ },
+ "mount-rushmore-660": {
+  "guess": "Mount Rushmore",
+  "alternatives": [
+   "rocky cliff with carved faces",
+   "mountain landscape"
+  ],
+  "readability": 2,
+  "features": [
+   "grey rock face with carved heads",
+   "dark shadows suggesting eyes and noses",
+   "blue sky with clouds",
+   "green grass and trees at edges",
+   "small stream and flowers at bottom"
+  ],
+  "problems": [
+   "faces are very abstract and blobby",
+   "shadows read as random patches",
+   "hard to tell how many heads or where they are",
+   "dark navy band at top is confusing"
+  ],
+  "digest": "ea4bb55ae2880a80",
+  "grade": "weak",
+  "score": 74,
+  "colors": 15,
+  "black": 0.214,
+  "biggest_patch": 0.172,
+  "theme": "Riverbank",
+  "name": "Mount Rushmore",
+  "pack": "buildings",
+  "touched": false
+ },
+ "fairytale-castle-661": {
+  "guess": "pink crystal castle",
+  "alternatives": [
+   "pink dragon",
+   "pink crystal formation"
+  ],
+  "readability": 2,
+  "features": [
+   "pink and magenta spiky shape with pointed spires",
+   "white highlights suggesting shine",
+   "purple patches",
+   "dark outline",
+   "mountain and grass background with stream"
+  ],
+  "problems": [
+   "no clear silhouette or recognizable parts",
+   "jagged blobby shape",
+   "no face or windows to identify it",
+   "busy background with sky patterns competing for attention"
+  ],
+  "digest": "72f1b1e376f8618b",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.302,
+  "biggest_patch": 0.087,
+  "theme": "Aurora lake",
+  "name": "Fairytale Castle",
+  "pack": "buildings",
+  "touched": false
+ },
+ "totem-pole-662": {
+  "guess": "carved wooden totem pole / tree trunk figure",
+  "alternatives": [
+   "scarecrow",
+   "dead tree with branches"
+  ],
+  "readability": 2,
+  "features": [
+   "tall brown trunk",
+   "two arm-like branches spreading sideways",
+   "lighter tan patches like carving or bark",
+   "dark green vine climbing the trunk",
+   "sunny meadow with flowers, mountains and sun around it"
+  ],
+  "problems": [
+   "no clear face or defining details",
+   "blobby, irregular brown shape",
+   "unclear whether it is a tree, statue or figure",
+   "top part blends with mountain snow",
+   "mottled tan and brown colors make the shape noisy"
+  ],
+  "digest": "f5d66d18c8ed6e24",
+  "grade": "weak",
+  "score": 62,
+  "colors": 20,
+  "black": 0.038,
+  "biggest_patch": 0.209,
+  "theme": "Alpine meadow",
+  "name": "Totem Pole",
+  "pack": "buildings",
+  "touched": false
+ },
+ "hot-air-balloons-663": {
+  "guess": "hot air balloon",
+  "alternatives": [
+   "balloon over snowy mountains",
+   "Christmas ornament"
+  ],
+  "readability": 4,
+  "features": [
+   "large pink and purple balloon envelope",
+   "yellow decorative band around the middle",
+   "dark outline",
+   "narrowing neck at the bottom",
+   "brown/red basket",
+   "night sky with stars and crescent moon",
+   "snowy mountains and falling snow"
+  ],
+  "problems": [
+   "basket is very small and dark, blends with the outline",
+   "yellow band and highlight make the envelope look busy",
+   "light purple patches blend slightly with the snowy background",
+   "small orange/black bird-like detail at right is unclear"
+  ],
+  "digest": "888c651ad093edf5",
+  "grade": "pass",
+  "score": 78,
+  "colors": 18,
+  "black": 0.205,
+  "biggest_patch": 0.154,
+  "theme": "Winter night",
+  "name": "Hot Air Balloons",
+  "pack": "buildings",
+  "touched": false
+ }
+}

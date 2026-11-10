@@ -1,0 +1,618 @@
+{
+ "heart-887": {
+  "guess": "red heart character walking in the desert",
+  "alternatives": [
+   "Valentine heart mascot",
+   "red apple with a face"
+  ],
+  "readability": 4,
+  "features": [
+   "heart shape",
+   "two big eyes with white highlights",
+   "small smile",
+   "pink shine on top left",
+   "dark outline",
+   "short leg at bottom",
+   "sun in sky",
+   "sandy desert ground"
+  ],
+  "problems": [
+   "dark shadow blobs around the heart make the outline messy",
+   "legs/feet barely visible",
+   "busy striped background competes with the subject",
+   "right side shading blends into dark shadow"
+  ],
+  "digest": "d6c9c46f5e6f1e82",
+  "grade": "pass",
+  "score": 86,
+  "colors": 15,
+  "black": 0.102,
+  "biggest_patch": 0.177,
+  "theme": "Desert dunes",
+  "name": "Heart",
+  "pack": "shapes",
+  "touched": false
+ },
+ "star-888": {
+  "guess": "yellow star",
+  "alternatives": [
+   "starfish",
+   "star-shaped cookie"
+  ],
+  "readability": 5,
+  "features": [
+   "five pointed arms",
+   "thick dark outline",
+   "yellow top fading to orange bottom",
+   "white shine highlight on upper arm",
+   "small blue feet-like marks at bottom"
+  ],
+  "problems": [
+   "star is slightly lopsided with uneven points",
+   "busy snowy background with trees and clouds",
+   "small orange beak-like detail on left in the snow is confusing"
+  ],
+  "digest": "795cd5294ad1d86a",
+  "grade": "pass",
+  "score": 84,
+  "colors": 15,
+  "black": 0.128,
+  "biggest_patch": 0.193,
+  "theme": "Snowy pines",
+  "name": "Star",
+  "pack": "shapes",
+  "touched": false
+ },
+ "crescent-moon-889": {
+  "guess": "sleeping crescent moon",
+  "alternatives": [
+   "banana",
+   "yellow croissant"
+  ],
+  "readability": 4,
+  "features": [
+   "crescent shape",
+   "closed eye",
+   "rosy cheek",
+   "pointed tips",
+   "starry night sky",
+   "small orange planet in corner",
+   "checkered ground"
+  ],
+  "problems": [
+   "face is small and hard to spot",
+   "yellow-orange crescent could read as a banana",
+   "busy checkered background below draws attention"
+  ],
+  "digest": "41511ad18d59bcf5",
+  "grade": "pass",
+  "score": 78,
+  "colors": 12,
+  "black": 0.459,
+  "biggest_patch": 0.341,
+  "theme": "Moon base",
+  "name": "Crescent Moon",
+  "pack": "shapes",
+  "touched": false
+ },
+ "lightning-bolt-890": {
+  "guess": "lightning bolt",
+  "alternatives": [
+   "lightning strike hitting a brick wall",
+   "energy power-up symbol"
+  ],
+  "readability": 5,
+  "features": [
+   "zigzag yellow-orange bolt shape",
+   "white highlights in the center",
+   "dark outline/shadow",
+   "night sky with stars",
+   "ringed purple and green planet",
+   "gray brick wall"
+  ],
+  "problems": [
+   "bolt's dark shadow blends into the dark sky at the top",
+   "busy brick background behind the lower part of the bolt"
+  ],
+  "digest": "abcb479842615a51",
+  "grade": "pass",
+  "score": 80,
+  "colors": 11,
+  "black": 0.561,
+  "biggest_patch": 0.496,
+  "theme": "Outer space",
+  "name": "Lightning Bolt",
+  "pack": "shapes",
+  "touched": false
+ },
+ "four-leaf-clover-891": {
+  "guess": "four-leaf clover",
+  "alternatives": [
+   "shamrock",
+   "green bush"
+  ],
+  "readability": 4,
+  "features": [
+   "four rounded heart-shaped leaves",
+   "light green highlights on leaf edges",
+   "darker green center where leaves meet",
+   "dark outline",
+   "snowy ground and night sky with crescent moon"
+  ],
+  "problems": [
+   "no visible stem",
+   "leaves merge into one blobby mass in the middle",
+   "could read as a bush or tree sitting on the snow",
+   "background details like the moon and snow add distraction"
+  ],
+  "digest": "e525e5197f8b32b7",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.253,
+  "biggest_patch": 0.178,
+  "theme": "Winter night",
+  "name": "Four Leaf Clover",
+  "pack": "shapes",
+  "touched": false
+ },
+ "smiling-sun-892": {
+  "guess": "smiling sun with a face",
+  "alternatives": [
+   "sunflower",
+   "fire ball"
+  ],
+  "readability": 4,
+  "features": [
+   "round yellow-orange body",
+   "spiky rays around edge",
+   "two dark eyes",
+   "orange smile/mouth shading",
+   "dark night sky with aurora-like green and blue bands",
+   "snowy ground and pine trees"
+  ],
+  "problems": [
+   "face features are faint, mouth blends with orange shading",
+   "sun in a night snowy scene is confusing",
+   "dark outline between rays looks blotchy"
+  ],
+  "digest": "8365aa3fa92deb0f",
+  "grade": "pass",
+  "score": 82,
+  "colors": 20,
+  "black": 0.31,
+  "biggest_patch": 0.096,
+  "theme": "Northern lights",
+  "name": "Smiling Sun",
+  "pack": "shapes",
+  "touched": false
+ },
+ "arrow-893": {
+  "guess": "heart with arrow through it",
+  "alternatives": [
+   "Valentine heart",
+   "love heart balloon"
+  ],
+  "readability": 4,
+  "features": [
+   "red heart shape with pink highlights",
+   "dark outline and shadow",
+   "arrowhead at top right",
+   "arrow fletching/tail at bottom left",
+   "sky, clouds, birds, sea, stone wall and grass background"
+  ],
+  "problems": [
+   "arrow shaft is hidden behind the heart, so the arrow pieces look like separate red blobs",
+   "arrow ends are the same red as the heart and blend into it",
+   "heart is slightly lopsided and tilted"
+  ],
+  "digest": "6f921c831e117ab0",
+  "grade": "pass",
+  "score": 82,
+  "colors": 12,
+  "black": 0.096,
+  "biggest_patch": 0.185,
+  "theme": "Seaside cliffs",
+  "name": "Arrow",
+  "pack": "shapes",
+  "touched": false
+ },
+ "peace-sign-894": {
+  "guess": "rainbow peace sign",
+  "alternatives": [
+   "hippie badge",
+   "rainbow wreath"
+  ],
+  "readability": 4,
+  "features": [
+   "circular rainbow ring (red, orange, yellow, green, blue, purple)",
+   "vertical center line",
+   "two diagonal lines forming the peace symbol",
+   "dark filled interior",
+   "background sky with cloud and sun",
+   "hills and grass with small flowers"
+  ],
+  "problems": [
+   "interior is filled dark so the peace lines are thin and less contrasting",
+   "diagonal arms are short and partly hidden by colored stripes",
+   "ring outline is slightly lumpy, not a clean circle",
+   "dark fill could look like a blob or tire at a glance"
+  ],
+  "digest": "d8172db5127ace5a",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.18,
+  "biggest_patch": 0.149,
+  "theme": "Spring meadow",
+  "name": "Peace Sign",
+  "pack": "shapes",
+  "touched": false
+ },
+ "question-mark-895": {
+  "guess": "yellow question mark",
+  "alternatives": [
+   "golden hook",
+   "number 2"
+  ],
+  "readability": 5,
+  "features": [
+   "curved hook top",
+   "vertical stem",
+   "round dot at bottom",
+   "dark outline",
+   "orange shading and highlights"
+  ],
+  "problems": [
+   "the dot sits very close to the stem, almost touching",
+   "the stem slants slightly so it could look like a 2 for a moment",
+   "busy grass and pond background, though the bold outline keeps it clear"
+  ],
+  "digest": "4db70e7b39268dcf",
+  "grade": "pass",
+  "score": 80,
+  "colors": 16,
+  "black": 0.055,
+  "biggest_patch": 0.171,
+  "theme": "Garden pond",
+  "name": "Question Mark",
+  "pack": "shapes",
+  "touched": false
+ },
+ "check-mark-896": {
+  "guess": "big red check mark over a sunset landscape",
+  "alternatives": [
+   "red mountain path",
+   "red road winding up a hill"
+  ],
+  "readability": 4,
+  "features": [
+   "large dark red check mark shape",
+   "sunset sky with orange sun",
+   "snowy gray mountains",
+   "green grassy field",
+   "small bird in sky"
+  ],
+  "problems": [
+   "check mark is dark red and blends somewhat with the dark sunset colors",
+   "busy landscape background competes with the main shape",
+   "could be read as a scenery picture rather than a symbol"
+  ],
+  "digest": "b1bd0958b2a7808c",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.057,
+  "biggest_patch": 0.172,
+  "theme": "Mountain sunset",
+  "name": "Check Mark",
+  "pack": "shapes",
+  "touched": false
+ },
+ "gold-crown-897": {
+  "guess": "golden crown",
+  "alternatives": [
+   "pagoda temple roof",
+   "ornate golden boat"
+  ],
+  "readability": 3,
+  "features": [
+   "dark outline with gold trim",
+   "pointed tips curling up at top and sides",
+   "wide golden base",
+   "sky with sun and clouds background"
+  ],
+  "problems": [
+   "dark fill dominates so it doesn't look clearly like a gold crown",
+   "shape is wide and flat, could read as a roof",
+   "few jewels or clear crown details",
+   "white clouds blend with edges"
+  ],
+  "digest": "9b32325a5df855ec",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.186,
+  "biggest_patch": 0.202,
+  "theme": "Ice field",
+  "name": "Gold Crown",
+  "pack": "shapes",
+  "touched": false
+ },
+ "trophy-898": {
+  "guess": "golden trophy cup",
+  "alternatives": [
+   "winged chalice",
+   "goblet award"
+  ],
+  "readability": 4,
+  "features": [
+   "orange-gold cup bowl",
+   "white wing-shaped handles",
+   "narrow golden stem",
+   "dark red base with gold plaque",
+   "dark outline"
+  ],
+  "problems": [
+   "handles look like white wings, slightly confusing",
+   "stem and base blend somewhat with dark green bushes",
+   "busy background with flowers and grass"
+  ],
+  "digest": "2743599fc651138b",
+  "grade": "pass",
+  "score": 78,
+  "colors": 19,
+  "black": 0.056,
+  "biggest_patch": 0.158,
+  "theme": "Sunflower farm",
+  "name": "Trophy",
+  "pack": "shapes",
+  "touched": false
+ },
+ "spade-899": {
+  "guess": "playing card (ace of spades)",
+  "alternatives": [
+   "spade card sign on grass",
+   "paper note with spade symbol"
+  ],
+  "readability": 4,
+  "features": [
+   "white rectangular card shape with dark outline",
+   "black spade symbol in upper left",
+   "gray shading on lower right side",
+   "card standing on grass and dirt"
+  ],
+  "problems": [
+   "only one small spade symbol, no letter 'A' or corner markings",
+   "card has odd feet/bottom notch making it look like a sign or tombstone",
+   "beige shading blends with the beige background strip at top"
+  ],
+  "digest": "085d0f0cc7e8a562",
+  "grade": "pass",
+  "score": 74,
+  "colors": 9,
+  "black": 0.103,
+  "biggest_patch": 0.195,
+  "theme": "Misty pines",
+  "name": "Spade",
+  "pack": "shapes",
+  "touched": false
+ },
+ "footprint-900": {
+  "guess": "footprints sign (shoe prints on a white tile)",
+  "alternatives": [
+   "dalmatian/cow spots",
+   "app icon for walking/step counter"
+  ],
+  "readability": 3,
+  "features": [
+   "white square tile with red border",
+   "two dark shoe/footprint shapes, each with a sole and smaller heel",
+   "light grey shading in lower right corner"
+  ],
+  "problems": [
+   "prints are abstract blobs that could read as spots",
+   "no toes or tread details to confirm footprints",
+   "subject is an icon rather than a recognizable object",
+   "background farm scene is unrelated and distracting"
+  ],
+  "digest": "c11fddc24c3ae1e5",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.193,
+  "biggest_patch": 0.224,
+  "theme": "Harvest farm",
+  "name": "Footprint",
+  "pack": "shapes",
+  "touched": false
+ },
+ "anchor-901": {
+  "guess": "anchor on a beach at sunset",
+  "alternatives": [
+   "ship's anchor symbol",
+   "cross with curved arms"
+  ],
+  "readability": 5,
+  "features": [
+   "ring at top with hole",
+   "vertical shank",
+   "horizontal crossbar (stock)",
+   "curved arms with pointed flukes",
+   "sunset sky with sun",
+   "sea waves",
+   "sandy beach",
+   "bird in sky"
+  ],
+  "problems": [
+   "dark blue anchor is similar in tone to the blue sea behind its crossbar",
+   "dark outline pixels around the arms look a bit messy"
+  ],
+  "digest": "91e5a5de83c40762",
+  "grade": "pass",
+  "score": 80,
+  "colors": 18,
+  "black": 0.023,
+  "biggest_patch": 0.184,
+  "theme": "Beach sunset",
+  "name": "Anchor",
+  "pack": "shapes",
+  "touched": false
+ },
+ "infinity-902": {
+  "guess": "infinity symbol in front of mountains under a night sky with aurora",
+  "alternatives": [
+   "pair of glasses",
+   "figure-eight racetrack"
+  ],
+  "readability": 3,
+  "features": [
+   "large white infinity/figure-eight loop with two dark holes",
+   "snowy grey mountains behind",
+   "dark night sky with stars",
+   "green and blue aurora bands",
+   "green grass at bottom",
+   "blue water on the right"
+  ],
+  "problems": [
+   "main shape is abstract, not an object a child names easily",
+   "white loop blends with snowy mountain colors",
+   "busy background with aurora competes for attention",
+   "could be read as glasses or the number 8"
+  ],
+  "digest": "dab2996f88792202",
+  "grade": "pass",
+  "score": 68,
+  "colors": 12,
+  "black": 0.416,
+  "biggest_patch": 0.116,
+  "theme": "Aurora lake",
+  "name": "Infinity",
+  "pack": "shapes",
+  "touched": false
+ },
+ "yin-yang-903": {
+  "guess": "yin-yang symbol",
+  "alternatives": [
+   "black and white ball",
+   "yin-yang stone in the desert"
+  ],
+  "readability": 4,
+  "features": [
+   "round shape split into black and white halves",
+   "curved S-shaped dividing line",
+   "black dot in white half",
+   "white dot in black half",
+   "dark red shadow at the base",
+   "sun, birds and sandy ground in background"
+  ],
+  "problems": [
+   "circle is slightly lopsided and tilted",
+   "dots are square rather than round",
+   "small green sprout on the edge is confusing",
+   "white half blends a little with the pale sky"
+  ],
+  "digest": "80520401843d3c2e",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.228,
+  "biggest_patch": 0.19,
+  "theme": "Cactus canyon",
+  "name": "Yin Yang",
+  "pack": "shapes",
+  "touched": false
+ },
+ "target-904": {
+  "guess": "shooting range target silhouette",
+  "alternatives": [
+   "shadow of a man in a doorway",
+   "portrait frame with silhouette"
+  ],
+  "readability": 3,
+  "features": [
+   "dark human silhouette with head and shoulders",
+   "white paper/frame border",
+   "red bullseye mark in center",
+   "lavender field and birds in background"
+  ],
+  "problems": [
+   "silhouette is blobby with no detail",
+   "head looks like a hat, unclear",
+   "subject meaning may be unfamiliar to kids",
+   "small red dot is the only clue it's a target"
+  ],
+  "digest": "b32b02458a13f6ba",
+  "grade": "pass",
+  "score": 72,
+  "colors": 9,
+  "black": 0.255,
+  "biggest_patch": 0.189,
+  "theme": "Overcast moor",
+  "name": "Target",
+  "pack": "shapes",
+  "touched": false
+ },
+ "flower-905": {
+  "guess": "sunflower monster with a face",
+  "alternatives": [
+   "Sunflora Pok\u00e9mon",
+   "lion with a flower mane"
+  ],
+  "readability": 3,
+  "features": [
+   "orange and yellow petal ring",
+   "red face with one white eye",
+   "wide open dark mouth",
+   "dark green leafy body",
+   "white highlights on leaves"
+  ],
+  "problems": [
+   "only one eye visible, face looks lopsided",
+   "body is a dark green blob with no clear limbs",
+   "dark green body blends with the grass",
+   "red face center could read as a fiery creature"
+  ],
+  "digest": "111b99ddbe3d5f76",
+  "grade": "pass",
+  "score": 80,
+  "colors": 20,
+  "black": 0.061,
+  "biggest_patch": 0.143,
+  "theme": "Riverbank",
+  "name": "Flower",
+  "pack": "shapes",
+  "touched": false
+ },
+ "cloud-906": {
+  "guess": "happy blue cloud in a night city",
+  "alternatives": [
+   "blue slime blob",
+   "smiling puddle monster"
+  ],
+  "readability": 4,
+  "features": [
+   "puffy cloud shape with bumps",
+   "closed happy eyes",
+   "open laughing red mouth",
+   "light and dark blue shading",
+   "night city skyline with lit windows",
+   "crescent moon and stars"
+  ],
+  "problems": [
+   "cloud is low on the ground, could read as a slime or puddle",
+   "busy city background competes for attention",
+   "right side of the cloud blends a bit with the dark shadow"
+  ],
+  "digest": "8263ec37d5356a8f",
+  "grade": "pass",
+  "score": 82,
+  "colors": 14,
+  "black": 0.27,
+  "biggest_patch": 0.156,
+  "theme": "City night",
+  "name": "Cloud",
+  "pack": "shapes",
+  "touched": false
+ }
+}

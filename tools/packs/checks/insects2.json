@@ -1,0 +1,409 @@
+{
+ "cute-ladybug-907": {
+  "guess": "ladybug",
+  "alternatives": [
+   "beetle",
+   "strawberry"
+  ],
+  "readability": 5,
+  "features": [
+   "red dome-shaped shell",
+   "black spots",
+   "black head",
+   "white eye spots",
+   "pink highlight on shell",
+   "thin black legs",
+   "antennae",
+   "grass and soil background"
+  ],
+  "problems": [
+   "head lacks clear facial detail",
+   "legs are thin and partly hidden in grass",
+   "dark red shading on lower shell slightly muddies the shape"
+  ],
+  "digest": "484b46cddac31f1f",
+  "grade": "pass",
+  "score": 88,
+  "colors": 10,
+  "black": 0.164,
+  "biggest_patch": 0.186,
+  "theme": "Misty pines",
+  "name": "Cute Ladybug",
+  "pack": "insects2",
+  "touched": false
+ },
+ "cute-bee-908": {
+  "guess": "smiling cartoon bee",
+  "alternatives": [
+   "sun with a face",
+   "yellow chick"
+  ],
+  "readability": 3,
+  "features": [
+   "round yellow-orange body",
+   "winking eyes",
+   "big smile",
+   "white wings",
+   "antennae",
+   "dark legs/feet"
+  ],
+  "problems": [
+   "no visible black stripes, so it reads as a round smiley ball",
+   "wings are small and partly blend with clouds/sky",
+   "dark red outline merges with pink striped background",
+   "body looks more like a sun or emoji face than a bee"
+  ],
+  "digest": "627380842fd0322e",
+  "grade": "pass",
+  "score": 84,
+  "colors": 19,
+  "black": 0.122,
+  "biggest_patch": 0.177,
+  "theme": "Tulip fields",
+  "name": "Cute Bee",
+  "pack": "insects2",
+  "touched": false
+ },
+ "cute-butterfly-909": {
+  "guess": "carrot butterfly (butterfly with carrot body)",
+  "alternatives": [
+   "pink butterfly",
+   "moth"
+  ],
+  "readability": 4,
+  "features": [
+   "large pink wings with dark red spots",
+   "orange carrot-shaped body",
+   "green leafy top like antennae",
+   "small face with dark eyes",
+   "black wing outlines",
+   "sun and birds in sky",
+   "sandy orange ground"
+  ],
+  "problems": [
+   "carrot body is unusual and may confuse what it is",
+   "face is small and hard to see",
+   "lower wings blend with dark ground outline and orange background at the bottom"
+  ],
+  "digest": "367f545d055b41d9",
+  "grade": "pass",
+  "score": 86,
+  "colors": 20,
+  "black": 0.093,
+  "biggest_patch": 0.123,
+  "theme": "Cactus canyon",
+  "name": "Cute Butterfly",
+  "pack": "insects2",
+  "touched": false
+ },
+ "cute-snail-910": {
+  "guess": "yellow snail",
+  "alternatives": [
+   "slug",
+   "sea snail"
+  ],
+  "readability": 4,
+  "features": [
+   "large round orange spiral shell",
+   "yellow body stretched along the ground",
+   "head with eye",
+   "eye stalks or antennae",
+   "flat foot/tail at the back"
+  ],
+  "problems": [
+   "shell spiral is faint because the orange shades are close together",
+   "eye and antennae are small and partly blend with the grey mountain behind",
+   "the yellow body and the yellow shell run together"
+  ],
+  "digest": "3374a67e4c3b9dfa",
+  "grade": "pass",
+  "score": 82,
+  "colors": 19,
+  "black": 0.075,
+  "biggest_patch": 0.216,
+  "theme": "Alpine meadow",
+  "name": "Cute Snail",
+  "pack": "insects2",
+  "touched": false
+ },
+ "cute-caterpillar-911": {
+  "guess": "green caterpillar",
+  "alternatives": [
+   "green tank",
+   "crocodile lying down"
+  ],
+  "readability": 2,
+  "features": [
+   "long green segmented body",
+   "dark outline",
+   "yellow spots on the head area",
+   "dark tread-like row of feet along the bottom",
+   "small bumps on top like antennae"
+  ],
+  "problems": [
+   "no clear face or eyes",
+   "yellow spots look like flowers rather than eyes",
+   "shape is a long blob that could also read as a tank",
+   "dark red and orange background blends with the bottom edge",
+   "head end is hard to tell from the tail end"
+  ],
+  "digest": "57a26656fcef3fd6",
+  "grade": "weak",
+  "score": 66,
+  "colors": 15,
+  "black": 0.089,
+  "biggest_patch": 0.217,
+  "theme": "Autumn woods",
+  "name": "Cute Caterpillar",
+  "pack": "insects2",
+  "touched": false
+ },
+ "cute-spider-912": {
+  "guess": "spider on a white rock",
+  "alternatives": [
+   "black widow spider",
+   "bug on a stone"
+  ],
+  "readability": 3,
+  "features": [
+   "eight thin black legs",
+   "dark body with red markings",
+   "white rock or block underneath",
+   "grass and flowers around"
+  ],
+  "problems": [
+   "spider body is small and broken up by red patches",
+   "legs are thin and some blend into each other",
+   "no clear head or eyes",
+   "the big white rock dominates the image"
+  ],
+  "digest": "2fb4279c37a69b92",
+  "grade": "pass",
+  "score": 72,
+  "colors": 12,
+  "black": 0.153,
+  "biggest_patch": 0.299,
+  "theme": "Rose garden",
+  "name": "Cute Spider",
+  "pack": "insects2",
+  "touched": false
+ },
+ "cute-worm-913": {
+  "guess": "pink worm in the desert",
+  "alternatives": [
+   "sandworm",
+   "pink snake"
+  ],
+  "readability": 4,
+  "features": [
+   "long segmented pink body",
+   "head with big white eye",
+   "open mouth",
+   "dark outline",
+   "desert sand and sun background"
+  ],
+  "problems": [
+   "eye and mouth area is a bit hard to read",
+   "body partly blends with orange/brown ground",
+   "could be mistaken for a snake"
+  ],
+  "digest": "e12daa4c90753022",
+  "grade": "pass",
+  "score": 82,
+  "colors": 15,
+  "black": 0.074,
+  "biggest_patch": 0.148,
+  "theme": "Desert dunes",
+  "name": "Cute Worm",
+  "pack": "insects2",
+  "touched": false
+ },
+ "cute-fly-914": {
+  "guess": "flying pig with wings",
+  "alternatives": [
+   "pink pig jumping",
+   "pink piglet angel"
+  ],
+  "readability": 4,
+  "features": [
+   "pink body",
+   "white feathered wings",
+   "snout with nostril",
+   "eye",
+   "ears",
+   "legs/hooves",
+   "dark pink shading on rear"
+  ],
+  "problems": [
+   "face is small and snout is hard to pick out",
+   "legs blend into dark green grass",
+   "body shape is a bit blobby",
+   "wings make it less obviously a pig at first glance"
+  ],
+  "digest": "6a215fdcf164e79e",
+  "grade": "pass",
+  "score": 94,
+  "colors": 17,
+  "black": 0.044,
+  "biggest_patch": 0.191,
+  "theme": "Red barn",
+  "name": "Cute Fly",
+  "pack": "insects2",
+  "touched": false
+ },
+ "monarch-butterfly-915": {
+  "guess": "monarch butterfly",
+  "alternatives": [
+   "moth",
+   "orange flower"
+  ],
+  "readability": 4,
+  "features": [
+   "four orange wings with black outlines",
+   "white spots along wing edges",
+   "black vein patterns",
+   "symmetrical wing shape",
+   "dark body in the middle"
+  ],
+  "problems": [
+   "no visible head or antennae",
+   "body is thin and blends into the dark green grass",
+   "wing outlines merge with the dark night sky at the top"
+  ],
+  "digest": "d0d4aa798093da5d",
+  "grade": "pass",
+  "score": 78,
+  "colors": 17,
+  "black": 0.326,
+  "biggest_patch": 0.179,
+  "theme": "Moonlit pond",
+  "name": "Monarch Butterfly",
+  "pack": "insects2",
+  "touched": false
+ },
+ "blue-butterfly-916": {
+  "guess": "blue butterfly",
+  "alternatives": [
+   "blue moth",
+   "morpho butterfly on snow"
+  ],
+  "readability": 4,
+  "features": [
+   "four blue wings with brown edges",
+   "symmetrical wing shape",
+   "dark central body",
+   "light blue wing patches",
+   "green plants and dark sky background"
+  ],
+  "problems": [
+   "no clear head or antennae",
+   "body blends with dark grey wing veins",
+   "green leaves behind the upper wings clutter the outline",
+   "lower wings fuzzy against the speckled white ground"
+  ],
+  "digest": "757361e530331bc5",
+  "grade": "pass",
+  "score": 78,
+  "colors": 14,
+  "black": 0.25,
+  "biggest_patch": 0.089,
+  "theme": "Northern lights",
+  "name": "Blue Butterfly",
+  "pack": "insects2",
+  "touched": false
+ },
+ "honey-bee-917": {
+  "guess": "bee",
+  "alternatives": [
+   "wasp",
+   "bumblebee in desert at night"
+  ],
+  "readability": 5,
+  "features": [
+   "yellow and black striped body",
+   "round yellow head",
+   "dark eyes and smile face",
+   "two large white wings",
+   "night sky with moon and stars",
+   "cacti in background"
+  ],
+  "problems": [
+   "face is somewhat abstract with angular eyes",
+   "no visible antennae, legs or stinger",
+   "head lacks separation from body somewhat"
+  ],
+  "digest": "718d088ed7ebd6c0",
+  "grade": "pass",
+  "score": 92,
+  "colors": 14,
+  "black": 0.295,
+  "biggest_patch": 0.268,
+  "theme": "Desert night",
+  "name": "Honey Bee",
+  "pack": "insects2",
+  "touched": false
+ },
+ "queen-bee-918": {
+  "guess": "bee",
+  "alternatives": [
+   "wasp",
+   "yellow bird"
+  ],
+  "readability": 2,
+  "features": [
+   "yellow and black stripes",
+   "white wing",
+   "antenna",
+   "black outline"
+  ],
+  "problems": [
+   "tall twisted shape doesn't read clearly as a bee",
+   "face and eyes are hard to find",
+   "body pose is confusing and blobby",
+   "no clear head, legs or stinger",
+   "busy striped background competes with the subject"
+  ],
+  "digest": "7c4be0f58f00f75d",
+  "grade": "weak",
+  "score": 66,
+  "colors": 17,
+  "black": 0.081,
+  "biggest_patch": 0.197,
+  "theme": "Tulip fields",
+  "name": "Queen Bee",
+  "pack": "insects2",
+  "touched": false
+ },
+ "worm-in-apple-919": {
+  "guess": "squirrel or chipmunk hugging a red apple",
+  "alternatives": [
+   "hamster holding an apple",
+   "mouse with a big red apple"
+  ],
+  "readability": 3,
+  "features": [
+   "big red apple with green leaf and stem",
+   "red highlight on apple",
+   "small head with dark ear and eye peeking at top right",
+   "tan arm wrapped around the apple",
+   "tan leg/foot at bottom left",
+   "snowy ground and grass background"
+  ],
+  "problems": [
+   "the animal is mostly hidden behind the apple",
+   "the head is tiny and hard to read as a face",
+   "tan limbs look like disconnected blobs",
+   "no clear tail or body shape to identify the species"
+  ],
+  "digest": "0e4fb0f690628c9c",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.059,
+  "biggest_patch": 0.165,
+  "theme": "Snowy pines",
+  "name": "Worm in Apple",
+  "pack": "insects2",
+  "touched": false
+ }
+}

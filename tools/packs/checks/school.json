@@ -1,0 +1,506 @@
+{
+ "backpack-587": {
+  "guess": "colorful backpack",
+  "alternatives": [
+   "sleeping bag",
+   "rolled-up jacket"
+  ],
+  "readability": 2,
+  "features": [
+   "rounded bag body with dark outline",
+   "blue top flap",
+   "orange front pocket",
+   "yellow side section",
+   "city street background with buildings"
+  ],
+  "problems": [
+   "patchwork of colors without clear parts like straps or zipper",
+   "shape is a blobby oval",
+   "no clear defining details",
+   "busy city background competes with subject"
+  ],
+  "digest": "5597ba55b704e765",
+  "grade": "weak",
+  "score": 62,
+  "colors": 15,
+  "black": 0.116,
+  "biggest_patch": 0.109,
+  "theme": "City day",
+  "name": "Backpack",
+  "pack": "school",
+  "touched": false
+ },
+ "pencil-588": {
+  "guess": "orange pencil character lifting weights",
+  "alternatives": [
+   "carrot doing exercise",
+   "crayon working out"
+  ],
+  "readability": 3,
+  "features": [
+   "pink eraser top",
+   "orange body",
+   "eyes with angry eyebrows",
+   "gray dumbbells on sides",
+   "dark arms",
+   "legs standing on purple mat",
+   "window and wall background"
+  ],
+  "problems": [
+   "face is small and cluttered at the side",
+   "dumbbells look like gray blobs",
+   "legs and arms blend with dark outline",
+   "pencil tip not visible so it could be a carrot or crayon"
+  ],
+  "digest": "88d6e5e958326089",
+  "grade": "pass",
+  "score": 76,
+  "colors": 18,
+  "black": 0.091,
+  "biggest_patch": 0.464,
+  "theme": "Nursery",
+  "name": "Pencil",
+  "pack": "school",
+  "touched": false
+ },
+ "scissors-589": {
+  "guess": "scissors",
+  "alternatives": [
+   "sewing shears on a table",
+   "garden shears"
+  ],
+  "readability": 4,
+  "features": [
+   "two red finger loops with white holes",
+   "red handles",
+   "gray and dark metal blades",
+   "pivot area",
+   "purple striped ribbon or measuring tape below",
+   "wooden table and pink striped wallpaper with window"
+  ],
+  "problems": [
+   "dark blades blend with the dark brown table",
+   "blades look jagged and messy rather than two clean blades",
+   "scissors fill the bottom edge, so the shape is a bit cramped"
+  ],
+  "digest": "4ed0dfd496498119",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.076,
+  "biggest_patch": 0.094,
+  "theme": "Living room",
+  "name": "Scissors",
+  "pack": "school",
+  "touched": false
+ },
+ "globe-590": {
+  "guess": "desk globe",
+  "alternatives": [
+   "planet Earth",
+   "snow globe"
+  ],
+  "readability": 5,
+  "features": [
+   "blue oceans",
+   "green continents",
+   "round sphere",
+   "dark curved stand frame",
+   "red base",
+   "city and road background"
+  ],
+  "problems": [
+   "dark frame slightly blends with building outlines",
+   "busy city background competes for attention"
+  ],
+  "digest": "8fd8399bd7bb3fa1",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.112,
+  "biggest_patch": 0.136,
+  "theme": "City day",
+  "name": "Globe",
+  "pack": "school",
+  "touched": false
+ },
+ "notebook-591": {
+  "guess": "open notebook / book",
+  "alternatives": [
+   "diary with bookmarks",
+   "open sketchbook"
+  ],
+  "readability": 4,
+  "features": [
+   "two white pages",
+   "central spine/binding",
+   "dark outline cover",
+   "colored bookmark tabs (red, blue, green, orange) at top",
+   "page shading",
+   "window/grid background and wooden table"
+  ],
+  "problems": [
+   "pages are blank with no text lines",
+   "tabs are small and could be unclear",
+   "light blue grid background is busy",
+   "could be read as a box or window"
+  ],
+  "digest": "efe34c4e119e71d9",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.118,
+  "biggest_patch": 0.199,
+  "theme": "Cozy kitchen",
+  "name": "Notebook",
+  "pack": "school",
+  "touched": false
+ },
+ "eraser-592": {
+  "guess": "pink and blue eraser",
+  "alternatives": [
+   "pencil eraser block",
+   "bar of soap"
+  ],
+  "readability": 3,
+  "features": [
+   "pink rubber end",
+   "blue paper sleeve",
+   "grey shadow",
+   "dark outline",
+   "eraser crumbs at bottom"
+  ],
+  "problems": [
+   "tilted angle makes shape hard to read",
+   "dark marks on pink part look confusing",
+   "brick wall background is busy",
+   "shadow blends with grey floor"
+  ],
+  "digest": "c8c898a02b7be479",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.091,
+  "biggest_patch": 0.196,
+  "theme": "Brick cellar",
+  "name": "Eraser",
+  "pack": "school",
+  "touched": false
+ },
+ "calculator-593": {
+  "guess": "retro computer / calculator at night in a city",
+  "alternatives": [
+   "cash register",
+   "old pager or radio"
+  ],
+  "readability": 2,
+  "features": [
+   "white boxy device body",
+   "blue screen display at top",
+   "rows of dark keys/buttons",
+   "blue buttons at lower right",
+   "night sky with crescent moon and stars",
+   "purple and blue buildings with lit windows on sides",
+   "street lamps/torches at bottom left"
+  ],
+  "problems": [
+   "device has no clear identifying shape; could be many appliances",
+   "key rows look like stripes rather than buttons",
+   "grey/white body blends with grey cobblestone ground",
+   "busy background competes with subject",
+   "dark base shape is unclear"
+  ],
+  "digest": "46b28b358738f1b9",
+  "grade": "weak",
+  "score": 62,
+  "colors": 14,
+  "black": 0.356,
+  "biggest_patch": 0.2,
+  "theme": "Lantern festival",
+  "name": "Calculator",
+  "pack": "school",
+  "touched": false
+ },
+ "chalkboard-594": {
+  "guess": "green chalkboard with a red bow",
+  "alternatives": [
+   "school blackboard with a cat peeking",
+   "classroom board with a red ribbon"
+  ],
+  "readability": 4,
+  "features": [
+   "green board surface",
+   "wooden tan frame",
+   "dark outer border",
+   "red bow with ribbon tails",
+   "black and white shape on the right edge",
+   "checkered floor and dotted orange wall"
+  ],
+  "problems": [
+   "the black and white shape on the right is unclear and could be a cat, a penguin or a cloth",
+   "the bow blends into the dark shape behind it",
+   "no chalk writing on the board, so it reads as a plain green rectangle"
+  ],
+  "digest": "2bcaa2b6e94e0f75",
+  "grade": "pass",
+  "score": 82,
+  "colors": 12,
+  "black": 0.129,
+  "biggest_patch": 0.292,
+  "theme": "Bakery",
+  "name": "Chalkboard",
+  "pack": "school",
+  "touched": false
+ },
+ "paint-palette-595": {
+  "guess": "artist's paint palette",
+  "alternatives": [
+   "cookie with candies",
+   "pizza on a table"
+  ],
+  "readability": 4,
+  "features": [
+   "kidney-shaped beige palette with dark outline",
+   "thumb hole (dark circle)",
+   "paint blobs in yellow, blue, purple, red",
+   "wooden wall background",
+   "window in the corner",
+   "striped purple and yellow cloth or rug at bottom"
+  ],
+  "problems": [
+   "thumb hole looks like a black paint blob",
+   "dark brown shading on the lower right blends into the brown wooden background",
+   "dark shape at top right is unclear",
+   "no brush to confirm it is for painting"
+  ],
+  "digest": "e784bf1155b0b55a",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.096,
+  "biggest_patch": 0.217,
+  "theme": "Cabin",
+  "name": "Paint Palette",
+  "pack": "school",
+  "touched": false
+ },
+ "microscope-596": {
+  "guess": "microscope",
+  "alternatives": [
+   "desk lamp",
+   "telescope"
+  ],
+  "readability": 3,
+  "features": [
+   "eyepiece tube angled up",
+   "gray arm",
+   "focus knobs",
+   "stage",
+   "base",
+   "window background",
+   "table with purple patterned cloth",
+   "green and white object at bottom left"
+  ],
+  "problems": [
+   "dark outlined shapes are jumbled and hard to separate",
+   "green/white blob at bottom left is unclear (maybe a plant pot or cup)",
+   "window frame overlaps the eyepiece",
+   "base blends with table and rug"
+  ],
+  "digest": "1ea3030a21e6d264",
+  "grade": "pass",
+  "score": 72,
+  "colors": 17,
+  "black": 0.102,
+  "biggest_patch": 0.49,
+  "theme": "Nursery",
+  "name": "Microscope",
+  "pack": "school",
+  "touched": false
+ },
+ "desk-597": {
+  "guess": "old computer monitor on a desk",
+  "alternatives": [
+   "television set",
+   "robot or vacuum machine"
+  ],
+  "readability": 2,
+  "features": [
+   "blue screen with wave/sky image",
+   "grey boxy casing",
+   "dark outline",
+   "desk/table surface",
+   "purple patterned rug or cloth",
+   "window and striped pink wallpaper background"
+  ],
+  "problems": [
+   "main object is a jumbled grey/black mass with unclear shape",
+   "right side of the object doesn't read as any clear part",
+   "blue pointed shapes at bottom right are confusing",
+   "no clear keyboard or stand",
+   "brown table and floor blend with object's base"
+  ],
+  "digest": "99db70ab4c24a961",
+  "grade": "weak",
+  "score": 66,
+  "colors": 18,
+  "black": 0.131,
+  "biggest_patch": 0.073,
+  "theme": "Living room",
+  "name": "Desk",
+  "pack": "school",
+  "touched": false
+ },
+ "graduation-cap-598": {
+  "guess": "graduation cap on a table",
+  "alternatives": [
+   "black hat with tassel",
+   "sleeping cat"
+  ],
+  "readability": 3,
+  "features": [
+   "flat grey board top",
+   "black cap body",
+   "tan tassel hanging down",
+   "wooden table",
+   "striped pink wallpaper with window"
+  ],
+  "problems": [
+   "cap seen at odd angle so top board looks like a thin wedge",
+   "black cap shape is blobby",
+   "tassel blends with dark shading",
+   "background stripes busy"
+  ],
+  "digest": "0e899ccc605f929e",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.162,
+  "biggest_patch": 0.142,
+  "theme": "Living room",
+  "name": "Graduation Cap",
+  "pack": "school",
+  "touched": false
+ },
+ "magnifying-glass-599": {
+  "guess": "magnifying glass",
+  "alternatives": [
+   "frying pan",
+   "tennis racket"
+  ],
+  "readability": 5,
+  "features": [
+   "round orange rim with dark outline",
+   "white glass lens with shine",
+   "orange handle angled to lower right",
+   "city street background with buildings and road"
+  ],
+  "problems": [
+   "lens is plain white so it reads a bit like a pan or mirror",
+   "busy city background competes slightly with the subject"
+  ],
+  "digest": "ca91512b48e6a93c",
+  "grade": "pass",
+  "score": 80,
+  "colors": 18,
+  "black": 0.087,
+  "biggest_patch": 0.126,
+  "theme": "City day",
+  "name": "Magnifying Glass",
+  "pack": "school",
+  "touched": false
+ },
+ "abacus-600": {
+  "guess": "abacus",
+  "alternatives": [
+   "bookshelf with books",
+   "wooden spice rack"
+  ],
+  "readability": 2,
+  "features": [
+   "dark rectangular frame",
+   "grey horizontal rods",
+   "brown and tan stacked beads in columns",
+   "top row of beads",
+   "vertical wires"
+  ],
+  "problems": [
+   "beads look like stacked discs or books rather than round beads",
+   "dark frame dominates",
+   "uneven layout, top row separated by a gap",
+   "background grid and floor pattern distract"
+  ],
+  "digest": "2dea35ef54e995c2",
+  "grade": "weak",
+  "score": 62,
+  "colors": 8,
+  "black": 0.292,
+  "biggest_patch": 0.197,
+  "theme": "Cozy kitchen",
+  "name": "Abacus",
+  "pack": "school",
+  "touched": false
+ },
+ "highlighter-601": {
+  "guess": "yellow highlighter marker",
+  "alternatives": [
+   "toucan bird",
+   "yellow crayon"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow tube body with shine",
+   "dark outline",
+   "black cap/tip at bottom",
+   "orange section near tip",
+   "blue and yellow object (pencil/tape) behind it on shelf"
+  ],
+  "problems": [
+   "orientation upside down makes the black tip look like a cap",
+   "shape resembles a toucan beak, confusing",
+   "background stuff (shelf, blue/yellow item) distracts",
+   "no clear chisel tip detail"
+  ],
+  "digest": "faa486274ad3af36",
+  "grade": "pass",
+  "score": 72,
+  "colors": 11,
+  "black": 0.073,
+  "biggest_patch": 0.472,
+  "theme": "Bakery",
+  "name": "Highlighter",
+  "pack": "school",
+  "touched": false
+ },
+ "science-beaker-602": {
+  "guess": "science beaker / flask with green liquid",
+  "alternatives": [
+   "test tube with potion",
+   "glass of water"
+  ],
+  "readability": 2,
+  "features": [
+   "dark outlined container shape",
+   "light blue glass with shine",
+   "measurement marks on side",
+   "green liquid at bottom",
+   "wide flat base"
+  ],
+  "problems": [
+   "blue part looks like a letter H or tube rather than a flask",
+   "green liquid at bottom while blue above is confusing",
+   "shape is blocky and odd, not a clear beaker silhouette",
+   "city background competes for attention"
+  ],
+  "digest": "f0c98d4a678fcadc",
+  "grade": "weak",
+  "score": 62,
+  "colors": 18,
+  "black": 0.133,
+  "biggest_patch": 0.128,
+  "theme": "City dawn",
+  "name": "Science Beaker",
+  "pack": "school",
+  "touched": false
+ }
+}

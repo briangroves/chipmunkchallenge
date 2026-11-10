@@ -1,0 +1,783 @@
+{
+ "easter-egg-512": {
+  "guess": "Easter chicks in a basket with eggs",
+  "alternatives": [
+   "yellow chicks with Easter eggs",
+   "Easter basket on grass"
+  ],
+  "readability": 3,
+  "features": [
+   "three yellow chick heads with dark eyes",
+   "orange beaks",
+   "brown woven basket",
+   "colored eggs (red, green, pink)",
+   "sun and cloud in sky",
+   "grass with flowers"
+  ],
+  "problems": [
+   "chicks overlap and blend into each other",
+   "faces are squinty and hard to read",
+   "eggs merge into blobs",
+   "dark red basket bottom is shapeless",
+   "busy scene with many small elements"
+  ],
+  "digest": "d9e21e2c7cc3b14b",
+  "grade": "pass",
+  "score": 76,
+  "colors": 21,
+  "black": 0.076,
+  "biggest_patch": 0.103,
+  "theme": "Sunflower farm",
+  "name": "Easter Egg",
+  "pack": "spring",
+  "touched": false
+ },
+ "easter-bunny-513": {
+  "guess": "chocolate Easter bunny",
+  "alternatives": [
+   "brown rabbit in a box",
+   "chocolate kangaroo"
+  ],
+  "readability": 3,
+  "features": [
+   "long upright ears",
+   "head with dark eye",
+   "red ribbon with green bow at neck",
+   "rounded body and haunches",
+   "front paw",
+   "white box/packaging frame",
+   "garden background with flowers"
+  ],
+  "problems": [
+   "red outline blends with brown making edges messy",
+   "face lacks clear nose/mouth",
+   "ears and head shape are blocky and lumpy",
+   "small details like eye easy to miss"
+  ],
+  "digest": "31d39a41e373ef23",
+  "grade": "pass",
+  "score": 80,
+  "colors": 19,
+  "black": 0.067,
+  "biggest_patch": 0.151,
+  "theme": "Red barn",
+  "name": "Easter Bunny",
+  "pack": "spring",
+  "touched": false
+ },
+ "chick-514": {
+  "guess": "yellow chick in a red egg",
+  "alternatives": [
+   "duckling hatching",
+   "yellow bird on a red cushion"
+  ],
+  "readability": 4,
+  "features": [
+   "round yellow body",
+   "two dark eyes",
+   "orange beak",
+   "small wing",
+   "orange feet",
+   "red oval egg/shell behind",
+   "grass and mushrooms background"
+  ],
+  "problems": [
+   "red oval shape is ambiguous (egg, nest, cloak?)",
+   "eyes are large dark blocks that look a bit like a mask",
+   "feet and wing blend with yellow body",
+   "beige patch at lower left unclear"
+  ],
+  "digest": "da4deba27a0b039c",
+  "grade": "pass",
+  "score": 90,
+  "colors": 13,
+  "black": 0.034,
+  "biggest_patch": 0.182,
+  "theme": "Misty pines",
+  "name": "Chick",
+  "pack": "spring",
+  "touched": false
+ },
+ "tulip-515": {
+  "guess": "yellow tulip at sunset",
+  "alternatives": [
+   "yellow rose",
+   "buttercup flower"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow cup-shaped flower head with petals",
+   "dark outline",
+   "green curved stem",
+   "two green leaves",
+   "grassy meadow with small flowers",
+   "sunset sky with sun"
+  ],
+  "problems": [
+   "yellow/orange flower blends with the orange sunset bands behind it",
+   "petal shape is simple so the flower type is unclear",
+   "leaves are somewhat blobby"
+  ],
+  "digest": "f844a87417c21553",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.047,
+  "biggest_patch": 0.256,
+  "theme": "Sunset meadow",
+  "name": "Tulip",
+  "pack": "spring",
+  "touched": false
+ },
+ "rainbow-516": {
+  "guess": "rainbow heart",
+  "alternatives": [
+   "heart-shaped balloon",
+   "heart-shaped garden bed"
+  ],
+  "readability": 5,
+  "features": [
+   "classic heart outline with two rounded lobes and a point",
+   "concentric rainbow bands: red, orange, yellow, green, blue, purple",
+   "pink highlight on upper left lobe",
+   "grass, trees, and water in the background"
+  ],
+  "problems": [
+   "green band blends slightly with the green grass",
+   "bottom tip merges into the ground and water",
+   "small dark dots inside the purple center look like noise"
+  ],
+  "digest": "a2b0745b8e71326c",
+  "grade": "pass",
+  "score": 84,
+  "colors": 20,
+  "black": 0.174,
+  "biggest_patch": 0.134,
+  "theme": "Rainy day",
+  "name": "Rainbow",
+  "pack": "spring",
+  "touched": false
+ },
+ "rain-boots-517": {
+  "guess": "pair of purple rain boots",
+  "alternatives": [
+   "purple socks",
+   "wellington boots with stars"
+  ],
+  "readability": 4,
+  "features": [
+   "two boot shapes with shafts and toes",
+   "purple color with yellow star/spot pattern",
+   "dark outlines",
+   "lighter purple cuff at top",
+   "grass, mountains, sky and sun background"
+  ],
+  "problems": [
+   "pattern is busy and blocky",
+   "toes are small and stubby so boot shape needs a moment",
+   "sun overlaps top of right boot"
+  ],
+  "digest": "ffeae95bb3e4adda",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.076,
+  "biggest_patch": 0.131,
+  "theme": "Alpine meadow",
+  "name": "Rain Boots",
+  "pack": "spring",
+  "touched": false
+ },
+ "lamb-518": {
+  "guess": "sleeping sheep",
+  "alternatives": [
+   "cloud with a face",
+   "fluffy lamb"
+  ],
+  "readability": 3,
+  "features": [
+   "fluffy white woolly body",
+   "closed sleepy eye",
+   "grey face/snout on right",
+   "small horn or ear on top",
+   "short beige legs",
+   "blue shading underneath",
+   "night sky with crescent moon",
+   "green grass"
+  ],
+  "problems": [
+   "head is small and blends into the body",
+   "face details are muddy grey blocks",
+   "large white blob could read as a cloud",
+   "eye placed in the middle of the wool, confusing where the head is",
+   "legs are tiny and partly hidden"
+  ],
+  "digest": "8c94ea75a08eddc6",
+  "grade": "pass",
+  "score": 88,
+  "colors": 20,
+  "black": 0.139,
+  "biggest_patch": 0.243,
+  "theme": "Castle at dusk",
+  "name": "Lamb",
+  "pack": "spring",
+  "touched": false
+ },
+ "bird-nest-519": {
+  "guess": "yellow duck in a nest",
+  "alternatives": [
+   "chick on a log",
+   "duckling floating on a boat"
+  ],
+  "readability": 3,
+  "features": [
+   "duck head",
+   "closed eye",
+   "orange beak",
+   "yellow-orange body",
+   "raised wing or tail feathers",
+   "brown nest/log base",
+   "green reeds background",
+   "snowy ground"
+  ],
+  "problems": [
+   "only one eye stroke, face is simple",
+   "orange beak blends with orange body and wing",
+   "wing/tail shape on right is blobby and unclear",
+   "busy background with reeds and patterned sky",
+   "base is ambiguous: nest, log, or boat"
+  ],
+  "digest": "7ba6087d7433f69e",
+  "grade": "pass",
+  "score": 84,
+  "colors": 20,
+  "black": 0.323,
+  "biggest_patch": 0.087,
+  "theme": "Northern lights",
+  "name": "Bird Nest",
+  "pack": "spring",
+  "touched": false
+ },
+ "watering-can-520": {
+  "guess": "green watering can",
+  "alternatives": [
+   "green teapot",
+   "green dinosaur"
+  ],
+  "readability": 3,
+  "features": [
+   "round body",
+   "long spout on the left",
+   "handle loop on top",
+   "rose/sprinkler head at spout end",
+   "dark base",
+   "highlight on body"
+  ],
+  "problems": [
+   "spout end looks like an animal head with an eye",
+   "top handle pieces look like ears or horns",
+   "dark green blends together with little outline",
+   "shape could read as a creature"
+  ],
+  "digest": "dbd6d1916c8307dc",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.133,
+  "biggest_patch": 0.258,
+  "theme": "Desert dunes",
+  "name": "Watering Can",
+  "pack": "spring",
+  "touched": false
+ },
+ "cherry-blossom-521": {
+  "guess": "cherry blossom branch at night",
+  "alternatives": [
+   "apple blossom tree",
+   "white flowers on a bush"
+  ],
+  "readability": 4,
+  "features": [
+   "white five-petal flowers with pink centers",
+   "brown branch",
+   "green leaves",
+   "crescent moon",
+   "stars in night sky",
+   "small blue stream"
+  ],
+  "problems": [
+   "flowers overlap into a white cluster",
+   "leaves blend with green grass background",
+   "branch partly hidden"
+  ],
+  "digest": "d508a307f29a6d43",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.272,
+  "biggest_patch": 0.176,
+  "theme": "Moonlit pond",
+  "name": "Cherry Blossom",
+  "pack": "spring",
+  "touched": false
+ },
+ "garden-gnome-522": {
+  "guess": "garden gnome",
+  "alternatives": [
+   "Santa Claus",
+   "old farmer with a beard"
+  ],
+  "readability": 4,
+  "features": [
+   "tall pointed red hat",
+   "face with eyes",
+   "white beard",
+   "blue shirt",
+   "hands",
+   "dark trousers and legs",
+   "red barn in background",
+   "pink striped field"
+  ],
+  "problems": [
+   "dark red hat tip and trouser outlines blend into the pink/red stripes",
+   "legs are hard to separate from the dark red background outline",
+   "the hat's crooked shape makes it look a bit like a flame"
+  ],
+  "digest": "6693599f6ee9c9ba",
+  "grade": "pass",
+  "score": 90,
+  "colors": 16,
+  "black": 0.047,
+  "biggest_patch": 0.196,
+  "theme": "Tulip fields",
+  "name": "Garden Gnome",
+  "pack": "spring",
+  "touched": false
+ },
+ "rain-cloud-523": {
+  "guess": "rain cloud watering grass",
+  "alternatives": [
+   "fluffy white sheep",
+   "cauliflower"
+  ],
+  "readability": 4,
+  "features": [
+   "white puffy cloud with dark outline",
+   "gray shading on bottom",
+   "pink cheek-like spots",
+   "blue raindrops falling",
+   "dark wet grass patch under cloud",
+   "sunset sky with sun",
+   "grass field with flowers"
+  ],
+  "problems": [
+   "pink spots look like cheeks but there are no eyes, so it is unclear if it has a face",
+   "cloud sits low on the grass, so it could read as a sheep or bush",
+   "raindrops on dark green are small and a bit hard to see"
+  ],
+  "digest": "383675a37550382c",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.081,
+  "biggest_patch": 0.161,
+  "theme": "Dawn fields",
+  "name": "Rain Cloud",
+  "pack": "spring",
+  "touched": false
+ },
+ "frog-524": {
+  "guess": "smiling green frog",
+  "alternatives": [
+   "toad",
+   "green slime blob"
+  ],
+  "readability": 4,
+  "features": [
+   "round green body",
+   "two eyes on top (one winking/plus-shaped)",
+   "nostrils",
+   "wide smiling mouth",
+   "spots on body",
+   "front feet/toes at bottom",
+   "white outline sticker style"
+  ],
+  "problems": [
+   "eyes are small and don't bulge much",
+   "body is blobby with no clear legs except toes",
+   "toes blend with dark green grass",
+   "green body close to green background hills"
+  ],
+  "digest": "183e4ad6c1476987",
+  "grade": "pass",
+  "score": 86,
+  "colors": 13,
+  "black": 0.127,
+  "biggest_patch": 0.214,
+  "theme": "Red barn",
+  "name": "Frog",
+  "pack": "spring",
+  "touched": false
+ },
+ "bunny-525": {
+  "guess": "white bunny (lop-eared rabbit)",
+  "alternatives": [
+   "white puppy",
+   "ghost-like cartoon creature"
+  ],
+  "readability": 3,
+  "features": [
+   "round white head",
+   "sleepy/half-closed eyes with thick brows",
+   "small nose",
+   "pink cheeks",
+   "floppy ears with pink insides",
+   "paws",
+   "feet",
+   "grassy meadow with flowers, sun, cloud and mountains"
+  ],
+  "problems": [
+   "ears hang down beside the face and read like arms, so it is unclear if it is a rabbit",
+   "body is a blobby shape with no clear tail",
+   "odd grumpy eyebrow expression makes the face look ghost-like",
+   "grey shading on the right blends into the form and confuses the silhouette"
+  ],
+  "digest": "027a5cb27a68d721",
+  "grade": "pass",
+  "score": 88,
+  "colors": 19,
+  "black": 0.091,
+  "biggest_patch": 0.171,
+  "theme": "Spring meadow",
+  "name": "Bunny",
+  "pack": "spring",
+  "touched": false
+ },
+ "seedling-526": {
+  "guess": "sprouting seedling in soil",
+  "alternatives": [
+   "small tree growing from dirt mound",
+   "plant sprout in a garden bed"
+  ],
+  "readability": 3,
+  "features": [
+   "two rounded green leaves",
+   "green stem",
+   "dark soil mound with red-brown layers",
+   "outlined leaves"
+  ],
+  "problems": [
+   "leaves blend with the green grass background",
+   "dark soil mound looks blobby and could read as a rock or log",
+   "small subject relative to scene",
+   "stem is thin and partly lost against leaves"
+  ],
+  "digest": "50562071aaf67c67",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.116,
+  "biggest_patch": 0.241,
+  "theme": "Garden pond",
+  "name": "Seedling",
+  "pack": "spring",
+  "touched": false
+ },
+ "flower-pot-527": {
+  "guess": "flower pot with purple and red flowers",
+  "alternatives": [
+   "potted plant on a windowsill",
+   "fountain with flowers"
+  ],
+  "readability": 3,
+  "features": [
+   "green leaves",
+   "purple flowers",
+   "red flowers",
+   "grey pot or vase",
+   "light blue water or highlight",
+   "night sky with moon and stars",
+   "wooden table or fence"
+  ],
+  "problems": [
+   "flowers blend together into a blob",
+   "pot shape is irregular and dark",
+   "green leaves merge with pot outline",
+   "light blue patch is unclear"
+  ],
+  "digest": "c180f7b2444d82db",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.269,
+  "biggest_patch": 0.178,
+  "theme": "Desert night",
+  "name": "Flower Pot",
+  "pack": "spring",
+  "touched": false
+ },
+ "baby-duck-528": {
+  "guess": "yellow rubber duck",
+  "alternatives": [
+   "baby chick",
+   "yellow duckling"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow round head",
+   "orange beak",
+   "dark eye",
+   "body sitting on base",
+   "bathroom tiles and water background"
+  ],
+  "problems": [
+   "face is confusing with large dark patches that look like hollow eyes or holes",
+   "beak not clearly shaped",
+   "body shape is lumpy and looks like a chess pawn",
+   "orange shading merges into the base"
+  ],
+  "digest": "20c095dbdcbc9279",
+  "grade": "pass",
+  "score": 76,
+  "colors": 12,
+  "black": 0.284,
+  "biggest_patch": 0.19,
+  "theme": "Stormy coast",
+  "name": "Baby Duck",
+  "pack": "spring",
+  "touched": false
+ },
+ "clover-529": {
+  "guess": "four-leaf clover",
+  "alternatives": [
+   "shamrock",
+   "green bush"
+  ],
+  "readability": 4,
+  "features": [
+   "four rounded heart-shaped leaves",
+   "dark green center where leaves meet",
+   "light green highlights on leaf edges",
+   "dark outline",
+   "sun and clouds in sky background"
+  ],
+  "problems": [
+   "no visible stem",
+   "leaves are blobby and not clearly heart-shaped",
+   "lower part sits in white snowy/cloud area, slightly ambiguous setting",
+   "could read as a bush or tree top"
+  ],
+  "digest": "9c2860780904e7f2",
+  "grade": "pass",
+  "score": 78,
+  "colors": 14,
+  "black": 0.077,
+  "biggest_patch": 0.163,
+  "theme": "Ice field",
+  "name": "Clover",
+  "pack": "spring",
+  "touched": false
+ },
+ "calf-530": {
+  "guess": "cow and calf on a beach at sunset",
+  "alternatives": [
+   "dairy cows resting on sand",
+   "black and white goats by the sea"
+  ],
+  "readability": 4,
+  "features": [
+   "black and white patched body",
+   "pink muzzle/nose",
+   "ears and small horns",
+   "legs with dark hooves",
+   "smaller calf lying down",
+   "sunset sky with sun",
+   "sea waves",
+   "sandy beach",
+   "bird in sky"
+  ],
+  "problems": [
+   "big cow's face is small and partly merged with body, eyes hard to see",
+   "calf is a compact blob with unclear head",
+   "white patches blend with white wave foam",
+   "legs are stubby and dark, blending with shadows"
+  ],
+  "digest": "18e6e56d661f9d1a",
+  "grade": "pass",
+  "score": 94,
+  "colors": 19,
+  "black": 0.089,
+  "biggest_patch": 0.251,
+  "theme": "Beach sunset",
+  "name": "Calf",
+  "pack": "spring",
+  "touched": false
+ },
+ "piglet-531": {
+  "guess": "red and pink cartoon pig or piglet",
+  "alternatives": [
+   "pink teddy bear",
+   "red cat"
+  ],
+  "readability": 2,
+  "features": [
+   "round red-pink body",
+   "two dark eyes",
+   "ear shapes at top",
+   "small legs at bottom",
+   "landscape background with mountains, grass, night sky and water"
+  ],
+  "problems": [
+   "body is a blobby mass with unclear outline",
+   "red and pink patches are scattered, so the face is hard to find",
+   "no clear snout, mouth or tail",
+   "eyes are small and asymmetrical",
+   "busy background of mountains, sky and water competes with the subject"
+  ],
+  "digest": "40373c8a063c41aa",
+  "grade": "weak",
+  "score": 74,
+  "colors": 18,
+  "black": 0.198,
+  "biggest_patch": 0.098,
+  "theme": "Aurora lake",
+  "name": "Piglet",
+  "pack": "spring",
+  "touched": false
+ },
+ "foal-532": {
+  "guess": "horse and foal in a meadow",
+  "alternatives": [
+   "two ponies lying in grass",
+   "donkey and dog"
+  ],
+  "readability": 2,
+  "features": [
+   "grey horse head with white blaze",
+   "brown mane",
+   "dark eyes",
+   "tan foal body lying down",
+   "foal ear and eye",
+   "grass with flowers",
+   "blue sky"
+  ],
+  "problems": [
+   "shapes are blobby and overlapping",
+   "foal's head and body are hard to separate",
+   "grey and brown patches make the horse's form confusing",
+   "legs are not clearly drawn",
+   "muzzle and nose barely defined"
+  ],
+  "digest": "e7cdd0e79a6a5314",
+  "grade": "weak",
+  "score": 70,
+  "colors": 18,
+  "black": 0.017,
+  "biggest_patch": 0.226,
+  "theme": "Rose garden",
+  "name": "Foal",
+  "pack": "spring",
+  "touched": false
+ },
+ "horse-running-533": {
+  "guess": "purple pony running in a meadow",
+  "alternatives": [
+   "unicorn",
+   "horse"
+  ],
+  "readability": 3,
+  "features": [
+   "horse head facing left",
+   "dark mane",
+   "white eye/face highlight",
+   "long body",
+   "legs with dark hooves",
+   "dark flowing tail on right",
+   "sun, sunset sky, grass and flowers"
+  ],
+  "problems": [
+   "head is small and blobby with no clear eye or muzzle",
+   "legs blend together with dark outlines",
+   "dark mane and tail merge with the body outline",
+   "lavender body is close to the purple sky band"
+  ],
+  "digest": "e6bf478fb323e1bf",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.094,
+  "biggest_patch": 0.152,
+  "theme": "Dawn fields",
+  "name": "Horse Running",
+  "pack": "spring",
+  "touched": false
+ },
+ "egg-basket-534": {
+  "guess": "cow with a picnic basket",
+  "alternatives": [
+   "dog with a basket of food",
+   "goat eating from a basket"
+  ],
+  "readability": 3,
+  "features": [
+   "white head with black patches",
+   "black ears/horns area",
+   "pink muzzle",
+   "dark eye",
+   "brown woven basket with red rim",
+   "red, green and tan food items",
+   "sun, sky, grass and flowers background",
+   "blue watering can or water on left"
+  ],
+  "problems": [
+   "cow body is mostly hidden behind the basket",
+   "face is small and the eye is hard to pick out",
+   "basket contents are blobby and unclear",
+   "white cow blends with light sky",
+   "no legs or tail visible"
+  ],
+  "digest": "2666b6063991046f",
+  "grade": "pass",
+  "score": 84,
+  "colors": 22,
+  "black": 0.084,
+  "biggest_patch": 0.156,
+  "theme": "Garden pond",
+  "name": "Egg Basket",
+  "pack": "spring",
+  "touched": false
+ },
+ "red-tractor-535": {
+  "guess": "red tractor",
+  "alternatives": [
+   "farm truck",
+   "snowplow"
+  ],
+  "readability": 4,
+  "features": [
+   "dark red body",
+   "black cab with white windows",
+   "exhaust pipe",
+   "large black wheels with yellow hubs",
+   "red front bumper/weight",
+   "sun and clouds in sky",
+   "snowy ground"
+  ],
+  "problems": [
+   "black wheels merge with each other and the body into one dark mass",
+   "cab outline blends into dark wheel area",
+   "front of tractor hard to distinguish",
+   "white snow background blends with white windows and sky clouds"
+  ],
+  "digest": "f31ecdbc544fea6e",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.216,
+  "biggest_patch": 0.192,
+  "theme": "Ice field",
+  "name": "Red Tractor",
+  "pack": "spring",
+  "touched": false
+ }
+}

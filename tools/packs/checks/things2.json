@@ -1,0 +1,342 @@
+{
+ "marker-1055": {
+  "guess": "yellow highlighter marker",
+  "alternatives": [
+   "yellow crayon",
+   "glue stick"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow barrel body",
+   "dark angled cap/tip at lower left",
+   "yellow chisel tip",
+   "blue highlighted stripe being drawn on desk",
+   "black outline"
+  ],
+  "problems": [
+   "tip area is dark and cluttered, hard to read",
+   "shape is chunky and could be a crayon or bottle",
+   "background window and dots distract a little"
+  ],
+  "digest": "7cd57624c41a3fe0",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.082,
+  "biggest_patch": 0.409,
+  "theme": "Nursery",
+  "name": "Marker",
+  "pack": "things2",
+  "touched": false
+ },
+ "chalk-1056": {
+  "guess": "school chalkboard",
+  "alternatives": [
+   "green chalkboard on a classroom wall",
+   "picture frame / TV screen"
+  ],
+  "readability": 4,
+  "features": [
+   "dark green board surface",
+   "diagonal light green highlight/smudge suggesting shine or erased chalk",
+   "orange/wooden frame with dark outline",
+   "brown chalk ledge at bottom with small eraser/chalk bits",
+   "orange dotted wallpaper background",
+   "checkered floor"
+  ],
+  "problems": [
+   "no writing or chalk drawings on the board to make it obvious",
+   "light green diagonal area could read as a reflection, making it look like a screen or window",
+   "chalk ledge details are tiny and hard to make out"
+  ],
+  "digest": "130c1f41ccdf617f",
+  "grade": "pass",
+  "score": 78,
+  "colors": 12,
+  "black": 0.084,
+  "biggest_patch": 0.284,
+  "theme": "Bakery",
+  "name": "Chalk",
+  "pack": "things2",
+  "touched": false
+ },
+ "ink-bottle-1057": {
+  "guess": "red potion bottle",
+  "alternatives": [
+   "nail polish bottle",
+   "red ink jar"
+  ],
+  "readability": 4,
+  "features": [
+   "round glass bottle body",
+   "narrow neck",
+   "grey cork/stopper",
+   "red liquid with pink highlight",
+   "white glass outline",
+   "shelf with small bottles behind on brick wall"
+  ],
+  "problems": [
+   "red liquid similar to red brick background",
+   "grey cork could read as a nail polish brush cap",
+   "checkered floor and shelf add clutter"
+  ],
+  "digest": "47d033fd00888d4d",
+  "grade": "pass",
+  "score": 74,
+  "colors": 9,
+  "black": 0.098,
+  "biggest_patch": 0.203,
+  "theme": "Brick cellar",
+  "name": "Ink Bottle",
+  "pack": "things2",
+  "touched": false
+ },
+ "scroll-1058": {
+  "guess": "rolled diploma scroll with red ribbon",
+  "alternatives": [
+   "rolled paper map",
+   "rolled-up poster"
+  ],
+  "readability": 4,
+  "features": [
+   "white rolled paper cylinder",
+   "red ribbon bow tied around middle",
+   "shaded edges showing roll ends",
+   "night city skyline background with lit windows",
+   "crescent moon and stars",
+   "stone brick wall"
+  ],
+  "problems": [
+   "scroll's white and light gray blend with the pale gray brick wall",
+   "busy background of buildings and bricks competes with the subject",
+   "roll ends are not clearly drawn as spirals, so it could read as a tube or pipe"
+  ],
+  "digest": "c1b9da66c187d7bc",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.304,
+  "biggest_patch": 0.155,
+  "theme": "Lantern festival",
+  "name": "Scroll",
+  "pack": "things2",
+  "touched": false
+ },
+ "open-book-1059": {
+  "guess": "open blue book",
+  "alternatives": [
+   "blue jacket or coat",
+   "blue curtains"
+  ],
+  "readability": 3,
+  "features": [
+   "two blue page halves meeting at a dark spine down the middle",
+   "curved top edges with grey/white page outlines",
+   "pink and white striped wall with a window behind",
+   "brown wooden table or floor",
+   "blue and yellow patterned rug or tablecloth edge"
+  ],
+  "problems": [
+   "book is shown from an unusual angle, with no visible text or page lines",
+   "the dark centre line and curved shape could read as a jacket zipper or curtains",
+   "the busy striped background competes with the subject",
+   "the bottom edge of the book is hard to separate from the brown floor and the patterned strip"
+  ],
+  "digest": "4035763e90e3f2e2",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.084,
+  "biggest_patch": 0.193,
+  "theme": "Living room",
+  "name": "Open Book",
+  "pack": "things2",
+  "touched": false
+ },
+ "wall-clock-1060": {
+  "guess": "wall clock",
+  "alternatives": [
+   "compass",
+   "porthole window"
+  ],
+  "readability": 4,
+  "features": [
+   "round dark rim with white ring",
+   "blue clock face",
+   "red minute hand pointing up",
+   "yellow hour hand",
+   "hour tick marks at 12, 3, 6, 9"
+  ],
+  "problems": [
+   "hands are very short and thin",
+   "few hour markers",
+   "blue shading on face could look like water or a window"
+  ],
+  "digest": "4225298ed67483e4",
+  "grade": "pass",
+  "score": 78,
+  "colors": 11,
+  "black": 0.087,
+  "biggest_patch": 0.155,
+  "theme": "Brick cellar",
+  "name": "Wall Clock",
+  "pack": "things2",
+  "touched": false
+ },
+ "pocket-watch-1061": {
+  "guess": "orange pocket watch",
+  "alternatives": [
+   "stopwatch",
+   "round clock with a ring on top"
+  ],
+  "readability": 3,
+  "features": [
+   "round body with dark outline",
+   "ring/bow loop on top",
+   "white rim with tick-like marks",
+   "orange clock face with dark markings",
+   "night city background with moon and stars"
+  ],
+  "problems": [
+   "clock face is noisy and has no clear hands or numbers",
+   "orange face shading looks patchy and blotchy",
+   "white and dark rim pattern is busy and makes the outline harder to read",
+   "top loop is small and could look like a bow or handle"
+  ],
+  "digest": "6eb3ff908cab5175",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.353,
+  "biggest_patch": 0.166,
+  "theme": "Lantern festival",
+  "name": "Pocket Watch",
+  "pack": "things2",
+  "touched": false
+ },
+ "horseshoe-magnet-1062": {
+  "guess": "red horseshoe magnet",
+  "alternatives": [
+   "red arch / letter n",
+   "red lucky horseshoe"
+  ],
+  "readability": 3,
+  "features": [
+   "arched U-shaped red body",
+   "two legs standing on ground",
+   "pink highlight on left side",
+   "darker red shading on right leg",
+   "dark outline"
+  ],
+  "problems": [
+   "no silver/white tips on the magnet ends, so it doesn't read clearly as a magnet",
+   "white window frame shape behind is confusing",
+   "shape is lumpy and uneven, could be an arch or letter",
+   "right side shading has random dark specks"
+  ],
+  "digest": "e65c3f84fc85cc09",
+  "grade": "pass",
+  "score": 72,
+  "colors": 13,
+  "black": 0.05,
+  "biggest_patch": 0.347,
+  "theme": "Nursery",
+  "name": "Horseshoe Magnet",
+  "pack": "things2",
+  "touched": false
+ },
+ "bulb-1063": {
+  "guess": "cartoon sun character waving on a city street",
+  "alternatives": [
+   "yellow chick bird waving",
+   "lightbulb mascot character"
+  ],
+  "readability": 3,
+  "features": [
+   "round yellow-orange body with spiky dark outline like sun rays",
+   "one big eye with white",
+   "small red mouth",
+   "white gloved hand waving on left",
+   "white feet/shoes at bottom",
+   "city background with buildings, road, clouds, crosswalk"
+  ],
+  "problems": [
+   "only one eye visible, face looks odd",
+   "spiky outline is dark and blends with body, making shape blobby",
+   "black arms/body area unclear",
+   "hard to tell if it's a sun, bird or mascot"
+  ],
+  "digest": "e3fd61fb65911fc4",
+  "grade": "weak",
+  "score": 50,
+  "colors": 14,
+  "black": 0.094,
+  "biggest_patch": 0.171,
+  "theme": "City day",
+  "name": "Bulb",
+  "pack": "things2",
+  "touched": false
+ },
+ "lighter-1064": {
+  "guess": "lighter",
+  "alternatives": [
+   "bottle of juice",
+   "candle"
+  ],
+  "readability": 3,
+  "features": [
+   "tall rounded body in orange and yellow",
+   "dark outline",
+   "silver/grey cap at top",
+   "orange flame or nozzle at top right",
+   "highlight showing shine"
+  ],
+  "problems": [
+   "cap and flame are tiny and hard to read",
+   "could be mistaken for a bottle or tube",
+   "background stripes and window are busy",
+   "rope/candy stripe at bottom is confusing"
+  ],
+  "digest": "ff59ffbf1f7beace",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.054,
+  "biggest_patch": 0.1,
+  "theme": "Living room",
+  "name": "Lighter",
+  "pack": "things2",
+  "touched": false
+ },
+ "drumsticks-1065": {
+  "guess": "fried chicken drumsticks in a bucket",
+  "alternatives": [
+   "potatoes in a blue bowl",
+   "bread rolls in a basket"
+  ],
+  "readability": 3,
+  "features": [
+   "two tan drumstick shapes with brown speckles",
+   "bone-like ends at bottom",
+   "blue bucket/container with white pattern",
+   "checkered tablecloth",
+   "orange polka-dot wall"
+  ],
+  "problems": [
+   "drumsticks look like potatoes due to round shape and speckles",
+   "bone ends are hidden and small",
+   "blue container pattern is busy and unclear",
+   "white bucket pattern resembles stray shapes"
+  ],
+  "digest": "7e2eb09e49d97675",
+  "grade": "pass",
+  "score": 68,
+  "colors": 8,
+  "black": 0.139,
+  "biggest_patch": 0.351,
+  "theme": "Bakery",
+  "name": "Drumsticks",
+  "pack": "things2",
+  "touched": false
+ }
+}

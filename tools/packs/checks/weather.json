@@ -1,0 +1,620 @@
+{
+ "cloud-664": {
+  "guess": "storm cloud with lightning",
+  "alternatives": [
+   "rain cloud over a river",
+   "thunderstorm over mountains"
+  ],
+  "readability": 4,
+  "features": [
+   "dark grey cloud with black outline",
+   "white highlights on cloud",
+   "two yellow-orange lightning bolts",
+   "blue stream/rain below",
+   "green meadow and distant snowy mountains",
+   "blue sky with white clouds"
+  ],
+  "problems": [
+   "lightning bolts are small and stubby, look a bit like yellow shapes",
+   "dark blue patches under cloud are ambiguous (rain or shadow)",
+   "grey cloud blends somewhat with grey mountains behind it"
+  ],
+  "digest": "46b15d37de7a621e",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.124,
+  "biggest_patch": 0.168,
+  "theme": "Waterfall",
+  "name": "Cloud",
+  "pack": "weather",
+  "touched": false
+ },
+ "lightning-665": {
+  "guess": "storm cloud with lightning bolt",
+  "alternatives": [
+   "thundercloud over a meadow",
+   "weather symbol for thunderstorm"
+  ],
+  "readability": 4,
+  "features": [
+   "large white puffy cloud with grey shading underneath",
+   "yellow and orange lightning bolt below the cloud",
+   "night sky with crescent moon and stars",
+   "grass field, trees and a blue pond"
+  ],
+  "problems": [
+   "lightning bolt is thick and blocky, looks a bit like a yellow column",
+   "cloud is very bright white for a night storm, so it reads less like a storm cloud",
+   "bolt touches the grass and blends a little with the surrounding green"
+  ],
+  "digest": "56cd38813593ac75",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.21,
+  "biggest_patch": 0.153,
+  "theme": "Moonlit pond",
+  "name": "Lightning",
+  "pack": "weather",
+  "touched": false
+ },
+ "tornado-666": {
+  "guess": "tornado",
+  "alternatives": [
+   "whirlwind",
+   "dust devil"
+  ],
+  "readability": 4,
+  "features": [
+   "wide funnel top narrowing to a thin twisting tail",
+   "white and grey swirling bands",
+   "dark outline",
+   "small debris specks and flying bits",
+   "purple and blue streaks suggesting wind swirl",
+   "grass field and sunset sky setting"
+  ],
+  "problems": [
+   "light blue and purple streaks could be mistaken for eyes, making it look like a ghost",
+   "grey funnel against pale sky has limited contrast at the top",
+   "dark tail blends slightly with dark green trees"
+  ],
+  "digest": "890ab6a8ea6081c5",
+  "grade": "pass",
+  "score": 82,
+  "colors": 13,
+  "black": 0.065,
+  "biggest_patch": 0.177,
+  "theme": "Bamboo grove",
+  "name": "Tornado",
+  "pack": "weather",
+  "touched": false
+ },
+ "rainbow-667": {
+  "guess": "rainbow heart",
+  "alternatives": [
+   "heart-shaped balloon",
+   "heart candy"
+  ],
+  "readability": 5,
+  "features": [
+   "heart shape with two lobes and pointed bottom",
+   "concentric rainbow bands (red, orange, yellow, green, blue, purple)",
+   "dark outline",
+   "rainbow arc in sky above",
+   "snowy ground and green hills behind"
+  ],
+  "problems": [
+   "background rainbow arcs and hills add clutter",
+   "pink/red outer edge slightly blends with orange layers"
+  ],
+  "digest": "a8436b66e6b75463",
+  "grade": "pass",
+  "score": 84,
+  "colors": 21,
+  "black": 0.217,
+  "biggest_patch": 0.091,
+  "theme": "Northern lights",
+  "name": "Rainbow",
+  "pack": "weather",
+  "touched": false
+ },
+ "snowflake-668": {
+  "guess": "snowflake",
+  "alternatives": [
+   "decorative mandala",
+   "ice crystal ornament"
+  ],
+  "readability": 3,
+  "features": [
+   "radial symmetric shape",
+   "central hub",
+   "curly branching arms",
+   "lavender ice color with dark outlines",
+   "outdoor landscape with mountains, sun and grass behind"
+  ],
+  "problems": [
+   "dense dark outlines make the arms look like a maze pattern",
+   "rounded blob silhouette instead of six clear points",
+   "purple shading looks odd for snow",
+   "busy curls hide the six-armed structure"
+  ],
+  "digest": "9a6ee723fe9fa4ac",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.222,
+  "biggest_patch": 0.095,
+  "theme": "Mountain sunset",
+  "name": "Snowflake",
+  "pack": "weather",
+  "touched": false
+ },
+ "umbrella-669": {
+  "guess": "garden gnome with blue umbrella",
+  "alternatives": [
+   "gnome holding a watering can in rain",
+   "mushroom character with umbrella"
+  ],
+  "readability": 2,
+  "features": [
+   "white beard",
+   "red outline body",
+   "large blue umbrella or hat shape",
+   "red pointed hat tip",
+   "blue water drops around",
+   "garden soil rows",
+   "sun in sky"
+  ],
+  "problems": [
+   "no clear face or eyes",
+   "body is a red-outlined blob",
+   "umbrella shape is irregular and merges with gnome",
+   "dark outline pieces scattered and confusing",
+   "water drops look like random shapes"
+  ],
+  "digest": "caeede7b316e2c0b",
+  "grade": "weak",
+  "score": 66,
+  "colors": 20,
+  "black": 0.079,
+  "biggest_patch": 0.121,
+  "theme": "Harvest farm",
+  "name": "Umbrella",
+  "pack": "weather",
+  "touched": false
+ },
+ "volcano-670": {
+  "guess": "erupting volcano",
+  "alternatives": [
+   "mountain with fire",
+   "brown hill with lava"
+  ],
+  "readability": 5,
+  "features": [
+   "brown cone-shaped mountain",
+   "red lava flowing down from the top",
+   "yellow and orange explosion/fire at the crater",
+   "shading on the right side",
+   "trees, flowers, clouds and a stream around it"
+  ],
+  "problems": [
+   "the yellow eruption looks a bit like a flat star or bird shape rather than smoke or fire",
+   "lava drips are short and blocky",
+   "the busy green background with trees and flowers slightly competes for attention"
+  ],
+  "digest": "930ef1d68d6cf62d",
+  "grade": "pass",
+  "score": 84,
+  "colors": 21,
+  "black": 0.041,
+  "biggest_patch": 0.181,
+  "theme": "Riverbank",
+  "name": "Volcano",
+  "pack": "weather",
+  "touched": false
+ },
+ "oak-tree-671": {
+  "guess": "big green tree in a landscape",
+  "alternatives": [
+   "oak tree by a river",
+   "forest bush with mountains"
+  ],
+  "readability": 4,
+  "features": [
+   "large dark green leafy canopy",
+   "brown trunk with branching limbs",
+   "grassy ground",
+   "blue stream or pond at left",
+   "gray rocks/mountain at right",
+   "night sky with stars and green aurora-like band"
+  ],
+  "problems": [
+   "canopy is a dark blob with dark gaps that blend into the night sky",
+   "trunk is thin and partly hidden",
+   "busy background (aurora, water, rocks) competes with the tree"
+  ],
+  "digest": "2ba47cf6bba682a0",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.297,
+  "biggest_patch": 0.219,
+  "theme": "Aurora lake",
+  "name": "Oak Tree",
+  "pack": "weather",
+  "touched": false
+ },
+ "cactus-672": {
+  "guess": "cactus at night",
+  "alternatives": [
+   "green monster with arms raised",
+   "tree in a field"
+  ],
+  "readability": 2,
+  "features": [
+   "central tall green trunk",
+   "two side arms",
+   "outline with red/brown spots",
+   "night sky with moon and stars",
+   "grassy ground with small flames"
+  ],
+  "problems": [
+   "shape is blobby and irregular",
+   "green blends into green grass background",
+   "messy grey/brown/tan streaks inside make it look like rock or a creature",
+   "no clear spines or distinctive cactus details"
+  ],
+  "digest": "ae84d864f6caec92",
+  "grade": "weak",
+  "score": 62,
+  "colors": 15,
+  "black": 0.315,
+  "biggest_patch": 0.191,
+  "theme": "Starry hilltop",
+  "name": "Cactus",
+  "pack": "weather",
+  "touched": false
+ },
+ "flower-673": {
+  "guess": "eyeball flower",
+  "alternatives": [
+   "pink flower",
+   "monster plant"
+  ],
+  "readability": 4,
+  "features": [
+   "round pink petals",
+   "orange ring",
+   "white eye with dark blue pupil",
+   "blue stem",
+   "small leaf on stem",
+   "grass and trees background",
+   "water at bottom"
+  ],
+  "problems": [
+   "center looks like an eye, which may confuse kids expecting a normal flower",
+   "stem is dark blue rather than green",
+   "pupil is small and dark"
+  ],
+  "digest": "a1f0b8615abcf56f",
+  "grade": "pass",
+  "score": 78,
+  "colors": 15,
+  "black": 0.165,
+  "biggest_patch": 0.172,
+  "theme": "Rainy day",
+  "name": "Flower",
+  "pack": "weather",
+  "touched": false
+ },
+ "rock-674": {
+  "guess": "boulder / rock at sunset",
+  "alternatives": [
+   "curled-up guinea pig",
+   "hamster sleeping"
+  ],
+  "readability": 2,
+  "features": [
+   "rounded lumpy shape",
+   "white, grey, tan and brown patches",
+   "dark outline",
+   "sitting on grass",
+   "sunset sky with sun behind"
+  ],
+  "problems": [
+   "no clear face, eyes or limbs",
+   "patchy colors look like random blotches",
+   "shape is an ambiguous blob",
+   "subject could be a rock or a furry animal"
+  ],
+  "digest": "3103562749e0b118",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.11,
+  "biggest_patch": 0.152,
+  "theme": "Lavender fields",
+  "name": "Rock",
+  "pack": "weather",
+  "touched": false
+ },
+ "crystal-675": {
+  "guess": "blue crystal cluster",
+  "alternatives": [
+   "blue gemstone on a rock",
+   "ice formation"
+  ],
+  "readability": 4,
+  "features": [
+   "tall central pointed crystal",
+   "smaller side crystals",
+   "white highlight shine",
+   "dark grey rock base",
+   "facet shading in light and dark blue"
+  ],
+  "problems": [
+   "crystal points are somewhat blobby and rounded",
+   "dark outline blends with the rock base",
+   "could be mistaken for a blue creature or blob"
+  ],
+  "digest": "d31700aa28e71e62",
+  "grade": "pass",
+  "score": 78,
+  "colors": 17,
+  "black": 0.083,
+  "biggest_patch": 0.199,
+  "theme": "Orchard",
+  "name": "Crystal",
+  "pack": "weather",
+  "touched": false
+ },
+ "campfire-676": {
+  "guess": "campfire",
+  "alternatives": [
+   "bonfire with logs",
+   "burning log pile"
+  ],
+  "readability": 5,
+  "features": [
+   "yellow and orange flames",
+   "red embers at the base",
+   "two brown logs with light cut ends",
+   "dark smoke wisp at the top",
+   "forest trees and sky background",
+   "small red-and-white mushrooms in the grass"
+  ],
+  "problems": [
+   "dark outline around the flames looks like charcoal and is a bit noisy",
+   "the logs' brown blends slightly with the dirt ground",
+   "the small mushrooms at the bottom are hard to make out"
+  ],
+  "digest": "339a834fdf984196",
+  "grade": "pass",
+  "score": 80,
+  "colors": 18,
+  "black": 0.092,
+  "biggest_patch": 0.235,
+  "theme": "Pine forest",
+  "name": "Campfire",
+  "pack": "weather",
+  "touched": false
+ },
+ "sun-677": {
+  "guess": "smiling sun",
+  "alternatives": [
+   "sunflower",
+   "star with a face"
+  ],
+  "readability": 5,
+  "features": [
+   "round orange face",
+   "spiky yellow rays",
+   "two eyes",
+   "big smiling mouth",
+   "dark outline",
+   "night sky with stars and crescent moon in background",
+   "snowy ground"
+  ],
+  "problems": [
+   "one eye is partly lost in shading",
+   "red-orange shading on the right makes the face look a bit uneven",
+   "busy background with mountains and sky slightly distracts"
+  ],
+  "digest": "9c1549e4ff352493",
+  "grade": "pass",
+  "score": 92,
+  "colors": 14,
+  "black": 0.271,
+  "biggest_patch": 0.154,
+  "theme": "Winter night",
+  "name": "Sun",
+  "pack": "weather",
+  "touched": false
+ },
+ "moon-678": {
+  "guess": "night-and-day themed block / moon emblem cube",
+  "alternatives": [
+   "storage jar with a moon picture",
+   "phone or tablet with a moon cover"
+  ],
+  "readability": 2,
+  "features": [
+   "rounded square dark outline",
+   "grey upper-left half and black lower-right half",
+   "yellow crescent moon",
+   "orange spots like stars or sun",
+   "white highlight lines on the edges"
+  ],
+  "problems": [
+   "no clear recognizable object, just an abstract square",
+   "grey and black halves with scattered spots look noisy",
+   "small red and orange dots have no clear meaning",
+   "the object fills the frame, leaving little context"
+  ],
+  "digest": "0616a185fd5eeede",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.16,
+  "biggest_patch": 0.242,
+  "theme": "Autumn woods",
+  "name": "Moon",
+  "pack": "weather",
+  "touched": false
+ },
+ "wind-679": {
+  "guess": "windmill",
+  "alternatives": [
+   "wooden mill tower with sails",
+   "old barn with propeller"
+  ],
+  "readability": 4,
+  "features": [
+   "four crossed sails/blades",
+   "brown wooden tower body",
+   "red base/building",
+   "small door at bottom",
+   "hub at center of sails"
+  ],
+  "problems": [
+   "sails are partly cut off and uneven in length",
+   "brown and red parts overlap in a cluttered way",
+   "dark outlines mix with sail shapes making the hub area busy",
+   "tower shape is somewhat blobby"
+  ],
+  "digest": "36ac9428815bedbc",
+  "grade": "pass",
+  "score": 74,
+  "colors": 20,
+  "black": 0.036,
+  "biggest_patch": 0.163,
+  "theme": "Summer hills",
+  "name": "Wind",
+  "pack": "weather",
+  "touched": false
+ },
+ "snow-cloud-680": {
+  "guess": "white cloud-shaped creature with legs on a beach",
+  "alternatives": [
+   "white sneaker on sand",
+   "sheep lying on beach"
+  ],
+  "readability": 2,
+  "features": [
+   "large white rounded body",
+   "dark outline",
+   "several small legs/feet underneath",
+   "beach with sand, sun, palm trees, sky"
+  ],
+  "problems": [
+   "no clear face or head",
+   "body shape is a vague blob, could be shoe or cloud",
+   "legs/feet hard to read, look like eyes in sand",
+   "white body blends with clouds in sky"
+  ],
+  "digest": "fcc098d9a480a862",
+  "grade": "weak",
+  "score": 70,
+  "colors": 19,
+  "black": 0.097,
+  "biggest_patch": 0.193,
+  "theme": "Tropical beach",
+  "name": "Snow Cloud",
+  "pack": "weather",
+  "touched": false
+ },
+ "thunder-cloud-681": {
+  "guess": "storm cloud with lightning bolt",
+  "alternatives": [
+   "thunderstorm over a field",
+   "cloud raining into a river"
+  ],
+  "readability": 4,
+  "features": [
+   "large white puffy cloud with dark outline",
+   "grey shading on cloud underside",
+   "yellow-orange lightning bolt",
+   "blue sky with small clouds",
+   "green grass",
+   "blue stream/water",
+   "distant grey mountains"
+  ],
+  "problems": [
+   "cloud is white rather than dark, so it reads less as a storm",
+   "lightning bolt is small and partly blends with dark blue shadow",
+   "water patch beside bolt is ambiguous (rain or river)"
+  ],
+  "digest": "6e03d6de3396da06",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.066,
+  "biggest_patch": 0.192,
+  "theme": "Waterfall",
+  "name": "Thunder Cloud",
+  "pack": "weather",
+  "touched": false
+ },
+ "sun-cloud-682": {
+  "guess": "sun behind a cloud (partly sunny weather)",
+  "alternatives": [
+   "sunny day on a farm",
+   "sun rising over a hill"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow sun with spiky rays",
+   "big white cloud with dark outline",
+   "sky with small clouds",
+   "red barn in background",
+   "green hills",
+   "red and pink flowers"
+  ],
+  "problems": [
+   "sun has no face",
+   "background barn and flowers compete for attention",
+   "cloud's white blends slightly with light sky clouds",
+   "the barn is partly hidden behind the sun"
+  ],
+  "digest": "30750edbc3d29fc2",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.068,
+  "biggest_patch": 0.204,
+  "theme": "Red barn",
+  "name": "Sun Cloud",
+  "pack": "weather",
+  "touched": false
+ },
+ "dew-drop-683": {
+  "guess": "two blue water drops",
+  "alternatives": [
+   "blue crystals",
+   "blue slime creatures"
+  ],
+  "readability": 3,
+  "features": [
+   "teardrop shape with pointed top",
+   "light blue highlights and white shine",
+   "dark outline",
+   "shadow on grass"
+  ],
+  "problems": [
+   "no face or context to explain why drops sit in a field",
+   "tilted, lumpy shapes could read as crystals or flames",
+   "two similar objects make the subject ambiguous"
+  ],
+  "digest": "a780f42b01c1db35",
+  "grade": "pass",
+  "score": 72,
+  "colors": 17,
+  "black": 0.056,
+  "biggest_patch": 0.204,
+  "theme": "Dawn fields",
+  "name": "Dew Drop",
+  "pack": "weather",
+  "touched": false
+ }
+}

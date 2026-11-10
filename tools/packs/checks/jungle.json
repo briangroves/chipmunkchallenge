@@ -1,5 +1,5 @@
 {
- "lion-230": {
+ "lion-209": {
   "guess": "lion",
   "alternatives": [
    "dog",
@@ -21,9 +21,16 @@
   ],
   "digest": "e82da1ed0a9e4666",
   "grade": "pass",
-  "score": 88
+  "score": 88,
+  "colors": 18,
+  "black": 0.077,
+  "biggest_patch": 0.171,
+  "theme": "Summer hills",
+  "name": "Lion",
+  "pack": "jungle",
+  "touched": false
  },
- "tiger-231": {
+ "tiger-210": {
   "guess": "tiger cub",
   "alternatives": [
    "orange cat",
@@ -48,9 +55,21 @@
   ],
   "digest": "d926231c4f9a4129",
   "grade": "pass",
-  "score": 100
+  "score": 100,
+  "colors": 18,
+  "black": 0.095,
+  "biggest_patch": 0.119,
+  "theme": "Waterfall",
+  "name": "Tiger",
+  "pack": "jungle",
+  "touched": false,
+  "verify": {
+   "guess": "tiger cub",
+   "score": 100,
+   "agrees": true
+  }
  },
- "elephant-232": {
+ "elephant-211": {
   "guess": "baby blue elephant",
   "alternatives": [
    "blue mouse",
@@ -72,9 +91,16 @@
   ],
   "digest": "5199458ef89707e1",
   "grade": "pass",
-  "score": 90
+  "score": 90,
+  "colors": 19,
+  "black": 0.091,
+  "biggest_patch": 0.12,
+  "theme": "Desert dunes",
+  "name": "Elephant",
+  "pack": "jungle",
+  "touched": false
  },
- "giraffe-233": {
+ "giraffe-212": {
   "guess": "giraffe",
   "alternatives": [
    "horse",
@@ -99,9 +125,16 @@
   ],
   "digest": "3eb10537fbddc5d5",
   "grade": "pass",
-  "score": 90
+  "score": 90,
+  "colors": 15,
+  "black": 0.048,
+  "biggest_patch": 0.18,
+  "theme": "Dawn fields",
+  "name": "Giraffe",
+  "pack": "jungle",
+  "touched": false
  },
- "zebra-234": {
+ "zebra-213": {
   "guess": "zebra",
   "alternatives": [
    "horse",
@@ -123,9 +156,16 @@
   ],
   "digest": "ef008e2d63899eee",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 11,
+  "black": 0.203,
+  "biggest_patch": 0.138,
+  "theme": "Bamboo grove",
+  "name": "Zebra",
+  "pack": "jungle",
+  "touched": false
  },
- "monkey-235": {
+ "monkey-214": {
   "guess": "monkey jumping in a meadow",
   "alternatives": [
    "kid with a red hood waving",
@@ -150,9 +190,16 @@
   ],
   "digest": "41f006dd3ff36c83",
   "grade": "pass",
-  "score": 88
+  "score": 88,
+  "colors": 20,
+  "black": 0.061,
+  "biggest_patch": 0.214,
+  "theme": "Garden pond",
+  "name": "Monkey",
+  "pack": "jungle",
+  "touched": false
  },
- "gorilla-236": {
+ "gorilla-215": {
   "guess": "gorilla beating its chest at night",
   "alternatives": [
    "chimpanzee",
@@ -175,9 +222,16 @@
   ],
   "digest": "e643bbe6cbd99af2",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 12,
+  "black": 0.318,
+  "biggest_patch": 0.188,
+  "theme": "Desert night",
+  "name": "Gorilla",
+  "pack": "jungle",
+  "touched": false
  },
- "hippo-237": {
+ "hippo-216": {
   "guess": "hippopotamus",
   "alternatives": [
    "rhinoceros",
@@ -200,9 +254,16 @@
   ],
   "digest": "96323551003e4a5b",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 17,
+  "black": 0.129,
+  "biggest_patch": 0.181,
+  "theme": "Sunset meadow",
+  "name": "Hippo",
+  "pack": "jungle",
+  "touched": false
  },
- "rhino-238": {
+ "rhino-217": {
   "guess": "rhinoceros",
   "alternatives": [
    "hippo",
@@ -225,9 +286,16 @@
   ],
   "digest": "b483f162dc75aaad",
   "grade": "pass",
-  "score": 94
+  "score": 94,
+  "colors": 17,
+  "black": 0.147,
+  "biggest_patch": 0.209,
+  "theme": "Cactus canyon",
+  "name": "Rhino",
+  "pack": "jungle",
+  "touched": false
  },
- "parrot-239": {
+ "parrot-218": {
   "guess": "scarlet macaw (parrot) flying",
   "alternatives": [
    "red dragon",
@@ -248,9 +316,16 @@
   ],
   "digest": "8714e8bd2921128c",
   "grade": "pass",
-  "score": 76
+  "score": 76,
+  "colors": 16,
+  "black": 0.214,
+  "biggest_patch": 0.201,
+  "theme": "Rainy day",
+  "name": "Parrot",
+  "pack": "jungle",
+  "touched": false
  },
- "toucan-240": {
+ "toucan-219": {
   "guess": "toucan",
   "alternatives": [
    "hornbill",
@@ -272,9 +347,16 @@
   ],
   "digest": "8a0d42c627e0c02e",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 16,
+  "black": 0.217,
+  "biggest_patch": 0.111,
+  "theme": "Mountain sunset",
+  "name": "Toucan",
+  "pack": "jungle",
+  "touched": false
  },
- "flamingo-241": {
+ "flamingo-220": {
   "guess": "black flamingo on a beach",
   "alternatives": [
    "black swan",
@@ -298,9 +380,16 @@
   ],
   "digest": "9eb91308acae511c",
   "grade": "pass",
-  "score": 72
+  "score": 72,
+  "colors": 17,
+  "black": 0.083,
+  "biggest_patch": 0.259,
+  "theme": "Tropical beach",
+  "name": "Flamingo",
+  "pack": "jungle",
+  "touched": false
  },
- "chameleon-242": {
+ "chameleon-221": {
   "guess": "green chameleon in the desert",
   "alternatives": [
    "green frog",
@@ -323,9 +412,16 @@
   ],
   "digest": "59dc353ab18d064b",
   "grade": "pass",
-  "score": 76
+  "score": 76,
+  "colors": 15,
+  "black": 0.104,
+  "biggest_patch": 0.139,
+  "theme": "Desert dunes",
+  "name": "Chameleon",
+  "pack": "jungle",
+  "touched": false
  },
- "baby-elephant-243": {
+ "baby-elephant-222": {
   "guess": "white elephant",
   "alternatives": [
    "polar bear",
@@ -349,9 +445,16 @@
   ],
   "digest": "68ab4786413ba591",
   "grade": "pass",
-  "score": 80
+  "score": 80,
+  "colors": 12,
+  "black": 0.291,
+  "biggest_patch": 0.233,
+  "theme": "Desert night",
+  "name": "Baby Elephant",
+  "pack": "jungle",
+  "touched": false
  },
- "lion-cub-244": {
+ "lion-cub-223": {
   "guess": "lion cub (like Simba) in a savanna at sunset",
   "alternatives": [
    "yellow dog",
@@ -377,9 +480,16 @@
   ],
   "digest": "346f63d42d15b004",
   "grade": "pass",
-  "score": 84
+  "score": 84,
+  "colors": 16,
+  "black": 0.119,
+  "biggest_patch": 0.091,
+  "theme": "Mountain sunset",
+  "name": "Lion Cub",
+  "pack": "jungle",
+  "touched": false
  },
- "tree-frog-245": {
+ "tree-frog-224": {
   "guess": "frog on a beach",
   "alternatives": [
    "toad sitting on sand",
@@ -408,9 +518,16 @@
   ],
   "digest": "85ce7b2e6e8a694a",
   "grade": "pass",
-  "score": 90
+  "score": 90,
+  "colors": 22,
+  "black": 0.081,
+  "biggest_patch": 0.205,
+  "theme": "Tropical beach",
+  "name": "Tree Frog",
+  "pack": "jungle",
+  "touched": false
  },
- "baby-monkey-246": {
+ "baby-monkey-225": {
   "guess": "monkey in a red raincoat",
   "alternatives": [
    "mouse in a red hood",
@@ -435,9 +552,16 @@
   ],
   "digest": "346a3ea4c94b93b4",
   "grade": "pass",
-  "score": 88
+  "score": 88,
+  "colors": 16,
+  "black": 0.198,
+  "biggest_patch": 0.164,
+  "theme": "Rainy day",
+  "name": "Baby Monkey",
+  "pack": "jungle",
+  "touched": false
  },
- "kangaroo-247": {
+ "kangaroo-226": {
   "guess": "yellow kangaroo",
   "alternatives": [
    "yellow dragon",
@@ -463,9 +587,16 @@
   ],
   "digest": "cdda87a280fd78c7",
   "grade": "pass",
-  "score": 88
+  "score": 88,
+  "colors": 19,
+  "black": 0.026,
+  "biggest_patch": 0.103,
+  "theme": "Waterfall",
+  "name": "Kangaroo",
+  "pack": "jungle",
+  "touched": false
  },
- "koala-248": {
+ "koala-227": {
   "guess": "koala in the desert",
   "alternatives": [
    "mouse",
@@ -491,9 +622,16 @@
   ],
   "digest": "87072412a8c4546b",
   "grade": "pass",
-  "score": 88
+  "score": 88,
+  "colors": 13,
+  "black": 0.103,
+  "biggest_patch": 0.115,
+  "theme": "Desert dunes",
+  "name": "Koala",
+  "pack": "jungle",
+  "touched": false
  },
- "panda-249": {
+ "panda-228": {
   "guess": "panda eating bamboo",
   "alternatives": [
    "black and white bear",
@@ -518,6 +656,13 @@
   ],
   "digest": "b99c98fc470f40c6",
   "grade": "pass",
-  "score": 94
+  "score": 94,
+  "colors": 11,
+  "black": 0.346,
+  "biggest_patch": 0.219,
+  "theme": "Mountain pass",
+  "name": "Panda",
+  "pack": "jungle",
+  "touched": false
  }
 }

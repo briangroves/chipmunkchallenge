@@ -1,0 +1,598 @@
+{
+ "carrot-315": {
+  "guess": "carrot with a cute face",
+  "alternatives": [
+   "orange root vegetable character",
+   "parsnip"
+  ],
+  "readability": 5,
+  "features": [
+   "orange tapered carrot body",
+   "green leafy top",
+   "small face with eyes and blush",
+   "dark outline",
+   "shading stripe on right side",
+   "pink striped wallpaper background",
+   "brown wooden floor with candy-stripe rug"
+  ],
+  "problems": [
+   "face is tiny and hard to notice",
+   "light blue window shape behind leaves is slightly confusing",
+   "carrot tip blends a little into the rug stripe"
+  ],
+  "digest": "445bbe1d6a9e56c8",
+  "grade": "pass",
+  "score": 88,
+  "colors": 17,
+  "black": 0.052,
+  "biggest_patch": 0.086,
+  "theme": "Living room",
+  "name": "Carrot",
+  "pack": "veggies",
+  "touched": false
+ },
+ "broccoli-316": {
+  "guess": "broccoli on a beach",
+  "alternatives": [
+   "tree on a beach",
+   "bush"
+  ],
+  "readability": 3,
+  "features": [
+   "large dark green bushy crown",
+   "light green stalk",
+   "dark outline",
+   "shadow on sand",
+   "beach background with sea and sunset sun"
+  ],
+  "problems": [
+   "crown is one big blob without florets",
+   "could easily read as a tree",
+   "stalk is short and partly hidden",
+   "no face or details"
+  ],
+  "digest": "13ebaa7205b5fc53",
+  "grade": "pass",
+  "score": 68,
+  "colors": 20,
+  "black": 0.059,
+  "biggest_patch": 0.297,
+  "theme": "Beach sunset",
+  "name": "Broccoli",
+  "pack": "veggies",
+  "touched": false
+ },
+ "corn-317": {
+  "guess": "ear of corn",
+  "alternatives": [
+   "banana in leaves",
+   "yellow pepper"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow kernel cob",
+   "green husk leaves wrapping sides",
+   "lighter green leaf tips",
+   "orange shading on kernels",
+   "dark outline",
+   "blue shadow underneath"
+  ],
+  "problems": [
+   "no individual kernel texture, cob looks like a smooth yellow blob",
+   "tilted shape with leaves could read as a banana or flower",
+   "purple speckled ground and grey/white background are busy but don't blend with subject"
+  ],
+  "digest": "e16a96a6297c4126",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.05,
+  "biggest_patch": 0.209,
+  "theme": "Overcast moor",
+  "name": "Corn",
+  "pack": "veggies",
+  "touched": false
+ },
+ "tomato-318": {
+  "guess": "cartoon tomato with a face",
+  "alternatives": [
+   "red apple with a face",
+   "red bell pepper"
+  ],
+  "readability": 5,
+  "features": [
+   "round red body",
+   "green stem and leaves on top",
+   "two big eyes with blue pupils",
+   "raised eyebrow",
+   "flat mouth",
+   "pink highlight on upper left",
+   "dark red shading on lower right",
+   "indent at top like a tomato"
+  ],
+  "problems": [
+   "indent shape could also suggest an apple or heart",
+   "slight blending of dark green outline with grass background"
+  ],
+  "digest": "521e496a61efe6cb",
+  "grade": "pass",
+  "score": 88,
+  "colors": 15,
+  "black": 0.081,
+  "biggest_patch": 0.236,
+  "theme": "Bamboo grove",
+  "name": "Tomato",
+  "pack": "veggies",
+  "touched": false
+ },
+ "potato-319": {
+  "guess": "bag of potato chips",
+  "alternatives": [
+   "candy wrapper",
+   "juice box"
+  ],
+  "readability": 3,
+  "features": [
+   "crinkled yellow packet shape with dark outline",
+   "red label/logo band",
+   "white text strip",
+   "shiny highlight on top-left",
+   "crimped top and bottom edges"
+  ],
+  "problems": [
+   "red and white label shapes are abstract and not clearly a logo or chip picture",
+   "no visible chips to confirm contents",
+   "could be read as a sponge or cake slice",
+   "rectangular shape is generic"
+  ],
+  "digest": "251bb9138a964737",
+  "grade": "pass",
+  "score": 68,
+  "colors": 21,
+  "black": 0.08,
+  "biggest_patch": 0.119,
+  "theme": "Sunflower farm",
+  "name": "Potato",
+  "pack": "veggies",
+  "touched": false
+ },
+ "pumpkin-320": {
+  "guess": "orange pumpkin with a face",
+  "alternatives": [
+   "orange fruit",
+   "jack-o'-lantern"
+  ],
+  "readability": 3,
+  "features": [
+   "round orange body",
+   "red/dark stem on top",
+   "dark eyes with blue",
+   "small mouth",
+   "shading on right side"
+  ],
+  "problems": [
+   "face is scattered and hard to read",
+   "stem is red rather than green, unusual for pumpkin",
+   "blue patches at bottom blend oddly with body",
+   "no pumpkin ridges so could be an orange or ball"
+  ],
+  "digest": "d921f57d76e2eada",
+  "grade": "pass",
+  "score": 76,
+  "colors": 19,
+  "black": 0.058,
+  "biggest_patch": 0.196,
+  "theme": "Riverbank",
+  "name": "Pumpkin",
+  "pack": "veggies",
+  "touched": false
+ },
+ "eggplant-321": {
+  "guess": "eggplant (aubergine) character",
+  "alternatives": [
+   "blueberry",
+   "plum"
+  ],
+  "readability": 4,
+  "features": [
+   "dark blue-purple oval body",
+   "green stem/calyx on top",
+   "two white eyes with dark pupils",
+   "small white mouth",
+   "grass and trees background with mushrooms"
+  ],
+  "problems": [
+   "color is more blue than purple, could read as blueberry or plum",
+   "eyes and mouth are small and a bit irregular",
+   "green leaves blend slightly with green trees behind"
+  ],
+  "digest": "8c5b7001f08af457",
+  "grade": "pass",
+  "score": 82,
+  "colors": 12,
+  "black": 0.018,
+  "biggest_patch": 0.188,
+  "theme": "Pine forest",
+  "name": "Eggplant",
+  "pack": "veggies",
+  "touched": false
+ },
+ "bell-pepper-322": {
+  "guess": "red bell pepper",
+  "alternatives": [
+   "red apple",
+   "tomato"
+  ],
+  "readability": 4,
+  "features": [
+   "green stem on top",
+   "lobed red body with vertical grooves",
+   "pink and bright red highlights",
+   "dark outline",
+   "sun and birds in background"
+  ],
+  "problems": [
+   "dark red body could read as an apple or tomato",
+   "stem is fairly small",
+   "busy striped orange background around lower edges"
+  ],
+  "digest": "13ddac889b68850e",
+  "grade": "pass",
+  "score": 74,
+  "colors": 10,
+  "black": 0.012,
+  "biggest_patch": 0.197,
+  "theme": "Golden wheat",
+  "name": "Bell Pepper",
+  "pack": "veggies",
+  "touched": false
+ },
+ "onion-323": {
+  "guess": "acorn or seed creature (like Seedot/Nuzleaf-style Pok\u00e9mon) with leaf sprout",
+  "alternatives": [
+   "chestnut character",
+   "onion or bulb monster"
+  ],
+  "readability": 3,
+  "features": [
+   "round brown head",
+   "green leaf sprout on top",
+   "large orange eyes",
+   "red open mouth",
+   "green shirt body",
+   "red legs",
+   "outstretched arms"
+  ],
+  "problems": [
+   "orange eyes blend with orange background ground",
+   "dark red shadow edges merge with background",
+   "body shape and limbs are cluttered and blobby",
+   "not clearly a known animal or object"
+  ],
+  "digest": "b4aa2d618d86fc1f",
+  "grade": "weak",
+  "score": 50,
+  "colors": 17,
+  "black": 0.068,
+  "biggest_patch": 0.166,
+  "theme": "Autumn woods",
+  "name": "Onion",
+  "pack": "veggies",
+  "touched": false
+ },
+ "mushroom-324": {
+  "guess": "smiling red mushroom",
+  "alternatives": [
+   "red toadstool character",
+   "red umbrella"
+  ],
+  "readability": 4,
+  "features": [
+   "large red domed cap",
+   "pink highlights on cap",
+   "two dark square eyes",
+   "white smiling mouth",
+   "dark red stem",
+   "grassy meadow with flowers",
+   "sun in sky"
+  ],
+  "problems": [
+   "stem is also red so cap and stem blend together",
+   "no white spots typical of toadstools",
+   "face is small and mouth looks like a white blob",
+   "cap shape is a bit lopsided"
+  ],
+  "digest": "7ad46bca7b8d7b31",
+  "grade": "pass",
+  "score": 82,
+  "colors": 15,
+  "black": 0.043,
+  "biggest_patch": 0.138,
+  "theme": "Summer hills",
+  "name": "Mushroom",
+  "pack": "veggies",
+  "touched": false
+ },
+ "radish-325": {
+  "guess": "daikon radish",
+  "alternatives": [
+   "leek",
+   "white turnip"
+  ],
+  "readability": 3,
+  "features": [
+   "white root body",
+   "green leafy top",
+   "light green transition at top of root",
+   "dark outline"
+  ],
+  "problems": [
+   "lying diagonally so shape is unusual",
+   "leaves blend with green grass",
+   "root tip is cut off at the bottom edge",
+   "could be mistaken for a leek or a sock"
+  ],
+  "digest": "3903beefff7a83b8",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.056,
+  "biggest_patch": 0.203,
+  "theme": "Spring meadow",
+  "name": "Radish",
+  "pack": "veggies",
+  "touched": false
+ },
+ "garlic-326": {
+  "guess": "happy garlic bulb character",
+  "alternatives": [
+   "onion character",
+   "white ghost"
+  ],
+  "readability": 3,
+  "features": [
+   "white bulb-shaped body with pointed top",
+   "closed happy eyes",
+   "pink blushing cheeks",
+   "open red smiling mouth",
+   "tan root/base at bottom",
+   "small dark legs",
+   "shading on right side"
+  ],
+  "problems": [
+   "no clear garlic cloves segments so could be onion or ghost",
+   "pointed top blends with grey castle behind",
+   "busy sunset and castle background competes with subject",
+   "legs and base are small and hard to read"
+  ],
+  "digest": "3e821dbb310ce37c",
+  "grade": "pass",
+  "score": 80,
+  "colors": 21,
+  "black": 0.13,
+  "biggest_patch": 0.121,
+  "theme": "Castle at dusk",
+  "name": "Garlic",
+  "pack": "veggies",
+  "touched": false
+ },
+ "beet-327": {
+  "guess": "beetroot",
+  "alternatives": [
+   "radish",
+   "red onion"
+  ],
+  "readability": 3,
+  "features": [
+   "round dark red bulb",
+   "tapering stem/top",
+   "green leaves on top",
+   "light red highlight on bulb",
+   "small root tip at bottom"
+  ],
+  "problems": [
+   "shape is lumpy and irregular, not clearly round",
+   "stem is very thick and long, making it look like a bottle or bird",
+   "leaves are a single blob",
+   "highlight looks like an arrow shape",
+   "kitchen shelf background competes slightly"
+  ],
+  "digest": "5902fde220b318a4",
+  "grade": "pass",
+  "score": 68,
+  "colors": 12,
+  "black": 0.021,
+  "biggest_patch": 0.501,
+  "theme": "Bakery",
+  "name": "Beet",
+  "pack": "veggies",
+  "touched": false
+ },
+ "chili-pepper-328": {
+  "guess": "red chili pepper",
+  "alternatives": [
+   "red carrot",
+   "red radish"
+  ],
+  "readability": 4,
+  "features": [
+   "long curved dark red body",
+   "green stem on top",
+   "tapered pointed tip at bottom",
+   "green shading on one side"
+  ],
+  "problems": [
+   "very large and tall so it looks like a pillar in the landscape",
+   "dark red is a bit muddy",
+   "green shading blends into the green grass",
+   "stem is small and dark against the pink sky"
+  ],
+  "digest": "255f867f3568ca41",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.006,
+  "biggest_patch": 0.207,
+  "theme": "Dawn fields",
+  "name": "Chili Pepper",
+  "pack": "veggies",
+  "touched": false
+ },
+ "leek-329": {
+  "guess": "leek",
+  "alternatives": [
+   "green onion",
+   "asparagus"
+  ],
+  "readability": 3,
+  "features": [
+   "white bulb base",
+   "long green stalk",
+   "leaves splitting at the top",
+   "dark outline"
+  ],
+  "problems": [
+   "leaves are short and merge into a blob at the top",
+   "green stalk blends with green grass background",
+   "no roots at the bottom",
+   "could be mistaken for a sock or paintbrush"
+  ],
+  "digest": "12676e0941038c3c",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.04,
+  "biggest_patch": 0.214,
+  "theme": "Garden pond",
+  "name": "Leek",
+  "pack": "veggies",
+  "touched": false
+ },
+ "spinach-330": {
+  "guess": "bunch of leafy greens (lettuce/spinach) on a table",
+  "alternatives": [
+   "broccoli",
+   "bouquet of herbs"
+  ],
+  "readability": 3,
+  "features": [
+   "large green leafy mass with lighter leaf highlights",
+   "dark outline",
+   "stem/base bundle at bottom right",
+   "wooden table",
+   "red and yellow patterned cloth or ribbon",
+   "pink striped wall with window"
+  ],
+  "problems": [
+   "leaves blend into one blob with no clear individual leaf shapes",
+   "stem end is small and hard to read",
+   "no distinctive shape to pin down exact vegetable",
+   "red striped strip could distract"
+  ],
+  "digest": "53870c0058598361",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.077,
+  "biggest_patch": 0.106,
+  "theme": "Living room",
+  "name": "Spinach",
+  "pack": "veggies",
+  "touched": false
+ },
+ "turnip-331": {
+  "guess": "turnip",
+  "alternatives": [
+   "beet",
+   "purple onion"
+  ],
+  "readability": 4,
+  "features": [
+   "round root bulb",
+   "purple top fading to white bottom",
+   "green and brown leaf stems on top",
+   "dark outline",
+   "shading on lower right"
+  ],
+  "problems": [
+   "leaves are small and partly blend with the brown/orange background",
+   "no root tail visible",
+   "busy sunset and mountain background competes with the subject"
+  ],
+  "digest": "018dd01574135ce4",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.095,
+  "biggest_patch": 0.117,
+  "theme": "Mountain sunset",
+  "name": "Turnip",
+  "pack": "veggies",
+  "touched": false
+ },
+ "ginger-332": {
+  "guess": "gingerbread man",
+  "alternatives": [
+   "voodoo doll",
+   "teddy bear"
+  ],
+  "readability": 3,
+  "features": [
+   "round head",
+   "arms stretched out",
+   "legs",
+   "red buttons on body",
+   "red cross mark on head",
+   "brown shadow side",
+   "outline"
+  ],
+  "problems": [
+   "no clear face (no eyes or mouth)",
+   "pose is twisted and leaning, making the shape blobby",
+   "red cross on head is confusing",
+   "brown shaded part merges with the ground",
+   "stick/bone-like thing on the right is unclear"
+  ],
+  "digest": "2b3f8396e91b21b2",
+  "grade": "pass",
+  "score": 72,
+  "colors": 17,
+  "black": 0.047,
+  "biggest_patch": 0.177,
+  "theme": "Castle hill",
+  "name": "Ginger",
+  "pack": "veggies",
+  "touched": false
+ },
+ "salad-bowl-333": {
+  "guess": "bowl of salad",
+  "alternatives": [
+   "salad with tomatoes and mushrooms",
+   "pile of vegetables in a bowl"
+  ],
+  "readability": 3,
+  "features": [
+   "green lettuce leaves",
+   "red tomato pieces",
+   "tan mushroom slices",
+   "white bowl with blue shading",
+   "dark outline around the salad"
+  ],
+  "problems": [
+   "bowl is mostly hidden under the leaves and only its lower front shows",
+   "tomatoes and mushrooms are blocky and hard to identify",
+   "green leaves blend into the green grass at the edges",
+   "busy background with sun, sky and soil competes for attention"
+  ],
+  "digest": "cd9d7ad1874609b0",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.106,
+  "biggest_patch": 0.12,
+  "theme": "Harvest farm",
+  "name": "Salad Bowl",
+  "pack": "veggies",
+  "touched": false
+ }
+}

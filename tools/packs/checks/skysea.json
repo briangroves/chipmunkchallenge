@@ -1,0 +1,424 @@
+{
+ "airplane-400": {
+  "guess": "white airplane landed in a field",
+  "alternatives": [
+   "space shuttle",
+   "white shark"
+  ],
+  "readability": 3,
+  "features": [
+   "white fuselage",
+   "blue cockpit windows at the nose",
+   "tail fin with blue marking at upper right",
+   "wing underneath in grey",
+   "row of small windows",
+   "dark wheels/landing gear"
+  ],
+  "problems": [
+   "plane is shown at an awkward angle, nose pointing down-left",
+   "shape is chunky and blobby, wing hard to separate from body",
+   "nose and tail fin look like a fish or shark",
+   "grey shading blends with white body"
+  ],
+  "digest": "1e81d651931bc3f7",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.092,
+  "biggest_patch": 0.155,
+  "theme": "Sunset meadow",
+  "name": "Airplane",
+  "pack": "skysea",
+  "touched": false
+ },
+ "hot-air-balloon-401": {
+  "guess": "hot air balloon",
+  "alternatives": [
+   "pink seashell",
+   "ice cream cone"
+  ],
+  "readability": 4,
+  "features": [
+   "round pink and white striped envelope",
+   "dark outline",
+   "narrowing bottom",
+   "dark basket below",
+   "sunset sky, sun, sea and beach background",
+   "birds in sky"
+  ],
+  "problems": [
+   "basket is dark and blobby, sits on the sand so it looks grounded",
+   "ropes between envelope and basket not clear",
+   "white stripes are irregular, so it could read as a shell or a scoop of ice cream"
+  ],
+  "digest": "5c2ab0a0e1e8e18a",
+  "grade": "pass",
+  "score": 78,
+  "colors": 17,
+  "black": 0.06,
+  "biggest_patch": 0.272,
+  "theme": "Beach sunset",
+  "name": "Hot Air Balloon",
+  "pack": "skysea",
+  "touched": false
+ },
+ "rocket-402": {
+  "guess": "white rocket on launch pad",
+  "alternatives": [
+   "space shuttle",
+   "missile"
+  ],
+  "readability": 5,
+  "features": [
+   "pointed nose cone",
+   "white body",
+   "red stripe band",
+   "red side fins",
+   "dark windows or rivets along the side",
+   "exhaust nozzle at the bottom"
+  ],
+  "problems": [
+   "the line of dark marks on the body is unclear, could be windows or a seam",
+   "grey sky with raindrop-like streaks is a bit busy",
+   "the rocket's bottom blends slightly into its dark green shadow"
+  ],
+  "digest": "dfefb01eefa1b03c",
+  "grade": "pass",
+  "score": 84,
+  "colors": 12,
+  "black": 0.154,
+  "biggest_patch": 0.207,
+  "theme": "Rainy day",
+  "name": "Rocket",
+  "pack": "skysea",
+  "touched": false
+ },
+ "ship-403": {
+  "guess": "pirate ship",
+  "alternatives": [
+   "sailing boat",
+   "shipwreck on rocks"
+  ],
+  "readability": 3,
+  "features": [
+   "brown wooden hull",
+   "flag on top of mast",
+   "mast",
+   "white and grey sails",
+   "black rigging",
+   "water at the bottom"
+  ],
+  "problems": [
+   "sails are a jumbled mix of black, white and grey patches that look like smoke or rocks",
+   "no clear sail shapes or mast lines",
+   "hull is wide and blobby",
+   "ship sits on grass among trees with only a little water, so the setting is confusing"
+  ],
+  "digest": "47ebd3b6d46358e9",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.109,
+  "biggest_patch": 0.181,
+  "theme": "Riverbank",
+  "name": "Ship",
+  "pack": "skysea",
+  "touched": false
+ },
+ "submarine-404": {
+  "guess": "submarine underwater",
+  "alternatives": [
+   "whale in the ocean",
+   "aquarium with a fish"
+  ],
+  "readability": 3,
+  "features": [
+   "long dark hull at the bottom",
+   "conning tower/sail on top",
+   "small tail fin at the back",
+   "deep blue water",
+   "light blue surface water",
+   "orange sky above"
+  ],
+  "problems": [
+   "submarine is very dark and thin, blending into the dark blue water",
+   "no periscope, windows or propeller details",
+   "large empty water area dominates the picture",
+   "frame/border elements are confusing"
+  ],
+  "digest": "c52e00b771ecfa2a",
+  "grade": "pass",
+  "score": 76,
+  "colors": 14,
+  "black": 0.119,
+  "biggest_patch": 0.454,
+  "theme": "Desert dunes",
+  "name": "Submarine",
+  "pack": "skysea",
+  "touched": false
+ },
+ "blimp-405": {
+  "guess": "red airship (blimp) flying at night",
+  "alternatives": [
+   "red sled in the snow",
+   "red submarine"
+  ],
+  "readability": 3,
+  "features": [
+   "long red rounded body",
+   "pink highlight on top",
+   "dark red shading underneath",
+   "yellow-orange tail fins at the back",
+   "yellow gondola/fin underneath",
+   "dark outline",
+   "night sky with crescent moon and stars",
+   "snowy mountain in background"
+  ],
+  "problems": [
+   "no clear windows or propeller to confirm it's an airship",
+   "tail fins are blocky and look like a yellow block",
+   "object sits low over snow, so it could read as a sled or a sausage",
+   "body is a plain blob with no detail"
+  ],
+  "digest": "3d62404e0976ac90",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.224,
+  "biggest_patch": 0.213,
+  "theme": "Winter night",
+  "name": "Blimp",
+  "pack": "skysea",
+  "touched": false
+ },
+ "kayak-406": {
+  "guess": "penguin paddling a yellow kayak",
+  "alternatives": [
+   "person kayaking on a river",
+   "bird in a canoe"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow kayak/raft",
+   "paddle with yellow blade",
+   "black and white body",
+   "white face with eye",
+   "brown hat",
+   "blue water splashes",
+   "pine trees and snowy ground in background"
+  ],
+  "problems": [
+   "the paddler's figure is small and its black outline merges with the paddle shaft",
+   "face is hard to read, unclear if penguin or person",
+   "white body blends with snowy background",
+   "boat and water outlines dominate over the character"
+  ],
+  "digest": "2c8268d92cb15a37",
+  "grade": "pass",
+  "score": 76,
+  "colors": 16,
+  "black": 0.113,
+  "biggest_patch": 0.201,
+  "theme": "Snowy pines",
+  "name": "Kayak",
+  "pack": "skysea",
+  "touched": false
+ },
+ "paper-plane-407": {
+  "guess": "paper airplane",
+  "alternatives": [
+   "glider plane",
+   "purple bird flying"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed nose tip on the left",
+   "wide triangular wings",
+   "black outline",
+   "white highlight along the top edge",
+   "crease lines on the wing"
+  ],
+  "problems": [
+   "the lavender color blends with the purple sky band behind it",
+   "it sits low over the grass, so it looks grounded rather than flying",
+   "the angled perspective makes the shape hard to read",
+   "grey and white patches on the top look like odd markings",
+   "the black and white edge could be read as an animal or a shoe"
+  ],
+  "digest": "e09d60600c0b3c29",
+  "grade": "pass",
+  "score": 76,
+  "colors": 15,
+  "black": 0.066,
+  "biggest_patch": 0.202,
+  "theme": "Dawn fields",
+  "name": "Paper Plane",
+  "pack": "skysea",
+  "touched": false
+ },
+ "kite-408": {
+  "guess": "boy flying a kite",
+  "alternatives": [
+   "child running in a meadow",
+   "boy chasing a bird"
+  ],
+  "readability": 4,
+  "features": [
+   "boy with black hair",
+   "face with eyes",
+   "orange shirt",
+   "blue jeans",
+   "raised arm",
+   "colorful kite in sky",
+   "sun",
+   "clouds",
+   "purple mountains",
+   "flowers in grass"
+  ],
+  "problems": [
+   "kite string not visible so connection to boy unclear",
+   "kite shape could read as a bird",
+   "boy's face lacks clear details and arm/hand blend with skin tones",
+   "dark green outline merges with grass"
+  ],
+  "digest": "4fee86d0aa411c30",
+  "grade": "pass",
+  "score": 82,
+  "colors": 20,
+  "black": 0.064,
+  "biggest_patch": 0.187,
+  "theme": "Spring meadow",
+  "name": "Kite",
+  "pack": "skysea",
+  "touched": false
+ },
+ "flying-saucer-409": {
+  "guess": "flying saucer (UFO) landed in the desert",
+  "alternatives": [
+   "crashed spaceship",
+   "silver submarine"
+  ],
+  "readability": 4,
+  "features": [
+   "domed top",
+   "wide flat metallic saucer body",
+   "dark shadow underneath",
+   "desert sand with cacti",
+   "night sky with crescent moon and stars"
+  ],
+  "problems": [
+   "no windows or lights on the saucer",
+   "grey dome blends a bit with dark outline",
+   "saucer sits low and half-buried so the classic disc silhouette is less clear",
+   "could be read as a rock or boat"
+  ],
+  "digest": "a2e1902f5209a326",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.278,
+  "biggest_patch": 0.314,
+  "theme": "Desert night",
+  "name": "Flying Saucer",
+  "pack": "skysea",
+  "touched": false
+ },
+ "jet-410": {
+  "guess": "white airplane",
+  "alternatives": [
+   "propeller plane",
+   "toy jet"
+  ],
+  "readability": 3,
+  "features": [
+   "white fuselage",
+   "two wings",
+   "propeller at front",
+   "window/cockpit",
+   "tail fin",
+   "landing wheels"
+  ],
+  "problems": [
+   "odd tilted perspective makes the shape confusing",
+   "wings look like blobby arms",
+   "white body is hard to separate from the white clouds",
+   "plane seems to sit in grass rather than fly"
+  ],
+  "digest": "44406032a4c483f2",
+  "grade": "weak",
+  "score": 50,
+  "colors": 17,
+  "black": 0.09,
+  "biggest_patch": 0.188,
+  "theme": "Sunflower farm",
+  "name": "Jet",
+  "pack": "skysea",
+  "touched": false
+ },
+ "airship-411": {
+  "guess": "airship floating in the sky",
+  "alternatives": [
+   "cloud in a window",
+   "iceberg in water"
+  ],
+  "readability": 2,
+  "features": [
+   "white elongated balloon body",
+   "tan underside",
+   "small gondola/cabin underneath",
+   "framed blue sky window",
+   "mountains and sunset behind",
+   "sun and birds"
+  ],
+  "problems": [
+   "blimp shape looks like a lumpy cloud",
+   "no clear fins, propeller or details",
+   "white body blends with light blue sky",
+   "gondola is tiny and vague",
+   "busy background competes with subject"
+  ],
+  "digest": "17e19fd82583c41c",
+  "grade": "weak",
+  "score": 62,
+  "colors": 17,
+  "black": 0.107,
+  "biggest_patch": 0.095,
+  "theme": "Mountain sunset",
+  "name": "Airship",
+  "pack": "skysea",
+  "touched": false
+ },
+ "jet-ski-412": {
+  "guess": "jet ski splashing on water",
+  "alternatives": [
+   "speedboat",
+   "snowmobile"
+  ],
+  "readability": 2,
+  "features": [
+   "red front hull",
+   "white body with dark trim",
+   "orange seat or light",
+   "brown seat stripe",
+   "water splash",
+   "blue water line in background",
+   "raindrops"
+  ],
+  "problems": [
+   "shape is fragmented and blocky",
+   "white and dark patches look like noise",
+   "subject blends with gray brick-like background",
+   "no clear rider or handlebars"
+  ],
+  "digest": "e085743686d933ab",
+  "grade": "weak",
+  "score": 62,
+  "colors": 12,
+  "black": 0.318,
+  "biggest_patch": 0.245,
+  "theme": "Stormy coast",
+  "name": "Jet Ski",
+  "pack": "skysea",
+  "touched": false
+ }
+}

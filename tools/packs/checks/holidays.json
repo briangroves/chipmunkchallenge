@@ -1,0 +1,435 @@
+{
+ "valentine-heart-873": {
+  "guess": "big red heart",
+  "alternatives": [
+   "heart-shaped balloon",
+   "valentine candy heart"
+  ],
+  "readability": 5,
+  "features": [
+   "classic heart outline with two rounded lobes and pointed bottom",
+   "dark outline",
+   "pink and white highlights",
+   "night city background with moon, stars, road"
+  ],
+  "problems": [
+   "white splotches make the surface look patchy or melting",
+   "busy background with road and buildings competes slightly"
+  ],
+  "digest": "50ee75c197acb137",
+  "grade": "pass",
+  "score": 84,
+  "colors": 14,
+  "black": 0.22,
+  "biggest_patch": 0.172,
+  "theme": "City night",
+  "name": "Valentine Heart",
+  "pack": "holidays",
+  "touched": false
+ },
+ "love-letter-874": {
+  "guess": "love letter envelope with heart",
+  "alternatives": [
+   "valentine card",
+   "mail envelope"
+  ],
+  "readability": 4,
+  "features": [
+   "white envelope body",
+   "red heart seal",
+   "tan flap fold lines",
+   "dark red border",
+   "moon and sunset sky background"
+  ],
+  "problems": [
+   "envelope fills almost the whole frame so outline is cropped",
+   "fold lines are faint tan on white",
+   "grey shading on right looks patchy",
+   "heart floats above the flap rather than sealing it"
+  ],
+  "digest": "371f0ea2be4e6d59",
+  "grade": "pass",
+  "score": 78,
+  "colors": 20,
+  "black": 0.068,
+  "biggest_patch": 0.34,
+  "theme": "Castle at dusk",
+  "name": "Love Letter",
+  "pack": "holidays",
+  "touched": false
+ },
+ "easter-basket-875": {
+  "guess": "cow eating from a basket of fruit",
+  "alternatives": [
+   "dairy cow with picnic basket",
+   "goat by a bowl of food"
+  ],
+  "readability": 2,
+  "features": [
+   "black and white patchy head",
+   "pink nose/muzzle",
+   "dark eye spots",
+   "brown basket with red and green fruit",
+   "grass and mountains background"
+  ],
+  "problems": [
+   "cow head is cropped and blends with white/grey mountains",
+   "no clear eyes or ears",
+   "basket contents are blobby and hard to identify",
+   "busy background competes with subject"
+  ],
+  "digest": "33a881dbc4504bd9",
+  "grade": "weak",
+  "score": 74,
+  "colors": 19,
+  "black": 0.256,
+  "biggest_patch": 0.084,
+  "theme": "Aurora lake",
+  "name": "Easter Basket",
+  "pack": "holidays",
+  "touched": false
+ },
+ "shamrock-876": {
+  "guess": "three-leaf clover (shamrock)",
+  "alternatives": [
+   "green bush",
+   "lily pad"
+  ],
+  "readability": 4,
+  "features": [
+   "three heart-shaped green leaves",
+   "dark outline",
+   "light green highlights",
+   "shaded right leaf",
+   "sunset sky with sun",
+   "sandy beach and water background"
+  ],
+  "problems": [
+   "no visible stem",
+   "leaves merge into a blobby mass",
+   "bottom-right leaf is dark and blends with the outline",
+   "background is busy compared to the subject"
+  ],
+  "digest": "10faa84280a8f85c",
+  "grade": "pass",
+  "score": 78,
+  "colors": 19,
+  "black": 0.106,
+  "biggest_patch": 0.282,
+  "theme": "Beach sunset",
+  "name": "Shamrock",
+  "pack": "holidays",
+  "touched": false
+ },
+ "leprechaun-877": {
+  "guess": "leprechaun with red beard and green hat",
+  "alternatives": [
+   "laughing bearded gnome",
+   "St. Patrick's Day man in green hat"
+  ],
+  "readability": 3,
+  "features": [
+   "green hat with gold buckle",
+   "red beard",
+   "open laughing mouth with teeth and tongue",
+   "tan face",
+   "nose"
+  ],
+  "problems": [
+   "no clear eyes visible",
+   "face is tilted and cropped, hard to read",
+   "hat shape is blobby and blends with green grass",
+   "dark outline merges with mountains"
+  ],
+  "digest": "4fa288d3280756b2",
+  "grade": "pass",
+  "score": 84,
+  "colors": 19,
+  "black": 0.056,
+  "biggest_patch": 0.141,
+  "theme": "Alpine meadow",
+  "name": "Leprechaun",
+  "pack": "holidays",
+  "touched": false
+ },
+ "pot-of-gold-878": {
+  "guess": "pot of gold on a beach",
+  "alternatives": [
+   "black cauldron with gold coins",
+   "treasure pot"
+  ],
+  "readability": 4,
+  "features": [
+   "round black pot body",
+   "grey highlight shine",
+   "rim of pot",
+   "pile of gold coins on top",
+   "beach sand and sea background",
+   "sun"
+  ],
+  "problems": [
+   "green vines/leaves around the rim are confusing",
+   "gold pile is flat and blobby, coins not distinct",
+   "dark pot is large with few details"
+  ],
+  "digest": "685824f0c6e9ffc6",
+  "grade": "pass",
+  "score": 74,
+  "colors": 20,
+  "black": 0.193,
+  "biggest_patch": 0.198,
+  "theme": "Tropical beach",
+  "name": "Pot of Gold",
+  "pack": "holidays",
+  "touched": false
+ },
+ "flag-879": {
+  "guess": "walking Japanese flag character",
+  "alternatives": [
+   "cartoon flag with a face",
+   "waving white banner mascot"
+  ],
+  "readability": 4,
+  "features": [
+   "white rectangular flag",
+   "red circle with a smiling face and eyes",
+   "black outline",
+   "little legs walking",
+   "hand or fist on right side",
+   "sun in the background"
+  ],
+  "problems": [
+   "the gray waving end and hand are hard to read",
+   "yellow-orange striped background is busy",
+   "the face inside the red circle is small"
+  ],
+  "digest": "880bb704cbb347c4",
+  "grade": "pass",
+  "score": 86,
+  "colors": 12,
+  "black": 0.092,
+  "biggest_patch": 0.158,
+  "theme": "Golden wheat",
+  "name": "Flag",
+  "pack": "holidays",
+  "touched": false
+ },
+ "firecracker-880": {
+  "guess": "firecracker with lit fuse exploding",
+  "alternatives": [
+   "stick of dynamite",
+   "red lantern"
+  ],
+  "readability": 3,
+  "features": [
+   "red cylindrical body",
+   "yellow bands/stripes",
+   "yellow-orange spark/explosion on top",
+   "short fuse",
+   "dark outline"
+  ],
+  "problems": [
+   "body shape is lumpy and uneven, not a clean cylinder",
+   "spark could be read as a flower",
+   "context in a flower meadow is odd for a firecracker",
+   "red tones blend into each other, hiding the form"
+  ],
+  "digest": "9754660d0ce32ab9",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.044,
+  "biggest_patch": 0.227,
+  "theme": "Rose garden",
+  "name": "Firecracker",
+  "pack": "holidays",
+  "touched": false
+ },
+ "menorah-881": {
+  "guess": "menorah with candles",
+  "alternatives": [
+   "candelabra",
+   "orange crown"
+  ],
+  "readability": 3,
+  "features": [
+   "multiple white candles with yellow flames",
+   "curved orange arms",
+   "central stem",
+   "base"
+  ],
+  "problems": [
+   "arms blend into a blobby orange mass",
+   "dark outlines cluttered with stripes",
+   "candle count and arms hard to separate",
+   "busy striped pink background"
+  ],
+  "digest": "82f627906bf4ae58",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.199,
+  "biggest_patch": 0.139,
+  "theme": "Tulip fields",
+  "name": "Menorah",
+  "pack": "holidays",
+  "touched": false
+ },
+ "lucky-cat-882": {
+  "guess": "lucky cat (maneki-neko) in a city",
+  "alternatives": [
+   "white and black cat waving",
+   "panda"
+  ],
+  "readability": 4,
+  "features": [
+   "cat face with closed eyes",
+   "pink cheeks",
+   "pointed ears with red insides",
+   "raised paw",
+   "red collar",
+   "yellow bib/coin",
+   "black and white body",
+   "city buildings and sunset background"
+  ],
+  "problems": [
+   "white face blends with white background patches near the edges",
+   "eyes are small and squinty",
+   "body shape is a bit blobby",
+   "yellow coin shape is unclear"
+  ],
+  "digest": "9f504a6e06ee6a78",
+  "grade": "pass",
+  "score": 90,
+  "colors": 14,
+  "black": 0.116,
+  "biggest_patch": 0.16,
+  "theme": "City dawn",
+  "name": "Lucky Cat",
+  "pack": "holidays",
+  "touched": false
+ },
+ "pilgrim-hat-883": {
+  "guess": "witch hat",
+  "alternatives": [
+   "leprechaun hat",
+   "black pilgrim hat"
+  ],
+  "readability": 3,
+  "features": [
+   "dark pointed/rounded crown",
+   "wide brim",
+   "green hat band",
+   "yellow buckle"
+  ],
+  "problems": [
+   "crown is very wide and rounded, not pointed like a typical witch hat",
+   "dark hat is huge and blobby, filling most of the image",
+   "brim edges blend into the dark green grass at the bottom",
+   "red barn behind hat may distract"
+  ],
+  "digest": "85782fa612321003",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.328,
+  "biggest_patch": 0.328,
+  "theme": "Red barn",
+  "name": "Pilgrim Hat",
+  "pack": "holidays",
+  "touched": false
+ },
+ "santa-sleigh-884": {
+  "guess": "Santa Claus on his red sleigh at night",
+  "alternatives": [
+   "red sleigh with gift box",
+   "Santa's bag of presents"
+  ],
+  "readability": 3,
+  "features": [
+   "red curved sleigh body with white runner",
+   "Santa hat (red with white trim)",
+   "beard/face area in tan and pink",
+   "yellow wrapped gift with ribbon",
+   "night sky with crescent moon and stars",
+   "green trees and grass"
+  ],
+  "problems": [
+   "Santa's face is tiny and hard to read",
+   "figure blends into the red sleigh",
+   "dark outlines clutter the shape",
+   "gift box and hat shapes are ambiguous"
+  ],
+  "digest": "69d90d4701f43f20",
+  "grade": "pass",
+  "score": 76,
+  "colors": 19,
+  "black": 0.279,
+  "biggest_patch": 0.154,
+  "theme": "Moonlit pond",
+  "name": "Santa Sleigh",
+  "pack": "holidays",
+  "touched": false
+ },
+ "elf-hat-885": {
+  "guess": "green Santa/elf hat",
+  "alternatives": [
+   "green slug or blob creature",
+   "green dinosaur hill"
+  ],
+  "readability": 3,
+  "features": [
+   "large green cone-shaped body",
+   "white fluffy pompom on the left tip",
+   "white fur trim band along the bottom",
+   "dark outline"
+  ],
+  "problems": [
+   "hat shape is bulky and mound-like, reads as a hill",
+   "pompom and trim placement is unusual (tip drooping left low)",
+   "stray dark pixel looks like an eye, suggesting a creature",
+   "sits in grassy meadow with flowers, odd context for a hat"
+  ],
+  "digest": "27d58669ff501ade",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.061,
+  "biggest_patch": 0.23,
+  "theme": "Dawn fields",
+  "name": "Elf Hat",
+  "pack": "holidays",
+  "touched": false
+ },
+ "birthday-candle-886": {
+  "guess": "birthday cake with candles",
+  "alternatives": [
+   "pie with candles",
+   "jelly dessert"
+  ],
+  "readability": 4,
+  "features": [
+   "lit candles with flames on top",
+   "pink frosting layer",
+   "yellow cake base",
+   "colored sprinkles/decorations",
+   "dark outline around cake"
+  ],
+  "problems": [
+   "cake shape is somewhat blobby and irregular",
+   "frosting and base edges are uneven",
+   "candles are thin and partly blend with frosting colors",
+   "busy background of gray wall and blue stripe"
+  ],
+  "digest": "cd666e20f61490a7",
+  "grade": "pass",
+  "score": 74,
+  "colors": 18,
+  "black": 0.283,
+  "biggest_patch": 0.193,
+  "theme": "Stormy coast",
+  "name": "Birthday Candle",
+  "pack": "holidays",
+  "touched": false
+ }
+}

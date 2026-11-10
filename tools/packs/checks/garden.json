@@ -1,0 +1,564 @@
+{
+ "rose-767": {
+  "guess": "owl holding a rose on a beach at sunset",
+  "alternatives": [
+   "penguin with a flower",
+   "sparrow bird"
+  ],
+  "readability": 3,
+  "features": [
+   "round brown body",
+   "white face and belly",
+   "dark angry eyebrows/eyes",
+   "orange beak",
+   "green stem in beak",
+   "red rose",
+   "orange feet",
+   "sunset sky with sun",
+   "sea and sand"
+  ],
+  "problems": [
+   "eyes are just a dark bar, hard to read as eyes",
+   "no clear wings or ears",
+   "red rose blends with body edge",
+   "busy striped background competes with the subject",
+   "blobby round shape"
+  ],
+  "digest": "fbe7b2125a115f17",
+  "grade": "pass",
+  "score": 84,
+  "colors": 20,
+  "black": 0.082,
+  "biggest_patch": 0.091,
+  "theme": "Beach sunset",
+  "name": "Rose",
+  "pack": "garden",
+  "touched": false
+ },
+ "tulip-768": {
+  "guess": "yellow tulip",
+  "alternatives": [
+   "yellow rose",
+   "daffodil"
+  ],
+  "readability": 5,
+  "features": [
+   "yellow-orange cup-shaped flower head",
+   "dark outline around petals",
+   "green stem",
+   "green leaves at base",
+   "meadow with stream, trees and small flowers"
+  ],
+  "problems": [
+   "blue stream behind the leaves slightly clutters the base",
+   "leaves are somewhat blobby",
+   "dark blue patch near leaves is unclear"
+  ],
+  "digest": "140a97b2c61f4eef",
+  "grade": "pass",
+  "score": 80,
+  "colors": 16,
+  "black": 0.047,
+  "biggest_patch": 0.184,
+  "theme": "Riverbank",
+  "name": "Tulip",
+  "pack": "garden",
+  "touched": false
+ },
+ "sunflower-769": {
+  "guess": "sunflower",
+  "alternatives": [
+   "sun",
+   "yellow daisy"
+  ],
+  "readability": 5,
+  "features": [
+   "large brown seed center",
+   "yellow and orange pointed petals around the center",
+   "dark outline",
+   "shading from yellow to orange on the lower right",
+   "highlight dots on the center"
+  ],
+  "problems": [
+   "no stem or leaves visible, just the flower head",
+   "the round spiky shape with yellow petals could be mistaken for a cartoon sun",
+   "flower head fills most of the frame and is cut off at the bottom"
+  ],
+  "digest": "e90858a2cd0b55e4",
+  "grade": "pass",
+  "score": 80,
+  "colors": 20,
+  "black": 0.068,
+  "biggest_patch": 0.15,
+  "theme": "Alpine meadow",
+  "name": "Sunflower",
+  "pack": "garden",
+  "touched": false
+ },
+ "poppy-770": {
+  "guess": "red poppy flower",
+  "alternatives": [
+   "red rose",
+   "red umbrella blown by wind"
+  ],
+  "readability": 3,
+  "features": [
+   "large red petals",
+   "dark center",
+   "thin brown stem",
+   "small green bud at stem"
+  ],
+  "problems": [
+   "petals form a blobby shape",
+   "dark center is small and irregular",
+   "no leaves",
+   "stem very thin and short",
+   "pink and orange specks look odd"
+  ],
+  "digest": "100fcd86419e2e16",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.061,
+  "biggest_patch": 0.142,
+  "theme": "Snowy pines",
+  "name": "Poppy",
+  "pack": "garden",
+  "touched": false
+ },
+ "potted-plant-771": {
+  "guess": "potted plant in a red pot",
+  "alternatives": [
+   "bush growing out of a broken bucket",
+   "salad in a bowl"
+  ],
+  "readability": 3,
+  "features": [
+   "leafy green top with dark outlines",
+   "red pot with rim",
+   "brown dirt/mud splashed over the pot",
+   "grass and trees in background",
+   "small bird in sky"
+  ],
+  "problems": [
+   "leafy top blends with green trees behind",
+   "brown smear covers much of the pot, making it look broken or muddy",
+   "no clear plant shape, just a blob of leaves",
+   "dark outlines make leaves look busy"
+  ],
+  "digest": "8a82ecda869f1a72",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.097,
+  "biggest_patch": 0.136,
+  "theme": "Bamboo grove",
+  "name": "Potted Plant",
+  "pack": "garden",
+  "touched": false
+ },
+ "marigold-772": {
+  "guess": "orange flower (marigold)",
+  "alternatives": [
+   "sun",
+   "explosion / fireball"
+  ],
+  "readability": 2,
+  "features": [
+   "wavy petal-like orange outline",
+   "yellow center",
+   "darker red-orange shading on lower right"
+  ],
+  "problems": [
+   "no stem or leaves to confirm a flower",
+   "night scene with moon conflicts with sun reading",
+   "blobby irregular shape",
+   "center is small and off-center",
+   "ambiguous between sun, flower and explosion"
+  ],
+  "digest": "5251a1e8c10dc2c0",
+  "grade": "weak",
+  "score": 62,
+  "colors": 18,
+  "black": 0.25,
+  "biggest_patch": 0.232,
+  "theme": "Moonlit pond",
+  "name": "Marigold",
+  "pack": "garden",
+  "touched": false
+ },
+ "pansy-773": {
+  "guess": "purple pansy flower in a round window",
+  "alternatives": [
+   "violet flower in a snow globe",
+   "flower in a porthole"
+  ],
+  "readability": 3,
+  "features": [
+   "purple petals",
+   "yellow center",
+   "green leaves",
+   "round white frame",
+   "stone brick wall background",
+   "blue stripe"
+  ],
+  "problems": [
+   "flower petals are blobby and fragmented",
+   "light blue background inside circle breaks up the flower shape",
+   "dark purple/blue center blends with petals",
+   "busy brick background competes for attention"
+  ],
+  "digest": "68580da6c5d2acc6",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.261,
+  "biggest_patch": 0.179,
+  "theme": "Stormy coast",
+  "name": "Pansy",
+  "pack": "garden",
+  "touched": false
+ },
+ "carnation-774": {
+  "guess": "red flower (carnation)",
+  "alternatives": [
+   "red tree",
+   "red umbrella"
+  ],
+  "readability": 3,
+  "features": [
+   "large dark red ruffled bloom with jagged top edge",
+   "green stem",
+   "dark outline/shadow along stem",
+   "snowy ground, sky, sun and cloud background"
+  ],
+  "problems": [
+   "bloom is a large blobby mass without petal detail",
+   "no leaves on the stem",
+   "stem is short and thick, so proportions look more like a tree or mushroom",
+   "dark red has little shading, so it reads as flat"
+  ],
+  "digest": "1bb642cf9ea773ae",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.028,
+  "biggest_patch": 0.199,
+  "theme": "Ice field",
+  "name": "Carnation",
+  "pack": "garden",
+  "touched": false
+ },
+ "dandelion-775": {
+  "guess": "dandelion seed head (puffball)",
+  "alternatives": [
+   "magnifying glass",
+   "tennis racket"
+  ],
+  "readability": 3,
+  "features": [
+   "round white fluffy head with dark outline",
+   "grey seed texture inside",
+   "light green stem curving down",
+   "grass and bushes around",
+   "small red-white mushrooms"
+  ],
+  "problems": [
+   "dark thick outline and diagonal stem make it look like a magnifying glass or racket",
+   "inner grey pattern is abstract, no clear seeds or fluff tufts",
+   "stem is short and thin compared to the huge head"
+  ],
+  "digest": "4e9894fdf7bf4773",
+  "grade": "pass",
+  "score": 68,
+  "colors": 9,
+  "black": 0.119,
+  "biggest_patch": 0.188,
+  "theme": "Misty pines",
+  "name": "Dandelion",
+  "pack": "garden",
+  "touched": false
+ },
+ "spring-flowers-776": {
+  "guess": "flower in an orange pot at night",
+  "alternatives": [
+   "sprouting plant in a flowerpot",
+   "tulip growing from a vase"
+  ],
+  "readability": 3,
+  "features": [
+   "orange flowerpot",
+   "green curving stem with leaves",
+   "orange flower bloom at top",
+   "night sky with moon and stars",
+   "grassy ground"
+  ],
+  "problems": [
+   "flower head is small and blobby, not clearly a flower",
+   "pot shape is irregular and wider at top like a bucket",
+   "stem is thin and merges with dark hills behind",
+   "dark gray outline areas around stem look messy"
+  ],
+  "digest": "d7219ca501ea18f1",
+  "grade": "pass",
+  "score": 68,
+  "colors": 12,
+  "black": 0.323,
+  "biggest_patch": 0.175,
+  "theme": "Starry hilltop",
+  "name": "Spring Flowers",
+  "pack": "garden",
+  "touched": false
+ },
+ "summer-sun-777": {
+  "guess": "sunflower",
+  "alternatives": [
+   "sun with a face",
+   "orange lion mane / flower"
+  ],
+  "readability": 2,
+  "features": [
+   "spiky orange petals radiating outward",
+   "dark outline around petals",
+   "farm background with barn, fence and sun",
+   "tan and gray shapes in the center"
+  ],
+  "problems": [
+   "center is a jumble of tan, gray, yellow and red with no clear seed disk or face",
+   "no visible stem or leaves",
+   "petal colors blend with the orange/yellow sky and sun",
+   "shape reads as a spiky blob rather than a clear flower",
+   "unclear whether it is a flower, a sun, or an animal"
+  ],
+  "digest": "70d4fa7047973ca6",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.134,
+  "biggest_patch": 0.121,
+  "theme": "Harvest farm",
+  "name": "Summer Sun",
+  "pack": "garden",
+  "touched": false
+ },
+ "winter-snow-778": {
+  "guess": "snowy cave entrance",
+  "alternatives": [
+   "window with frost",
+   "waterfall with ice"
+  ],
+  "readability": 2,
+  "features": [
+   "dark arch frame with green vines",
+   "white snowy interior",
+   "light blue streaks like water or ice",
+   "grey-beige slope in lower right",
+   "purple crystal shapes",
+   "small yellow light at top"
+  ],
+  "problems": [
+   "large flat white area with little detail",
+   "no clear central subject",
+   "light blue and purple marks are scattered and ambiguous",
+   "border elements dominate over the middle"
+  ],
+  "digest": "871a3d567d9fe999",
+  "grade": "weak",
+  "score": 62,
+  "colors": 13,
+  "black": 0.242,
+  "biggest_patch": 0.415,
+  "theme": "Aurora lake",
+  "name": "Winter Snow",
+  "pack": "garden",
+  "touched": false
+ },
+ "spring-tree-779": {
+  "guess": "tree with yellow-green leaves",
+  "alternatives": [
+   "bush in a lavender field",
+   "autumn tree"
+  ],
+  "readability": 4,
+  "features": [
+   "round leafy crown in green and yellow",
+   "brown trunk",
+   "dark outline around the crown",
+   "blue shadow on the right side",
+   "purple flower field background",
+   "green grass strip at bottom",
+   "grey sky/mountains"
+  ],
+  "problems": [
+   "trunk is thin and partly hidden by blue shadow",
+   "orange patch in the crown could be confusing",
+   "busy speckled leaf pattern makes the crown look noisy",
+   "purple speckles in the background add clutter"
+  ],
+  "digest": "bbe447aa6a5b57d2",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.056,
+  "biggest_patch": 0.205,
+  "theme": "Overcast moor",
+  "name": "Spring Tree",
+  "pack": "garden",
+  "touched": false
+ },
+ "summer-tree-780": {
+  "guess": "tree at sunset",
+  "alternatives": [
+   "bush",
+   "broccoli"
+  ],
+  "readability": 5,
+  "features": [
+   "round green leafy crown",
+   "brown trunk",
+   "dark outline around foliage",
+   "blue shadow",
+   "sun in sky",
+   "grass strip at bottom"
+  ],
+  "problems": [
+   "purple striped background is busy",
+   "trunk is thin compared to crown"
+  ],
+  "digest": "c213283e6e0fb52f",
+  "grade": "pass",
+  "score": 80,
+  "colors": 14,
+  "black": 0.037,
+  "biggest_patch": 0.147,
+  "theme": "Lavender fields",
+  "name": "Summer Tree",
+  "pack": "garden",
+  "touched": false
+ },
+ "autumn-tree-781": {
+  "guess": "red tree",
+  "alternatives": [
+   "red mushroom",
+   "dark red bush"
+  ],
+  "readability": 3,
+  "features": [
+   "large round dark red canopy with dark gray speckles",
+   "dark shading at the bottom of the canopy",
+   "short thick trunk in the same red as the canopy",
+   "grass, flowers, small stones and a blue stream around it",
+   "sky with clouds"
+  ],
+  "problems": [
+   "trunk is the same dark red as the canopy, so it reads as one blob",
+   "unusual red color for a tree",
+   "dark speckles look like spots, making it seem like a mushroom",
+   "no visible branches or leaf texture"
+  ],
+  "digest": "5dff6bfef2b95b7f",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.099,
+  "biggest_patch": 0.312,
+  "theme": "Riverbank",
+  "name": "Autumn Tree",
+  "pack": "garden",
+  "touched": false
+ },
+ "winter-tree-782": {
+  "guess": "snow-covered pine tree",
+  "alternatives": [
+   "white Christmas tree",
+   "snowy mountain peak"
+  ],
+  "readability": 4,
+  "features": [
+   "triangular tree shape",
+   "white snow covering branches",
+   "dark outline of branches",
+   "green needles peeking at edges",
+   "red-brown trunk"
+  ],
+  "problems": [
+   "mostly white so it looks like a ghost or blob",
+   "little green visible to read as a tree",
+   "snow on tree in a summer meadow with flowers is confusing",
+   "could be mistaken for a snowy mountain echoing the background peaks"
+  ],
+  "digest": "55377911510d65a7",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.065,
+  "biggest_patch": 0.196,
+  "theme": "Alpine meadow",
+  "name": "Winter Tree",
+  "pack": "garden",
+  "touched": false
+ },
+ "winter-hat-783": {
+  "guess": "winter knit hat (beanie with pom-pom)",
+  "alternatives": [
+   "sleeping red blob creature wearing a hat",
+   "tea cozy"
+  ],
+  "readability": 3,
+  "features": [
+   "red pom-pom on top",
+   "yellow and orange top section",
+   "green band",
+   "large red brim/body",
+   "snowy mountain background with night sky and star"
+  ],
+  "problems": [
+   "shape is flat and wide, hard to tell it's a hat",
+   "pink lines on red look like closed eyes, suggesting a creature instead",
+   "no clear knit texture",
+   "bottom red part blob-like and dark shading makes it heavy"
+  ],
+  "digest": "33e2e9f450a1a947",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.234,
+  "biggest_patch": 0.156,
+  "theme": "Winter night",
+  "name": "Winter Hat",
+  "pack": "garden",
+  "touched": false
+ },
+ "spring-bunny-784": {
+  "guess": "white bunny rabbit",
+  "alternatives": [
+   "white hamster",
+   "white cat"
+  ],
+  "readability": 4,
+  "features": [
+   "long upright ears with orange insides",
+   "white round head and body",
+   "closed or sleepy eyes",
+   "orange nose",
+   "grey shaded side",
+   "outdoor background with sky, clouds, trees, orange field"
+  ],
+  "problems": [
+   "no clear legs or tail, body is a blob",
+   "eyes look like dark slashes, hard to read as eyes",
+   "orange nose sits low and off-centre",
+   "grey shading on right side looks like a separate shape"
+  ],
+  "digest": "3ebfbd11639ca269",
+  "grade": "pass",
+  "score": 86,
+  "colors": 17,
+  "black": 0.098,
+  "biggest_patch": 0.147,
+  "theme": "Autumn woods",
+  "name": "Spring Bunny",
+  "pack": "garden",
+  "touched": false
+ }
+}

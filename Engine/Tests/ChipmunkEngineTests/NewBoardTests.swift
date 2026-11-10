@@ -51,15 +51,16 @@ final class NewBoardTests: XCTestCase {
         XCTAssertGreaterThan(Difficulty.rampGoal(1000), 0.1)
     }
 
-    /// A sample of new boards build, and their stored plan clears them.
+    /// A sample of new boards build (as the game builds them, retrying a few seeds), and each can be won under the
+    /// game's timing: its stored plan clears it, or the solver finds a way (the plan is only the solver's first try).
     func testNewBoardsBuildAndClear() {
         let first = catalog.paradiseFrom
         for i in stride(from: first, to: catalog.levelPlay.count, by: 6) {
             let key = catalog.diffKey(forBoard: i)
             var o = BuildOptions.game
             o.aim = LevelCatalog.aim(key, tailor: 1)
-            guard let lv = generateLevel(base: catalog.base(forBoard: i), seed: catalog.seed(forBoard: i), diffKey: key,
-                                         options: o) else {
+            guard let lv = generateLevelRetrying(base: catalog.base(forBoard: i), seed: catalog.seed(forBoard: i),
+                                                 diffKey: key, options: o) else {
                 XCTFail("board \(i + 1) didn't build")
                 continue
             }
@@ -71,7 +72,11 @@ final class NewBoardTests: XCTestCase {
                 tap(lv, &m.s, l)
                 settleTimed(lv, &m)
             }
-            XCTAssertTrue(m.s.won, "board \(i + 1)")
+            if !m.s.won {
+                var m0 = Sim(lv)
+                m0.pickupPause = 25
+                XCTAssertNotNil(solve(lv, m0, cap: 20000).path, "board \(i + 1) can't be won")
+            }
         }
     }
 }

@@ -1,0 +1,447 @@
+{
+ "astronaut-413": {
+  "guess": "astronaut in a white spacesuit",
+  "alternatives": [
+   "ghost",
+   "white cat or sheep lying on grass"
+  ],
+  "readability": 3,
+  "features": [
+   "round helmet with large dark visor",
+   "white puffy suit with grey shading",
+   "arm raised up to the right",
+   "legs/boots stretched out at the bottom",
+   "landscape with sunset sky, sun, mountains, grass"
+  ],
+  "problems": [
+   "no face visible, just a black visor blob",
+   "body pose is twisted and hard to read",
+   "white suit blends with grey/white mountains behind",
+   "limbs are blocky and ambiguous at this resolution",
+   "astronaut sitting on green grass is an unexpected context"
+  ],
+  "digest": "0b3d5c2d2d480ae3",
+  "grade": "pass",
+  "score": 72,
+  "colors": 13,
+  "black": 0.225,
+  "biggest_patch": 0.106,
+  "theme": "Mountain sunset",
+  "name": "Astronaut",
+  "pack": "space2",
+  "touched": false
+ },
+ "planet-414": {
+  "guess": "red planet Mars",
+  "alternatives": [
+   "red ball",
+   "red moon or asteroid"
+  ],
+  "readability": 4,
+  "features": [
+   "large round red sphere",
+   "dark red shadow side",
+   "lighter craters and surface markings",
+   "pink highlight on top left",
+   "small purple planet in background",
+   "stars in dark sky"
+  ],
+  "problems": [
+   "checkered gray background below is confusing and doesn't read as space",
+   "without context a plain red circle could be a ball or fruit",
+   "surface markings are faint and blobby"
+  ],
+  "digest": "c6b6825ee8e79072",
+  "grade": "pass",
+  "score": 78,
+  "colors": 11,
+  "black": 0.337,
+  "biggest_patch": 0.307,
+  "theme": "Moon base",
+  "name": "Planet",
+  "pack": "space2",
+  "touched": false
+ },
+ "moon-415": {
+  "guess": "crescent moon in a night sky window",
+  "alternatives": [
+   "moon poster on a wall",
+   "night sky through a castle window with a comet"
+  ],
+  "readability": 2,
+  "features": [
+   "yellow crescent moon",
+   "dark starry sky",
+   "orange comet/meteor at top left",
+   "gray rectangular frame or panel",
+   "brick walls on both sides",
+   "orange spots"
+  ],
+  "problems": [
+   "the large gray panel dominates and is unclear what it is",
+   "moon is partly merged with gray and dark areas",
+   "scattered orange and red blobs are confusing",
+   "no clear single subject outline",
+   "busy noisy edges on the gray shape"
+  ],
+  "digest": "7528dd5ddfba4cc7",
+  "grade": "weak",
+  "score": 62,
+  "colors": 12,
+  "black": 0.476,
+  "biggest_patch": 0.454,
+  "theme": "Outer space",
+  "name": "Moon",
+  "pack": "space2",
+  "touched": false
+ },
+ "sun-416": {
+  "guess": "smiling sun",
+  "alternatives": [
+   "sunflower",
+   "yellow star creature"
+  ],
+  "readability": 4,
+  "features": [
+   "round yellow body",
+   "pointed orange rays around edge",
+   "two black eyes",
+   "big open smiling mouth",
+   "orange shading on right side",
+   "dark outline"
+  ],
+  "problems": [
+   "rays are small and stubby so it looks a bit like a spiky blob",
+   "sitting on grass is unusual for a sun, which may confuse",
+   "a second small sun in the sky competes with the main subject"
+  ],
+  "digest": "8659788acba50316",
+  "grade": "pass",
+  "score": 82,
+  "colors": 18,
+  "black": 0.096,
+  "biggest_patch": 0.177,
+  "theme": "Sunflower farm",
+  "name": "Sun",
+  "pack": "space2",
+  "touched": false
+ },
+ "comet-417": {
+  "guess": "falling meteor / comet crashing on grass at night",
+  "alternatives": [
+   "fireball",
+   "shooting star"
+  ],
+  "readability": 3,
+  "features": [
+   "bright yellow glowing head on the left",
+   "orange fiery tail streaming to the right",
+   "night sky with stars and crescent moon",
+   "dark hills and green grass"
+  ],
+  "problems": [
+   "comet appears to be lying horizontally on the ground rather than flying",
+   "blobby head shape without clear outline",
+   "tail direction ambiguous",
+   "could read as a yellow blob or a fish"
+  ],
+  "digest": "1a6372cab51c9319",
+  "grade": "pass",
+  "score": 76,
+  "colors": 12,
+  "black": 0.349,
+  "biggest_patch": 0.309,
+  "theme": "Starry hilltop",
+  "name": "Comet",
+  "pack": "space2",
+  "touched": false
+ },
+ "alien-418": {
+  "guess": "green alien in the desert",
+  "alternatives": [
+   "cactus creature",
+   "green goblin"
+  ],
+  "readability": 3,
+  "features": [
+   "big round green head",
+   "dark eye patches",
+   "small mouth",
+   "stubby body and legs",
+   "desert background with sun, cactus and bird"
+  ],
+  "problems": [
+   "body is a blobby shape without clear limbs",
+   "eyes are dark green and low contrast",
+   "red/white bits at the bottom are unclear",
+   "no clear arms or hands"
+  ],
+  "digest": "d96e4b467fb3f2c4",
+  "grade": "pass",
+  "score": 80,
+  "colors": 18,
+  "black": 0.05,
+  "biggest_patch": 0.173,
+  "theme": "Cactus canyon",
+  "name": "Alien",
+  "pack": "space2",
+  "touched": false
+ },
+ "telescope-419": {
+  "guess": "telescope on a tripod",
+  "alternatives": [
+   "cannon",
+   "spyglass"
+  ],
+  "readability": 4,
+  "features": [
+   "long brown tube",
+   "grey lens cap at wide end",
+   "small eyepiece end",
+   "grey mount clamp",
+   "blue tripod legs",
+   "sunset sky with sun"
+  ],
+  "problems": [
+   "brown tube looks a bit like a cannon or log",
+   "purple striped background is busy",
+   "tripod legs dark and blend with dark outline"
+  ],
+  "digest": "41ebf01e30d399dd",
+  "grade": "pass",
+  "score": 82,
+  "colors": 14,
+  "black": 0.083,
+  "biggest_patch": 0.162,
+  "theme": "Lavender fields",
+  "name": "Telescope",
+  "pack": "space2",
+  "touched": false
+ },
+ "space-rocket-420": {
+  "guess": "rocket launching",
+  "alternatives": [
+   "space shuttle",
+   "penguin with jetpack"
+  ],
+  "readability": 3,
+  "features": [
+   "white rocket body",
+   "red nose cone",
+   "round black window",
+   "red fins",
+   "orange and yellow flame from engine",
+   "night sky with stars",
+   "mountains and grass background"
+  ],
+  "problems": [
+   "rocket is tilted diagonally and partly blends with white/grey mountains",
+   "nose cone small and off to one side",
+   "body shape is blobby rather than a clear cylinder",
+   "busy background with many colors"
+  ],
+  "digest": "da812c6d1e2d2349",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.244,
+  "biggest_patch": 0.139,
+  "theme": "Aurora lake",
+  "name": "Space Rocket",
+  "pack": "space2",
+  "touched": false
+ },
+ "space-helmet-421": {
+  "guess": "astronaut helmet",
+  "alternatives": [
+   "space helmet lying in grass",
+   "motorcycle helmet"
+  ],
+  "readability": 3,
+  "features": [
+   "white rounded helmet shell",
+   "large dark visor",
+   "shine highlight on visor",
+   "red stripes on top",
+   "grey shading on lower rim",
+   "grass and flowers around it"
+  ],
+  "problems": [
+   "only the helmet is shown, no astronaut body",
+   "dark visor dominates and reads like a big black hole or circle",
+   "could be mistaken for a sheep or ball without context",
+   "white shell edges blend slightly into pale sky"
+  ],
+  "digest": "044970d89954dc53",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.309,
+  "biggest_patch": 0.242,
+  "theme": "Rose garden",
+  "name": "Space Helmet",
+  "pack": "space2",
+  "touched": false
+ },
+ "ufo-422": {
+  "guess": "blue UFO flying saucer with lit windows",
+  "alternatives": [
+   "blue house with yellow windows",
+   "blue mushroom"
+  ],
+  "readability": 3,
+  "features": [
+   "domed top",
+   "wide saucer disc",
+   "yellow glowing windows",
+   "orange rim lights",
+   "small antennas",
+   "bottom beam stem"
+  ],
+  "problems": [
+   "shape is blobby and irregular",
+   "windows look scattered like spots",
+   "light and dark blues mix so the dome and disc blur together",
+   "sunset background is busy"
+  ],
+  "digest": "eaae4656ef46ef30",
+  "grade": "pass",
+  "score": 72,
+  "colors": 18,
+  "black": 0.161,
+  "biggest_patch": 0.097,
+  "theme": "Castle at dusk",
+  "name": "UFO",
+  "pack": "space2",
+  "touched": false
+ },
+ "saturn-423": {
+  "guess": "ringed planet (like Saturn)",
+  "alternatives": [
+   "red planet with a ring in space",
+   "flying saucer / UFO"
+  ],
+  "readability": 4,
+  "features": [
+   "round red planet body with darker red craters/spots",
+   "tilted blue and green ring wrapping around it",
+   "pink highlight on top edge",
+   "small magenta moon with its own pink ring in upper left",
+   "starry dark space background with white and yellow stars"
+  ],
+  "problems": [
+   "gray checkered pattern in lower half looks like a floor and confuses the space setting",
+   "ring's dark shadow outline blends with dark sky",
+   "red and green colors make it less like familiar Saturn",
+   "small moon at top-left is cut off by the edge"
+  ],
+  "digest": "1fdbd7c4cf178d92",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.406,
+  "biggest_patch": 0.334,
+  "theme": "Moon base",
+  "name": "Saturn",
+  "pack": "space2",
+  "touched": false
+ },
+ "earth-424": {
+  "guess": "smiling planet Earth",
+  "alternatives": [
+   "globe",
+   "blue and green ball"
+  ],
+  "readability": 5,
+  "features": [
+   "round globe shape",
+   "blue oceans",
+   "green continents",
+   "closed happy eyes",
+   "smiling mouth",
+   "pink blushing cheeks",
+   "dark outline",
+   "white polar cap on top",
+   "snowy background with pine trees"
+  ],
+  "problems": [
+   "face features are small and dark green eyes blend slightly with continents",
+   "bottom of the globe slightly blends with dark outline and shadow",
+   "background trees are similar green to the continents"
+  ],
+  "digest": "0cc4219c23124709",
+  "grade": "pass",
+  "score": 88,
+  "colors": 14,
+  "black": 0.084,
+  "biggest_patch": 0.147,
+  "theme": "Snowy pines",
+  "name": "Earth",
+  "pack": "space2",
+  "touched": false
+ },
+ "star-425": {
+  "guess": "smiling grey star character",
+  "alternatives": [
+   "grey cat face",
+   "starfish"
+  ],
+  "readability": 3,
+  "features": [
+   "five-pointed star outline",
+   "closed smiling eyes",
+   "brown eyebrows or ear marks",
+   "small red mouth or tongue",
+   "white highlights on face"
+  ],
+  "problems": [
+   "grey star is not a typical star color, so it may read as a rock or animal",
+   "face details are small and blend with the white and grey shading",
+   "shape leans and distorts at the bottom, merging with the dark green grass",
+   "purple hills behind compete with the outline"
+  ],
+  "digest": "c98d7ef34cb673fc",
+  "grade": "pass",
+  "score": 84,
+  "colors": 20,
+  "black": 0.096,
+  "biggest_patch": 0.183,
+  "theme": "Spring meadow",
+  "name": "Star",
+  "pack": "space2",
+  "touched": false
+ },
+ "space-shuttle-426": {
+  "guess": "crashed space shuttle in the desert",
+  "alternatives": [
+   "white airplane wreck",
+   "rocket ship"
+  ],
+  "readability": 3,
+  "features": [
+   "white fuselage",
+   "grey cockpit window",
+   "wings and tail fins",
+   "black shading/outline",
+   "desert sand",
+   "cacti",
+   "night sky with moon and stars"
+  ],
+  "problems": [
+   "shuttle is tilted and partly buried, hard to read its shape",
+   "wings and tail blend into one blob at lower left",
+   "black outline merges with dark sky at top",
+   "no clear nose cone shape"
+  ],
+  "digest": "e86381149254ee18",
+  "grade": "pass",
+  "score": 76,
+  "colors": 12,
+  "black": 0.272,
+  "biggest_patch": 0.229,
+  "theme": "Desert night",
+  "name": "Space Shuttle",
+  "pack": "space2",
+  "touched": false
+ }
+}

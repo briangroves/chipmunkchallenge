@@ -1,0 +1,800 @@
+{
+ "pizza-356": {
+  "guess": "pizza",
+  "alternatives": [
+   "pizza in a pan",
+   "cheese pie"
+  ],
+  "readability": 4,
+  "features": [
+   "round shape",
+   "orange-yellow crust edge",
+   "red tomato bits",
+   "green pepper pieces",
+   "white cheese",
+   "tan mushroom pieces",
+   "dark pan or plate rim",
+   "night city background with moon and buildings"
+  ],
+  "problems": [
+   "toppings are scattered and noisy, a little hard to read individually",
+   "busy background of buildings and sky competes with the subject",
+   "crust and cheese colors blend together"
+  ],
+  "digest": "02a21dbc63b626d9",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.244,
+  "biggest_patch": 0.156,
+  "theme": "City night",
+  "name": "Pizza",
+  "pack": "meals",
+  "touched": false
+ },
+ "burger-357": {
+  "guess": "hamburger character running in a city",
+  "alternatives": [
+   "burger mascot",
+   "cartoon hamburger monster"
+  ],
+  "readability": 3,
+  "features": [
+   "brown bun top with sesame-like dots",
+   "orange eyes",
+   "red tongue or mouth",
+   "green lettuce layer",
+   "yellow cheese layer",
+   "green shirt and yellow pants",
+   "dark legs and feet",
+   "arm reaching out",
+   "city buildings and road background"
+  ],
+  "problems": [
+   "face is hard to read: orange eyes and red mouth look like toppings",
+   "bun and patty layers blur together",
+   "the body below the burger is cluttered and confusing",
+   "dark outline merges with the gray road"
+  ],
+  "digest": "4a41a1f09837eb35",
+  "grade": "pass",
+  "score": 84,
+  "colors": 19,
+  "black": 0.076,
+  "biggest_patch": 0.141,
+  "theme": "City day",
+  "name": "Burger",
+  "pack": "meals",
+  "touched": false
+ },
+ "hot-dog-358": {
+  "guess": "hot dog with ketchup bottle",
+  "alternatives": [
+   "sandwich on a plate",
+   "sub roll with sauce"
+  ],
+  "readability": 4,
+  "features": [
+   "tan bun",
+   "red sausage/ketchup on top",
+   "green lettuce",
+   "red ketchup bottle with white cap",
+   "night city skyline with lit windows",
+   "crescent moon"
+  ],
+  "problems": [
+   "ketchup bottle shape is lumpy and its label is hard to read",
+   "sausage mostly hidden, looks like a red stripe",
+   "busy city background competes with the subject",
+   "plate outline merges with gray ground"
+  ],
+  "digest": "43f9c22cf93f44f6",
+  "grade": "pass",
+  "score": 74,
+  "colors": 20,
+  "black": 0.301,
+  "biggest_patch": 0.134,
+  "theme": "Lantern festival",
+  "name": "Hot Dog",
+  "pack": "meals",
+  "touched": false
+ },
+ "taco-359": {
+  "guess": "smiling taco in a city",
+  "alternatives": [
+   "happy burrito",
+   "orange blob monster"
+  ],
+  "readability": 3,
+  "features": [
+   "taco shell with brown filling",
+   "green lettuce and red tomato on top",
+   "closed happy eyes",
+   "big open smiling mouth",
+   "city skyline background",
+   "sun in pink sky"
+  ],
+  "problems": [
+   "orange shell blends with orange face making the shape blobby",
+   "taco looks squashed and lumpy rather than a clear taco fold",
+   "face features are small and hard to spot",
+   "busy background with buildings competes for attention"
+  ],
+  "digest": "3bacc3a02fa2a860",
+  "grade": "pass",
+  "score": 76,
+  "colors": 20,
+  "black": 0.124,
+  "biggest_patch": 0.161,
+  "theme": "City dawn",
+  "name": "Taco",
+  "pack": "meals",
+  "touched": false
+ },
+ "sandwich-360": {
+  "guess": "smiling sandwich",
+  "alternatives": [
+   "slice of bread with face",
+   "toast character"
+  ],
+  "readability": 4,
+  "features": [
+   "white bread slice face",
+   "two dot eyes",
+   "big open smiling mouth",
+   "pink tongue",
+   "tan crust outline",
+   "lettuce green filling",
+   "tomato red bits",
+   "cheese yellow bits",
+   "ham pink bits",
+   "brick wall background",
+   "checkered floor"
+  ],
+  "problems": [
+   "face shapes are irregular and a bit blobby",
+   "open mouth with gray shading may look odd",
+   "filling details are small and scattered"
+  ],
+  "digest": "7eb72754476777c3",
+  "grade": "pass",
+  "score": 86,
+  "colors": 11,
+  "black": 0.149,
+  "biggest_patch": 0.166,
+  "theme": "Brick cellar",
+  "name": "Sandwich",
+  "pack": "meals",
+  "touched": false
+ },
+ "sushi-361": {
+  "guess": "sushi rolls",
+  "alternatives": [
+   "maki rolls with salmon and egg",
+   "sliced cake rolls"
+  ],
+  "readability": 3,
+  "features": [
+   "three round rolls with black seaweed outlines",
+   "white rice ring",
+   "red salmon filling",
+   "yellow egg/tamago filling with dark strip",
+   "wooden counter/table",
+   "window and dotted wallpaper background",
+   "striped red-yellow rope or mat"
+  ],
+  "problems": [
+   "rolls viewed from the top look like plain circles or plates",
+   "fillings are abstract shapes that are hard to identify",
+   "no chopsticks or soy sauce for context",
+   "the striped band in the foreground is confusing",
+   "the light blue background makes the scene busy"
+  ],
+  "digest": "92a3422e4dead0ba",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.092,
+  "biggest_patch": 0.331,
+  "theme": "Nursery",
+  "name": "Sushi",
+  "pack": "meals",
+  "touched": false
+ },
+ "noodles-362": {
+  "guess": "cup noodle (instant ramen cup)",
+  "alternatives": [
+   "paper coffee cup",
+   "yogurt container"
+  ],
+  "readability": 3,
+  "features": [
+   "white cylindrical cup body",
+   "lid with red band on top",
+   "red Japanese-like text logo on side",
+   "red stripe near bottom",
+   "dark outline",
+   "shadow on right side",
+   "shelf and small blue item in background"
+  ],
+  "problems": [
+   "cup shape is wobbly and lumpy, not a clean cylinder",
+   "lid and red markings could read as a face",
+   "text logo is illegible at this size",
+   "white cup blends with white checkered floor"
+  ],
+  "digest": "5a1c10078060e213",
+  "grade": "pass",
+  "score": 72,
+  "colors": 10,
+  "black": 0.092,
+  "biggest_patch": 0.396,
+  "theme": "Bakery",
+  "name": "Noodles",
+  "pack": "meals",
+  "touched": false
+ },
+ "french-fries-363": {
+  "guess": "french fries in a cup",
+  "alternatives": [
+   "fire in a bucket",
+   "popcorn cup"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow-orange fry sticks sticking up",
+   "white and red paper cup",
+   "dark outline",
+   "wooden wall with window background",
+   "red and yellow patterned table edge"
+  ],
+  "problems": [
+   "fries are drawn with flame-like orange streaks so they could read as fire",
+   "fries blend into one blob rather than distinct sticks",
+   "cup is a soft rounded shape"
+  ],
+  "digest": "68667855971eb6d0",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.082,
+  "biggest_patch": 0.149,
+  "theme": "Cabin",
+  "name": "French Fries",
+  "pack": "meals",
+  "touched": false
+ },
+ "fried-egg-364": {
+  "guess": "cute fried egg with a face",
+  "alternatives": [
+   "egg on a frying pan over fire",
+   "pancake with butter"
+  ],
+  "readability": 4,
+  "features": [
+   "white egg white with dark outline",
+   "yellow yolk",
+   "smiling face on yolk with eyes and open mouth",
+   "orange cheeks",
+   "red and orange flames or heat underneath",
+   "window and striped pink wall background"
+  ],
+  "problems": [
+   "red/orange bottom area is unclear (fire, bacon or pan?)",
+   "no visible frying pan shape",
+   "face on yolk is small and slightly hard to read"
+  ],
+  "digest": "1ee47b35c0e37ad7",
+  "grade": "pass",
+  "score": 86,
+  "colors": 15,
+  "black": 0.072,
+  "biggest_patch": 0.133,
+  "theme": "Living room",
+  "name": "Fried Egg",
+  "pack": "meals",
+  "touched": false
+ },
+ "pretzel-365": {
+  "guess": "pretzel",
+  "alternatives": [
+   "dark donut on a paper napkin",
+   "peace sign"
+  ],
+  "readability": 3,
+  "features": [
+   "thick dark looped twisted shape",
+   "three white holes inside the loops",
+   "white paper or napkin behind it with shading",
+   "window grid in light blue background",
+   "brown table at the bottom"
+  ],
+  "problems": [
+   "the pretzel is black rather than brown, so it is hard to tell it is food",
+   "the loop shape is blobby and the twist is not clearly drawn",
+   "the holes look like a face or symbol, which can be confusing"
+  ],
+  "digest": "bc7a374a103a0906",
+  "grade": "pass",
+  "score": 68,
+  "colors": 8,
+  "black": 0.339,
+  "biggest_patch": 0.245,
+  "theme": "Cozy kitchen",
+  "name": "Pretzel",
+  "pack": "meals",
+  "touched": false
+ },
+ "popcorn-366": {
+  "guess": "penguin holding a popcorn bucket in a city",
+  "alternatives": [
+   "penguin with a soda cup",
+   "black and white bird carrying a striped bag"
+  ],
+  "readability": 2,
+  "features": [
+   "black and white body outline",
+   "red cap or hat on top",
+   "red and white striped popcorn bucket",
+   "yellow beak or popcorn pieces",
+   "raised flipper on left",
+   "city buildings and road background"
+  ],
+  "problems": [
+   "head is tiny and hidden behind red shape",
+   "no clear eyes or face",
+   "striped bucket dominates the body and hides the animal",
+   "white body blends with white bucket",
+   "busy city background competes with the subject"
+  ],
+  "digest": "182f9123d1c957fc",
+  "grade": "weak",
+  "score": 66,
+  "colors": 15,
+  "black": 0.104,
+  "biggest_patch": 0.111,
+  "theme": "City day",
+  "name": "Popcorn",
+  "pack": "meals",
+  "touched": false
+ },
+ "croissant-367": {
+  "guess": "two chocolate croissants",
+  "alternatives": [
+   "sausages",
+   "sleeping brown slugs"
+  ],
+  "readability": 2,
+  "features": [
+   "curved crescent shapes",
+   "brown glazed top with light sprinkles",
+   "dark outline",
+   "grey shaded underside",
+   "kitchen shelf with red and green jars",
+   "checkered tile floor"
+  ],
+  "problems": [
+   "shapes are lumpy and irregular, not clearly croissant-like",
+   "no layered pastry segments visible",
+   "grey patches look odd for food",
+   "could be mistaken for animals or logs",
+   "subject scale versus shelf jars is confusing"
+  ],
+  "digest": "e6094c541ee82217",
+  "grade": "weak",
+  "score": 62,
+  "colors": 10,
+  "black": 0.111,
+  "biggest_patch": 0.436,
+  "theme": "Bakery",
+  "name": "Croissant",
+  "pack": "meals",
+  "touched": false
+ },
+ "salad-368": {
+  "guess": "bowl of salad",
+  "alternatives": [
+   "bowl of vegetables",
+   "plate of food"
+  ],
+  "readability": 4,
+  "features": [
+   "tan/brown bowl with dark outline",
+   "light green lettuce",
+   "dark green leafy greens (spinach or kale)",
+   "red tomato or pepper",
+   "orange carrot pieces",
+   "white window/frame background",
+   "night sky with moon and stars above city buildings"
+  ],
+  "problems": [
+   "vegetables are blocky blobs that are hard to identify individually",
+   "orange carrot bits are small and blend into the lettuce",
+   "bowl is shallow and could read as a plate or basket",
+   "busy night-city border pulls attention from the subject"
+  ],
+  "digest": "06f6f6cb1bc093a8",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.329,
+  "biggest_patch": 0.211,
+  "theme": "City night",
+  "name": "Salad",
+  "pack": "meals",
+  "touched": false
+ },
+ "orange-juice-369": {
+  "guess": "glass of orange juice",
+  "alternatives": [
+   "glass of beer",
+   "mango smoothie"
+  ],
+  "readability": 4,
+  "features": [
+   "clear glass with blue rim and outline",
+   "orange liquid filling the glass",
+   "lighter yellow top layer like foam or surface",
+   "highlights on the left side",
+   "shadow under the glass on a wooden table",
+   "pink and white striped wall behind",
+   "red and yellow striped table runner or straw-like band"
+  ],
+  "problems": [
+   "no straw, fruit slice or other clear clue for which drink it is",
+   "light blue squares above the rim are unclear (ice? steam?)",
+   "red striped band at the bottom could be confusing"
+  ],
+  "digest": "51da658224c8aeb6",
+  "grade": "pass",
+  "score": 82,
+  "colors": 15,
+  "black": 0.059,
+  "biggest_patch": 0.093,
+  "theme": "Living room",
+  "name": "Orange Juice",
+  "pack": "meals",
+  "touched": false
+ },
+ "fried-chicken-370": {
+  "guess": "bucket of fried chicken",
+  "alternatives": [
+   "popcorn bucket",
+   "bucket of french fries"
+  ],
+  "readability": 4,
+  "features": [
+   "red and white striped bucket",
+   "tapered bucket shape",
+   "golden-brown fried pieces piled on top",
+   "dark outline around the bucket"
+  ],
+  "problems": [
+   "food on top is a messy jumble of orange and tan with no clear drumstick shapes",
+   "could easily be mistaken for popcorn because of the striped bucket",
+   "busy city and road background competes a little with the subject"
+  ],
+  "digest": "b623a5ade6dc8083",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.058,
+  "biggest_patch": 0.133,
+  "theme": "City day",
+  "name": "Fried Chicken",
+  "pack": "meals",
+  "touched": false
+ },
+ "rice-bowl-371": {
+  "guess": "bowl of rice (white rice in a blue bowl)",
+  "alternatives": [
+   "cloud in a blue cup",
+   "Pokemon-like creature (Seel/blob) with closed eyes"
+  ],
+  "readability": 3,
+  "features": [
+   "round white mound on top",
+   "blue rounded bowl bottom",
+   "dark outline",
+   "simple closed-eye curved lines on the white top",
+   "city skyline and sun in background"
+  ],
+  "problems": [
+   "white mound could read as cloud, snow or a creature",
+   "curved lines look like sleepy eyes, confusing identity",
+   "no clear bowl rim or chopsticks to confirm food",
+   "grey brick background blends with grey shading"
+  ],
+  "digest": "6d2ee9ea2aa81b4f",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.126,
+  "biggest_patch": 0.13,
+  "theme": "City dawn",
+  "name": "Rice Bowl",
+  "pack": "meals",
+  "touched": false
+ },
+ "pizza-slice-372": {
+  "guess": "pizza slice on a city wall at night",
+  "alternatives": [
+   "cheesy melting pizza",
+   "slice of cheese pie"
+  ],
+  "readability": 4,
+  "features": [
+   "triangular slice shape",
+   "yellow melted cheese",
+   "red pepperoni/sauce spots",
+   "brown crust",
+   "dripping cheese",
+   "night city skyline with moon and stars",
+   "brick wall"
+  ],
+  "problems": [
+   "cheese drips blend with orange/yellow window lights",
+   "crust edge partly merges with brown/gray background",
+   "busy background competes with subject"
+  ],
+  "digest": "3b844082894b74d0",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.271,
+  "biggest_patch": 0.124,
+  "theme": "Lantern festival",
+  "name": "Pizza Slice",
+  "pack": "meals",
+  "touched": false
+ },
+ "hot-pot-373": {
+  "guess": "cooking pot with radish and meat",
+  "alternatives": [
+   "cauldron of stew on a stove",
+   "bowl of vegetables and ham"
+  ],
+  "readability": 3,
+  "features": [
+   "dark round pot body",
+   "green leafy tops",
+   "red-and-white radish",
+   "dark red meat with bone",
+   "blue flame/burner at bottom",
+   "window in background"
+  ],
+  "problems": [
+   "pot is a dark blob with no clear rim or handles",
+   "ingredients overlap and merge into one mass",
+   "meat and bone shape is hard to read",
+   "flames are small and look like a pattern"
+  ],
+  "digest": "727ed58842580ad3",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.243,
+  "biggest_patch": 0.31,
+  "theme": "Nursery",
+  "name": "Hot Pot",
+  "pack": "meals",
+  "touched": false
+ },
+ "bacon-and-eggs-374": {
+  "guess": "cracked egg with a creature hatching (white fluffy face)",
+  "alternatives": [
+   "ghost",
+   "white cat face in a blue egg"
+  ],
+  "readability": 2,
+  "features": [
+   "egg-shaped dark outline",
+   "white fluffy head",
+   "orange eye or cheek spots",
+   "red tongue or mouth area",
+   "blue shell bottom",
+   "sunset sky with sun and bird",
+   "grassy ground"
+  ],
+  "problems": [
+   "no clear face, the orange spots are ambiguous",
+   "white blob shape is irregular and hard to read",
+   "red patch at bottom is unclear (tongue or shell?)",
+   "white top blends with the snowy grey mountains"
+  ],
+  "digest": "3fbc81e822b4a8df",
+  "grade": "weak",
+  "score": 70,
+  "colors": 18,
+  "black": 0.103,
+  "biggest_patch": 0.135,
+  "theme": "Mountain sunset",
+  "name": "Bacon and Eggs",
+  "pack": "meals",
+  "touched": false
+ },
+ "boiled-egg-375": {
+  "guess": "boiled egg cut in half",
+  "alternatives": [
+   "fried egg",
+   "egg with yolk showing"
+  ],
+  "readability": 4,
+  "features": [
+   "white egg-shaped outline with dark border",
+   "round yellow-orange yolk in the middle",
+   "grey shading on the right side",
+   "sun, sky, grass and flowers background"
+  ],
+  "problems": [
+   "whole egg shape with yolk visible is slightly confusing (half egg vs whole egg)",
+   "blue puddle/shadow at the right edge is unclear",
+   "yolk orange shading could read as a sun or fruit"
+  ],
+  "digest": "12c09d6fbd11ec39",
+  "grade": "pass",
+  "score": 74,
+  "colors": 18,
+  "black": 0.045,
+  "biggest_patch": 0.186,
+  "theme": "Garden pond",
+  "name": "Boiled Egg",
+  "pack": "meals",
+  "touched": false
+ },
+ "honey-jar-376": {
+  "guess": "jar of butter or margarine",
+  "alternatives": [
+   "jar of peanut butter",
+   "yogurt or cream container"
+  ],
+  "readability": 3,
+  "features": [
+   "dark outlined jar shape",
+   "brown lid",
+   "orange band at top and bottom",
+   "white label/body",
+   "yellow butter-like blob on label"
+  ],
+  "problems": [
+   "the yellow shape on the label is vague and could be butter, a chick, or a splash",
+   "unclear what food it contains",
+   "lid looks lumpy with tan bits",
+   "orange bands could suggest honey or caramel instead"
+  ],
+  "digest": "dd035b20074a40a3",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.057,
+  "biggest_patch": 0.147,
+  "theme": "Orchard",
+  "name": "Honey Jar",
+  "pack": "meals",
+  "touched": false
+ },
+ "orange-juice-glass-377": {
+  "guess": "glass of beer",
+  "alternatives": [
+   "glass of orange juice",
+   "milkshake with foam"
+  ],
+  "readability": 4,
+  "features": [
+   "white foam head on top",
+   "tapered pint glass shape",
+   "golden-yellow liquid with orange shading",
+   "dark outline around glass",
+   "light highlight on left side",
+   "brown bottom section"
+  ],
+  "problems": [
+   "brown/tan bottom is confusing, looks like sediment or a base rather than glass",
+   "beer subject may be unfamiliar or odd for kids",
+   "green background with dark outline blends slightly at lower right",
+   "foam could read as a cloud or cream"
+  ],
+  "digest": "d6204d613b28efa2",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.041,
+  "biggest_patch": 0.152,
+  "theme": "Pine forest",
+  "name": "Orange Juice Glass",
+  "pack": "meals",
+  "touched": false
+ },
+ "coffee-mug-378": {
+  "guess": "white mug with a red heart",
+  "alternatives": [
+   "bucket with heart",
+   "jar of jam"
+  ],
+  "readability": 3,
+  "features": [
+   "white cup body",
+   "orange rim/opening at top",
+   "red heart on front",
+   "tan stains or shading",
+   "dark outline"
+  ],
+  "problems": [
+   "no handle visible so it looks like a bucket or pot",
+   "tan smudges look messy",
+   "busy striped orange background with sun and birds distracts",
+   "rounded blobby shape"
+  ],
+  "digest": "6635336ed1b7c3dd",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.058,
+  "biggest_patch": 0.12,
+  "theme": "Golden wheat",
+  "name": "Coffee Mug",
+  "pack": "meals",
+  "touched": false
+ },
+ "toaster-toast-379": {
+  "guess": "toaster with two slices of bread",
+  "alternatives": [
+   "white sofa with cushions",
+   "sheep lying down"
+  ],
+  "readability": 3,
+  "features": [
+   "white rectangular body",
+   "two tan bread slices sticking out the top",
+   "dark outline",
+   "small dark feet at bottom",
+   "shading on lower right"
+  ],
+  "problems": [
+   "no lever or dial to identify it as a toaster",
+   "toaster sitting in a grassy field is an odd context",
+   "dark blob on lower right is unclear",
+   "shape is a plain blocky rectangle"
+  ],
+  "digest": "83deb692f122e31f",
+  "grade": "pass",
+  "score": 72,
+  "colors": 19,
+  "black": 0.085,
+  "biggest_patch": 0.244,
+  "theme": "Summer hills",
+  "name": "Toaster Toast",
+  "pack": "meals",
+  "touched": false
+ },
+ "cocoa-mug-380": {
+  "guess": "black and white mug or jar with a lid",
+  "alternatives": [
+   "trash can",
+   "robot or knight helmet"
+  ],
+  "readability": 2,
+  "features": [
+   "cup-shaped body that narrows toward the bottom",
+   "handle on the right side",
+   "lid or rim on top",
+   "white and black pattern"
+  ],
+  "problems": [
+   "the white and black pattern is noisy and doesn't show clear details",
+   "the shape could be a mug, a bin or a face",
+   "there is no clear face or label to identify it",
+   "the dark red shadow merges with the pink striped background"
+  ],
+  "digest": "dd2327ced30792a3",
+  "grade": "weak",
+  "score": 62,
+  "colors": 14,
+  "black": 0.204,
+  "biggest_patch": 0.195,
+  "theme": "Tulip fields",
+  "name": "Cocoa Mug",
+  "pack": "meals",
+  "touched": false
+ }
+}

@@ -1,0 +1,605 @@
+{
+ "happy-apple-939": {
+  "guess": "white onion/garlic and red apple characters in the rain",
+  "alternatives": [
+   "garlic bulb and tomato with faces",
+   "two fruit friends by a stream"
+  ],
+  "readability": 3,
+  "features": [
+   "round white bulb with pointed top and dark outline",
+   "grumpy face on white bulb",
+   "red round fruit with stem and leaf",
+   "face with eyes and mouth on red fruit",
+   "highlight on red fruit",
+   "rain drops, grey sky, green bushes, water at bottom"
+  ],
+  "problems": [
+   "white character's face is abstract and hard to read",
+   "white bulb could be garlic, onion, or a cat-like creature",
+   "characters are cropped at bottom",
+   "busy background with rain and road strip"
+  ],
+  "digest": "31528826f4ba973a",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.207,
+  "biggest_patch": 0.217,
+  "theme": "Rainy day",
+  "name": "Happy Apple",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "happy-banana-940": {
+  "guess": "peeled banana on a beach",
+  "alternatives": [
+   "banana relaxing on the sand",
+   "yellow banana boat"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow banana body with dark outline",
+   "peeled white flesh at top",
+   "peel flaps hanging open",
+   "brown stem tip",
+   "beach sand, sea, palm trees, sun and cloud background"
+  ],
+  "problems": [
+   "peel flaps and white flesh are a bit jumbled at the top",
+   "dark blue/black patches near the peel are confusing",
+   "white flesh blends somewhat with the cloud behind it"
+  ],
+  "digest": "e5964bd2a989aac9",
+  "grade": "pass",
+  "score": 74,
+  "colors": 21,
+  "black": 0.087,
+  "biggest_patch": 0.172,
+  "theme": "Tropical beach",
+  "name": "Happy Banana",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "happy-strawberry-941": {
+  "guess": "running strawberry character",
+  "alternatives": [
+   "tomato mascot running",
+   "apple character with gloves"
+  ],
+  "readability": 3,
+  "features": [
+   "red round body with green stem/leaf on top",
+   "two small eyes and smiling mouth",
+   "pink highlight on top left",
+   "white gloved hands/arms",
+   "red and white sneakers",
+   "splash of water near feet",
+   "mountains, clouds and grass background"
+  ],
+  "problems": [
+   "no seeds so strawberry vs tomato is ambiguous",
+   "white arms with black outlines look like blobs or clouds",
+   "face is small and hard to spot",
+   "legs/shoes merge with the white arms",
+   "blue splash at bottom is unclear"
+  ],
+  "digest": "607d988321fac1d9",
+  "grade": "pass",
+  "score": 84,
+  "colors": 14,
+  "black": 0.087,
+  "biggest_patch": 0.128,
+  "theme": "Waterfall",
+  "name": "Happy Strawberry",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "happy-broccoli-942": {
+  "guess": "broccoli",
+  "alternatives": [
+   "tree",
+   "bush"
+  ],
+  "readability": 4,
+  "features": [
+   "bumpy dark green floret crown",
+   "light green stalk",
+   "small white highlight on stalk",
+   "dark outline"
+  ],
+  "problems": [
+   "crown is a single blobby shape with little floret texture",
+   "stalk is short and partly hidden, so it could read as a tree",
+   "desert night background with cacti and moon makes context confusing"
+  ],
+  "digest": "2b10f37e33a960e2",
+  "grade": "pass",
+  "score": 74,
+  "colors": 11,
+  "black": 0.213,
+  "biggest_patch": 0.166,
+  "theme": "Desert night",
+  "name": "Happy Broccoli",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "happy-tomato-943": {
+  "guess": "smiling cartoon tomato",
+  "alternatives": [
+   "red apple",
+   "red bell pepper"
+  ],
+  "readability": 5,
+  "features": [
+   "round red body",
+   "green stem and leaves on top",
+   "two big eyes with pupils",
+   "eyebrow",
+   "smiling mouth",
+   "pink highlight shine",
+   "darker red shading"
+  ],
+  "problems": [
+   "one eye has a blue dot that looks odd",
+   "lumpy outline could read as apple or pepper",
+   "sun and sky details are small but don't distract much"
+  ],
+  "digest": "85a7aa17751dcf1f",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.107,
+  "biggest_patch": 0.237,
+  "theme": "Harvest farm",
+  "name": "Happy Tomato",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "happy-orange-944": {
+  "guess": "orange figure with raised arms in a dark doorway",
+  "alternatives": [
+   "fox standing in a doorway",
+   "tree trunk with branches"
+  ],
+  "readability": 2,
+  "features": [
+   "dark rectangular doorway or portal",
+   "orange upright body",
+   "raised arms or branches",
+   "small white eye-like mark",
+   "feet or base at bottom",
+   "sunset sky with sun and mountains",
+   "grass with flowers"
+  ],
+  "problems": [
+   "no clear face, only a single white mark",
+   "the figure's shape is ambiguous, could be a person, animal, or tree",
+   "arms look like branches",
+   "the bottom blends into a red-brown base",
+   "the orange figure looks flat and blocky"
+  ],
+  "digest": "400b2226d9096443",
+  "grade": "weak",
+  "score": 70,
+  "colors": 15,
+  "black": 0.202,
+  "biggest_patch": 0.186,
+  "theme": "Sunset meadow",
+  "name": "Happy Orange",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "happy-potato-945": {
+  "guess": "happy yellow potato character waving",
+  "alternatives": [
+   "smiling lemon",
+   "cheerful mango"
+  ],
+  "readability": 3,
+  "features": [
+   "big cartoon eyes",
+   "wide open smiling mouth with tongue",
+   "waving arms/hands",
+   "oval yellow-orange body",
+   "small feet"
+  ],
+  "problems": [
+   "subject type unclear (potato, fruit, or blob)",
+   "arms blend slightly into busy green background",
+   "no distinctive features identifying what object it is"
+  ],
+  "digest": "26bfa76f0d4b0b18",
+  "grade": "pass",
+  "score": 80,
+  "colors": 19,
+  "black": 0.16,
+  "biggest_patch": 0.158,
+  "theme": "Rainy day",
+  "name": "Happy Potato",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "happy-pumpkin-946": {
+  "guess": "jack-o'-lantern pumpkin",
+  "alternatives": [
+   "orange pumpkin",
+   "smiling orange fruit"
+  ],
+  "readability": 4,
+  "features": [
+   "round orange body",
+   "brown stem on top",
+   "carved glowing eyes",
+   "big yellow grinning mouth",
+   "dark outline",
+   "shading on right side"
+  ],
+  "problems": [
+   "eyes are faint yellow and blend with orange",
+   "white highlight looks odd in the face",
+   "background stripes slightly busy"
+  ],
+  "digest": "22358f8250f8180b",
+  "grade": "pass",
+  "score": 86,
+  "colors": 16,
+  "black": 0.059,
+  "biggest_patch": 0.188,
+  "theme": "Overcast moor",
+  "name": "Happy Pumpkin",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "happy-mushroom-947": {
+  "guess": "red mushroom with a face",
+  "alternatives": [
+   "character wearing a red hat",
+   "red cap with a creature underneath"
+  ],
+  "readability": 3,
+  "features": [
+   "large red domed cap with dark outline",
+   "darker red shading on the right of the cap",
+   "pinkish highlights on the left of the cap",
+   "beige stem/face",
+   "two dark eyes",
+   "dark mouth",
+   "brown shading on the stem"
+  ],
+  "problems": [
+   "no white spots on the cap, so it reads less clearly as a mushroom",
+   "the face is small and squashed under the big cap",
+   "the cap could also be read as a hat or a red blob",
+   "the busy striped purple background competes with the subject",
+   "the dark red shading looks a bit like random patches"
+  ],
+  "digest": "e042ca289a449012",
+  "grade": "pass",
+  "score": 80,
+  "colors": 16,
+  "black": 0.045,
+  "biggest_patch": 0.194,
+  "theme": "Lavender fields",
+  "name": "Happy Mushroom",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "happy-egg-948": {
+  "guess": "pink jelly bean character",
+  "alternatives": [
+   "pink egg creature",
+   "pink potato monster"
+  ],
+  "readability": 3,
+  "features": [
+   "oval pink body",
+   "two eyes with eyebrows",
+   "smiling mouth",
+   "thin stick arms",
+   "short legs",
+   "shading on right side"
+  ],
+  "problems": [
+   "subject is a generic blob, hard to name",
+   "arms and legs very thin and hard to see",
+   "dark red shading blends into right arm area",
+   "desert background with sun and cactus doesn't clarify what it is"
+  ],
+  "digest": "cfaeaaa153aa7701",
+  "grade": "weak",
+  "score": 50,
+  "colors": 19,
+  "black": 0.065,
+  "biggest_patch": 0.19,
+  "theme": "Cactus canyon",
+  "name": "Happy Egg",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "egg-949": {
+  "guess": "baby chick hatching from an egg",
+  "alternatives": [
+   "yellow duckling in a broken eggshell",
+   "yellow bird in a nest"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow fluffy body",
+   "dark eyes",
+   "orange beak",
+   "orange wing",
+   "cracked beige eggshell bottom",
+   "separate eggshell half lying on grass",
+   "grass, flowers, sky, sun, clouds, purple hills background"
+  ],
+  "problems": [
+   "eyes are slanted dark blocks that look angry or like sunglasses",
+   "beak blends with orange wing area",
+   "egg shells could read as rocks"
+  ],
+  "digest": "94371eff310316db",
+  "grade": "pass",
+  "score": 86,
+  "colors": 23,
+  "black": 0.071,
+  "biggest_patch": 0.182,
+  "theme": "Spring meadow",
+  "name": "Egg",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "bread-950": {
+  "guess": "slice of bread character (toast boy)",
+  "alternatives": [
+   "marshmallow kid",
+   "rice ball character"
+  ],
+  "readability": 4,
+  "features": [
+   "bread-slice shaped head with tan crust edge",
+   "closed happy eyes",
+   "pink blushing cheeks",
+   "open red smiling mouth",
+   "light blue shirt",
+   "navy pants",
+   "arms raised out to sides",
+   "dark legs"
+  ],
+  "problems": [
+   "crust only shows on one side so the bread shape can be missed",
+   "white head could read as a generic blob or ghost",
+   "body is small and partly blends with green grass",
+   "stray grey pixels in grass are distracting"
+  ],
+  "digest": "03d70e8e61fd365e",
+  "grade": "pass",
+  "score": 86,
+  "colors": 19,
+  "black": 0.088,
+  "biggest_patch": 0.138,
+  "theme": "Bamboo grove",
+  "name": "Bread",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "rice-951": {
+  "guess": "bowl of rice",
+  "alternatives": [
+   "crystal ball",
+   "snow globe"
+  ],
+  "readability": 3,
+  "features": [
+   "round blue bowl",
+   "white mound of rice on top",
+   "tan base/foot of the bowl",
+   "dark outline",
+   "shading on the rice"
+  ],
+  "problems": [
+   "seen from a high angle so it looks like a round ball",
+   "rice has no grain texture, reads as a white blob",
+   "could be mistaken for a snow globe or crystal ball",
+   "small base makes the bowl shape less clear"
+  ],
+  "digest": "890b417bb496b60f",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.079,
+  "biggest_patch": 0.179,
+  "theme": "Harvest farm",
+  "name": "Rice",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "sushi-roll-952": {
+  "guess": "sushi rolls on a beach",
+  "alternatives": [
+   "maki sushi pieces",
+   "rice rolls with egg and avocado"
+  ],
+  "readability": 3,
+  "features": [
+   "white rice ring",
+   "dark seaweed wrap",
+   "yellow egg filling",
+   "green avocado/cucumber",
+   "red tuna/crab filling",
+   "two rolls, one tipped on its side",
+   "sunset sky with sun",
+   "sandy ground"
+  ],
+  "problems": [
+   "second roll is tilted and its shape is hard to read",
+   "dark seaweed blends into shadows",
+   "fillings are small and jumbled",
+   "unusual beach sunset setting may confuse"
+  ],
+  "digest": "29c0a697675c5f36",
+  "grade": "pass",
+  "score": 68,
+  "colors": 20,
+  "black": 0.199,
+  "biggest_patch": 0.152,
+  "theme": "Beach sunset",
+  "name": "Sushi Roll",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "hot-sauce-953": {
+  "guess": "bottle of hot sauce in the desert",
+  "alternatives": [
+   "ketchup bottle",
+   "barbecue sauce bottle"
+  ],
+  "readability": 4,
+  "features": [
+   "bottle neck",
+   "green cap",
+   "red bottle body",
+   "brown label with design",
+   "shading on right side",
+   "desert background with sun, cactus, birds"
+  ],
+  "problems": [
+   "label design is unclear blob",
+   "dark red body and dark shading make shape a bit heavy",
+   "sauce type not obvious"
+  ],
+  "digest": "90fd586b65d8ca97",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.045,
+  "biggest_patch": 0.232,
+  "theme": "Cactus canyon",
+  "name": "Hot Sauce",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "ketchup-bottle-954": {
+  "guess": "red bottle (ketchup/hot sauce) with a label",
+  "alternatives": [
+   "red potion bottle",
+   "soda bottle"
+  ],
+  "readability": 4,
+  "features": [
+   "narrow bottle neck",
+   "rounded cap/top",
+   "wide bottle body",
+   "tan label on front",
+   "pink highlight showing shine",
+   "dark outline"
+  ],
+  "problems": [
+   "label design is a blurry blob with no readable picture",
+   "busy city night background with wall competes for attention",
+   "small orange spots near the bottom are unclear"
+  ],
+  "digest": "58c26ff91ad1ad4d",
+  "grade": "pass",
+  "score": 78,
+  "colors": 16,
+  "black": 0.25,
+  "biggest_patch": 0.168,
+  "theme": "Lantern festival",
+  "name": "Ketchup Bottle",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "chocolate-955": {
+  "guess": "chocolate ice cream bar on a stick",
+  "alternatives": [
+   "fudge popsicle",
+   "chocolate-covered ice lolly"
+  ],
+  "readability": 4,
+  "features": [
+   "rounded rectangular chocolate coating",
+   "lighter tan edge highlight",
+   "darker chocolate texture spots",
+   "wooden stick at bottom",
+   "blue shadow on right side"
+  ],
+  "problems": [
+   "stick is dark and partly blends with the purple striped background",
+   "dark outline blends into shadow",
+   "busy striped background competes with the subject"
+  ],
+  "digest": "bf81d6a25adeebe5",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.037,
+  "biggest_patch": 0.169,
+  "theme": "Lavender fields",
+  "name": "Chocolate",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "cone-956": {
+  "guess": "traffic cone",
+  "alternatives": [
+   "orange and white road cone fallen over",
+   "clownfish"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed orange top",
+   "two white stripes",
+   "wide orange base",
+   "dark outline",
+   "shadow on right side"
+  ],
+  "problems": [
+   "base is lumpy and blobby rather than flat and square",
+   "shape leans and looks melted",
+   "orange cone blends with orange/tan sandy background",
+   "desert setting is unusual for a cone"
+  ],
+  "digest": "745595502255ec61",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.057,
+  "biggest_patch": 0.136,
+  "theme": "Desert dunes",
+  "name": "Cone",
+  "pack": "fruitfaces",
+  "touched": false
+ },
+ "soft-serve-957": {
+  "guess": "soft-serve ice cream cone",
+  "alternatives": [
+   "giant ice cream statue",
+   "snowy mountain peak"
+  ],
+  "readability": 4,
+  "features": [
+   "white swirled soft-serve top with pointed tip",
+   "tan wafer cone",
+   "brown chocolate-dipped cone tip",
+   "dark outline around shape",
+   "background with brick wall, mountains, clouds and birds"
+  ],
+  "problems": [
+   "white ice cream blends with white clouds and pale gray mountains",
+   "cone has no waffle pattern",
+   "busy brick and mountain background competes with subject",
+   "dark outline is thick and jagged, looking like a hole in the wall"
+  ],
+  "digest": "04ce5bb135d33e0a",
+  "grade": "pass",
+  "score": 74,
+  "colors": 9,
+  "black": 0.122,
+  "biggest_patch": 0.11,
+  "theme": "Mountain pass",
+  "name": "Soft Serve",
+  "pack": "fruitfaces",
+  "touched": false
+ }
+}

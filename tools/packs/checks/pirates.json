@@ -1,0 +1,354 @@
+{
+ "pirate-ship-632": {
+  "guess": "pirate ship with jolly roger flag",
+  "alternatives": [
+   "shipwreck on a beach",
+   "pirate flag on a rock"
+  ],
+  "readability": 3,
+  "features": [
+   "black flag with white skull and crossbones",
+   "red pirate bandana on flag",
+   "orange/brown sail or rock on left",
+   "wooden hull with red details",
+   "blue water",
+   "sandy beach",
+   "sky with clouds"
+  ],
+  "problems": [
+   "ship hull is hard to make out",
+   "left brown-orange shape is ambiguous (sail or rock)",
+   "busy background with sand blending into ship parts",
+   "skull is stylized and small-eyed"
+  ],
+  "digest": "3ecbc0b0aa8aa26d",
+  "grade": "pass",
+  "score": 72,
+  "colors": 18,
+  "black": 0.166,
+  "biggest_patch": 0.225,
+  "theme": "Coral reef",
+  "name": "Pirate Ship",
+  "pack": "pirates",
+  "touched": false
+ },
+ "treasure-map-633": {
+  "guess": "treasure map scroll",
+  "alternatives": [
+   "paper note on a beach",
+   "white flag"
+  ],
+  "readability": 3,
+  "features": [
+   "curled paper edges",
+   "rolled corner at top right",
+   "grey X mark",
+   "grey island shape",
+   "sky and sea background",
+   "sandy ground"
+  ],
+  "problems": [
+   "map markings are small and vague",
+   "grey shapes look like blobs rather than a clear island",
+   "scroll could be mistaken for a bucket or sheet",
+   "white paper blends with sky highlights"
+  ],
+  "digest": "23354470eae1dfa9",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.137,
+  "biggest_patch": 0.219,
+  "theme": "Kelp forest",
+  "name": "Treasure Map",
+  "pack": "pirates",
+  "touched": false
+ },
+ "anchor-634": {
+  "guess": "blue anchor",
+  "alternatives": [
+   "ship's hook",
+   "letter T with curved base"
+  ],
+  "readability": 5,
+  "features": [
+   "ring at top with hole",
+   "crossbar (stock)",
+   "vertical shank",
+   "curved arms",
+   "pointed flukes at ends",
+   "dark red shading on right side",
+   "sun and seagull in background"
+  ],
+  "problems": [
+   "orange sea stripes behind the arms slightly busy",
+   "ring hole is small and dark rather than open"
+  ],
+  "digest": "5ba8d9d3544889cf",
+  "grade": "pass",
+  "score": 80,
+  "colors": 8,
+  "black": 0.006,
+  "biggest_patch": 0.177,
+  "theme": "Golden wheat",
+  "name": "Anchor",
+  "pack": "pirates",
+  "touched": false
+ },
+ "compass-635": {
+  "guess": "compass",
+  "alternatives": [
+   "clock",
+   "stopwatch"
+  ],
+  "readability": 3,
+  "features": [
+   "round white face with dark rim",
+   "red needle pointing up",
+   "blue needle pointing down",
+   "tick marks around the dial",
+   "landscape background with mountains, grass, clouds and water"
+  ],
+  "problems": [
+   "needles are jagged and offset, so it could read as clock hands",
+   "no cardinal letters (N, S, E, W)",
+   "grey shading on the right blends with the grey mountains",
+   "blue needle merges with the blue water at the bottom"
+  ],
+  "digest": "841e3931763f7bd7",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.063,
+  "biggest_patch": 0.229,
+  "theme": "Waterfall",
+  "name": "Compass",
+  "pack": "pirates",
+  "touched": false
+ },
+ "lighthouse-636": {
+  "guess": "red and white lighthouse",
+  "alternatives": [
+   "striped tower",
+   "chimney"
+  ],
+  "readability": 5,
+  "features": [
+   "red and white horizontal stripes",
+   "red pointed roof/lantern top",
+   "gray door at base",
+   "dark outline",
+   "small red side building with roof",
+   "grassy hill with flowers",
+   "sky with clouds"
+  ],
+  "problems": [
+   "side building attached to tower is a bit confusing",
+   "lantern room lacks a visible light/window",
+   "tower slightly uneven, right side shading odd"
+  ],
+  "digest": "d881b15844907352",
+  "grade": "pass",
+  "score": 80,
+  "colors": 15,
+  "black": 0.044,
+  "biggest_patch": 0.223,
+  "theme": "Red barn",
+  "name": "Lighthouse",
+  "pack": "pirates",
+  "touched": false
+ },
+ "message-in-a-bottle-637": {
+  "guess": "message in a bottle floating in the sea",
+  "alternatives": [
+   "glass bottle with cork",
+   "milk bottle in water"
+  ],
+  "readability": 4,
+  "features": [
+   "tilted glass bottle with grey outline",
+   "brown cork at the top",
+   "white paper/scroll inside",
+   "bottle neck",
+   "sea water with waves",
+   "pink and red coral",
+   "green seaweed",
+   "bubbles and sky"
+  ],
+  "problems": [
+   "the white rolled message blends with the white/grey glass so it may read as a milk bottle",
+   "the cork is small",
+   "busy background with coral and seaweed distracts"
+  ],
+  "digest": "84d48f593f4caac2",
+  "grade": "pass",
+  "score": 74,
+  "colors": 15,
+  "black": 0.116,
+  "biggest_patch": 0.231,
+  "theme": "Deep sea",
+  "name": "Message in a Bottle",
+  "pack": "pirates",
+  "touched": false
+ },
+ "ship-wheel-638": {
+  "guess": "ship's steering wheel with red ribbon",
+  "alternatives": [
+   "spiky mine or ball",
+   "broken wagon wheel"
+  ],
+  "readability": 2,
+  "features": [
+   "round wheel shape with spokes sticking out",
+   "tan inner rim",
+   "grey hub area",
+   "dark red ribbon or rope wrapped around lower right"
+  ],
+  "problems": [
+   "handles look like random spikes",
+   "inside is a jumble of grey, white and brown with no clear spokes",
+   "red shape is hard to identify",
+   "no clear center hub",
+   "subject outline is irregular and blobby"
+  ],
+  "digest": "abd93f58a9554643",
+  "grade": "weak",
+  "score": 66,
+  "colors": 17,
+  "black": 0.06,
+  "biggest_patch": 0.123,
+  "theme": "Castle hill",
+  "name": "Ship Wheel",
+  "pack": "pirates",
+  "touched": false
+ },
+ "gold-coins-639": {
+  "guess": "gold coins",
+  "alternatives": [
+   "fried eggs",
+   "yellow stones"
+  ],
+  "readability": 3,
+  "features": [
+   "three round golden discs stacked diagonally",
+   "dark outlines",
+   "orange shading/markings on faces",
+   "sky with sun and clouds",
+   "snowy white ground"
+  ],
+  "problems": [
+   "no clear coin markings like a symbol or rim detail",
+   "blobby uneven shapes look like rocks or eggs",
+   "orange blotches read as random spots",
+   "busy speckled background"
+  ],
+  "digest": "d065c35ad6cd7ce8",
+  "grade": "pass",
+  "score": 72,
+  "colors": 15,
+  "black": 0.054,
+  "biggest_patch": 0.157,
+  "theme": "Ice field",
+  "name": "Gold Coins",
+  "pack": "pirates",
+  "touched": false
+ },
+ "treasure-chest-640": {
+  "guess": "open treasure chest full of gold",
+  "alternatives": [
+   "red gift box with gold inside",
+   "open suitcase"
+  ],
+  "readability": 4,
+  "features": [
+   "open lid with dark bands",
+   "red chest body with white trim",
+   "pile of gold coins spilling out",
+   "sunset sky with sun",
+   "grass with flowers"
+  ],
+  "problems": [
+   "chest outline is wobbly and slightly lopsided",
+   "gold pile blends with the orange sunset colors",
+   "lid perspective is a bit confusing"
+  ],
+  "digest": "5a777030b8f9415d",
+  "grade": "pass",
+  "score": 74,
+  "colors": 19,
+  "black": 0.091,
+  "biggest_patch": 0.1,
+  "theme": "Sunset meadow",
+  "name": "Treasure Chest",
+  "pack": "pirates",
+  "touched": false
+ },
+ "pirate-parrot-641": {
+  "guess": "pirate parrot on a beach",
+  "alternatives": [
+   "green parrot",
+   "toucan"
+  ],
+  "readability": 4,
+  "features": [
+   "big orange curved beak",
+   "green body",
+   "red bandana/pirate hat",
+   "eye with eyepatch-like mark",
+   "outstretched wings",
+   "orange feet",
+   "beach sand and sea background",
+   "seaweed/coral"
+  ],
+  "problems": [
+   "beak is very large and could suggest a toucan",
+   "wings blend somewhat with dark outlines and seaweed",
+   "red headwear is small and hard to read as a pirate bandana",
+   "eye area is a bit unclear"
+  ],
+  "digest": "795a566d15c6bbd3",
+  "grade": "pass",
+  "score": 90,
+  "colors": 20,
+  "black": 0.073,
+  "biggest_patch": 0.224,
+  "theme": "Coral reef",
+  "name": "Pirate Parrot",
+  "pack": "pirates",
+  "touched": false
+ },
+ "pirate-flag-642": {
+  "guess": "pirate flag (Jolly Roger)",
+  "alternatives": [
+   "pirate ship sail",
+   "skull and crossbones banner"
+  ],
+  "readability": 4,
+  "features": [
+   "black waving flag",
+   "white skull with eye socket",
+   "crossed bones",
+   "brown wooden pole",
+   "blue edge/shadow on flag",
+   "sunset sky with sun",
+   "purple striped sea",
+   "green ground"
+  ],
+  "problems": [
+   "skull is small and blocky, the eye hole and jaw are hard to read",
+   "only one eye visible so the skull looks lopsided",
+   "flag shape is irregular and a bit blobby",
+   "blue strip under the flag is unclear"
+  ],
+  "digest": "3a6b679b03e9d4d5",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.264,
+  "biggest_patch": 0.252,
+  "theme": "Lavender fields",
+  "name": "Pirate Flag",
+  "pack": "pirates",
+  "touched": false
+ }
+}

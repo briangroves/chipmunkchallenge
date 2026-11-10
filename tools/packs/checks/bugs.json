@@ -22,7 +22,14 @@
   ],
   "digest": "863f4bc0db764af1",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 13,
+  "black": 0.139,
+  "biggest_patch": 0.179,
+  "theme": "Lavender fields",
+  "name": "Ladybug",
+  "pack": "bugs",
+  "touched": false
  },
  "bee-267": {
   "guess": "bumblebee",
@@ -47,7 +54,14 @@
   ],
   "digest": "f6d4a0b9ed9aa411",
   "grade": "pass",
-  "score": 88
+  "score": 88,
+  "colors": 17,
+  "black": 0.139,
+  "biggest_patch": 0.2,
+  "theme": "Rose garden",
+  "name": "Bee",
+  "pack": "bugs",
+  "touched": false
  },
  "butterfly-268": {
   "guess": "butterfly on a flower",
@@ -71,7 +85,14 @@
   ],
   "digest": "4e79a11a962814a2",
   "grade": "pass",
-  "score": 82
+  "score": 82,
+  "colors": 20,
+  "black": 0.076,
+  "biggest_patch": 0.162,
+  "theme": "Tulip fields",
+  "name": "Butterfly",
+  "pack": "bugs",
+  "touched": false
  },
  "snail-269": {
   "guess": "snail with orange spiral shell",
@@ -95,7 +116,14 @@
   ],
   "digest": "f5abaadce5021d5b",
   "grade": "pass",
-  "score": 78
+  "score": 78,
+  "colors": 19,
+  "black": 0.168,
+  "biggest_patch": 0.099,
+  "theme": "Castle at dusk",
+  "name": "Snail",
+  "pack": "bugs",
+  "touched": false
  },
  "caterpillar-270": {
   "guess": "green worm or caterpillar standing up",
@@ -118,7 +146,14 @@
   ],
   "digest": "1de0a3cf20d532b0",
   "grade": "weak",
-  "score": 70
+  "score": 70,
+  "colors": 16,
+  "black": 0.056,
+  "biggest_patch": 0.291,
+  "theme": "Castle hill",
+  "name": "Caterpillar",
+  "pack": "bugs",
+  "touched": false
  },
  "dragonfly-271": {
   "guess": "red dragonfly (Flygon-like desert dragon)",
@@ -141,7 +176,14 @@
   ],
   "digest": "c08b97a4a8161de2",
   "grade": "pass",
-  "score": 86
+  "score": 86,
+  "colors": 13,
+  "black": 0.114,
+  "biggest_patch": 0.124,
+  "theme": "Golden wheat",
+  "name": "Dragonfly",
+  "pack": "bugs",
+  "touched": false
  },
  "ant-272": {
   "guess": "red ant",
@@ -166,7 +208,14 @@
   ],
   "digest": "d18b834dc0e76426",
   "grade": "weak",
-  "score": 78
+  "score": 78,
+  "colors": 18,
+  "black": 0.048,
+  "biggest_patch": 0.196,
+  "theme": "Sunflower farm",
+  "name": "Ant",
+  "pack": "bugs",
+  "touched": false
  },
  "beetle-273": {
   "guess": "striped beetle (yellow and black bug)",
@@ -190,7 +239,14 @@
   ],
   "digest": "9c0eaaac5b0ec244",
   "grade": "pass",
-  "score": 72
+  "score": 72,
+  "colors": 16,
+  "black": 0.146,
+  "biggest_patch": 0.165,
+  "theme": "Riverbank",
+  "name": "Beetle",
+  "pack": "bugs",
+  "touched": false
  },
  "spider-274": {
   "guess": "Spider-Man crouching",
@@ -214,7 +270,14 @@
   ],
   "digest": "3a8ac186387ec491",
   "grade": "weak",
-  "score": 70
+  "score": 70,
+  "colors": 18,
+  "black": 0.105,
+  "biggest_patch": 0.168,
+  "theme": "Spring meadow",
+  "name": "Spider",
+  "pack": "bugs",
+  "touched": false
  },
  "moth-275": {
   "guess": "moth or butterfly (black and orange)",
@@ -238,7 +301,14 @@
   ],
   "digest": "634db03b5a8aa304",
   "grade": "weak",
-  "score": 66
+  "score": 66,
+  "colors": 17,
+  "black": 0.133,
+  "biggest_patch": 0.188,
+  "theme": "Autumn woods",
+  "name": "Moth",
+  "pack": "bugs",
+  "touched": false
  },
  "bumblebee-276": {
   "guess": "sleeping bumblebee",
@@ -262,7 +332,14 @@
   ],
   "digest": "ca4f715b22327f0d",
   "grade": "pass",
-  "score": 76
+  "score": 76,
+  "colors": 15,
+  "black": 0.111,
+  "biggest_patch": 0.183,
+  "theme": "Rose garden",
+  "name": "Bumblebee",
+  "pack": "bugs",
+  "touched": false
  },
  "beehive-277": {
   "guess": "beehive",
@@ -285,7 +362,14 @@
   ],
   "digest": "fd8013b893e217e0",
   "grade": "pass",
-  "score": 68
+  "score": 68,
+  "colors": 15,
+  "black": 0.177,
+  "biggest_patch": 0.201,
+  "theme": "Garden pond",
+  "name": "Beehive",
+  "pack": "bugs",
+  "touched": false
  },
  "wasp-278": {
   "guess": "yellow and black bird (oriole) lying in grass",
@@ -310,7 +394,14 @@
   ],
   "digest": "bac6f8ea376f100b",
   "grade": "weak",
-  "score": 52
+  "score": 52,
+  "colors": 19,
+  "black": 0.104,
+  "biggest_patch": 0.196,
+  "theme": "Castle hill",
+  "name": "Wasp",
+  "pack": "bugs",
+  "touched": false
  },
  "scorpion-279": {
   "guess": "scorpion in the desert",
@@ -335,7 +426,14 @@
   ],
   "digest": "d2b1d815a3412dcf",
   "grade": "pass",
-  "score": 84
+  "score": 84,
+  "colors": 17,
+  "black": 0.032,
+  "biggest_patch": 0.214,
+  "theme": "Cactus canyon",
+  "name": "Scorpion",
+  "pack": "bugs",
+  "touched": false
  },
  "butterfly-on-flower-280": {
   "guess": "black dragon on a fire-colored flower",
@@ -358,7 +456,14 @@
   ],
   "digest": "7643605fe6304e7b",
   "grade": "weak",
-  "score": 70
+  "score": 70,
+  "colors": 19,
+  "black": 0.153,
+  "biggest_patch": 0.131,
+  "theme": "Alpine meadow",
+  "name": "Butterfly on Flower",
+  "pack": "bugs",
+  "touched": false
  },
  "spider-web-281": {
   "guess": "spider web",
@@ -383,7 +488,14 @@
   ],
   "digest": "a51a7890c46b604b",
   "grade": "weak",
-  "score": 62
+  "score": 62,
+  "colors": 12,
+  "black": 0.235,
+  "biggest_patch": 0.231,
+  "theme": "Lavender fields",
+  "name": "Spider Web",
+  "pack": "bugs",
+  "touched": false
  },
  "beetle-car-282": {
   "guess": "green car",
@@ -406,6 +518,13 @@
   ],
   "digest": "86b64ebdd5637bdf",
   "grade": "pass",
-  "score": 78
+  "score": 78,
+  "colors": 14,
+  "black": 0.099,
+  "biggest_patch": 0.189,
+  "theme": "Orchard",
+  "name": "Beetle Car",
+  "pack": "bugs",
+  "touched": false
  }
 }

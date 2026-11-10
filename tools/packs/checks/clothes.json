@@ -1,0 +1,489 @@
+{
+ "top-hat-603": {
+  "guess": "witch cat in a hat sitting on a red cushion",
+  "alternatives": [
+   "penguin wearing a wizard hat",
+   "black-and-white bird in a red sweater"
+  ],
+  "readability": 2,
+  "features": [
+   "dark pointed hat with blue band",
+   "black head with white face patch",
+   "one eye",
+   "red clothing or cushion with pink highlight",
+   "blue rug on floor",
+   "window and wooden wall background"
+  ],
+  "problems": [
+   "no clear ears, eyes or nose",
+   "dark body blends with hat and dark outlines",
+   "red shape is unclear: cushion, clothing or body",
+   "overall blobby silhouette",
+   "subject hard to separate from brown background"
+  ],
+  "digest": "c6d8f2d867848b94",
+  "grade": "weak",
+  "score": 70,
+  "colors": 16,
+  "black": 0.134,
+  "biggest_patch": 0.16,
+  "theme": "Cabin",
+  "name": "Top Hat",
+  "pack": "clothes",
+  "touched": false
+ },
+ "boots-604": {
+  "guess": "red high-heeled boot",
+  "alternatives": [
+   "red sock",
+   "red dragon"
+  ],
+  "readability": 2,
+  "features": [
+   "tall red shaft",
+   "pointed toe with beige sole/toe area",
+   "darker red shading on back/heel",
+   "night city skyline and moon in background",
+   "brick wall"
+  ],
+  "problems": [
+   "shape is blobby and ambiguous",
+   "no clear heel or lacing details",
+   "dark outline merges with dark ground",
+   "beige toe area looks odd, unclear what it is",
+   "red shape could be read as an animal or creature"
+  ],
+  "digest": "acb9b56b719497c5",
+  "grade": "weak",
+  "score": 62,
+  "colors": 17,
+  "black": 0.316,
+  "biggest_patch": 0.155,
+  "theme": "Lantern festival",
+  "name": "Boots",
+  "pack": "clothes",
+  "touched": false
+ },
+ "sneakers-605": {
+  "guess": "white sneaker",
+  "alternatives": [
+   "cat lying down",
+   "sleeping dog"
+  ],
+  "readability": 3,
+  "features": [
+   "white shoe body",
+   "dark sole outline",
+   "red stripe accents",
+   "grey heel area",
+   "city skyline background with sun",
+   "brick wall"
+  ],
+  "problems": [
+   "shoe shape is blobby and irregular",
+   "no clear laces or toe definition",
+   "red marks look like a face or blood rather than shoe details",
+   "grey parts blend with brick wall background"
+  ],
+  "digest": "ec7158fc40ada056",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.12,
+  "biggest_patch": 0.169,
+  "theme": "City dawn",
+  "name": "Sneakers",
+  "pack": "clothes",
+  "touched": false
+ },
+ "dress-606": {
+  "guess": "woman in green dress walking in city at night",
+  "alternatives": [
+   "person holding coffee cup on street",
+   "green bottle on road"
+  ],
+  "readability": 3,
+  "features": [
+   "brown hair/head",
+   "white face area",
+   "green dress",
+   "dark coat or arm",
+   "white cup in hand",
+   "red feet/shoes",
+   "night city skyline with moon",
+   "road with yellow lines"
+  ],
+  "problems": [
+   "no facial features",
+   "head blends with dark sky",
+   "body shape is blobby and bottle-like",
+   "dark outline merges with background buildings",
+   "small cigarette-like objects on road are confusing"
+  ],
+  "digest": "f18821ed037ad647",
+  "grade": "pass",
+  "score": 76,
+  "colors": 17,
+  "black": 0.206,
+  "biggest_patch": 0.225,
+  "theme": "City night",
+  "name": "Dress",
+  "pack": "clothes",
+  "touched": false
+ },
+ "scarf-607": {
+  "guess": "penguin wearing a red scarf",
+  "alternatives": [
+   "snowman with a scarf",
+   "owl"
+  ],
+  "readability": 4,
+  "features": [
+   "black head cap/hair",
+   "two dark eyes",
+   "yellow beak",
+   "white round body",
+   "red scarf",
+   "yellow feet",
+   "dark flipper outline",
+   "patterned rug",
+   "window in background"
+  ],
+  "problems": [
+   "white belly fills most of the body so it looks a bit like a snowman",
+   "black back only shows as a thin outline",
+   "window shape overlaps the top of the head",
+   "busy patterned rug at the bottom pulls attention from the feet"
+  ],
+  "digest": "929ba99066c44b1b",
+  "grade": "pass",
+  "score": 86,
+  "colors": 15,
+  "black": 0.082,
+  "biggest_patch": 0.418,
+  "theme": "Nursery",
+  "name": "Scarf",
+  "pack": "clothes",
+  "touched": false
+ },
+ "glasses-608": {
+  "guess": "pink cat wearing blue glasses",
+  "alternatives": [
+   "pink pig with glasses",
+   "pink mouse lying down"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed ears with dark outline",
+   "round blue glasses",
+   "eyes behind glasses",
+   "small mouth",
+   "body lying on floor",
+   "tail extending right",
+   "window and striped wallpaper background"
+  ],
+  "problems": [
+   "pink cat blends into pink striped wallpaper",
+   "body is a blobby shape with unclear legs",
+   "face is small and cluttered by the glasses",
+   "ears and head outline merge with background stripes"
+  ],
+  "digest": "fe70bafbaf10daf0",
+  "grade": "pass",
+  "score": 84,
+  "colors": 13,
+  "black": 0.109,
+  "biggest_patch": 0.136,
+  "theme": "Living room",
+  "name": "Glasses",
+  "pack": "clothes",
+  "touched": false
+ },
+ "bow-tie-609": {
+  "guess": "red bow tie",
+  "alternatives": [
+   "red ribbon bow",
+   "red butterfly"
+  ],
+  "readability": 3,
+  "features": [
+   "two wide red wings",
+   "central knot area",
+   "dark outline on lower edges",
+   "dark crease marks near center"
+  ],
+  "problems": [
+   "center knot not distinct from wings",
+   "huge size fills frame, shape blends into wall background",
+   "dark lines look like eyes, could read as a face or creature",
+   "busy city skyline and brick wall distract"
+  ],
+  "digest": "bd7b920608478028",
+  "grade": "pass",
+  "score": 76,
+  "colors": 14,
+  "black": 0.048,
+  "biggest_patch": 0.294,
+  "theme": "City dawn",
+  "name": "Bow Tie",
+  "pack": "clothes",
+  "touched": false
+ },
+ "handbag-610": {
+  "guess": "red handbag",
+  "alternatives": [
+   "red backpack",
+   "red tote bag on a table"
+  ],
+  "readability": 3,
+  "features": [
+   "red bag body",
+   "dark top handle loop",
+   "dark red shading on the side",
+   "small yellow clasp or tag",
+   "sitting on a wooden table in front of a window"
+  ],
+  "problems": [
+   "blobby rounded shape without clear edges",
+   "handle looks like a dark arch and could be read as a hood or head",
+   "no distinct zipper, straps or pockets",
+   "pink and yellow bits on the sides are confusing"
+  ],
+  "digest": "34dc4e9e16a4e766",
+  "grade": "pass",
+  "score": 68,
+  "colors": 11,
+  "black": 0.092,
+  "biggest_patch": 0.263,
+  "theme": "Cozy kitchen",
+  "name": "Handbag",
+  "pack": "clothes",
+  "touched": false
+ },
+ "sweater-611": {
+  "guess": "penguin wearing a red sweater",
+  "alternatives": [
+   "bird in a red jumper",
+   "puffin in a sweater"
+  ],
+  "readability": 3,
+  "features": [
+   "black head with white face",
+   "orange beak",
+   "closed eye",
+   "red knitted sweater body",
+   "orange feet",
+   "black flipper edges",
+   "shelf with jars in background",
+   "checkered floor"
+  ],
+  "problems": [
+   "sweater covers most of the body making it a big red blob",
+   "head is small and tilted, face hard to read",
+   "feet and flippers are small and partly hidden",
+   "pose is unclear (lying or sitting)"
+  ],
+  "digest": "0881a252c51929ed",
+  "grade": "pass",
+  "score": 84,
+  "colors": 13,
+  "black": 0.086,
+  "biggest_patch": 0.441,
+  "theme": "Bakery",
+  "name": "Sweater",
+  "pack": "clothes",
+  "touched": false
+ },
+ "baseball-cap-612": {
+  "guess": "white seal wearing a blue cap",
+  "alternatives": [
+   "snowman head with a baseball cap",
+   "ghost wearing a hat"
+  ],
+  "readability": 3,
+  "features": [
+   "round white head",
+   "blue baseball cap with yellow marks and backward brim",
+   "small dark eyes",
+   "dark body lying down",
+   "brick wall background",
+   "checkered floor"
+  ],
+  "problems": [
+   "face has very few features, eyes are tiny",
+   "dark body blends into the dark gray floor and outline",
+   "unclear what animal or creature it is",
+   "cap dominates the figure"
+  ],
+  "digest": "1c5182aa1e348d1d",
+  "grade": "pass",
+  "score": 72,
+  "colors": 9,
+  "black": 0.104,
+  "biggest_patch": 0.187,
+  "theme": "Brick cellar",
+  "name": "Baseball Cap",
+  "pack": "clothes",
+  "touched": false
+ },
+ "ring-613": {
+  "guess": "bomb with a rainbow ring over a fire",
+  "alternatives": [
+   "black cauldron over fire",
+   "bowling ball"
+  ],
+  "readability": 2,
+  "features": [
+   "large round dark body",
+   "small cap/fuse at top",
+   "rainbow colored ring band on front",
+   "fire/flames at bottom",
+   "window frame behind top"
+  ],
+  "problems": [
+   "no clear fuse or spark to read as bomb",
+   "rainbow ring looks abstract",
+   "dark shape fills most of canvas and blends with no outline",
+   "window behind top confuses the silhouette",
+   "purpose of the fire is unclear"
+  ],
+  "digest": "70503421e0eb0446",
+  "grade": "weak",
+  "score": 62,
+  "colors": 20,
+  "black": 0.301,
+  "biggest_patch": 0.334,
+  "theme": "Nursery",
+  "name": "Ring",
+  "pack": "clothes",
+  "touched": false
+ },
+ "sandals-614": {
+  "guess": "giant legs in sandals stomping on a city street",
+  "alternatives": [
+   "giant monster feet in a city at night",
+   "two tall buildings collapsing"
+  ],
+  "readability": 2,
+  "features": [
+   "two tall beige leg/foot shapes",
+   "red and tan strappy sandal-like bases",
+   "night city skyline with lit windows",
+   "crescent moon and stars",
+   "road with yellow lane markings"
+  ],
+  "problems": [
+   "legs look like tan buildings and blend with the skyline",
+   "no body, face or clear toes",
+   "sandal pattern is a noisy red/tan jumble",
+   "subject is cut off at top so scale is unclear"
+  ],
+  "digest": "290b4e61c601e1de",
+  "grade": "weak",
+  "score": 66,
+  "colors": 14,
+  "black": 0.263,
+  "biggest_patch": 0.136,
+  "theme": "City night",
+  "name": "Sandals",
+  "pack": "clothes",
+  "touched": false
+ },
+ "hoodie-615": {
+  "guess": "person in red hoodie standing in a cabin room",
+  "alternatives": [
+   "girl with red hair in a wooden house",
+   "person walking on a rug by a window"
+  ],
+  "readability": 3,
+  "features": [
+   "head with skin-colored face",
+   "red hood or long red hair",
+   "red sweater with arms",
+   "dark pants with two legs",
+   "feet/shoes",
+   "window behind",
+   "wooden plank walls and floor",
+   "red and yellow patterned rug"
+  ],
+  "problems": [
+   "face has no eyes, nose or mouth",
+   "legs look oddly shaped and blocky",
+   "body shape is blobby",
+   "brown wall stripes make the scene busy"
+  ],
+  "digest": "2d9f1f1545ed7121",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.068,
+  "biggest_patch": 0.218,
+  "theme": "Cabin",
+  "name": "Hoodie",
+  "pack": "clothes",
+  "touched": false
+ },
+ "overalls-616": {
+  "guess": "baker or chef in blue overalls",
+  "alternatives": [
+   "shop worker in apron",
+   "farmer in overalls"
+  ],
+  "readability": 3,
+  "features": [
+   "white chef hat",
+   "face in profile with dark hair/mustache",
+   "white shirt sleeves",
+   "blue overalls/apron",
+   "feet",
+   "pink striped wall with window behind",
+   "wooden counter or floor with purple striped rug"
+  ],
+  "problems": [
+   "face is tiny and in side view, hard to read",
+   "hat blends with white background stripes",
+   "body is blocky with unclear arms",
+   "figure partly merges with brown counter at bottom"
+  ],
+  "digest": "1649497357f57abf",
+  "grade": "pass",
+  "score": 76,
+  "colors": 14,
+  "black": 0.054,
+  "biggest_patch": 0.107,
+  "theme": "Living room",
+  "name": "Overalls",
+  "pack": "clothes",
+  "touched": false
+ },
+ "cowboy-hat-617": {
+  "guess": "brown cowboy hat",
+  "alternatives": [
+   "brown slug",
+   "pile of mud"
+  ],
+  "readability": 2,
+  "features": [
+   "tall crown on left",
+   "wide curved brim stretching right",
+   "tan highlight edge",
+   "dark shadow underneath"
+  ],
+  "problems": [
+   "shape is lopsided and blobby",
+   "no hat band or clear crown/brim separation",
+   "could read as an animal or rock",
+   "brown blends with busy brick wall background"
+  ],
+  "digest": "0600587963dde6ce",
+  "grade": "weak",
+  "score": 62,
+  "colors": 15,
+  "black": 0.051,
+  "biggest_patch": 0.126,
+  "theme": "City dawn",
+  "name": "Cowboy Hat",
+  "pack": "clothes",
+  "touched": false
+ }
+}

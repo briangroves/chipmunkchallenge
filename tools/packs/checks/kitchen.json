@@ -1,0 +1,421 @@
+{
+ "teapot-548": {
+  "guess": "white teapot with a bird design",
+  "alternatives": [
+   "kettle",
+   "sugar bowl"
+  ],
+  "readability": 4,
+  "features": [
+   "round white body",
+   "spout on left",
+   "handle on right",
+   "lid with knob on top",
+   "dark bird/swallow decoration on side",
+   "blue placemat underneath",
+   "window and wooden wall behind"
+  ],
+  "problems": [
+   "dark decoration is abstract and could look like a crack or splat",
+   "lid knob overlaps the window, slightly confusing",
+   "spout and handle are small relative to the body"
+  ],
+  "digest": "38552390eb27e0e4",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.158,
+  "biggest_patch": 0.177,
+  "theme": "Cabin",
+  "name": "Teapot",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "kettle-549": {
+  "guess": "teapot or kettle on a table",
+  "alternatives": [
+   "cat sitting on a shelf",
+   "pile of pots and pans"
+  ],
+  "readability": 2,
+  "features": [
+   "dark rounded body",
+   "white curved handle-like shape on right",
+   "grey metallic patches",
+   "brown table/shelf edge",
+   "small bottles (pink, red, green) on shelf",
+   "checkered floor",
+   "dotted orange wallpaper"
+  ],
+  "problems": [
+   "overlapping brown lines clutter the shape",
+   "no clear outline or spout",
+   "mixed grey, brown and black patches make it blobby",
+   "subject merges with shelf and background objects"
+  ],
+  "digest": "85189e580d93da0e",
+  "grade": "weak",
+  "score": 62,
+  "colors": 11,
+  "black": 0.121,
+  "biggest_patch": 0.408,
+  "theme": "Bakery",
+  "name": "Kettle",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "frying-pan-550": {
+  "guess": "white cat in a chef hat cooking with a frying pan",
+  "alternatives": [
+   "girl with a bonnet holding a pan",
+   "white bunny baking in a kitchen"
+  ],
+  "readability": 2,
+  "features": [
+   "white round face with small dark red eyes",
+   "tan hat or headscarf with dark red outline",
+   "gray frying pan with dark handle",
+   "red heart on the left",
+   "yellow-orange item at the bottom, like a bell or flame",
+   "pink striped wallpaper with a blue window",
+   "brown table with a purple and yellow patterned cloth"
+  ],
+  "problems": [
+   "the white face blends with the white stripes of the background",
+   "the face has very few details, only tiny eyes and no clear nose or mouth",
+   "the dark red outlines are broken and messy, so the body shape is unclear",
+   "the hat, arms and body merge into one blob",
+   "the black scribbly object on the left is hard to identify",
+   "the pan is partly hidden by dark shapes"
+  ],
+  "digest": "ae0d292f67ecc36d",
+  "grade": "weak",
+  "score": 74,
+  "colors": 18,
+  "black": 0.057,
+  "biggest_patch": 0.068,
+  "theme": "Living room",
+  "name": "Frying Pan",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "mug-551": {
+  "guess": "mug of beer",
+  "alternatives": [
+   "glass of orange juice",
+   "cup of hot cocoa with whipped cream"
+  ],
+  "readability": 4,
+  "features": [
+   "mug body filled with orange-amber liquid",
+   "white foam overflowing at the top",
+   "foam dripping down the side",
+   "handle on the right",
+   "dark outline",
+   "brick wall and checkered floor background like a pub"
+  ],
+  "problems": [
+   "the mug is tilted and slightly blobby",
+   "the handle is dark and blends with the outline",
+   "a small green pixel near the handle is unclear",
+   "beer may be unfamiliar to young kids, who might read it as juice"
+  ],
+  "digest": "60e30f8814f01fd3",
+  "grade": "pass",
+  "score": 78,
+  "colors": 11,
+  "black": 0.111,
+  "biggest_patch": 0.16,
+  "theme": "Brick cellar",
+  "name": "Mug",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "spoon-552": {
+  "guess": "silver spoon",
+  "alternatives": [
+   "ladle",
+   "teaspoon on a table"
+  ],
+  "readability": 5,
+  "features": [
+   "oval bowl of the spoon with white highlight",
+   "long thin handle",
+   "dark outline",
+   "wooden wall background",
+   "window behind",
+   "table with patterned red-yellow cloth/rug"
+  ],
+  "problems": [
+   "window behind the spoon bowl slightly clutters the top of the shape",
+   "spoon stands upright on its handle, which is an odd pose",
+   "bottom of handle blends a bit with the red patterned strip"
+  ],
+  "digest": "46b793be362cc4e9",
+  "grade": "pass",
+  "score": 80,
+  "colors": 11,
+  "black": 0.041,
+  "biggest_patch": 0.251,
+  "theme": "Cabin",
+  "name": "Spoon",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "cooking-pot-553": {
+  "guess": "white cooking pot with lid",
+  "alternatives": [
+   "sugar bowl",
+   "rice cooker"
+  ],
+  "readability": 4,
+  "features": [
+   "round white pot body",
+   "lid with dark knob handle",
+   "side handles",
+   "dark outline",
+   "rim line between lid and pot",
+   "brick wall and checkered floor kitchen setting"
+  ],
+  "problems": [
+   "knob handle is an irregular dark blob",
+   "white pot has little shading so shape looks flat",
+   "small blue pixel on left handle is unexplained",
+   "could be confused with a bowl or teapot"
+  ],
+  "digest": "5bb09ca1030d9ff6",
+  "grade": "pass",
+  "score": 74,
+  "colors": 7,
+  "black": 0.136,
+  "biggest_patch": 0.197,
+  "theme": "Brick cellar",
+  "name": "Cooking Pot",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "coffee-pot-554": {
+  "guess": "green teapot on a table",
+  "alternatives": [
+   "tea set with cups",
+   "green watering can"
+  ],
+  "readability": 3,
+  "features": [
+   "tall green teapot body",
+   "spout on the left",
+   "handle on the right",
+   "lid knob on top",
+   "light blue teacup",
+   "blue cup or bowl on left",
+   "red patterned tablecloth",
+   "pink striped wallpaper with window"
+  ],
+  "problems": [
+   "teapot shape is tall and jagged, looks a bit like a cactus or hand",
+   "dark outlines merge objects together",
+   "cluttered small items at bottom are hard to identify",
+   "busy striped background competes with subject"
+  ],
+  "digest": "a1a7c8095e7fb731",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.113,
+  "biggest_patch": 0.083,
+  "theme": "Living room",
+  "name": "Coffee Pot",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "microwave-555": {
+  "guess": "microwave oven",
+  "alternatives": [
+   "toaster oven",
+   "old television"
+  ],
+  "readability": 4,
+  "features": [
+   "white rounded body",
+   "dark glass door window",
+   "window glare highlight",
+   "side control panel with buttons/dial",
+   "small feet",
+   "kitchen counter",
+   "tiled wall background"
+  ],
+  "problems": [
+   "control panel details are small and vague",
+   "rounded top makes it look a bit like a TV",
+   "dark window takes up most of the shape"
+  ],
+  "digest": "1d95b00bfce680c7",
+  "grade": "pass",
+  "score": 78,
+  "colors": 8,
+  "black": 0.264,
+  "biggest_patch": 0.217,
+  "theme": "Cozy kitchen",
+  "name": "Microwave",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "chef-hat-556": {
+  "guess": "chef's hat (toque)",
+  "alternatives": [
+   "white trash can",
+   "ghost"
+  ],
+  "readability": 3,
+  "features": [
+   "puffy rounded top",
+   "vertical pleats on the band",
+   "flat brim at the bottom",
+   "lavender shading",
+   "dark outline"
+  ],
+  "problems": [
+   "top puff shape is irregular and swirly, could read as a blob or cloud",
+   "pleated lower part looks like a trash can or column",
+   "no context like a person to show it is worn",
+   "small blue square on the left is unexplained"
+  ],
+  "digest": "5e6379d032f36bc2",
+  "grade": "pass",
+  "score": 68,
+  "colors": 8,
+  "black": 0.149,
+  "biggest_patch": 0.186,
+  "theme": "Brick cellar",
+  "name": "Chef Hat",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "grater-557": {
+  "guess": "cheese grater",
+  "alternatives": [
+   "trash can with lid",
+   "metal canister"
+  ],
+  "readability": 3,
+  "features": [
+   "grey metal body with rows of dark holes",
+   "white handle/top",
+   "dark outline",
+   "slight taper toward the top"
+  ],
+  "problems": [
+   "white top looks like a lid or hat rather than a grater handle",
+   "holes look like random dark spots",
+   "tapered shape could also read as a bin or ghost",
+   "sits on a small rug in a room with no other context"
+  ],
+  "digest": "99e29a2907c4c0e6",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.128,
+  "biggest_patch": 0.151,
+  "theme": "Cabin",
+  "name": "Grater",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "spatula-558": {
+  "guess": "slotted spatula (kitchen turner)",
+  "alternatives": [
+   "fish slice",
+   "fork"
+  ],
+  "readability": 4,
+  "features": [
+   "dark slotted flat head with white slots",
+   "metal neck/shaft",
+   "red handle",
+   "pink tag/hanger on side",
+   "kitchen backdrop with polka-dot wall, shelf rail, checkered floor"
+  ],
+  "problems": [
+   "pink blob on the side of the head is unclear",
+   "slots could make it read as a fork",
+   "dark head is slightly blocky"
+  ],
+  "digest": "11fd232c8829f603",
+  "grade": "pass",
+  "score": 74,
+  "colors": 9,
+  "black": 0.073,
+  "biggest_patch": 0.493,
+  "theme": "Bakery",
+  "name": "Spatula",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "rice-cooker-559": {
+  "guess": "white kitchen appliance (rice cooker/stove)",
+  "alternatives": [
+   "white cat sleeping",
+   "washing machine"
+  ],
+  "readability": 2,
+  "features": [
+   "rounded white body",
+   "dark outline",
+   "grey front panel with yellow and green lights",
+   "dark opening at bottom",
+   "top lid/handle shape",
+   "rug underneath",
+   "window and wooden wall background"
+  ],
+  "problems": [
+   "top shape is lumpy and ambiguous",
+   "no clear identifying details",
+   "could be animal or appliance",
+   "panel lights look odd",
+   "overall blobby silhouette"
+  ],
+  "digest": "4d3658941a67fd15",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.091,
+  "biggest_patch": 0.163,
+  "theme": "Cabin",
+  "name": "Rice Cooker",
+  "pack": "kitchen",
+  "touched": false
+ },
+ "oven-560": {
+  "guess": "microwave oven with food inside",
+  "alternatives": [
+   "old television",
+   "toaster oven"
+  ],
+  "readability": 4,
+  "features": [
+   "white boxy body",
+   "dark window door with food visible",
+   "control panel with buttons on right side",
+   "yellow and orange food (cheese/omelet)",
+   "red food item (sausage or pepperoni)",
+   "wooden wall background with a window",
+   "counter top under it"
+  ],
+  "problems": [
+   "food inside is blobby and hard to identify",
+   "control panel buttons look like scribbles",
+   "could be mistaken for a TV screen",
+   "window above blends in as a separate element"
+  ],
+  "digest": "4386711236b7e713",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.233,
+  "biggest_patch": 0.112,
+  "theme": "Cabin",
+  "name": "Oven",
+  "pack": "kitchen",
+  "touched": false
+ }
+}

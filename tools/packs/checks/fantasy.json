@@ -1,0 +1,851 @@
+{
+ "dragon-469": {
+  "guess": "green dragon at night",
+  "alternatives": [
+   "green frog",
+   "green dinosaur"
+  ],
+  "readability": 2,
+  "features": [
+   "green body",
+   "raised wings or arms",
+   "small tan horn or eye patch",
+   "feet at bottom",
+   "night sky with moon and stars",
+   "grass with small flowers"
+  ],
+  "problems": [
+   "no clear face or eyes",
+   "blobby body shape",
+   "green body blends into green grass",
+   "head and limbs hard to distinguish",
+   "dark outlines merge with dark hills"
+  ],
+  "digest": "999276a8696965a5",
+  "grade": "weak",
+  "score": 78,
+  "colors": 16,
+  "black": 0.348,
+  "biggest_patch": 0.176,
+  "theme": "Starry hilltop",
+  "name": "Dragon",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "unicorn-470": {
+  "guess": "white unicorn (kawaii cat-unicorn)",
+  "alternatives": [
+   "white cat with a bow",
+   "white kitten"
+  ],
+  "readability": 4,
+  "features": [
+   "white round body",
+   "face with closed winking eyes",
+   "pink blush cheeks",
+   "small open mouth with red tongue",
+   "pointed grey ears",
+   "blue and pink horn/mane tuft on head",
+   "blue-tipped tail",
+   "pink feet",
+   "sunset sky with crescent moon",
+   "green bushes with fireflies"
+  ],
+  "problems": [
+   "horn is small and blends with the blue/pink tuft, so it may read as a cat with a bow",
+   "body is a blobby shape with legs hard to separate",
+   "grey shading on the white body is a bit muddy"
+  ],
+  "digest": "9e84e9b2e9146a70",
+  "grade": "pass",
+  "score": 94,
+  "colors": 18,
+  "black": 0.122,
+  "biggest_patch": 0.118,
+  "theme": "Castle at dusk",
+  "name": "Unicorn",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "wizard-471": {
+  "guess": "wizard with a staff",
+  "alternatives": [
+   "gnome",
+   "old sorcerer"
+  ],
+  "readability": 5,
+  "features": [
+   "pointed blue wizard hat",
+   "white beard",
+   "face with eyes and nose",
+   "blue robe",
+   "pink belt/sash",
+   "wooden staff with purple-red orb",
+   "feet/boots"
+  ],
+  "problems": [
+   "dark outline of staff blends with figure",
+   "hat tip blends slightly with dark trees",
+   "small face details"
+  ],
+  "digest": "259f5e35da388701",
+  "grade": "pass",
+  "score": 100,
+  "colors": 20,
+  "black": 0.065,
+  "biggest_patch": 0.146,
+  "theme": "Bamboo grove",
+  "name": "Wizard",
+  "pack": "fantasy",
+  "touched": false,
+  "verify": {
+   "guess": "wizard with a staff",
+   "score": 94,
+   "agrees": true
+  }
+ },
+ "fairy-472": {
+  "guess": "fairy with wings",
+  "alternatives": [
+   "angel",
+   "girl with butterfly wings"
+  ],
+  "readability": 3,
+  "features": [
+   "white and pink wings",
+   "blonde hair",
+   "red outline/clothing",
+   "blue dress",
+   "arm",
+   "legs",
+   "small face area"
+  ],
+  "problems": [
+   "face is unclear with no distinct eyes",
+   "red outline makes body look messy and blobby",
+   "legs blend into dark grass",
+   "pose is hard to read"
+  ],
+  "digest": "af2eea560ed14158",
+  "grade": "pass",
+  "score": 80,
+  "colors": 20,
+  "black": 0.033,
+  "biggest_patch": 0.179,
+  "theme": "Garden pond",
+  "name": "Fairy",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "castle-473": {
+  "guess": "crystal castle",
+  "alternatives": [
+   "rocket ship",
+   "ice crystal cluster"
+  ],
+  "readability": 3,
+  "features": [
+   "tall central pointed spire",
+   "smaller side towers",
+   "white highlights on facets",
+   "blue window-like spots",
+   "wide base sitting on grass"
+  ],
+  "problems": [
+   "no clear doors, windows or flags to confirm a castle",
+   "lavender color is close to the purple sky band",
+   "jagged blocky shape reads like a crystal cluster as easily as a castle",
+   "central spire overlaps the busy striped sunset"
+  ],
+  "digest": "8e238e6c9ccecd19",
+  "grade": "pass",
+  "score": 72,
+  "colors": 17,
+  "black": 0.065,
+  "biggest_patch": 0.117,
+  "theme": "Sunset meadow",
+  "name": "Castle",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "mermaid-474": {
+  "guess": "mermaid with long blonde hair holding a lyre",
+  "alternatives": [
+   "girl playing a harp",
+   "angel with a lute"
+  ],
+  "readability": 2,
+  "features": [
+   "long yellow hair",
+   "tan face and arm",
+   "orange/gold tail or dress",
+   "brown instrument held at side",
+   "white wing or cloth",
+   "flowers and birds in background"
+  ],
+  "problems": [
+   "no clear facial features",
+   "body parts blend into hair",
+   "white shape is unclear (wing or fin?)",
+   "instrument hard to identify",
+   "busy purple background"
+  ],
+  "digest": "f5ce0a82e4d52215",
+  "grade": "weak",
+  "score": 74,
+  "colors": 16,
+  "black": 0.052,
+  "biggest_patch": 0.229,
+  "theme": "Overcast moor",
+  "name": "Mermaid",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "princess-475": {
+  "guess": "blonde princess in a purple dress in the snow",
+  "alternatives": [
+   "girl skating on ice",
+   "fairy in a winter forest"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow hair with purple headband",
+   "tan face with one big eye",
+   "purple dress",
+   "dark outline body",
+   "snowy ground",
+   "green trees",
+   "night sky with arches of lights"
+  ],
+  "problems": [
+   "face is hard to read, only one eye and a dark brown patch for mouth/neck",
+   "no clear arms or legs",
+   "hair is a large blob covering the head",
+   "body shape is narrow and oddly bent",
+   "busy background arches compete with the figure"
+  ],
+  "digest": "0f12806bf77beaad",
+  "grade": "pass",
+  "score": 76,
+  "colors": 19,
+  "black": 0.252,
+  "biggest_patch": 0.142,
+  "theme": "Northern lights",
+  "name": "Princess",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "crown-476": {
+  "guess": "happy tooth wearing a crown",
+  "alternatives": [
+   "marshmallow king",
+   "ghost with a crown"
+  ],
+  "readability": 4,
+  "features": [
+   "white tooth-shaped body with root bumps at bottom",
+   "closed happy eyes",
+   "smile",
+   "pink blush cheeks",
+   "gold and brown crown",
+   "raised arm/hand holding something"
+  ],
+  "problems": [
+   "brown outlines around crown and arm are messy and broken",
+   "object at left (scepter or arm) is hard to read",
+   "grey shading makes edges look lumpy",
+   "blue patch at bottom is unclear"
+  ],
+  "digest": "8efe70b83032610a",
+  "grade": "pass",
+  "score": 78,
+  "colors": 18,
+  "black": 0.048,
+  "biggest_patch": 0.143,
+  "theme": "Riverbank",
+  "name": "Crown",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "magic-wand-477": {
+  "guess": "magic star wand",
+  "alternatives": [
+   "shooting star",
+   "star-topped scepter"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow five-pointed star with dark outline",
+   "white shine highlight on star",
+   "orange and white striped handle",
+   "dark blue shadow along handle",
+   "sunset sky with sun",
+   "purple hills and stripes background",
+   "green ground at bottom"
+  ],
+  "problems": [
+   "star points are uneven and a bit lumpy",
+   "orange of star blends with handle at the joint",
+   "busy striped purple background competes with the subject",
+   "tilted angle could read as a shooting star with a tail"
+  ],
+  "digest": "f6b6a58df2050abd",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.047,
+  "biggest_patch": 0.163,
+  "theme": "Lavender fields",
+  "name": "Magic Wand",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "treasure-chest-478": {
+  "guess": "open treasure chest full of gold",
+  "alternatives": [
+   "red toy box",
+   "open red suitcase"
+  ],
+  "readability": 4,
+  "features": [
+   "red chest body with white/silver trim",
+   "open lid tilted back",
+   "gold coins piled inside",
+   "dark band/lock area",
+   "grass, sun, trees and flowers background"
+  ],
+  "problems": [
+   "lid perspective is a bit confusing",
+   "gold pile looks blobby, coins not distinct",
+   "dark outline gaps make the shape slightly messy"
+  ],
+  "digest": "09bc5e75dd344e16",
+  "grade": "pass",
+  "score": 74,
+  "colors": 20,
+  "black": 0.093,
+  "biggest_patch": 0.128,
+  "theme": "Orchard",
+  "name": "Treasure Chest",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "pegasus-479": {
+  "guess": "white pegasus (winged horse)",
+  "alternatives": [
+   "white horse",
+   "unicorn"
+  ],
+  "readability": 2,
+  "features": [
+   "white body with dark outline",
+   "four thin legs",
+   "wing-like jagged shape on top",
+   "possible head on right side",
+   "grassy field with trees and clouds",
+   "small red-white flowers"
+  ],
+  "problems": [
+   "no clear face, eyes or ears",
+   "head and wings are hard to tell apart",
+   "dark interior lines make body look like scribbles",
+   "legs blend with dark green bushes",
+   "overall shape is blobby and confusing"
+  ],
+  "digest": "688163c42ea3af0b",
+  "grade": "weak",
+  "score": 70,
+  "colors": 12,
+  "black": 0.151,
+  "biggest_patch": 0.159,
+  "theme": "Pine forest",
+  "name": "Pegasus",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "crystal-ball-480": {
+  "guess": "crystal ball",
+  "alternatives": [
+   "blue planet or moon in a crater",
+   "water bubble in a hole"
+  ],
+  "readability": 3,
+  "features": [
+   "round light-blue glass sphere with white shine highlight",
+   "dark base/stand under the sphere",
+   "dark blue swirling aura or hole around it",
+   "sun in the sky",
+   "sandy desert background"
+  ],
+  "problems": [
+   "dark base blends into the dark blue ring, so the stand is hard to read",
+   "large dark blue halo is ambiguous and could be read as a hole or portal",
+   "scattered gray/black specks around the edge look like noise",
+   "no clear context explaining what the object is"
+  ],
+  "digest": "0d3e1583761b6ecd",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.071,
+  "biggest_patch": 0.175,
+  "theme": "Golden wheat",
+  "name": "Crystal Ball",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "gnome-481": {
+  "guess": "garden gnome",
+  "alternatives": [
+   "Santa Claus",
+   "wizard"
+  ],
+  "readability": 4,
+  "features": [
+   "tall red pointed hat",
+   "white beard",
+   "orange nose",
+   "eyes under hat brim",
+   "blue body/coat",
+   "dark belt",
+   "grass and flowers background"
+  ],
+  "problems": [
+   "eyes are orange strips that are hard to read",
+   "no visible arms or feet",
+   "body is a blocky blue rectangle",
+   "face is small relative to the hat and body"
+  ],
+  "digest": "accbfd1ec6b5d281",
+  "grade": "pass",
+  "score": 86,
+  "colors": 17,
+  "black": 0.041,
+  "biggest_patch": 0.258,
+  "theme": "Rose garden",
+  "name": "Gnome",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "magic-carpet-482": {
+  "guess": "purple magic carpet on desert sand",
+  "alternatives": [
+   "purple pillow or cushion",
+   "sleeping bag"
+  ],
+  "readability": 3,
+  "features": [
+   "flat rectangular purple shape with lighter top and darker purple border",
+   "tassels or knobs at the four corners",
+   "white highlights suggesting fabric folds",
+   "desert setting with sand, sun and hazy sky"
+  ],
+  "problems": [
+   "shape is tilted and blobby, so it reads more like a cushion than a carpet",
+   "no clear carpet pattern or fringe",
+   "corner tassels are small and hard to notice",
+   "white highlight marks look like random shapes or a letter T"
+  ],
+  "digest": "a1800df669749d0d",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.072,
+  "biggest_patch": 0.133,
+  "theme": "Desert dunes",
+  "name": "Magic Carpet",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "goblin-483": {
+  "guess": "green goblin with red bandana",
+  "alternatives": [
+   "orc pirate",
+   "troll"
+  ],
+  "readability": 4,
+  "features": [
+   "green face",
+   "pointed ears",
+   "red bandana/hat",
+   "angry eyes with eyebrows",
+   "nose",
+   "mouth",
+   "red shirt",
+   "black pants",
+   "stone wall background",
+   "sky with clouds"
+  ],
+  "problems": [
+   "one ear blends into yellow/stripes",
+   "face details small and cluttered",
+   "body cut off at bottom",
+   "grey wall background busy"
+  ],
+  "digest": "568626a2cc657e05",
+  "grade": "pass",
+  "score": 94,
+  "colors": 15,
+  "black": 0.179,
+  "biggest_patch": 0.13,
+  "theme": "Mountain pass",
+  "name": "Goblin",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "griffin-484": {
+  "guess": "dark blue dragon or griffin with raised wing",
+  "alternatives": [
+   "blue bird spreading wing",
+   "horse rearing up"
+  ],
+  "readability": 2,
+  "features": [
+   "large raised pointed wing",
+   "body silhouette",
+   "white highlight lines",
+   "dark red legs or claws",
+   "small head with red and brown top"
+  ],
+  "problems": [
+   "no clear face or eyes",
+   "blobby silhouette",
+   "dark red details blend into pink striped background",
+   "head is tiny and unclear",
+   "hard to tell which way the creature faces"
+  ],
+  "digest": "2e6dd50e333cb73a",
+  "grade": "weak",
+  "score": 70,
+  "colors": 13,
+  "black": 0.0,
+  "biggest_patch": 0.219,
+  "theme": "Tulip fields",
+  "name": "Griffin",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "enchanted-tree-485": {
+  "guess": "tree stump",
+  "alternatives": [
+   "groundhog standing up",
+   "Moai stone head statue"
+  ],
+  "readability": 2,
+  "features": [
+   "tall brown trunk shape with lighter tan cut top",
+   "dark shading on right side",
+   "small dark specks like bark texture",
+   "grass at the base",
+   "stone wall and sky behind"
+  ],
+  "problems": [
+   "no clear face or limbs, so it reads as a blob",
+   "the small dark notches near the top are ambiguous (ears? broken edges?)",
+   "the shape is blocky and doesn't strongly suggest any one object",
+   "the dark shadow on the right merges with the outline"
+  ],
+  "digest": "cf7a715808b65a68",
+  "grade": "weak",
+  "score": 62,
+  "colors": 11,
+  "black": 0.059,
+  "biggest_patch": 0.177,
+  "theme": "Seaside cliffs",
+  "name": "Enchanted Tree",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "magic-castle-486": {
+  "guess": "purple fairy-tale castle",
+  "alternatives": [
+   "crystal palace",
+   "ice castle with towers"
+  ],
+  "readability": 3,
+  "features": [
+   "tall central tower with yellow flag",
+   "smaller side towers with grey battlements",
+   "blue arched door at the bottom",
+   "light blue windows",
+   "white central wall section",
+   "purple walls widening at the base"
+  ],
+  "problems": [
+   "towers merge into one lumpy purple mass",
+   "grey battlements are jagged and hard to read",
+   "dark square background frame looks odd in the desert scene",
+   "light blue windows look like streaks rather than windows",
+   "desert setting (cacti, sun, sand) doesn't fit a castle"
+  ],
+  "digest": "f8e6fa6b3dbf036f",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.259,
+  "biggest_patch": 0.229,
+  "theme": "Cactus canyon",
+  "name": "Magic Castle",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "prince-487": {
+  "guess": "little king with a big golden crown",
+  "alternatives": [
+   "prince in a dungeon",
+   "boy wearing a crown"
+  ],
+  "readability": 4,
+  "features": [
+   "large golden crown with points and white gems",
+   "red hair",
+   "face with dark eyes",
+   "red shirt",
+   "blue pants",
+   "small body"
+  ],
+  "problems": [
+   "crown is oversized and dominates the figure",
+   "face is small and hard to read",
+   "body is tiny and dark outline blends with dark brown background",
+   "scattered bones/mushrooms in background distract"
+  ],
+  "digest": "970ac9a905f2d7be",
+  "grade": "weak",
+  "score": 52,
+  "colors": 13,
+  "black": 0.245,
+  "biggest_patch": 0.216,
+  "theme": "Cave",
+  "name": "Prince",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "king-488": {
+  "guess": "red monster with a crown attacking a city",
+  "alternatives": [
+   "giant red bird king (kaiju)",
+   "red furry beast with yellow hair"
+  ],
+  "readability": 2,
+  "features": [
+   "big dark red body",
+   "yellow-orange crown or hair on top",
+   "black and white face with eyes",
+   "spiky outstretched arms",
+   "city buildings and road in background",
+   "clouds and birds in sky"
+  ],
+  "problems": [
+   "body is a shapeless red blob",
+   "face is small and hard to read",
+   "no clear limbs or feet",
+   "crown/hair ambiguous",
+   "jagged dark edges look messy"
+  ],
+  "digest": "197c229d6ef56e38",
+  "grade": "weak",
+  "score": 70,
+  "colors": 15,
+  "black": 0.092,
+  "biggest_patch": 0.237,
+  "theme": "City day",
+  "name": "King",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "cute-dragon-489": {
+  "guess": "green Yoshi-like dragon with red wings",
+  "alternatives": [
+   "green parrot flying",
+   "flying dinosaur"
+  ],
+  "readability": 3,
+  "features": [
+   "green head with white snout/belly",
+   "dark eye area",
+   "large red wings with pink highlights",
+   "yellow feet/claws",
+   "green tail at lower right"
+  ],
+  "problems": [
+   "face lacks a clear eye and mouth",
+   "wings dominate and blend with the body into a busy blob",
+   "orange/yellow background stripes compete with the yellow feet",
+   "pose is hard to read; head shape is ambiguous"
+  ],
+  "digest": "806ebd17530cc6d0",
+  "grade": "pass",
+  "score": 88,
+  "colors": 13,
+  "black": 0.11,
+  "biggest_patch": 0.111,
+  "theme": "Golden wheat",
+  "name": "Cute Dragon",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "cute-unicorn-490": {
+  "guess": "white unicorn",
+  "alternatives": [
+   "white cat with a bow",
+   "white pony"
+  ],
+  "readability": 4,
+  "features": [
+   "pink-and-blue horn on head",
+   "pointed ears with pink insides",
+   "winking eyes",
+   "pink blush cheeks",
+   "small open mouth with red tongue",
+   "blue tail",
+   "hooves with pink",
+   "sitting body"
+  ],
+  "problems": [
+   "horn is small and blends with the blue mane, so it could read as a bow",
+   "body is a rounded blob and the legs are hard to separate",
+   "one eye is closed/winking which is a bit unclear",
+   "blue tail and mane are small"
+  ],
+  "digest": "6a23596781ef2dad",
+  "grade": "pass",
+  "score": 94,
+  "colors": 18,
+  "black": 0.071,
+  "biggest_patch": 0.186,
+  "theme": "Summer hills",
+  "name": "Cute Unicorn",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "cute-wizard-491": {
+  "guess": "penguin wizard on a beach",
+  "alternatives": [
+   "penguin with a witch hat",
+   "penguin pirate on an island"
+  ],
+  "readability": 4,
+  "features": [
+   "white face with black eyes",
+   "orange beak",
+   "blue pointed wizard hat",
+   "black body with white belly",
+   "wooden staff with green gem",
+   "orange feet",
+   "dark red cape",
+   "beach with palm trees, sun and sea"
+  ],
+  "problems": [
+   "dark cape and staff merge with the black body making the outline busy",
+   "hat partly blends with dark palm tree trunks",
+   "feet and lower body are cluttered with brown, red and orange blocks",
+   "belly grey shading looks patchy"
+  ],
+  "digest": "504b880914ac3171",
+  "grade": "pass",
+  "score": 90,
+  "colors": 19,
+  "black": 0.081,
+  "biggest_patch": 0.154,
+  "theme": "Tropical beach",
+  "name": "Cute Wizard",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "cute-witch-492": {
+  "guess": "child in a purple witch costume with a pumpkin bucket",
+  "alternatives": [
+   "trick-or-treater in a wizard hat",
+   "witch with a jack-o'-lantern"
+  ],
+  "readability": 3,
+  "features": [
+   "purple pointed hat with yellow band/buckle",
+   "grey hair under hat",
+   "face with dark eyes",
+   "purple robe/cape",
+   "orange jack-o'-lantern bucket with face",
+   "hand holding bucket"
+  ],
+  "problems": [
+   "hat shape is cluttered and hard to read as a witch hat",
+   "grey parts of hat blend into grey mountains behind",
+   "face is small with few details",
+   "purple robe and blue cape blend into a blobby mass",
+   "busy background competes with the figure"
+  ],
+  "digest": "4d394b0d0145960e",
+  "grade": "pass",
+  "score": 76,
+  "colors": 19,
+  "black": 0.095,
+  "biggest_patch": 0.156,
+  "theme": "Waterfall",
+  "name": "Cute Witch",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "cute-fairy-493": {
+  "guess": "fairy with wings sitting on a leaf",
+  "alternatives": [
+   "tooth fairy",
+   "girl in a green dress on a big leaf"
+  ],
+  "readability": 2,
+  "features": [
+   "tan face with dark eye",
+   "green hair or hood",
+   "white wing",
+   "large dark green leaf",
+   "flowers in grass"
+  ],
+  "problems": [
+   "face is tiny and barely readable",
+   "white wing looks like a tooth or sheet",
+   "green figure blends into green leaf and grass",
+   "body shape unclear, no visible arms or legs"
+  ],
+  "digest": "0f977a9f6d6c75de",
+  "grade": "weak",
+  "score": 74,
+  "colors": 15,
+  "black": 0.076,
+  "biggest_patch": 0.194,
+  "theme": "Rose garden",
+  "name": "Cute Fairy",
+  "pack": "fantasy",
+  "touched": false
+ },
+ "golden-crown-494": {
+  "guess": "golden crown",
+  "alternatives": [
+   "orange monster face",
+   "royal crown with rubies"
+  ],
+  "readability": 3,
+  "features": [
+   "five pointed prongs with round tips",
+   "yellow-orange gold body",
+   "three dark red jewels",
+   "rounded base band",
+   "white highlights"
+  ],
+  "problems": [
+   "jewels look like eyes and the base looks like a mouth with fangs, so it reads like a face",
+   "prongs are uneven and lumpy",
+   "small dark red stripe in the middle is confusing",
+   "crown shape is blobby rather than a clean band"
+  ],
+  "digest": "b75ebfaebc5130ba",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.075,
+  "biggest_patch": 0.203,
+  "theme": "Red barn",
+  "name": "Golden Crown",
+  "pack": "fantasy",
+  "touched": false
+ }
+}

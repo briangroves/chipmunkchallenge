@@ -1,0 +1,370 @@
+{
+ "beach-ball-536": {
+  "guess": "beach ball on the sand",
+  "alternatives": [
+   "inflatable swim ring",
+   "beach umbrella top"
+  ],
+  "readability": 4,
+  "features": [
+   "round ball outline with dark border",
+   "colored panels: blue, white, red, yellow/orange",
+   "light highlight panel",
+   "sandy beach and sea background",
+   "small green plants"
+  ],
+  "problems": [
+   "red panel shape is irregular and blobby rather than a clean wedge",
+   "bottom of the ball is messy with dark and orange pixels blending into the sand",
+   "blue panel blends into the blue sea"
+  ],
+  "digest": "f29175d2aa981486",
+  "grade": "pass",
+  "score": 74,
+  "colors": 19,
+  "black": 0.077,
+  "biggest_patch": 0.219,
+  "theme": "Kelp forest",
+  "name": "Beach Ball",
+  "pack": "beach",
+  "touched": false
+ },
+ "sunglasses-537": {
+  "guess": "sunglasses on a beach",
+  "alternatives": [
+   "swimming goggles",
+   "binoculars"
+  ],
+  "readability": 4,
+  "features": [
+   "two large grey lenses",
+   "dark frame with bridge in middle",
+   "white glint on bridge",
+   "sea and sky background",
+   "sand below",
+   "coral or seaweed shapes in water"
+  ],
+  "problems": [
+   "frame edges are noisy with mixed red/black/brown pixels",
+   "lenses are flat grey without shine, could read as goggles",
+   "busy coral shapes and beach clutter around the edges distract"
+  ],
+  "digest": "19a8ec371c4a7743",
+  "grade": "pass",
+  "score": 74,
+  "colors": 21,
+  "black": 0.08,
+  "biggest_patch": 0.25,
+  "theme": "Coral reef",
+  "name": "Sunglasses",
+  "pack": "beach",
+  "touched": false
+ },
+ "flip-flops-538": {
+  "guess": "pair of flip-flops",
+  "alternatives": [
+   "pair of sandals",
+   "two surfboards"
+  ],
+  "readability": 4,
+  "features": [
+   "two sole shapes side by side",
+   "dark green V-shaped straps",
+   "white soles with light green pattern",
+   "dark outline",
+   "shadow underneath"
+  ],
+  "problems": [
+   "soles look rectangular and tall, a bit like tombstones or surfboards",
+   "busy green camouflage pattern makes the straps harder to read",
+   "no visible toe post detail"
+  ],
+  "digest": "d3f0f10e18fac73e",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.113,
+  "biggest_patch": 0.141,
+  "theme": "Harvest farm",
+  "name": "Flip Flops",
+  "pack": "beach",
+  "touched": false
+ },
+ "beach-umbrella-539": {
+  "guess": "green umbrella in the snow",
+  "alternatives": [
+   "flying saucer UFO",
+   "green mushroom"
+  ],
+  "readability": 3,
+  "features": [
+   "green dome-shaped canopy with light and dark shading",
+   "dark rim under the canopy",
+   "dark handle/stem going down into the snow",
+   "snowy ground with snowflakes",
+   "night sky with stars and crescent moon"
+  ],
+  "problems": [
+   "canopy is very flat and lumpy, looks more like a UFO or blob than an umbrella",
+   "handle is short and thick with no curved hook",
+   "no clear ribs or scalloped edge on the canopy",
+   "odd tan patch on top is confusing"
+  ],
+  "digest": "3ec07f9ffc4979be",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.22,
+  "biggest_patch": 0.301,
+  "theme": "Winter night",
+  "name": "Beach Umbrella",
+  "pack": "beach",
+  "touched": false
+ },
+ "palm-tree-540": {
+  "guess": "palm tree",
+  "alternatives": [
+   "dark tree on fire ground",
+   "tree in autumn field"
+  ],
+  "readability": 3,
+  "features": [
+   "dark green leafy crown with spiky fronds",
+   "tall dark grey trunk",
+   "red shading along trunk",
+   "orange ground",
+   "background small trees and clouds"
+  ],
+  "problems": [
+   "trunk is dark grey/black, looks burnt rather than like wood",
+   "crown is a blobby dark green shape, not clearly palm fronds",
+   "bright orange ground looks like lava, confusing the scene",
+   "red patches near trunk base blend oddly with the ground"
+  ],
+  "digest": "1058fb4e923a49f4",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.081,
+  "biggest_patch": 0.177,
+  "theme": "Autumn woods",
+  "name": "Palm Tree",
+  "pack": "beach",
+  "touched": false
+ },
+ "crab-541": {
+  "guess": "red crab",
+  "alternatives": [
+   "lobster",
+   "red bug"
+  ],
+  "readability": 5,
+  "features": [
+   "two big raised claws with pink highlights",
+   "eyes on stalks",
+   "small frowning mouth",
+   "round red body with darker shading",
+   "short legs on the sides",
+   "outlined in dark grey"
+  ],
+  "problems": [
+   "eyes are small and hard to read inside the dark outline",
+   "legs are short and partly lost against the grass",
+   "some dark red shading blends into the dark green grass"
+  ],
+  "digest": "4dae08881aec61d0",
+  "grade": "pass",
+  "score": 92,
+  "colors": 17,
+  "black": 0.107,
+  "biggest_patch": 0.147,
+  "theme": "Summer hills",
+  "name": "Crab",
+  "pack": "beach",
+  "touched": false
+ },
+ "lemonade-542": {
+  "guess": "glass of lemonade with a straw and lemon slice",
+  "alternatives": [
+   "cocktail drink with lemon",
+   "iced tea cup with straw"
+  ],
+  "readability": 3,
+  "features": [
+   "tall glass with dark outline",
+   "yellow-orange liquid with green layer",
+   "lemon slice on the rim",
+   "bent straw sticking out",
+   "ice/grey top part"
+  ],
+  "problems": [
+   "glass shape is irregular and lumpy",
+   "lemon slice looks like a sun or ball",
+   "straw blends with background colors",
+   "busy background of bushes and snow distracts"
+  ],
+  "digest": "efd49311d2f922ae",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.07,
+  "biggest_patch": 0.179,
+  "theme": "Snowy pines",
+  "name": "Lemonade",
+  "pack": "beach",
+  "touched": false
+ },
+ "beach-chair-543": {
+  "guess": "blue beach chair on the sand",
+  "alternatives": [
+   "deck chair",
+   "camping chair"
+  ],
+  "readability": 3,
+  "features": [
+   "blue fabric seat and backrest",
+   "gray metal frame",
+   "armrest on the right",
+   "legs with orange feet on sand",
+   "beach sand and sea background"
+  ],
+  "problems": [
+   "chair is seen at an odd angle, looks like a big blue blob",
+   "backrest and seat merge into one shape",
+   "right side armrest is cluttered and hard to read",
+   "blue chair blends with blue sea behind it"
+  ],
+  "digest": "3e8af2aca7aa0070",
+  "grade": "pass",
+  "score": 76,
+  "colors": 17,
+  "black": 0.074,
+  "biggest_patch": 0.215,
+  "theme": "Kelp forest",
+  "name": "Beach Chair",
+  "pack": "beach",
+  "touched": false
+ },
+ "cooler-544": {
+  "guess": "water cooler",
+  "alternatives": [
+   "water dispenser with bottle",
+   "milk bottle"
+  ],
+  "readability": 3,
+  "features": [
+   "blue water bottle on top with dark cap",
+   "white dispenser base",
+   "small blue tap/spout area at bottom",
+   "dark slot detail on front"
+  ],
+  "problems": [
+   "tap is tiny and unclear",
+   "top bottle could read as a blue jar or bottle on its own",
+   "outdoor meadow setting is unusual for a water cooler",
+   "front detail looks like a sleepy face, confusing the object"
+  ],
+  "digest": "712757a7de219cab",
+  "grade": "pass",
+  "score": 72,
+  "colors": 18,
+  "black": 0.039,
+  "biggest_patch": 0.176,
+  "theme": "Dawn fields",
+  "name": "Cooler",
+  "pack": "beach",
+  "touched": false
+ },
+ "snorkel-545": {
+  "guess": "snorkel and diving mask",
+  "alternatives": [
+   "swimming goggles",
+   "scuba gear card"
+  ],
+  "readability": 4,
+  "features": [
+   "dark mask frame with two lens shapes",
+   "blue snorkel tube curving up the side",
+   "yellow and green mouthpiece tip",
+   "white card/tile background",
+   "underwater scene with sea, sand and coral"
+  ],
+  "problems": [
+   "mask lenses are filled white like the card, so the mask reads as a dark outline",
+   "snorkel and mask strap blend into the dark border",
+   "framed on a white tile, which adds clutter"
+  ],
+  "digest": "8128816a623971ee",
+  "grade": "pass",
+  "score": 78,
+  "colors": 21,
+  "black": 0.129,
+  "biggest_patch": 0.212,
+  "theme": "Coral reef",
+  "name": "Snorkel",
+  "pack": "beach",
+  "touched": false
+ },
+ "sun-546": {
+  "guess": "smiling sun setting into the sea",
+  "alternatives": [
+   "yellow pufferfish",
+   "smiling sea urchin"
+  ],
+  "readability": 4,
+  "features": [
+   "round yellow body",
+   "spiky orange rays/points around edge",
+   "two black oval eyes",
+   "big open smiling mouth",
+   "orange shading on lower right",
+   "blue water/sky background",
+   "small pink coral and green seaweed"
+  ],
+  "problems": [
+   "spiky outline also suggests a pufferfish or urchin",
+   "sitting in water makes it ambiguous whether it's a sun or a sea creature",
+   "rays are short and blocky, not clearly sun rays"
+  ],
+  "digest": "66db7d521d0014be",
+  "grade": "pass",
+  "score": 82,
+  "colors": 16,
+  "black": 0.147,
+  "biggest_patch": 0.227,
+  "theme": "Deep sea",
+  "name": "Sun",
+  "pack": "beach",
+  "touched": false
+ },
+ "sand-dollar-547": {
+  "guess": "blue sand dollar",
+  "alternatives": [
+   "blue shield with a star emblem",
+   "sea urchin shell"
+  ],
+  "readability": 3,
+  "features": [
+   "round light-blue disc shape",
+   "dark blue five-petal star pattern in center",
+   "small dark holes/dots",
+   "shading and highlights giving roundness"
+  ],
+  "problems": [
+   "sand dollars are rarely blue, so the color is confusing",
+   "star pattern could read as a flower or starfish",
+   "background stripes and bricks are busy",
+   "no clear context like sand or sea"
+  ],
+  "digest": "c24f5045de73a04f",
+  "grade": "pass",
+  "score": 68,
+  "colors": 8,
+  "black": 0.261,
+  "biggest_patch": 0.16,
+  "theme": "Stormy coast",
+  "name": "Sand Dollar",
+  "pack": "beach",
+  "touched": false
+ }
+}

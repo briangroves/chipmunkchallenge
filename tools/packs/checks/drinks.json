@@ -1,0 +1,605 @@
+{
+ "teacup-723": {
+  "guess": "white teacup with a grumpy face",
+  "alternatives": [
+   "sleepy ghost",
+   "white mug character"
+  ],
+  "readability": 3,
+  "features": [
+   "round white cup body",
+   "purple handle on the right",
+   "grumpy face with squinting eyes and frown",
+   "small stem/nub on top",
+   "brick wall background",
+   "checkered floor"
+  ],
+  "problems": [
+   "no saucer or rim visible, so it reads as a blob",
+   "handle is small and partly blends with the dark outline",
+   "top nub makes it look like a ghost or bag",
+   "shading is subtle against white"
+  ],
+  "digest": "240cdd1eabd78f2d",
+  "grade": "pass",
+  "score": 76,
+  "colors": 8,
+  "black": 0.127,
+  "biggest_patch": 0.251,
+  "theme": "Brick cellar",
+  "name": "Teacup",
+  "pack": "drinks",
+  "touched": false
+ },
+ "coffee-cup-724": {
+  "guess": "takeaway coffee cup",
+  "alternatives": [
+   "iced latte with whipped cream",
+   "milkshake cup"
+  ],
+  "readability": 3,
+  "features": [
+   "white cup with lid",
+   "brown sleeve/band",
+   "green circular logo",
+   "dark outline"
+  ],
+  "problems": [
+   "lid and cup are both white, so the shape reads as a blob",
+   "no straw or clear lid edge",
+   "white bottom blends with the white sidewalk",
+   "busy city background competes with the subject"
+  ],
+  "digest": "a4d714e5f9e873b0",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.243,
+  "biggest_patch": 0.178,
+  "theme": "City night",
+  "name": "Coffee Cup",
+  "pack": "drinks",
+  "touched": false
+ },
+ "hot-chocolate-725": {
+  "guess": "red cup of iced coffee or hot chocolate with whipped cream",
+  "alternatives": [
+   "milkshake in a red cup",
+   "red bucket of popcorn"
+  ],
+  "readability": 3,
+  "features": [
+   "red tapered cup body",
+   "brown drink or chocolate top",
+   "cream-colored swirl on top",
+   "straw or stick poking out",
+   "white highlight marks on the cup",
+   "dark outline around the cup"
+  ],
+  "problems": [
+   "the brown top is blobby and hard to read as a drink or cream",
+   "the straw is small and blends with the buildings behind",
+   "the city street background is busy and competes with the subject",
+   "the cup outline is uneven, so the shape looks lumpy"
+  ],
+  "digest": "11f96f9a1c1b52ad",
+  "grade": "pass",
+  "score": 68,
+  "colors": 15,
+  "black": 0.046,
+  "biggest_patch": 0.146,
+  "theme": "City day",
+  "name": "Hot Chocolate",
+  "pack": "drinks",
+  "touched": false
+ },
+ "soda-726": {
+  "guess": "soda cup with a straw",
+  "alternatives": [
+   "crumpled soda can",
+   "milkshake drink"
+  ],
+  "readability": 4,
+  "features": [
+   "red cup body",
+   "white lid",
+   "orange bent straw",
+   "highlights and shading",
+   "window in background",
+   "patterned table mat"
+  ],
+  "problems": [
+   "red and white patches look messy, like a crumpled can",
+   "straw blends with window frame",
+   "lid shape somewhat unclear"
+  ],
+  "digest": "e09f23e981d25366",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.055,
+  "biggest_patch": 0.434,
+  "theme": "Nursery",
+  "name": "Soda",
+  "pack": "drinks",
+  "touched": false
+ },
+ "juice-box-727": {
+  "guess": "grape juice box with straw",
+  "alternatives": [
+   "purple milk carton",
+   "soda can with straw"
+  ],
+  "readability": 4,
+  "features": [
+   "purple box body",
+   "white bent straw on top",
+   "darker blue side face",
+   "grape/flower logo on front",
+   "folded top flap",
+   "shadow on table"
+  ],
+  "problems": [
+   "logo is small and blobby, hard to tell it's grapes",
+   "colorful blocks behind (red/blue) could distract",
+   "box shape slightly lumpy"
+  ],
+  "digest": "789ac8356c7d4cfb",
+  "grade": "pass",
+  "score": 78,
+  "colors": 11,
+  "black": 0.073,
+  "biggest_patch": 0.486,
+  "theme": "Bakery",
+  "name": "Juice Box",
+  "pack": "drinks",
+  "touched": false
+ },
+ "boba-tea-728": {
+  "guess": "bubble tea",
+  "alternatives": [
+   "iced coffee",
+   "milkshake"
+  ],
+  "readability": 4,
+  "features": [
+   "clear plastic cup with dark outline",
+   "green straw",
+   "white lid rim",
+   "milky brown tea",
+   "dark tapioca pearls at bottom",
+   "pink striped wall with window background",
+   "wooden table"
+  ],
+  "problems": [
+   "pearls at bottom blend with brown table",
+   "red patterned strip overlaps cup base",
+   "drink color is close to table brown"
+  ],
+  "digest": "d80796fb96a321b0",
+  "grade": "pass",
+  "score": 78,
+  "colors": 16,
+  "black": 0.053,
+  "biggest_patch": 0.101,
+  "theme": "Living room",
+  "name": "Boba Tea",
+  "pack": "drinks",
+  "touched": false
+ },
+ "sundae-729": {
+  "guess": "ice cream sundae in a glass cup",
+  "alternatives": [
+   "cat sleeping in a cocktail glass",
+   "parfait dessert with cookie"
+  ],
+  "readability": 3,
+  "features": [
+   "light blue stemmed glass/goblet",
+   "glass base",
+   "yellow cookie or wafer sticking out top",
+   "white and orange scoops on top",
+   "pink tongue-like shape",
+   "night city background with moon and stars"
+  ],
+  "problems": [
+   "toppings are jumbled and hard to identify",
+   "dark outline blends with dark background",
+   "top part could be read as a cat face or random shapes",
+   "busy background with buildings and brick wall competes with subject"
+  ],
+  "digest": "b4122bddb9b23e47",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.295,
+  "biggest_patch": 0.156,
+  "theme": "Lantern festival",
+  "name": "Sundae",
+  "pack": "drinks",
+  "touched": false
+ },
+ "cake-slice-730": {
+  "guess": "slice of strawberry cake",
+  "alternatives": [
+   "ice cream sandwich",
+   "cream pie on a plate"
+  ],
+  "readability": 3,
+  "features": [
+   "pink strawberry or cherry on top",
+   "white cream frosting",
+   "brown chocolate drizzle",
+   "pink jam filling layer",
+   "grey/white sponge layers",
+   "dark shadow underneath"
+  ],
+  "problems": [
+   "cake body is grey, so it looks more like stone or metal than sponge",
+   "large dark shadow blends with the grey checkered floor",
+   "brick wall background is busy and draws attention",
+   "the top fruit is a big pink blob that is hard to identify",
+   "stray colored pixels (red, green, blue) add noise"
+  ],
+  "digest": "dfcc449e25209710",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.077,
+  "biggest_patch": 0.174,
+  "theme": "Brick cellar",
+  "name": "Cake Slice",
+  "pack": "drinks",
+  "touched": false
+ },
+ "juice-glass-731": {
+  "guess": "glass of beer",
+  "alternatives": [
+   "glass of orange juice",
+   "milkshake with cream"
+  ],
+  "readability": 4,
+  "features": [
+   "white foam head on top",
+   "golden-yellow liquid",
+   "tapered pint glass shape with dark outline",
+   "orange shading on the right side",
+   "brown bottom of the glass"
+  ],
+  "problems": [
+   "beer is not a typical kids' subject and could be read as juice",
+   "the brown base looks odd and could be mistaken for a cup holder",
+   "busy city-night background with brick wall, buildings and moon competes for attention",
+   "small orange/brown details by the wall are unclear"
+  ],
+  "digest": "e8ed515b6e2f40dc",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.294,
+  "biggest_patch": 0.183,
+  "theme": "Lantern festival",
+  "name": "Juice Glass",
+  "pack": "drinks",
+  "touched": false
+ },
+ "water-bottle-732": {
+  "guess": "blue glass bottle",
+  "alternatives": [
+   "water jug",
+   "potion flask"
+  ],
+  "readability": 4,
+  "features": [
+   "narrow bottle neck with cap/lip",
+   "wide rounded body",
+   "white highlight on left side",
+   "blue shading on right",
+   "gray base",
+   "window and wooden wall background",
+   "red rug on floor"
+  ],
+  "problems": [
+   "neck is short and a bit lumpy",
+   "dark outline uneven around the top",
+   "mottled blue pixels look noisy",
+   "could be mistaken for a jug or vase"
+  ],
+  "digest": "0ab8a0af6d821652",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.048,
+  "biggest_patch": 0.2,
+  "theme": "Cabin",
+  "name": "Water Bottle",
+  "pack": "drinks",
+  "touched": false
+ },
+ "milk-carton-733": {
+  "guess": "milk carton",
+  "alternatives": [
+   "juice carton",
+   "paper bag"
+  ],
+  "readability": 3,
+  "features": [
+   "gabled carton top",
+   "white front face",
+   "grey shaded side",
+   "blue outline edges",
+   "shelf with small jars in background",
+   "checkered floor"
+  ],
+  "problems": [
+   "no label or text identifying it as milk",
+   "side panel has odd dark jagged shapes",
+   "shape is slightly lumpy and tilted",
+   "large grey side could read as a bag or box"
+  ],
+  "digest": "dde4a72d558ad0ed",
+  "grade": "pass",
+  "score": 72,
+  "colors": 9,
+  "black": 0.071,
+  "biggest_patch": 0.451,
+  "theme": "Bakery",
+  "name": "Milk Carton",
+  "pack": "drinks",
+  "touched": false
+ },
+ "soda-can-734": {
+  "guess": "crushed red soda can",
+  "alternatives": [
+   "dented trash can",
+   "red fire hydrant"
+  ],
+  "readability": 3,
+  "features": [
+   "cylindrical can body",
+   "grey metal top rim with pull tab area",
+   "red and white label pattern",
+   "dark outline",
+   "dents and rust/dirt patches",
+   "city street background"
+  ],
+  "problems": [
+   "label pattern is chaotic and doesn't read as a brand or logo",
+   "brown and grey patches look messy rather than clearly dents",
+   "top tab not clearly defined",
+   "can shape is lumpy, could be mistaken for a bin or barrel"
+  ],
+  "digest": "a982e81e908b515f",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.049,
+  "biggest_patch": 0.159,
+  "theme": "City day",
+  "name": "Soda Can",
+  "pack": "drinks",
+  "touched": false
+ },
+ "milk-bottle-735": {
+  "guess": "baby bottle",
+  "alternatives": [
+   "milk bottle",
+   "white penguin"
+  ],
+  "readability": 4,
+  "features": [
+   "white bottle body with gray shading",
+   "lavender cap ring",
+   "yellow nipple/teat on top",
+   "dark outline",
+   "set on a blue patterned rug in a room with a window and striped wallpaper"
+  ],
+  "problems": [
+   "nipple looks pointy, almost like a beak or party hat",
+   "no measurement markings on the bottle",
+   "tall rounded shape could be mistaken for a penguin or a vase"
+  ],
+  "digest": "71fdc4fe193b98ad",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.044,
+  "biggest_patch": 0.124,
+  "theme": "Living room",
+  "name": "Milk Bottle",
+  "pack": "drinks",
+  "touched": false
+ },
+ "loaf-of-bread-736": {
+  "guess": "sandwich (bread slice with toppings)",
+  "alternatives": [
+   "piece of cake",
+   "toast with chocolate and peanut butter"
+  ],
+  "readability": 3,
+  "features": [
+   "white bread slice with dark seed dots and crust outline",
+   "brown layer on top like meat or chocolate",
+   "tan layer like cheese or peanut butter",
+   "night city background with moon and stars"
+  ],
+  "problems": [
+   "toppings are shapeless blobs",
+   "no clear sandwich structure",
+   "busy background of bricks and buildings competes with subject",
+   "grey filling blends with grey wall"
+  ],
+  "digest": "e522eae96e455688",
+  "grade": "pass",
+  "score": 68,
+  "colors": 14,
+  "black": 0.39,
+  "biggest_patch": 0.176,
+  "theme": "Lantern festival",
+  "name": "Loaf of Bread",
+  "pack": "drinks",
+  "touched": false
+ },
+ "baguette-737": {
+  "guess": "orange bread loaf (baguette) on a city street at night",
+  "alternatives": [
+   "orange car or bus",
+   "orange airship / blimp"
+  ],
+  "readability": 2,
+  "features": [
+   "long diagonal orange body",
+   "lighter orange highlights along top",
+   "scored-looking slashes on top",
+   "dark outline/shadow underneath",
+   "night city background with buildings, moon, stars",
+   "road with lane markings"
+  ],
+  "problems": [
+   "subject is a big elongated blob with no clear identifying details",
+   "no wheels, windows or other parts to confirm what it is",
+   "dark outline blends with dark road shadow",
+   "detailed city background competes for attention",
+   "scale is odd relative to the buildings"
+  ],
+  "digest": "b3ec4b05354465ab",
+  "grade": "weak",
+  "score": 62,
+  "colors": 15,
+  "black": 0.249,
+  "biggest_patch": 0.159,
+  "theme": "City night",
+  "name": "Baguette",
+  "pack": "drinks",
+  "touched": false
+ },
+ "bun-738": {
+  "guess": "steamed buns in a basket",
+  "alternatives": [
+   "eggs in a nest",
+   "rice balls in a bowl"
+  ],
+  "readability": 3,
+  "features": [
+   "three white round buns",
+   "brown woven basket or bowl",
+   "tan inner rim",
+   "red brick wall background",
+   "checkered floor",
+   "small green and pink garnish"
+  ],
+  "problems": [
+   "white blobs have no detail, so they could be eggs, dough, or rice balls",
+   "the basket shape is irregular and nest-like",
+   "the tiny green/pink accent is too small to read"
+  ],
+  "digest": "7c477bb0d60b2eb8",
+  "grade": "pass",
+  "score": 68,
+  "colors": 10,
+  "black": 0.129,
+  "biggest_patch": 0.155,
+  "theme": "Brick cellar",
+  "name": "Bun",
+  "pack": "drinks",
+  "touched": false
+ },
+ "cake-stand-739": {
+  "guess": "tiered cake/dessert stand with treats",
+  "alternatives": [
+   "fruit bowl stand",
+   "fountain"
+  ],
+  "readability": 2,
+  "features": [
+   "dark blue two-tier stand with central pole",
+   "pedestal base",
+   "red fruit or tarts on upper tier",
+   "bread/pastries and strawberries on lower tier",
+   "pink macaron-like items",
+   "city skyline with sunset behind",
+   "brick wall"
+  ],
+  "problems": [
+   "food items are small blobs of red, tan and pink that are hard to identify",
+   "dark blue stand blends with dark building windows",
+   "busy background of buildings and bricks competes with subject",
+   "purple shape on top is unclear"
+  ],
+  "digest": "8fbf462217cec712",
+  "grade": "weak",
+  "score": 62,
+  "colors": 17,
+  "black": 0.083,
+  "biggest_patch": 0.13,
+  "theme": "City dawn",
+  "name": "Cake Stand",
+  "pack": "drinks",
+  "touched": false
+ },
+ "gingerbread-cookie-740": {
+  "guess": "gingerbread man cookie",
+  "alternatives": [
+   "cookie person running",
+   "teddy bear biscuit"
+  ],
+  "readability": 4,
+  "features": [
+   "round head",
+   "red icing mouth",
+   "outstretched arms",
+   "two legs in running pose",
+   "pink icing buttons",
+   "dark outline",
+   "checkered floor and dotted wall background"
+  ],
+  "problems": [
+   "no visible eyes",
+   "one leg partly in dark brown shadow blends with floor",
+   "odd small objects on sides (blue cup, stick) are confusing",
+   "icing mouth looks more like a red band"
+  ],
+  "digest": "764712a2674cad11",
+  "grade": "pass",
+  "score": 82,
+  "colors": 11,
+  "black": 0.062,
+  "biggest_patch": 0.446,
+  "theme": "Bakery",
+  "name": "Gingerbread Cookie",
+  "pack": "drinks",
+  "touched": false
+ },
+ "birthday-cupcake-741": {
+  "guess": "cupcake with a candle in the city at night",
+  "alternatives": [
+   "ice cream sundae",
+   "birthday cake"
+  ],
+  "readability": 3,
+  "features": [
+   "pink frosting with red stripe",
+   "orange decorations",
+   "white cream layer",
+   "brown cupcake base/wrapper",
+   "tall blue candle with dark top",
+   "dark outline"
+  ],
+  "problems": [
+   "cupcake base is squat and bowl-like, could read as a bowl or sundae",
+   "candle is very tall and thin, looks like a tower/antenna blending with city skyline",
+   "busy night city background competes with subject",
+   "white bottom blends with white sidewalk"
+  ],
+  "digest": "040034c247c5ca78",
+  "grade": "pass",
+  "score": 68,
+  "colors": 17,
+  "black": 0.242,
+  "biggest_patch": 0.185,
+  "theme": "City night",
+  "name": "Birthday Cupcake",
+  "pack": "drinks",
+  "touched": false
+ }
+}

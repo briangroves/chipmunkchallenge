@@ -1,0 +1,556 @@
+{
+ "jack-o-lantern-495": {
+  "guess": "jack-o'-lantern pumpkin",
+  "alternatives": [
+   "smiling orange pumpkin",
+   "Halloween pumpkin face"
+  ],
+  "readability": 5,
+  "features": [
+   "round orange pumpkin body",
+   "green stem",
+   "carved slanted eyes",
+   "wide grinning mouth with teeth",
+   "dark outline",
+   "sun in sky",
+   "grass and wooden fence background",
+   "small flowers"
+  ],
+  "problems": [
+   "right eye has a red patch that looks a bit uneven",
+   "pumpkin ridges are faint",
+   "mouth and eyes are dark red rather than glowing, slightly less carved-looking"
+  ],
+  "digest": "2a266a7420f7cd17",
+  "grade": "pass",
+  "score": 88,
+  "colors": 13,
+  "black": 0.072,
+  "biggest_patch": 0.172,
+  "theme": "Harvest farm",
+  "name": "Jack-o-lantern",
+  "pack": "halloween",
+  "touched": false
+ },
+ "ghost-496": {
+  "guess": "white ghost",
+  "alternatives": [
+   "sheet-covered blob creature",
+   "rice ball (onigiri) character"
+  ],
+  "readability": 4,
+  "features": [
+   "white rounded body with wavy bottom edge",
+   "two dark round eyes",
+   "red heart-shaped mouth/blush",
+   "grey shading on lower body",
+   "raindrops in the sky",
+   "trees, grass and water in the background"
+  ],
+  "problems": [
+   "the eyes are uneven in size and shape, so the face looks a bit odd",
+   "red heart could be read as a tongue or cheek rather than a mouth",
+   "no arms or clear tail tip, so the outline is a fairly plain blob",
+   "the white body against the grey sky has a low-contrast upper edge, relying on the dark outline"
+  ],
+  "digest": "f7bc097ef13bc390",
+  "grade": "pass",
+  "score": 86,
+  "colors": 13,
+  "black": 0.223,
+  "biggest_patch": 0.185,
+  "theme": "Rainy day",
+  "name": "Ghost",
+  "pack": "halloween",
+  "touched": false
+ },
+ "witch-hat-497": {
+  "guess": "witch with a black cat on her hat",
+  "alternatives": [
+   "old woman in a dark hood",
+   "black cat sitting on a person"
+  ],
+  "readability": 3,
+  "features": [
+   "dark pointed hat or hood",
+   "black cat shape with yellow eyes on top",
+   "tan face in profile with eye and nose",
+   "white/grey hair",
+   "dark cloak",
+   "brown collar or scarf",
+   "sunset sky and grassy meadow with flowers"
+  ],
+  "problems": [
+   "dark hat and cat merge into one blob",
+   "face is small and blocky, profile hard to read",
+   "cloak shape is vague",
+   "cat ears blend with sunset stripes"
+  ],
+  "digest": "3660f176c3f4c6ee",
+  "grade": "pass",
+  "score": 80,
+  "colors": 18,
+  "black": 0.139,
+  "biggest_patch": 0.121,
+  "theme": "Sunset meadow",
+  "name": "Witch Hat",
+  "pack": "halloween",
+  "touched": false
+ },
+ "bat-498": {
+  "guess": "bat",
+  "alternatives": [
+   "flying squirrel",
+   "flying fox"
+  ],
+  "readability": 3,
+  "features": [
+   "brown furry body",
+   "pink pointed ears",
+   "small dark eyes",
+   "gray spread wings with blue edges",
+   "pink feet or claws",
+   "forest and sky background"
+  ],
+  "problems": [
+   "face is tiny and hard to read",
+   "pink patch at the bottom is unclear",
+   "body and wings look blobby",
+   "green trees surround the shape and add clutter",
+   "brown body blends with the dirt at the bottom"
+  ],
+  "digest": "59679f76553763dc",
+  "grade": "pass",
+  "score": 84,
+  "colors": 16,
+  "black": 0.064,
+  "biggest_patch": 0.194,
+  "theme": "Pine forest",
+  "name": "Bat",
+  "pack": "halloween",
+  "touched": false
+ },
+ "black-cat-499": {
+  "guess": "white cat waving",
+  "alternatives": [
+   "white ghost",
+   "polar bear cub"
+  ],
+  "readability": 4,
+  "features": [
+   "pointed ears",
+   "two dot eyes",
+   "raised paw/arm",
+   "round white body",
+   "dark outline",
+   "red shadow behind"
+  ],
+  "problems": [
+   "no nose, mouth or whiskers",
+   "no visible legs or tail",
+   "body is a plain blob",
+   "raised arm could read as a tail"
+  ],
+  "digest": "27a98010a4849dca",
+  "grade": "pass",
+  "score": 86,
+  "colors": 15,
+  "black": 0.076,
+  "biggest_patch": 0.188,
+  "theme": "Autumn woods",
+  "name": "Black Cat",
+  "pack": "halloween",
+  "touched": false
+ },
+ "cauldron-500": {
+  "guess": "witch's cauldron with green bubbling potion",
+  "alternatives": [
+   "black cooking pot with green soup",
+   "pot of gold-style kettle over fire"
+  ],
+  "readability": 4,
+  "features": [
+   "round black pot body",
+   "green bubbling liquid on top",
+   "white shine highlights on rim and sides",
+   "glowing embers/fire underneath",
+   "desert sunset background with sun"
+  ],
+  "problems": [
+   "no visible handles or legs",
+   "green top could read as a plant or bush",
+   "fire beneath is small and hard to notice",
+   "rim of pot not clearly separated from body"
+  ],
+  "digest": "be43fc983d9748d2",
+  "grade": "pass",
+  "score": 78,
+  "colors": 16,
+  "black": 0.338,
+  "biggest_patch": 0.321,
+  "theme": "Desert dunes",
+  "name": "Cauldron",
+  "pack": "halloween",
+  "touched": false
+ },
+ "zombie-501": {
+  "guess": "green zombie in the snow",
+  "alternatives": [
+   "green monster holding a bottle",
+   "frog creature walking"
+  ],
+  "readability": 3,
+  "features": [
+   "round green head",
+   "yellow eyes",
+   "open red mouth",
+   "pink brain/hair patch",
+   "grey shirt",
+   "green arm",
+   "blue legs/shoes",
+   "white bottle or sack",
+   "snowy ground",
+   "green grass and vines behind"
+  ],
+  "problems": [
+   "body parts are small and partly blend into the dark outline",
+   "white object merges with the snowy background",
+   "head is oversized so the body is hard to read",
+   "busy background vines distract"
+  ],
+  "digest": "48e995e21ecf4f8f",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.284,
+  "biggest_patch": 0.103,
+  "theme": "Northern lights",
+  "name": "Zombie",
+  "pack": "halloween",
+  "touched": false
+ },
+ "monster-502": {
+  "guess": "green sewer monster creature",
+  "alternatives": [
+   "green slime blob monster",
+   "frog-like zombie"
+  ],
+  "readability": 2,
+  "features": [
+   "green lumpy body",
+   "single yellow eye",
+   "dark arms/legs",
+   "purple spots",
+   "sewer/wall background with water and drips"
+  ],
+  "problems": [
+   "blobby undefined shape",
+   "only one eye, no clear face or mouth",
+   "dark limbs blend into dark outline",
+   "subject identity unclear",
+   "busy background competes with figure"
+  ],
+  "digest": "7749eb20154c9f33",
+  "grade": "weak",
+  "score": 70,
+  "colors": 13,
+  "black": 0.261,
+  "biggest_patch": 0.196,
+  "theme": "Stormy coast",
+  "name": "Monster",
+  "pack": "halloween",
+  "touched": false
+ },
+ "candle-503": {
+  "guess": "melting candle",
+  "alternatives": [
+   "candle flame on wax",
+   "campfire"
+  ],
+  "readability": 3,
+  "features": [
+   "flame on top",
+   "dark wick",
+   "orange wax body",
+   "melted wax puddle at base",
+   "white card/frame background",
+   "night sky with moon"
+  ],
+  "problems": [
+   "candle body is orange like the flame so they blend together",
+   "wax shape is lumpy and irregular, not a clear cylinder",
+   "dripping base looks like fire, could be confused with a bonfire",
+   "flame is small relative to the body"
+  ],
+  "digest": "8a16a87b014adaea",
+  "grade": "pass",
+  "score": 68,
+  "colors": 16,
+  "black": 0.216,
+  "biggest_patch": 0.196,
+  "theme": "Moonlit pond",
+  "name": "Candle",
+  "pack": "halloween",
+  "touched": false
+ },
+ "scarecrow-504": {
+  "guess": "scarecrow in a field",
+  "alternatives": [
+   "straw man on a pole",
+   "brown monkey"
+  ],
+  "readability": 3,
+  "features": [
+   "brown hat",
+   "tan face",
+   "outstretched arms on crossbar",
+   "straw tufts at hands and waist",
+   "wooden pole",
+   "sunset sky with sun",
+   "grass field with flowers"
+  ],
+  "problems": [
+   "no eyes or mouth on the face",
+   "head shape is irregular and blobby",
+   "body browns blend with the dark green bushes behind",
+   "arms and body are hard to separate from the leafy outline"
+  ],
+  "digest": "ff7ec46db1ac3559",
+  "grade": "pass",
+  "score": 72,
+  "colors": 16,
+  "black": 0.031,
+  "biggest_patch": 0.192,
+  "theme": "Dawn fields",
+  "name": "Scarecrow",
+  "pack": "halloween",
+  "touched": false
+ },
+ "witch-505": {
+  "guess": "witch with orange hair in a meadow",
+  "alternatives": [
+   "girl in black hat holding a broom",
+   "witch waving near a pond"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed black witch hat",
+   "orange hair",
+   "face with one red eye",
+   "black dress",
+   "raised hand",
+   "pond with flowers",
+   "sun in sky"
+  ],
+  "problems": [
+   "raised arm and hand look like a separate blob",
+   "face has only one eye visible, no mouth",
+   "black hat and dress lack detail",
+   "red/dark shapes at lower left unclear",
+   "blue object near hand hard to identify"
+  ],
+  "digest": "6c01f0a6d0734842",
+  "grade": "pass",
+  "score": 76,
+  "colors": 18,
+  "black": 0.124,
+  "biggest_patch": 0.197,
+  "theme": "Garden pond",
+  "name": "Witch",
+  "pack": "halloween",
+  "touched": false
+ },
+ "owl-506": {
+  "guess": "brown owl",
+  "alternatives": [
+   "raccoon",
+   "bear cub"
+  ],
+  "readability": 4,
+  "features": [
+   "big round white eyes with black pupils",
+   "dark mask/brow around eyes",
+   "ear tufts on top of head",
+   "white belly/chest patch",
+   "brown wings at sides",
+   "small orange feet",
+   "standing on grass with mountains and sunset behind"
+  ],
+  "problems": [
+   "no clearly visible beak",
+   "dark eye mask makes it look a bit like a raccoon",
+   "brown body edges blend into dark green grass shadows at the bottom",
+   "ear tufts small and merge with orange sky"
+  ],
+  "digest": "48f3b2fb9193c1ed",
+  "grade": "pass",
+  "score": 90,
+  "colors": 16,
+  "black": 0.119,
+  "biggest_patch": 0.098,
+  "theme": "Mountain sunset",
+  "name": "Owl",
+  "pack": "halloween",
+  "touched": false
+ },
+ "skeleton-hand-507": {
+  "guess": "hand / glove waving",
+  "alternatives": [
+   "zombie hand rising from the ground",
+   "white gardening glove"
+  ],
+  "readability": 4,
+  "features": [
+   "palm",
+   "thumb sticking out left",
+   "four fingers pointing up",
+   "wrist coming out of the ground",
+   "dark outline"
+  ],
+  "problems": [
+   "patchy white and beige coloring looks like a dirty or spotted texture",
+   "fingers merge together with only thin dark lines between them",
+   "wrist blends into the dark soil at the bottom",
+   "no clear purpose or context, so it could read as a strange creature"
+  ],
+  "digest": "8b8458d4f3d32eb9",
+  "grade": "pass",
+  "score": 74,
+  "colors": 18,
+  "black": 0.1,
+  "biggest_patch": 0.172,
+  "theme": "Sunflower farm",
+  "name": "Skeleton Hand",
+  "pack": "halloween",
+  "touched": false
+ },
+ "tombstone-508": {
+  "guess": "gravestone with skull and crossbones",
+  "alternatives": [
+   "tombstone in a pumpkin field",
+   "rock with a carved face"
+  ],
+  "readability": 3,
+  "features": [
+   "rounded tombstone shape",
+   "dark outline",
+   "grey stone face",
+   "dark carved marks like eyes and mouth",
+   "green moss at the base",
+   "sunset sky and pumpkin field background"
+  ],
+  "problems": [
+   "carved markings are abstract and hard to read as a symbol or text",
+   "heavy dark outline blends with the dark base",
+   "red mailbox-like object behind it is confusing",
+   "grey markings look blobby"
+  ],
+  "digest": "156484e43caa7321",
+  "grade": "weak",
+  "score": 50,
+  "colors": 16,
+  "black": 0.172,
+  "biggest_patch": 0.126,
+  "theme": "Harvest farm",
+  "name": "Tombstone",
+  "pack": "halloween",
+  "touched": false
+ },
+ "haunted-tree-509": {
+  "guess": "dark forest path or shadowy tree silhouette in a green forest",
+  "alternatives": [
+   "shadow creature lurking in the woods",
+   "dark river through a forest"
+  ],
+  "readability": 2,
+  "features": [
+   "dark irregular vertical shape with branch-like arms",
+   "pine trees along the top",
+   "grey sky with birds",
+   "red and white mushrooms",
+   "small grey rocks",
+   "brown soil strip at bottom"
+  ],
+  "problems": [
+   "main dark shape has no clear outline or recognizable form",
+   "no face or distinctive features",
+   "shape blends into dark green foliage patches",
+   "busy background with scattered details competes for attention"
+  ],
+  "digest": "d8c53e224ee3d73c",
+  "grade": "weak",
+  "score": 62,
+  "colors": 8,
+  "black": 0.098,
+  "biggest_patch": 0.202,
+  "theme": "Misty pines",
+  "name": "Haunted Tree",
+  "pack": "halloween",
+  "touched": false
+ },
+ "werewolf-510": {
+  "guess": "werewolf in a desert",
+  "alternatives": [
+   "bear",
+   "caveman / wild hairy man"
+  ],
+  "readability": 3,
+  "features": [
+   "furry brown head with pointed ears",
+   "eyes, one winking",
+   "dark nose",
+   "white teeth/grin",
+   "shaggy brown body",
+   "blue shorts with yellow belt",
+   "dark clawed hands/feet",
+   "desert background with cactus, sun and birds"
+  ],
+  "problems": [
+   "body is a blobby mass of brown and dark grey",
+   "limbs hard to separate from the body",
+   "red/orange bits around the legs look messy and blend into the sand",
+   "face is small relative to the shaggy fur"
+  ],
+  "digest": "e404bcfe53752405",
+  "grade": "pass",
+  "score": 84,
+  "colors": 18,
+  "black": 0.051,
+  "biggest_patch": 0.174,
+  "theme": "Cactus canyon",
+  "name": "Werewolf",
+  "pack": "halloween",
+  "touched": false
+ },
+ "wizard-hat-511": {
+  "guess": "little ghost wearing a witch hat",
+  "alternatives": [
+   "round white blob creature in a wizard hat",
+   "snowball wizard"
+  ],
+  "readability": 4,
+  "features": [
+   "tall blue pointed witch hat with bent tip",
+   "light blue hat band",
+   "round white body",
+   "two small dark eyes",
+   "dark outline",
+   "small feet at bottom"
+  ],
+  "problems": [
+   "no clear mouth or limbs so it's hard to tell what creature it is",
+   "purple speckled background is busy",
+   "hat brim dark blue edges blend with body outline"
+  ],
+  "digest": "541b24b99874314c",
+  "grade": "pass",
+  "score": 82,
+  "colors": 9,
+  "black": 0.031,
+  "biggest_patch": 0.273,
+  "theme": "Overcast moor",
+  "name": "Wizard Hat",
+  "pack": "halloween",
+  "touched": false
+ }
+}

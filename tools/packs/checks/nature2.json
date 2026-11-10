@@ -1,0 +1,382 @@
+{
+ "green-leaf-1066": {
+  "guess": "red apple with a leaf",
+  "alternatives": [
+   "radish",
+   "rose bud"
+  ],
+  "readability": 3,
+  "features": [
+   "round red body",
+   "green leaf on top",
+   "brown stem",
+   "pink highlights",
+   "white glow or plate behind"
+  ],
+  "problems": [
+   "pink and red patches make shape blotchy",
+   "white shape behind is confusing",
+   "right edge has odd pink protrusions",
+   "dark red shading blends with shadow"
+  ],
+  "digest": "3f3a5038dc039d84",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.268,
+  "biggest_patch": 0.204,
+  "theme": "Starry hilltop",
+  "name": "Green Leaf",
+  "pack": "nature2",
+  "touched": false
+ },
+ "red-mushroom-1067": {
+  "guess": "red mushroom",
+  "alternatives": [
+   "toadstool house",
+   "red umbrella"
+  ],
+  "readability": 4,
+  "features": [
+   "large red dome cap",
+   "tan/beige spots on cap",
+   "thick beige stem",
+   "brown base/roots",
+   "dark gills under cap"
+  ],
+  "problems": [
+   "cap spots are irregular brown/beige blotches rather than clear white dots",
+   "cap texture is noisy with mixed reds and browns",
+   "stem and base blend somewhat with brown shading"
+  ],
+  "digest": "c497f8931a2f88a1",
+  "grade": "pass",
+  "score": 74,
+  "colors": 19,
+  "black": 0.028,
+  "biggest_patch": 0.145,
+  "theme": "Alpine meadow",
+  "name": "Red Mushroom",
+  "pack": "nature2",
+  "touched": false
+ },
+ "red-flower-1068": {
+  "guess": "red poinsettia flower",
+  "alternatives": [
+   "red daisy flower",
+   "red starfish"
+  ],
+  "readability": 4,
+  "features": [
+   "dark red pointed petals radiating outward",
+   "yellow center",
+   "lighter red bracts/highlights",
+   "dark outline shadow",
+   "snowy background with green trees and sky"
+  ],
+  "problems": [
+   "petals are blocky and uneven so the star shape is a bit messy",
+   "dark red can look like a blob at small size",
+   "no stem or leaves attached, so it floats oddly over the snow scene",
+   "stray small details (orange dot, blue pixels) distract"
+  ],
+  "digest": "31db4b78dcdf6cce",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.033,
+  "biggest_patch": 0.195,
+  "theme": "Snowy pines",
+  "name": "Red Flower",
+  "pack": "nature2",
+  "touched": false
+ },
+ "log-1069": {
+  "guess": "b\u00fbche de No\u00ebl (Yule log cake)",
+  "alternatives": [
+   "chocolate roll cake",
+   "tree log on grass"
+  ],
+  "readability": 3,
+  "features": [
+   "brown log-shaped body with bark texture",
+   "spiral cross-section end with cream swirl",
+   "red berries and green holly leaves on top",
+   "white cream/meringue decorations",
+   "yellow-edged frosting on cut ends"
+  ],
+  "problems": [
+   "spiral end looks like a face, confusing",
+   "cake sits on grass outdoors under sun, unusual context",
+   "brown body is blobby, top end shape unclear",
+   "decorations are small and hard to read"
+  ],
+  "digest": "863b3d73121e78e3",
+  "grade": "pass",
+  "score": 68,
+  "colors": 18,
+  "black": 0.056,
+  "biggest_patch": 0.21,
+  "theme": "Garden pond",
+  "name": "Log",
+  "pack": "nature2",
+  "touched": false
+ },
+ "branch-1070": {
+  "guess": "oranges with leaves on a branch",
+  "alternatives": [
+   "persimmons on snow",
+   "pumpkins with leaves"
+  ],
+  "readability": 2,
+  "features": [
+   "orange round fruits with yellow highlights",
+   "green leaves",
+   "brown branch/stem",
+   "white snowy ground",
+   "dark night sky with green-blue arch"
+  ],
+  "problems": [
+   "fruits merge together into one orange blob",
+   "branch is hard to separate from fruit",
+   "busy background arch distracts",
+   "no clear outline separating individual fruits",
+   "dark background makes leaves and scene murky"
+  ],
+  "digest": "d342843c09760231",
+  "grade": "weak",
+  "score": 62,
+  "colors": 19,
+  "black": 0.291,
+  "biggest_patch": 0.09,
+  "theme": "Northern lights",
+  "name": "Branch",
+  "pack": "nature2",
+  "touched": false
+ },
+ "nest-1071": {
+  "guess": "yellow duck sleeping in a nest",
+  "alternatives": [
+   "Psyduck-like yellow bird resting",
+   "fox curled up on a log"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow head with orange beak",
+   "closed sleepy eye",
+   "orange wing/body",
+   "tail feathers on right",
+   "nest or log base",
+   "night sky with moon and stars",
+   "trees in background"
+  ],
+  "problems": [
+   "body and tail merge into one orange-yellow blob",
+   "second shape on right is unclear (tail or another bird)",
+   "beak small and blends with orange body",
+   "closed eye makes face less obvious"
+  ],
+  "digest": "0f0ba7a620e412c5",
+  "grade": "pass",
+  "score": 84,
+  "colors": 20,
+  "black": 0.241,
+  "biggest_patch": 0.178,
+  "theme": "Moonlit pond",
+  "name": "Nest",
+  "pack": "nature2",
+  "touched": false
+ },
+ "blue-egg-1072": {
+  "guess": "blue dragon egg",
+  "alternatives": [
+   "blue gem crystal",
+   "Easter egg"
+  ],
+  "readability": 4,
+  "features": [
+   "oval egg shape",
+   "dark outline",
+   "blue shell with darker shaded side",
+   "white highlight speckles",
+   "yellow stripe bands",
+   "stone brick wall background",
+   "rain/water drops"
+  ],
+  "problems": [
+   "no clear indication whether it is an egg or a gem",
+   "blue stripe in background merges with egg color",
+   "busy brick background competes with subject",
+   "scattered white specks look noisy"
+  ],
+  "digest": "b4c25902f63dbdee",
+  "grade": "pass",
+  "score": 74,
+  "colors": 9,
+  "black": 0.22,
+  "biggest_patch": 0.189,
+  "theme": "Stormy coast",
+  "name": "Blue Egg",
+  "pack": "nature2",
+  "touched": false
+ },
+ "smiling-moon-1073": {
+  "guess": "sleeping crescent moon",
+  "alternatives": [
+   "banana",
+   "yellow boat"
+  ],
+  "readability": 4,
+  "features": [
+   "crescent shape",
+   "closed sleepy eye",
+   "dark outline",
+   "yellow-to-orange shading",
+   "stem-like pointed top"
+  ],
+  "problems": [
+   "sun in sky contradicts night moon",
+   "pointed top looks like banana stem",
+   "eye is tiny and easy to miss",
+   "white cloud area around lower part is noisy"
+  ],
+  "digest": "734485b56b9d90ce",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.071,
+  "biggest_patch": 0.194,
+  "theme": "Ice field",
+  "name": "Smiling Moon",
+  "pack": "nature2",
+  "touched": false
+ },
+ "smiling-star-1074": {
+  "guess": "smiling yellow star",
+  "alternatives": [
+   "starfish",
+   "star cookie"
+  ],
+  "readability": 5,
+  "features": [
+   "five-pointed star shape",
+   "closed happy eyes",
+   "smiling mouth",
+   "dark outline",
+   "orange shading on right side",
+   "background with sky, clouds, birds, grass, flowers, castle ruins"
+  ],
+  "problems": [
+   "face is small and simple, eyes look like lines",
+   "grey castle shape in the background is hard to read",
+   "the star is slightly lopsided"
+  ],
+  "digest": "144dc028b02e2aae",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.075,
+  "biggest_patch": 0.173,
+  "theme": "Castle hill",
+  "name": "Smiling Star",
+  "pack": "nature2",
+  "touched": false
+ },
+ "blue-snowflake-1075": {
+  "guess": "blue snowflake-shaped flower bush",
+  "alternatives": [
+   "blue snowflake",
+   "cornflower plant"
+  ],
+  "readability": 2,
+  "features": [
+   "blue radial cross shape with four arms",
+   "light blue highlights at tips",
+   "dark navy outlines",
+   "green grass background with small red mushrooms",
+   "sky with birds at top"
+  ],
+  "problems": [
+   "shape is ambiguous between snowflake and flower",
+   "dark blue blends with dark green outlines",
+   "no clear petals or stem",
+   "busy patterned center reads as blob"
+  ],
+  "digest": "ef13b80ce737e5b3",
+  "grade": "weak",
+  "score": 62,
+  "colors": 12,
+  "black": 0.079,
+  "biggest_patch": 0.186,
+  "theme": "Misty pines",
+  "name": "Blue Snowflake",
+  "pack": "nature2",
+  "touched": false
+ },
+ "red-volcano-1076": {
+  "guess": "volcano at sunset",
+  "alternatives": [
+   "rocky mountain by the sea",
+   "red-roofed hut on rocks"
+  ],
+  "readability": 2,
+  "features": [
+   "sunset sky with yellow sun",
+   "bird silhouette",
+   "blue water",
+   "red peak or lava top",
+   "dark brown rocky base with grey streaks",
+   "sandy border"
+  ],
+  "problems": [
+   "red top is flat and blocky, not a clear cone or crater",
+   "rocky base is a noisy mix of dark and brown pixels",
+   "no smoke or lava flow to signal a volcano",
+   "blue area reads as water or sky, which confuses the scene",
+   "subject blends into the dark frame"
+  ],
+  "digest": "3fcd4d07fe78e639",
+  "grade": "weak",
+  "score": 62,
+  "colors": 16,
+  "black": 0.235,
+  "biggest_patch": 0.129,
+  "theme": "Beach sunset",
+  "name": "Red Volcano",
+  "pack": "nature2",
+  "touched": false
+ },
+ "cave-1077": {
+  "guess": "caveman with a big boulder",
+  "alternatives": [
+   "blonde girl pushing a rock",
+   "explorer in a cave"
+  ],
+  "readability": 2,
+  "features": [
+   "large grey rock with red spots",
+   "yellow hair",
+   "orange leopard-print clothing",
+   "brown feet or club",
+   "green grass ground",
+   "cave arch with vines"
+  ],
+  "problems": [
+   "figure is small and blends with the orange/yellow blob",
+   "no clear face, just a dark eye spot",
+   "grey rock dominates and looks shapeless",
+   "brown shape below figure unclear",
+   "busy background with clouds and vines"
+  ],
+  "digest": "ef4178e071166993",
+  "grade": "weak",
+  "score": 66,
+  "colors": 19,
+  "black": 0.333,
+  "biggest_patch": 0.193,
+  "theme": "Aurora lake",
+  "name": "Cave",
+  "pack": "nature2",
+  "touched": false
+ }
+}

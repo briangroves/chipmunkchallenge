@@ -1,0 +1,423 @@
+{
+ "brown-bear-1042": {
+  "guess": "red teddy bear head",
+  "alternatives": [
+   "red panda",
+   "red mouse"
+  ],
+  "readability": 4,
+  "features": [
+   "round head",
+   "two round ears with tan and orange inner parts",
+   "big dark eyes with white highlights",
+   "tan muzzle area",
+   "orange mouth/paw shapes at bottom",
+   "sun, sky, grass and flowers background"
+  ],
+  "problems": [
+   "muzzle and mouth area is jumbled with orange blobs that are hard to read",
+   "no clear nose",
+   "unnatural red color for a bear",
+   "dark red shading patches look like noise"
+  ],
+  "digest": "a1ad1fe4ae4181e8",
+  "grade": "pass",
+  "score": 94,
+  "colors": 17,
+  "black": 0.031,
+  "biggest_patch": 0.13,
+  "theme": "Garden pond",
+  "name": "Brown Bear",
+  "pack": "animals6",
+  "touched": false
+ },
+ "gray-wolf-1043": {
+  "guess": "gray wolf or husky head",
+  "alternatives": [
+   "raccoon",
+   "badger"
+  ],
+  "readability": 2,
+  "features": [
+   "two pointed ears on top",
+   "gray and black fur pattern",
+   "white streaks",
+   "small red spots that may be eyes at the sides"
+  ],
+  "problems": [
+   "no clear face: eyes, nose and mouth are not distinguishable",
+   "blobby round shape with chaotic gray/black/white patches",
+   "red 'eyes' are tiny and placed oddly at the edges",
+   "dark outline blends into the dark green grass at the bottom",
+   "it reads more like a rock or boulder than an animal"
+  ],
+  "digest": "4e884d7ab84a66f4",
+  "grade": "weak",
+  "score": 70,
+  "colors": 15,
+  "black": 0.129,
+  "biggest_patch": 0.166,
+  "theme": "Castle hill",
+  "name": "Gray Wolf",
+  "pack": "animals6",
+  "touched": false
+ },
+ "red-fox-1044": {
+  "guess": "red fox head",
+  "alternatives": [
+   "red wolf head",
+   "devil mask"
+  ],
+  "readability": 3,
+  "features": [
+   "two pointed ears",
+   "triangular face narrowing to a snout",
+   "dark markings around eyes",
+   "nose at bottom tip"
+  ],
+  "problems": [
+   "no clear eyes, dark markings are blotchy",
+   "dark red and black pattern is noisy and confusing",
+   "snowy background with sun and cloud distracts little",
+   "colors unusual for a fox (dark red instead of orange)"
+  ],
+  "digest": "0598fcfb58837eeb",
+  "grade": "pass",
+  "score": 88,
+  "colors": 13,
+  "black": 0.116,
+  "biggest_patch": 0.177,
+  "theme": "Ice field",
+  "name": "Red Fox",
+  "pack": "animals6",
+  "touched": false
+ },
+ "rabbit-1045": {
+  "guess": "sleeping white bunny",
+  "alternatives": [
+   "white cat curled up",
+   "white hamster"
+  ],
+  "readability": 3,
+  "features": [
+   "round white body",
+   "closed sleepy eyes",
+   "pointed ears on top",
+   "small pink-tan nose/mouth area",
+   "shaded grey belly side",
+   "sunset sky and grassy field background",
+   "small flowers"
+  ],
+  "problems": [
+   "body is a big round blob without visible legs or tail",
+   "ears are short and pointy, making it ambiguous between bunny and cat",
+   "face lines are sparse and scattered, hard to read as eyes",
+   "grey shading patches look like noise"
+  ],
+  "digest": "062c32760f4e1432",
+  "grade": "pass",
+  "score": 84,
+  "colors": 18,
+  "black": 0.085,
+  "biggest_patch": 0.221,
+  "theme": "Sunset meadow",
+  "name": "Rabbit",
+  "pack": "animals6",
+  "touched": false
+ },
+ "cartoon-beaver-1046": {
+  "guess": "marmot standing upright",
+  "alternatives": [
+   "beaver",
+   "groundhog"
+  ],
+  "readability": 3,
+  "features": [
+   "tan upright body",
+   "dark eye with red highlight",
+   "small paws held in front",
+   "brown tail behind",
+   "mountains and green meadow background",
+   "starry night sky with aurora arch"
+  ],
+  "problems": [
+   "face is small and hard to read, no clear nose or ears",
+   "body is a blobby tan shape",
+   "busy background with aurora, mountains and water competes with the subject",
+   "red eye looks odd",
+   "brown tail blends with dark shading"
+  ],
+  "digest": "ab4dc518b5febd37",
+  "grade": "weak",
+  "score": 50,
+  "colors": 16,
+  "black": 0.235,
+  "biggest_patch": 0.106,
+  "theme": "Aurora lake",
+  "name": "Cartoon Beaver",
+  "pack": "animals6",
+  "touched": false
+ },
+ "cartoon-skunk-1047": {
+  "guess": "skunk",
+  "alternatives": [
+   "black cat",
+   "black squirrel"
+  ],
+  "readability": 3,
+  "features": [
+   "black body",
+   "white stripe on head",
+   "bushy black-and-white striped tail",
+   "pointed ears",
+   "red bib or scarf",
+   "legs and feet",
+   "small white chest patch"
+  ],
+  "problems": [
+   "no visible eyes or face details",
+   "head shape is blocky and unclear",
+   "dark navy outline blends with the black body",
+   "pose is ambiguous (sitting or walking)",
+   "red patch is unexplained"
+  ],
+  "digest": "7fd7f830604af0ef",
+  "grade": "pass",
+  "score": 84,
+  "colors": 11,
+  "black": 0.178,
+  "biggest_patch": 0.199,
+  "theme": "Overcast moor",
+  "name": "Cartoon Skunk",
+  "pack": "animals6",
+  "touched": false
+ },
+ "cartoon-bat-1048": {
+  "guess": "bat",
+  "alternatives": [
+   "flying fox",
+   "mouse with wings"
+  ],
+  "readability": 3,
+  "features": [
+   "pink pointed ears",
+   "brown furry body",
+   "gray outstretched wings with blue edges",
+   "small dark eyes",
+   "pink tongue or belly patch",
+   "little feet/claws"
+  ],
+  "problems": [
+   "face is tiny and hard to read",
+   "wings blend with dark red/orange ground",
+   "pink patch at bottom looks odd",
+   "brown body merges with tree trunk behind"
+  ],
+  "digest": "adcd70c4ae47eb13",
+  "grade": "pass",
+  "score": 84,
+  "colors": 18,
+  "black": 0.064,
+  "biggest_patch": 0.222,
+  "theme": "Autumn woods",
+  "name": "Cartoon Bat",
+  "pack": "animals6",
+  "touched": false
+ },
+ "cartoon-hedgehog-1049": {
+  "guess": "hedgehog",
+  "alternatives": [
+   "porcupine",
+   "brown mole"
+  ],
+  "readability": 4,
+  "features": [
+   "spiky brown back with dark spike tips",
+   "tan face and belly",
+   "two eyes looking right",
+   "small nose on the right",
+   "small feet at bottom",
+   "rounded body shape"
+  ],
+  "problems": [
+   "no clear snout point, face looks flat",
+   "spikes are small and only at edges",
+   "feet are small and partly hidden in grass",
+   "eyes and nose are tiny relative to body",
+   "body reads somewhat as a blob or potato"
+  ],
+  "digest": "e94a86572364e952",
+  "grade": "pass",
+  "score": 90,
+  "colors": 17,
+  "black": 0.025,
+  "biggest_patch": 0.174,
+  "theme": "Summer hills",
+  "name": "Cartoon Hedgehog",
+  "pack": "animals6",
+  "touched": false
+ },
+ "red-squirrel-1050": {
+  "guess": "red squirrel",
+  "alternatives": [
+   "red fox",
+   "red panda"
+  ],
+  "readability": 3,
+  "features": [
+   "large bushy curled tail with white tip",
+   "white muzzle and chest",
+   "brown nose",
+   "eye",
+   "white paws",
+   "ears with red/black tufts",
+   "hat-like dark top on head"
+  ],
+  "problems": [
+   "dark red body blends into large tail making a blobby shape",
+   "head shape unclear; dark top looks like a hat",
+   "eye is small and hard to spot",
+   "pink striped background competes with the body"
+  ],
+  "digest": "91b01d34a90ec4eb",
+  "grade": "pass",
+  "score": 88,
+  "colors": 15,
+  "black": 0.028,
+  "biggest_patch": 0.295,
+  "theme": "Tulip fields",
+  "name": "Red Squirrel",
+  "pack": "animals6",
+  "touched": false
+ },
+ "cartoon-raccoon-1051": {
+  "guess": "raccoon",
+  "alternatives": [
+   "tanuki (raccoon dog)",
+   "badger"
+  ],
+  "readability": 3,
+  "features": [
+   "dark mask around eyes",
+   "white eyes",
+   "pointed dark ears",
+   "grey and black fur",
+   "bushy dark tail with grey band",
+   "legs/paws",
+   "sitting on grass with flowers",
+   "sunset sky with sun"
+  ],
+  "problems": [
+   "body is a muddled patchwork of grey and black, hard to read limbs",
+   "face is small and lacks a clear nose/mouth",
+   "tail lacks clear ring stripes so it's less obviously raccoon",
+   "dark outline blends with dark green grass at bottom"
+  ],
+  "digest": "c8a2681b927112de",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.191,
+  "biggest_patch": 0.154,
+  "theme": "Dawn fields",
+  "name": "Cartoon Raccoon",
+  "pack": "animals6",
+  "touched": false
+ },
+ "cartoon-moose-1052": {
+  "guess": "moose",
+  "alternatives": [
+   "bull or buffalo",
+   "reindeer"
+  ],
+  "readability": 3,
+  "features": [
+   "large dark antlers spread wide",
+   "brown round body/head",
+   "white eyes with angry brows",
+   "small ears/tan top of head",
+   "dark nostril area on muzzle"
+  ],
+  "problems": [
+   "body is a round blob with no visible legs",
+   "antlers are dark and look more like bat wings or horns",
+   "face is small and hard to separate from body",
+   "dark shading on right side blends into shadow",
+   "antler color is close to the dark birds and sky edges"
+  ],
+  "digest": "93e6a4cc01fdfc9c",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.129,
+  "biggest_patch": 0.24,
+  "theme": "Seaside cliffs",
+  "name": "Cartoon Moose",
+  "pack": "animals6",
+  "touched": false
+ },
+ "cartoon-elk-1053": {
+  "guess": "moose",
+  "alternatives": [
+   "wildebeest",
+   "bison"
+  ],
+  "readability": 3,
+  "features": [
+   "large dark antlers",
+   "round brown head/body",
+   "white eyes with dark brows",
+   "dark beard/muzzle area",
+   "light tan tufts on top"
+  ],
+  "problems": [
+   "head and body merge into one round blob",
+   "no clear legs or body shape",
+   "dark muzzle reads like a mustache or big smile, unclear nose",
+   "antlers are thin and blocky, could read as branches",
+   "dark lower part blends with dark green grass"
+  ],
+  "digest": "38b0e9e752db8eaa",
+  "grade": "pass",
+  "score": 80,
+  "colors": 21,
+  "black": 0.148,
+  "biggest_patch": 0.142,
+  "theme": "Spring meadow",
+  "name": "Cartoon Elk",
+  "pack": "animals6",
+  "touched": false
+ },
+ "cartoon-bison-1054": {
+  "guess": "bison (buffalo)",
+  "alternatives": [
+   "yak",
+   "cartoon bull"
+  ],
+  "readability": 3,
+  "features": [
+   "brown shaggy head",
+   "white horns",
+   "big white eyes",
+   "dark muzzle/beard",
+   "dark body"
+  ],
+  "problems": [
+   "no clear legs or tail",
+   "body is a round blob",
+   "dark muzzle merges with dark body",
+   "horns look like ears",
+   "eyes are stylized and odd"
+  ],
+  "digest": "d3d52fbf9defb551",
+  "grade": "pass",
+  "score": 84,
+  "colors": 13,
+  "black": 0.146,
+  "biggest_patch": 0.138,
+  "theme": "Bamboo grove",
+  "name": "Cartoon Bison",
+  "pack": "animals6",
+  "touched": false
+ }
+}

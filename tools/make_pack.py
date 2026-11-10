@@ -168,7 +168,8 @@ def candidates(subject, taken, taken_sigs=(), max_candidates=8):
         # Without a `match` list the title must name every main word ("ladybug on leaf" needs both), so a spare
         # like "Beetle Car" can't turn into any old car.
         words = [w[:-1] if w.endswith("s") and len(w) > 4 else w for w in name.replace("-", " ").split()
-                 if len(w) > 2 and w not in ("with", "the", "and")]
+                 if len(w) > 2 and w not in ("with", "the", "and", "cute", "kawaii", "cartoon", "happy", "funny",
+                                             "little")]
         match = words
         names_it = lambda t: all(w in t for w in words)
     queries = [subject["query"]]
@@ -337,7 +338,7 @@ def main():
     if a.boards:
         BOARDS = os.path.abspath(a.boards)
     if a.lane:
-        LANE = tuple(int(x) for x in a.lane.split("/"))
+        LANE = tuple(int(x) for x in a.lane.split("/"))   # k/W, or k/W/base to start at variant `base`
     client = None
     if not a.no_check:
         import anthropic
@@ -399,10 +400,11 @@ def build(spec, sheet_base, client=None):
         if sum(map(good, made)) >= PACK_SIZE or (spare and not client and len(made) >= PACK_SIZE):
             break
         print(f"{'Spare' if spare else 'Subject'} {k + 1}: {subject['name']}")
-        k_, w_ = LANE
-        lane_used = {i: v + (k_ - v) % w_ for i, v in used.items()}
+        k_, w_, base_ = (LANE + (0,))[:3]
+        lane_used = {}
         for i in range(len(names)):
-            lane_used.setdefault(i, k_)
+            v = max(used.get(i, 0), base_)
+            lane_used[i] = v + (k_ - v) % w_
         board = best_board(subject, lambda **kw: backdrops.pick_themes(groups, lane_used, recent, **kw),
                            taken | {B["source"]["id"] for B in made},
                            others_sigs + [set(B["sig"]) for B in made], client)

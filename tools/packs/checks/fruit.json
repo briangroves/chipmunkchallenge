@@ -1,0 +1,602 @@
+{
+ "apple-296": {
+  "guess": "smiling red apple",
+  "alternatives": [
+   "tomato",
+   "red cherry"
+  ],
+  "readability": 5,
+  "features": [
+   "round red body",
+   "brown stem",
+   "green leaf",
+   "pink highlight on left",
+   "darker red shading on right",
+   "sleepy eyes",
+   "smiling mouth",
+   "dark outline"
+  ],
+  "problems": [
+   "face is low contrast and hard to make out",
+   "background snowman on the right is barely visible and could distract",
+   "busy night and snow background"
+  ],
+  "digest": "f7650d34e37d8eee",
+  "grade": "pass",
+  "score": 88,
+  "colors": 16,
+  "black": 0.213,
+  "biggest_patch": 0.179,
+  "theme": "Winter night",
+  "name": "Apple",
+  "pack": "fruit",
+  "touched": false
+ },
+ "banana-297": {
+  "guess": "bunch of bananas",
+  "alternatives": [
+   "yellow fish",
+   "corn cob"
+  ],
+  "readability": 4,
+  "features": [
+   "several curved yellow banana shapes",
+   "dark stem at top left",
+   "orange shading on undersides",
+   "white highlights",
+   "dark outline"
+  ],
+  "problems": [
+   "bananas overlap and merge into one blob",
+   "right side tips look a bit like a face or fish mouth",
+   "busy forest background competes with subject"
+  ],
+  "digest": "2392472507501d86",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.129,
+  "biggest_patch": 0.167,
+  "theme": "Pine forest",
+  "name": "Banana",
+  "pack": "fruit",
+  "touched": false
+ },
+ "cherries-298": {
+  "guess": "cherries",
+  "alternatives": [
+   "red apples",
+   "red berries"
+  ],
+  "readability": 5,
+  "features": [
+   "two round red cherries",
+   "dark stems joined at top",
+   "red leaf at top",
+   "white shine highlights",
+   "pink rim highlights"
+  ],
+  "problems": [
+   "leaf is red instead of green, could confuse",
+   "stems thin and dark against dark blue sky"
+  ],
+  "digest": "8ea7ef46c82ab106",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.264,
+  "biggest_patch": 0.18,
+  "theme": "Desert night",
+  "name": "Cherries",
+  "pack": "fruit",
+  "touched": false
+ },
+ "grapes-299": {
+  "guess": "bunch of purple grapes",
+  "alternatives": [
+   "blackberry",
+   "plum"
+  ],
+  "readability": 4,
+  "features": [
+   "cluster of round purple grapes",
+   "green leaf on top",
+   "dark stem",
+   "white shine highlights on grapes",
+   "dark outlines between grapes"
+  ],
+  "problems": [
+   "overall shape is a round blob rather than a tapering grape bunch",
+   "thick dark outlines make it look busy",
+   "red/pink striped background behind it competes for attention",
+   "could be read as a blackberry"
+  ],
+  "digest": "f3987ae36a8acfd8",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.176,
+  "biggest_patch": 0.167,
+  "theme": "Tulip fields",
+  "name": "Grapes",
+  "pack": "fruit",
+  "touched": false
+ },
+ "lemon-300": {
+  "guess": "happy yellow blob creature (smiling sun/slime) at sunset",
+  "alternatives": [
+   "sleeping yellow cat",
+   "smiling lemon or chick"
+  ],
+  "readability": 3,
+  "features": [
+   "round yellow body",
+   "closed happy curved eyes",
+   "two small grey horns or ears on top",
+   "white shine highlights",
+   "orange shading on lower side",
+   "sunset sky with moon",
+   "green bushes"
+  ],
+  "problems": [
+   "no mouth or other facial details besides eyes",
+   "blobby shape makes species unclear",
+   "small grey ears/horns barely visible against orange sky",
+   "orange shading blends with sunset background"
+  ],
+  "digest": "e8e91ef004131827",
+  "grade": "weak",
+  "score": 50,
+  "colors": 16,
+  "black": 0.128,
+  "biggest_patch": 0.212,
+  "theme": "Castle at dusk",
+  "name": "Lemon",
+  "pack": "fruit",
+  "touched": false
+ },
+ "orange-301": {
+  "guess": "fat orange cat",
+  "alternatives": [
+   "hamster",
+   "fox"
+  ],
+  "readability": 4,
+  "features": [
+   "pointed ears",
+   "squinting white eyes",
+   "dark eyebrows/stripes",
+   "nose and mouth",
+   "whisker-like dark marks",
+   "paws on sides",
+   "round chubby body"
+  ],
+  "problems": [
+   "face is small with heavy dark markings that look like a mustache",
+   "body is a big blobby shape with no clear legs or tail",
+   "paws are dark blobs that are hard to read"
+  ],
+  "digest": "c2955ccd509663cd",
+  "grade": "pass",
+  "score": 94,
+  "colors": 19,
+  "black": 0.142,
+  "biggest_patch": 0.182,
+  "theme": "Spring meadow",
+  "name": "Orange",
+  "pack": "fruit",
+  "touched": false
+ },
+ "pear-302": {
+  "guess": "yellow pear with a happy face",
+  "alternatives": [
+   "smiling lemon",
+   "yellow gourd character"
+  ],
+  "readability": 4,
+  "features": [
+   "pear-shaped yellow body",
+   "brown stem",
+   "green leaf",
+   "closed happy eyes",
+   "big open smiling mouth",
+   "orange shading on right side",
+   "white highlight",
+   "grassy field background with trees",
+   "small bird in sky"
+  ],
+  "problems": [
+   "eyes are just thin lines and hard to spot",
+   "white patches at bottom look odd, like feet or a tail",
+   "yellow body slightly blends with yellow sky near the top",
+   "leaf outline is a bit messy"
+  ],
+  "digest": "a3cae5f2fe59c602",
+  "grade": "pass",
+  "score": 86,
+  "colors": 14,
+  "black": 0.077,
+  "biggest_patch": 0.129,
+  "theme": "Bamboo grove",
+  "name": "Pear",
+  "pack": "fruit",
+  "touched": false
+ },
+ "pineapple-303": {
+  "guess": "mahjong tile with a pineapple character",
+  "alternatives": [
+   "card with a yellow chick wearing red shorts",
+   "sign showing a cartoon lemon"
+  ],
+  "readability": 3,
+  "features": [
+   "white tile/card with grey shading",
+   "yellow round body with green leaf on top",
+   "pink cheeks",
+   "dark eyes/mustache-like face marks",
+   "red shorts",
+   "light blue shirt",
+   "arms holding a stick",
+   "small feet"
+  ],
+  "problems": [
+   "face is hard to read with dark marks across it",
+   "character's purpose unclear (pineapple vs chick)",
+   "black outlines merge with tile border",
+   "the tile frame dominates the composition"
+  ],
+  "digest": "f2907354ab9f39c8",
+  "grade": "pass",
+  "score": 80,
+  "colors": 17,
+  "black": 0.141,
+  "biggest_patch": 0.149,
+  "theme": "Garden pond",
+  "name": "Pineapple",
+  "pack": "fruit",
+  "touched": false
+ },
+ "strawberry-304": {
+  "guess": "strawberry",
+  "alternatives": [
+   "tomato",
+   "red heart-shaped berry"
+  ],
+  "readability": 4,
+  "features": [
+   "red heart-shaped body",
+   "green leafy top (calyx)",
+   "pink highlight on upper left",
+   "darker red shading on lower right",
+   "dark outline"
+  ],
+  "problems": [
+   "no visible seeds, so it could be mistaken for a tomato",
+   "rounded shape is a bit wide for a strawberry",
+   "busy sky and snowy background with sun and cloud add distraction"
+  ],
+  "digest": "29845a614961fbde",
+  "grade": "pass",
+  "score": 78,
+  "colors": 17,
+  "black": 0.085,
+  "biggest_patch": 0.155,
+  "theme": "Ice field",
+  "name": "Strawberry",
+  "pack": "fruit",
+  "touched": false
+ },
+ "watermelon-305": {
+  "guess": "watermelon slice",
+  "alternatives": [
+   "slice of red cake",
+   "red fish on a plate"
+  ],
+  "readability": 4,
+  "features": [
+   "red flesh",
+   "dark seeds",
+   "green rind",
+   "pink edge near rind",
+   "white shine highlights",
+   "window in background",
+   "wooden wall",
+   "patterned tablecloth"
+  ],
+  "problems": [
+   "odd wedge shape seen from an angle",
+   "white highlight marks look like scribbles",
+   "dark outline and white marks at bottom confuse the base",
+   "seeds are sparse and blend with darker red shading"
+  ],
+  "digest": "a6552921ff91c98a",
+  "grade": "pass",
+  "score": 78,
+  "colors": 15,
+  "black": 0.087,
+  "biggest_patch": 0.166,
+  "theme": "Cabin",
+  "name": "Watermelon",
+  "pack": "fruit",
+  "touched": false
+ },
+ "kiwi-306": {
+  "guess": "kiwi bird",
+  "alternatives": [
+   "red bird",
+   "hedgehog"
+  ],
+  "readability": 3,
+  "features": [
+   "round dark red body",
+   "small head with eye",
+   "long thin tan beak",
+   "legs and feet",
+   "white sign/card background"
+  ],
+  "problems": [
+   "beak is pale tan and blends with white background",
+   "body is a big blob with little detail",
+   "red color unusual for a kiwi",
+   "legs merge with body color"
+  ],
+  "digest": "f8209009bc292cd1",
+  "grade": "pass",
+  "score": 84,
+  "colors": 12,
+  "black": 0.117,
+  "biggest_patch": 0.236,
+  "theme": "Castle hill",
+  "name": "Kiwi",
+  "pack": "fruit",
+  "touched": false
+ },
+ "lime-307": {
+  "guess": "green slime blob",
+  "alternatives": [
+   "green jelly or pudding",
+   "bush or mossy rock"
+  ],
+  "readability": 3,
+  "features": [
+   "rounded dome-shaped body",
+   "dark outline",
+   "light shine highlights",
+   "tan and brown spot on top (possibly a mushroom or something stuck inside)",
+   "dark shadow underneath",
+   "purple speckled ground"
+  ],
+  "problems": [
+   "no face or eyes so it doesn't read as a creature",
+   "the tan/brown patch is unclear",
+   "shape is just a blob that could be many things",
+   "background has unrelated bands of color"
+  ],
+  "digest": "adaef3c894b9311d",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.056,
+  "biggest_patch": 0.168,
+  "theme": "Overcast moor",
+  "name": "Lime",
+  "pack": "fruit",
+  "touched": false
+ },
+ "melon-308": {
+  "guess": "Snoopy eating a watermelon slice",
+  "alternatives": [
+   "white puppy holding a watermelon",
+   "dog lying on a picnic in the meadow"
+  ],
+  "readability": 3,
+  "features": [
+   "white round head",
+   "closed eye line",
+   "dark ears with brown hat/wreath",
+   "big red watermelon slice with green rind",
+   "small paw/feet at bottom",
+   "blue collar"
+  ],
+  "problems": [
+   "face lacks clear nose and mouth",
+   "brown wreath on head confusing",
+   "body hidden behind watermelon",
+   "green rind blends with grass",
+   "watermelon slice shape partly blobby"
+  ],
+  "digest": "de87e6ed7ba7a08f",
+  "grade": "pass",
+  "score": 84,
+  "colors": 20,
+  "black": 0.098,
+  "biggest_patch": 0.152,
+  "theme": "Riverbank",
+  "name": "Melon",
+  "pack": "fruit",
+  "touched": false
+ },
+ "papaya-309": {
+  "guess": "papaya on a beach",
+  "alternatives": [
+   "pear",
+   "mango"
+  ],
+  "readability": 3,
+  "features": [
+   "pear-like elongated fruit shape",
+   "green stem at top",
+   "yellow-orange skin with green edges",
+   "orange flesh with darker cut line/seed slit",
+   "dark outline and shadow on sand",
+   "sunset beach background with sun, sea and birds"
+  ],
+  "problems": [
+   "fruit is shown whole yet orange like cut flesh, so it's ambiguous between papaya, pear and mango",
+   "no seeds visible to clearly mark a papaya",
+   "orange fruit blends somewhat with orange sunset stripes behind it",
+   "dark line in the middle is unclear"
+  ],
+  "digest": "fcbf6e7acfd464ba",
+  "grade": "pass",
+  "score": 72,
+  "colors": 17,
+  "black": 0.058,
+  "biggest_patch": 0.104,
+  "theme": "Beach sunset",
+  "name": "Papaya",
+  "pack": "fruit",
+  "touched": false
+ },
+ "dragon-fruit-310": {
+  "guess": "dragon fruit (pitaya)",
+  "alternatives": [
+   "red cabbage or lettuce",
+   "red rose"
+  ],
+  "readability": 3,
+  "features": [
+   "red spiky skin with scale-like leaves",
+   "green tips on the scales",
+   "cut-open half showing white flesh with black seeds",
+   "whole fruit behind the cut half",
+   "grey/white rocks or clouds behind"
+  ],
+  "problems": [
+   "the grey-white blob behind the fruit is unclear and merges with the shape",
+   "the whole fruit's outline is blobby and scales are hard to read at this size",
+   "the black seed pattern looks like a QR code or noise",
+   "dark red shading makes the whole fruit look like a mass of leaves"
+  ],
+  "digest": "1549702000d432e8",
+  "grade": "pass",
+  "score": 72,
+  "colors": 16,
+  "black": 0.043,
+  "biggest_patch": 0.181,
+  "theme": "Alpine meadow",
+  "name": "Dragon Fruit",
+  "pack": "fruit",
+  "touched": false
+ },
+ "passion-fruit-311": {
+  "guess": "passion fruit cut open",
+  "alternatives": [
+   "cut kiwano or orange fruit with dark whole fruit",
+   "fried egg in a black pan"
+  ],
+  "readability": 3,
+  "features": [
+   "dark purple-black whole fruit with small stem on top",
+   "cut half showing white rind edge",
+   "orange and yellow pulp with black seeds",
+   "green center core"
+  ],
+  "problems": [
+   "whole fruit is nearly black and looks like a blob or bag",
+   "cut half could read as a fried egg or pizza",
+   "passion fruit is unfamiliar to many kids",
+   "stem nub is tiny"
+  ],
+  "digest": "b5512112367bc109",
+  "grade": "pass",
+  "score": 72,
+  "colors": 20,
+  "black": 0.147,
+  "biggest_patch": 0.189,
+  "theme": "Orchard",
+  "name": "Passion Fruit",
+  "pack": "fruit",
+  "touched": false
+ },
+ "orange-slice-312": {
+  "guess": "orange slice (citrus cross-section)",
+  "alternatives": [
+   "orange ball / dragon ball",
+   "fried egg yolk"
+  ],
+  "readability": 3,
+  "features": [
+   "round shape with dark outline",
+   "white rim like rind/pith",
+   "orange interior with lighter highlights",
+   "shading on lower right"
+  ],
+  "problems": [
+   "no visible segment lines so it doesn't clearly read as a citrus slice",
+   "could be mistaken for a ball or sun",
+   "white highlight blob in center is ambiguous",
+   "rim looks like a plate edge"
+  ],
+  "digest": "608d53552db3c726",
+  "grade": "pass",
+  "score": 68,
+  "colors": 19,
+  "black": 0.052,
+  "biggest_patch": 0.177,
+  "theme": "Summer hills",
+  "name": "Orange Slice",
+  "pack": "fruit",
+  "touched": false
+ },
+ "watermelon-slice-313": {
+  "guess": "watermelon slice",
+  "alternatives": [
+   "strawberry",
+   "slice of cake"
+  ],
+  "readability": 5,
+  "features": [
+   "red triangular flesh",
+   "black seeds",
+   "white rind",
+   "green skin",
+   "pink edge highlight",
+   "shading on right side"
+  ],
+  "problems": [
+   "slice is standing upright point-up, slightly unusual angle",
+   "brown line behind it is a little confusing"
+  ],
+  "digest": "894435f619f03b65",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.083,
+  "biggest_patch": 0.279,
+  "theme": "Cozy kitchen",
+  "name": "Watermelon Slice",
+  "pack": "fruit",
+  "touched": false
+ },
+ "grapes-bunch-314": {
+  "guess": "bunch of purple grapes on a beach",
+  "alternatives": [
+   "blackberry",
+   "purple berry fruit (devil fruit style)"
+  ],
+  "readability": 3,
+  "features": [
+   "purple round grape segments with white highlights",
+   "green leaves/stem on top",
+   "dark outline between grapes",
+   "beach background with sun, palm trees, clouds, sand"
+  ],
+  "problems": [
+   "overall shape is a round blob rather than a typical grape-bunch triangle",
+   "heavy dark outlines make it look like one big fruit or blackberry",
+   "a few blue patches look inconsistent",
+   "stem is small and blends with palm tree leaves"
+  ],
+  "digest": "be6c1492f2b3f5cb",
+  "grade": "pass",
+  "score": 68,
+  "colors": 21,
+  "black": 0.189,
+  "biggest_patch": 0.174,
+  "theme": "Tropical beach",
+  "name": "Grapes Bunch",
+  "pack": "fruit",
+  "touched": false
+ }
+}
