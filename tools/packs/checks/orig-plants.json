@@ -1,0 +1,625 @@
+{
+ "plants-1": {
+  "guess": "red tulip",
+  "alternatives": [
+   "red rose bud",
+   "red flower in a garden"
+  ],
+  "readability": 5,
+  "features": [
+   "large red tulip bloom with pink highlights",
+   "green stem",
+   "green leaves on both sides",
+   "white picket fence behind",
+   "green grass and bushes",
+   "blue sky with white clouds",
+   "small red berries or flowers in the grass"
+  ],
+  "problems": [
+   "small pink and white shapes near the petals look a bit like stray blobs",
+   "dark outlines on the leaves blend slightly with the dark green bushes"
+  ],
+  "digest": "0decb4ce2457d951",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.128,
+  "biggest_patch": 0.117,
+  "theme": null,
+  "name": "Tulip",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-2": {
+  "guess": "sunflower",
+  "alternatives": [
+   "daisy",
+   "yellow flower in a garden"
+  ],
+  "readability": 5,
+  "features": [
+   "yellow and orange petals",
+   "brown and dark red seed center",
+   "green stem",
+   "two green leaves",
+   "window frame and sky behind",
+   "grass and soil ground"
+  ],
+  "problems": [
+   "white petal edges blend slightly with sky and window",
+   "dark outline on left of petals looks a bit cluttered",
+   "background fence line crosses behind the stem"
+  ],
+  "digest": "ebb12a1a4d81c07d",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.174,
+  "biggest_patch": 0.092,
+  "theme": null,
+  "name": "Sunflower",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-3": {
+  "guess": "red rose in a window",
+  "alternatives": [
+   "red tulip",
+   "red flower in a picture frame"
+  ],
+  "readability": 5,
+  "features": [
+   "red rose bloom with layered petals",
+   "pink highlights on petals",
+   "green sepals under the bloom",
+   "long green stem",
+   "green leaves on the stem",
+   "window frame with blue sky behind",
+   "window sill at the bottom"
+  ],
+  "problems": [
+   "the green window frame is similar in color to the stem and leaves",
+   "the petal detail is a bit noisy and could read as a blob or a tulip"
+  ],
+  "digest": "0822daa0378d392f",
+  "grade": "pass",
+  "score": 80,
+  "colors": 14,
+  "black": 0.242,
+  "biggest_patch": 0.067,
+  "theme": null,
+  "name": "Rose",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-4": {
+  "guess": "saguaro cactus in the desert",
+  "alternatives": [
+   "cactus with a flower",
+   "desert plant with a fruit"
+  ],
+  "readability": 5,
+  "features": [
+   "tall green trunk",
+   "two side arms",
+   "white spines",
+   "red flower on top",
+   "orange-white fruit or flower on right arm",
+   "sandy desert ground",
+   "blue sky"
+  ],
+  "problems": [
+   "round object on right arm is ambiguous (fruit, flower or sun)",
+   "red bits in sand could be confusing"
+  ],
+  "digest": "790ef0acfd71653b",
+  "grade": "pass",
+  "score": 80,
+  "colors": 9,
+  "black": 0.119,
+  "biggest_patch": 0.466,
+  "theme": null,
+  "name": "Cactus",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-5": {
+  "guess": "tree",
+  "alternatives": [
+   "bush on a trunk",
+   "broccoli"
+  ],
+  "readability": 5,
+  "features": [
+   "round leafy green crown with light and dark shading",
+   "brown trunk with bark detail",
+   "dark outline",
+   "grassy meadow with yellow flowers",
+   "sky with clouds and a yellow sun or moon behind the tree"
+  ],
+  "problems": [
+   "the white cloud strip along the top of the crown looks odd and might read as snow",
+   "the green crown sits close in color to the green grass",
+   "the yellow sun is partly hidden behind the tree and could be mistaken for fruit"
+  ],
+  "digest": "3ce3029b0ea3761b",
+  "grade": "pass",
+  "score": 84,
+  "colors": 12,
+  "black": 0.081,
+  "biggest_patch": 0.123,
+  "theme": null,
+  "name": "Oak Tree",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-6": {
+  "guess": "pine tree by a lake at sunset",
+  "alternatives": [
+   "Christmas tree",
+   "fir tree on an island"
+  ],
+  "readability": 5,
+  "features": [
+   "triangular green canopy with light green diagonal highlights",
+   "brown trunk",
+   "pointed top",
+   "sunset sky with pink and purple bands",
+   "yellow setting sun",
+   "blue water",
+   "grey rocks in corner",
+   "small red-white object near top (bird or ornament)"
+  ],
+  "problems": [
+   "busy striped background competes with the tree",
+   "dark green hills on left blend with tree edges",
+   "odd red/white blob near tip is unclear",
+   "dark vertical shape on right is confusing"
+  ],
+  "digest": "98ebc5220497c9e2",
+  "grade": "pass",
+  "score": 84,
+  "colors": 15,
+  "black": 0.12,
+  "biggest_patch": 0.121,
+  "theme": null,
+  "name": "Pine Tree",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-7": {
+  "guess": "palm tree on a beach",
+  "alternatives": [
+   "coconut tree on an island",
+   "tropical beach scene"
+  ],
+  "readability": 5,
+  "features": [
+   "curved striped trunk",
+   "green palm fronds",
+   "blue sky",
+   "white clouds",
+   "blue sea with waves",
+   "yellow-orange sand",
+   "dark rock or object on sand"
+  ],
+  "problems": [
+   "dark shape on the sand is unclear",
+   "white clouds and wave foam blend together a bit"
+  ],
+  "digest": "3945c5d246316fdb",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.116,
+  "biggest_patch": 0.161,
+  "theme": null,
+  "name": "Palm Tree",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-8": {
+  "guess": "red toadstool mushroom",
+  "alternatives": [
+   "fly agaric in a garden",
+   "mushroom house"
+  ],
+  "readability": 5,
+  "features": [
+   "red cap with white spots",
+   "pink highlight on cap",
+   "dark red underside of cap",
+   "white stem with gray shading",
+   "dark outline",
+   "background: white picket fence, green grass, sky with moon or sun and cloud, small ladybugs"
+  ],
+  "problems": [
+   "white stem is a similar color to the white fence behind it",
+   "small white cloud on top of the cap could look like part of the mushroom",
+   "the small ladybugs in the grass are hard to read"
+  ],
+  "digest": "734bdd561bb11d0c",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.124,
+  "biggest_patch": 0.12,
+  "theme": null,
+  "name": "Mushroom",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-9": {
+  "guess": "autumn maple leaf",
+  "alternatives": [
+   "fire / campfire",
+   "flower with stem"
+  ],
+  "readability": 3,
+  "features": [
+   "leaf shape with pointed lobes",
+   "stem running down",
+   "yellow-orange-red gradient like autumn colors",
+   "dark outline"
+  ],
+  "problems": [
+   "top looks like flames, could read as fire",
+   "dark outline blobs on sides with green bits confuse the shape",
+   "busy background with window grid and green stripes",
+   "leaf lobes not symmetric or clearly maple-like"
+  ],
+  "digest": "a1352413815f1956",
+  "grade": "pass",
+  "score": 68,
+  "colors": 10,
+  "black": 0.159,
+  "biggest_patch": 0.107,
+  "theme": null,
+  "name": "Maple Leaf",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-10": {
+  "guess": "potted plant on a windowsill",
+  "alternatives": [
+   "houseplant in orange pot by window",
+   "succulent in flower pot"
+  ],
+  "readability": 4,
+  "features": [
+   "orange flower pot with rim",
+   "green leaves in light and dark shades",
+   "window frame with blue curtains",
+   "purple evening sky",
+   "windowsill/shelf"
+  ],
+  "problems": [
+   "pot orange blends with orange background areas",
+   "leaves are somewhat blobby and crowded",
+   "busy background details compete with the plant"
+  ],
+  "digest": "9168a3a54e22b526",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.241,
+  "biggest_patch": 0.096,
+  "theme": null,
+  "name": "Potted Plant",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-11": {
+  "guess": "three-leaf clover (shamrock)",
+  "alternatives": [
+   "green plant sprout",
+   "four-leaf clover"
+  ],
+  "readability": 5,
+  "features": [
+   "three heart-shaped green leaves",
+   "dark outline",
+   "curved stem",
+   "shading on leaves",
+   "grassy field background",
+   "sky with moon or clouds"
+  ],
+  "problems": [
+   "stem's dark outline blends slightly with dark grass at bottom",
+   "white blob in sky could be confused with part of the subject"
+  ],
+  "digest": "f4006df397c7f214",
+  "grade": "pass",
+  "score": 84,
+  "colors": 8,
+  "black": 0.104,
+  "biggest_patch": 0.117,
+  "theme": null,
+  "name": "Clover",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-12": {
+  "guess": "bonsai tree in a pot",
+  "alternatives": [
+   "pine tree at sunset",
+   "framed painting of a tree"
+  ],
+  "readability": 4,
+  "features": [
+   "twisted brown trunk",
+   "green cloud-like foliage pads",
+   "blue shallow pot",
+   "sunset sky background",
+   "window/frame border"
+  ],
+  "problems": [
+   "busy striped sunset background competes with tree",
+   "green bands in background blend with foliage",
+   "frame and pot edges cluttered"
+  ],
+  "digest": "482ac860b978cb72",
+  "grade": "pass",
+  "score": 74,
+  "colors": 17,
+  "black": 0.244,
+  "biggest_patch": 0.051,
+  "theme": null,
+  "name": "Bonsai",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-13": {
+  "guess": "white daisy flower by a pond at sunset",
+  "alternatives": [
+   "water lily on a lake",
+   "sunflower"
+  ],
+  "readability": 4,
+  "features": [
+   "white petals",
+   "yellow-orange center",
+   "green stem",
+   "leaves",
+   "sunset sky with yellow sun",
+   "blue water with lily pads",
+   "small red flower bud in sky corner"
+  ],
+  "problems": [
+   "flower center is shaded oddly and looks like an eye",
+   "red/white shapes in corners are unclear",
+   "busy striped background competes with the flower"
+  ],
+  "digest": "23bcf001e1d89c60",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.135,
+  "biggest_patch": 0.121,
+  "theme": null,
+  "name": "Daisy",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-14": {
+  "guess": "blossoming tree branch",
+  "alternatives": [
+   "cherry blossom tree",
+   "apple tree in spring"
+  ],
+  "readability": 3,
+  "features": [
+   "brown diagonal trunk and branches",
+   "white blossoms with dark outlines",
+   "pink and red flowers/buds",
+   "white picket fence behind",
+   "green grass and bushes",
+   "sun or moon in blue sky"
+  ],
+  "problems": [
+   "white blossoms are blobby and hard to tell apart from clouds",
+   "heavy black outlines make blossoms look like birds or rocks",
+   "trunk is thin and partly hidden by the busy background",
+   "fence and sky compete with the subject"
+  ],
+  "digest": "bbe7ef17bc415c20",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.182,
+  "biggest_patch": 0.107,
+  "theme": null,
+  "name": "Cherry Blossom",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-15": {
+  "guess": "bamboo stalks",
+  "alternatives": [
+   "cactus",
+   "green plant by a window"
+  ],
+  "readability": 3,
+  "features": [
+   "tall green segmented stalks",
+   "small leaves at tops",
+   "window frame with blue sky behind",
+   "green hills and fence in background",
+   "white highlights on stalks"
+  ],
+  "problems": [
+   "stalks overlap and merge into a single green mass",
+   "few distinct segment joints so it can look like a cactus",
+   "green stalks blend with the green grass background",
+   "leaves are small and hard to read"
+  ],
+  "digest": "00700b0a9e832a2c",
+  "grade": "pass",
+  "score": 68,
+  "colors": 8,
+  "black": 0.215,
+  "biggest_patch": 0.068,
+  "theme": null,
+  "name": "Bamboo",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-16": {
+  "guess": "acorn in autumn leaves",
+  "alternatives": [
+   "bird with acorn",
+   "autumn forest scene"
+  ],
+  "readability": 3,
+  "features": [
+   "acorn cap with checkered texture",
+   "stem on top",
+   "orange-red leaf shapes",
+   "falling leaves on ground",
+   "small bird-like shapes with white and orange",
+   "brown soil with colored specks"
+  ],
+  "problems": [
+   "acorn nut body merges with large orange leaf below",
+   "small birds or leaves at edges are ambiguous",
+   "busy background with many colors",
+   "scale and layout unclear"
+  ],
+  "digest": "ad987b94d51227c3",
+  "grade": "pass",
+  "score": 68,
+  "colors": 13,
+  "black": 0.138,
+  "biggest_patch": 0.179,
+  "theme": null,
+  "name": "Acorn",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-17": {
+  "guess": "apple tree",
+  "alternatives": [
+   "cherry tree",
+   "fruit tree in a meadow"
+  ],
+  "readability": 5,
+  "features": [
+   "round green leafy crown",
+   "red fruits or flowers in the leaves",
+   "brown trunk with bark shading",
+   "dark outline around the tree",
+   "grassy meadow with small flowers",
+   "blue sky with a yellow moon or sun"
+  ],
+  "problems": [
+   "red fruits are small and blocky, so it is hard to tell apples from flowers",
+   "the yellow-white shape in the corner is unclear (moon or sun)",
+   "the lavender band behind the tree is ambiguous (hills or water)"
+  ],
+  "digest": "7283ae25bc188145",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.079,
+  "biggest_patch": 0.164,
+  "theme": null,
+  "name": "Apple Tree",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-18": {
+  "guess": "potted plant by a window",
+  "alternatives": [
+   "houseplant on a windowsill",
+   "bush in a flower pot"
+  ],
+  "readability": 3,
+  "features": [
+   "tan/brown flower pot",
+   "green leafy foliage",
+   "dark leaves reaching upward",
+   "window frame with blue sky behind",
+   "shelf or windowsill",
+   "grey stone ledge at bottom"
+  ],
+  "problems": [
+   "leaves are a jumbled mix of greens and near-black that read as a blob",
+   "dark tall leaf shapes look like silhouettes or figures rather than plant",
+   "green plant blends into the green grass/wall background",
+   "pot outline is irregular and partly shaded so its shape is unclear"
+  ],
+  "digest": "7fb261eb7eebabb2",
+  "grade": "fail",
+  "score": 18,
+  "colors": 9,
+  "black": 0.186,
+  "biggest_patch": 0.073,
+  "theme": null,
+  "name": "Succulent",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-19": {
+  "guess": "pink water lily (lotus) on a pond",
+  "alternatives": [
+   "pink lotus flower at sunset",
+   "pink flower with lily pads"
+  ],
+  "readability": 4,
+  "features": [
+   "pink star-shaped petals with red shading",
+   "flower bud on top",
+   "green lily pads",
+   "blue water",
+   "sunset sky with yellow sun",
+   "dark outline"
+  ],
+  "problems": [
+   "pink petals blend with the pink sky band",
+   "bud on top looks detached and odd",
+   "flower shape is somewhat blobby"
+  ],
+  "digest": "990c1831fdb57440",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.096,
+  "biggest_patch": 0.144,
+  "theme": null,
+  "name": "Lotus",
+  "pack": "orig-plants",
+  "touched": false
+ },
+ "plants-20": {
+  "guess": "pumpkin",
+  "alternatives": [
+   "jack-o'-lantern",
+   "autumn leaves on ground"
+  ],
+  "readability": 5,
+  "features": [
+   "round orange body",
+   "vertical red ribs/segments",
+   "brown stem",
+   "dark outline",
+   "yellow highlights",
+   "ground with fallen leaves",
+   "purple and blue sky"
+  ],
+  "problems": [
+   "side red/pink shapes (leaves or trees) are cluttered and confusing",
+   "stem merges with dark shape at top",
+   "busy speckled ground"
+  ],
+  "digest": "dd845f6768127aea",
+  "grade": "pass",
+  "score": 80,
+  "colors": 10,
+  "black": 0.117,
+  "biggest_patch": 0.181,
+  "theme": null,
+  "name": "Pumpkin",
+  "pack": "orig-plants",
+  "touched": false
+ }
+}

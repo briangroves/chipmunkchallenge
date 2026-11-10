@@ -6,7 +6,8 @@
 
 Each listed original (by its id in levels.json) gets candidates the same way make_pack builds a board: clipart from
 Openverse and openclipart, put on a backdrop, shown to Claude blind (check_boards). The best one replaces the original
-only if it passes the blind check and scores higher than the original did (tools/packs/checks/orig-<pack>.json, from
+only if it passes the blind check and scores higher than the original did (or is still named, scoring 50+, and
+beats a misread original by 20 points or more) (tools/packs/checks/orig-<pack>.json, from
 `check_boards.py --originals`). Replacements go into boards.json under "replace", keyed by the original id; the
 board keeps its number and pack in the game, only its picture changes. Backdrops use their own variant range
 (from 200), so no background repeats one used elsewhere.
@@ -96,7 +97,11 @@ def main():
             print("   -> no usable image; keeping the original")
             continue
         c = board.pop("check", {})
-        if c.get("grade") != "pass" or (c.get("score") or 0) <= old_score:
+        # Keep a redraw that passes and beats the original, or one Claude still names (a weak board scoring 50+)
+        # that beats a misread original by a wide margin.
+        new_score = c.get("score") or 0
+        better = new_score > old_score if c.get("grade") == "pass" else new_score >= max(50, old_score + 20)
+        if not better:
             print(f"   -> best scored {c.get('score')} ({c.get('grade')}); keeping the original")
             continue
         new_id = f"{subject['name'].lower().replace(' ', '-')}-r{index + 1}"

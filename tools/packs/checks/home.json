@@ -1,5 +1,5 @@
 {
- "lamp-561": {
+ "lamp-560": {
   "guess": "magic genie lamp with red parrot",
   "alternatives": [
    "golden teapot",
@@ -31,7 +31,7 @@
   "pack": "home",
   "touched": false
  },
- "sofa-562": {
+ "sofa-561": {
   "guess": "yellow sofa",
   "alternatives": [
    "couch in a living room",
@@ -63,7 +63,7 @@
   "pack": "home",
   "touched": false
  },
- "armchair-563": {
+ "armchair-562": {
   "guess": "blue armchair",
   "alternatives": [
    "rocking chair",
@@ -95,7 +95,7 @@
   "pack": "home",
   "touched": false
  },
- "clock-564": {
+ "clock-563": {
   "guess": "wall clock",
   "alternatives": [
    "round plate",
@@ -126,7 +126,7 @@
   "pack": "home",
   "touched": false
  },
- "bed-565": {
+ "bed-564": {
   "guess": "orange cat sleeping under a blue blanket in bed",
   "alternatives": [
    "fox sleeping in a basket",
@@ -158,7 +158,7 @@
   "pack": "home",
   "touched": false
  },
- "bathtub-566": {
+ "bathtub-565": {
   "guess": "bathtub with bubbles",
   "alternatives": [
    "bubble bath",
@@ -189,7 +189,7 @@
   "pack": "home",
   "touched": false
  },
- "plant-pot-567": {
+ "plant-pot-566": {
   "guess": "snowy Christmas tree in a red pot",
   "alternatives": [
    "potted pine plant",
@@ -219,7 +219,7 @@
   "pack": "home",
   "touched": false
  },
- "bookshelf-568": {
+ "bookshelf-567": {
   "guess": "bookshelf with books",
   "alternatives": [
    "cabinet",
@@ -250,7 +250,7 @@
   "pack": "home",
   "touched": false
  },
- "television-569": {
+ "television-568": {
   "guess": "old red television",
   "alternatives": [
    "retro TV set with antenna",
@@ -282,7 +282,7 @@
   "pack": "home",
   "touched": false
  },
- "washing-machine-570": {
+ "washing-machine-569": {
   "guess": "washing machine",
   "alternatives": [
    "dryer",
@@ -313,7 +313,7 @@
   "pack": "home",
   "touched": false
  },
- "key-571": {
+ "key-570": {
   "guess": "golden key",
   "alternatives": [
    "yellow fish",
@@ -343,7 +343,7 @@
   "pack": "home",
   "touched": false
  },
- "window-572": {
+ "window-571": {
   "guess": "window with a view of hills",
   "alternatives": [
    "framed landscape painting",
@@ -375,7 +375,7 @@
   "pack": "home",
   "touched": false
  },
- "chair-573": {
+ "chair-572": {
   "guess": "wooden chair",
   "alternatives": [
    "armchair",
@@ -407,7 +407,7 @@
   "pack": "home",
   "touched": false
  },
- "candle-574": {
+ "candle-573": {
   "guess": "blue candle with a flame",
   "alternatives": [
    "penguin",
@@ -441,7 +441,7 @@
   "pack": "home",
   "touched": false
  },
- "rug-575": {
+ "rug-574": {
   "guess": "red rug on a checkered floor",
   "alternatives": [
    "red car seen from the side",
@@ -473,7 +473,7 @@
   "pack": "home",
   "touched": false
  },
- "fireplace-576": {
+ "fireplace-575": {
   "guess": "fireplace with fire",
   "alternatives": [
    "wood stove",
@@ -503,7 +503,7 @@
   "pack": "home",
   "touched": false
  },
- "bookcase-577": {
+ "bookcase-576": {
   "guess": "bookshelf full of books",
   "alternatives": [
    "bookcase cabinet",
@@ -533,7 +533,7 @@
   "pack": "home",
   "touched": false
  },
- "picture-frame-578": {
+ "picture-frame-577": {
   "guess": "framed painting on a brick wall",
   "alternatives": [
    "portrait of a clown",
@@ -564,7 +564,7 @@
   "pack": "home",
   "touched": false
  },
- "hammer-579": {
+ "hammer-578": {
   "guess": "claw hammer",
   "alternatives": [
    "pickaxe",
@@ -594,7 +594,7 @@
   "pack": "home",
   "touched": false
  },
- "saw-580": {
+ "saw-579": {
   "guess": "hand saw on a workbench",
   "alternatives": [
    "kitchen knife",
@@ -623,7 +623,7 @@
   "pack": "home",
   "touched": false
  },
- "wrench-581": {
+ "wrench-580": {
   "guess": "wrench",
   "alternatives": [
    "spanner tool",
@@ -653,7 +653,7 @@
   "pack": "home",
   "touched": false
  },
- "drill-582": {
+ "drill-581": {
   "guess": "power drill",
   "alternatives": [
    "glue gun",
@@ -684,7 +684,7 @@
   "pack": "home",
   "touched": false
  },
- "axe-583": {
+ "axe-582": {
   "guess": "axe",
   "alternatives": [
    "hatchet",
@@ -713,7 +713,7 @@
   "pack": "home",
   "touched": false
  },
- "paint-roller-584": {
+ "paint-roller-583": {
   "guess": "paint roller",
   "alternatives": [
    "rolling pin",
@@ -744,7 +744,7 @@
   "pack": "home",
   "touched": false
  },
- "trowel-585": {
+ "trowel-584": {
   "guess": "trowel",
   "alternatives": [
    "kitchen knife",
@@ -775,7 +775,7 @@
   "pack": "home",
   "touched": false
  },
- "bolt-586": {
+ "bolt-585": {
   "guess": "yellow lightning bolt",
   "alternatives": [
    "cheese wedge",

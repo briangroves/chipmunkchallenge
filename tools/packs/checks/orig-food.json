@@ -1,0 +1,630 @@
+{
+ "food-1": {
+  "guess": "strawberry",
+  "alternatives": [
+   "raspberry",
+   "red heart-shaped fruit"
+  ],
+  "readability": 5,
+  "features": [
+   "red heart-shaped body",
+   "yellow seeds",
+   "green leafy top",
+   "pink highlight",
+   "dark red shaded side",
+   "small red bit at bottom"
+  ],
+  "problems": [
+   "busy green-and-white background with stray shapes",
+   "small red blob at the bottom is unclear",
+   "clouds at the top look odd and touch the leaves"
+  ],
+  "digest": "c6d30a673495ca6d",
+  "grade": "pass",
+  "score": 84,
+  "colors": 12,
+  "black": 0.091,
+  "biggest_patch": 0.144,
+  "theme": null,
+  "name": "Strawberry",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-2": {
+  "guess": "hamburger",
+  "alternatives": [
+   "cheeseburger on a wooden table",
+   "burger with sandwich bun"
+  ],
+  "readability": 4,
+  "features": [
+   "sesame-seed top bun",
+   "tomato layer",
+   "lettuce",
+   "melted cheese drips",
+   "meat patty",
+   "bottom bun",
+   "toothpick/skewer on top",
+   "wooden table",
+   "green checkered background"
+  ],
+  "problems": [
+   "extra objects like the skewer and blue glass clutter the edges",
+   "dark outlines make the layers a bit busy",
+   "bottom bun blends with the tan table"
+  ],
+  "digest": "ab872eebd8909546",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.223,
+  "biggest_patch": 0.101,
+  "theme": null,
+  "name": "Burger",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-3": {
+  "guess": "watermelon slice",
+  "alternatives": [
+   "cat eating watermelon",
+   "smiling watermelon on a plate"
+  ],
+  "readability": 4,
+  "features": [
+   "red flesh with black seeds",
+   "pink inner rind edge",
+   "light and dark green rind",
+   "half-circle wedge shape",
+   "white plate or table below",
+   "orange background with dark shapes"
+  ],
+  "problems": [
+   "busy orange and dark background with unclear shapes",
+   "dark area behind slice may be an animal but is hard to read",
+   "brown and white areas at bottom are ambiguous"
+  ],
+  "digest": "8122b02ab8324749",
+  "grade": "pass",
+  "score": 74,
+  "colors": 11,
+  "black": 0.197,
+  "biggest_patch": 0.177,
+  "theme": null,
+  "name": "Watermelon",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-4": {
+  "guess": "pink frosted donut with sprinkles",
+  "alternatives": [
+   "donut shop sign",
+   "frosted cake ring"
+  ],
+  "readability": 5,
+  "features": [
+   "round donut shape with center hole",
+   "pink frosting",
+   "colorful sprinkles",
+   "red-orange dough edge",
+   "striped blue and white awning above",
+   "yellow background like a shop window",
+   "brown counter or shelf at bottom"
+  ],
+  "problems": [
+   "yellow background shows through the hole and blends with the orange/yellow surroundings",
+   "red bottom edge of the donut is a bit blocky",
+   "busy background elements (awning, counter) distract slightly"
+  ],
+  "digest": "1148cab1ecd0233e",
+  "grade": "pass",
+  "score": 80,
+  "colors": 14,
+  "black": 0.156,
+  "biggest_patch": 0.05,
+  "theme": null,
+  "name": "Donut",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-5": {
+  "guess": "red apple",
+  "alternatives": [
+   "red heart",
+   "cherry tomato"
+  ],
+  "readability": 4,
+  "features": [
+   "round red body with heart-like dip at top",
+   "brown stem",
+   "green leaf",
+   "darker red shading on right side"
+  ],
+  "problems": [
+   "apple shape is heart-like with pointed bottom",
+   "red table/stripe behind blends with apple's red",
+   "cluttered surrounding objects (pink-white thing top left, gray/black blobs) distract",
+   "apple outline merges with background elements at sides"
+  ],
+  "digest": "c2faf95d791d472b",
+  "grade": "pass",
+  "score": 78,
+  "colors": 10,
+  "black": 0.145,
+  "biggest_patch": 0.244,
+  "theme": null,
+  "name": "Apple",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-6": {
+  "guess": "banana",
+  "alternatives": [
+   "banana peel on grass",
+   "yellow slug"
+  ],
+  "readability": 4,
+  "features": [
+   "curved yellow body",
+   "dark stem tip at top",
+   "orange shading underside",
+   "black outline",
+   "dark end at bottom right",
+   "separate banana-like piece at left"
+  ],
+  "problems": [
+   "extra yellow piece at left is confusing",
+   "white and green patchy background is busy",
+   "dark blobs at bottom look like random shapes or feet"
+  ],
+  "digest": "9cdde6db04d72ba5",
+  "grade": "pass",
+  "score": 74,
+  "colors": 10,
+  "black": 0.119,
+  "biggest_patch": 0.201,
+  "theme": null,
+  "name": "Banana",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-7": {
+  "guess": "cherries",
+  "alternatives": [
+   "red apples",
+   "fruit on a picnic table"
+  ],
+  "readability": 4,
+  "features": [
+   "two round red fruits",
+   "green stems joined at top",
+   "leaf",
+   "pink highlight",
+   "dark outlines"
+  ],
+  "problems": [
+   "busy background with shelf, jar and other objects",
+   "red fruit blends with red/orange table below",
+   "stems long and thin, partly lost in green background"
+  ],
+  "digest": "500ba27e966ae922",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.228,
+  "biggest_patch": 0.081,
+  "theme": null,
+  "name": "Cherries",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-8": {
+  "guess": "slice of pepperoni pizza",
+  "alternatives": [
+   "cheese nachos chip",
+   "pizza on a picnic tablecloth"
+  ],
+  "readability": 5,
+  "features": [
+   "triangular slice shape",
+   "golden crust along top edge",
+   "yellow melted cheese",
+   "red pepperoni circles",
+   "green herb/pepper bits",
+   "orange shaded side",
+   "red and white checkered tablecloth below"
+  ],
+  "problems": [
+   "dark and green background clutter at top is hard to read",
+   "crust edge looks a bit like a bar or plate rim",
+   "some unclear objects behind the slice"
+  ],
+  "digest": "080f6b84cffcc7b6",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.212,
+  "biggest_patch": 0.106,
+  "theme": null,
+  "name": "Pizza",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-9": {
+  "guess": "ice cream cone",
+  "alternatives": [
+   "soft serve sundae at a shop",
+   "ice cream stand"
+  ],
+  "readability": 5,
+  "features": [
+   "waffle cone with crosshatch pattern",
+   "white swirled soft-serve ice cream",
+   "pink and red strawberry topping",
+   "cherry on top",
+   "striped blue and white awning",
+   "yellow shop background",
+   "planters with green bushes on sides"
+  ],
+  "problems": [
+   "white ice cream slightly blends with white parts of awning",
+   "busy background with planters and stripes",
+   "topping shape a bit blocky"
+  ],
+  "digest": "84285f888c7252c0",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.179,
+  "biggest_patch": 0.05,
+  "theme": null,
+  "name": "Ice Cream",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-10": {
+  "guess": "cupcake with pink frosting",
+  "alternatives": [
+   "ice cream sundae",
+   "muffin"
+  ],
+  "readability": 4,
+  "features": [
+   "blue striped cupcake liner",
+   "pink frosting with sprinkles",
+   "cherry on top",
+   "red cake layer",
+   "background items like a cup and treats"
+  ],
+  "problems": [
+   "cluttered background with fragments of other objects",
+   "top-left object blends into frosting outline",
+   "red cake band merges with red background stripe"
+  ],
+  "digest": "e68fa343f37c5ff8",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.145,
+  "biggest_patch": 0.222,
+  "theme": null,
+  "name": "Cupcake",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-11": {
+  "guess": "carrot",
+  "alternatives": [
+   "orange parrot",
+   "crayon"
+  ],
+  "readability": 4,
+  "features": [
+   "orange tapering body",
+   "red shading on one side",
+   "green leafy top",
+   "dark outline"
+  ],
+  "problems": [
+   "grey and white shapes at top right and bottom right are unclear",
+   "busy patterned background",
+   "green leaves blend slightly with green field"
+  ],
+  "digest": "04604e1dcd3ab271",
+  "grade": "pass",
+  "score": 74,
+  "colors": 11,
+  "black": 0.124,
+  "biggest_patch": 0.083,
+  "theme": null,
+  "name": "Carrot",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-12": {
+  "guess": "green pear",
+  "alternatives": [
+   "avocado",
+   "green apple"
+  ],
+  "readability": 4,
+  "features": [
+   "pear-shaped green body",
+   "brown stem",
+   "green leaf",
+   "brown speckles",
+   "darker green shading",
+   "white highlight",
+   "sitting on a wooden table"
+  ],
+  "problems": [
+   "busy background with window, shelf and objects competing for attention",
+   "yellow patterned wall is visually noisy",
+   "speckles could make it read as an avocado"
+  ],
+  "digest": "f8c1fc2aa899ede6",
+  "grade": "pass",
+  "score": 78,
+  "colors": 11,
+  "black": 0.184,
+  "biggest_patch": 0.164,
+  "theme": null,
+  "name": "Pear",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-13": {
+  "guess": "bunch of grapes",
+  "alternatives": [
+   "blueberries",
+   "grapes on a picnic table"
+  ],
+  "readability": 4,
+  "features": [
+   "cluster of round purple-blue grapes",
+   "green leaf at top",
+   "light highlights on grapes",
+   "red and white checkered tablecloth",
+   "brick wall background"
+  ],
+  "problems": [
+   "dark outlines between grapes blend with dark background shapes",
+   "busy brick background competes with subject",
+   "stem not clearly visible",
+   "unclear dark shapes around the grapes (bottle, glass)"
+  ],
+  "digest": "c596ff158bda2902",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.291,
+  "biggest_patch": 0.127,
+  "theme": null,
+  "name": "Grapes",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-14": {
+  "guess": "lemons at a market stall",
+  "alternatives": [
+   "yellow fruit pile under an awning",
+   "grapefruit or oranges at a fruit stand"
+  ],
+  "readability": 3,
+  "features": [
+   "striped blue and white awning at top",
+   "large yellow lemon with white highlight",
+   "second round citrus with segment texture",
+   "green leaves or produce at left",
+   "brown wooden crate/counter at bottom"
+  ],
+  "problems": [
+   "yellow fruit blends into yellow background",
+   "lemon shapes are blobby and lack distinct pointed tips",
+   "busy orange outlines make shapes merge together",
+   "background stall elements compete with the main subject"
+  ],
+  "digest": "ddb627fa449a50ce",
+  "grade": "pass",
+  "score": 68,
+  "colors": 11,
+  "black": 0.166,
+  "biggest_patch": 0.098,
+  "theme": null,
+  "name": "Lemon",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-15": {
+  "guess": "cheese wedge with holes",
+  "alternatives": [
+   "sleeping yellow cat",
+   "pile of gold nuggets"
+  ],
+  "readability": 2,
+  "features": [
+   "large yellow-orange wedge shape",
+   "orange spots like cheese holes",
+   "white highlights on top",
+   "blue cup or jar in upper left",
+   "small grey ball in sky",
+   "brown tiled ground",
+   "red marks at the base like feet"
+  ],
+  "problems": [
+   "blobby irregular outline",
+   "no clear face or identifying details",
+   "many orange and white streaks make it look messy",
+   "red bits at the bottom are confusing",
+   "unclear relation to the blue cup and grey ball"
+  ],
+  "digest": "bebcca58fbf4d53b",
+  "grade": "weak",
+  "score": 66,
+  "colors": 11,
+  "black": 0.131,
+  "biggest_patch": 0.222,
+  "theme": null,
+  "name": "Cheese",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-16": {
+  "guess": "hot dog",
+  "alternatives": [
+   "hamburger sandwich",
+   "sub sandwich"
+  ],
+  "readability": 4,
+  "features": [
+   "pink sausage on top",
+   "yellow mustard zigzag",
+   "red/orange bun",
+   "dark outline",
+   "sky with clouds background",
+   "grassy ground with rocks"
+  ],
+  "problems": [
+   "sausage and bun colors are unusual (bun is red/orange instead of tan)",
+   "layered look could read as a burger or sandwich",
+   "busy green and white ground pattern distracts"
+  ],
+  "digest": "68f603c1f816c679",
+  "grade": "pass",
+  "score": 74,
+  "colors": 13,
+  "black": 0.124,
+  "biggest_patch": 0.2,
+  "theme": null,
+  "name": "Hot Dog",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-17": {
+  "guess": "pineapple on a kitchen table",
+  "alternatives": [
+   "orange fruit",
+   "mango"
+  ],
+  "readability": 4,
+  "features": [
+   "green leafy crown",
+   "orange body with brown diamond pattern",
+   "red blush on lower side",
+   "wooden table",
+   "window and shelf in background",
+   "mug"
+  ],
+  "problems": [
+   "busy patterned background competes with subject",
+   "red patch slightly confusing",
+   "crown partly overlaps window clutter"
+  ],
+  "digest": "10ffe1cf13b38bb6",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.193,
+  "biggest_patch": 0.091,
+  "theme": null,
+  "name": "Pineapple",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-18": {
+  "guess": "giant white eyeball",
+  "alternatives": [
+   "fried egg",
+   "sushi roll"
+  ],
+  "readability": 3,
+  "features": [
+   "round white body with gray shading",
+   "black outline",
+   "yellow-orange center like an iris or yolk",
+   "dark pupil ring",
+   "small white bump on top",
+   "sandy ground below",
+   "blue sky background with dark shapes"
+  ],
+  "problems": [
+   "ambiguous whether it's an eye, egg, or sushi",
+   "dark blobs in background are unclear",
+   "no clear face or context",
+   "yellow center lacks a pupil, so the eye reading is uncertain"
+  ],
+  "digest": "b2012991a19587e6",
+  "grade": "weak",
+  "score": 38,
+  "colors": 9,
+  "black": 0.226,
+  "biggest_patch": 0.213,
+  "theme": null,
+  "name": "Fried Egg",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-19": {
+  "guess": "chocolate chip cookie",
+  "alternatives": [
+   "muffin top",
+   "scone on a plate"
+  ],
+  "readability": 3,
+  "features": [
+   "round tan cookie shape",
+   "brown chocolate chips",
+   "orange sprinkles or crumbs",
+   "white highlight on top edge",
+   "dark outline",
+   "brown table or tray underneath",
+   "green striped awning at top"
+  ],
+  "problems": [
+   "cookie edges blend into the tan background",
+   "cookie is partly cut off and tilted, not a clean circle",
+   "busy surroundings with awning, flowers and shelves distract",
+   "brown base merges with cookie shadow"
+  ],
+  "digest": "5e4e14615916a871",
+  "grade": "pass",
+  "score": 68,
+  "colors": 10,
+  "black": 0.128,
+  "biggest_patch": 0.231,
+  "theme": null,
+  "name": "Cookie",
+  "pack": "orig-food",
+  "touched": false
+ },
+ "food-20": {
+  "guess": "red, white and blue popsicle (bomb pop)",
+  "alternatives": [
+   "French flag",
+   "milk carton"
+  ],
+  "readability": 2,
+  "features": [
+   "tall block with red, white and blue stripes",
+   "wooden stick at bottom",
+   "small flag-like striped shape at top left",
+   "small round objects on the sides"
+  ],
+  "problems": [
+   "stick is short and partly hidden, so it doesn't clearly read as a popsicle",
+   "blocky rectangular shape looks like a flag or box",
+   "cluttered background with extra objects on brown ground",
+   "odd frame lines around the top"
+  ],
+  "digest": "e103e8c3a023e5ed",
+  "grade": "weak",
+  "score": 62,
+  "colors": 11,
+  "black": 0.156,
+  "biggest_patch": 0.206,
+  "theme": null,
+  "name": "Popsicle",
+  "pack": "orig-food",
+  "touched": false
+ }
+}

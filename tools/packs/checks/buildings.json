@@ -1,5 +1,5 @@
 {
- "house-643": {
+ "house-642": {
   "guess": "small house with grey roof",
   "alternatives": [
    "cottage with chimney",
@@ -32,7 +32,7 @@
   "pack": "buildings",
   "touched": false
  },
- "barn-644": {
+ "barn-643": {
   "guess": "red barn",
   "alternatives": [
    "farmhouse",
@@ -64,7 +64,7 @@
   "pack": "buildings",
   "touched": false
  },
- "tent-645": {
+ "tent-644": {
   "guess": "circus tent",
   "alternatives": [
    "carnival big top",
@@ -94,7 +94,7 @@
   "pack": "buildings",
   "touched": false
  },
- "igloo-646": {
+ "igloo-645": {
   "guess": "igloo",
   "alternatives": [
    "snow mound",
@@ -125,7 +125,7 @@
   "pack": "buildings",
   "touched": false
  },
- "temple-647": {
+ "temple-646": {
   "guess": "Japanese shrine or temple with a curved roof",
   "alternatives": [
    "pagoda gate",
@@ -159,7 +159,7 @@
   "pack": "buildings",
   "touched": false
  },
- "tower-648": {
+ "tower-647": {
   "guess": "Eiffel Tower at sunset",
   "alternatives": [
    "witch hat",
@@ -191,7 +191,7 @@
   "pack": "buildings",
   "touched": false
  },
- "castle-649": {
+ "castle-648": {
   "guess": "ruined stone castle tower",
   "alternatives": [
    "dark rock formation",
@@ -223,7 +223,7 @@
   "pack": "buildings",
   "touched": false
  },
- "lighthouse-650": {
+ "lighthouse-649": {
   "guess": "red and white striped lighthouse",
   "alternatives": [
    "striped tower",
@@ -255,7 +255,7 @@
   "pack": "buildings",
   "touched": false
  },
- "cottage-651": {
+ "cottage-650": {
   "guess": "cottage with thatched roof",
   "alternatives": [
    "mushroom house",
@@ -290,7 +290,7 @@
   "pack": "buildings",
   "touched": false
  },
- "stadium-652": {
+ "stadium-651": {
   "guess": "football stadium on a beach",
   "alternatives": [
    "sandcastle arena",
@@ -325,7 +325,7 @@
   "pack": "buildings",
   "touched": false
  },
- "airport-653": {
+ "airport-652": {
   "guess": "airport sign with control tower and airplane",
   "alternatives": [
    "airport terminal icon",
@@ -356,7 +356,7 @@
   "pack": "buildings",
   "touched": false
  },
- "castle-tower-654": {
+ "castle-tower-653": {
   "guess": "white stone tower in the desert",
   "alternatives": [
    "lighthouse",
@@ -389,7 +389,7 @@
   "pack": "buildings",
   "touched": false
  },
- "bank-655": {
+ "bank-654": {
   "guess": "pink piggy bank",
   "alternatives": [
    "pink pig",
@@ -421,7 +421,7 @@
   "pack": "buildings",
   "touched": false
  },
- "eiffel-tower-656": {
+ "eiffel-tower-655": {
   "guess": "dark tower with a sword and white cloth",
   "alternatives": [
    "knight's shield or banner with a sword",
@@ -453,7 +453,7 @@
   "pack": "buildings",
   "touched": false
  },
- "golden-gate-bridge-657": {
+ "golden-gate-bridge-656": {
   "guess": "dark bridge over a river",
   "alternatives": [
    "crocodile in water",
@@ -486,7 +486,7 @@
   "pack": "buildings",
   "touched": false
  },
- "christ-the-redeemer-658": {
+ "christ-the-redeemer-657": {
   "guess": "Christ the Redeemer statue",
   "alternatives": [
    "cross on a hill",
@@ -520,7 +520,7 @@
   "pack": "buildings",
   "touched": false
  },
- "moai-659": {
+ "moai-658": {
   "guess": "Easter Island moai statue",
   "alternatives": [
    "stone head in a picture frame",
@@ -553,7 +553,7 @@
   "pack": "buildings",
   "touched": false
  },
- "mount-rushmore-660": {
+ "mount-rushmore-659": {
   "guess": "Mount Rushmore",
   "alternatives": [
    "rocky cliff with carved faces",
@@ -584,7 +584,7 @@
   "pack": "buildings",
   "touched": false
  },
- "fairytale-castle-661": {
+ "fairytale-castle-660": {
   "guess": "pink crystal castle",
   "alternatives": [
    "pink dragon",
@@ -615,7 +615,7 @@
   "pack": "buildings",
   "touched": false
  },
- "totem-pole-662": {
+ "totem-pole-661": {
   "guess": "carved wooden totem pole / tree trunk figure",
   "alternatives": [
    "scarecrow",
@@ -647,7 +647,7 @@
   "pack": "buildings",
   "touched": false
  },
- "hot-air-balloons-663": {
+ "hot-air-balloons-662": {
   "guess": "hot air balloon",
   "alternatives": [
    "balloon over snowy mountains",

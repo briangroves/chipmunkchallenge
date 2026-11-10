@@ -1,5 +1,5 @@
 {
- "teapot-548": {
+ "teapot-547": {
   "guess": "white teapot with a bird design",
   "alternatives": [
    "kettle",
@@ -31,7 +31,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "kettle-549": {
+ "kettle-548": {
   "guess": "teapot or kettle on a table",
   "alternatives": [
    "cat sitting on a shelf",
@@ -64,7 +64,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "frying-pan-550": {
+ "frying-pan-549": {
   "guess": "white cat in a chef hat cooking with a frying pan",
   "alternatives": [
    "girl with a bonnet holding a pan",
@@ -99,7 +99,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "mug-551": {
+ "mug-550": {
   "guess": "mug of beer",
   "alternatives": [
    "glass of orange juice",
@@ -131,7 +131,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "spoon-552": {
+ "spoon-551": {
   "guess": "silver spoon",
   "alternatives": [
    "ladle",
@@ -162,7 +162,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "cooking-pot-553": {
+ "cooking-pot-552": {
   "guess": "white cooking pot with lid",
   "alternatives": [
    "sugar bowl",
@@ -194,7 +194,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "coffee-pot-554": {
+ "coffee-pot-553": {
   "guess": "green teapot on a table",
   "alternatives": [
    "tea set with cups",
@@ -228,7 +228,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "microwave-555": {
+ "microwave-554": {
   "guess": "microwave oven",
   "alternatives": [
    "toaster oven",
@@ -260,7 +260,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "chef-hat-556": {
+ "chef-hat-555": {
   "guess": "chef's hat (toque)",
   "alternatives": [
    "white trash can",
@@ -291,7 +291,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "grater-557": {
+ "grater-556": {
   "guess": "cheese grater",
   "alternatives": [
    "trash can with lid",
@@ -321,7 +321,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "spatula-558": {
+ "spatula-557": {
   "guess": "slotted spatula (kitchen turner)",
   "alternatives": [
    "fish slice",
@@ -351,7 +351,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "rice-cooker-559": {
+ "rice-cooker-558": {
   "guess": "white kitchen appliance (rice cooker/stove)",
   "alternatives": [
    "white cat sleeping",
@@ -385,7 +385,7 @@
   "pack": "kitchen",
   "touched": false
  },
- "oven-560": {
+ "oven-559": {
   "guess": "microwave oven with food inside",
   "alternatives": [
    "old television",

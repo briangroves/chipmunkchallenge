@@ -1,5 +1,5 @@
 {
- "cupcake-334": {
+ "cupcake-333": {
   "guess": "cupcake with white frosting",
   "alternatives": [
    "muffin",
@@ -29,7 +29,7 @@
   "pack": "sweets",
   "touched": false
  },
- "donut-335": {
+ "donut-334": {
   "guess": "chocolate glazed donut on a plate",
   "alternatives": [
    "donut with orange glaze at night",
@@ -60,7 +60,7 @@
   "pack": "sweets",
   "touched": false
  },
- "ice-cream-336": {
+ "ice-cream-335": {
   "guess": "ice cream cone with a face",
   "alternatives": [
    "strawberry ice cream character",
@@ -91,7 +91,7 @@
   "pack": "sweets",
   "touched": false
  },
- "lollipop-337": {
+ "lollipop-336": {
   "guess": "smiling lollipop",
   "alternatives": [
    "sunflower with a face",
@@ -123,7 +123,7 @@
   "pack": "sweets",
   "touched": false
  },
- "candy-338": {
+ "candy-337": {
   "guess": "cotton candy on a stick",
   "alternatives": [
    "ice cream popsicle",
@@ -155,7 +155,7 @@
   "pack": "sweets",
   "touched": false
  },
- "birthday-cake-339": {
+ "birthday-cake-338": {
   "guess": "strawberry cream cake",
   "alternatives": [
    "fruit parfait",
@@ -187,7 +187,7 @@
   "pack": "sweets",
   "touched": false
  },
- "cookie-340": {
+ "cookie-339": {
   "guess": "chocolate chip cookie",
   "alternatives": [
    "donut",
@@ -217,7 +217,7 @@
   "pack": "sweets",
   "touched": false
  },
- "popsicle-341": {
+ "popsicle-340": {
   "guess": "popsicles melting in the desert heat",
   "alternatives": [
    "ice lollies on sticks",
@@ -251,7 +251,7 @@
   "pack": "sweets",
   "touched": false
  },
- "pudding-342": {
+ "pudding-341": {
   "guess": "Christmas pudding",
   "alternatives": [
    "cake with cherry sauce",
@@ -282,7 +282,7 @@
   "pack": "sweets",
   "touched": false
  },
- "pancakes-343": {
+ "pancakes-342": {
   "guess": "stack of pancakes with whipped cream and strawberry syrup",
   "alternatives": [
    "layered cake",
@@ -314,7 +314,7 @@
   "pack": "sweets",
   "touched": false
  },
- "muffin-344": {
+ "muffin-343": {
   "guess": "muffin monster / cupcake with angry face",
   "alternatives": [
    "pot of chocolate pudding with a lid",
@@ -345,7 +345,7 @@
   "pack": "sweets",
   "touched": false
  },
- "gingerbread-man-345": {
+ "gingerbread-man-344": {
   "guess": "gingerbread man",
   "alternatives": [
    "teddy bear",
@@ -379,7 +379,7 @@
   "pack": "sweets",
   "touched": false
  },
- "candy-cane-346": {
+ "candy-cane-345": {
   "guess": "candy cane",
   "alternatives": [
    "walking cane",
@@ -408,7 +408,7 @@
   "pack": "sweets",
   "touched": false
  },
- "jelly-347": {
+ "jelly-346": {
   "guess": "giant red jelly blob monster in a city at night",
   "alternatives": [
    "red jelly dessert",
@@ -440,7 +440,7 @@
   "pack": "sweets",
   "touched": false
  },
- "strawberry-cake-348": {
+ "strawberry-cake-347": {
   "guess": "cupcake card with a cherry on top",
   "alternatives": [
    "strawberry cake slice",
@@ -471,7 +471,7 @@
   "pack": "sweets",
   "touched": false
  },
- "chocolate-cake-349": {
+ "chocolate-cake-348": {
   "guess": "chocolate birthday cake with a candle",
   "alternatives": [
    "brownie with a candle",
@@ -503,7 +503,7 @@
   "pack": "sweets",
   "touched": false
  },
- "pie-slice-350": {
+ "pie-slice-349": {
   "guess": "slice of pie or cake",
   "alternatives": [
    "slice of cheese",
@@ -534,7 +534,7 @@
   "pack": "sweets",
   "touched": false
  },
- "corn-dog-351": {
+ "corn-dog-350": {
   "guess": "corn dog on a stick",
   "alternatives": [
    "hot dog with ketchup and mustard",
@@ -566,7 +566,7 @@
   "pack": "sweets",
   "touched": false
  },
- "cheese-pizza-352": {
+ "cheese-pizza-351": {
   "guess": "slice of pizza",
   "alternatives": [
    "cheese wedge",
@@ -598,7 +598,7 @@
   "pack": "sweets",
   "touched": false
  },
- "onigiri-353": {
+ "onigiri-352": {
   "guess": "three onigiri rice balls on a grassy hill",
   "alternatives": [
    "picnic snacks in a meadow",
@@ -632,7 +632,7 @@
   "pack": "sweets",
   "touched": false
  },
- "mochi-354": {
+ "mochi-353": {
   "guess": "kagami mochi (white rice cake topped with orange)",
   "alternatives": [
    "snow-capped green birdhouse",
@@ -663,7 +663,7 @@
   "pack": "sweets",
   "touched": false
  },
- "waffle-cone-355": {
+ "waffle-cone-354": {
   "guess": "strawberry ice cream cone",
   "alternatives": [
    "pink mushroom",

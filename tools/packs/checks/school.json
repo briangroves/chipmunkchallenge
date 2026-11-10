@@ -1,5 +1,5 @@
 {
- "backpack-587": {
+ "backpack-586": {
   "guess": "colorful backpack",
   "alternatives": [
    "sleeping bag",
@@ -30,7 +30,7 @@
   "pack": "school",
   "touched": false
  },
- "pencil-588": {
+ "pencil-587": {
   "guess": "orange pencil character lifting weights",
   "alternatives": [
    "carrot doing exercise",
@@ -63,7 +63,7 @@
   "pack": "school",
   "touched": false
  },
- "scissors-589": {
+ "scissors-588": {
   "guess": "scissors",
   "alternatives": [
    "sewing shears on a table",
@@ -94,7 +94,7 @@
   "pack": "school",
   "touched": false
  },
- "globe-590": {
+ "globe-589": {
   "guess": "desk globe",
   "alternatives": [
    "planet Earth",
@@ -124,7 +124,7 @@
   "pack": "school",
   "touched": false
  },
- "notebook-591": {
+ "notebook-590": {
   "guess": "open notebook / book",
   "alternatives": [
    "diary with bookmarks",
@@ -156,7 +156,7 @@
   "pack": "school",
   "touched": false
  },
- "eraser-592": {
+ "eraser-591": {
   "guess": "pink and blue eraser",
   "alternatives": [
    "pencil eraser block",
@@ -187,7 +187,7 @@
   "pack": "school",
   "touched": false
  },
- "calculator-593": {
+ "calculator-592": {
   "guess": "retro computer / calculator at night in a city",
   "alternatives": [
    "cash register",
@@ -221,7 +221,7 @@
   "pack": "school",
   "touched": false
  },
- "chalkboard-594": {
+ "chalkboard-593": {
   "guess": "green chalkboard with a red bow",
   "alternatives": [
    "school blackboard with a cat peeking",
@@ -252,7 +252,7 @@
   "pack": "school",
   "touched": false
  },
- "paint-palette-595": {
+ "paint-palette-594": {
   "guess": "artist's paint palette",
   "alternatives": [
    "cookie with candies",
@@ -284,7 +284,7 @@
   "pack": "school",
   "touched": false
  },
- "microscope-596": {
+ "microscope-595": {
   "guess": "microscope",
   "alternatives": [
    "desk lamp",
@@ -318,7 +318,7 @@
   "pack": "school",
   "touched": false
  },
- "desk-597": {
+ "desk-596": {
   "guess": "old computer monitor on a desk",
   "alternatives": [
    "television set",
@@ -351,7 +351,7 @@
   "pack": "school",
   "touched": false
  },
- "graduation-cap-598": {
+ "graduation-cap-597": {
   "guess": "graduation cap on a table",
   "alternatives": [
    "black hat with tassel",
@@ -382,7 +382,7 @@
   "pack": "school",
   "touched": false
  },
- "magnifying-glass-599": {
+ "magnifying-glass-598": {
   "guess": "magnifying glass",
   "alternatives": [
    "frying pan",
@@ -410,7 +410,7 @@
   "pack": "school",
   "touched": false
  },
- "abacus-600": {
+ "abacus-599": {
   "guess": "abacus",
   "alternatives": [
    "bookshelf with books",
@@ -441,7 +441,7 @@
   "pack": "school",
   "touched": false
  },
- "highlighter-601": {
+ "highlighter-600": {
   "guess": "yellow highlighter marker",
   "alternatives": [
    "toucan bird",
@@ -472,7 +472,7 @@
   "pack": "school",
   "touched": false
  },
- "science-beaker-602": {
+ "science-beaker-601": {
   "guess": "science beaker / flask with green liquid",
   "alternatives": [
    "test tube with potion",

@@ -1,5 +1,5 @@
 {
- "teacup-723": {
+ "teacup-722": {
   "guess": "white teacup with a grumpy face",
   "alternatives": [
    "sleepy ghost",
@@ -31,7 +31,7 @@
   "pack": "drinks",
   "touched": false
  },
- "coffee-cup-724": {
+ "coffee-cup-723": {
   "guess": "takeaway coffee cup",
   "alternatives": [
    "iced latte with whipped cream",
@@ -61,7 +61,7 @@
   "pack": "drinks",
   "touched": false
  },
- "hot-chocolate-725": {
+ "hot-chocolate-724": {
   "guess": "red cup of iced coffee or hot chocolate with whipped cream",
   "alternatives": [
    "milkshake in a red cup",
@@ -93,7 +93,7 @@
   "pack": "drinks",
   "touched": false
  },
- "soda-726": {
+ "soda-725": {
   "guess": "soda cup with a straw",
   "alternatives": [
    "crumpled soda can",
@@ -124,7 +124,7 @@
   "pack": "drinks",
   "touched": false
  },
- "juice-box-727": {
+ "juice-box-726": {
   "guess": "grape juice box with straw",
   "alternatives": [
    "purple milk carton",
@@ -155,7 +155,7 @@
   "pack": "drinks",
   "touched": false
  },
- "boba-tea-728": {
+ "boba-tea-727": {
   "guess": "bubble tea",
   "alternatives": [
    "iced coffee",
@@ -187,7 +187,7 @@
   "pack": "drinks",
   "touched": false
  },
- "sundae-729": {
+ "sundae-728": {
   "guess": "ice cream sundae in a glass cup",
   "alternatives": [
    "cat sleeping in a cocktail glass",
@@ -219,7 +219,7 @@
   "pack": "drinks",
   "touched": false
  },
- "cake-slice-730": {
+ "cake-slice-729": {
   "guess": "slice of strawberry cake",
   "alternatives": [
    "ice cream sandwich",
@@ -252,7 +252,7 @@
   "pack": "drinks",
   "touched": false
  },
- "juice-glass-731": {
+ "juice-glass-730": {
   "guess": "glass of beer",
   "alternatives": [
    "glass of orange juice",
@@ -283,7 +283,7 @@
   "pack": "drinks",
   "touched": false
  },
- "water-bottle-732": {
+ "water-bottle-731": {
   "guess": "blue glass bottle",
   "alternatives": [
    "water jug",
@@ -316,7 +316,7 @@
   "pack": "drinks",
   "touched": false
  },
- "milk-carton-733": {
+ "milk-carton-732": {
   "guess": "milk carton",
   "alternatives": [
    "juice carton",
@@ -348,7 +348,7 @@
   "pack": "drinks",
   "touched": false
  },
- "soda-can-734": {
+ "soda-can-733": {
   "guess": "crushed red soda can",
   "alternatives": [
    "dented trash can",
@@ -380,7 +380,7 @@
   "pack": "drinks",
   "touched": false
  },
- "milk-bottle-735": {
+ "milk-bottle-734": {
   "guess": "baby bottle",
   "alternatives": [
    "milk bottle",
@@ -410,7 +410,7 @@
   "pack": "drinks",
   "touched": false
  },
- "loaf-of-bread-736": {
+ "loaf-of-bread-735": {
   "guess": "sandwich (bread slice with toppings)",
   "alternatives": [
    "piece of cake",
@@ -440,7 +440,7 @@
   "pack": "drinks",
   "touched": false
  },
- "baguette-737": {
+ "baguette-736": {
   "guess": "orange bread loaf (baguette) on a city street at night",
   "alternatives": [
    "orange car or bus",
@@ -473,7 +473,7 @@
   "pack": "drinks",
   "touched": false
  },
- "bun-738": {
+ "bun-737": {
   "guess": "steamed buns in a basket",
   "alternatives": [
    "eggs in a nest",
@@ -504,7 +504,7 @@
   "pack": "drinks",
   "touched": false
  },
- "cake-stand-739": {
+ "cake-stand-738": {
   "guess": "tiered cake/dessert stand with treats",
   "alternatives": [
    "fruit bowl stand",
@@ -537,7 +537,7 @@
   "pack": "drinks",
   "touched": false
  },
- "gingerbread-cookie-740": {
+ "gingerbread-cookie-739": {
   "guess": "gingerbread man cookie",
   "alternatives": [
    "cookie person running",
@@ -570,7 +570,7 @@
   "pack": "drinks",
   "touched": false
  },
- "birthday-cupcake-741": {
+ "birthday-cupcake-740": {
   "guess": "cupcake with a candle in the city at night",
   "alternatives": [
    "ice cream sundae",

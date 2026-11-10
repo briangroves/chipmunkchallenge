@@ -1,5 +1,5 @@
 {
- "tent-757": {
+ "tent-756": {
   "guess": "circus tent with flag",
   "alternatives": [
    "red tent",
@@ -31,7 +31,7 @@
   "pack": "camping",
   "touched": false
  },
- "campfire-758": {
+ "campfire-757": {
   "guess": "campfire",
   "alternatives": [
    "bonfire",
@@ -61,7 +61,7 @@
   "pack": "camping",
   "touched": false
  },
- "compass-759": {
+ "compass-758": {
   "guess": "compass",
   "alternatives": [
    "clock",
@@ -92,7 +92,7 @@
   "pack": "camping",
   "touched": false
  },
- "map-760": {
+ "map-759": {
   "guess": "old world map (treasure map)",
   "alternatives": [
    "burnt parchment scroll",
@@ -123,7 +123,7 @@
   "pack": "camping",
   "touched": false
  },
- "bear-761": {
+ "bear-760": {
   "guess": "brown bear head",
   "alternatives": [
    "marmot",
@@ -156,7 +156,7 @@
   "pack": "camping",
   "touched": false
  },
- "pine-tree-762": {
+ "pine-tree-761": {
   "guess": "pine trees in a snowy night forest",
   "alternatives": [
    "winter mountain landscape",
@@ -188,7 +188,7 @@
   "pack": "camping",
   "touched": false
  },
- "axe-763": {
+ "axe-762": {
   "guess": "axe lying in the grass",
   "alternatives": [
    "hatchet",
@@ -219,7 +219,7 @@
   "pack": "camping",
   "touched": false
  },
- "kayak-764": {
+ "kayak-763": {
   "guess": "person in a yellow kayak raising a paddle",
   "alternatives": [
    "warrior on a yellow boat with a sword",
@@ -252,7 +252,7 @@
   "pack": "camping",
   "touched": false
  },
- "hammock-765": {
+ "hammock-764": {
   "guess": "person relaxing in a hammock",
   "alternatives": [
    "cow lying in a hammock",
@@ -285,7 +285,7 @@
   "pack": "camping",
   "touched": false
  },
- "pocket-knife-766": {
+ "pocket-knife-765": {
   "guess": "red pocket knife (Swiss army knife)",
   "alternatives": [
    "red sports car",

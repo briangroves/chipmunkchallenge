@@ -1,5 +1,5 @@
 {
- "car-381": {
+ "car-380": {
   "guess": "car crash at night in the city",
   "alternatives": [
    "orange taxi and blue car racing",
@@ -32,7 +32,7 @@
   "pack": "cityride",
   "touched": false
  },
- "bus-382": {
+ "bus-381": {
   "guess": "orange school bus in snow at night",
   "alternatives": [
    "orange train car",
@@ -63,7 +63,7 @@
   "pack": "cityride",
   "touched": false
  },
- "taxi-383": {
+ "taxi-382": {
   "guess": "yellow taxi car in a night city",
   "alternatives": [
    "yellow sports car",
@@ -95,7 +95,7 @@
   "pack": "cityride",
   "touched": false
  },
- "fire-truck-384": {
+ "fire-truck-383": {
   "guess": "red truck driving in the city",
   "alternatives": [
    "red car",
@@ -128,7 +128,7 @@
   "pack": "cityride",
   "touched": false
  },
- "police-car-385": {
+ "police-car-384": {
   "guess": "police car",
   "alternatives": [
    "sheriff car",
@@ -160,7 +160,7 @@
   "pack": "cityride",
   "touched": false
  },
- "ambulance-386": {
+ "ambulance-385": {
   "guess": "ambulance",
   "alternatives": [
    "white van",
@@ -192,7 +192,7 @@
   "pack": "cityride",
   "touched": false
  },
- "scooter-387": {
+ "scooter-386": {
   "guess": "person riding a red scooter",
   "alternatives": [
    "girl on a red motorbike",
@@ -224,7 +224,7 @@
   "pack": "cityride",
   "touched": false
  },
- "bicycle-388": {
+ "bicycle-387": {
   "guess": "bicycle at night",
   "alternatives": [
    "sleeping sheep",
@@ -256,7 +256,7 @@
   "pack": "cityride",
   "touched": false
  },
- "motorcycle-389": {
+ "motorcycle-388": {
   "guess": "red and black motorcycle",
   "alternatives": [
    "scooter",
@@ -287,7 +287,7 @@
   "pack": "cityride",
   "touched": false
  },
- "tram-390": {
+ "tram-389": {
   "guess": "red and white tram (streetcar)",
   "alternatives": [
    "train front",
@@ -322,7 +322,7 @@
   "pack": "cityride",
   "touched": false
  },
- "van-391": {
+ "van-390": {
   "guess": "orange camper van in the desert at night",
   "alternatives": [
    "orange bus",
@@ -355,7 +355,7 @@
   "pack": "cityride",
   "touched": false
  },
- "school-bus-392": {
+ "school-bus-391": {
   "guess": "yellow school bus at night",
   "alternatives": [
    "orange car",
@@ -387,7 +387,7 @@
   "pack": "cityride",
   "touched": false
  },
- "race-car-393": {
+ "race-car-392": {
   "guess": "cartoon character driving a red go-kart in the snow",
   "alternatives": [
    "penguin or animal on a red sled car",
@@ -419,7 +419,7 @@
   "pack": "cityride",
   "touched": false
  },
- "train-394": {
+ "train-393": {
   "guess": "red steam train with blue carriage",
   "alternatives": [
    "toy locomotive",
@@ -453,7 +453,7 @@
   "pack": "cityride",
   "touched": false
  },
- "bulldozer-395": {
+ "bulldozer-394": {
   "guess": "orange bulldozer",
   "alternatives": [
    "orange tank",
@@ -486,7 +486,7 @@
   "pack": "cityride",
   "touched": false
  },
- "excavator-396": {
+ "excavator-395": {
   "guess": "black and yellow excavator digger",
   "alternatives": [
    "toucan bird",
@@ -518,7 +518,7 @@
   "pack": "cityride",
   "touched": false
  },
- "camper-van-397": {
+ "camper-van-396": {
   "guess": "blue van in a city",
   "alternatives": [
    "blue bus",
@@ -551,7 +551,7 @@
   "pack": "cityride",
   "touched": false
  },
- "vintage-car-398": {
+ "vintage-car-397": {
   "guess": "dark blue car",
   "alternatives": [
    "vintage convertible car",
@@ -583,7 +583,7 @@
   "pack": "cityride",
   "touched": false
  },
- "dump-truck-399": {
+ "dump-truck-398": {
   "guess": "yellow dump truck at night",
   "alternatives": [
    "mining haul truck",

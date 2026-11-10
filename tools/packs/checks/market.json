@@ -1,5 +1,5 @@
 {
- "shopping-cart-1012": {
+ "shopping-cart-1010": {
   "guess": "shopping cart full of oranges",
   "alternatives": [
    "wire basket of fruit",
@@ -32,7 +32,7 @@
   "pack": "market",
   "touched": false
  },
- "shopping-bag-1013": {
+ "shopping-bag-1011": {
   "guess": "brown paper shopping bag",
   "alternatives": [
    "leather handbag",
@@ -62,7 +62,7 @@
   "pack": "market",
   "touched": false
  },
- "bread-loaf-1014": {
+ "bread-loaf-1012": {
   "guess": "loaf of bread with sliced piece",
   "alternatives": [
    "toast and bread roll",
@@ -94,7 +94,7 @@
   "pack": "market",
   "touched": false
  },
- "milk-jug-1015": {
+ "milk-jug-1013": {
   "guess": "blue jug on a beach",
   "alternatives": [
    "blue teapot",
@@ -126,7 +126,7 @@
   "pack": "market",
   "touched": false
  },
- "egg-carton-1016": {
+ "egg-carton-1014": {
   "guess": "carton of eggs",
   "alternatives": [
    "sushi rolls",
@@ -158,7 +158,7 @@
   "pack": "market",
   "touched": false
  },
- "market-fish-1017": {
+ "market-fish-1015": {
   "guess": "blue and gray fish standing upright in the desert",
   "alternatives": [
    "shark",
@@ -190,7 +190,7 @@
   "pack": "market",
   "touched": false
  },
- "jar-of-pickles-1018": {
+ "jar-of-pickles-1016": {
   "guess": "green pickle",
   "alternatives": [
    "cactus",
@@ -222,7 +222,7 @@
   "pack": "market",
   "touched": false
  },
- "ketchup-1019": {
+ "ketchup-1017": {
   "guess": "red bottle with a label (potion or ketchup bottle)",
   "alternatives": [
    "hot sauce bottle",
@@ -254,7 +254,7 @@
   "pack": "market",
   "touched": false
  },
- "mustard-1020": {
+ "mustard-1018": {
   "guess": "hot dog with mustard and ketchup",
   "alternatives": [
    "sausage roll",
@@ -285,7 +285,7 @@
   "pack": "market",
   "touched": false
  },
- "olive-oil-1021": {
+ "olive-oil-1019": {
   "guess": "bottle of honey or oil",
   "alternatives": [
    "glass jar of honey",

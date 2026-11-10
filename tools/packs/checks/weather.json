@@ -1,5 +1,5 @@
 {
- "cloud-664": {
+ "cloud-663": {
   "guess": "storm cloud with lightning",
   "alternatives": [
    "rain cloud over a river",
@@ -30,7 +30,7 @@
   "pack": "weather",
   "touched": false
  },
- "lightning-665": {
+ "lightning-664": {
   "guess": "storm cloud with lightning bolt",
   "alternatives": [
    "thundercloud over a meadow",
@@ -59,7 +59,7 @@
   "pack": "weather",
   "touched": false
  },
- "tornado-666": {
+ "tornado-665": {
   "guess": "tornado",
   "alternatives": [
    "whirlwind",
@@ -90,7 +90,7 @@
   "pack": "weather",
   "touched": false
  },
- "rainbow-667": {
+ "rainbow-666": {
   "guess": "rainbow heart",
   "alternatives": [
    "heart-shaped balloon",
@@ -119,7 +119,7 @@
   "pack": "weather",
   "touched": false
  },
- "snowflake-668": {
+ "snowflake-667": {
   "guess": "snowflake",
   "alternatives": [
    "decorative mandala",
@@ -150,7 +150,7 @@
   "pack": "weather",
   "touched": false
  },
- "umbrella-669": {
+ "umbrella-668": {
   "guess": "garden gnome with blue umbrella",
   "alternatives": [
    "gnome holding a watering can in rain",
@@ -184,7 +184,7 @@
   "pack": "weather",
   "touched": false
  },
- "volcano-670": {
+ "volcano-669": {
   "guess": "erupting volcano",
   "alternatives": [
    "mountain with fire",
@@ -214,7 +214,7 @@
   "pack": "weather",
   "touched": false
  },
- "oak-tree-671": {
+ "oak-tree-670": {
   "guess": "big green tree in a landscape",
   "alternatives": [
    "oak tree by a river",
@@ -245,7 +245,7 @@
   "pack": "weather",
   "touched": false
  },
- "cactus-672": {
+ "cactus-671": {
   "guess": "cactus at night",
   "alternatives": [
    "green monster with arms raised",
@@ -276,7 +276,7 @@
   "pack": "weather",
   "touched": false
  },
- "flower-673": {
+ "flower-672": {
   "guess": "eyeball flower",
   "alternatives": [
    "pink flower",
@@ -308,7 +308,7 @@
   "pack": "weather",
   "touched": false
  },
- "rock-674": {
+ "rock-673": {
   "guess": "boulder / rock at sunset",
   "alternatives": [
    "curled-up guinea pig",
@@ -339,7 +339,7 @@
   "pack": "weather",
   "touched": false
  },
- "crystal-675": {
+ "crystal-674": {
   "guess": "blue crystal cluster",
   "alternatives": [
    "blue gemstone on a rock",
@@ -369,7 +369,7 @@
   "pack": "weather",
   "touched": false
  },
- "campfire-676": {
+ "campfire-675": {
   "guess": "campfire",
   "alternatives": [
    "bonfire with logs",
@@ -400,7 +400,7 @@
   "pack": "weather",
   "touched": false
  },
- "sun-677": {
+ "sun-676": {
   "guess": "smiling sun",
   "alternatives": [
    "sunflower",
@@ -432,7 +432,7 @@
   "pack": "weather",
   "touched": false
  },
- "moon-678": {
+ "moon-677": {
   "guess": "night-and-day themed block / moon emblem cube",
   "alternatives": [
    "storage jar with a moon picture",
@@ -463,7 +463,7 @@
   "pack": "weather",
   "touched": false
  },
- "wind-679": {
+ "wind-678": {
   "guess": "windmill",
   "alternatives": [
    "wooden mill tower with sails",
@@ -494,7 +494,7 @@
   "pack": "weather",
   "touched": false
  },
- "snow-cloud-680": {
+ "snow-cloud-679": {
   "guess": "white cloud-shaped creature with legs on a beach",
   "alternatives": [
    "white sneaker on sand",
@@ -524,7 +524,7 @@
   "pack": "weather",
   "touched": false
  },
- "thunder-cloud-681": {
+ "thunder-cloud-680": {
   "guess": "storm cloud with lightning bolt",
   "alternatives": [
    "thunderstorm over a field",
@@ -556,7 +556,7 @@
   "pack": "weather",
   "touched": false
  },
- "sun-cloud-682": {
+ "sun-cloud-681": {
   "guess": "sun behind a cloud (partly sunny weather)",
   "alternatives": [
    "sunny day on a farm",
@@ -588,7 +588,7 @@
   "pack": "weather",
   "touched": false
  },
- "dew-drop-683": {
+ "dew-drop-682": {
   "guess": "two blue water drops",
   "alternatives": [
    "blue crystals",

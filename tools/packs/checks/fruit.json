@@ -1,5 +1,5 @@
 {
- "apple-296": {
+ "apple-295": {
   "guess": "smiling red apple",
   "alternatives": [
    "tomato",
@@ -32,7 +32,7 @@
   "pack": "fruit",
   "touched": false
  },
- "banana-297": {
+ "banana-296": {
   "guess": "bunch of bananas",
   "alternatives": [
    "yellow fish",
@@ -62,7 +62,7 @@
   "pack": "fruit",
   "touched": false
  },
- "cherries-298": {
+ "cherries-297": {
   "guess": "cherries",
   "alternatives": [
    "red apples",
@@ -91,7 +91,7 @@
   "pack": "fruit",
   "touched": false
  },
- "grapes-299": {
+ "grapes-298": {
   "guess": "bunch of purple grapes",
   "alternatives": [
    "blackberry",
@@ -122,7 +122,7 @@
   "pack": "fruit",
   "touched": false
  },
- "lemon-300": {
+ "lemon-299": {
   "guess": "happy yellow blob creature (smiling sun/slime) at sunset",
   "alternatives": [
    "sleeping yellow cat",
@@ -155,7 +155,7 @@
   "pack": "fruit",
   "touched": false
  },
- "orange-301": {
+ "orange-300": {
   "guess": "fat orange cat",
   "alternatives": [
    "hamster",
@@ -187,7 +187,7 @@
   "pack": "fruit",
   "touched": false
  },
- "pear-302": {
+ "pear-301": {
   "guess": "yellow pear with a happy face",
   "alternatives": [
    "smiling lemon",
@@ -222,7 +222,7 @@
   "pack": "fruit",
   "touched": false
  },
- "pineapple-303": {
+ "pineapple-302": {
   "guess": "mahjong tile with a pineapple character",
   "alternatives": [
    "card with a yellow chick wearing red shorts",
@@ -256,7 +256,7 @@
   "pack": "fruit",
   "touched": false
  },
- "strawberry-304": {
+ "strawberry-303": {
   "guess": "strawberry",
   "alternatives": [
    "tomato",
@@ -286,7 +286,7 @@
   "pack": "fruit",
   "touched": false
  },
- "watermelon-305": {
+ "watermelon-304": {
   "guess": "watermelon slice",
   "alternatives": [
    "slice of red cake",
@@ -320,7 +320,7 @@
   "pack": "fruit",
   "touched": false
  },
- "kiwi-306": {
+ "kiwi-305": {
   "guess": "kiwi bird",
   "alternatives": [
    "red bird",
@@ -351,7 +351,7 @@
   "pack": "fruit",
   "touched": false
  },
- "lime-307": {
+ "lime-306": {
   "guess": "green slime blob",
   "alternatives": [
    "green jelly or pudding",
@@ -383,7 +383,7 @@
   "pack": "fruit",
   "touched": false
  },
- "melon-308": {
+ "melon-307": {
   "guess": "Snoopy eating a watermelon slice",
   "alternatives": [
    "white puppy holding a watermelon",
@@ -416,7 +416,7 @@
   "pack": "fruit",
   "touched": false
  },
- "papaya-309": {
+ "papaya-308": {
   "guess": "papaya on a beach",
   "alternatives": [
    "pear",
@@ -448,7 +448,7 @@
   "pack": "fruit",
   "touched": false
  },
- "dragon-fruit-310": {
+ "dragon-fruit-309": {
   "guess": "dragon fruit (pitaya)",
   "alternatives": [
    "red cabbage or lettuce",
@@ -479,7 +479,7 @@
   "pack": "fruit",
   "touched": false
  },
- "passion-fruit-311": {
+ "passion-fruit-310": {
   "guess": "passion fruit cut open",
   "alternatives": [
    "cut kiwano or orange fruit with dark whole fruit",
@@ -509,7 +509,7 @@
   "pack": "fruit",
   "touched": false
  },
- "orange-slice-312": {
+ "orange-slice-311": {
   "guess": "orange slice (citrus cross-section)",
   "alternatives": [
    "orange ball / dragon ball",
@@ -539,7 +539,7 @@
   "pack": "fruit",
   "touched": false
  },
- "watermelon-slice-313": {
+ "watermelon-slice-312": {
   "guess": "watermelon slice",
   "alternatives": [
    "strawberry",
@@ -569,7 +569,7 @@
   "pack": "fruit",
   "touched": false
  },
- "grapes-bunch-314": {
+ "grapes-bunch-313": {
   "guess": "bunch of purple grapes on a beach",
   "alternatives": [
    "blackberry",

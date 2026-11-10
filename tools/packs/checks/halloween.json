@@ -1,5 +1,5 @@
 {
- "jack-o-lantern-495": {
+ "jack-o-lantern-494": {
   "guess": "jack-o'-lantern pumpkin",
   "alternatives": [
    "smiling orange pumpkin",
@@ -32,7 +32,7 @@
   "pack": "halloween",
   "touched": false
  },
- "ghost-496": {
+ "ghost-495": {
   "guess": "white ghost",
   "alternatives": [
    "sheet-covered blob creature",
@@ -64,7 +64,7 @@
   "pack": "halloween",
   "touched": false
  },
- "witch-hat-497": {
+ "witch-hat-496": {
   "guess": "witch with a black cat on her hat",
   "alternatives": [
    "old woman in a dark hood",
@@ -97,7 +97,7 @@
   "pack": "halloween",
   "touched": false
  },
- "bat-498": {
+ "bat-497": {
   "guess": "bat",
   "alternatives": [
    "flying squirrel",
@@ -130,7 +130,7 @@
   "pack": "halloween",
   "touched": false
  },
- "black-cat-499": {
+ "black-cat-498": {
   "guess": "white cat waving",
   "alternatives": [
    "white ghost",
@@ -162,7 +162,7 @@
   "pack": "halloween",
   "touched": false
  },
- "cauldron-500": {
+ "cauldron-499": {
   "guess": "witch's cauldron with green bubbling potion",
   "alternatives": [
    "black cooking pot with green soup",
@@ -193,7 +193,7 @@
   "pack": "halloween",
   "touched": false
  },
- "zombie-501": {
+ "zombie-500": {
   "guess": "green zombie in the snow",
   "alternatives": [
    "green monster holding a bottle",
@@ -229,7 +229,7 @@
   "pack": "halloween",
   "touched": false
  },
- "monster-502": {
+ "monster-501": {
   "guess": "green sewer monster creature",
   "alternatives": [
    "green slime blob monster",
@@ -261,7 +261,7 @@
   "pack": "halloween",
   "touched": false
  },
- "candle-503": {
+ "candle-502": {
   "guess": "melting candle",
   "alternatives": [
    "candle flame on wax",
@@ -293,7 +293,7 @@
   "pack": "halloween",
   "touched": false
  },
- "scarecrow-504": {
+ "scarecrow-503": {
   "guess": "scarecrow in a field",
   "alternatives": [
    "straw man on a pole",
@@ -326,7 +326,7 @@
   "pack": "halloween",
   "touched": false
  },
- "witch-505": {
+ "witch-504": {
   "guess": "witch with orange hair in a meadow",
   "alternatives": [
    "girl in black hat holding a broom",
@@ -360,7 +360,7 @@
   "pack": "halloween",
   "touched": false
  },
- "owl-506": {
+ "owl-505": {
   "guess": "brown owl",
   "alternatives": [
    "raccoon",
@@ -393,7 +393,7 @@
   "pack": "halloween",
   "touched": false
  },
- "skeleton-hand-507": {
+ "skeleton-hand-506": {
   "guess": "hand / glove waving",
   "alternatives": [
    "zombie hand rising from the ground",
@@ -424,7 +424,7 @@
   "pack": "halloween",
   "touched": false
  },
- "tombstone-508": {
+ "tombstone-507": {
   "guess": "gravestone with skull and crossbones",
   "alternatives": [
    "tombstone in a pumpkin field",
@@ -456,7 +456,7 @@
   "pack": "halloween",
   "touched": false
  },
- "haunted-tree-509": {
+ "haunted-tree-508": {
   "guess": "dark forest path or shadowy tree silhouette in a green forest",
   "alternatives": [
    "shadow creature lurking in the woods",
@@ -488,7 +488,7 @@
   "pack": "halloween",
   "touched": false
  },
- "werewolf-510": {
+ "werewolf-509": {
   "guess": "werewolf in a desert",
   "alternatives": [
    "bear",
@@ -522,7 +522,7 @@
   "pack": "halloween",
   "touched": false
  },
- "wizard-hat-511": {
+ "wizard-hat-510": {
   "guess": "little ghost wearing a witch hat",
   "alternatives": [
    "round white blob creature in a wizard hat",

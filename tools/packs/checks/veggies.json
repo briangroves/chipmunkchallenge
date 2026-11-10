@@ -1,5 +1,5 @@
 {
- "carrot-315": {
+ "carrot-314": {
   "guess": "carrot with a cute face",
   "alternatives": [
    "orange root vegetable character",
@@ -31,7 +31,7 @@
   "pack": "veggies",
   "touched": false
  },
- "broccoli-316": {
+ "broccoli-315": {
   "guess": "broccoli on a beach",
   "alternatives": [
    "tree on a beach",
@@ -62,7 +62,7 @@
   "pack": "veggies",
   "touched": false
  },
- "corn-317": {
+ "corn-316": {
   "guess": "ear of corn",
   "alternatives": [
    "banana in leaves",
@@ -93,7 +93,7 @@
   "pack": "veggies",
   "touched": false
  },
- "tomato-318": {
+ "tomato-317": {
   "guess": "cartoon tomato with a face",
   "alternatives": [
    "red apple with a face",
@@ -125,7 +125,7 @@
   "pack": "veggies",
   "touched": false
  },
- "potato-319": {
+ "potato-318": {
   "guess": "bag of potato chips",
   "alternatives": [
    "candy wrapper",
@@ -156,7 +156,7 @@
   "pack": "veggies",
   "touched": false
  },
- "pumpkin-320": {
+ "pumpkin-319": {
   "guess": "orange pumpkin with a face",
   "alternatives": [
    "orange fruit",
@@ -187,7 +187,7 @@
   "pack": "veggies",
   "touched": false
  },
- "eggplant-321": {
+ "eggplant-320": {
   "guess": "eggplant (aubergine) character",
   "alternatives": [
    "blueberry",
@@ -217,7 +217,7 @@
   "pack": "veggies",
   "touched": false
  },
- "bell-pepper-322": {
+ "bell-pepper-321": {
   "guess": "red bell pepper",
   "alternatives": [
    "red apple",
@@ -247,7 +247,7 @@
   "pack": "veggies",
   "touched": false
  },
- "onion-323": {
+ "onion-322": {
   "guess": "acorn or seed creature (like Seedot/Nuzleaf-style Pok\u00e9mon) with leaf sprout",
   "alternatives": [
    "chestnut character",
@@ -280,7 +280,7 @@
   "pack": "veggies",
   "touched": false
  },
- "mushroom-324": {
+ "mushroom-323": {
   "guess": "smiling red mushroom",
   "alternatives": [
    "red toadstool character",
@@ -313,7 +313,7 @@
   "pack": "veggies",
   "touched": false
  },
- "radish-325": {
+ "radish-324": {
   "guess": "daikon radish",
   "alternatives": [
    "leek",
@@ -343,7 +343,7 @@
   "pack": "veggies",
   "touched": false
  },
- "garlic-326": {
+ "garlic-325": {
   "guess": "happy garlic bulb character",
   "alternatives": [
    "onion character",
@@ -376,7 +376,7 @@
   "pack": "veggies",
   "touched": false
  },
- "beet-327": {
+ "beet-326": {
   "guess": "beetroot",
   "alternatives": [
    "radish",
@@ -408,7 +408,7 @@
   "pack": "veggies",
   "touched": false
  },
- "chili-pepper-328": {
+ "chili-pepper-327": {
   "guess": "red chili pepper",
   "alternatives": [
    "red carrot",
@@ -438,7 +438,7 @@
   "pack": "veggies",
   "touched": false
  },
- "leek-329": {
+ "leek-328": {
   "guess": "leek",
   "alternatives": [
    "green onion",
@@ -468,7 +468,7 @@
   "pack": "veggies",
   "touched": false
  },
- "spinach-330": {
+ "spinach-329": {
   "guess": "bunch of leafy greens (lettuce/spinach) on a table",
   "alternatives": [
    "broccoli",
@@ -500,7 +500,7 @@
   "pack": "veggies",
   "touched": false
  },
- "turnip-331": {
+ "turnip-330": {
   "guess": "turnip",
   "alternatives": [
    "beet",
@@ -530,7 +530,7 @@
   "pack": "veggies",
   "touched": false
  },
- "ginger-332": {
+ "ginger-331": {
   "guess": "gingerbread man",
   "alternatives": [
    "voodoo doll",
@@ -564,7 +564,7 @@
   "pack": "veggies",
   "touched": false
  },
- "salad-bowl-333": {
+ "salad-bowl-332": {
   "guess": "bowl of salad",
   "alternatives": [
    "salad with tomatoes and mushrooms",

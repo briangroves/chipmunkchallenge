@@ -1,5 +1,5 @@
 {
- "guitar-427": {
+ "guitar-426": {
   "guess": "red electric guitar",
   "alternatives": [
    "bass guitar",
@@ -31,7 +31,7 @@
   "pack": "music",
   "touched": false
  },
- "piano-428": {
+ "piano-427": {
   "guess": "street musician playing keyboard",
   "alternatives": [
    "kid at a piano by a brick wall",
@@ -68,7 +68,7 @@
   "pack": "music",
   "touched": false
  },
- "violin-429": {
+ "violin-428": {
   "guess": "girl in pink dress playing violin on a city rooftop at night",
   "alternatives": [
    "princess singing in the city at night",
@@ -103,7 +103,7 @@
   "pack": "music",
   "touched": false
  },
- "trumpet-430": {
+ "trumpet-429": {
   "guess": "orange trumpet",
   "alternatives": [
    "orange airplane",
@@ -134,7 +134,7 @@
   "pack": "music",
   "touched": false
  },
- "saxophone-431": {
+ "saxophone-430": {
   "guess": "white cat in a red Santa hat playing a saxophone",
   "alternatives": [
    "polar bear playing a saxophone",
@@ -169,7 +169,7 @@
   "pack": "music",
   "touched": false
  },
- "harp-432": {
+ "harp-431": {
   "guess": "woman playing a harp",
   "alternatives": [
    "witch playing a harp",
@@ -200,7 +200,7 @@
   "pack": "music",
   "touched": false
  },
- "cello-433": {
+ "cello-432": {
   "guess": "double bass (cello) against a city wall at sunset",
   "alternatives": [
    "cello",
@@ -232,7 +232,7 @@
   "pack": "music",
   "touched": false
  },
- "radio-434": {
+ "radio-433": {
   "guess": "old wooden radio",
   "alternatives": [
    "vintage television set",
@@ -262,7 +262,7 @@
   "pack": "music",
   "touched": false
  },
- "keyboard-piano-435": {
+ "keyboard-piano-434": {
   "guess": "piano keyboard",
   "alternatives": [
    "toy piano",
@@ -293,7 +293,7 @@
   "pack": "music",
   "touched": false
  },
- "bongo-drums-436": {
+ "bongo-drums-435": {
   "guess": "bongo drums",
   "alternatives": [
    "two red pots",
@@ -324,7 +324,7 @@
   "pack": "music",
   "touched": false
  },
- "french-horn-437": {
+ "french-horn-436": {
   "guess": "french horn",
   "alternatives": [
    "tuba",
@@ -354,7 +354,7 @@
   "pack": "music",
   "touched": false
  },
- "electric-guitar-438": {
+ "electric-guitar-437": {
   "guess": "electric guitar",
   "alternatives": [
    "bass guitar",
@@ -387,7 +387,7 @@
   "pack": "music",
   "touched": false
  },
- "boombox-439": {
+ "boombox-438": {
   "guess": "boombox radio in a city at night",
   "alternatives": [
    "cassette player",

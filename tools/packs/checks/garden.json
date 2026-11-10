@@ -1,5 +1,5 @@
 {
- "rose-767": {
+ "rose-766": {
   "guess": "owl holding a rose on a beach at sunset",
   "alternatives": [
    "penguin with a flower",
@@ -35,7 +35,7 @@
   "pack": "garden",
   "touched": false
  },
- "tulip-768": {
+ "tulip-767": {
   "guess": "yellow tulip",
   "alternatives": [
    "yellow rose",
@@ -65,7 +65,7 @@
   "pack": "garden",
   "touched": false
  },
- "sunflower-769": {
+ "sunflower-768": {
   "guess": "sunflower",
   "alternatives": [
    "sun",
@@ -95,7 +95,7 @@
   "pack": "garden",
   "touched": false
  },
- "poppy-770": {
+ "poppy-769": {
   "guess": "red poppy flower",
   "alternatives": [
    "red rose",
@@ -126,7 +126,7 @@
   "pack": "garden",
   "touched": false
  },
- "potted-plant-771": {
+ "potted-plant-770": {
   "guess": "potted plant in a red pot",
   "alternatives": [
    "bush growing out of a broken bucket",
@@ -157,7 +157,7 @@
   "pack": "garden",
   "touched": false
  },
- "marigold-772": {
+ "marigold-771": {
   "guess": "orange flower (marigold)",
   "alternatives": [
    "sun",
@@ -187,7 +187,7 @@
   "pack": "garden",
   "touched": false
  },
- "pansy-773": {
+ "pansy-772": {
   "guess": "purple pansy flower in a round window",
   "alternatives": [
    "violet flower in a snow globe",
@@ -219,7 +219,7 @@
   "pack": "garden",
   "touched": false
  },
- "carnation-774": {
+ "carnation-773": {
   "guess": "red flower (carnation)",
   "alternatives": [
    "red tree",
@@ -249,7 +249,7 @@
   "pack": "garden",
   "touched": false
  },
- "dandelion-775": {
+ "dandelion-774": {
   "guess": "dandelion seed head (puffball)",
   "alternatives": [
    "magnifying glass",
@@ -279,7 +279,7 @@
   "pack": "garden",
   "touched": false
  },
- "spring-flowers-776": {
+ "spring-flowers-775": {
   "guess": "flower in an orange pot at night",
   "alternatives": [
    "sprouting plant in a flowerpot",
@@ -310,7 +310,7 @@
   "pack": "garden",
   "touched": false
  },
- "summer-sun-777": {
+ "summer-sun-776": {
   "guess": "sunflower",
   "alternatives": [
    "sun with a face",
@@ -341,7 +341,7 @@
   "pack": "garden",
   "touched": false
  },
- "winter-snow-778": {
+ "winter-snow-777": {
   "guess": "snowy cave entrance",
   "alternatives": [
    "window with frost",
@@ -373,7 +373,7 @@
   "pack": "garden",
   "touched": false
  },
- "spring-tree-779": {
+ "spring-tree-778": {
   "guess": "tree with yellow-green leaves",
   "alternatives": [
    "bush in a lavender field",
@@ -406,7 +406,7 @@
   "pack": "garden",
   "touched": false
  },
- "summer-tree-780": {
+ "summer-tree-779": {
   "guess": "tree at sunset",
   "alternatives": [
    "bush",
@@ -436,7 +436,7 @@
   "pack": "garden",
   "touched": false
  },
- "autumn-tree-781": {
+ "autumn-tree-780": {
   "guess": "red tree",
   "alternatives": [
    "red mushroom",
@@ -467,7 +467,7 @@
   "pack": "garden",
   "touched": false
  },
- "winter-tree-782": {
+ "winter-tree-781": {
   "guess": "snow-covered pine tree",
   "alternatives": [
    "white Christmas tree",
@@ -498,7 +498,7 @@
   "pack": "garden",
   "touched": false
  },
- "winter-hat-783": {
+ "winter-hat-782": {
   "guess": "winter knit hat (beanie with pom-pom)",
   "alternatives": [
    "sleeping red blob creature wearing a hat",
@@ -529,7 +529,7 @@
   "pack": "garden",
   "touched": false
  },
- "spring-bunny-784": {
+ "spring-bunny-783": {
   "guess": "white bunny rabbit",
   "alternatives": [
    "white hamster",

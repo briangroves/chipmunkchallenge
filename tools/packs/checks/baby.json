@@ -1,5 +1,5 @@
 {
- "baby-elephant-785": {
+ "baby-elephant-784": {
   "guess": "gray elephant in blue overalls",
   "alternatives": [
    "mouse",
@@ -31,7 +31,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-panda-786": {
+ "baby-panda-785": {
   "guess": "panda",
   "alternatives": [
    "raccoon",
@@ -64,7 +64,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-bear-787": {
+ "baby-bear-786": {
   "guess": "white hamster looking up at the night sky",
   "alternatives": [
    "white mouse",
@@ -97,7 +97,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-deer-788": {
+ "baby-deer-787": {
   "guess": "fox sitting in a lavender field",
   "alternatives": [
    "owl",
@@ -131,7 +131,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-lion-789": {
+ "baby-lion-788": {
   "guess": "owl",
   "alternatives": [
    "lion cub",
@@ -164,7 +164,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-penguin-790": {
+ "baby-penguin-789": {
   "guess": "penguin",
   "alternatives": [
    "black bird",
@@ -196,7 +196,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-pig-791": {
+ "baby-pig-790": {
   "guess": "pink pig on a farm",
   "alternatives": [
    "pink worm",
@@ -228,7 +228,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-koala-792": {
+ "baby-koala-791": {
   "guess": "koala",
   "alternatives": [
    "mouse",
@@ -260,7 +260,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-chick-793": {
+ "baby-chick-792": {
   "guess": "round yellow chick",
   "alternatives": [
    "yellow lemon with a face",
@@ -293,7 +293,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-hippo-794": {
+ "baby-hippo-793": {
   "guess": "purple hippo",
   "alternatives": [
    "purple rhino",
@@ -327,7 +327,7 @@
   "pack": "baby",
   "touched": false
  },
- "baby-dolphin-795": {
+ "baby-dolphin-794": {
   "guess": "dolphin (or orca) jumping",
   "alternatives": [
    "orca whale",
@@ -359,7 +359,7 @@
   "pack": "baby",
   "touched": false
  },
- "dog-with-ball-796": {
+ "dog-with-ball-795": {
   "guess": "dog playing with a blue ball",
   "alternatives": [
    "hamster with a ball",
@@ -391,7 +391,7 @@
   "pack": "baby",
   "touched": false
  },
- "elephant-with-balloon-797": {
+ "elephant-with-balloon-796": {
   "guess": "blue creature holding a big pink heart",
   "alternatives": [
    "blue elephant with a heart balloon",
@@ -422,7 +422,7 @@
   "pack": "baby",
   "touched": false
  },
- "bird-in-nest-798": {
+ "bird-in-nest-797": {
   "guess": "yellow duckling sleeping on a log at night",
   "alternatives": [
    "yellow bird resting in a nest",
@@ -457,7 +457,7 @@
   "pack": "baby",
   "touched": false
  },
- "panda-with-bamboo-799": {
+ "panda-with-bamboo-798": {
   "guess": "panda eating bamboo",
   "alternatives": [
    "black and white bear",
@@ -489,7 +489,7 @@
   "pack": "baby",
   "touched": false
  },
- "fox-sleeping-800": {
+ "fox-sleeping-799": {
   "guess": "sleeping orange fox (Fennekin-like) curled up",
   "alternatives": [
    "sleeping orange cat",
@@ -522,7 +522,7 @@
   "pack": "baby",
   "touched": false
  },
- "pig-with-flower-801": {
+ "pig-with-flower-800": {
   "guess": "purple watering can watering flowers",
   "alternatives": [
    "purple bird",

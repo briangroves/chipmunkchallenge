@@ -1,5 +1,5 @@
 {
- "cardinal-283": {
+ "cardinal-282": {
   "guess": "red bird in a city (cardinal-like chick)",
   "alternatives": [
    "red ninja bird",
@@ -31,7 +31,7 @@
   "pack": "birds",
   "touched": false
  },
- "eagle-284": {
+ "eagle-283": {
   "guess": "bald eagle flying",
   "alternatives": [
    "red bird",
@@ -63,7 +63,7 @@
   "pack": "birds",
   "touched": false
  },
- "swan-285": {
+ "swan-284": {
   "guess": "white swan on a pond",
   "alternatives": [
    "goose",
@@ -95,7 +95,7 @@
   "pack": "birds",
   "touched": false
  },
- "pigeon-286": {
+ "pigeon-285": {
   "guess": "blue and gray bird (pigeon)",
   "alternatives": [
    "blue jay",
@@ -127,7 +127,7 @@
   "pack": "birds",
   "touched": false
  },
- "crow-287": {
+ "crow-286": {
   "guess": "black crow",
   "alternatives": [
    "blackbird",
@@ -159,7 +159,7 @@
   "pack": "birds",
   "touched": false
  },
- "kingfisher-288": {
+ "kingfisher-287": {
   "guess": "kingfisher bird on a coconut",
   "alternatives": [
    "robin on a nest",
@@ -193,7 +193,7 @@
   "pack": "birds",
   "touched": false
  },
- "stork-289": {
+ "stork-288": {
   "guess": "crane bird pecking at a scarecrow/creature in a field",
   "alternatives": [
    "stork",
@@ -227,7 +227,7 @@
   "pack": "birds",
   "touched": false
  },
- "seagull-290": {
+ "seagull-289": {
   "guess": "seagull on a beach at night",
   "alternatives": [
    "duck",
@@ -260,7 +260,7 @@
   "pack": "birds",
   "touched": false
  },
- "macaw-291": {
+ "macaw-290": {
   "guess": "blue-and-yellow macaw parrot",
   "alternatives": [
    "toucan",
@@ -295,7 +295,7 @@
   "pack": "birds",
   "touched": false
  },
- "magpie-292": {
+ "magpie-291": {
   "guess": "magpie bird",
   "alternatives": [
    "penguin",
@@ -328,7 +328,7 @@
   "pack": "birds",
   "touched": false
  },
- "penguin-chick-293": {
+ "penguin-chick-292": {
   "guess": "penguin in a pink cat-ear hoodie",
   "alternatives": [
    "chubby bird in a costume",
@@ -361,7 +361,7 @@
   "pack": "birds",
   "touched": false
  },
- "falcon-294": {
+ "falcon-293": {
   "guess": "hawk perched at sunset",
   "alternatives": [
    "eagle",
@@ -394,7 +394,7 @@
   "pack": "birds",
   "touched": false
  },
- "bird-house-295": {
+ "bird-house-294": {
   "guess": "birdhouse on a pole",
   "alternatives": [
    "mailbox on a post",

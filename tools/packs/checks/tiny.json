@@ -1,5 +1,5 @@
 {
- "button-858": {
+ "button-857": {
   "guess": "red button with white writing",
   "alternatives": [
    "red rock or meteorite with white marks",
@@ -32,7 +32,7 @@
   "pack": "tiny",
   "touched": false
  },
- "paper-boat-859": {
+ "paper-boat-858": {
   "guess": "sailboat",
   "alternatives": [
    "toy boat",
@@ -66,7 +66,7 @@
   "pack": "tiny",
   "touched": false
  },
- "origami-crane-860": {
+ "origami-crane-859": {
   "guess": "origami paper crane",
   "alternatives": [
    "white bird flying",
@@ -97,7 +97,7 @@
   "pack": "tiny",
   "touched": false
  },
- "bonsai-tree-861": {
+ "bonsai-tree-860": {
   "guess": "tree at sunset",
   "alternatives": [
    "bonsai tree",
@@ -127,7 +127,7 @@
   "pack": "tiny",
   "touched": false
  },
- "feather-862": {
+ "feather-861": {
   "guess": "feather",
   "alternatives": [
    "skunk tail",
@@ -157,7 +157,7 @@
   "pack": "tiny",
   "touched": false
  },
- "four-leaf-clover-863": {
+ "four-leaf-clover-862": {
   "guess": "four-leaf clover",
   "alternatives": [
    "shamrock",
@@ -188,7 +188,7 @@
   "pack": "tiny",
   "touched": false
  },
- "yarn-ball-864": {
+ "yarn-ball-863": {
   "guess": "pink planet or ball flying through a mountain landscape",
   "alternatives": [
    "pink comet with a trail",
@@ -219,7 +219,7 @@
   "pack": "tiny",
   "touched": false
  },
- "safety-pin-865": {
+ "safety-pin-864": {
   "guess": "pink rock arch",
   "alternatives": [
    "pink jelly blob / slime",
@@ -250,7 +250,7 @@
   "pack": "tiny",
   "touched": false
  },
- "lock-866": {
+ "lock-865": {
   "guess": "golden padlock",
   "alternatives": [
    "locked treasure chest",
@@ -280,7 +280,7 @@
   "pack": "tiny",
   "touched": false
  },
- "coin-867": {
+ "coin-866": {
   "guess": "gold coin with 500",
   "alternatives": [
    "medal",
@@ -310,7 +310,7 @@
   "pack": "tiny",
   "touched": false
  },
- "envelope-868": {
+ "envelope-867": {
   "guess": "envelope (letter)",
   "alternatives": [
    "mail icon",
@@ -341,7 +341,7 @@
   "pack": "tiny",
   "touched": false
  },
- "postcard-869": {
+ "postcard-868": {
   "guess": "letter or postcard with a stamp",
   "alternatives": [
    "newspaper page",
@@ -372,7 +372,7 @@
   "pack": "tiny",
   "touched": false
  },
- "dice-870": {
+ "dice-869": {
   "guess": "red dice",
   "alternatives": [
    "red gift box",
@@ -403,7 +403,7 @@
   "pack": "tiny",
   "touched": false
  },
- "chess-piece-871": {
+ "chess-piece-870": {
   "guess": "chess knight piece on a card",
   "alternatives": [
    "horse head silhouette",
@@ -433,7 +433,7 @@
   "pack": "tiny",
   "touched": false
  },
- "playing-card-872": {
+ "playing-card-871": {
   "guess": "red heart in a snowy night landscape",
   "alternatives": [
    "heart-shaped balloon",

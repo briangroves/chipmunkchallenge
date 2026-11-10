@@ -1,5 +1,5 @@
 {
- "puppy-684": {
+ "puppy-683": {
   "guess": "brown puppy with red collar",
   "alternatives": [
    "teddy bear",
@@ -33,7 +33,7 @@
   "pack": "pets2",
   "touched": false
  },
- "kitten-685": {
+ "kitten-684": {
   "guess": "sleeping gray cat at night",
   "alternatives": [
    "sleeping mouse",
@@ -66,7 +66,7 @@
   "pack": "pets2",
   "touched": false
  },
- "hamster-686": {
+ "hamster-685": {
   "guess": "hamster (white and brown with pink ears)",
   "alternatives": [
    "mouse",
@@ -99,7 +99,7 @@
   "pack": "pets2",
   "touched": false
  },
- "goldfish-687": {
+ "goldfish-686": {
   "guess": "orange goldfish",
   "alternatives": [
    "orange bird",
@@ -131,7 +131,7 @@
   "pack": "pets2",
   "touched": false
  },
- "guinea-pig-688": {
+ "guinea-pig-687": {
   "guess": "guinea pig",
   "alternatives": [
    "hamster",
@@ -163,7 +163,7 @@
   "pack": "pets2",
   "touched": false
  },
- "tortoise-689": {
+ "tortoise-688": {
   "guess": "desert tortoise",
   "alternatives": [
    "turtle",
@@ -194,7 +194,7 @@
   "pack": "pets2",
   "touched": false
  },
- "corgi-690": {
+ "corgi-689": {
   "guess": "corgi dog",
   "alternatives": [
    "fox",
@@ -232,7 +232,7 @@
    "agrees": true
   }
  },
- "dachshund-691": {
+ "dachshund-690": {
   "guess": "dachshund dog",
   "alternatives": [
    "Yorkshire terrier",
@@ -265,7 +265,7 @@
   "pack": "pets2",
   "touched": false
  },
- "bunny-692": {
+ "bunny-691": {
   "guess": "white bunny sitting in a meadow",
   "alternatives": [
    "white cat",
@@ -300,7 +300,7 @@
   "pack": "pets2",
   "touched": false
  },
- "pug-693": {
+ "pug-692": {
   "guess": "pug dog face sticking out tongue",
   "alternatives": [
    "puppy in snow",
@@ -334,7 +334,7 @@
   "pack": "pets2",
   "touched": false
  },
- "persian-cat-694": {
+ "persian-cat-693": {
   "guess": "white cat",
   "alternatives": [
    "ghost",
@@ -368,7 +368,7 @@
   "pack": "pets2",
   "touched": false
  },
- "fish-bowl-695": {
+ "fish-bowl-694": {
   "guess": "goldfish in a fishbowl",
   "alternatives": [
    "aquarium with two fish",
@@ -401,7 +401,7 @@
   "pack": "pets2",
   "touched": false
  },
- "rat-696": {
+ "rat-695": {
   "guess": "white mouse sleeping",
   "alternatives": [
    "white rat",
@@ -433,7 +433,7 @@
   "pack": "pets2",
   "touched": false
  },
- "dalmatian-697": {
+ "dalmatian-696": {
   "guess": "white winged unicorn (pegasus) with a golden horn",
   "alternatives": [
    "white horse",
@@ -467,7 +467,7 @@
   "pack": "pets2",
   "touched": false
  },
- "siamese-cat-698": {
+ "siamese-cat-697": {
   "guess": "cat in a red hoodie",
   "alternatives": [
    "fox in a costume",
@@ -501,7 +501,7 @@
   "pack": "pets2",
   "touched": false
  },
- "tabby-cat-699": {
+ "tabby-cat-698": {
   "guess": "raccoon lying on grass",
   "alternatives": [
    "badger",
@@ -534,7 +534,7 @@
   "pack": "pets2",
   "touched": false
  },
- "bulldog-700": {
+ "bulldog-699": {
   "guess": "white dog face (bulldog) at the beach",
   "alternatives": [
    "polar bear",
@@ -568,7 +568,7 @@
   "pack": "pets2",
   "touched": false
  },
- "pomeranian-701": {
+ "pomeranian-700": {
   "guess": "black dog (Pomeranian/spitz)",
   "alternatives": [
    "black cat",
@@ -598,7 +598,7 @@
   "pack": "pets2",
   "touched": false
  },
- "boxer-dog-702": {
+ "boxer-dog-701": {
   "guess": "brown dog face (Saint Bernard)",
   "alternatives": [
    "bear",
@@ -631,7 +631,7 @@
   "pack": "pets2",
   "touched": false
  },
- "jack-russell-703": {
+ "jack-russell-702": {
   "guess": "Jack Russell terrier dog",
   "alternatives": [
    "goat",
@@ -664,7 +664,7 @@
   "pack": "pets2",
   "touched": false
  },
- "pit-bull-704": {
+ "pit-bull-703": {
   "guess": "black and white dog (border collie)",
   "alternatives": [
    "cow",
@@ -696,7 +696,7 @@
   "pack": "pets2",
   "touched": false
  },
- "rottweiler-705": {
+ "rottweiler-704": {
   "guess": "black dog (Rottweiler) standing on a wall",
   "alternatives": [
    "black bear",

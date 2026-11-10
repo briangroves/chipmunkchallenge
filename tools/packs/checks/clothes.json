@@ -1,5 +1,5 @@
 {
- "top-hat-603": {
+ "top-hat-602": {
   "guess": "witch cat in a hat sitting on a red cushion",
   "alternatives": [
    "penguin wearing a wizard hat",
@@ -32,7 +32,7 @@
   "pack": "clothes",
   "touched": false
  },
- "boots-604": {
+ "boots-603": {
   "guess": "red high-heeled boot",
   "alternatives": [
    "red sock",
@@ -64,7 +64,7 @@
   "pack": "clothes",
   "touched": false
  },
- "sneakers-605": {
+ "sneakers-604": {
   "guess": "white sneaker",
   "alternatives": [
    "cat lying down",
@@ -96,7 +96,7 @@
   "pack": "clothes",
   "touched": false
  },
- "dress-606": {
+ "dress-605": {
   "guess": "woman in green dress walking in city at night",
   "alternatives": [
    "person holding coffee cup on street",
@@ -131,7 +131,7 @@
   "pack": "clothes",
   "touched": false
  },
- "scarf-607": {
+ "scarf-606": {
   "guess": "penguin wearing a red scarf",
   "alternatives": [
    "snowman with a scarf",
@@ -166,7 +166,7 @@
   "pack": "clothes",
   "touched": false
  },
- "glasses-608": {
+ "glasses-607": {
   "guess": "pink cat wearing blue glasses",
   "alternatives": [
    "pink pig with glasses",
@@ -199,7 +199,7 @@
   "pack": "clothes",
   "touched": false
  },
- "bow-tie-609": {
+ "bow-tie-608": {
   "guess": "red bow tie",
   "alternatives": [
    "red ribbon bow",
@@ -229,7 +229,7 @@
   "pack": "clothes",
   "touched": false
  },
- "handbag-610": {
+ "handbag-609": {
   "guess": "red handbag",
   "alternatives": [
    "red backpack",
@@ -260,7 +260,7 @@
   "pack": "clothes",
   "touched": false
  },
- "sweater-611": {
+ "sweater-610": {
   "guess": "penguin wearing a red sweater",
   "alternatives": [
    "bird in a red jumper",
@@ -294,7 +294,7 @@
   "pack": "clothes",
   "touched": false
  },
- "baseball-cap-612": {
+ "baseball-cap-611": {
   "guess": "white seal wearing a blue cap",
   "alternatives": [
    "snowman head with a baseball cap",
@@ -326,7 +326,7 @@
   "pack": "clothes",
   "touched": false
  },
- "ring-613": {
+ "ring-612": {
   "guess": "bomb with a rainbow ring over a fire",
   "alternatives": [
    "black cauldron over fire",
@@ -358,7 +358,7 @@
   "pack": "clothes",
   "touched": false
  },
- "sandals-614": {
+ "sandals-613": {
   "guess": "giant legs in sandals stomping on a city street",
   "alternatives": [
    "giant monster feet in a city at night",
@@ -389,7 +389,7 @@
   "pack": "clothes",
   "touched": false
  },
- "hoodie-615": {
+ "hoodie-614": {
   "guess": "person in red hoodie standing in a cabin room",
   "alternatives": [
    "girl with red hair in a wooden house",
@@ -423,7 +423,7 @@
   "pack": "clothes",
   "touched": false
  },
- "overalls-616": {
+ "overalls-615": {
   "guess": "baker or chef in blue overalls",
   "alternatives": [
    "shop worker in apron",
@@ -456,7 +456,7 @@
   "pack": "clothes",
   "touched": false
  },
- "cowboy-hat-617": {
+ "cowboy-hat-616": {
   "guess": "brown cowboy hat",
   "alternatives": [
    "brown slug",

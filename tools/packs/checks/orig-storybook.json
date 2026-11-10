@@ -1,0 +1,324 @@
+{
+ "storybook-1": {
+  "guess": "orange fox sitting in snow",
+  "alternatives": [
+   "red panda",
+   "orange cat"
+  ],
+  "readability": 4,
+  "features": [
+   "pointed ears with yellow insides",
+   "face with closed eyes and white muzzle",
+   "red cheek",
+   "white chest/belly",
+   "front paws",
+   "big bushy tail with white tip",
+   "snowy ground background"
+  ],
+  "problems": [
+   "face details are small and hard to read",
+   "closed eyes look like slashes",
+   "white belly and tail tip blend with snow and sky",
+   "red scarf-like markings around neck can be confusing"
+  ],
+  "digest": "ed49ad2f99aed247",
+  "grade": "fail",
+  "score": 44,
+  "colors": 8,
+  "black": 0.152,
+  "biggest_patch": 0.238,
+  "theme": null,
+  "name": "Fox ice skating",
+  "pack": "orig-storybook",
+  "touched": false
+ },
+ "storybook-2": {
+  "guess": "panda eating bamboo",
+  "alternatives": [
+   "black and white bear",
+   "cat holding a plant"
+  ],
+  "readability": 4,
+  "features": [
+   "round black ears",
+   "black eye patches",
+   "white face",
+   "dark arms holding green bamboo stalk",
+   "round white body",
+   "feet at bottom",
+   "grass ground and green background"
+  ],
+  "problems": [
+   "only one eye patch clearly visible, face looks lopsided",
+   "no clear nose or mouth",
+   "bamboo overlaps face and arm, a bit cluttered",
+   "white body blends with white background stripe"
+  ],
+  "digest": "f3ef37ef2d5f5525",
+  "grade": "pass",
+  "score": 90,
+  "colors": 6,
+  "black": 0.145,
+  "biggest_patch": 0.319,
+  "theme": null,
+  "name": "Panda munching bamboo",
+  "pack": "orig-storybook",
+  "touched": false
+ },
+ "storybook-3": {
+  "guess": "treehouse",
+  "alternatives": [
+   "tree with a hut",
+   "bird house on a tree"
+  ],
+  "readability": 3,
+  "features": [
+   "green leafy tree canopy",
+   "red pointed roof",
+   "brown wooden hut with dark window",
+   "wooden platform",
+   "support post",
+   "ladder leaning on the side",
+   "grassy ground"
+  ],
+  "problems": [
+   "hut body is small and partly hidden under the leaves",
+   "dark window and shading look a bit like a face, which is confusing",
+   "ladder is thin and blends with the dark outlines",
+   "roof and hut are cramped together, so the shape is hard to read"
+  ],
+  "digest": "eb88a6cebc20975b",
+  "grade": "pass",
+  "score": 68,
+  "colors": 11,
+  "black": 0.148,
+  "biggest_patch": 0.085,
+  "theme": null,
+  "name": "Treehouse",
+  "pack": "orig-storybook",
+  "touched": false
+ },
+ "storybook-4": {
+  "guess": "ladybug on a leaf",
+  "alternatives": [
+   "red beetle",
+   "strawberry"
+  ],
+  "readability": 4,
+  "features": [
+   "red round shell with black spots",
+   "black head with white eyes",
+   "antennae",
+   "pink highlight on shell",
+   "green leaf underneath",
+   "sky with clouds and flowers in background"
+  ],
+  "problems": [
+   "head is small and partly blends with dark outlines",
+   "no visible legs",
+   "busy background with clouds and flowers competes for attention",
+   "shell shading darkens on the right side"
+  ],
+  "digest": "32ba6980b0fe4d4f",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.166,
+  "biggest_patch": 0.111,
+  "theme": null,
+  "name": "Ladybug on a leaf",
+  "pack": "orig-storybook",
+  "touched": false
+ },
+ "storybook-5": {
+  "guess": "rainbow with sun",
+  "alternatives": [
+   "rainbow over clouds",
+   "arch bridge"
+  ],
+  "readability": 5,
+  "features": [
+   "arched rainbow bands in pink, red, orange, yellow, green, blue, purple",
+   "clouds at both ends of the rainbow",
+   "smiling sun with eyes in the top right",
+   "blue sky",
+   "green grass at the bottom"
+  ],
+  "problems": [
+   "the rainbow's bands are slightly uneven and blend at the inner edges",
+   "the sun's face is small and a bit hard to read",
+   "the clouds partly blend into the white area under the arch"
+  ],
+  "digest": "354820cdd12c4bc8",
+  "grade": "fail",
+  "score": 34,
+  "colors": 14,
+  "black": 0.036,
+  "biggest_patch": 0.364,
+  "theme": null,
+  "name": "Rainbow over the hills",
+  "pack": "orig-storybook",
+  "touched": false
+ },
+ "storybook-6": {
+  "guess": "two cute sushi pieces (salmon nigiri and onigiri) with happy faces",
+  "alternatives": [
+   "two marshmallow characters on a log",
+   "two cute rice ball creatures"
+  ],
+  "readability": 3,
+  "features": [
+   "two white rice bodies with closed happy eyes",
+   "pink blush cheeks",
+   "orange salmon/tamago topping on left",
+   "green seaweed and red flower topping on right",
+   "grey bottoms",
+   "brown wooden board/log they sit on",
+   "cloud in blue sky"
+  ],
+  "problems": [
+   "toppings are small and abstract so the sushi identity is unclear",
+   "white bodies blend with white patches in the busy green background",
+   "grey lower halves look odd and blobby",
+   "cluttered background competes with the subjects"
+  ],
+  "digest": "8b98f05d2e389367",
+  "grade": "fail",
+  "score": 22,
+  "colors": 15,
+  "black": 0.139,
+  "biggest_patch": 0.207,
+  "theme": null,
+  "name": "Sushi buddies",
+  "pack": "orig-storybook",
+  "touched": false
+ },
+ "storybook-7": {
+  "guess": "narwhal",
+  "alternatives": [
+   "whale",
+   "swordfish"
+  ],
+  "readability": 4,
+  "features": [
+   "long white spiral tusk",
+   "purple body",
+   "grey belly",
+   "eye",
+   "tail fluke",
+   "small fin underneath",
+   "ocean water and sky background"
+  ],
+  "problems": [
+   "eye is small and hard to spot",
+   "tail blends somewhat with the blue water",
+   "white and light-blue highlights on the back look like stripes rather than shading"
+  ],
+  "digest": "da381bc8b51a52d8",
+  "grade": "pass",
+  "score": 82,
+  "colors": 8,
+  "black": 0.068,
+  "biggest_patch": 0.277,
+  "theme": null,
+  "name": "Narwhal",
+  "pack": "orig-storybook",
+  "touched": false
+ },
+ "storybook-8": {
+  "guess": "green owl-like creature (Quaxly-style duck) with wings",
+  "alternatives": [
+   "green cat with a yellow beak",
+   "baby dragon"
+  ],
+  "readability": 3,
+  "features": [
+   "round head with pointed ears",
+   "purple eyes",
+   "yellow-orange beak",
+   "yellow belly",
+   "yellow feet",
+   "red-tipped wings spread on both sides",
+   "small yellow tuft on top of head",
+   "grass ground"
+  ],
+  "problems": [
+   "mix of cat ears, beak and wings makes the species unclear",
+   "red wings look detached from the body",
+   "dark green shading blends body parts together",
+   "right wing/arm shape is confusing"
+  ],
+  "digest": "ae14e53a3389540a",
+  "grade": "weak",
+  "score": 58,
+  "colors": 11,
+  "black": 0.163,
+  "biggest_patch": 0.294,
+  "theme": null,
+  "name": "Baby dragon",
+  "pack": "orig-storybook",
+  "touched": false
+ },
+ "storybook-9": {
+  "guess": "mushroom house",
+  "alternatives": [
+   "toadstool with a face",
+   "mushroom cottage"
+  ],
+  "readability": 5,
+  "features": [
+   "red cap with white spots",
+   "pink highlight on cap",
+   "white stem as house walls",
+   "two round blue windows like eyes",
+   "brown arched door",
+   "green grass",
+   "small green shrubs",
+   "blue sky and clouds"
+  ],
+  "problems": [
+   "white stem blends slightly with white clouds behind",
+   "windows could read as eyes, making it ambiguous whether it's a house or a creature"
+  ],
+  "digest": "9a17fcba367654a5",
+  "grade": "weak",
+  "score": 54,
+  "colors": 12,
+  "black": 0.129,
+  "biggest_patch": 0.219,
+  "theme": null,
+  "name": "Mushroom cottage",
+  "pack": "orig-storybook",
+  "touched": false
+ },
+ "storybook-10": {
+  "guess": "sloth hanging from a branch",
+  "alternatives": [
+   "lemur",
+   "monkey"
+  ],
+  "readability": 4,
+  "features": [
+   "two long arms raised gripping a brown branch",
+   "round face with dark eye patches",
+   "grey mouth/nose area",
+   "white and tan furry body",
+   "jungle green background"
+  ],
+  "problems": [
+   "face markings are small and a bit abstract",
+   "lower body and legs blend into a blob",
+   "arms are very long and thin, could look like ears"
+  ],
+  "digest": "9fc9d0ff52015742",
+  "grade": "fail",
+  "score": 40,
+  "colors": 8,
+  "black": 0.176,
+  "biggest_patch": 0.122,
+  "theme": null,
+  "name": "Sloth hanging out",
+  "pack": "orig-storybook",
+  "touched": false
+ }
+}

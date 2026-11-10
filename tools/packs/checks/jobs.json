@@ -1,5 +1,5 @@
 {
- "chef-618": {
+ "chef-617": {
   "guess": "chef cooking in the desert",
   "alternatives": [
    "chef holding a frying pan",
@@ -34,7 +34,7 @@
   "pack": "jobs",
   "touched": false
  },
- "firefighter-619": {
+ "firefighter-618": {
   "guess": "firefighter in red uniform",
   "alternatives": [
    "superhero in red costume",
@@ -67,7 +67,7 @@
   "pack": "jobs",
   "touched": false
  },
- "police-officer-620": {
+ "police-officer-619": {
   "guess": "police officer",
   "alternatives": [
    "security guard",
@@ -103,7 +103,7 @@
   "pack": "jobs",
   "touched": false
  },
- "pilot-621": {
+ "pilot-620": {
   "guess": "crow with goggles (aviator bird)",
   "alternatives": [
    "owl",
@@ -136,7 +136,7 @@
   "pack": "jobs",
   "touched": false
  },
- "teacher-622": {
+ "teacher-621": {
   "guess": "blackboard with a student (teacher) beside it",
   "alternatives": [
    "chalkboard sign outdoors",
@@ -167,7 +167,7 @@
   "pack": "jobs",
   "touched": false
  },
- "painter-623": {
+ "painter-622": {
   "guess": "artist painting at an easel",
   "alternatives": [
    "panda painter with canvas",
@@ -200,7 +200,7 @@
   "pack": "jobs",
   "touched": false
  },
- "scientist-624": {
+ "scientist-623": {
   "guess": "Professor Oak (old scientist with white hair and lab coat)",
   "alternatives": [
    "grumpy old professor",
@@ -236,7 +236,7 @@
   "pack": "jobs",
   "touched": false
  },
- "pirate-625": {
+ "pirate-624": {
   "guess": "pirate ship with black sail",
   "alternatives": [
    "pirate flag on a boat",
@@ -268,7 +268,7 @@
   "pack": "jobs",
   "touched": false
  },
- "cowboy-626": {
+ "cowboy-625": {
   "guess": "smiling white ghost wearing a green cowboy hat",
   "alternatives": [
    "cowboy egg character",
@@ -302,7 +302,7 @@
   "pack": "jobs",
   "touched": false
  },
- "ninja-627": {
+ "ninja-626": {
   "guess": "purple ninja",
   "alternatives": [
    "female warrior with long black hair",
@@ -337,7 +337,7 @@
   "pack": "jobs",
   "touched": false
  },
- "clown-628": {
+ "clown-627": {
   "guess": "clown in red costume",
   "alternatives": [
    "jester with red hat",
@@ -370,7 +370,7 @@
   "pack": "jobs",
   "touched": false
  },
- "magician-629": {
+ "magician-628": {
   "guess": "magician in top hat",
   "alternatives": [
    "gentleman in tuxedo",
@@ -404,7 +404,7 @@
   "pack": "jobs",
   "touched": false
  },
- "fisherman-630": {
+ "fisherman-629": {
   "guess": "bearded fisherman in red shirt",
   "alternatives": [
    "lumberjack with axe",
@@ -440,7 +440,7 @@
   "pack": "jobs",
   "touched": false
  },
- "artist-631": {
+ "artist-630": {
   "guess": "artist's paint palette",
   "alternatives": [
    "burrito",

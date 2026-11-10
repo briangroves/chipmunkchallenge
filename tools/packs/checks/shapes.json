@@ -1,5 +1,5 @@
 {
- "heart-887": {
+ "heart-886": {
   "guess": "red heart character walking in the desert",
   "alternatives": [
    "Valentine heart mascot",
@@ -33,7 +33,7 @@
   "pack": "shapes",
   "touched": false
  },
- "star-888": {
+ "star-887": {
   "guess": "yellow star",
   "alternatives": [
    "starfish",
@@ -63,7 +63,7 @@
   "pack": "shapes",
   "touched": false
  },
- "crescent-moon-889": {
+ "crescent-moon-888": {
   "guess": "sleeping crescent moon",
   "alternatives": [
    "banana",
@@ -95,7 +95,7 @@
   "pack": "shapes",
   "touched": false
  },
- "lightning-bolt-890": {
+ "lightning-bolt-889": {
   "guess": "lightning bolt",
   "alternatives": [
    "lightning strike hitting a brick wall",
@@ -125,7 +125,7 @@
   "pack": "shapes",
   "touched": false
  },
- "four-leaf-clover-891": {
+ "four-leaf-clover-890": {
   "guess": "four-leaf clover",
   "alternatives": [
    "shamrock",
@@ -156,7 +156,7 @@
   "pack": "shapes",
   "touched": false
  },
- "smiling-sun-892": {
+ "smiling-sun-891": {
   "guess": "smiling sun with a face",
   "alternatives": [
    "sunflower",
@@ -187,7 +187,7 @@
   "pack": "shapes",
   "touched": false
  },
- "arrow-893": {
+ "arrow-892": {
   "guess": "heart with arrow through it",
   "alternatives": [
    "Valentine heart",
@@ -217,7 +217,7 @@
   "pack": "shapes",
   "touched": false
  },
- "peace-sign-894": {
+ "peace-sign-893": {
   "guess": "rainbow peace sign",
   "alternatives": [
    "hippie badge",
@@ -249,7 +249,7 @@
   "pack": "shapes",
   "touched": false
  },
- "question-mark-895": {
+ "question-mark-894": {
   "guess": "yellow question mark",
   "alternatives": [
    "golden hook",
@@ -279,7 +279,7 @@
   "pack": "shapes",
   "touched": false
  },
- "check-mark-896": {
+ "check-mark-895": {
   "guess": "big red check mark over a sunset landscape",
   "alternatives": [
    "red mountain path",
@@ -309,7 +309,7 @@
   "pack": "shapes",
   "touched": false
  },
- "gold-crown-897": {
+ "gold-crown-896": {
   "guess": "golden crown",
   "alternatives": [
    "pagoda temple roof",
@@ -339,7 +339,7 @@
   "pack": "shapes",
   "touched": false
  },
- "trophy-898": {
+ "trophy-897": {
   "guess": "golden trophy cup",
   "alternatives": [
    "winged chalice",
@@ -369,7 +369,7 @@
   "pack": "shapes",
   "touched": false
  },
- "spade-899": {
+ "spade-898": {
   "guess": "playing card (ace of spades)",
   "alternatives": [
    "spade card sign on grass",
@@ -398,7 +398,7 @@
   "pack": "shapes",
   "touched": false
  },
- "footprint-900": {
+ "footprint-899": {
   "guess": "footprints sign (shoe prints on a white tile)",
   "alternatives": [
    "dalmatian/cow spots",
@@ -427,7 +427,7 @@
   "pack": "shapes",
   "touched": false
  },
- "anchor-901": {
+ "anchor-900": {
   "guess": "anchor on a beach at sunset",
   "alternatives": [
    "ship's anchor symbol",
@@ -456,6 +456,38 @@
   "biggest_patch": 0.184,
   "theme": "Beach sunset",
   "name": "Anchor",
+  "pack": "shapes",
+  "touched": false
+ },
+ "yin-yang-901": {
+  "guess": "yin-yang symbol",
+  "alternatives": [
+   "black and white ball",
+   "yin-yang stone in the desert"
+  ],
+  "readability": 4,
+  "features": [
+   "round shape split into black and white halves",
+   "curved S-shaped dividing line",
+   "black dot in white half",
+   "white dot in black half",
+   "dark red shadow at the base",
+   "sun, birds and sandy ground in background"
+  ],
+  "problems": [
+   "circle is slightly lopsided and tilted",
+   "dots are square rather than round",
+   "small green sprout on the edge is confusing",
+   "white half blends a little with the pale sky"
+  ],
+  "digest": "80520401843d3c2e",
+  "grade": "pass",
+  "score": 74,
+  "colors": 16,
+  "black": 0.228,
+  "biggest_patch": 0.19,
+  "theme": "Cactus canyon",
+  "name": "Yin Yang",
   "pack": "shapes",
   "touched": false
  },
@@ -491,39 +523,7 @@
   "pack": "shapes",
   "touched": false
  },
- "yin-yang-903": {
-  "guess": "yin-yang symbol",
-  "alternatives": [
-   "black and white ball",
-   "yin-yang stone in the desert"
-  ],
-  "readability": 4,
-  "features": [
-   "round shape split into black and white halves",
-   "curved S-shaped dividing line",
-   "black dot in white half",
-   "white dot in black half",
-   "dark red shadow at the base",
-   "sun, birds and sandy ground in background"
-  ],
-  "problems": [
-   "circle is slightly lopsided and tilted",
-   "dots are square rather than round",
-   "small green sprout on the edge is confusing",
-   "white half blends a little with the pale sky"
-  ],
-  "digest": "80520401843d3c2e",
-  "grade": "pass",
-  "score": 74,
-  "colors": 16,
-  "black": 0.228,
-  "biggest_patch": 0.19,
-  "theme": "Cactus canyon",
-  "name": "Yin Yang",
-  "pack": "shapes",
-  "touched": false
- },
- "target-904": {
+ "target-903": {
   "guess": "shooting range target silhouette",
   "alternatives": [
    "shadow of a man in a doorway",
@@ -553,7 +553,7 @@
   "pack": "shapes",
   "touched": false
  },
- "flower-905": {
+ "flower-904": {
   "guess": "sunflower monster with a face",
   "alternatives": [
    "Sunflora Pok\u00e9mon",
@@ -584,7 +584,7 @@
   "pack": "shapes",
   "touched": false
  },
- "cloud-906": {
+ "cloud-905": {
   "guess": "happy blue cloud in a night city",
   "alternatives": [
    "blue slime blob",

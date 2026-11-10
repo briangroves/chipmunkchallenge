@@ -1,5 +1,5 @@
 {
- "hourglass-1022": {
+ "hourglass-1020": {
   "guess": "hourglass",
   "alternatives": [
    "sand timer",
@@ -28,7 +28,7 @@
   "pack": "stuff",
   "touched": false
  },
- "bucket-1023": {
+ "bucket-1021": {
   "guess": "bucket of purple paint",
   "alternatives": [
    "cauldron with potion",
@@ -59,7 +59,7 @@
   "pack": "stuff",
   "touched": false
  },
- "basket-1024": {
+ "basket-1022": {
   "guess": "Easter chicks with a basket of eggs",
   "alternatives": [
    "yellow birds in a nest",
@@ -94,7 +94,7 @@
   "pack": "stuff",
   "touched": false
  },
- "teddy-1025": {
+ "teddy-1023": {
   "guess": "teddy bear",
   "alternatives": [
    "koala",
@@ -129,7 +129,7 @@
   "pack": "stuff",
   "touched": false
  },
- "blanket-1026": {
+ "blanket-1024": {
   "guess": "bed with blue blanket",
   "alternatives": [
    "hammock",
@@ -161,7 +161,7 @@
   "pack": "stuff",
   "touched": false
  },
- "toothbrush-1027": {
+ "toothbrush-1025": {
   "guess": "cute tooth character with toothbrush",
   "alternatives": [
    "tooth wearing a blue hat at night",
@@ -193,7 +193,7 @@
   "pack": "stuff",
   "touched": false
  },
- "toothpaste-1028": {
+ "toothpaste-1026": {
   "guess": "smiling tooth with toothpaste tube",
   "alternatives": [
    "tooth character with toothbrush",
@@ -225,7 +225,7 @@
   "pack": "stuff",
   "touched": false
  },
- "sewing-machine-1029": {
+ "sewing-machine-1027": {
   "guess": "sewing machine",
   "alternatives": [
    "white boat or ferry",
@@ -256,7 +256,7 @@
   "pack": "stuff",
   "touched": false
  },
- "calendar-1030": {
+ "calendar-1028": {
   "guess": "wall calendar showing 31",
   "alternatives": [
    "tear-off calendar page",
@@ -287,7 +287,7 @@
   "pack": "stuff",
   "touched": false
  },
- "clipboard-1031": {
+ "clipboard-1029": {
   "guess": "clipboard with paper",
   "alternatives": [
    "notepad",
@@ -319,7 +319,7 @@
   "pack": "stuff",
   "touched": false
  },
- "folder-1032": {
+ "folder-1030": {
   "guess": "yellow file folder",
   "alternatives": [
    "envelope",
@@ -349,7 +349,7 @@
   "pack": "stuff",
   "touched": false
  },
- "suitcase-1033": {
+ "suitcase-1031": {
   "guess": "blue bird-shaped suitcase",
   "alternatives": [
    "blue bird",
@@ -381,7 +381,7 @@
   "pack": "stuff",
   "touched": false
  },
- "map-pin-1034": {
+ "map-pin-1032": {
   "guess": "red map location pin",
   "alternatives": [
    "red balloon",
@@ -412,7 +412,7 @@
   "pack": "stuff",
   "touched": false
  },
- "flag-pole-1035": {
+ "flag-pole-1033": {
   "guess": "beach flag on a pole",
   "alternatives": [
    "parrot on a perch",
@@ -440,7 +440,7 @@
   "pack": "stuff",
   "touched": false
  },
- "megaphone-1036": {
+ "megaphone-1034": {
   "guess": "megaphone",
   "alternatives": [
    "loudspeaker / bullhorn",
@@ -470,7 +470,7 @@
   "pack": "stuff",
   "touched": false
  },
- "red-bell-pepper-1037": {
+ "red-bell-pepper-1035": {
   "guess": "red bell pepper",
   "alternatives": [
    "red apple",
@@ -500,7 +500,7 @@
   "pack": "stuff",
   "touched": false
  },
- "fan-1038": {
+ "fan-1036": {
   "guess": "electric desk fan",
   "alternatives": [
    "hand mirror",
@@ -531,7 +531,7 @@
   "pack": "stuff",
   "touched": false
  },
- "radiator-1039": {
+ "radiator-1037": {
   "guess": "old cast-iron radiator",
   "alternatives": [
    "trash can",
@@ -563,7 +563,7 @@
   "pack": "stuff",
   "touched": false
  },
- "bin-1040": {
+ "bin-1038": {
   "guess": "recycling bin / trash can with recycle symbol",
   "alternatives": [
    "jar of pickles",
@@ -595,7 +595,7 @@
   "pack": "stuff",
   "touched": false
  },
- "box-1041": {
+ "box-1039": {
   "guess": "cartoon boxer with red boxing gloves",
   "alternatives": [
    "white bird boxing (penguin or goose)",

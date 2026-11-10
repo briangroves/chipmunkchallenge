@@ -1,0 +1,640 @@
+{
+ "space-1": {
+  "guess": "rocket launching into space",
+  "alternatives": [
+   "space shuttle",
+   "lighthouse"
+  ],
+  "readability": 4,
+  "features": [
+   "red pointed nose cone",
+   "white rocket body",
+   "round window",
+   "red side fins",
+   "orange flame exhaust",
+   "white smoke clouds at base",
+   "starry night sky",
+   "purple galaxy streaks",
+   "small orange planet"
+  ],
+  "problems": [
+   "purple streaks look like wings and could confuse the shape",
+   "window shape is blocky and unclear",
+   "body is quite boxy rather than rocket-like",
+   "busy background with many stars"
+  ],
+  "digest": "c72e85e57b907070",
+  "grade": "fail",
+  "score": 28,
+  "colors": 9,
+  "black": 0.544,
+  "biggest_patch": 0.525,
+  "theme": null,
+  "name": "Liftoff",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-2": {
+  "guess": "mouth with tongue holding a ringed planet (Saturn)",
+  "alternatives": [
+   "pink lips eating Saturn",
+   "space candy planet in a mouth"
+  ],
+  "readability": 3,
+  "features": [
+   "yellow-orange ringed planet with brown band",
+   "ring with red and orange edges",
+   "pink lips around planet",
+   "white teeth at top",
+   "pink tongue with lavender patches",
+   "starry dark space background",
+   "purple nebula/cloud"
+  ],
+  "problems": [
+   "mouth shape is hard to read; lips blend with purple surroundings",
+   "concept is surreal, so kids may only see the planet",
+   "teeth are small and partly hidden by the planet",
+   "lavender spots on tongue look ambiguous"
+  ],
+  "digest": "1131e2e09c786df0",
+  "grade": "pass",
+  "score": 68,
+  "colors": 9,
+  "black": 0.36,
+  "biggest_patch": 0.229,
+  "theme": null,
+  "name": "Saturn",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-3": {
+  "guess": "full moon in space",
+  "alternatives": [
+   "asteroid",
+   "snowball"
+  ],
+  "readability": 5,
+  "features": [
+   "round white body",
+   "gray craters",
+   "gray shading on lower right edge",
+   "dark starry sky",
+   "white stars",
+   "purple and blue nebula clouds"
+  ],
+  "problems": [
+   "craters arranged like a face could confuse some kids",
+   "nebula patches at edges are vague blobs"
+  ],
+  "digest": "ef5e659c544fb027",
+  "grade": "pass",
+  "score": 80,
+  "colors": 5,
+  "black": 0.554,
+  "biggest_patch": 0.291,
+  "theme": null,
+  "name": "Moon",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-4": {
+  "guess": "astronaut on the moon",
+  "alternatives": [
+   "robot waving in space",
+   "spaceman standing on a planet"
+  ],
+  "readability": 4,
+  "features": [
+   "round helmet with blue visor",
+   "white spacesuit body",
+   "arm raised waving",
+   "other arm bent",
+   "two legs standing",
+   "grey cratered moon surface",
+   "Earth in the sky",
+   "stars in dark sky"
+  ],
+  "problems": [
+   "white suit blends into the light grey ground at the legs",
+   "no visible face behind visor",
+   "Earth is small and blocky",
+   "body proportions are boxy"
+  ],
+  "digest": "876225755917f030",
+  "grade": "pass",
+  "score": 86,
+  "colors": 5,
+  "black": 0.579,
+  "biggest_patch": 0.55,
+  "theme": null,
+  "name": "Astronaut",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-5": {
+  "guess": "UFO flying saucer in space",
+  "alternatives": [
+   "spaceship abducting a pyramid",
+   "space scene with planet and alien ship"
+  ],
+  "readability": 4,
+  "features": [
+   "blue glass dome",
+   "grey saucer body with orange and yellow lights",
+   "tractor beam (striped green/yellow cone)",
+   "stars in dark sky",
+   "pink striped planet in corner",
+   "small grey asteroids or ships"
+  ],
+  "problems": [
+   "beam looks like a striped pyramid or tree rather than light",
+   "pink planet in corner is cropped and confusing",
+   "grey shapes at top are unclear",
+   "no alien visible inside dome"
+  ],
+  "digest": "5d12ca36fc91196f",
+  "grade": "pass",
+  "score": 74,
+  "colors": 11,
+  "black": 0.588,
+  "biggest_patch": 0.569,
+  "theme": null,
+  "name": "UFO",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-6": {
+  "guess": "snowy night with falling snowflakes and a snowball",
+  "alternatives": [
+   "ice cave with icicles",
+   "winter landscape with frozen lake"
+  ],
+  "readability": 2,
+  "features": [
+   "dark night sky with white dots like snow",
+   "blue and white icy shapes at top",
+   "round white snowball",
+   "dark blue band like water or horizon",
+   "white snowy ground with blue ice cracks"
+  ],
+  "problems": [
+   "no clear central subject",
+   "top shapes are abstract and fragmented",
+   "scene is cropped, looks like part of a larger image",
+   "icy shapes blend together"
+  ],
+  "digest": "239c5c4f3fb086be",
+  "grade": "fail",
+  "score": 12,
+  "colors": 6,
+  "black": 0.491,
+  "biggest_patch": 0.49,
+  "theme": null,
+  "name": "Comet",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-7": {
+  "guess": "planet Earth in space",
+  "alternatives": [
+   "blue planet with island",
+   "snow globe"
+  ],
+  "readability": 4,
+  "features": [
+   "round blue globe",
+   "green continents/islands",
+   "white polar ice cap at top",
+   "dark blue shadow side",
+   "light blue highlight edge",
+   "dark space background with stars",
+   "grey asteroids or satellites"
+  ],
+  "problems": [
+   "grey ring/band at bottom and top looks odd",
+   "light blue stripes at bottom left are confusing",
+   "stray grey shapes and white dots clutter the edges",
+   "only small land masses, so it could read as a generic planet"
+  ],
+  "digest": "be9f19bd48c41518",
+  "grade": "pass",
+  "score": 74,
+  "colors": 8,
+  "black": 0.428,
+  "biggest_patch": 0.286,
+  "theme": null,
+  "name": "Earth",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-8": {
+  "guess": "exploding star (supernova) in space",
+  "alternatives": [
+   "sun",
+   "explosion / fireball"
+  ],
+  "readability": 4,
+  "features": [
+   "bright white core",
+   "yellow and orange glowing layers",
+   "jagged red fiery edges",
+   "dark space background with small white stars",
+   "purple-blue streaks on the sides"
+  ],
+  "problems": [
+   "purple streaks are unclear (could be comet tails or nebula)",
+   "hard to tell supernova from a plain sun or explosion"
+  ],
+  "digest": "89d872f161d6b85c",
+  "grade": "weak",
+  "score": 48,
+  "colors": 9,
+  "black": 0.371,
+  "biggest_patch": 0.199,
+  "theme": null,
+  "name": "Sun",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-9": {
+  "guess": "space train passing a planet",
+  "alternatives": [
+   "spaceship in space",
+   "subway train in tunnel"
+  ],
+  "readability": 2,
+  "features": [
+   "dark starry background",
+   "white train cars with blue windows",
+   "glowing orange/yellow light in middle",
+   "purple and pink planet or nebula shapes",
+   "lavender planet surface"
+  ],
+  "problems": [
+   "cropped, zoomed-in view with no clear whole subject",
+   "train cars are small thin strips",
+   "purple/pink shapes are abstract and hard to identify",
+   "orange block is ambiguous (engine, window, light?)"
+  ],
+  "digest": "5edfbf8e4a7069ce",
+  "grade": "fail",
+  "score": 20,
+  "colors": 9,
+  "black": 0.507,
+  "biggest_patch": 0.481,
+  "theme": null,
+  "name": "Satellite",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-10": {
+  "guess": "rocket launching from the moon",
+  "alternatives": [
+   "snowy mountain peak",
+   "space shuttle on launch pad"
+  ],
+  "readability": 3,
+  "features": [
+   "tall white pointed body",
+   "grey nose cone",
+   "wide flared base",
+   "exhaust/legs at bottom",
+   "starry night sky",
+   "blue and white planet (Earth) in corner",
+   "grey cratered ground"
+  ],
+  "problems": [
+   "no windows, fins or flames to clearly mark it as a rocket",
+   "triangular shape looks like a mountain or volcano",
+   "white base blends with white ground",
+   "small Earth is hard to read"
+  ],
+  "digest": "976b471d3ae7486e",
+  "grade": "weak",
+  "score": 50,
+  "colors": 4,
+  "black": 0.634,
+  "biggest_patch": 0.599,
+  "theme": null,
+  "name": "Space Shuttle",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-11": {
+  "guess": "telescope on a tripod",
+  "alternatives": [
+   "cannon",
+   "rocket launcher"
+  ],
+  "readability": 3,
+  "features": [
+   "long white/grey tube angled toward the sky",
+   "brown tripod legs",
+   "starry night sky with white dots",
+   "grey rocks or asteroids floating",
+   "pink and red striped object in corner"
+  ],
+  "problems": [
+   "tube lacks lens or eyepiece detail",
+   "tripod legs are thin and broken-looking",
+   "pink striped shape at bottom left is unclear",
+   "grey shapes are ambiguous (rocks, birds, debris)"
+  ],
+  "digest": "ca6fe2df29934a52",
+  "grade": "pass",
+  "score": 72,
+  "colors": 6,
+  "black": 0.738,
+  "biggest_patch": 0.733,
+  "theme": null,
+  "name": "Telescope",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-12": {
+  "guess": "green alien in space",
+  "alternatives": [
+   "green bug",
+   "green robot"
+  ],
+  "readability": 4,
+  "features": [
+   "large round green head",
+   "two antennae",
+   "dark oval eyes",
+   "round green body",
+   "small arms",
+   "two short legs",
+   "starry night sky background",
+   "icy/snowy ground"
+  ],
+  "problems": [
+   "eyes are hard to read because they're outlined in white and dark like the background",
+   "purple/pink shapes in the background are unclear and distracting",
+   "no clear mouth or other facial details"
+  ],
+  "digest": "d884e43d92bd37e7",
+  "grade": "pass",
+  "score": 82,
+  "colors": 11,
+  "black": 0.465,
+  "biggest_patch": 0.417,
+  "theme": null,
+  "name": "Alien",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-13": {
+  "guess": "spiral galaxy",
+  "alternatives": [
+   "nebula",
+   "black hole with swirling gas"
+  ],
+  "readability": 3,
+  "features": [
+   "bright yellow-white glowing core",
+   "swirling purple and blue spiral arms",
+   "scattered yellow and white stars",
+   "dark space background"
+  ],
+  "problems": [
+   "arms are irregular and blobby, spiral shape not clean",
+   "abstract subject could read as random swirl or a cosmic creature",
+   "dark blue parts blend into dark background"
+  ],
+  "digest": "a93bc609245e36d1",
+  "grade": "pass",
+  "score": 72,
+  "colors": 8,
+  "black": 0.638,
+  "biggest_patch": 0.313,
+  "theme": null,
+  "name": "Galaxy",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-14": {
+  "guess": "rover or lander on a lava planet",
+  "alternatives": [
+   "bathtub over fire",
+   "cooking pot on a stove"
+  ],
+  "readability": 2,
+  "features": [
+   "white boxy body",
+   "dark chassis",
+   "antenna/dish on a pole",
+   "small white sensor/camera",
+   "wheels or legs with orange glow",
+   "lava ground",
+   "dark sky with floating debris"
+  ],
+  "problems": [
+   "body shape resembles a bathtub or pot more than a vehicle",
+   "wheels hard to distinguish, blend with orange lava",
+   "dark chassis merges with dark sky",
+   "antenna looks like a showerhead or lamp",
+   "no clear identifying details like solar panels"
+  ],
+  "digest": "9aa8d71510b6e89d",
+  "grade": "weak",
+  "score": 70,
+  "colors": 9,
+  "black": 0.534,
+  "biggest_patch": 0.443,
+  "theme": null,
+  "name": "Mars Rover",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-15": {
+  "guess": "satellite in space",
+  "alternatives": [
+   "space station",
+   "spaceship with solar panels"
+  ],
+  "readability": 3,
+  "features": [
+   "four blue solar panels with grid lines",
+   "central gray antenna/mast",
+   "white body in the middle",
+   "dark starry sky",
+   "blue planets in the corners"
+  ],
+  "problems": [
+   "central body is small and thin, barely visible",
+   "panels look disconnected from the center",
+   "dark gray body blends into the background"
+  ],
+  "digest": "dfadd56b1cbef260",
+  "grade": "weak",
+  "score": 38,
+  "colors": 7,
+  "black": 0.611,
+  "biggest_patch": 0.611,
+  "theme": null,
+  "name": "Space Station",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-16": {
+  "guess": "meteor shower over the moon",
+  "alternatives": [
+   "comets falling on a planet surface",
+   "shooting stars in space"
+  ],
+  "readability": 4,
+  "features": [
+   "five brown rocks with orange-yellow fiery tails",
+   "dark starry sky with white stars",
+   "grey cratered lunar ground",
+   "blue and white planet (Earth) in the corner"
+  ],
+  "problems": [
+   "meteors are small and the rock heads are tiny brown blobs",
+   "Earth is small and could read as a blob",
+   "ground craters are just scattered dark squares"
+  ],
+  "digest": "b00ebb8fc65e0285",
+  "grade": "pass",
+  "score": 82,
+  "colors": 7,
+  "black": 0.684,
+  "biggest_patch": 0.664,
+  "theme": null,
+  "name": "Meteor Shower",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-17": {
+  "guess": "lunar lander on the moon",
+  "alternatives": [
+   "robot with legs",
+   "space probe"
+  ],
+  "readability": 4,
+  "features": [
+   "white dome top with two dark windows like eyes",
+   "gold foil patterned body",
+   "orange lower body",
+   "four grey angled landing legs with feet",
+   "grey moon surface",
+   "starry dark sky",
+   "blue planet Earth in the sky"
+  ],
+  "problems": [
+   "dome windows look like a face, so it may read as a robot or ghost",
+   "white dome is similar to the white ground and stars",
+   "legs are thin and partly blend into the grey ground"
+  ],
+  "digest": "e8f6acd68699b536",
+  "grade": "pass",
+  "score": 94,
+  "colors": 6,
+  "black": 0.655,
+  "biggest_patch": 0.583,
+  "theme": null,
+  "name": "Lunar Lander",
+  "pack": "orig-space",
+  "touched": false,
+  "verify": {
+   "guess": "lunar lander on the moon",
+   "score": 86,
+   "agrees": true
+  }
+ },
+ "space-18": {
+  "guess": "planets in outer space",
+  "alternatives": [
+   "solar system with asteroids",
+   "Jupiter and moons"
+  ],
+  "readability": 4,
+  "features": [
+   "large yellow striped planet with white highlight",
+   "small orange-red planet top left",
+   "striped orange planet with crater in corner",
+   "grey and white asteroids",
+   "white stars on dark background",
+   "small red-white object like a moon or comet"
+  ],
+  "problems": [
+   "many scattered asteroid blobs clutter the scene",
+   "no single clear focal subject",
+   "corner planet is cropped",
+   "small red-white object is ambiguous"
+  ],
+  "digest": "311d56b8d0f1c101",
+  "grade": "pass",
+  "score": 74,
+  "colors": 7,
+  "black": 0.636,
+  "biggest_patch": 0.621,
+  "theme": null,
+  "name": "Planets",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-19": {
+  "guess": "shooting star over a snowy night landscape",
+  "alternatives": [
+   "comet in the night sky",
+   "falling star over icy water"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow-orange five-pointed star",
+   "long glowing trail streaking from top left",
+   "dark night sky with white star dots",
+   "blue shapes like clouds or auroras",
+   "dark blue band like water or horizon",
+   "white snowy ground with blue ice patches"
+  ],
+  "problems": [
+   "star is fairly small compared to the scene",
+   "blue sky shapes are blocky and unclear (clouds? mountains?)",
+   "foreground snow and ice shapes are abstract",
+   "star points are a bit uneven"
+  ],
+  "digest": "d5b4c2286f90eb1c",
+  "grade": "pass",
+  "score": 78,
+  "colors": 8,
+  "black": 0.481,
+  "biggest_patch": 0.474,
+  "theme": null,
+  "name": "Shooting Star",
+  "pack": "orig-space",
+  "touched": false
+ },
+ "space-20": {
+  "guess": "black hole",
+  "alternatives": [
+   "planet with fiery ring",
+   "solar eclipse"
+  ],
+  "readability": 3,
+  "features": [
+   "dark circular center",
+   "glowing orange-yellow accretion ring",
+   "bright white inner rim",
+   "purple/blue jets streaming out on both sides",
+   "starry background"
+  ],
+  "problems": [
+   "dark center matches the background color",
+   "black holes are an abstract subject for kids",
+   "could be mistaken for a flaming saturn-like planet or a comet"
+  ],
+  "digest": "f5f3212069bc2c49",
+  "grade": "pass",
+  "score": 72,
+  "colors": 7,
+  "black": 0.729,
+  "biggest_patch": 0.349,
+  "theme": null,
+  "name": "Black Hole",
+  "pack": "orig-space",
+  "touched": false
+ }
+}

@@ -1,0 +1,442 @@
+{
+ "hamster-r24": {
+  "guess": "hamster",
+  "alternatives": [
+   "guinea pig",
+   "fox"
+  ],
+  "readability": 3,
+  "features": [
+   "round orange body",
+   "pink ears",
+   "white eyes with black outlines",
+   "small black nose",
+   "open mouth with white teeth/cheeks",
+   "white belly",
+   "pink feet"
+  ],
+  "problems": [
+   "face is jumbled, eyes and mouth hard to read",
+   "eyes look squinting or oddly placed",
+   "mouth area is a confusing mix of black, white and pink",
+   "body is a blobby rectangle with no clear limbs",
+   "orange body has many shading shades that break up the shape"
+  ],
+  "digest": "d512e2099d64ed3d",
+  "grade": "pass",
+  "score": 88,
+  "replaces": "pets-4",
+  "was": 34
+ },
+ "mouse-r29": {
+  "guess": "gray mouse peeking out of a hole in the desert at night",
+  "alternatives": [
+   "gerbil",
+   "koala"
+  ],
+  "readability": 4,
+  "features": [
+   "large round ears with pink-white insides",
+   "gray face",
+   "small eyes",
+   "nose/snout",
+   "white belly or paw",
+   "dark burrow hole",
+   "desert ground with cacti",
+   "crescent moon and stars"
+  ],
+  "problems": [
+   "eyes are small and hard to spot",
+   "snout and mouth area are somewhat vague",
+   "body blends into the dark hole and is only partly visible",
+   "big round ears could also suggest a koala"
+  ],
+  "digest": "b7ed0bb232330ecc",
+  "grade": "pass",
+  "score": 94,
+  "replaces": "pets-9",
+  "was": 54
+ },
+ "puppy-r30": {
+  "guess": "red dog standing in a meadow",
+  "alternatives": [
+   "kangaroo",
+   "rabbit"
+  ],
+  "readability": 4,
+  "features": [
+   "floppy/upright red ears",
+   "big white eyes with dark pupils",
+   "tan muzzle with dark nose",
+   "open mouth with pink tongue",
+   "tan belly",
+   "two legs standing",
+   "short arms",
+   "small tail on right"
+  ],
+  "problems": [
+   "ears look tall like a rabbit or kangaroo",
+   "upright standing pose is ambiguous",
+   "dark red body edges blend slightly with dark green bushes",
+   "bird in sky is a tiny distracting detail"
+  ],
+  "digest": "98ad09c31b3fe522",
+  "grade": "pass",
+  "score": 94,
+  "replaces": "pets-10",
+  "was": 38
+ },
+ "guinea-pig-r32": {
+  "guess": "round red guinea pig",
+  "alternatives": [
+   "hamster",
+   "cow"
+  ],
+  "readability": 3,
+  "features": [
+   "round red body",
+   "white blaze on face",
+   "two dark eyes",
+   "grey nose",
+   "open mouth",
+   "small dark ears on top",
+   "white belly edge",
+   "small grey feet"
+  ],
+  "problems": [
+   "body is a featureless round blob",
+   "face placement is odd, looks like a mask",
+   "ears look like horns, confusing the species",
+   "no clear legs or tail"
+  ],
+  "digest": "910143202e90c15b",
+  "grade": "pass",
+  "score": 88,
+  "replaces": "pets-12",
+  "was": 58
+ },
+ "dalmatian-r35": {
+  "guess": "Dalmatian dog",
+  "alternatives": [
+   "spotted horse",
+   "white dog with black spots (pointer)"
+  ],
+  "readability": 4,
+  "features": [
+   "head in profile with snout",
+   "ear",
+   "red eye",
+   "black spots on white body",
+   "red collar/spot",
+   "long legs",
+   "tail",
+   "standing pose on paved ground",
+   "sea and sky background"
+  ],
+  "problems": [
+   "black legs and outline merge with dark ground pattern",
+   "red marks look odd (eye/collar unclear)",
+   "rear body and tail are messy and blend into dark outline",
+   "head shape is a bit blocky"
+  ],
+  "digest": "4d2f069e5c46df56",
+  "grade": "pass",
+  "score": 94,
+  "replaces": "pets-15",
+  "was": 26
+ },
+ "comet-r106": {
+  "guess": "meteor falling",
+  "alternatives": [
+   "comet",
+   "fireball rock"
+  ],
+  "readability": 4,
+  "features": [
+   "brown rocky head",
+   "flaming orange and yellow tail",
+   "red and pink outer flame edge",
+   "starry night sky",
+   "small planet with ring",
+   "checkered ground"
+  ],
+  "problems": [
+   "checkered gray ground behind the rock is busy",
+   "rock's dark brown blends a little with the dark outline",
+   "no clear impact or motion cue beyond the tail"
+  ],
+  "digest": "63cd734d822941cf",
+  "grade": "pass",
+  "score": 78,
+  "replaces": "space-6",
+  "was": 12
+ },
+ "dolphin-r50": {
+  "guess": "dolphin jumping out of the water",
+  "alternatives": [
+   "shark",
+   "orca (killer whale)"
+  ],
+  "readability": 3,
+  "features": [
+   "grey body",
+   "dorsal fin",
+   "pointed snout",
+   "white belly/mouth patch",
+   "small eye",
+   "dark tail curving down",
+   "sea and sky background",
+   "sandy seabed with seaweed"
+  ],
+  "problems": [
+   "dark black tail section looks like a separate creature or orca",
+   "white patch near tail confusing",
+   "body shape blocky and hard to read",
+   "grey and black blend oddly with sandy background",
+   "eye barely visible"
+  ],
+  "digest": "0a644271e5bb7736",
+  "grade": "pass",
+  "score": 84,
+  "replaces": "ocean-10",
+  "was": 22
+ },
+ "sea-urchin-r59": {
+  "guess": "purple sea urchin",
+  "alternatives": [
+   "Shellder-like spiky sea creature",
+   "spiky purple blob monster"
+  ],
+  "readability": 4,
+  "features": [
+   "round purple body",
+   "dark spikes radiating outward",
+   "two white eyes with one squinting",
+   "highlights on spikes",
+   "underwater setting with sand and coral"
+  ],
+  "problems": [
+   "spikes merge into a dark mass at the bottom",
+   "dark outline blends with the shadowed lower half",
+   "eyes are small relative to the body"
+  ],
+  "digest": "3f09ba6d20081b56",
+  "grade": "pass",
+  "score": 78,
+  "replaces": "ocean-19",
+  "was": 18
+ },
+ "fried-egg-r18": {
+  "guess": "two fried eggs",
+  "alternatives": [
+   "sliced boiled eggs",
+   "egg tarts"
+  ],
+  "readability": 4,
+  "features": [
+   "white egg whites",
+   "yellow yolks",
+   "crispy orange-brown edges",
+   "dark outline"
+  ],
+  "problems": [
+   "eggs are tilted and oddly framed against a landscape background",
+   "orange crispy rim and grey shading make the whites look like plates or pans",
+   "context of sky and grass is unusual for food"
+  ],
+  "digest": "624acb90b19da4a5",
+  "grade": "pass",
+  "score": 74,
+  "replaces": "food-18",
+  "was": 38
+ },
+ "motorcycle-r132": {
+  "guess": "red sport motorcycle",
+  "alternatives": [
+   "racing motorbike",
+   "dirt bike"
+  ],
+  "readability": 4,
+  "features": [
+   "two black wheels with grey hubs",
+   "red fairing/body",
+   "black seat and tail",
+   "windshield at front",
+   "handlebars",
+   "silver engine area"
+  ],
+  "problems": [
+   "wheels are thick black blobs with odd white marks inside",
+   "front of bike partly blends with white snowy mountains",
+   "dark body merges with wheels making outline blocky",
+   "pink patch on tank looks unclear"
+  ],
+  "digest": "5f5bb448e1216c91",
+  "grade": "pass",
+  "score": 82,
+  "replaces": "transport-12",
+  "was": 42
+ },
+ "squirrel-r160": {
+  "guess": "squirrel",
+  "alternatives": [
+   "beaver",
+   "groundhog"
+  ],
+  "readability": 3,
+  "features": [
+   "big bushy tail curling up behind",
+   "brown body sitting upright",
+   "small head on left with light tan outline",
+   "tail has red/pink highlight edge"
+  ],
+  "problems": [
+   "no clear eye or face details",
+   "head is small and blends with body",
+   "red highlight on tail is confusing",
+   "brown body has low contrast against dark parts",
+   "busy sunset and mountain background competes with subject"
+  ],
+  "digest": "a66fe75088555b5f",
+  "grade": "pass",
+  "score": 72,
+  "replaces": "forest-10",
+  "was": 38
+ },
+ "doe-r163": {
+  "guess": "reindeer wearing a Santa hat",
+  "alternatives": [
+   "dog in a Christmas hat",
+   "moose with antlers"
+  ],
+  "readability": 3,
+  "features": [
+   "brown face with dark eyes",
+   "tan muzzle",
+   "grey antlers",
+   "white ears",
+   "red Santa hat with white trim",
+   "white pompom on hat tip"
+  ],
+  "problems": [
+   "antlers are grey and blend with clouds/sky",
+   "face is small and partly covered by the large hat",
+   "eyes are dark blobs hard to read",
+   "no body or legs visible",
+   "hat dominates the picture more than the animal"
+  ],
+  "digest": "21cd462e834324e0",
+  "grade": "pass",
+  "score": 84,
+  "replaces": "forest-13",
+  "was": 38
+ },
+ "baby-dragon-r148": {
+  "guess": "purple dragon sitting at night",
+  "alternatives": [
+   "purple goat",
+   "purple llama"
+  ],
+  "readability": 3,
+  "features": [
+   "long neck",
+   "head with tan horns or ears",
+   "eye",
+   "snout",
+   "curled tail",
+   "body sitting on grass",
+   "night sky with moon and stars",
+   "small torches"
+  ],
+  "problems": [
+   "face is small and hard to read",
+   "horns could be ears so species is unclear",
+   "body shape is blobby with no clear legs",
+   "dark outline blends into the night background"
+  ],
+  "digest": "ad5eb2de8855cf16",
+  "grade": "pass",
+  "score": 88,
+  "replaces": "storybook-8",
+  "was": 58
+ },
+ "seashell-r52": {
+  "guess": "seashell (scallop) underwater",
+  "alternatives": [
+   "egg cracking with fire",
+   "clam opening with flames"
+  ],
+  "readability": 2,
+  "features": [
+   "rounded shell shape with dark outline",
+   "yellow and beige ridges at top",
+   "white highlights",
+   "orange/red flame-like burst at bottom",
+   "underwater background with seaweed and starfish"
+  ],
+  "problems": [
+   "orange fire-like shape at bottom is confusing for a shell",
+   "brown and orange blotches make the surface messy",
+   "shell ridges not clearly drawn",
+   "overall shape reads as a blob or egg"
+  ],
+  "digest": "eab521653e84811a",
+  "grade": "weak",
+  "score": 62,
+  "replaces": "ocean-12",
+  "was": 18
+ },
+ "gecko-r39": {
+  "guess": "green dinosaur dancing",
+  "alternatives": [
+   "green lizard",
+   "crocodile"
+  ],
+  "readability": 3,
+  "features": [
+   "long snout head with open mouth",
+   "outstretched arms with claws",
+   "two legs mid-stride",
+   "green body with dark outline and highlights",
+   "small spiky crest on back of head"
+  ],
+  "problems": [
+   "no visible eye",
+   "pose is twisted and hard to parse",
+   "no clear tail",
+   "head shape blends with arm, looks like a blob at the top",
+   "dark legs merge with brown floor"
+  ],
+  "digest": "785ba2eb6e59b515",
+  "grade": "weak",
+  "score": 50,
+  "replaces": "pets-19",
+  "was": 18
+ },
+ "fawn-r164": {
+  "guess": "white goat grazing",
+  "alternatives": [
+   "white sheep",
+   "white deer"
+  ],
+  "readability": 3,
+  "features": [
+   "white body",
+   "head lowered to grass",
+   "pointed ears or horns",
+   "four legs",
+   "short tail"
+  ],
+  "problems": [
+   "head is hidden in grass so no clear face or eyes",
+   "white body blends with pale sky background",
+   "legs partly hidden by green bushes",
+   "ear/horn shape ambiguous"
+  ],
+  "digest": "f324dcfcaa3f0f43",
+  "grade": "weak",
+  "score": 54,
+  "replaces": "forest-14",
+  "was": 30
+ }
+}

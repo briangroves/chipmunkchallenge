@@ -1,0 +1,635 @@
+{
+ "transport-1": {
+  "guess": "red car",
+  "alternatives": [
+   "red beetle car",
+   "toy car"
+  ],
+  "readability": 5,
+  "features": [
+   "red body",
+   "two black wheels with grey hubs",
+   "blue windows with white reflections",
+   "roof",
+   "pink highlights",
+   "white speed lines behind",
+   "road and grass",
+   "clouds in sky"
+  ],
+  "problems": [
+   "dark green bush behind the hood overlaps the car outline",
+   "white speed lines could be confused with background",
+   "front and back of car slightly ambiguous"
+  ],
+  "digest": "a24c452101436d07",
+  "grade": "pass",
+  "score": 84,
+  "colors": 12,
+  "black": 0.138,
+  "biggest_patch": 0.217,
+  "theme": null,
+  "name": "Car",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-2": {
+  "guess": "yellow tram",
+  "alternatives": [
+   "yellow bus",
+   "train carriage"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow boxy body",
+   "row of blue windows",
+   "door",
+   "wheels on dark track",
+   "orange lower trim",
+   "roof outline"
+  ],
+  "problems": [
+   "wheels mostly hidden by dark base",
+   "busy background colors at top blend with roof",
+   "door is only a thin gray strip"
+  ],
+  "digest": "e0747efe02c64fdd",
+  "grade": "weak",
+  "score": 48,
+  "colors": 9,
+  "black": 0.166,
+  "biggest_patch": 0.256,
+  "theme": null,
+  "name": "Bus",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-3": {
+  "guess": "blue train carriages",
+  "alternatives": [
+   "tram",
+   "bus"
+  ],
+  "readability": 4,
+  "features": [
+   "two blue rail cars side by side",
+   "windows",
+   "black wheels",
+   "rail track with gravel",
+   "dark outline/roof edge",
+   "cloud in sky"
+  ],
+  "problems": [
+   "blue cars blend with blue sky background",
+   "no locomotive or front visible, cropped at edges",
+   "windows are small and irregular",
+   "cars look like boxes"
+  ],
+  "digest": "6215f7ac0fec73f5",
+  "grade": "pass",
+  "score": 78,
+  "colors": 8,
+  "black": 0.153,
+  "biggest_patch": 0.161,
+  "theme": null,
+  "name": "Train",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-4": {
+  "guess": "airplane flying in the sky",
+  "alternatives": [
+   "jet airliner",
+   "cargo plane"
+  ],
+  "readability": 4,
+  "features": [
+   "long white fuselage",
+   "row of blue windows",
+   "swept wings above and below",
+   "tail fin on the left",
+   "pointed nose on the right",
+   "clouds in the sky",
+   "green grass ground"
+  ],
+  "problems": [
+   "wings drawn at odd perspective, looking like a cross shape",
+   "clouds overlap the tail and wing, merging with the plane's white/gray colors",
+   "no clear cockpit window",
+   "lower wing reaches the ground, confusing depth"
+  ],
+  "digest": "c13a6e87621fc81f",
+  "grade": "pass",
+  "score": 86,
+  "colors": 7,
+  "black": 0.134,
+  "biggest_patch": 0.205,
+  "theme": null,
+  "name": "Airplane",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-5": {
+  "guess": "sailboat",
+  "alternatives": [
+   "pirate ship",
+   "yacht on the beach"
+  ],
+  "readability": 5,
+  "features": [
+   "large white triangular sail",
+   "pink and red sail section",
+   "wooden brown hull",
+   "outlined mast area",
+   "sun in sky",
+   "sandy beach with shells",
+   "sea and clouds"
+  ],
+  "problems": [
+   "white sail blends slightly with white clouds",
+   "boat sits oddly on sand rather than water",
+   "sun is partly cut off and blobby"
+  ],
+  "digest": "07d2494d6a9bf53c",
+  "grade": "pass",
+  "score": 80,
+  "colors": 13,
+  "black": 0.129,
+  "biggest_patch": 0.136,
+  "theme": null,
+  "name": "Sailboat",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-6": {
+  "guess": "red bicycle",
+  "alternatives": [
+   "red motorcycle",
+   "dirt bike"
+  ],
+  "readability": 4,
+  "features": [
+   "two round black wheels with spokes",
+   "red diamond frame",
+   "handlebars at top right",
+   "seat on left",
+   "sky with clouds",
+   "road and dirt ground"
+  ],
+  "problems": [
+   "dark red bushes behind the frame blend with the red bicycle",
+   "busy patterned ground behind the wheels",
+   "handlebar and seat are small and hard to pick out",
+   "wheels overlap with gray road colors"
+  ],
+  "digest": "9a3ac501807784a1",
+  "grade": "pass",
+  "score": 78,
+  "colors": 12,
+  "black": 0.163,
+  "biggest_patch": 0.254,
+  "theme": null,
+  "name": "Bicycle",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-7": {
+  "guess": "red helicopter",
+  "alternatives": [
+   "red submarine",
+   "flying red airship"
+  ],
+  "readability": 3,
+  "features": [
+   "long grey rotor blade on top",
+   "rounded red cabin body with white window highlight",
+   "tail boom extending left with tail fin",
+   "dark landing skid underneath",
+   "small red cloud/bird shape above"
+  ],
+  "problems": [
+   "body is blobby with no clear cockpit window",
+   "tail blends into pink/purple striped background",
+   "red shapes in front and above confuse the silhouette",
+   "busy striped sunset background competes with subject"
+  ],
+  "digest": "bfa1dfb227a26320",
+  "grade": "pass",
+  "score": 72,
+  "colors": 11,
+  "black": 0.143,
+  "biggest_patch": 0.188,
+  "theme": null,
+  "name": "Helicopter",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-8": {
+  "guess": "truck driving at night",
+  "alternatives": [
+   "delivery van",
+   "bus"
+  ],
+  "readability": 3,
+  "features": [
+   "white cargo box",
+   "blue cab with window",
+   "grey wheels/shadows underneath",
+   "night sky with moon and stars",
+   "green grass road"
+  ],
+  "problems": [
+   "wheels are tiny grey bits, barely visible",
+   "blue cab looks blobby and odd-shaped",
+   "dark blue parts blend into the dark background",
+   "cargo box looks like a plain rectangle"
+  ],
+  "digest": "e83560a8c36db9e2",
+  "grade": "pass",
+  "score": 72,
+  "colors": 8,
+  "black": 0.547,
+  "biggest_patch": 0.544,
+  "theme": null,
+  "name": "Truck",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-9": {
+  "guess": "green tractor",
+  "alternatives": [
+   "farm vehicle",
+   "steamroller"
+  ],
+  "readability": 5,
+  "features": [
+   "large black rear wheel with white hub",
+   "small front wheel",
+   "green cab with window",
+   "green hood/engine body",
+   "exhaust pipe",
+   "smoke puff",
+   "road and grass background"
+  ],
+  "problems": [
+   "black wheels slightly merge with dark outline",
+   "rear wheel hub shape is a bit blobby",
+   "exhaust smoke looks like a cloud"
+  ],
+  "digest": "1863378531840f81",
+  "grade": "pass",
+  "score": 88,
+  "colors": 9,
+  "black": 0.228,
+  "biggest_patch": 0.199,
+  "theme": null,
+  "name": "Tractor",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-10": {
+  "guess": "scooter on a city street",
+  "alternatives": [
+   "motorcycle",
+   "moped in front of buildings"
+  ],
+  "readability": 3,
+  "features": [
+   "purple scooter body/seat",
+   "dark wheels and frame",
+   "handlebar and steering column on the right",
+   "red/white headlight on top",
+   "road with yellow lane markings",
+   "colorful buildings behind",
+   "sun in the sky"
+  ],
+  "problems": [
+   "scooter outline is dark and blends with the dark road",
+   "busy colorful background competes with the subject",
+   "headlight floating at top looks disconnected",
+   "wheels are hard to separate from the asphalt"
+  ],
+  "digest": "aa969bdde21e05b7",
+  "grade": "pass",
+  "score": 72,
+  "colors": 13,
+  "black": 0.206,
+  "biggest_patch": 0.147,
+  "theme": null,
+  "name": "Scooter",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-11": {
+  "guess": "rainbow hot air balloon",
+  "alternatives": [
+   "striped balloon over a sunset",
+   "rainbow parachute"
+  ],
+  "readability": 5,
+  "features": [
+   "round balloon envelope with rainbow stripes",
+   "dark outline",
+   "basket below",
+   "ropes connecting to basket",
+   "clouds on sides",
+   "sunset striped sky and water"
+  ],
+  "problems": [
+   "basket is small and dark, partly blends with orange stripes",
+   "colorful background bands compete with balloon colors"
+  ],
+  "digest": "ca9341e53cd5cf6c",
+  "grade": "pass",
+  "score": 80,
+  "colors": 12,
+  "black": 0.101,
+  "biggest_patch": 0.111,
+  "theme": null,
+  "name": "Hot Air Balloon",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-12": {
+  "guess": "red car driving on a mountain road",
+  "alternatives": [
+   "red motorcycle",
+   "red ladybug on wheels"
+  ],
+  "readability": 3,
+  "features": [
+   "red rounded body with pink highlight and dark red shading",
+   "two large black wheels with gray hubs",
+   "dark side mirror or handle on the right",
+   "gray road with white dashed lines",
+   "purple and gray mountains with snowy peaks",
+   "clouds in a blue sky"
+  ],
+  "problems": [
+   "body is a blobby dome with no windows, doors or lights",
+   "unclear whether it is a car or a motorcycle",
+   "dark mirror shape blends with the gray mountain behind it",
+   "wheels look oversized and flat, like a cartoon bug"
+  ],
+  "digest": "1b58173bd37ca85e",
+  "grade": "weak",
+  "score": 42,
+  "colors": 11,
+  "black": 0.154,
+  "biggest_patch": 0.115,
+  "theme": null,
+  "name": "Motorcycle",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-13": {
+  "guess": "yellow taxi car",
+  "alternatives": [
+   "yellow race car",
+   "cartoon car with eyes"
+  ],
+  "readability": 4,
+  "features": [
+   "yellow car body",
+   "two black wheels",
+   "blue windshield like eyes",
+   "taxi sign on roof",
+   "white speed streaks",
+   "road below",
+   "sunset sky with moon"
+  ],
+  "problems": [
+   "orange and dark red background shapes blend with car outline",
+   "white motion streaks clutter the left side",
+   "windows look like eyes which may confuse",
+   "front and back of car cut off at edges"
+  ],
+  "digest": "7d5130ee4555150c",
+  "grade": "pass",
+  "score": 82,
+  "colors": 12,
+  "black": 0.129,
+  "biggest_patch": 0.17,
+  "theme": null,
+  "name": "Taxi",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-14": {
+  "guess": "red truck driving at night",
+  "alternatives": [
+   "red train engine",
+   "red fire truck"
+  ],
+  "readability": 3,
+  "features": [
+   "long red cargo box",
+   "red cab with white window",
+   "smoke puffs behind",
+   "night sky with stars and moon",
+   "green ground"
+  ],
+  "problems": [
+   "no visible wheels, only gray specks under it",
+   "cab shape is blobby and merges with the box",
+   "blue/yellow shapes at the edges are confusing",
+   "smoke makes it look like a train"
+  ],
+  "digest": "b297a9e6a736772d",
+  "grade": "pass",
+  "score": 68,
+  "colors": 9,
+  "black": 0.583,
+  "biggest_patch": 0.577,
+  "theme": null,
+  "name": "Fire Truck",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-15": {
+  "guess": "ferry boat on the sea",
+  "alternatives": [
+   "cruise ship",
+   "yacht"
+  ],
+  "readability": 4,
+  "features": [
+   "white hull with dark windows",
+   "upper deck cabin",
+   "funnel with smoke clouds",
+   "red stripe on funnel",
+   "blue waves",
+   "wooden pier in corner"
+  ],
+  "problems": [
+   "smoke clouds merge with funnel and look odd",
+   "dark hull blends into dark blue water",
+   "busy wave pattern"
+  ],
+  "digest": "97e0a30868581c43",
+  "grade": "weak",
+  "score": 44,
+  "colors": 9,
+  "black": 0.224,
+  "biggest_patch": 0.108,
+  "theme": null,
+  "name": "Cruise Ship",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-16": {
+  "guess": "steam locomotive train",
+  "alternatives": [
+   "toy train engine",
+   "tank engine"
+  ],
+  "readability": 5,
+  "features": [
+   "red cab",
+   "blue boiler with yellow stripes",
+   "smokestack with white steam puffs",
+   "black wheels",
+   "red cowcatcher/buffer at front",
+   "track/ground beneath"
+  ],
+  "problems": [
+   "wheels are small and partly blend with grey rocks",
+   "steam clouds look similar to sky clouds"
+  ],
+  "digest": "4b07d109d866b250",
+  "grade": "pass",
+  "score": 84,
+  "colors": 15,
+  "black": 0.194,
+  "biggest_patch": 0.116,
+  "theme": null,
+  "name": "Steam Train",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-17": {
+  "guess": "green tram / train car",
+  "alternatives": [
+   "bus",
+   "railway carriage"
+  ],
+  "readability": 3,
+  "features": [
+   "green rectangular body",
+   "row of five blue windows",
+   "dark wheels/undercarriage",
+   "rails or road at bottom",
+   "pantograph/roof part at top",
+   "sunset sky with sun"
+  ],
+  "problems": [
+   "front view is flat and boxy, could be any vehicle",
+   "wheels hidden in dark base",
+   "roof pantograph cropped at top edge",
+   "busy background edges with colorful buildings"
+  ],
+  "digest": "cb35e8c45a5a47e7",
+  "grade": "pass",
+  "score": 72,
+  "colors": 14,
+  "black": 0.196,
+  "biggest_patch": 0.291,
+  "theme": null,
+  "name": "Tram",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-18": {
+  "guess": "skateboard in front of mountains",
+  "alternatives": [
+   "longboard",
+   "flatbed trolley"
+  ],
+  "readability": 4,
+  "features": [
+   "orange deck with upturned ends",
+   "dark trucks",
+   "two pairs of black wheels with grey hubs",
+   "mountain background with snowy peaks",
+   "clouds and sky"
+  ],
+  "problems": [
+   "wheels are large and blend with the dark road edge",
+   "the deck is thin compared to the busy mountain background",
+   "seen from the side so only two wheel blobs show"
+  ],
+  "digest": "d36694c30ca2723b",
+  "grade": "pass",
+  "score": 78,
+  "colors": 9,
+  "black": 0.138,
+  "biggest_patch": 0.137,
+  "theme": null,
+  "name": "Skateboard",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-19": {
+  "guess": "red cable car gondola",
+  "alternatives": [
+   "red bus",
+   "red train carriage"
+  ],
+  "readability": 3,
+  "features": [
+   "red boxy cabin body",
+   "three blue windows",
+   "dark outline",
+   "shading on bottom and right side",
+   "clouds in the sky above",
+   "green grass below"
+  ],
+  "problems": [
+   "no cable or hanger visible, so it looks like a floating box",
+   "no wheels or doors to clarify what vehicle it is",
+   "clouds are cluttered and blend with the top of the cabin",
+   "pale blue sky band behind it gives little context"
+  ],
+  "digest": "548a58a2092dea9b",
+  "grade": "pass",
+  "score": 68,
+  "colors": 10,
+  "black": 0.139,
+  "biggest_patch": 0.204,
+  "theme": null,
+  "name": "Cable Car",
+  "pack": "orig-transport",
+  "touched": false
+ },
+ "transport-20": {
+  "guess": "airship / blimp",
+  "alternatives": [
+   "submarine",
+   "flying saucer"
+  ],
+  "readability": 3,
+  "features": [
+   "oval grey balloon body",
+   "row of white windows",
+   "gondola cabin underneath",
+   "fin or propeller at top right",
+   "clouds below",
+   "night sky background"
+  ],
+  "problems": [
+   "tail fins unclear, could look like a submarine",
+   "top white shapes read as snow or clouds rather than airship parts",
+   "purple band and cloud strip make the setting confusing",
+   "no visible propeller to confirm it flies"
+  ],
+  "digest": "50c7aa042ac35625",
+  "grade": "pass",
+  "score": 68,
+  "colors": 6,
+  "black": 0.081,
+  "biggest_patch": 0.277,
+  "theme": null,
+  "name": "Blimp",
+  "pack": "orig-transport",
+  "touched": false
+ }
+}

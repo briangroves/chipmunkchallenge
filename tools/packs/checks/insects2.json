@@ -1,5 +1,5 @@
 {
- "cute-ladybug-907": {
+ "cute-ladybug-906": {
   "guess": "ladybug",
   "alternatives": [
    "beetle",
@@ -32,7 +32,7 @@
   "pack": "insects2",
   "touched": false
  },
- "cute-bee-908": {
+ "cute-bee-907": {
   "guess": "smiling cartoon bee",
   "alternatives": [
    "sun with a face",
@@ -64,7 +64,7 @@
   "pack": "insects2",
   "touched": false
  },
- "cute-butterfly-909": {
+ "cute-butterfly-908": {
   "guess": "carrot butterfly (butterfly with carrot body)",
   "alternatives": [
    "pink butterfly",
@@ -96,7 +96,7 @@
   "pack": "insects2",
   "touched": false
  },
- "cute-snail-910": {
+ "cute-snail-909": {
   "guess": "yellow snail",
   "alternatives": [
    "slug",
@@ -126,7 +126,7 @@
   "pack": "insects2",
   "touched": false
  },
- "cute-caterpillar-911": {
+ "cute-caterpillar-910": {
   "guess": "green caterpillar",
   "alternatives": [
    "green tank",
@@ -158,7 +158,7 @@
   "pack": "insects2",
   "touched": false
  },
- "cute-spider-912": {
+ "cute-spider-911": {
   "guess": "spider on a white rock",
   "alternatives": [
    "black widow spider",
@@ -188,7 +188,7 @@
   "pack": "insects2",
   "touched": false
  },
- "cute-worm-913": {
+ "cute-worm-912": {
   "guess": "pink worm in the desert",
   "alternatives": [
    "sandworm",
@@ -218,7 +218,7 @@
   "pack": "insects2",
   "touched": false
  },
- "cute-fly-914": {
+ "cute-fly-913": {
   "guess": "flying pig with wings",
   "alternatives": [
    "pink pig jumping",
@@ -251,7 +251,7 @@
   "pack": "insects2",
   "touched": false
  },
- "monarch-butterfly-915": {
+ "monarch-butterfly-914": {
   "guess": "monarch butterfly",
   "alternatives": [
    "moth",
@@ -281,7 +281,7 @@
   "pack": "insects2",
   "touched": false
  },
- "blue-butterfly-916": {
+ "blue-butterfly-915": {
   "guess": "blue butterfly",
   "alternatives": [
    "blue moth",
@@ -312,7 +312,7 @@
   "pack": "insects2",
   "touched": false
  },
- "honey-bee-917": {
+ "honey-bee-916": {
   "guess": "bee",
   "alternatives": [
    "wasp",
@@ -343,7 +343,7 @@
   "pack": "insects2",
   "touched": false
  },
- "queen-bee-918": {
+ "queen-bee-917": {
   "guess": "bee",
   "alternatives": [
    "wasp",
@@ -374,7 +374,7 @@
   "pack": "insects2",
   "touched": false
  },
- "worm-in-apple-919": {
+ "worm-in-apple-918": {
   "guess": "squirrel or chipmunk hugging a red apple",
   "alternatives": [
    "hamster holding an apple",

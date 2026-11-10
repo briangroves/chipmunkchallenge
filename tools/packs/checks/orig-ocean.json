@@ -1,0 +1,640 @@
+{
+ "ocean-1": {
+  "guess": "yellow tropical fish",
+  "alternatives": [
+   "goldfish",
+   "angelfish"
+  ],
+  "readability": 5,
+  "features": [
+   "big round eye",
+   "yellow-orange body",
+   "white stripes",
+   "dorsal fin",
+   "tail fin",
+   "bottom fin",
+   "seaweed and coral background",
+   "sea floor rocks"
+  ],
+  "problems": [
+   "light blue water near the top fin blends a little",
+   "background details (seaweed, coral, rocks) add clutter"
+  ],
+  "digest": "807ca39a00f6e692",
+  "grade": "pass",
+  "score": 88,
+  "colors": 13,
+  "black": 0.182,
+  "biggest_patch": 0.196,
+  "theme": null,
+  "name": "Fish",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-2": {
+  "guess": "whale or dolphin jumping in water",
+  "alternatives": [
+   "shark swimming",
+   "river landscape with trees"
+  ],
+  "readability": 2,
+  "features": [
+   "light blue curved back/body arc",
+   "gray fin or flipper shape",
+   "white snowy rocks at bottom",
+   "green trees on sides",
+   "blue sky"
+  ],
+  "problems": [
+   "subject shape blends into dark blue background",
+   "no clear face or eye",
+   "outlines are thin and fragmented",
+   "scene elements like trees and rocks distract from main subject"
+  ],
+  "digest": "f7cfe15045ab9a67",
+  "grade": "weak",
+  "score": 62,
+  "colors": 8,
+  "black": 0.205,
+  "biggest_patch": 0.146,
+  "theme": null,
+  "name": "Whale",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-3": {
+  "guess": "red octopus wearing glasses",
+  "alternatives": [
+   "squid",
+   "kraken sea monster"
+  ],
+  "readability": 4,
+  "features": [
+   "round red head with pink highlight",
+   "yellow-rimmed glasses / eyes",
+   "many wavy red and pink tentacles spreading out",
+   "blue sky background",
+   "brown ground with green plants at bottom"
+  ],
+  "problems": [
+   "tentacles are a busy tangle of red, pink and dark outlines that blend together",
+   "no visible mouth",
+   "glasses read more like goggles than eyes",
+   "bottom scene is cluttered and unclear"
+  ],
+  "digest": "17a205e3fb74dae7",
+  "grade": "pass",
+  "score": 78,
+  "colors": 11,
+  "black": 0.226,
+  "biggest_patch": 0.133,
+  "theme": null,
+  "name": "Octopus",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-4": {
+  "guess": "red crab on a beach",
+  "alternatives": [
+   "lobster",
+   "Krabby Pok\u00e9mon"
+  ],
+  "readability": 4,
+  "features": [
+   "two raised claws/pincers",
+   "red shell body",
+   "orange spots on shell",
+   "eye stalks",
+   "small mouth",
+   "legs on sides",
+   "sandy beach and water background"
+  ],
+  "problems": [
+   "white pincer tips blend with clouds",
+   "eye stalks are thin and hard to see against sky",
+   "legs merge with background waves"
+  ],
+  "digest": "4d6e4e112138f781",
+  "grade": "pass",
+  "score": 86,
+  "colors": 11,
+  "black": 0.166,
+  "biggest_patch": 0.102,
+  "theme": null,
+  "name": "Crab",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-5": {
+  "guess": "jellyfish",
+  "alternatives": [
+   "octopus",
+   "squid"
+  ],
+  "readability": 4,
+  "features": [
+   "dome-shaped bell with white, pink and red bands",
+   "purple eye-like spots on the bell",
+   "long dangling tentacles in pink, purple and blue",
+   "underwater background with seaweed",
+   "sunken treasure chest or wooden crates on the sea floor"
+  ],
+  "problems": [
+   "tentacles in dark blue and purple blend into the blue water",
+   "busy lower half with seaweed and chest clutter competes with the tentacles",
+   "purple spots read ambiguously as eyes or markings"
+  ],
+  "digest": "6d10989c2516b815",
+  "grade": "pass",
+  "score": 78,
+  "colors": 14,
+  "black": 0.13,
+  "biggest_patch": 0.198,
+  "theme": null,
+  "name": "Jellyfish",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-6": {
+  "guess": "seahorse",
+  "alternatives": [
+   "dragon",
+   "yellow bird"
+  ],
+  "readability": 4,
+  "features": [
+   "long tubular snout",
+   "eye with white highlight",
+   "curved neck and belly",
+   "curled tail at bottom",
+   "small fin on back",
+   "orange and yellow body with red stripes"
+  ],
+  "problems": [
+   "dark background is unusual for underwater",
+   "white fin on the left looks detached",
+   "curled tail is cramped and a bit messy",
+   "white vertical lines and blue strips are ambiguous"
+  ],
+  "digest": "a15c095a2caf617f",
+  "grade": "pass",
+  "score": 86,
+  "colors": 6,
+  "black": 0.614,
+  "biggest_patch": 0.307,
+  "theme": null,
+  "name": "Seahorse",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-7": {
+  "guess": "orange starfish",
+  "alternatives": [
+   "yellow star",
+   "sea star on the ocean floor"
+  ],
+  "readability": 4,
+  "features": [
+   "five arms",
+   "orange and yellow body with red shading",
+   "dark outline",
+   "seaweed plants",
+   "ocean water background",
+   "sandy bottom",
+   "small fish or shape at top right"
+  ],
+  "problems": [
+   "arms are uneven and twisted, especially the top arm",
+   "dark outline lines stray into the background",
+   "small yellow object at top is unclear",
+   "busy background with seaweed and shapes"
+  ],
+  "digest": "6cbf0abf3cc893e0",
+  "grade": "pass",
+  "score": 74,
+  "colors": 12,
+  "black": 0.187,
+  "biggest_patch": 0.212,
+  "theme": null,
+  "name": "Starfish",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-8": {
+  "guess": "shark swimming underwater",
+  "alternatives": [
+   "dolphin",
+   "whale"
+  ],
+  "readability": 4,
+  "features": [
+   "grey streamlined body",
+   "dorsal fin on top",
+   "tail fin on left",
+   "pectoral fin below",
+   "eye",
+   "mouth/gills marks",
+   "white belly highlights",
+   "underwater setting with posts and seaweed"
+  ],
+  "problems": [
+   "tail fin blends with the brown posts and white shapes on the left",
+   "face is small with few details, could pass for a dolphin",
+   "busy background with pillars crowds the edges"
+  ],
+  "digest": "5f73f196a7d05d58",
+  "grade": "pass",
+  "score": 86,
+  "colors": 7,
+  "black": 0.207,
+  "biggest_patch": 0.208,
+  "theme": null,
+  "name": "Shark",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-9": {
+  "guess": "sea turtle swimming",
+  "alternatives": [
+   "tortoise",
+   "turtle on a beach"
+  ],
+  "readability": 4,
+  "features": [
+   "green patterned shell",
+   "head seen from above",
+   "front flippers spread wide",
+   "rear flippers",
+   "seaweed and sandy seabed below",
+   "water/bubbles background"
+  ],
+  "problems": [
+   "viewed from above so no eyes or face visible",
+   "head is a brown blob with white highlight",
+   "busy orange/brown seabed blends with rear flippers",
+   "white splashes clutter the background"
+  ],
+  "digest": "7c91c04cf395e09c",
+  "grade": "pass",
+  "score": 78,
+  "colors": 10,
+  "black": 0.146,
+  "biggest_patch": 0.082,
+  "theme": null,
+  "name": "Sea Turtle",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-10": {
+  "guess": "big ocean wave crashing on a beach",
+  "alternatives": [
+   "tsunami wave hitting a rock",
+   "surfing wave with a seagull"
+  ],
+  "readability": 3,
+  "features": [
+   "curling wave crest with dark outline",
+   "white foam lines on water",
+   "dark rocky cliff on right",
+   "sandy beach with orange shells",
+   "small bird with orange beak in sky"
+  ],
+  "problems": [
+   "wave curl blends with blue sky",
+   "dark rock and outline make shapes confusing",
+   "small bird is hard to identify",
+   "busy blue tones without clear focal subject"
+  ],
+  "digest": "120100e2e181e4d3",
+  "grade": "fail",
+  "score": 22,
+  "colors": 9,
+  "black": 0.172,
+  "biggest_patch": 0.106,
+  "theme": null,
+  "name": "Dolphin",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-11": {
+  "guess": "coral reef under the sea",
+  "alternatives": [
+   "seaweed garden in an aquarium",
+   "underwater plants and rocks"
+  ],
+  "readability": 3,
+  "features": [
+   "orange and yellow branching corals",
+   "red branching coral with dark outlines",
+   "purple rock or sea anemone",
+   "green seaweed on the sides",
+   "light blue water surface with sparkles",
+   "small pink fish near the top",
+   "sandy seabed at the bottom"
+  ],
+  "problems": [
+   "many branches overlap into a busy tangle",
+   "heavy dark outlines make the red coral look messy",
+   "no clear single subject",
+   "the purple blob is hard to identify",
+   "the pink fish is tiny and has no clear features"
+  ],
+  "digest": "22d9e13f20073742",
+  "grade": "pass",
+  "score": 76,
+  "colors": 14,
+  "black": 0.231,
+  "biggest_patch": 0.256,
+  "theme": null,
+  "name": "Coral",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-12": {
+  "guess": "mushroom cloud explosion",
+  "alternatives": [
+   "erupting volcano",
+   "big fiery explosion over the sea"
+  ],
+  "readability": 3,
+  "features": [
+   "wide pink-red mushroom cap",
+   "orange-yellow fiery core",
+   "narrow stem rising from the ground",
+   "flying debris chunks in the sky",
+   "blue water and orange fire at the bottom"
+  ],
+  "problems": [
+   "the pink cap could be mistaken for a flower or a real mushroom",
+   "the stem is short and hidden by the fire at the base",
+   "debris pieces look like clouds or rocks",
+   "busy colors at the bottom blend together"
+  ],
+  "digest": "bc91e3dd092b2317",
+  "grade": "fail",
+  "score": 18,
+  "colors": 11,
+  "black": 0.107,
+  "biggest_patch": 0.174,
+  "theme": null,
+  "name": "Shell",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-13": {
+  "guess": "ship anchor underwater",
+  "alternatives": [
+   "shipwreck with anchor",
+   "fishing hook"
+  ],
+  "readability": 5,
+  "features": [
+   "ring at top",
+   "crossbar (stock)",
+   "long shank with rust spots",
+   "curved arms with pointed flukes",
+   "rope",
+   "wooden ship wreck planks",
+   "green seaweed",
+   "blue water"
+  ],
+  "problems": [
+   "background wreck planks and stripes are busy",
+   "lower right objects (blue/green shapes) are hard to identify"
+  ],
+  "digest": "409fe796c07e11d2",
+  "grade": "pass",
+  "score": 80,
+  "colors": 10,
+  "black": 0.139,
+  "biggest_patch": 0.221,
+  "theme": null,
+  "name": "Anchor",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-14": {
+  "guess": "yellow submarine",
+  "alternatives": [
+   "yellow blimp",
+   "yellow boat"
+  ],
+  "readability": 5,
+  "features": [
+   "yellow rounded hull",
+   "three round portholes",
+   "conning tower",
+   "periscope",
+   "propeller/tail fin at back",
+   "bubbles"
+  ],
+  "problems": [
+   "dark grey background is unusual for water",
+   "white vertical lines at the bottom are unclear (seaweed or light rays)",
+   "tail fin is small and detached-looking"
+  ],
+  "digest": "6a2c2d0e9d4152ae",
+  "grade": "pass",
+  "score": 84,
+  "colors": 7,
+  "black": 0.558,
+  "biggest_patch": 0.534,
+  "theme": null,
+  "name": "Submarine",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-15": {
+  "guess": "pufferfish",
+  "alternatives": [
+   "yellow spotted fish",
+   "blowfish"
+  ],
+  "readability": 5,
+  "features": [
+   "round puffed body",
+   "yellow top with brown spots",
+   "white belly",
+   "big eye",
+   "orange lips/mouth",
+   "tail fin",
+   "small orange spikes on top",
+   "underwater background with seaweed and sunken wooden planks"
+  ],
+  "problems": [
+   "tail fin is small relative to body",
+   "background planks and rocks are a bit busy at the bottom"
+  ],
+  "digest": "567f56c713e3c865",
+  "grade": "pass",
+  "score": 92,
+  "colors": 12,
+  "black": 0.089,
+  "biggest_patch": 0.265,
+  "theme": null,
+  "name": "Puffer Fish",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-16": {
+  "guess": "clownfish under the sea",
+  "alternatives": [
+   "goldfish",
+   "tropical reef fish"
+  ],
+  "readability": 4,
+  "features": [
+   "orange and white striped body",
+   "black outlines on stripes",
+   "fins (top, side, tail)",
+   "bubbles above",
+   "seaweed",
+   "starfish",
+   "pink coral",
+   "rocks on sea floor",
+   "small pink fish at top"
+  ],
+  "problems": [
+   "fish seen head-on so no clear eye or mouth visible",
+   "heavy black outlines make shape busy",
+   "background elements crowd the fish",
+   "tail fin on left reads as separate object"
+  ],
+  "digest": "2a9903eeefca8f21",
+  "grade": "pass",
+  "score": 78,
+  "colors": 13,
+  "black": 0.236,
+  "biggest_patch": 0.206,
+  "theme": null,
+  "name": "Clownfish",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-17": {
+  "guess": "squid",
+  "alternatives": [
+   "rocket ship",
+   "octopus"
+  ],
+  "readability": 4,
+  "features": [
+   "pointed head with side fins",
+   "long pink mantle body with red spots",
+   "eye near base of body",
+   "tentacles spreading downward",
+   "white highlight along left side"
+  ],
+  "problems": [
+   "eye is small and unclear",
+   "tentacles are thin and broken up",
+   "stray red and white blocks around the scene",
+   "dark background band cuts across the picture"
+  ],
+  "digest": "d1d14794795476c4",
+  "grade": "pass",
+  "score": 82,
+  "colors": 5,
+  "black": 0.652,
+  "biggest_patch": 0.631,
+  "theme": null,
+  "name": "Squid",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-18": {
+  "guess": "manta ray",
+  "alternatives": [
+   "stingray",
+   "bat"
+  ],
+  "readability": 3,
+  "features": [
+   "wide flat wings",
+   "cephalic horn-like fins on head",
+   "lighter spots on back",
+   "thin tail hanging down",
+   "underwater setting with coral and seaweed"
+  ],
+  "problems": [
+   "dark blue body blends into the blue water background",
+   "no clear eyes or face",
+   "tail is hard to separate from the shapes below",
+   "a black-and-white shape at the bottom (possibly a fish or penguin) is confusing"
+  ],
+  "digest": "60df51b5ab946025",
+  "grade": "pass",
+  "score": 80,
+  "colors": 10,
+  "black": 0.175,
+  "biggest_patch": 0.237,
+  "theme": null,
+  "name": "Manta Ray",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-19": {
+  "guess": "purple crystal ball on a stand",
+  "alternatives": [
+   "purple gem on a pedestal",
+   "floating magic orb in a cave"
+  ],
+  "readability": 3,
+  "features": [
+   "purple round orb with light highlights",
+   "dark outline around orb",
+   "grey/white stone pedestal or base",
+   "cave walls with vines on sides"
+  ],
+  "problems": [
+   "orb shape is lumpy and irregular, not clearly round",
+   "gap between orb and base makes it look floating",
+   "dark blue background blends with dark outline",
+   "could read as a blob or rock rather than a crystal ball"
+  ],
+  "digest": "cc25f4800429fb3a",
+  "grade": "fail",
+  "score": 18,
+  "colors": 9,
+  "black": 0.19,
+  "biggest_patch": 0.374,
+  "theme": null,
+  "name": "Sea Urchin",
+  "pack": "orig-ocean",
+  "touched": false
+ },
+ "ocean-20": {
+  "guess": "lighthouse by the sea",
+  "alternatives": [
+   "red and white tower on rocks",
+   "beacon tower with a seagull"
+  ],
+  "readability": 4,
+  "features": [
+   "red and white striped tower",
+   "red roof cap",
+   "lantern room with orange light",
+   "yellow light beams",
+   "grey rocky base",
+   "sea waves",
+   "dark rock on left",
+   "small bird/seagull at top right"
+  ],
+  "problems": [
+   "yellow beams look like horizontal bars and may confuse",
+   "dark rock mass on left is blobby and unclear",
+   "bird at top right is tiny and hard to read",
+   "busy wave stripes compete with the tower"
+  ],
+  "digest": "dd4d288aa79f4f5b",
+  "grade": "pass",
+  "score": 74,
+  "colors": 11,
+  "black": 0.229,
+  "biggest_patch": 0.109,
+  "theme": null,
+  "name": "Lighthouse",
+  "pack": "orig-ocean",
+  "touched": false
+ }
+}

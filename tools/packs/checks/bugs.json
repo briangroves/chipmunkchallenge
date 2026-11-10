@@ -1,5 +1,5 @@
 {
- "ladybug-266": {
+ "ladybug-265": {
   "guess": "ladybug",
   "alternatives": [
    "red beetle",
@@ -31,7 +31,7 @@
   "pack": "bugs",
   "touched": false
  },
- "bee-267": {
+ "bee-266": {
   "guess": "bumblebee",
   "alternatives": [
    "wasp",
@@ -63,7 +63,7 @@
   "pack": "bugs",
   "touched": false
  },
- "butterfly-268": {
+ "butterfly-267": {
   "guess": "butterfly on a flower",
   "alternatives": [
    "moth",
@@ -94,7 +94,7 @@
   "pack": "bugs",
   "touched": false
  },
- "snail-269": {
+ "snail-268": {
   "guess": "snail with orange spiral shell",
   "alternatives": [
    "slug",
@@ -125,7 +125,7 @@
   "pack": "bugs",
   "touched": false
  },
- "caterpillar-270": {
+ "caterpillar-269": {
   "guess": "green worm or caterpillar standing up",
   "alternatives": [
    "pickle character",
@@ -155,7 +155,7 @@
   "pack": "bugs",
   "touched": false
  },
- "dragonfly-271": {
+ "dragonfly-270": {
   "guess": "red dragonfly (Flygon-like desert dragon)",
   "alternatives": [
    "Flygon Pok\u00e9mon",
@@ -185,7 +185,7 @@
   "pack": "bugs",
   "touched": false
  },
- "ant-272": {
+ "ant-271": {
   "guess": "red ant",
   "alternatives": [
    "red caterpillar",
@@ -217,7 +217,7 @@
   "pack": "bugs",
   "touched": false
  },
- "beetle-273": {
+ "beetle-272": {
   "guess": "striped beetle (yellow and black bug)",
   "alternatives": [
    "bumblebee",
@@ -248,7 +248,7 @@
   "pack": "bugs",
   "touched": false
  },
- "spider-274": {
+ "spider-273": {
   "guess": "Spider-Man crouching",
   "alternatives": [
    "red superhero leaping",
@@ -279,7 +279,7 @@
   "pack": "bugs",
   "touched": false
  },
- "moth-275": {
+ "moth-274": {
   "guess": "moth or butterfly (black and orange)",
   "alternatives": [
    "beetle",
@@ -310,7 +310,7 @@
   "pack": "bugs",
   "touched": false
  },
- "bumblebee-276": {
+ "bumblebee-275": {
   "guess": "sleeping bumblebee",
   "alternatives": [
    "yellow caterpillar",
@@ -341,7 +341,7 @@
   "pack": "bugs",
   "touched": false
  },
- "beehive-277": {
+ "beehive-276": {
   "guess": "beehive",
   "alternatives": [
    "tiger-striped rock",
@@ -371,7 +371,7 @@
   "pack": "bugs",
   "touched": false
  },
- "wasp-278": {
+ "wasp-277": {
   "guess": "yellow and black bird (oriole) lying in grass",
   "alternatives": [
    "bee or wasp",
@@ -403,7 +403,7 @@
   "pack": "bugs",
   "touched": false
  },
- "scorpion-279": {
+ "scorpion-278": {
   "guess": "scorpion in the desert",
   "alternatives": [
    "desert lizard",
@@ -435,7 +435,7 @@
   "pack": "bugs",
   "touched": false
  },
- "butterfly-on-flower-280": {
+ "butterfly-on-flower-279": {
   "guess": "black dragon on a fire-colored flower",
   "alternatives": [
    "crow or raven spreading wings",
@@ -465,7 +465,7 @@
   "pack": "bugs",
   "touched": false
  },
- "spider-web-281": {
+ "spider-web-280": {
   "guess": "spider web",
   "alternatives": [
    "pentagon-shaped rock",
@@ -497,7 +497,7 @@
   "pack": "bugs",
   "touched": false
  },
- "beetle-car-282": {
+ "beetle-car-281": {
   "guess": "green car",
   "alternatives": [
    "green beetle-style buggy",

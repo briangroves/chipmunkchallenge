@@ -1,5 +1,5 @@
 {
- "marker-1055": {
+ "marker-1053": {
   "guess": "yellow highlighter marker",
   "alternatives": [
    "yellow crayon",
@@ -29,7 +29,7 @@
   "pack": "things2",
   "touched": false
  },
- "chalk-1056": {
+ "chalk-1054": {
   "guess": "school chalkboard",
   "alternatives": [
    "green chalkboard on a classroom wall",
@@ -60,7 +60,7 @@
   "pack": "things2",
   "touched": false
  },
- "ink-bottle-1057": {
+ "ink-bottle-1055": {
   "guess": "red potion bottle",
   "alternatives": [
    "nail polish bottle",
@@ -91,7 +91,7 @@
   "pack": "things2",
   "touched": false
  },
- "scroll-1058": {
+ "scroll-1056": {
   "guess": "rolled diploma scroll with red ribbon",
   "alternatives": [
    "rolled paper map",
@@ -122,7 +122,7 @@
   "pack": "things2",
   "touched": false
  },
- "open-book-1059": {
+ "open-book-1057": {
   "guess": "open blue book",
   "alternatives": [
    "blue jacket or coat",
@@ -153,7 +153,7 @@
   "pack": "things2",
   "touched": false
  },
- "wall-clock-1060": {
+ "wall-clock-1058": {
   "guess": "wall clock",
   "alternatives": [
    "compass",
@@ -183,7 +183,7 @@
   "pack": "things2",
   "touched": false
  },
- "pocket-watch-1061": {
+ "pocket-watch-1059": {
   "guess": "orange pocket watch",
   "alternatives": [
    "stopwatch",
@@ -214,7 +214,7 @@
   "pack": "things2",
   "touched": false
  },
- "horseshoe-magnet-1062": {
+ "horseshoe-magnet-1060": {
   "guess": "red horseshoe magnet",
   "alternatives": [
    "red arch / letter n",
@@ -245,7 +245,7 @@
   "pack": "things2",
   "touched": false
  },
- "bulb-1063": {
+ "bulb-1061": {
   "guess": "cartoon sun character waving on a city street",
   "alternatives": [
    "yellow chick bird waving",
@@ -277,7 +277,7 @@
   "pack": "things2",
   "touched": false
  },
- "lighter-1064": {
+ "lighter-1062": {
   "guess": "lighter",
   "alternatives": [
    "bottle of juice",
@@ -308,7 +308,7 @@
   "pack": "things2",
   "touched": false
  },
- "drumsticks-1065": {
+ "drumsticks-1063": {
   "guess": "fried chicken drumsticks in a bucket",
   "alternatives": [
    "potatoes in a blue bowl",

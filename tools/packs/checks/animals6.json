@@ -1,5 +1,5 @@
 {
- "brown-bear-1042": {
+ "brown-bear-1040": {
   "guess": "red teddy bear head",
   "alternatives": [
    "red panda",
@@ -31,7 +31,7 @@
   "pack": "animals6",
   "touched": false
  },
- "gray-wolf-1043": {
+ "gray-wolf-1041": {
   "guess": "gray wolf or husky head",
   "alternatives": [
    "raccoon",
@@ -62,7 +62,7 @@
   "pack": "animals6",
   "touched": false
  },
- "red-fox-1044": {
+ "red-fox-1042": {
   "guess": "red fox head",
   "alternatives": [
    "red wolf head",
@@ -92,7 +92,7 @@
   "pack": "animals6",
   "touched": false
  },
- "rabbit-1045": {
+ "rabbit-1043": {
   "guess": "sleeping white bunny",
   "alternatives": [
    "white cat curled up",
@@ -125,7 +125,7 @@
   "pack": "animals6",
   "touched": false
  },
- "cartoon-beaver-1046": {
+ "cartoon-beaver-1044": {
   "guess": "marmot standing upright",
   "alternatives": [
    "beaver",
@@ -158,7 +158,7 @@
   "pack": "animals6",
   "touched": false
  },
- "cartoon-skunk-1047": {
+ "cartoon-skunk-1045": {
   "guess": "skunk",
   "alternatives": [
    "black cat",
@@ -192,7 +192,7 @@
   "pack": "animals6",
   "touched": false
  },
- "cartoon-bat-1048": {
+ "cartoon-bat-1046": {
   "guess": "bat",
   "alternatives": [
    "flying fox",
@@ -224,7 +224,7 @@
   "pack": "animals6",
   "touched": false
  },
- "cartoon-hedgehog-1049": {
+ "cartoon-hedgehog-1047": {
   "guess": "hedgehog",
   "alternatives": [
    "porcupine",
@@ -257,7 +257,7 @@
   "pack": "animals6",
   "touched": false
  },
- "red-squirrel-1050": {
+ "red-squirrel-1048": {
   "guess": "red squirrel",
   "alternatives": [
    "red fox",
@@ -290,7 +290,7 @@
   "pack": "animals6",
   "touched": false
  },
- "cartoon-raccoon-1051": {
+ "cartoon-raccoon-1049": {
   "guess": "raccoon",
   "alternatives": [
    "tanuki (raccoon dog)",
@@ -324,7 +324,7 @@
   "pack": "animals6",
   "touched": false
  },
- "cartoon-moose-1052": {
+ "cartoon-moose-1050": {
   "guess": "moose",
   "alternatives": [
    "bull or buffalo",
@@ -356,7 +356,7 @@
   "pack": "animals6",
   "touched": false
  },
- "cartoon-elk-1053": {
+ "cartoon-elk-1051": {
   "guess": "moose",
   "alternatives": [
    "wildebeest",
@@ -388,7 +388,7 @@
   "pack": "animals6",
   "touched": false
  },
- "cartoon-bison-1054": {
+ "cartoon-bison-1052": {
   "guess": "bison (buffalo)",
   "alternatives": [
    "yak",

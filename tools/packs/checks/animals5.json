@@ -1,5 +1,5 @@
 {
- "cartoon-lion-958": {
+ "cartoon-lion-957": {
   "guess": "lion",
   "alternatives": [
    "orange cat",
@@ -31,7 +31,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-elephant-959": {
+ "cartoon-elephant-958": {
   "guess": "grey elephant on a beach",
   "alternatives": [
    "hippo",
@@ -63,7 +63,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-giraffe-960": {
+ "cartoon-giraffe-959": {
   "guess": "giraffe",
   "alternatives": [
    "llama",
@@ -98,7 +98,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-zebra-961": {
+ "cartoon-zebra-960": {
   "guess": "zebra",
   "alternatives": [
    "striped cow",
@@ -131,7 +131,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-bear-962": {
+ "cartoon-bear-961": {
   "guess": "tan bear standing with arms out",
   "alternatives": [
    "hamster",
@@ -164,7 +164,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-fox-963": {
+ "cartoon-fox-962": {
   "guess": "orange fox sitting in a meadow",
   "alternatives": [
    "red panda",
@@ -200,7 +200,7 @@
    "agrees": true
   }
  },
- "cartoon-owl-964": {
+ "cartoon-owl-963": {
   "guess": "two owls in a meadow",
   "alternatives": [
    "two sparrows",
@@ -234,7 +234,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-rabbit-965": {
+ "cartoon-rabbit-964": {
   "guess": "white rabbit",
   "alternatives": [
    "hare",
@@ -267,7 +267,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-cat-966": {
+ "cartoon-cat-965": {
   "guess": "yellow cat sitting in a meadow at sunset",
   "alternatives": [
    "fox",
@@ -301,7 +301,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-cow-967": {
+ "cartoon-cow-966": {
   "guess": "cow at night",
   "alternatives": [
    "sheep",
@@ -336,7 +336,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-horse-968": {
+ "cartoon-horse-967": {
   "guess": "white horse galloping on a beach at sunset",
   "alternatives": [
    "unicorn",
@@ -370,7 +370,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-sheep-969": {
+ "cartoon-sheep-968": {
   "guess": "sheep carrying a pink flower",
   "alternatives": [
    "goat with a flower",
@@ -405,7 +405,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-duck-970": {
+ "cartoon-duck-969": {
   "guess": "mallard duck",
   "alternatives": [
    "goose",
@@ -439,7 +439,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-frog-971": {
+ "cartoon-frog-970": {
   "guess": "green frog sitting on sand",
   "alternatives": [
    "toad",
@@ -472,7 +472,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-turtle-972": {
+ "cartoon-turtle-971": {
   "guess": "green turtle with orange shell",
   "alternatives": [
    "frog carrying an orange",
@@ -503,7 +503,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-crocodile-973": {
+ "cartoon-crocodile-972": {
   "guess": "crocodile in water at sunset",
   "alternatives": [
    "alligator",
@@ -536,7 +536,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-penguin-974": {
+ "cartoon-penguin-973": {
   "guess": "penguin",
   "alternatives": [
    "puffin",
@@ -572,7 +572,7 @@
    "agrees": true
   }
  },
- "cartoon-panda-975": {
+ "cartoon-panda-974": {
   "guess": "sleeping panda lying in grass",
   "alternatives": [
    "badger",
@@ -607,7 +607,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-koala-976": {
+ "cartoon-koala-975": {
   "guess": "koala",
   "alternatives": [
    "mouse",
@@ -641,7 +641,7 @@
   "pack": "animals5",
   "touched": false
  },
- "cartoon-tiger-977": {
+ "cartoon-tiger-976": {
   "guess": "yellow tiger cub",
   "alternatives": [
    "lion cub",

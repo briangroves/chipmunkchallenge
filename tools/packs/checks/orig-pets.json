@@ -1,0 +1,687 @@
+{
+ "pets-1": {
+  "guess": "orange cat sitting",
+  "alternatives": [
+   "tabby kitten",
+   "fox"
+  ],
+  "readability": 4,
+  "features": [
+   "pointed ears with pink insides",
+   "green eyes",
+   "pink nose",
+   "white muzzle",
+   "orange striped body",
+   "white belly",
+   "curled tail",
+   "front paws",
+   "window in background",
+   "red cushion"
+  ],
+  "problems": [
+   "dark object with green near tail is confusing",
+   "face slightly cluttered with grey and red shading",
+   "busy background with wallpaper dots and window"
+  ],
+  "digest": "0c83dca2156228a6",
+  "grade": "pass",
+  "score": 94,
+  "colors": 12,
+  "black": 0.18,
+  "biggest_patch": 0.051,
+  "theme": null,
+  "name": "Cat",
+  "pack": "orig-pets",
+  "touched": false,
+  "verify": {
+   "guess": "orange tabby cat sitting",
+   "score": 94,
+   "agrees": true
+  }
+ },
+ "pets-2": {
+  "guess": "puppy dog sitting",
+  "alternatives": [
+   "hamster",
+   "beagle puppy"
+  ],
+  "readability": 4,
+  "features": [
+   "face with dark eyes",
+   "grey nose/muzzle",
+   "brown floppy ears",
+   "white belly",
+   "front paws",
+   "curled tail on right",
+   "white picket fence and grass background",
+   "sunset sky"
+  ],
+  "problems": [
+   "eyes are small and squinty, face slightly hard to read",
+   "white body parts blend with white fence",
+   "tail merges with fence posts",
+   "busy background"
+  ],
+  "digest": "f5064535210c0828",
+  "grade": "pass",
+  "score": 94,
+  "colors": 13,
+  "black": 0.158,
+  "biggest_patch": 0.142,
+  "theme": null,
+  "name": "Dog",
+  "pack": "orig-pets",
+  "touched": false,
+  "verify": {
+   "guess": "puppy dog sitting in a garden",
+   "score": 94,
+   "agrees": true
+  }
+ },
+ "pets-3": {
+  "guess": "white bunny rabbit",
+  "alternatives": [
+   "white cat",
+   "hamster"
+  ],
+  "readability": 4,
+  "features": [
+   "long upright ears with pink insides",
+   "round white head",
+   "dark eyes",
+   "pink blush cheeks",
+   "small pink nose",
+   "white round body",
+   "grey shading on body",
+   "feet at bottom"
+  ],
+  "problems": [
+   "busy cluttered background with many objects",
+   "background items (carrots, shovel, sign) compete for attention",
+   "white body blends somewhat with white elements around it",
+   "red ground at bottom is noisy"
+  ],
+  "digest": "cb15f3c3702b4dbf",
+  "grade": "pass",
+  "score": 90,
+  "colors": 13,
+  "black": 0.218,
+  "biggest_patch": 0.122,
+  "theme": null,
+  "name": "Bunny",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-4": {
+  "guess": "orange fox or tanuki with a sailor hat",
+  "alternatives": [
+   "orange cat",
+   "red panda"
+  ],
+  "readability": 3,
+  "features": [
+   "round orange head",
+   "white face/muzzle",
+   "pointed ears with white inside",
+   "small white sailor hat",
+   "white belly",
+   "red scarf",
+   "sitting body with grey feet",
+   "black stick or lamp post beside it"
+  ],
+  "problems": [
+   "eyes are tiny black lines and hard to see",
+   "face area is large white blob with unclear nose",
+   "busy green background with brown bench and dark post distracts",
+   "species is ambiguous between fox, cat, tanuki"
+  ],
+  "digest": "c4026a6e68f11b35",
+  "grade": "fail",
+  "score": 34,
+  "colors": 13,
+  "black": 0.184,
+  "biggest_patch": 0.106,
+  "theme": null,
+  "name": "Hamster",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-5": {
+  "guess": "red parrot perched on a branch",
+  "alternatives": [
+   "red bird by a window",
+   "toucan"
+  ],
+  "readability": 3,
+  "features": [
+   "red body",
+   "pink head",
+   "white eye patch",
+   "black beak",
+   "blue feet/tail below",
+   "perch branch",
+   "window in background",
+   "green door or cabinet"
+  ],
+  "problems": [
+   "head is small and cramped against the top",
+   "beak blends with dark outlines",
+   "blue lower part unclear whether tail or feet",
+   "busy background with stripes, window and green shape competes with subject"
+  ],
+  "digest": "b83b11e111b9eb37",
+  "grade": "pass",
+  "score": 84,
+  "colors": 14,
+  "black": 0.218,
+  "biggest_patch": 0.083,
+  "theme": null,
+  "name": "Parrot",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-6": {
+  "guess": "turtle swimming in water",
+  "alternatives": [
+   "tortoise",
+   "green island in a lake"
+  ],
+  "readability": 3,
+  "features": [
+   "domed green shell with pattern",
+   "small head on the right",
+   "flippers/legs underneath",
+   "water around it",
+   "night sky with purple horizon",
+   "rock in corner"
+  ],
+  "problems": [
+   "head is small and has no visible eye",
+   "legs are tiny and blend with water reflections",
+   "shell's dark outline merges with the dark green shoreline behind it",
+   "could read as a hill or bush"
+  ],
+  "digest": "2d53c05c7a551ec1",
+  "grade": "pass",
+  "score": 72,
+  "colors": 10,
+  "black": 0.102,
+  "biggest_patch": 0.236,
+  "theme": null,
+  "name": "Turtle",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-7": {
+  "guess": "goldfish in a fishbowl",
+  "alternatives": [
+   "glass water jug with fish",
+   "fish tank on a table"
+  ],
+  "readability": 4,
+  "features": [
+   "round glass bowl outline",
+   "blue water",
+   "orange and red goldfish with tail",
+   "fish eye",
+   "glass of water beside bowl",
+   "dark handle or fin shape on right",
+   "wooden table",
+   "colorful cloth or mat under bowl"
+  ],
+  "problems": [
+   "fish is small compared to the bowl",
+   "the glass and the bar linking it to the bowl are confusing",
+   "dark shape on the right is unclear",
+   "busy red and orange mat at the bottom distracts",
+   "striped wallpaper adds clutter"
+  ],
+  "digest": "f2269ff8c84dbe41",
+  "grade": "pass",
+  "score": 82,
+  "colors": 12,
+  "black": 0.15,
+  "biggest_patch": 0.118,
+  "theme": null,
+  "name": "Fish Bowl",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-8": {
+  "guess": "dog paw print",
+  "alternatives": [
+   "bear paw",
+   "cat paw print"
+  ],
+  "readability": 4,
+  "features": [
+   "large brown main pad",
+   "four toe pads",
+   "dark outline",
+   "dog bone on grass",
+   "wooden fence",
+   "tree with bird",
+   "sunset sky"
+  ],
+  "problems": [
+   "toe pads have odd lighter patches and red dots that look like a face",
+   "paw blends somewhat with brown fence",
+   "busy background with many details"
+  ],
+  "digest": "a41dc1b76ba7a9c9",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.111,
+  "biggest_patch": 0.133,
+  "theme": null,
+  "name": "Paw Print",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-9": {
+  "guess": "grey and white cat (kitten)",
+  "alternatives": [
+   "mouse",
+   "bunny"
+  ],
+  "readability": 3,
+  "features": [
+   "round grey head",
+   "two eyes (one winking/squinting)",
+   "pink nose",
+   "pointed ears",
+   "white chest and belly",
+   "grey body outline",
+   "front paws at bottom"
+  ],
+  "problems": [
+   "busy cluttered background with many colorful objects",
+   "ears blend with white/light details",
+   "grey body blends into grey objects on the right",
+   "odd eye shapes make the face hard to read",
+   "surrounding items (lamp, box, ball) compete for attention"
+  ],
+  "digest": "602d77e5020778bc",
+  "grade": "weak",
+  "score": 54,
+  "colors": 13,
+  "black": 0.215,
+  "biggest_patch": 0.163,
+  "theme": null,
+  "name": "Mouse",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-10": {
+  "guess": "orange monkey sitting",
+  "alternatives": [
+   "red panda",
+   "orange cat"
+  ],
+  "readability": 3,
+  "features": [
+   "round orange head",
+   "dark eyes",
+   "grey muzzle/nose",
+   "brown ears on sides",
+   "white belly",
+   "long curled tail",
+   "red collar",
+   "sitting pose"
+  ],
+  "problems": [
+   "face is small and cluttered with brown, red and grey patches",
+   "ears blend with dark outline",
+   "tail and body similar orange making shape blobby",
+   "busy background with log and bushes"
+  ],
+  "digest": "45fc0f750da8dfcc",
+  "grade": "fail",
+  "score": 38,
+  "colors": 13,
+  "black": 0.212,
+  "biggest_patch": 0.084,
+  "theme": null,
+  "name": "Puppy & Bone",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-11": {
+  "guess": "black cat sitting indoors",
+  "alternatives": [
+   "black kitten by a window",
+   "tuxedo cat"
+  ],
+  "readability": 4,
+  "features": [
+   "pointed ears",
+   "yellow round eyes",
+   "grey muzzle and nose",
+   "grey chest patch",
+   "white paws",
+   "tail curling up on the right",
+   "window and blue curtain behind"
+  ],
+  "problems": [
+   "dark body blends with dark outlines and floor shadows",
+   "ears merge into the top edge",
+   "busy background with stripes, window and curtain competes with the cat",
+   "eyes look like rings/glasses, a bit odd"
+  ],
+  "digest": "81da13a67e1b8c4f",
+  "grade": "pass",
+  "score": 94,
+  "colors": 10,
+  "black": 0.404,
+  "biggest_patch": 0.388,
+  "theme": null,
+  "name": "Black Cat",
+  "pack": "orig-pets",
+  "touched": false,
+  "verify": {
+   "guess": "black cat sitting in a room",
+   "score": 94,
+   "agrees": true
+  }
+ },
+ "pets-12": {
+  "guess": "sleeping hamster with a carrot",
+  "alternatives": [
+   "calico cat lying on a cushion",
+   "guinea pig napping"
+  ],
+  "readability": 3,
+  "features": [
+   "round orange, yellow and white body",
+   "small pink ear on top",
+   "closed eye lines on the face",
+   "pink nose",
+   "green carrot top and orange carrot on the left",
+   "pink paws",
+   "red cushion or bed underneath",
+   "framed picture of the sea on the wall"
+  ],
+  "problems": [
+   "the body is a big blob with patchwork colors that look like a ball",
+   "the face is small and pushed to the right edge, so it's hard to find",
+   "no clear legs or tail",
+   "cushion colors (red, orange, yellow) blend with the body",
+   "busy striped background and wooden shelf compete with the subject"
+  ],
+  "digest": "684ade98ef0ba1bb",
+  "grade": "weak",
+  "score": 58,
+  "colors": 13,
+  "black": 0.126,
+  "biggest_patch": 0.069,
+  "theme": null,
+  "name": "Guinea Pig",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-13": {
+  "guess": "green frog",
+  "alternatives": [
+   "toad",
+   "turtle"
+  ],
+  "readability": 4,
+  "features": [
+   "big bulging yellow-and-black eyes on top of head",
+   "round green body",
+   "lighter green belly/face patch with two nostril dots",
+   "front legs and back legs folded",
+   "water and lily pad background",
+   "a fly/bee in the sky"
+  ],
+  "problems": [
+   "no clear mouth line",
+   "legs blend into the body as one green blob",
+   "eyes look odd/angry and are partly abstract",
+   "dark green shoreline behind blends with frog's outline"
+  ],
+  "digest": "eaaa1b829969a244",
+  "grade": "pass",
+  "score": 86,
+  "colors": 11,
+  "black": 0.154,
+  "biggest_patch": 0.118,
+  "theme": null,
+  "name": "Frog",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-14": {
+  "guess": "green snake coiled by a fence",
+  "alternatives": [
+   "flower vine wrapped on a fence",
+   "garden hose"
+  ],
+  "readability": 2,
+  "features": [
+   "long coiled green body with black outline",
+   "yellow and orange spots along body",
+   "head at top right near tree",
+   "wooden fence posts behind",
+   "tree, sky, grass, clouds"
+  ],
+  "problems": [
+   "head has no clear eyes or tongue",
+   "body green blends with grass and tree leaves",
+   "coil shape is tangled and hard to follow",
+   "fence and background compete for attention"
+  ],
+  "digest": "51814e246e9e2cbe",
+  "grade": "weak",
+  "score": 66,
+  "colors": 13,
+  "black": 0.133,
+  "biggest_patch": 0.169,
+  "theme": null,
+  "name": "Snake",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-15": {
+  "guess": "panda",
+  "alternatives": [
+   "white cat",
+   "polar bear"
+  ],
+  "readability": 3,
+  "features": [
+   "round white head",
+   "black ears",
+   "brown eye patches",
+   "black outline body",
+   "bamboo striped background",
+   "lantern",
+   "red floor"
+  ],
+  "problems": [
+   "white body blends with white background stripes",
+   "eye patches small and brown rather than black",
+   "body shape blobby with grey shading",
+   "busy surrounding objects distract"
+  ],
+  "digest": "d6e5c0b0fdb686d2",
+  "grade": "fail",
+  "score": 26,
+  "colors": 11,
+  "black": 0.26,
+  "biggest_patch": 0.11,
+  "theme": null,
+  "name": "Dalmatian",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-16": {
+  "guess": "pink pig sitting at night",
+  "alternatives": [
+   "pink cat",
+   "pink bear"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed ears",
+   "closed eyes",
+   "red snout/nose area",
+   "round pink body",
+   "feet at bottom",
+   "night sky with stars",
+   "grass and bushes",
+   "dark tail or pole on right"
+  ],
+  "problems": [
+   "face is cluttered with red shading that hides the snout",
+   "ears pointed like a cat's",
+   "white highlights break up the outline",
+   "dark object on right is unclear",
+   "brown shape on left is unclear"
+  ],
+  "digest": "4170f0b8309df399",
+  "grade": "pass",
+  "score": 88,
+  "colors": 10,
+  "black": 0.41,
+  "biggest_patch": 0.318,
+  "theme": null,
+  "name": "Pig",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-17": {
+  "guess": "earthquake-damaged house with rubble",
+  "alternatives": [
+   "landslide burying a building",
+   "collapsed house after a storm"
+  ],
+  "readability": 2,
+  "features": [
+   "tilted red door with window",
+   "grey-framed window falling",
+   "pile of brown and tan rubble/mud",
+   "green plant or vine",
+   "striped green and grey background"
+  ],
+  "problems": [
+   "no single clear subject",
+   "rubble is a messy blob of browns",
+   "objects floating and tilted make the scene confusing",
+   "striped background is busy",
+   "dark shapes in the mud are hard to identify"
+  ],
+  "digest": "a744b64c5d95b0c5",
+  "grade": "fail",
+  "score": 12,
+  "colors": 12,
+  "black": 0.188,
+  "biggest_patch": 0.099,
+  "theme": null,
+  "name": "Hedgehog",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-18": {
+  "guess": "yellow chick relaxing in a bath or sauna with a towel on its head",
+  "alternatives": [
+   "chick sitting on a cushion with a teapot",
+   "yellow bird at a hot spring"
+  ],
+  "readability": 4,
+  "features": [
+   "round yellow body",
+   "closed sleepy eyes",
+   "orange beak",
+   "white towel on head",
+   "small wings",
+   "red cushion or mat underneath",
+   "green teapot or kettle beside it",
+   "window with blue sky",
+   "hanging lamp",
+   "striped wallpaper",
+   "wooden floor or wall"
+  ],
+  "problems": [
+   "towel on head blends with white background",
+   "green object at left is hard to identify",
+   "red mat and orange shading busy at the bottom",
+   "eyes are thin lines, so the face is less clear"
+  ],
+  "digest": "b5fc86d5bf7b16f2",
+  "grade": "pass",
+  "score": 86,
+  "colors": 14,
+  "black": 0.152,
+  "biggest_patch": 0.07,
+  "theme": null,
+  "name": "Chick",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-19": {
+  "guess": "giant beanstalk",
+  "alternatives": [
+   "vine growing up a pole",
+   "garden plant with leaves"
+  ],
+  "readability": 3,
+  "features": [
+   "tall green twisting stalk",
+   "leaves branching off",
+   "white pole/support",
+   "wooden fence behind",
+   "small tree",
+   "clouds in sky"
+  ],
+  "problems": [
+   "stalk blends with green grass and leaves",
+   "cluttered background with fence and tree",
+   "white pole confuses the shape",
+   "no clear top or distinctive feature like beans"
+  ],
+  "digest": "5472eee54bfd4c29",
+  "grade": "fail",
+  "score": 18,
+  "colors": 15,
+  "black": 0.141,
+  "biggest_patch": 0.088,
+  "theme": null,
+  "name": "Gecko",
+  "pack": "orig-pets",
+  "touched": false
+ },
+ "pets-20": {
+  "guess": "wooden doghouse with red roof",
+  "alternatives": [
+   "birdhouse",
+   "beehive hut"
+  ],
+  "readability": 4,
+  "features": [
+   "red sloped roof",
+   "wooden plank walls",
+   "dark arched doorway",
+   "white picket fence",
+   "green bushes",
+   "clouds in blue sky",
+   "small tree on left"
+  ],
+  "problems": [
+   "door opening is an odd blob shape",
+   "could read as birdhouse or doghouse equally",
+   "roof shading is a bit noisy"
+  ],
+  "digest": "134d3199acb39b95",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.183,
+  "biggest_patch": 0.114,
+  "theme": null,
+  "name": "Dog House",
+  "pack": "orig-pets",
+  "touched": false
+ }
+}

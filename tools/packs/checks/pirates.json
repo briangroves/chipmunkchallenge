@@ -1,5 +1,5 @@
 {
- "pirate-ship-632": {
+ "pirate-ship-631": {
   "guess": "pirate ship with jolly roger flag",
   "alternatives": [
    "shipwreck on a beach",
@@ -32,7 +32,7 @@
   "pack": "pirates",
   "touched": false
  },
- "treasure-map-633": {
+ "treasure-map-632": {
   "guess": "treasure map scroll",
   "alternatives": [
    "paper note on a beach",
@@ -64,7 +64,7 @@
   "pack": "pirates",
   "touched": false
  },
- "anchor-634": {
+ "anchor-633": {
   "guess": "blue anchor",
   "alternatives": [
    "ship's hook",
@@ -95,7 +95,7 @@
   "pack": "pirates",
   "touched": false
  },
- "compass-635": {
+ "compass-634": {
   "guess": "compass",
   "alternatives": [
    "clock",
@@ -126,7 +126,7 @@
   "pack": "pirates",
   "touched": false
  },
- "lighthouse-636": {
+ "lighthouse-635": {
   "guess": "red and white lighthouse",
   "alternatives": [
    "striped tower",
@@ -158,7 +158,7 @@
   "pack": "pirates",
   "touched": false
  },
- "message-in-a-bottle-637": {
+ "message-in-a-bottle-636": {
   "guess": "message in a bottle floating in the sea",
   "alternatives": [
    "glass bottle with cork",
@@ -191,7 +191,7 @@
   "pack": "pirates",
   "touched": false
  },
- "ship-wheel-638": {
+ "ship-wheel-637": {
   "guess": "ship's steering wheel with red ribbon",
   "alternatives": [
    "spiky mine or ball",
@@ -222,7 +222,7 @@
   "pack": "pirates",
   "touched": false
  },
- "gold-coins-639": {
+ "gold-coins-638": {
   "guess": "gold coins",
   "alternatives": [
    "fried eggs",
@@ -253,7 +253,7 @@
   "pack": "pirates",
   "touched": false
  },
- "treasure-chest-640": {
+ "treasure-chest-639": {
   "guess": "open treasure chest full of gold",
   "alternatives": [
    "red gift box with gold inside",
@@ -283,7 +283,7 @@
   "pack": "pirates",
   "touched": false
  },
- "pirate-parrot-641": {
+ "pirate-parrot-640": {
   "guess": "pirate parrot on a beach",
   "alternatives": [
    "green parrot",
@@ -317,7 +317,7 @@
   "pack": "pirates",
   "touched": false
  },
- "pirate-flag-642": {
+ "pirate-flag-641": {
   "guess": "pirate flag (Jolly Roger)",
   "alternatives": [
    "pirate ship sail",

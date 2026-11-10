@@ -1,5 +1,5 @@
 {
- "apple-tree-998": {
+ "apple-tree-996": {
   "guess": "tree with a round leafy crown",
   "alternatives": [
    "broccoli",
@@ -29,7 +29,7 @@
   "pack": "trees",
   "touched": false
  },
- "palm-999": {
+ "palm-997": {
   "guess": "waving hand (palm)",
   "alternatives": [
    "white glove",
@@ -60,7 +60,7 @@
   "pack": "trees",
   "touched": false
  },
- "pine-1000": {
+ "pine-998": {
   "guess": "pine tree in snow under northern lights",
   "alternatives": [
    "Christmas tree in a snowy forest",
@@ -93,7 +93,7 @@
   "pack": "trees",
   "touched": false
  },
- "birch-tree-1001": {
+ "birch-tree-999": {
   "guess": "birch tree in a desert",
   "alternatives": [
    "tree with white trunk",
@@ -122,7 +122,7 @@
   "pack": "trees",
   "touched": false
  },
- "cherry-tree-1002": {
+ "cherry-tree-1000": {
   "guess": "snow-covered tree",
   "alternatives": [
    "cotton tree",
@@ -152,7 +152,7 @@
   "pack": "trees",
   "touched": false
  },
- "christmas-tree-pine-1003": {
+ "christmas-tree-pine-1001": {
   "guess": "pine tree in snow",
   "alternatives": [
    "green mountain",
@@ -184,7 +184,7 @@
   "pack": "trees",
   "touched": false
  },
- "bamboo-1004": {
+ "bamboo-1002": {
   "guess": "bamboo sprout in a doorway",
   "alternatives": [
    "plant growing in a window",
@@ -216,7 +216,7 @@
   "pack": "trees",
   "touched": false
  },
- "ivy-1005": {
+ "ivy-1003": {
   "guess": "seaside stone wall with ivy",
   "alternatives": [
    "beach promenade by the sea",
@@ -247,7 +247,7 @@
   "pack": "trees",
   "touched": false
  },
- "aloe-1006": {
+ "aloe-1004": {
   "guess": "potted plant (succulent/aloe in a red pot)",
   "alternatives": [
    "cactus in a pot",
@@ -275,7 +275,7 @@
   "pack": "trees",
   "touched": false
  },
- "orange-tree-1007": {
+ "orange-tree-1005": {
   "guess": "orange tree at night",
   "alternatives": [
    "fruit tree",
@@ -308,7 +308,7 @@
   "pack": "trees",
   "touched": false
  },
- "lemon-tree-1008": {
+ "lemon-tree-1006": {
   "guess": "tree with yellow flowers at sunset",
   "alternatives": [
    "fruit tree in a meadow",
@@ -340,7 +340,7 @@
   "pack": "trees",
   "touched": false
  },
- "bush-1009": {
+ "bush-1007": {
   "guess": "green bush on a rock",
   "alternatives": [
    "frog",
@@ -370,7 +370,7 @@
   "pack": "trees",
   "touched": false
  },
- "sprout-1010": {
+ "sprout-1008": {
   "guess": "seed sprouting from soil",
   "alternatives": [
    "plant sprout in a pot",
@@ -401,7 +401,7 @@
   "pack": "trees",
   "touched": false
  },
- "coconut-tree-1011": {
+ "coconut-tree-1009": {
   "guess": "palm tree at night",
   "alternatives": [
    "tree in a jungle at night",

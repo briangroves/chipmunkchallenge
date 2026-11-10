@@ -1,5 +1,5 @@
 {
- "green-leaf-1066": {
+ "green-leaf-1064": {
   "guess": "red apple with a leaf",
   "alternatives": [
    "radish",
@@ -30,7 +30,7 @@
   "pack": "nature2",
   "touched": false
  },
- "red-mushroom-1067": {
+ "red-mushroom-1065": {
   "guess": "red mushroom",
   "alternatives": [
    "toadstool house",
@@ -60,7 +60,7 @@
   "pack": "nature2",
   "touched": false
  },
- "red-flower-1068": {
+ "red-flower-1066": {
   "guess": "red poinsettia flower",
   "alternatives": [
    "red daisy flower",
@@ -91,7 +91,7 @@
   "pack": "nature2",
   "touched": false
  },
- "log-1069": {
+ "log-1067": {
   "guess": "b\u00fbche de No\u00ebl (Yule log cake)",
   "alternatives": [
    "chocolate roll cake",
@@ -122,7 +122,7 @@
   "pack": "nature2",
   "touched": false
  },
- "branch-1070": {
+ "branch-1068": {
   "guess": "oranges with leaves on a branch",
   "alternatives": [
    "persimmons on snow",
@@ -154,7 +154,7 @@
   "pack": "nature2",
   "touched": false
  },
- "nest-1071": {
+ "nest-1069": {
   "guess": "yellow duck sleeping in a nest",
   "alternatives": [
    "Psyduck-like yellow bird resting",
@@ -187,7 +187,7 @@
   "pack": "nature2",
   "touched": false
  },
- "blue-egg-1072": {
+ "blue-egg-1070": {
   "guess": "blue dragon egg",
   "alternatives": [
    "blue gem crystal",
@@ -220,7 +220,7 @@
   "pack": "nature2",
   "touched": false
  },
- "smiling-moon-1073": {
+ "smiling-moon-1071": {
   "guess": "sleeping crescent moon",
   "alternatives": [
    "banana",
@@ -251,7 +251,7 @@
   "pack": "nature2",
   "touched": false
  },
- "smiling-star-1074": {
+ "smiling-star-1072": {
   "guess": "smiling yellow star",
   "alternatives": [
    "starfish",
@@ -282,7 +282,7 @@
   "pack": "nature2",
   "touched": false
  },
- "blue-snowflake-1075": {
+ "blue-snowflake-1073": {
   "guess": "blue snowflake-shaped flower bush",
   "alternatives": [
    "blue snowflake",
@@ -313,7 +313,7 @@
   "pack": "nature2",
   "touched": false
  },
- "red-volcano-1076": {
+ "red-volcano-1074": {
   "guess": "volcano at sunset",
   "alternatives": [
    "rocky mountain by the sea",
@@ -346,7 +346,7 @@
   "pack": "nature2",
   "touched": false
  },
- "cave-1077": {
+ "cave-1075": {
   "guess": "caveman with a big boulder",
   "alternatives": [
    "blonde girl pushing a rock",

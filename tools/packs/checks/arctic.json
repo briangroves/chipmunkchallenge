@@ -1,5 +1,5 @@
 {
- "polar-bear-246": {
+ "polar-bear-245": {
   "guess": "polar bear lying on a rug",
   "alternatives": [
    "white dog sleeping",
@@ -31,7 +31,7 @@
   "pack": "arctic",
   "touched": false
  },
- "penguin-247": {
+ "penguin-246": {
   "guess": "two penguins",
   "alternatives": [
    "puffins",
@@ -65,7 +65,7 @@
   "pack": "arctic",
   "touched": false
  },
- "reindeer-248": {
+ "reindeer-247": {
   "guess": "reindeer with red nose",
   "alternatives": [
    "moose",
@@ -98,7 +98,7 @@
   "pack": "arctic",
   "touched": false
  },
- "husky-249": {
+ "husky-248": {
   "guess": "husky dog with a fluffy tail",
   "alternatives": [
    "skunk",
@@ -130,7 +130,7 @@
   "pack": "arctic",
   "touched": false
  },
- "puffin-250": {
+ "puffin-249": {
   "guess": "puffin head close-up",
   "alternatives": [
    "toucan",
@@ -161,7 +161,7 @@
   "pack": "arctic",
   "touched": false
  },
- "snowman-251": {
+ "snowman-250": {
   "guess": "snowman with brown hat",
   "alternatives": [
    "ghost",
@@ -194,7 +194,7 @@
   "pack": "arctic",
   "touched": false
  },
- "snow-globe-252": {
+ "snow-globe-251": {
   "guess": "snow globe with a snowman",
   "alternatives": [
    "snowman in a crystal ball",
@@ -227,7 +227,7 @@
   "pack": "arctic",
   "touched": false
  },
- "baby-penguin-253": {
+ "baby-penguin-252": {
   "guess": "penguin family huddle (emperor penguins)",
   "alternatives": [
    "killer whale",
@@ -260,7 +260,7 @@
   "pack": "arctic",
   "touched": false
  },
- "sleigh-254": {
+ "sleigh-253": {
   "guess": "Santa Claus riding a red sleigh with a gift",
   "alternatives": [
    "Santa on a red sled sliding downhill",
@@ -293,7 +293,7 @@
   "pack": "arctic",
   "touched": false
  },
- "christmas-tree-255": {
+ "christmas-tree-254": {
   "guess": "Christmas tree in the snow",
   "alternatives": [
    "pine tree",
@@ -323,7 +323,7 @@
   "pack": "arctic",
   "touched": false
  },
- "santa-256": {
+ "santa-255": {
   "guess": "two snowmen with Santa hat in a forest",
   "alternatives": [
    "Santa and a snowman hugging",
@@ -357,7 +357,7 @@
   "pack": "arctic",
   "touched": false
  },
- "gift-box-257": {
+ "gift-box-256": {
   "guess": "wrapped gift box with orange ribbon and bow",
   "alternatives": [
    "green armchair",
@@ -389,7 +389,7 @@
   "pack": "arctic",
   "touched": false
  },
- "stocking-258": {
+ "stocking-257": {
   "guess": "Christmas stocking",
   "alternatives": [
    "red Christmas boot",
@@ -419,7 +419,7 @@
   "pack": "arctic",
   "touched": false
  },
- "candy-cane-259": {
+ "candy-cane-258": {
   "guess": "candy cane",
   "alternatives": [
    "walking cane",
@@ -448,7 +448,7 @@
   "pack": "arctic",
   "touched": false
  },
- "gingerbread-house-260": {
+ "gingerbread-house-259": {
   "guess": "snow-covered house or igloo-like hut",
   "alternatives": [
    "white cat sleeping in snow",
@@ -478,7 +478,7 @@
   "pack": "arctic",
   "touched": false
  },
- "bell-261": {
+ "bell-260": {
   "guess": "green bell pepper",
   "alternatives": [
    "green apple",
@@ -509,7 +509,7 @@
   "pack": "arctic",
   "touched": false
  },
- "wreath-262": {
+ "wreath-261": {
   "guess": "Christmas laurel wreath in a window by a brick wall",
   "alternatives": [
    "holly wreath on a fireplace",
@@ -540,7 +540,7 @@
   "pack": "arctic",
   "touched": false
  },
- "holly-263": {
+ "holly-262": {
   "guess": "holly leaves with red berries (Christmas decoration)",
   "alternatives": [
    "poinsettia plant",
@@ -572,7 +572,7 @@
   "pack": "arctic",
   "touched": false
  },
- "star-264": {
+ "star-263": {
   "guess": "yellow star with a face",
   "alternatives": [
    "starfish",
@@ -603,7 +603,7 @@
   "pack": "arctic",
   "touched": false
  },
- "elf-265": {
+ "elf-264": {
   "guess": "gnome or elf with a tall green hat",
   "alternatives": [
    "Christmas tree",

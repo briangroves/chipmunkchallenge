@@ -1,5 +1,5 @@
 {
- "cute-monster-831": {
+ "cute-monster-830": {
   "guess": "green slime monster in a sewer",
   "alternatives": [
    "green octopus",
@@ -33,7 +33,7 @@
   "pack": "monsters",
   "touched": false
  },
- "blue-monster-832": {
+ "blue-monster-831": {
   "guess": "blue slime ghost monster in the desert at night",
   "alternatives": [
    "blue yeti",
@@ -66,7 +66,7 @@
   "pack": "monsters",
   "touched": false
  },
- "green-monster-833": {
+ "green-monster-832": {
   "guess": "green slime monster",
   "alternatives": [
    "green blob ghost",
@@ -97,7 +97,7 @@
   "pack": "monsters",
   "touched": false
  },
- "purple-monster-834": {
+ "purple-monster-833": {
   "guess": "purple horned monster",
   "alternatives": [
    "purple devil",
@@ -129,7 +129,7 @@
   "pack": "monsters",
   "touched": false
  },
- "one-eyed-monster-835": {
+ "one-eyed-monster-834": {
   "guess": "green one-eyed monster with horns",
   "alternatives": [
    "cyclops ogre",
@@ -161,7 +161,7 @@
   "pack": "monsters",
   "touched": false
  },
- "slime-monster-836": {
+ "slime-monster-835": {
   "guess": "green slime monster in a city at night",
   "alternatives": [
    "green blob creature",
@@ -193,7 +193,7 @@
   "pack": "monsters",
   "touched": false
  },
- "little-ghost-837": {
+ "little-ghost-836": {
   "guess": "ghost",
   "alternatives": [
    "onigiri rice ball",
@@ -224,7 +224,7 @@
   "pack": "monsters",
   "touched": false
  },
- "cyclops-838": {
+ "cyclops-837": {
   "guess": "one-eyed black monster on a beach",
   "alternatives": [
    "black cat at sunset",
@@ -256,7 +256,7 @@
   "pack": "monsters",
   "touched": false
  },
- "pterodactyl-839": {
+ "pterodactyl-838": {
   "guess": "orange pterodactyl",
   "alternatives": [
    "orange dragon",
@@ -291,7 +291,7 @@
   "pack": "monsters",
   "touched": false
  },
- "volcano-840": {
+ "volcano-839": {
   "guess": "erupting volcano",
   "alternatives": [
    "mountain with fire",
@@ -322,7 +322,7 @@
   "pack": "monsters",
   "touched": false
  },
- "fossil-841": {
+ "fossil-840": {
   "guess": "dinosaur skull fossil",
   "alternatives": [
    "animal skull in the dirt",
@@ -353,7 +353,7 @@
   "pack": "monsters",
   "touched": false
  },
- "mammoth-842": {
+ "mammoth-841": {
   "guess": "white woolly mammoth",
   "alternatives": [
    "white elephant",
@@ -387,7 +387,7 @@
   "pack": "monsters",
   "touched": false
  },
- "dodo-843": {
+ "dodo-842": {
   "guess": "dodo bird",
   "alternatives": [
    "duck",
@@ -419,7 +419,7 @@
   "pack": "monsters",
   "touched": false
  },
- "caveman-844": {
+ "caveman-843": {
   "guess": "caveman with a club",
   "alternatives": [
    "bearded dwarf warrior",
@@ -453,7 +453,7 @@
   "pack": "monsters",
   "touched": false
  },
- "dinosaur-park-845": {
+ "dinosaur-park-844": {
   "guess": "Jurassic Park style dinosaur logo",
   "alternatives": [
    "T-rex emblem badge",

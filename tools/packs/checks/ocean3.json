@@ -1,5 +1,5 @@
 {
- "butterflyfish-820": {
+ "butterflyfish-819": {
   "guess": "tropical fish (butterflyfish)",
   "alternatives": [
    "seashell",
@@ -33,7 +33,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "angelfish-821": {
+ "angelfish-820": {
   "guess": "angelfish swimming in the sea",
   "alternatives": [
    "shark",
@@ -66,7 +66,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "puffer-fish-822": {
+ "puffer-fish-821": {
   "guess": "yellow pufferfish",
   "alternatives": [
    "sea urchin",
@@ -98,7 +98,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "sea-star-823": {
+ "sea-star-822": {
   "guess": "yellow starfish",
   "alternatives": [
    "cartoon star character",
@@ -131,7 +131,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "spider-crab-824": {
+ "spider-crab-823": {
   "guess": "octopus underwater",
   "alternatives": [
    "crab",
@@ -163,7 +163,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "flounder-825": {
+ "flounder-824": {
   "guess": "flatfish (flounder) on the sea floor",
   "alternatives": [
    "sea cucumber",
@@ -194,7 +194,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "piranha-826": {
+ "piranha-825": {
   "guess": "grey fish with red fins",
   "alternatives": [
    "grouper",
@@ -227,7 +227,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "koi-827": {
+ "koi-826": {
   "guess": "koi fish (red and white)",
   "alternatives": [
    "goldfish",
@@ -259,7 +259,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "goldfish-bowl-828": {
+ "goldfish-bowl-827": {
   "guess": "round glass fishbowl of water",
   "alternatives": [
    "water bubble",
@@ -290,7 +290,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "dolphin-jumping-829": {
+ "dolphin-jumping-828": {
   "guess": "dolphin jumping out of the sea",
   "alternatives": [
    "shark",
@@ -323,7 +323,7 @@
   "pack": "ocean3",
   "touched": false
  },
- "shell-830": {
+ "shell-829": {
   "guess": "scallop seashell underwater",
   "alternatives": [
    "clam shell",

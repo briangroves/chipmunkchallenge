@@ -1,5 +1,5 @@
 {
- "valentine-heart-873": {
+ "valentine-heart-872": {
   "guess": "big red heart",
   "alternatives": [
    "heart-shaped balloon",
@@ -27,7 +27,7 @@
   "pack": "holidays",
   "touched": false
  },
- "love-letter-874": {
+ "love-letter-873": {
   "guess": "love letter envelope with heart",
   "alternatives": [
    "valentine card",
@@ -58,7 +58,7 @@
   "pack": "holidays",
   "touched": false
  },
- "easter-basket-875": {
+ "easter-basket-874": {
   "guess": "cow eating from a basket of fruit",
   "alternatives": [
    "dairy cow with picnic basket",
@@ -89,7 +89,7 @@
   "pack": "holidays",
   "touched": false
  },
- "shamrock-876": {
+ "shamrock-875": {
   "guess": "three-leaf clover (shamrock)",
   "alternatives": [
    "green bush",
@@ -121,7 +121,7 @@
   "pack": "holidays",
   "touched": false
  },
- "leprechaun-877": {
+ "leprechaun-876": {
   "guess": "leprechaun with red beard and green hat",
   "alternatives": [
    "laughing bearded gnome",
@@ -152,7 +152,7 @@
   "pack": "holidays",
   "touched": false
  },
- "pot-of-gold-878": {
+ "pot-of-gold-877": {
   "guess": "pot of gold on a beach",
   "alternatives": [
    "black cauldron with gold coins",
@@ -183,7 +183,7 @@
   "pack": "holidays",
   "touched": false
  },
- "flag-879": {
+ "flag-878": {
   "guess": "walking Japanese flag character",
   "alternatives": [
    "cartoon flag with a face",
@@ -214,7 +214,7 @@
   "pack": "holidays",
   "touched": false
  },
- "firecracker-880": {
+ "firecracker-879": {
   "guess": "firecracker with lit fuse exploding",
   "alternatives": [
    "stick of dynamite",
@@ -245,7 +245,7 @@
   "pack": "holidays",
   "touched": false
  },
- "menorah-881": {
+ "menorah-880": {
   "guess": "menorah with candles",
   "alternatives": [
    "candelabra",
@@ -275,7 +275,7 @@
   "pack": "holidays",
   "touched": false
  },
- "lucky-cat-882": {
+ "lucky-cat-881": {
   "guess": "lucky cat (maneki-neko) in a city",
   "alternatives": [
    "white and black cat waving",
@@ -309,7 +309,7 @@
   "pack": "holidays",
   "touched": false
  },
- "pilgrim-hat-883": {
+ "pilgrim-hat-882": {
   "guess": "witch hat",
   "alternatives": [
    "leprechaun hat",
@@ -339,7 +339,7 @@
   "pack": "holidays",
   "touched": false
  },
- "santa-sleigh-884": {
+ "santa-sleigh-883": {
   "guess": "Santa Claus on his red sleigh at night",
   "alternatives": [
    "red sleigh with gift box",
@@ -371,7 +371,7 @@
   "pack": "holidays",
   "touched": false
  },
- "elf-hat-885": {
+ "elf-hat-884": {
   "guess": "green Santa/elf hat",
   "alternatives": [
    "green slug or blob creature",
@@ -401,7 +401,7 @@
   "pack": "holidays",
   "touched": false
  },
- "birthday-candle-886": {
+ "birthday-candle-885": {
   "guess": "birthday cake with candles",
   "alternatives": [
    "pie with candles",

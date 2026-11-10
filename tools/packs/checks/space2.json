@@ -1,5 +1,5 @@
 {
- "astronaut-413": {
+ "astronaut-412": {
   "guess": "astronaut in a white spacesuit",
   "alternatives": [
    "ghost",
@@ -31,7 +31,7 @@
   "pack": "space2",
   "touched": false
  },
- "planet-414": {
+ "planet-413": {
   "guess": "red planet Mars",
   "alternatives": [
    "red ball",
@@ -62,7 +62,7 @@
   "pack": "space2",
   "touched": false
  },
- "moon-415": {
+ "moon-414": {
   "guess": "crescent moon in a night sky window",
   "alternatives": [
    "moon poster on a wall",
@@ -95,7 +95,7 @@
   "pack": "space2",
   "touched": false
  },
- "sun-416": {
+ "sun-415": {
   "guess": "smiling sun",
   "alternatives": [
    "sunflower",
@@ -126,7 +126,7 @@
   "pack": "space2",
   "touched": false
  },
- "comet-417": {
+ "comet-416": {
   "guess": "falling meteor / comet crashing on grass at night",
   "alternatives": [
    "fireball",
@@ -156,7 +156,7 @@
   "pack": "space2",
   "touched": false
  },
- "alien-418": {
+ "alien-417": {
   "guess": "green alien in the desert",
   "alternatives": [
    "cactus creature",
@@ -187,7 +187,7 @@
   "pack": "space2",
   "touched": false
  },
- "telescope-419": {
+ "telescope-418": {
   "guess": "telescope on a tripod",
   "alternatives": [
    "cannon",
@@ -218,7 +218,7 @@
   "pack": "space2",
   "touched": false
  },
- "space-rocket-420": {
+ "space-rocket-419": {
   "guess": "rocket launching",
   "alternatives": [
    "space shuttle",
@@ -251,7 +251,7 @@
   "pack": "space2",
   "touched": false
  },
- "space-helmet-421": {
+ "space-helmet-420": {
   "guess": "astronaut helmet",
   "alternatives": [
    "space helmet lying in grass",
@@ -283,7 +283,7 @@
   "pack": "space2",
   "touched": false
  },
- "ufo-422": {
+ "ufo-421": {
   "guess": "blue UFO flying saucer with lit windows",
   "alternatives": [
    "blue house with yellow windows",
@@ -315,7 +315,7 @@
   "pack": "space2",
   "touched": false
  },
- "saturn-423": {
+ "saturn-422": {
   "guess": "ringed planet (like Saturn)",
   "alternatives": [
    "red planet with a ring in space",
@@ -346,7 +346,7 @@
   "pack": "space2",
   "touched": false
  },
- "earth-424": {
+ "earth-423": {
   "guess": "smiling planet Earth",
   "alternatives": [
    "globe",
@@ -380,7 +380,7 @@
   "pack": "space2",
   "touched": false
  },
- "star-425": {
+ "star-424": {
   "guess": "smiling grey star character",
   "alternatives": [
    "grey cat face",
@@ -411,7 +411,7 @@
   "pack": "space2",
   "touched": false
  },
- "space-shuttle-426": {
+ "space-shuttle-425": {
   "guess": "crashed space shuttle in the desert",
   "alternatives": [
    "white airplane wreck",

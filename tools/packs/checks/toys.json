@@ -1,5 +1,5 @@
 {
- "teddy-bear-454": {
+ "teddy-bear-453": {
   "guess": "teddy bear",
   "alternatives": [
    "puppy",
@@ -34,7 +34,7 @@
   "pack": "toys",
   "touched": false
  },
- "robot-455": {
+ "robot-454": {
   "guess": "white robot head on a stand (monitor-like)",
   "alternatives": [
    "vintage computer monitor",
@@ -67,7 +67,7 @@
   "pack": "toys",
   "touched": false
  },
- "doll-456": {
+ "doll-455": {
   "guess": "daruma doll",
   "alternatives": [
    "red Easter egg with a face",
@@ -100,7 +100,7 @@
   "pack": "toys",
   "touched": false
  },
- "rocking-horse-457": {
+ "rocking-horse-456": {
   "guess": "rocking horse",
   "alternatives": [
    "gray horse lying down",
@@ -134,7 +134,7 @@
   "pack": "toys",
   "touched": false
  },
- "toy-train-458": {
+ "toy-train-457": {
   "guess": "blue steam train",
   "alternatives": [
    "toy train set on a shelf",
@@ -167,7 +167,7 @@
   "pack": "toys",
   "touched": false
  },
- "beach-ball-459": {
+ "beach-ball-458": {
   "guess": "beach ball",
   "alternatives": [
    "egg with colorful shell",
@@ -197,7 +197,7 @@
   "pack": "toys",
   "touched": false
  },
- "jigsaw-puzzle-460": {
+ "jigsaw-puzzle-459": {
   "guess": "colorful jigsaw puzzle pieces",
   "alternatives": [
    "paint splashes on a canvas",
@@ -227,7 +227,7 @@
   "pack": "toys",
   "touched": false
  },
- "toy-car-461": {
+ "toy-car-460": {
   "guess": "red toy car",
   "alternatives": [
    "red race car",
@@ -258,7 +258,7 @@
   "pack": "toys",
   "touched": false
  },
- "balloon-462": {
+ "balloon-461": {
   "guess": "hot air balloon",
   "alternatives": [
    "hot air balloon toy on a shelf",
@@ -288,7 +288,7 @@
   "pack": "toys",
   "touched": false
  },
- "rubber-duck-463": {
+ "rubber-duck-462": {
   "guess": "yellow rubber duck",
   "alternatives": [
    "baby chick",
@@ -326,7 +326,7 @@
    "agrees": true
   }
  },
- "toy-robot-464": {
+ "toy-robot-463": {
   "guess": "robot with a helmet",
   "alternatives": [
    "knight in armor",
@@ -360,7 +360,7 @@
   "pack": "toys",
   "touched": false
  },
- "pinwheel-465": {
+ "pinwheel-464": {
   "guess": "pinwheel",
   "alternatives": [
    "colorful star toy",
@@ -391,7 +391,7 @@
   "pack": "toys",
   "touched": false
  },
- "rubik-cube-466": {
+ "rubik-cube-465": {
   "guess": "Rubik's cube",
   "alternatives": [
    "colorful puzzle dice",
@@ -423,7 +423,7 @@
   "pack": "toys",
   "touched": false
  },
- "rag-doll-467": {
+ "rag-doll-466": {
   "guess": "girl with red hair in a blue dress",
   "alternatives": [
    "maid or waitress in a kitchen",
@@ -457,7 +457,7 @@
   "pack": "toys",
   "touched": false
  },
- "plush-bunny-468": {
+ "plush-bunny-467": {
   "guess": "white rabbit sitting with its back turned",
   "alternatives": [
    "white cat seen from behind",

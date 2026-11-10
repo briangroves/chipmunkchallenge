@@ -1,5 +1,5 @@
 {
- "dragon-469": {
+ "dragon-468": {
   "guess": "green dragon at night",
   "alternatives": [
    "green frog",
@@ -32,7 +32,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "unicorn-470": {
+ "unicorn-469": {
   "guess": "white unicorn (kawaii cat-unicorn)",
   "alternatives": [
    "white cat with a bow",
@@ -67,7 +67,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "wizard-471": {
+ "wizard-470": {
   "guess": "wizard with a staff",
   "alternatives": [
    "gnome",
@@ -104,7 +104,7 @@
    "agrees": true
   }
  },
- "fairy-472": {
+ "fairy-471": {
   "guess": "fairy with wings",
   "alternatives": [
    "angel",
@@ -137,7 +137,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "castle-473": {
+ "castle-472": {
   "guess": "crystal castle",
   "alternatives": [
    "rocket ship",
@@ -168,7 +168,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "mermaid-474": {
+ "mermaid-473": {
   "guess": "mermaid with long blonde hair holding a lyre",
   "alternatives": [
    "girl playing a harp",
@@ -201,7 +201,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "princess-475": {
+ "princess-474": {
   "guess": "blonde princess in a purple dress in the snow",
   "alternatives": [
    "girl skating on ice",
@@ -235,7 +235,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "crown-476": {
+ "crown-475": {
   "guess": "happy tooth wearing a crown",
   "alternatives": [
    "marshmallow king",
@@ -267,7 +267,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "magic-wand-477": {
+ "magic-wand-476": {
   "guess": "magic star wand",
   "alternatives": [
    "shooting star",
@@ -300,7 +300,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "treasure-chest-478": {
+ "treasure-chest-477": {
   "guess": "open treasure chest full of gold",
   "alternatives": [
    "red toy box",
@@ -330,7 +330,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "pegasus-479": {
+ "pegasus-478": {
   "guess": "white pegasus (winged horse)",
   "alternatives": [
    "white horse",
@@ -363,7 +363,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "crystal-ball-480": {
+ "crystal-ball-479": {
   "guess": "crystal ball",
   "alternatives": [
    "blue planet or moon in a crater",
@@ -394,7 +394,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "gnome-481": {
+ "gnome-480": {
   "guess": "garden gnome",
   "alternatives": [
    "Santa Claus",
@@ -427,7 +427,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "magic-carpet-482": {
+ "magic-carpet-481": {
   "guess": "purple magic carpet on desert sand",
   "alternatives": [
    "purple pillow or cushion",
@@ -457,7 +457,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "goblin-483": {
+ "goblin-482": {
   "guess": "green goblin with red bandana",
   "alternatives": [
    "orc pirate",
@@ -493,7 +493,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "griffin-484": {
+ "griffin-483": {
   "guess": "dark blue dragon or griffin with raised wing",
   "alternatives": [
    "blue bird spreading wing",
@@ -525,7 +525,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "enchanted-tree-485": {
+ "enchanted-tree-484": {
   "guess": "tree stump",
   "alternatives": [
    "groundhog standing up",
@@ -556,7 +556,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "magic-castle-486": {
+ "magic-castle-485": {
   "guess": "purple fairy-tale castle",
   "alternatives": [
    "crystal palace",
@@ -589,7 +589,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "prince-487": {
+ "prince-486": {
   "guess": "little king with a big golden crown",
   "alternatives": [
    "prince in a dungeon",
@@ -621,7 +621,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "king-488": {
+ "king-487": {
   "guess": "red monster with a crown attacking a city",
   "alternatives": [
    "giant red bird king (kaiju)",
@@ -654,7 +654,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "cute-dragon-489": {
+ "cute-dragon-488": {
   "guess": "green Yoshi-like dragon with red wings",
   "alternatives": [
    "green parrot flying",
@@ -685,7 +685,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "cute-unicorn-490": {
+ "cute-unicorn-489": {
   "guess": "white unicorn",
   "alternatives": [
    "white cat with a bow",
@@ -719,7 +719,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "cute-wizard-491": {
+ "cute-wizard-490": {
   "guess": "penguin wizard on a beach",
   "alternatives": [
    "penguin with a witch hat",
@@ -753,7 +753,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "cute-witch-492": {
+ "cute-witch-491": {
   "guess": "child in a purple witch costume with a pumpkin bucket",
   "alternatives": [
    "trick-or-treater in a wizard hat",
@@ -786,7 +786,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "cute-fairy-493": {
+ "cute-fairy-492": {
   "guess": "fairy with wings sitting on a leaf",
   "alternatives": [
    "tooth fairy",
@@ -817,7 +817,7 @@
   "pack": "fantasy",
   "touched": false
  },
- "golden-crown-494": {
+ "golden-crown-493": {
   "guess": "golden crown",
   "alternatives": [
    "orange monster face",

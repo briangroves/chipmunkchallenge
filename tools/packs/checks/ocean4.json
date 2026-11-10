@@ -1,5 +1,5 @@
 {
- "cartoon-fish-978": {
+ "cartoon-fish-977": {
   "guess": "goldfish",
   "alternatives": [
    "orange fish",
@@ -32,7 +32,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-octopus-979": {
+ "cartoon-octopus-978": {
   "guess": "octopus",
   "alternatives": [
    "squid",
@@ -64,7 +64,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-crab-980": {
+ "cartoon-crab-979": {
   "guess": "red crab",
   "alternatives": [
    "red lobster",
@@ -98,7 +98,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-shark-981": {
+ "cartoon-shark-980": {
   "guess": "shark on the sea floor",
   "alternatives": [
    "whale",
@@ -130,7 +130,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-dolphin-982": {
+ "cartoon-dolphin-981": {
   "guess": "jumping dolphin",
   "alternatives": [
    "shark",
@@ -162,7 +162,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-seahorse-983": {
+ "cartoon-seahorse-982": {
   "guess": "seahorse",
   "alternatives": [
    "duck",
@@ -193,7 +193,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-jellyfish-984": {
+ "cartoon-jellyfish-983": {
   "guess": "penguin wearing a jellyfish/blue hat at the beach",
   "alternatives": [
    "penguin with a blue helmet",
@@ -226,7 +226,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-starfish-985": {
+ "cartoon-starfish-984": {
   "guess": "smiling starfish",
   "alternatives": [
    "sea star cookie",
@@ -257,7 +257,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-whale-986": {
+ "cartoon-whale-985": {
   "guess": "blue whale",
   "alternatives": [
    "seal",
@@ -290,7 +290,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-sea-turtle-987": {
+ "cartoon-sea-turtle-986": {
   "guess": "sea turtle swimming",
   "alternatives": [
    "tortoise",
@@ -322,7 +322,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-clownfish-988": {
+ "cartoon-clownfish-987": {
   "guess": "clownfish",
   "alternatives": [
    "goldfish",
@@ -356,7 +356,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-lobster-989": {
+ "cartoon-lobster-988": {
   "guess": "red lobster on the seabed",
   "alternatives": [
    "crab",
@@ -389,38 +389,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-squid-990": {
-  "guess": "red squid",
-  "alternatives": [
-   "octopus",
-   "red blob monster"
-  ],
-  "readability": 3,
-  "features": [
-   "tall rounded red body",
-   "single large eye",
-   "short dark tentacles at bottom",
-   "underwater bubbles",
-   "sandy seabed with seaweed"
-  ],
-  "problems": [
-   "tentacles are tiny and hard to see",
-   "body is a plain blob shape",
-   "only one eye, no clear mouth",
-   "dark outline tentacles blend into body"
-  ],
-  "digest": "c7c287b00b71ef4e",
-  "grade": "pass",
-  "score": 72,
-  "colors": 16,
-  "black": 0.019,
-  "biggest_patch": 0.229,
-  "theme": "Kelp forest",
-  "name": "Cartoon Squid",
-  "pack": "ocean4",
-  "touched": false
- },
- "cartoon-seal-991": {
+ "cartoon-seal-989": {
   "guess": "seal lying on the beach",
   "alternatives": [
    "sea lion",
@@ -451,7 +420,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-submarine-992": {
+ "cartoon-submarine-990": {
   "guess": "yellow and blue submarine underwater",
   "alternatives": [
    "toy boat",
@@ -483,7 +452,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-treasure-chest-993": {
+ "cartoon-treasure-chest-991": {
   "guess": "open treasure chest underwater",
   "alternatives": [
    "sunken pirate chest with jewels",
@@ -516,7 +485,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-shell-994": {
+ "cartoon-shell-992": {
   "guess": "yellow chick in an eggshell underwater",
   "alternatives": [
    "yellow duckling on a rock",
@@ -549,7 +518,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-diver-995": {
+ "cartoon-diver-993": {
   "guess": "scuba diver swimming underwater",
   "alternatives": [
    "snorkeler",
@@ -582,7 +551,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-walrus-996": {
+ "cartoon-walrus-994": {
   "guess": "walrus",
   "alternatives": [
    "sea lion",
@@ -614,7 +583,7 @@
   "pack": "ocean4",
   "touched": false
  },
- "cartoon-shrimp-997": {
+ "cartoon-shrimp-995": {
   "guess": "red sea creature (shrimp or lobster) underwater",
   "alternatives": [
    "red fish",

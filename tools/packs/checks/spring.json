@@ -1,5 +1,5 @@
 {
- "easter-egg-512": {
+ "easter-egg-511": {
   "guess": "Easter chicks in a basket with eggs",
   "alternatives": [
    "yellow chicks with Easter eggs",
@@ -32,7 +32,7 @@
   "pack": "spring",
   "touched": false
  },
- "easter-bunny-513": {
+ "easter-bunny-512": {
   "guess": "chocolate Easter bunny",
   "alternatives": [
    "brown rabbit in a box",
@@ -65,7 +65,7 @@
   "pack": "spring",
   "touched": false
  },
- "chick-514": {
+ "chick-513": {
   "guess": "yellow chick in a red egg",
   "alternatives": [
    "duckling hatching",
@@ -98,7 +98,7 @@
   "pack": "spring",
   "touched": false
  },
- "tulip-515": {
+ "tulip-514": {
   "guess": "yellow tulip at sunset",
   "alternatives": [
    "yellow rose",
@@ -129,7 +129,7 @@
   "pack": "spring",
   "touched": false
  },
- "rainbow-516": {
+ "rainbow-515": {
   "guess": "rainbow heart",
   "alternatives": [
    "heart-shaped balloon",
@@ -158,7 +158,7 @@
   "pack": "spring",
   "touched": false
  },
- "rain-boots-517": {
+ "rain-boots-516": {
   "guess": "pair of purple rain boots",
   "alternatives": [
    "purple socks",
@@ -188,7 +188,7 @@
   "pack": "spring",
   "touched": false
  },
- "lamb-518": {
+ "lamb-517": {
   "guess": "sleeping sheep",
   "alternatives": [
    "cloud with a face",
@@ -223,7 +223,7 @@
   "pack": "spring",
   "touched": false
  },
- "bird-nest-519": {
+ "bird-nest-518": {
   "guess": "yellow duck in a nest",
   "alternatives": [
    "chick on a log",
@@ -258,7 +258,7 @@
   "pack": "spring",
   "touched": false
  },
- "watering-can-520": {
+ "watering-can-519": {
   "guess": "green watering can",
   "alternatives": [
    "green teapot",
@@ -290,7 +290,7 @@
   "pack": "spring",
   "touched": false
  },
- "cherry-blossom-521": {
+ "cherry-blossom-520": {
   "guess": "cherry blossom branch at night",
   "alternatives": [
    "apple blossom tree",
@@ -321,7 +321,7 @@
   "pack": "spring",
   "touched": false
  },
- "garden-gnome-522": {
+ "garden-gnome-521": {
   "guess": "garden gnome",
   "alternatives": [
    "Santa Claus",
@@ -354,7 +354,7 @@
   "pack": "spring",
   "touched": false
  },
- "rain-cloud-523": {
+ "rain-cloud-522": {
   "guess": "rain cloud watering grass",
   "alternatives": [
    "fluffy white sheep",
@@ -386,7 +386,7 @@
   "pack": "spring",
   "touched": false
  },
- "frog-524": {
+ "frog-523": {
   "guess": "smiling green frog",
   "alternatives": [
    "toad",
@@ -419,7 +419,7 @@
   "pack": "spring",
   "touched": false
  },
- "bunny-525": {
+ "bunny-524": {
   "guess": "white bunny (lop-eared rabbit)",
   "alternatives": [
    "white puppy",
@@ -453,7 +453,7 @@
   "pack": "spring",
   "touched": false
  },
- "seedling-526": {
+ "seedling-525": {
   "guess": "sprouting seedling in soil",
   "alternatives": [
    "small tree growing from dirt mound",
@@ -483,7 +483,7 @@
   "pack": "spring",
   "touched": false
  },
- "flower-pot-527": {
+ "flower-pot-526": {
   "guess": "flower pot with purple and red flowers",
   "alternatives": [
    "potted plant on a windowsill",
@@ -516,7 +516,7 @@
   "pack": "spring",
   "touched": false
  },
- "baby-duck-528": {
+ "baby-duck-527": {
   "guess": "yellow rubber duck",
   "alternatives": [
    "baby chick",
@@ -547,7 +547,7 @@
   "pack": "spring",
   "touched": false
  },
- "clover-529": {
+ "clover-528": {
   "guess": "four-leaf clover",
   "alternatives": [
    "shamrock",
@@ -578,7 +578,7 @@
   "pack": "spring",
   "touched": false
  },
- "calf-530": {
+ "calf-529": {
   "guess": "cow and calf on a beach at sunset",
   "alternatives": [
    "dairy cows resting on sand",
@@ -613,7 +613,7 @@
   "pack": "spring",
   "touched": false
  },
- "piglet-531": {
+ "piglet-530": {
   "guess": "red and pink cartoon pig or piglet",
   "alternatives": [
    "pink teddy bear",
@@ -645,7 +645,7 @@
   "pack": "spring",
   "touched": false
  },
- "foal-532": {
+ "foal-531": {
   "guess": "horse and foal in a meadow",
   "alternatives": [
    "two ponies lying in grass",
@@ -679,7 +679,7 @@
   "pack": "spring",
   "touched": false
  },
- "horse-running-533": {
+ "horse-running-532": {
   "guess": "purple pony running in a meadow",
   "alternatives": [
    "unicorn",
@@ -712,7 +712,7 @@
   "pack": "spring",
   "touched": false
  },
- "egg-basket-534": {
+ "egg-basket-533": {
   "guess": "cow with a picnic basket",
   "alternatives": [
    "dog with a basket of food",
@@ -747,7 +747,7 @@
   "pack": "spring",
   "touched": false
  },
- "red-tractor-535": {
+ "red-tractor-534": {
   "guess": "red tractor",
   "alternatives": [
    "farm truck",

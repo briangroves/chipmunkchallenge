@@ -1,5 +1,5 @@
 {
- "robot-706": {
+ "robot-705": {
   "guess": "white robot head / helmet on a stand",
   "alternatives": [
    "desk fan",
@@ -31,7 +31,7 @@
   "pack": "tech",
   "touched": false
  },
- "computer-707": {
+ "computer-706": {
   "guess": "old computer monitor",
   "alternatives": [
    "television set",
@@ -63,7 +63,7 @@
   "pack": "tech",
   "touched": false
  },
- "camera-708": {
+ "camera-707": {
   "guess": "blue camera",
   "alternatives": [
    "photo camera with flash",
@@ -95,7 +95,7 @@
   "pack": "tech",
   "touched": false
  },
- "game-controller-709": {
+ "game-controller-708": {
   "guess": "white video game controller",
   "alternatives": [
    "gamepad joystick",
@@ -127,7 +127,7 @@
   "pack": "tech",
   "touched": false
  },
- "magnet-710": {
+ "magnet-709": {
   "guess": "red horseshoe magnet",
   "alternatives": [
    "red arch sculpture",
@@ -158,7 +158,7 @@
   "pack": "tech",
   "touched": false
  },
- "keyboard-711": {
+ "keyboard-710": {
   "guess": "electronic keyboard (piano)",
   "alternatives": [
    "piano",
@@ -188,7 +188,7 @@
   "pack": "tech",
   "touched": false
  },
- "alarm-clock-712": {
+ "alarm-clock-711": {
   "guess": "green alarm clock at night in the city",
   "alternatives": [
    "turtle with white shell",
@@ -223,7 +223,7 @@
   "pack": "tech",
   "touched": false
  },
- "printer-713": {
+ "printer-712": {
   "guess": "white 3D printer",
   "alternatives": [
    "photocopier",
@@ -254,7 +254,7 @@
   "pack": "tech",
   "touched": false
  },
- "speaker-714": {
+ "speaker-713": {
   "guess": "loudspeaker",
   "alternatives": [
    "bear head",
@@ -284,7 +284,7 @@
   "pack": "tech",
   "touched": false
  },
- "video-camera-715": {
+ "video-camera-714": {
   "guess": "fiery movie camera / film projector",
   "alternatives": [
    "video play button with flames",
@@ -316,7 +316,7 @@
   "pack": "tech",
   "touched": false
  },
- "joystick-716": {
+ "joystick-715": {
   "guess": "arcade joystick / game controller",
   "alternatives": [
    "robot face",
@@ -347,7 +347,7 @@
   "pack": "tech",
   "touched": false
  },
- "floppy-disk-717": {
+ "floppy-disk-716": {
   "guess": "floppy disk",
   "alternatives": [
    "cassette tape",
@@ -376,7 +376,7 @@
   "pack": "tech",
   "touched": false
  },
- "walkie-talkie-718": {
+ "walkie-talkie-717": {
   "guess": "walkie-talkie radio",
   "alternatives": [
    "fire hydrant",
@@ -409,7 +409,7 @@
   "pack": "tech",
   "touched": false
  },
- "telephone-719": {
+ "telephone-718": {
   "guess": "red rotary telephone",
   "alternatives": [
    "red donut",
@@ -440,7 +440,7 @@
   "pack": "tech",
   "touched": false
  },
- "webcam-720": {
+ "webcam-719": {
   "guess": "webcam",
   "alternatives": [
    "robot head",
@@ -471,7 +471,7 @@
   "pack": "tech",
   "touched": false
  },
- "mouse-computer-721": {
+ "mouse-computer-720": {
   "guess": "computer mouse",
   "alternatives": [
    "urinal",
@@ -502,7 +502,7 @@
   "pack": "tech",
   "touched": false
  },
- "retro-robot-722": {
+ "retro-robot-721": {
   "guess": "armored robot knight sitting at a bar",
   "alternatives": [
    "Halo-style space soldier",

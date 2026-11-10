@@ -1,0 +1,681 @@
+{
+ "forest-1": {
+  "guess": "white bunny rabbit at sunset",
+  "alternatives": [
+   "hare",
+   "white cat with long ears"
+  ],
+  "readability": 5,
+  "features": [
+   "long upright ears with pink inside",
+   "face with brown eyes",
+   "pink cheeks",
+   "grey nose/muzzle area",
+   "round white body",
+   "feet at bottom",
+   "carrots on the grass beside it",
+   "sunset striped sky",
+   "grass ground"
+  ],
+  "problems": [
+   "muzzle grey patch is a bit blobby",
+   "eyes look grumpy/half-closed",
+   "body outline vague around arms",
+   "carrots small and dark, partly blend into grass"
+  ],
+  "digest": "a782fb7685b866d9",
+  "grade": "fail",
+  "score": 50,
+  "colors": 13,
+  "black": 0.138,
+  "biggest_patch": 0.088,
+  "theme": null,
+  "name": "Bunny in the carrot patch",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-2": {
+  "guess": "bunny rabbit sitting in a garden",
+  "alternatives": [
+   "hamster",
+   "puppy"
+  ],
+  "readability": 4,
+  "features": [
+   "tall upright ears with pink insides",
+   "face with dark eyes",
+   "pink cheeks and pink nose",
+   "tan and white fur",
+   "white belly",
+   "front paws and feet",
+   "white picket fence",
+   "sun",
+   "flowers and grass"
+  ],
+  "problems": [
+   "ears reach the top edge and are partly cropped",
+   "dark outline blocks inside the face make the eyes and mouth a bit noisy",
+   "white belly and feet blend with the white fence"
+  ],
+  "digest": "c7f32bbb7f7566f8",
+  "grade": "fail",
+  "score": 44,
+  "colors": 13,
+  "black": 0.166,
+  "biggest_patch": 0.088,
+  "theme": null,
+  "name": "Bunny with a flower crown",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-3": {
+  "guess": "white bunny rabbit in an autumn forest",
+  "alternatives": [
+   "hare",
+   "white cat"
+  ],
+  "readability": 4,
+  "features": [
+   "tall upright ears with pink insides",
+   "round white head",
+   "dark eyes with brows",
+   "pink nose",
+   "pink cheeks",
+   "white body",
+   "small bird in the sky",
+   "red and orange autumn trees",
+   "carrot on the ground"
+  ],
+  "problems": [
+   "grey shading on the face looks patchy and messy",
+   "the body is a blocky white mass with no clear arms or legs",
+   "the busy, speckled leaf-covered ground clutters the lower half",
+   "the eyes look squinty or angry and are hard to read"
+  ],
+  "digest": "73164946e4abbe63",
+  "grade": "fail",
+  "score": 36,
+  "colors": 14,
+  "black": 0.204,
+  "biggest_patch": 0.066,
+  "theme": null,
+  "name": "Bunny peeking from a burrow",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-4": {
+  "guess": "red panda in a hot spring",
+  "alternatives": [
+   "fox in a bathtub",
+   "lion in water"
+  ],
+  "readability": 3,
+  "features": [
+   "round orange head",
+   "white eye patches with dark eyes",
+   "brown muzzle and nose",
+   "small dark ears",
+   "yellow paws on the tub edge",
+   "blue water pool",
+   "pine trees and snowy mountains behind",
+   "clouds in the sky"
+  ],
+  "problems": [
+   "orange head merges with the red-orange body into one blob",
+   "face markings are small and hard to read at this size",
+   "ears blend into the dark trees",
+   "busy background with trees, mountains and clouds competes with the subject",
+   "the pool takes up the lower part of the picture and hides the body"
+  ],
+  "digest": "e3f47970daa688f3",
+  "grade": "pass",
+  "score": 88,
+  "colors": 12,
+  "black": 0.199,
+  "biggest_patch": 0.134,
+  "theme": null,
+  "name": "Capybara in a hot spring",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-5": {
+  "guess": "Tepig (orange fire pig Pok\u00e9mon)",
+  "alternatives": [
+   "orange bear cub sitting",
+   "red panda"
+  ],
+  "readability": 3,
+  "features": [
+   "round orange head",
+   "two small dark ears",
+   "eyes with white highlights",
+   "brown snout/nose",
+   "red collar band",
+   "dark front paws/arms",
+   "plump orange body",
+   "brown feet",
+   "flame-like tuft on top of head"
+  ],
+  "problems": [
+   "body is a big orange blob with little shape definition",
+   "snout is small and could read as a bear muzzle",
+   "purple background stripes and busy pond/rock details distract",
+   "flame on head is ambiguous"
+  ],
+  "digest": "70fce2a16c68b0df",
+  "grade": "fail",
+  "score": 38,
+  "colors": 14,
+  "black": 0.141,
+  "biggest_patch": 0.269,
+  "theme": null,
+  "name": "Capybara and a duckling",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-6": {
+  "guess": "child in orange raincoat under a leaf umbrella",
+  "alternatives": [
+   "Totoro-like creature holding a leaf",
+   "bear cub in a yellow hood"
+  ],
+  "readability": 3,
+  "features": [
+   "green leaf umbrella with stem",
+   "orange and yellow hooded cloak",
+   "brown face with dark eyes",
+   "red scarf",
+   "brown hands",
+   "brown feet",
+   "grass ground and sky background"
+  ],
+  "problems": [
+   "face is small and dark, hard to read",
+   "body is a big orange blob with little shape",
+   "leaf umbrella could be mistaken for a hat",
+   "grey band behind blends with dark outline"
+  ],
+  "digest": "9e0c9f6eb7b507ae",
+  "grade": "pass",
+  "score": 80,
+  "colors": 11,
+  "black": 0.138,
+  "biggest_patch": 0.232,
+  "theme": null,
+  "name": "Capybara under a leaf umbrella",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-7": {
+  "guess": "orange and white hamster",
+  "alternatives": [
+   "cat",
+   "fox"
+  ],
+  "readability": 3,
+  "features": [
+   "round face with closed/squinting eyes",
+   "pink cheeks",
+   "small round ears with pink insides",
+   "white belly",
+   "orange and white fur",
+   "tiny paws",
+   "tail on right side",
+   "red collar or scarf"
+  ],
+  "problems": [
+   "busy background with orange shapes blending into the body",
+   "eyes are thin dark lines and hard to read",
+   "body outline merges with brown ground and side objects",
+   "clutter on left (red mushroom/rock) distracts"
+  ],
+  "digest": "e9722cd85e627d81",
+  "grade": "fail",
+  "score": 38,
+  "colors": 13,
+  "black": 0.206,
+  "biggest_patch": 0.087,
+  "theme": null,
+  "name": "Chipmunk with full cheeks",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-8": {
+  "guess": "red panda sitting in a wooden barrel",
+  "alternatives": [
+   "fox in a bucket",
+   "raccoon in a basket"
+  ],
+  "readability": 3,
+  "features": [
+   "orange head with pointed ears",
+   "eye patches and white muzzle",
+   "dark nose",
+   "white chest/apron",
+   "long curled orange tail",
+   "wooden barrel with red bands",
+   "small round objects on grass"
+  ],
+  "problems": [
+   "face is small and eyes are hard to read",
+   "white chest looks like clothing, confusing the body",
+   "yellow ear tips blend with head",
+   "side objects on grass are unclear"
+  ],
+  "digest": "a22808e8bdc7e3d1",
+  "grade": "fail",
+  "score": 38,
+  "colors": 12,
+  "black": 0.169,
+  "biggest_patch": 0.251,
+  "theme": null,
+  "name": "Chipmunk on a stump",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-9": {
+  "guess": "corgi dog sitting on a log",
+  "alternatives": [
+   "fox on a log",
+   "red panda on a tree stump"
+  ],
+  "readability": 3,
+  "features": [
+   "big pointed ears with white tips",
+   "orange and white face",
+   "dark eyes",
+   "nose and open mouth",
+   "white chest",
+   "front legs and paws",
+   "brown log below",
+   "grass ground"
+  ],
+  "problems": [
+   "face details are tiny and crowded",
+   "ears are floating apart from the head",
+   "orange, yellow and red patches make the head look busy",
+   "body blends with the log outline"
+  ],
+  "digest": "71891ee38aabb368",
+  "grade": "pass",
+  "score": 88,
+  "colors": 13,
+  "black": 0.15,
+  "biggest_patch": 0.159,
+  "theme": null,
+  "name": "Chipmunk peeking from a log",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-10": {
+  "guess": "brown dog (shiba-like) holding pink treats",
+  "alternatives": [
+   "raccoon",
+   "bear cub"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed ears",
+   "big eyes with highlights",
+   "pink cheeks",
+   "dark nose and open mouth",
+   "tan belly",
+   "paws holding pink-red items",
+   "fluffy tail on right",
+   "clouds/candy in sky"
+  ],
+  "problems": [
+   "busy cluttered scene with many small objects",
+   "pink/red items obscure the body and paws",
+   "tail and body blend into one big brown blob",
+   "messy ground pixels at bottom",
+   "dark outlines make face details crowded"
+  ],
+  "digest": "ed264e8ef5f12eb7",
+  "grade": "fail",
+  "score": 38,
+  "colors": 11,
+  "black": 0.221,
+  "biggest_patch": 0.164,
+  "theme": null,
+  "name": "Squirrel with an acorn",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-11": {
+  "guess": "squirrel sitting on a branch",
+  "alternatives": [
+   "cat",
+   "raccoon"
+  ],
+  "readability": 4,
+  "features": [
+   "pointed ears",
+   "face with eyes",
+   "light belly",
+   "big curled bushy tail",
+   "paws",
+   "tree branch with green leaves",
+   "sky background"
+  ],
+  "problems": [
+   "face is small and the eyes are a bit unclear",
+   "tail curls up behind the head and merges with the body outline",
+   "ears look cat-like"
+  ],
+  "digest": "031e65021be9a47d",
+  "grade": "pass",
+  "score": 94,
+  "colors": 7,
+  "black": 0.164,
+  "biggest_patch": 0.249,
+  "theme": null,
+  "name": "Squirrel on a branch",
+  "pack": "orig-forest",
+  "touched": false,
+  "verify": {
+   "guess": "squirrel sitting on a branch",
+   "score": 94,
+   "agrees": true
+  }
+ },
+ "forest-12": {
+  "guess": "squirrel sitting on a log",
+  "alternatives": [
+   "fox",
+   "raccoon"
+  ],
+  "readability": 3,
+  "features": [
+   "pointed ears",
+   "face with eyes and white muzzle",
+   "dark eye mask",
+   "big curled bushy tail with white tip",
+   "arms and legs",
+   "brown and tan fur",
+   "wooden base or log"
+  ],
+  "problems": [
+   "face is small and cluttered with dark patches",
+   "body shape is blobby with patchy tan and brown areas",
+   "pose is hard to read",
+   "tail and body run together"
+  ],
+  "digest": "7e6800d289fc479a",
+  "grade": "fail",
+  "score": 38,
+  "colors": 7,
+  "black": 0.156,
+  "biggest_patch": 0.276,
+  "theme": null,
+  "name": "Squirrel and the nut stash",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-13": {
+  "guess": "llama",
+  "alternatives": [
+   "alpaca",
+   "goat"
+  ],
+  "readability": 3,
+  "features": [
+   "long neck",
+   "head with ears",
+   "eye",
+   "snout",
+   "four long legs",
+   "white and brown patchy coat",
+   "short tail",
+   "red-pink hat or object above head"
+  ],
+  "problems": [
+   "head is small and jagged, hard to read the face",
+   "pink object floating above head is confusing",
+   "busy striped sunset background with similar pinks and browns",
+   "body colors blend with background stripes"
+  ],
+  "digest": "5e731dcffba844f7",
+  "grade": "fail",
+  "score": 38,
+  "colors": 15,
+  "black": 0.126,
+  "biggest_patch": 0.151,
+  "theme": null,
+  "name": "Doe in a meadow",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-14": {
+  "guess": "pinto horse at sunset",
+  "alternatives": [
+   "llama",
+   "goat"
+  ],
+  "readability": 3,
+  "features": [
+   "long neck",
+   "head with ear",
+   "dark eye area",
+   "brown and white patched body",
+   "four tan legs",
+   "mane"
+  ],
+  "problems": [
+   "head shape is blocky and hard to read",
+   "legs look like pillars standing on a gray slab",
+   "busy striped sunset background competes with the subject",
+   "no clear tail",
+   "small floating objects distract"
+  ],
+  "digest": "9a25ed900f44bf04",
+  "grade": "fail",
+  "score": 30,
+  "colors": 15,
+  "black": 0.15,
+  "biggest_patch": 0.177,
+  "theme": null,
+  "name": "Fawn and butterflies",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-15": {
+  "guess": "camel in the snow",
+  "alternatives": [
+   "llama",
+   "horse"
+  ],
+  "readability": 3,
+  "features": [
+   "long curved neck",
+   "head with eye and snout",
+   "ears",
+   "body with snow on back",
+   "four long legs",
+   "snowy pine trees",
+   "night sky with stars and moon"
+  ],
+  "problems": [
+   "head and neck look oddly shaped and twisted",
+   "no clear hump, so it could be a horse or llama",
+   "snow patches on the body break up its outline",
+   "dark outlines merge with the trees"
+  ],
+  "digest": "4a8271ec3373be57",
+  "grade": "pass",
+  "score": 84,
+  "colors": 12,
+  "black": 0.16,
+  "biggest_patch": 0.339,
+  "theme": null,
+  "name": "Deer in the snow",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-16": {
+  "guess": "raccoon in a forest at night",
+  "alternatives": [
+   "panda",
+   "cat"
+  ],
+  "readability": 3,
+  "features": [
+   "round head with pointed ears",
+   "dark eye mask with brown eyes",
+   "white muzzle",
+   "gray and white body",
+   "striped ringed tail on the right",
+   "yellow crescent moon",
+   "tree trunks and grass"
+  ],
+  "problems": [
+   "dark outline and tail blend into the dark night background",
+   "eyes look sleepy and are hard to read",
+   "second yellow moon shape on the chest is confusing",
+   "black and white coloring could suggest a panda"
+  ],
+  "digest": "90ca8975514454a4",
+  "grade": "fail",
+  "score": 34,
+  "colors": 8,
+  "black": 0.266,
+  "biggest_patch": 0.086,
+  "theme": null,
+  "name": "Raccoon with a lantern",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-17": {
+  "guess": "brown teddy bear with a honey jar",
+  "alternatives": [
+   "raccoon",
+   "tanuki"
+  ],
+  "readability": 4,
+  "features": [
+   "round head",
+   "rounded ears with light inner ear",
+   "big eyes",
+   "nose and mouth",
+   "light muzzle",
+   "light belly",
+   "sitting legs and feet",
+   "arm resting on a jar/box",
+   "background of orange sky, yellow, white clouds and green grass"
+  ],
+  "problems": [
+   "dark patches around the eyes look raccoon-like",
+   "the object beside it is ambiguous (honey jar or box) and its orange/yellow colors blend with the sky",
+   "the arm and body outlines are a bit blobby"
+  ],
+  "digest": "8f8a55f4bffb29b6",
+  "grade": "pass",
+  "score": 94,
+  "colors": 9,
+  "black": 0.133,
+  "biggest_patch": 0.307,
+  "theme": null,
+  "name": "Bear cub and honey",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-18": {
+  "guess": "beaver in water",
+  "alternatives": [
+   "otter",
+   "bear cub swimming"
+  ],
+  "readability": 3,
+  "features": [
+   "round brown head",
+   "ears",
+   "two eyes",
+   "buck teeth",
+   "tan belly",
+   "log/dam pieces beside it",
+   "water and sky background"
+  ],
+  "problems": [
+   "eyes look uneven and odd",
+   "no visible flat tail",
+   "logs on left are a confusing mass of brown and red stripes",
+   "body blends into brown logs"
+  ],
+  "digest": "4b286e9d76e1fc64",
+  "grade": "fail",
+  "score": 26,
+  "colors": 8,
+  "black": 0.161,
+  "biggest_patch": 0.255,
+  "theme": null,
+  "name": "Beaver building a dam",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-19": {
+  "guess": "owl portrait on a wooden plaque",
+  "alternatives": [
+   "badger face",
+   "bearded old man with mask"
+  ],
+  "readability": 2,
+  "features": [
+   "dark rounded head outline",
+   "pointed ear tufts",
+   "white face patch",
+   "one dark eye",
+   "pale belly/chest",
+   "white wings at sides",
+   "brown wooden frame"
+  ],
+  "problems": [
+   "face is confusing, eyes not clearly drawn",
+   "white and tan shapes look like a beard or mask",
+   "no visible beak",
+   "grey shading patches add noise",
+   "subject blends with dark oval border"
+  ],
+  "digest": "6bb418d58140df4b",
+  "grade": "fail",
+  "score": 28,
+  "colors": 9,
+  "black": 0.226,
+  "biggest_patch": 0.282,
+  "theme": null,
+  "name": "Owlet in a tree hollow",
+  "pack": "orig-forest",
+  "touched": false
+ },
+ "forest-20": {
+  "guess": "a cat and a horse together",
+  "alternatives": [
+   "dog and deer",
+   "fox and goat"
+  ],
+  "readability": 2,
+  "features": [
+   "orange-yellow cat-like creature on left with face and ears",
+   "brown and white horse/deer-like animal on right with long neck and head",
+   "horse has four legs",
+   "red flower or bow on horse's head",
+   "grass ground and pink/purple sky"
+  ],
+  "problems": [
+   "two animals overlap and merge into one cluttered shape",
+   "horse head and neck are hard to separate from the cat",
+   "cat's face is small and busy with many colors",
+   "horse body is boxy and the legs look like bars",
+   "white parts blend into the white background band"
+  ],
+  "digest": "39200294ed15ad11",
+  "grade": "fail",
+  "score": 24,
+  "colors": 12,
+  "black": 0.155,
+  "biggest_patch": 0.371,
+  "theme": null,
+  "name": "Chipmunk meets the doe",
+  "pack": "orig-forest",
+  "touched": false
+ }
+}

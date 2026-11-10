@@ -1,0 +1,642 @@
+{
+ "cities-1": {
+  "guess": "Eiffel Tower at sunset",
+  "alternatives": [
+   "giraffe neck",
+   "radio tower"
+  ],
+  "readability": 4,
+  "features": [
+   "tapering lattice tower shape",
+   "wide arched base with two legs",
+   "checkered brown/tan lattice pattern",
+   "clouds near the top",
+   "sunset sky stripes",
+   "city buildings in background"
+  ],
+  "problems": [
+   "top is obscured by clouds so the spire is hidden",
+   "brown patchy pattern could read like giraffe spots",
+   "base arch is small and not very distinct",
+   "busy striped background competes with the subject"
+  ],
+  "digest": "624406448d56eb93",
+  "grade": "fail",
+  "score": 32,
+  "colors": 12,
+  "black": 0.077,
+  "biggest_patch": 0.079,
+  "theme": null,
+  "name": "Paris",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-2": {
+  "guess": "lighthouse at night by the sea",
+  "alternatives": [
+   "tower in a city at night",
+   "castle tower with a green roof"
+  ],
+  "readability": 4,
+  "features": [
+   "tall beige tower with brown shading",
+   "small brown windows",
+   "orange lantern room top",
+   "green pointed roof",
+   "white light beam glowing near the top",
+   "crescent moon and stars",
+   "dark blue sea or buildings with yellow lights on both sides",
+   "light blue water stripe at the bottom"
+  ],
+  "problems": [
+   "the blue areas with yellow dots look more like city buildings with lit windows than sea",
+   "the light beam is white blob shapes and hard to read",
+   "the lantern sits below the roof but its light appears lower on the tower body, which is confusing",
+   "the green roof is unusual for a lighthouse"
+  ],
+  "digest": "fce543d809d3ca02",
+  "grade": "fail",
+  "score": 32,
+  "colors": 9,
+  "black": 0.479,
+  "biggest_patch": 0.466,
+  "theme": null,
+  "name": "London",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-3": {
+  "guess": "Statue of Liberty",
+  "alternatives": [
+   "green giant waving on a rock",
+   "green monster splashing in the sea"
+  ],
+  "readability": 3,
+  "features": [
+   "raised arm holding torch",
+   "green robed body",
+   "head with crown hint",
+   "rocky island base",
+   "water splashes",
+   "clouds and sky",
+   "wooden dock"
+  ],
+  "problems": [
+   "head and crown are tiny and unclear",
+   "torch is just a dark tip, hard to read",
+   "body is blobby green mass with arms spread oddly",
+   "green land strip blends with statue color",
+   "white splash blobs look like clouds or eggs"
+  ],
+  "digest": "8b5bd23b52cd51a3",
+  "grade": "fail",
+  "score": 18,
+  "colors": 12,
+  "black": 0.146,
+  "biggest_patch": 0.12,
+  "theme": null,
+  "name": "New York",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-4": {
+  "guess": "tall skyscraper at night",
+  "alternatives": [
+   "waterfall",
+   "leaning tower"
+  ],
+  "readability": 3,
+  "features": [
+   "tall white/grey building with window rows",
+   "dark outline",
+   "night sky with stars",
+   "street lamps on both sides",
+   "small green tree",
+   "pavement/ground at bottom"
+  ],
+  "problems": [
+   "building is wavy and tapered so it looks like a waterfall or rock",
+   "windows are irregular and faint",
+   "odd purple band behind makes scene confusing",
+   "top of building merges with dark shapes in sky"
+  ],
+  "digest": "9c2b26b70089d219",
+  "grade": "fail",
+  "score": 18,
+  "colors": 12,
+  "black": 0.181,
+  "biggest_patch": 0.265,
+  "theme": null,
+  "name": "Pisa",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-5": {
+  "guess": "desert mountains with sun",
+  "alternatives": [
+   "volcano landscape",
+   "sand dunes / pyramids"
+  ],
+  "readability": 4,
+  "features": [
+   "two pointed peaks with white highlights",
+   "shaded left and right sides",
+   "round sun in the sky",
+   "dark horizon line",
+   "orange ground with red patches below"
+  ],
+  "problems": [
+   "orange/yellow colors make mountains look like pyramids or sand dunes",
+   "white tips read more as highlights than snow",
+   "ground strip is busy and abstract"
+  ],
+  "digest": "99e349c5eeb3e5a6",
+  "grade": "fail",
+  "score": 24,
+  "colors": 6,
+  "black": 0.073,
+  "biggest_patch": 0.544,
+  "theme": null,
+  "name": "Cairo",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-6": {
+  "guess": "Sydney Opera House",
+  "alternatives": [
+   "sailboat on water",
+   "white seashells on a dock"
+  ],
+  "readability": 4,
+  "features": [
+   "white sail-shaped shells of the roof",
+   "grey base",
+   "tan/brown platform",
+   "blue water with waves",
+   "sunset sky with purple and pink bands",
+   "moon",
+   "yellow sun",
+   "wooden pier in corner"
+  ],
+  "problems": [
+   "children may not know the landmark and see it as sails or a boat",
+   "shells overlap and blend with grey/white tones",
+   "busy striped sky distracts",
+   "small pier and moon details are hard to read"
+  ],
+  "digest": "15f6ae4df15634ca",
+  "grade": "pass",
+  "score": 74,
+  "colors": 14,
+  "black": 0.145,
+  "biggest_patch": 0.16,
+  "theme": null,
+  "name": "Sydney",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-7": {
+  "guess": "red Japanese pagoda at night",
+  "alternatives": [
+   "lighthouse",
+   "Chinese temple tower"
+  ],
+  "readability": 4,
+  "features": [
+   "stacked red roof tiers with upturned eaves",
+   "white and red striped walls/windows",
+   "wide red base",
+   "night sky with stars and crescent moon",
+   "blue water with waves around"
+  ],
+  "problems": [
+   "bottom base looks like a boat or blob",
+   "striped walls could suggest a lighthouse",
+   "blue background with yellow dots is busy and confusing"
+  ],
+  "digest": "7c3ce1ce653c0f1f",
+  "grade": "fail",
+  "score": 24,
+  "colors": 8,
+  "black": 0.48,
+  "biggest_patch": 0.436,
+  "theme": null,
+  "name": "Tokyo",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-8": {
+  "guess": "Colosseum",
+  "alternatives": [
+   "ancient Roman amphitheater",
+   "big stone building with columns"
+  ],
+  "readability": 3,
+  "features": [
+   "three tiers of arches/columns",
+   "tan stone pillars on brown walls",
+   "white top edge",
+   "sky with clouds",
+   "blue ground/water below"
+  ],
+  "problems": [
+   "shown flat and rectangular instead of round",
+   "no broken/ruined side typical of the Colosseum",
+   "arches look like straight bars, could read as a fence or a cake",
+   "could be mistaken for any generic building"
+  ],
+  "digest": "285f63f6618a3933",
+  "grade": "fail",
+  "score": 18,
+  "colors": 8,
+  "black": 0.092,
+  "biggest_patch": 0.209,
+  "theme": null,
+  "name": "Rome",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-9": {
+  "guess": "red and white striped castle towers",
+  "alternatives": [
+   "circus tent poles / carnival booth",
+   "lighthouses"
+  ],
+  "readability": 2,
+  "features": [
+   "three red-and-white striped towers",
+   "white domed/pointed roofs",
+   "golden yellow flag-like shapes at top",
+   "red base platform",
+   "green bushes at sides",
+   "blue sky"
+  ],
+  "problems": [
+   "subject is ambiguous between castle, circus, and lighthouses",
+   "yellow shapes at top are unclear blobs",
+   "roofs are messy and snowy-looking",
+   "no clear doors or windows",
+   "cluttered top area"
+  ],
+  "digest": "fe2f8088209b54f2",
+  "grade": "fail",
+  "score": 12,
+  "colors": 12,
+  "black": 0.199,
+  "biggest_patch": 0.141,
+  "theme": null,
+  "name": "Moscow",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-10": {
+  "guess": "red suspension bridge at night (Golden Gate Bridge)",
+  "alternatives": [
+   "city skyline with bridge over water",
+   "red gate towers over a harbor"
+  ],
+  "readability": 3,
+  "features": [
+   "two tall red towers",
+   "suspension cables made of red dots",
+   "red bridge deck",
+   "city buildings with lit windows",
+   "blue water with reflections",
+   "night sky with stars"
+  ],
+  "problems": [
+   "cables are thin dotted lines and hard to follow",
+   "red shapes between the towers are messy and unclear",
+   "the deck blends with the buildings",
+   "no clear horizon between the city and the water"
+  ],
+  "digest": "764c992e1e060b86",
+  "grade": "fail",
+  "score": 18,
+  "colors": 9,
+  "black": 0.527,
+  "biggest_patch": 0.518,
+  "theme": null,
+  "name": "San Francisco",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-11": {
+  "guess": "geyser erupting",
+  "alternatives": [
+   "waterfall",
+   "mushroom-shaped water fountain"
+  ],
+  "readability": 2,
+  "features": [
+   "tall white column of water",
+   "mushroom-shaped spray cloud at top",
+   "splashing base in water",
+   "blue sea and sky",
+   "green hills",
+   "clouds"
+  ],
+  "problems": [
+   "column looks like a stone pillar or tree trunk",
+   "top cloud blends with real clouds",
+   "no clear indication of motion or steam",
+   "odd brown bench and dark blob distract"
+  ],
+  "digest": "7ef3c8e239bc0a65",
+  "grade": "fail",
+  "score": 12,
+  "colors": 11,
+  "black": 0.122,
+  "biggest_patch": 0.133,
+  "theme": null,
+  "name": "Seattle",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-12": {
+  "guess": "skyscraper at night (Burj Khalifa-style tower)",
+  "alternatives": [
+   "city skyline at night",
+   "rocket ship"
+  ],
+  "readability": 4,
+  "features": [
+   "tall stepped tower tapering to a spire",
+   "lit blue windows",
+   "white highlight on one side",
+   "surrounding blue buildings with yellow windows",
+   "crescent moon",
+   "stars",
+   "water or road along the bottom"
+  ],
+  "problems": [
+   "stepped tower could be mistaken for a rocket",
+   "background buildings blend together into a flat blue mass",
+   "light blue strip at bottom is unclear (water or road)"
+  ],
+  "digest": "514a2505bf5e3393",
+  "grade": "fail",
+  "score": 24,
+  "colors": 7,
+  "black": 0.501,
+  "biggest_patch": 0.476,
+  "theme": null,
+  "name": "Dubai",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-13": {
+  "guess": "spooky white tombstone or ghostly arch at night",
+  "alternatives": [
+   "white ghost",
+   "igloo"
+  ],
+  "readability": 2,
+  "features": [
+   "white rounded shape with dark outline",
+   "dark doorway-like opening at bottom",
+   "grey shading",
+   "night sky with stars",
+   "pink-purple sunset background",
+   "small pink detail on top",
+   "grey ground base"
+  ],
+  "problems": [
+   "no face or clear identifying features",
+   "shape is ambiguous between arch, ghost, and igloo",
+   "dark doorway reads as a hole rather than legs or a mouth",
+   "busy colorful background competes with subject",
+   "side dark figures/trees are unclear"
+  ],
+  "digest": "04e8186bfc87cc0d",
+  "grade": "fail",
+  "score": 16,
+  "colors": 9,
+  "black": 0.281,
+  "biggest_patch": 0.154,
+  "theme": null,
+  "name": "Agra",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-14": {
+  "guess": "Greek temple (Parthenon)",
+  "alternatives": [
+   "museum building",
+   "bank building"
+  ],
+  "readability": 5,
+  "features": [
+   "triangular pediment roof",
+   "row of white columns",
+   "stepped stone base",
+   "entablature beam",
+   "clouds in sky",
+   "sunset striped background"
+  ],
+  "problems": [
+   "background stripes on sides are a bit busy",
+   "blue/orange side blocks unclear (could be buildings or water)"
+  ],
+  "digest": "41c0ce66ee8c73dd",
+  "grade": "fail",
+  "score": 30,
+  "colors": 10,
+  "black": 0.26,
+  "biggest_patch": 0.16,
+  "theme": null,
+  "name": "Athens",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-15": {
+  "guess": "colorful buildings by the water",
+  "alternatives": [
+   "crayons",
+   "Amsterdam canal houses"
+  ],
+  "readability": 4,
+  "features": [
+   "four tall buildings in red, orange, blue, green",
+   "rows of white windows",
+   "pointed roofs",
+   "water at the bottom",
+   "clouds and sun in the sky"
+  ],
+  "problems": [
+   "pointed tops make them look like crayons",
+   "blue building blends with blue sky",
+   "sun is small and partly hidden by a cloud"
+  ],
+  "digest": "5254cb5c39bb20cb",
+  "grade": "weak",
+  "score": 44,
+  "colors": 14,
+  "black": 0.157,
+  "biggest_patch": 0.072,
+  "theme": null,
+  "name": "Amsterdam",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-16": {
+  "guess": "boat on the water at night",
+  "alternatives": [
+   "penguins on an ice floe",
+   "gondola in a canal city"
+  ],
+  "readability": 2,
+  "features": [
+   "dark boat hull across the middle",
+   "blue wavy water with white foam",
+   "night sky with stars",
+   "purple background band",
+   "lit orange building at left",
+   "wooden mast or pole on the boat",
+   "small black-and-white figures (possibly penguins or people) on deck"
+  ],
+  "problems": [
+   "main subject is a dark blob with no clear outline",
+   "figures on the boat are tiny and unclear",
+   "busy scene with many competing elements (buildings, dock, purple band)",
+   "dark hull blends into the dark outlines and the night"
+  ],
+  "digest": "eac26ad8f239785b",
+  "grade": "fail",
+  "score": 12,
+  "colors": 13,
+  "black": 0.196,
+  "biggest_patch": 0.251,
+  "theme": null,
+  "name": "Venice",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-17": {
+  "guess": "Chinese pagoda temple",
+  "alternatives": [
+   "Beijing Temple of Heaven",
+   "Japanese castle"
+  ],
+  "readability": 3,
+  "features": [
+   "tiered blue curved roofs",
+   "red walls with pillars",
+   "white stone platform/base",
+   "lantern posts on sides",
+   "clouds and moon in sky",
+   "brick ground"
+  ],
+  "problems": [
+   "blue roofs blend into light blue sky",
+   "dark outlines are cluttered",
+   "side lamp posts look like odd black shapes",
+   "small scale makes details hard to read"
+  ],
+  "digest": "973deb590c587175",
+  "grade": "weak",
+  "score": 38,
+  "colors": 11,
+  "black": 0.235,
+  "biggest_patch": 0.127,
+  "theme": null,
+  "name": "Beijing",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-18": {
+  "guess": "TV tower in snowy winter landscape",
+  "alternatives": [
+   "lighthouse",
+   "space needle observation tower"
+  ],
+  "readability": 3,
+  "features": [
+   "tall grey shaft",
+   "disc-shaped observation deck with blue windows",
+   "pointed spire top",
+   "snowy ground",
+   "green pine trees with snow",
+   "blue frozen water",
+   "purple dusk sky with moon"
+  ],
+  "problems": [
+   "tower top is small and blends with white snow and sky band",
+   "no clear scale cues, could read as a pillar or lighthouse",
+   "busy background stripes compete with the subject"
+  ],
+  "digest": "9e41f37d0524deaf",
+  "grade": "fail",
+  "score": 18,
+  "colors": 10,
+  "black": 0.077,
+  "biggest_patch": 0.34,
+  "theme": null,
+  "name": "Toronto",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-19": {
+  "guess": "castle or palace building with white towers",
+  "alternatives": [
+   "Japanese castle with gray roof",
+   "temple with minarets"
+  ],
+  "readability": 2,
+  "features": [
+   "tan building wall with rows of brown windows",
+   "gray sloped roof with white snowy peak",
+   "two tall white towers or pillars on the sides",
+   "small white cloud-like object with pink spots at the top",
+   "water at the bottom",
+   "brown base or foundation"
+  ],
+  "problems": [
+   "the subject is ambiguous; the roof looks like a helmet or lid",
+   "the pillars look disconnected from the building",
+   "the white object at the top is unclear",
+   "the busy striped background competes with the subject",
+   "the water and dock pieces at the bottom clutter the scene"
+  ],
+  "digest": "8dcf3f879eb8fc23",
+  "grade": "fail",
+  "score": 12,
+  "colors": 11,
+  "black": 0.178,
+  "biggest_patch": 0.142,
+  "theme": null,
+  "name": "Istanbul",
+  "pack": "orig-cities",
+  "touched": false
+ },
+ "cities-20": {
+  "guess": "cross on a green hill at sunset",
+  "alternatives": [
+   "grave marker on a hill",
+   "Calvary / Easter scene"
+  ],
+  "readability": 4,
+  "features": [
+   "white cross with dark outline",
+   "green triangular hill with dotted texture",
+   "sunset sky bands of purple, pink, orange",
+   "white cloud top left",
+   "blue sky and water at edges"
+  ],
+  "problems": [
+   "a dark cloud beside the cross blends into the crossbar, making its arm look uneven",
+   "cross is partly cut off at the top",
+   "busy striped background competes with the subject"
+  ],
+  "digest": "4712ee3ad66af50b",
+  "grade": "fail",
+  "score": 24,
+  "colors": 12,
+  "black": 0.111,
+  "biggest_patch": 0.172,
+  "theme": null,
+  "name": "Rio",
+  "pack": "orig-cities",
+  "touched": false
+ }
+}

@@ -1,5 +1,5 @@
 {
- "airplane-400": {
+ "airplane-399": {
   "guess": "white airplane landed in a field",
   "alternatives": [
    "space shuttle",
@@ -31,7 +31,7 @@
   "pack": "skysea",
   "touched": false
  },
- "hot-air-balloon-401": {
+ "hot-air-balloon-400": {
   "guess": "hot air balloon",
   "alternatives": [
    "pink seashell",
@@ -62,7 +62,7 @@
   "pack": "skysea",
   "touched": false
  },
- "rocket-402": {
+ "rocket-401": {
   "guess": "white rocket on launch pad",
   "alternatives": [
    "space shuttle",
@@ -93,7 +93,7 @@
   "pack": "skysea",
   "touched": false
  },
- "ship-403": {
+ "ship-402": {
   "guess": "pirate ship",
   "alternatives": [
    "sailing boat",
@@ -125,7 +125,7 @@
   "pack": "skysea",
   "touched": false
  },
- "submarine-404": {
+ "submarine-403": {
   "guess": "submarine underwater",
   "alternatives": [
    "whale in the ocean",
@@ -157,7 +157,7 @@
   "pack": "skysea",
   "touched": false
  },
- "blimp-405": {
+ "blimp-404": {
   "guess": "red airship (blimp) flying at night",
   "alternatives": [
    "red sled in the snow",
@@ -191,7 +191,7 @@
   "pack": "skysea",
   "touched": false
  },
- "kayak-406": {
+ "kayak-405": {
   "guess": "penguin paddling a yellow kayak",
   "alternatives": [
    "person kayaking on a river",
@@ -224,7 +224,7 @@
   "pack": "skysea",
   "touched": false
  },
- "paper-plane-407": {
+ "paper-plane-406": {
   "guess": "paper airplane",
   "alternatives": [
    "glider plane",
@@ -256,7 +256,7 @@
   "pack": "skysea",
   "touched": false
  },
- "kite-408": {
+ "kite-407": {
   "guess": "boy flying a kite",
   "alternatives": [
    "child running in a meadow",
@@ -292,7 +292,7 @@
   "pack": "skysea",
   "touched": false
  },
- "flying-saucer-409": {
+ "flying-saucer-408": {
   "guess": "flying saucer (UFO) landed in the desert",
   "alternatives": [
    "crashed spaceship",
@@ -323,7 +323,7 @@
   "pack": "skysea",
   "touched": false
  },
- "jet-410": {
+ "jet-409": {
   "guess": "white airplane",
   "alternatives": [
    "propeller plane",
@@ -355,7 +355,7 @@
   "pack": "skysea",
   "touched": false
  },
- "airship-411": {
+ "airship-410": {
   "guess": "airship floating in the sky",
   "alternatives": [
    "cloud in a window",
@@ -388,7 +388,7 @@
   "pack": "skysea",
   "touched": false
  },
- "jet-ski-412": {
+ "jet-ski-411": {
   "guess": "jet ski splashing on water",
   "alternatives": [
    "speedboat",
