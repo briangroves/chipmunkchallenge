@@ -1,0 +1,17 @@
+{
+  "push_hours": 2,
+  "max_waiting": 60,
+  "propose_at_once": 8,
+  "seeds": 6,
+  "size": 768,
+  "steps": 9,
+  "per_subject": 2,
+  "min_stars": 4,
+  "queue_repo": "briangroves/chipmunk-board-queue",
+  "pack_size": 20,
+  "pack_name": "Fresh Boards",
+  "feed_repo": "briangroves/chipmunkchallenge",
+  "feed_branch": "gh-pages",
+  "feed_file": "boards/approved.json",
+  "feed_url": "https://briangroves.github.io/chipmunkchallenge/boards/approved.json"
+}

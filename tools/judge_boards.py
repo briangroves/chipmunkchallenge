@@ -47,6 +47,10 @@ of colored blocks (pixel art) with a subject and a backdrop. The designer rates 
     image, a subject cut off or tiny, a photo shrunk to mush, a scene that makes no sense (a whale on a brick wall),
     or something that doesn't look like its name at all.
 
+Even a clean, well-drawn board loses stars when a big round subject fills the board as one flat shape (a ball, a
+cookie), when a mostly-white subject has little shading, when the subject blends into a backdrop of the same color, or
+when a building or object has no character and sits on a busy, pale backdrop.
+
 The designer is strict: most boards get 2 or 3; 5 is rare. Judge appeal as much as recognisability. The designer
 knows each board's name, so a board that doesn't look like its name loses stars."""
 

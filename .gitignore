@@ -7,3 +7,10 @@ build/
 .build/
 .swiftpm/
 ios/ChipmunkChallenge/Info.plist
+
+# Local image tools (venv)
+tools/.venv/
+
+# Board Reviewer app (XcodeGen writes the Info.plist)
+BoardReviewer/BoardReviewer/Info.plist
+__pycache__/

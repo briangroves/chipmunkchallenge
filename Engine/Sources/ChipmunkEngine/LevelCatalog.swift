@@ -63,6 +63,11 @@ public struct LevelCatalog: Decodable, Sendable {
             c.newPacks = nb.packs
             c.replacements = nb.replace ?? [:]
         }
+        // Boards approved in the Board Reviewer app, added by tools/daily/publish.py, played after all the others.
+        if let approved = Bundle.module.url(forResource: "approved-boards", withExtension: "json"),
+           let nb = try? JSONDecoder().decode(NewBoards.self, from: Data(contentsOf: approved)) {
+            c.newPacks += nb.packs.filter { !$0.levels.isEmpty }
+        }
         return c
     }
 
