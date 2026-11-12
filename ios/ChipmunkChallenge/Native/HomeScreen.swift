@@ -5,6 +5,7 @@ import SwiftUI
 struct RootView: View {
     @StateObject private var model = GameModel()
     @SwiftUI.State private var splash = true
+    @Environment(\.scenePhase) private var phase
 
     var body: some View {
         ZStack {
@@ -30,6 +31,8 @@ struct RootView: View {
                     .zIndex(1)
             }
         }
+        // New approved boards: checked at launch and on return to the app (BoardFeed decides if it's time).
+        .onChange(of: phase, initial: true) { _, p in if p == .active { model.checkForNewBoards() } }
         .animation(.easeOut(duration: 0.18), value: model.settingsOpen)
         .animation(.easeOut(duration: 0.18), value: model.dailyPickOpen)
         .animation(.easeOut(duration: 0.18), value: model.reviewOpen)

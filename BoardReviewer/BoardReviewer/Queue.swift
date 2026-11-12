@@ -91,11 +91,22 @@ struct QueueRepo {
         _ = try ok(try await request(path(d.id), method: "PUT", body: body))
     }
 
-    /// Take a decision back (undo), if the Mac hasn't applied it yet.
-    func remove(_ id: String) async throws {
-        guard let sha = try await sha(id) else { return }
-        _ = try ok(try await request(path(id), method: "DELETE", body: ["message": "Undo \(id)", "sha": sha]),
-                   allow: [404])
+    /// Take a decision back (undo). False if it's no longer there: the Mac already applied it.
+    @discardableResult
+    func remove(_ id: String) async throws -> Bool {
+        guard let sha = try await sha(id) else { return false }
+        let (_, code) = try await request(path(id), method: "DELETE", body: ["message": "Undo \(id)", "sha": sha])
+        if code == 404 || code == 409 { return false }
+        _ = try ok((Data(), code))
+        return true
+    }
+
+    /// How many boards are waiting: in the queue and not decided yet (what the badge shows).
+    func waitingCount() async throws -> Int {
+        async let q = queue()
+        async let d = decisions()
+        let (queue, decided) = try await (q, d)
+        return queue.filter { decided[$0.id] == nil }.count
     }
 
     private func sha(_ id: String) async throws -> String? {

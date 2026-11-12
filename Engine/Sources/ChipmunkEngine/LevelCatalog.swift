@@ -42,6 +42,9 @@ public struct LevelCatalog: Decodable, Sendable {
     /// Original boards redrawn from clipart (boards.json "replace", keyed by the original board's id). The board
     /// keeps its place, pack and number; only the picture (and so its id) changes. Coin Mining is unaffected.
     public private(set) var replacements: [String: Picture] = [:]
+    /// Boards approved in the Board Review app (the public feed, tools/daily/publish.py), played after all the others.
+    /// The game ships a snapshot (Resources/approved-boards.json) and downloads newer copies with `merge(feed:)`.
+    public private(set) var approvedPacks: [Pack] = []
 
     private enum CodingKeys: String, CodingKey {
         case format, source, packSize, packBonus, rampN, packs, paradise, baked
@@ -71,6 +74,25 @@ public struct LevelCatalog: Decodable, Sendable {
         return c
     }
 
+    // MARK: - Approved boards feed
+
+    /// Every approved board in feed order.
+    public var approvedBoards: [Picture] { approvedPacks.flatMap(\.levels) }
+
+    /// Take a copy of the approved-boards feed if it extends what the game has: the feed only ever grows (boards are
+    /// appended, never removed, changed or reordered, because a board's place sets its seed and challenge), so a copy
+    /// is used only when the boards the game already has are its exact start. Returns how many boards it added.
+    public mutating func merge(feed data: Data) -> Int {
+        guard let nb = try? JSONDecoder().decode(NewBoards.self, from: data) else { return 0 }
+        let packs = nb.packs.filter { !$0.levels.isEmpty }
+        let new = packs.flatMap(\.levels), old = approvedBoards
+        guard new.count > old.count,
+              zip(old, new).allSatisfy({ $0.id == $1.id }),
+              new.allSatisfy({ $0.rows.count == 40 && $0.rows.allSatisfy { $0.count == 40 && $0.allSatisfy { PALETTE[$0] != nil } } }) else { return 0 }
+        approvedPacks = packs
+        return new.count - old.count
+    }
+
     // MARK: - Level Play
 
     /// Every Level Play pack in play order: the original ones (with any redrawn boards), then the new ones.
@@ -78,7 +100,7 @@ public struct LevelCatalog: Decodable, Sendable {
         let originals = replacements.isEmpty ? packs : packs.map { p in
             Pack(id: p.id, name: p.name, levels: p.levels.map { replacements[$0.id] ?? $0 })
         }
-        return originals + newPacks
+        return originals + newPacks + approvedPacks
     }
 
     /// Level Play boards in play order (index = board number - 1).

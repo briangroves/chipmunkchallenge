@@ -54,6 +54,7 @@ final class ReviewStore: ObservableObject {
             let (queue, decided) = try await (q, d)
             let mine = Set(outbox.map(\.id))
             waiting = queue.filter { decided[$0.id] == nil && !mine.contains($0.id) }
+            updateBadge()
             lastSync = Date()
             message = nil
         } catch {
@@ -70,21 +71,46 @@ final class ReviewStore: ObservableObject {
         if approve { session.approved += 1 } else { session.denied += 1 }
         outbox.append(d)
         saveOutbox()
+        updateBadge()
         Task { await flush() }
     }
 
+    /// Take back the last decision. Possible until the Mac applies it (it checks every 15 minutes); after that an
+    /// approved board is in the public feed for good and a denied one is gone, so say so instead of pretending.
     func undo() {
         guard let (board, d) = undoStack.popLast() else { return }
-        waiting.insert(board, at: 0)
-        if d.approved { session.approved -= 1 } else { session.denied -= 1 }
+        func restore() {
+            waiting.insert(board, at: 0)
+            if d.approved { session.approved -= 1 } else { session.denied -= 1 }
+            updateBadge()
+        }
         if outbox.contains(where: { $0.id == d.id }) {
             outbox.removeAll { $0.id == d.id }
             saveOutbox()
-        } else {
-            Task {
-                do { try await client.remove(d.id) } catch { message = error.localizedDescription }
+            restore()
+            // It may have just reached GitHub as we took it back.
+            Task { _ = try? await client.remove(d.id) }
+            return
+        }
+        Task {
+            do {
+                if try await client.remove(d.id) {
+                    restore()
+                } else {
+                    message = d.approved
+                        ? "\(d.name) is already published to players and can't be taken back."
+                        : "\(d.name) was already dropped from the queue."
+                }
+            } catch {
+                undoStack.append((board, d))
+                message = error.localizedDescription
             }
         }
+    }
+
+    /// The app icon's red badge: boards waiting for review.
+    func updateBadge() {
+        Badge.set(configured ? waiting.count : 0)
     }
 
     private var flushing = false

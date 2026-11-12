@@ -193,7 +193,8 @@ final class GameModel: ObservableObject {
     /// Board cell size in points, set by the layout (JS sizeBoard).
     var cellSize: CGFloat = 7.5
 
-    let catalog: LevelCatalog
+    /// Every board; grows when new approved boards download (BoardFeed).
+    @Published private(set) var catalog: LevelCatalog
     private(set) var level: Level?
     /// The simulation. The board view reads it to draw; only this model changes it.
     private(set) var sim: Sim?
@@ -212,6 +213,8 @@ final class GameModel: ObservableObject {
     private let notify = UINotificationFeedbackGenerator()
 
     private static let boardKey = "native.boardIndex"
+    /// Set when the player beat the last board there is; cleared when new boards arrive and play moves on to them.
+    private static let outOfBoardsKey = "native.outOfBoards"
     /// Bumped if saved data ever needs converting on update. 2.0 reads 1.1's saves as they are (same keys).
     static let saveVersion = 2
     static let continuePrice = 300
@@ -279,7 +282,9 @@ final class GameModel: ObservableObject {
     private static let reduceMotion = { UIAccessibility.isReduceMotionEnabled }
 
     init() {
-        catalog = try! LevelCatalog.bundled()
+        var c = try! LevelCatalog.bundled()
+        if let saved = BoardFeed.cached { _ = c.merge(feed: saved) }
+        catalog = c
         let startCoins = store.object(forKey: "native.coins") == nil ? 500 : store.integer(forKey: "native.coins")
         coins = startCoins
         coinsShown = startCoins
@@ -299,7 +304,7 @@ final class GameModel: ObservableObject {
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
         tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
-        boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), catalog.levelPlay.count - 1)
+        boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), c.levelPlay.count - 1)
         store.set(Self.saveVersion, forKey: "native.saveVersion")
         tickHearts()
         heartTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
@@ -750,7 +755,14 @@ final class GameModel: ObservableObject {
         case .level:
             // The next level is the one after this, from now on (finished levels aren't replayed).
             packDone = finishPack(boardIndex)
-            boardIndex = min(boardIndex + 1, catalog.levelPlay.count - 1)
+            if boardIndex + 1 < catalog.levelPlay.count {
+                boardIndex += 1
+                store.set(false, forKey: Self.outOfBoardsKey)
+            } else {
+                // Out of levels: fetch new boards now, and move on to the first one when it arrives.
+                store.set(true, forKey: Self.outOfBoardsKey)
+                checkForNewBoards()
+            }
             store.set(boardIndex, forKey: Self.boardKey)
         }
         let base = reward
@@ -767,6 +779,37 @@ final class GameModel: ObservableObject {
         }
         coins += base + bonus + lastWin.pack
         store.set(coins, forKey: "native.coins")
+    }
+
+    private var feedTask: Task<Void, Never>?
+
+    /// Download new approved boards if it's time: once a day, or every ten minutes while the player is out of
+    /// levels. New boards join the end of Level Play; a player who had run out moves straight on to the first.
+    func checkForNewBoards() {
+        moveOnToNewBoards()
+        let urgent = store.bool(forKey: Self.outOfBoardsKey)
+        guard feedTask == nil, BoardFeed.due(urgent: urgent) else { return }
+        feedTask = Task { [weak self] in
+            let data = await BoardFeed.download()
+            guard let self else { return }
+            defer { self.feedTask = nil }
+            guard let data else { return }
+            var c = self.catalog
+            guard c.merge(feed: data) > 0 else { return }
+            BoardFeed.save(data)
+            self.catalog = c
+            self.moveOnToNewBoards()
+        }
+    }
+
+    /// A player who beat the last board moves on to the first new one, unless they're mid-game (then winning that
+    /// game moves them on, in payOut, so no board is skipped).
+    private func moveOnToNewBoards() {
+        guard store.bool(forKey: Self.outOfBoardsKey), screen != .play,
+              boardIndex + 1 < catalog.levelPlay.count else { return }
+        store.set(false, forKey: Self.outOfBoardsKey)
+        boardIndex += 1
+        store.set(boardIndex, forKey: Self.boardKey)
     }
 
     /// If board i is the last of its pack and that pack hasn't paid out yet: 1,000 coins (added by payOut) and 2 magic

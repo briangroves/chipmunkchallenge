@@ -9,9 +9,16 @@ struct BoardReviewerApp: App {
         WindowGroup {
             ReviewScreen()
                 .environmentObject(store)
-                .task { await store.refresh() }
-                .onChange(of: phase) { _, p in if p == .active { Task { await store.refresh() } } }
+                .task {
+                    await Badge.requestPermission()
+                    await store.refresh()
+                }
+                .onChange(of: phase) { _, p in
+                    if p == .active { Task { await store.refresh() } }
+                    if p == .background { Badge.schedule() }
+                }
         }
+        .backgroundTask(.appRefresh(Badge.refreshID)) { await Badge.check() }
     }
 }
 
