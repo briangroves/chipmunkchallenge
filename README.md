@@ -56,6 +56,11 @@ boards (`boards.json`) and the web game's originals no longer ship in Level Play
 the originals still feed Coin Mining. Updating from an older build starts Level Play over at Level 1 (coins, tools,
 hearts, Coin Mining and the daily streak carry over).
 
+The 50 are ordered easiest first, by how each picture actually builds (a test fails if any of them comes out far
+harder than its place on the ramp). Levels 1-5 are the same for everyone; from Level 6 the game adapts: a first-try
+win makes the next board 10% harder, two losses in a row make it about 13% easier (that one from Level 1), and the
+win card lets the player pick easier, the same or harder.
+
 ## New board packs without an app update
 
 The app downloads new Level Play packs from GitHub Pages (`https://briangroves.github.io/chipmunkchallenge/packs/`).

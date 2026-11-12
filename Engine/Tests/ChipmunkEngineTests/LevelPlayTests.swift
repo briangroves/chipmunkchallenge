@@ -30,8 +30,25 @@ final class LevelPlayTests: XCTestCase {
         XCTAssertGreaterThan(Difficulty.rampGoal(1000), 0.1)
     }
 
-    /// Every one of the 50 builds (as the game builds it, retrying a few seeds) and can be won under the game's
-    /// timing: its stored plan clears it, or the solver finds a way (the plan is only the solver's first try).
+    /// Levels 1-5 are the same for everyone (they only get easier for a player who keeps losing); from Level 6 the
+    /// player's skill factor makes boards harder or easier.
+    func testAdaptingStartsAtLevelSix() {
+        let k5 = catalog.diffKey(forBoard: 4), k6 = catalog.diffKey(forBoard: 5)
+        XCTAssertFalse(LevelCatalog.adapts(k5))
+        XCTAssertTrue(LevelCatalog.adapts(k6))
+        XCTAssertTrue(LevelCatalog.adapts(catalog.diffKey(forBoard: 30)))
+        XCTAssertFalse(LevelCatalog.adapts("daily"))
+        XCTAssertEqual(LevelCatalog.aim(k5, tailor: 3), LevelCatalog.baseAim(k5))
+        XCTAssertLessThan(LevelCatalog.aim(k5, tailor: 0.6), LevelCatalog.baseAim(k5))
+        XCTAssertGreaterThan(LevelCatalog.aim(k6, tailor: 1.5), LevelCatalog.baseAim(k6))
+        XCTAssertLessThan(LevelCatalog.aim(k6, tailor: 0.6), LevelCatalog.baseAim(k6))
+        XCTAssertEqual(LevelCatalog.aim(k6, tailor: 1), LevelCatalog.baseAim(k6))
+    }
+
+    /// Every one of the 50 builds (as the game builds it, retrying a few seeds), can be won under the game's timing
+    /// (its stored plan clears it, or the solver finds a way), and comes out close to its place on the ramp: no board
+    /// much harder than the ones around it. "Much harder" = the careful player wins over 12 points below the target,
+    /// or random taps win under a quarter as often as aimed for.
     func testEveryBoardBuildsAndClears() {
         let lock = NSLock()
         var failed: [String] = []
@@ -43,6 +60,13 @@ final class LevelPlayTests: XCTestCase {
                                                  diffKey: key, options: o) else {
                 lock.lock(); failed.append("board \(i + 1) didn't build"); lock.unlock()
                 return
+            }
+            let d = Difficulty.named(key)
+            if lv.botWin! < d.cgoal! - 0.12 || lv.randWin! < d.rtarget * 0.25 {
+                lock.lock()
+                failed.append(String(format: "board %d (%@) is a spike: careful %.2f vs %.2f, random %.3f vs %.3f", i + 1,
+                                     catalog.levelPlay[i].name, lv.botWin!, d.cgoal!, lv.randWin!, d.rtarget))
+                lock.unlock()
             }
             var m = Sim(lv)
             m.pickupPause = 25

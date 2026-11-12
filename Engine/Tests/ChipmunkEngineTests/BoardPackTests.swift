@@ -37,7 +37,7 @@ final class BoardPackTests: XCTestCase {
     func testBundledOrderIsPinned() {
         let order = catalog.starterPacks.map { "\($0.id):" + $0.levels.map(\.id).joined(separator: ",") }
         XCTAssertEqual(BoardPacks.sha256(Data(order.joined(separator: ";").utf8)),
-                       "faf4bce250e6093b1cbb275f8a923d432678bd2f49a9fc4e77f6fc30693f29f9")
+                       "2c56cfa304e2481e953ba2299ed5007781a55027a03ea2f690508a424313149f")
         XCTAssertEqual(catalog.levelPlay.count, 50)
     }
 

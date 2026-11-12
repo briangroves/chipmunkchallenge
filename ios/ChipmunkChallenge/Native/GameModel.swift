@@ -221,8 +221,8 @@ final class GameModel: ObservableObject {
 
     private static let boardKey = "native.boardIndex"
     /// Bumped if saved data ever needs converting on update. 2.0 reads 1.1's saves as they are (same keys).
-    /// 3: Level Play started over with 50 new boards, so its place and finished packs reset (coins, tools, hearts,
-    /// Coin Mining and the daily streak carry over).
+    /// 3: Level Play started over with 50 new boards, so its place, finished packs and skill factor reset (coins,
+    /// tools, hearts, Coin Mining and the daily streak carry over).
     static let saveVersion = 3
     static let continuePrice = 300
 
@@ -278,7 +278,7 @@ final class GameModel: ObservableObject {
             switch self {
             case .easier: return 1 / 1.15
             case .same: return 1
-            case .tiny: return 1.05
+            case .tiny: return 1.1
             case .harder: return 1.15
             }
         }
@@ -315,6 +315,8 @@ final class GameModel: ObservableObject {
         if store.integer(forKey: "native.saveVersion") < 3 {
             store.removeObject(forKey: Self.boardKey)
             store.removeObject(forKey: "native.packsDone")
+            store.removeObject(forKey: "native.tailor")
+            tailor = 1
         }
         boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), withPacks.levelPlay.count - 1)
         if store.object(forKey: Self.packsShownKey) == nil {
@@ -697,12 +699,14 @@ final class GameModel: ObservableObject {
         }
     }
 
-    /// Three losses in a row make Level Play a little easier (the tailored aim). Coin Mining and the daily puzzle
-    /// always play at the standard aim.
+    /// Two losses in a row make Level Play a little easier (the tailored aim), from Level 1 on. Coin Mining and the
+    /// daily puzzle always play at the standard aim.
+    static let lossesToEase = 2
+
     private func noteFailure() {
         guard mode == .level else { return }
         failStreak += 1
-        if failStreak >= 3 {
+        if failStreak >= Self.lossesToEase {
             failStreak = 0
             tailor = Self.clampT(tailor / 1.15)
             store.set(tailor, forKey: "native.tailor")
@@ -823,7 +827,8 @@ final class GameModel: ObservableObject {
         noteDaily(creditDaily())
         failStreak = 0
         easeNext = false
-        if lv.diff?.hasPrefix("warm") == true {
+        if !LevelCatalog.adapts(lv.diff ?? "") {
+            // Levels 1-5 don't get harder; the win card's "next time" choice starts at Level 6.
             tailorPick = nil
         } else {
             tailorBefore = tailor

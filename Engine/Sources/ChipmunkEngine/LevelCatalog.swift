@@ -198,10 +198,22 @@ public struct LevelCatalog: Decodable, Sendable {
         JS.round(10 / Difficulty.named(diffKey).rtarget) / 10
     }
 
-    /// The aim a build uses. `tailor` is the player's skill factor (1 = standard). Warm-up boards, Coin Mining and
-    /// the daily puzzle always use the standard aim.
+    /// Level Play boards 1-5: they never get harder than standard, only easier for a player who keeps losing.
+    public static let firstAdapting = 6
+
+    /// Does this challenge follow the player's skill factor? Level Play does from board 6 on (and boards 1-5 only to
+    /// get easier); Coin Mining and the daily puzzle always play at the standard aim.
+    public static func adapts(_ diffKey: String) -> Bool {
+        if diffKey == "paradise" || diffKey == "daily" { return false }
+        if diffKey.hasPrefix("warm"), let n = Int(diffKey.dropFirst(4)) { return n >= firstAdapting }
+        return true
+    }
+
+    /// The aim a build uses. `tailor` is the player's skill factor (1 = standard, higher = harder).
     public static func aim(_ diffKey: String, tailor: Double) -> Double {
-        if diffKey == "paradise" || diffKey == "daily" || diffKey.hasPrefix("warm") { return baseAim(diffKey) }
-        return min(300, max(1.1, JS.round(10 * tailor / Difficulty.named(diffKey).rtarget) / 10))
+        if diffKey == "paradise" || diffKey == "daily" { return baseAim(diffKey) }
+        let t = adapts(diffKey) ? tailor : min(1, tailor)
+        if t == 1 { return baseAim(diffKey) }
+        return min(300, max(1.1, JS.round(10 * t / Difficulty.named(diffKey).rtarget) / 10))
     }
 }

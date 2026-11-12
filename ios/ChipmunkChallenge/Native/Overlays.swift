@@ -442,7 +442,7 @@ struct ResultCard: View {
                     TailorButton(title: "About the same", on: pick == .same) { model.pickTailor(.same) }
                     TailorButton(title: "A little harder", on: pick == .harder) { model.pickTailor(.harder) }
                 }
-                Note(pick == .tiny ? "First-try win, so next time is a tiny bit harder." : "")
+                Note(pick == .tiny ? "First-try win, so next time is a bit harder." : "")
             }
             .padding(.top, 2)
             .padding(.bottom, 4)
@@ -486,7 +486,7 @@ struct ResultCard: View {
                 .cssLine(Theme.uiBody(13, 800), 13 * 1.45 - 1)
         }
         if model.easeNext {
-            Note("Three tries without a win, so your next try gets a new board that's a little easier.")
+            Note("Two tries without a win, so your next try gets a new board that's a little easier.")
         }
         Row {
             Big("Undo last tap") { model.undo() }
