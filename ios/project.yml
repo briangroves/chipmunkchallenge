@@ -17,6 +17,10 @@ targets:
       - path: ChipmunkChallenge
         excludes:
           - Web
+          # Boards are reviewed in the separate Board Review app (BoardReviewer/), not in the game.
+          - Native/BoardReview.swift
+          - Native/board-scores.json
+          - Native/pilot-boards.json
       - path: ChipmunkChallenge/Web
         type: folder          # keeps the folder structure inside the app bundle
         buildPhase: resources

@@ -19,9 +19,6 @@ struct RootView: View {
             if model.dailyPickOpen {
                 DailyPicker(model: model).transition(.opacity)
             }
-            if model.reviewOpen {
-                BoardReview(model: model).transition(.opacity)
-            }
             if model.settingsOpen {
                 SettingsSheet(model: model).transition(.opacity)
             }
@@ -35,7 +32,6 @@ struct RootView: View {
         .onChange(of: phase, initial: true) { _, p in if p == .active { model.checkForNewBoards() } }
         .animation(.easeOut(duration: 0.18), value: model.settingsOpen)
         .animation(.easeOut(duration: 0.18), value: model.dailyPickOpen)
-        .animation(.easeOut(duration: 0.18), value: model.reviewOpen)
         .animation(.easeOut(duration: 0.18), value: model.giftShown)
     }
 }
@@ -382,14 +378,6 @@ struct SettingsSheet: View {
                           on: $model.queueOn)
                 SetSlider(title: "Normal speed", value: $model.speedNormal, range: 0.5...2.5, step: 0.1)
                 SetSlider(title: "Fast-forward speed", value: $model.speedFast, range: 1.5...4, step: 0.25)
-                if BoardReview.available {
-                    Button {
-                        model.settingsOpen = false
-                        model.reviewOpen = true
-                    } label: { Text("Review boards ⭐️").bigLabel(alt: true) }
-                        .buttonStyle(Pressable())
-                        .frame(maxWidth: .infinity)
-                }
                 Button { model.settingsOpen = false } label: { Text("Done").bigLabel(alt: false) }
                     .buttonStyle(Pressable())
                     .frame(maxWidth: .infinity)
