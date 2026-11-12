@@ -9,3 +9,4 @@ build/
 ios/ChipmunkChallenge/Info.plist
 .pages/
 .build-sim/
+.build-device/
