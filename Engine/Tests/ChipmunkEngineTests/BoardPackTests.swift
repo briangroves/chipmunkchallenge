@@ -32,13 +32,13 @@ final class BoardPackTests: XCTestCase {
     // MARK: - Bundled boards
 
     /// Board numbers are the player's progress, so the bundled order must never change. If this fails because packs
-    /// were added to boards.json: once any pack has been published for download, new boards go out as downloaded packs
-    /// only (tools/publish_pack.py); see the note at the top of LevelCatalog.swift.
+    /// were changed in levelplay.json: once a build has shipped, new boards go out as downloaded packs only
+    /// (tools/publish_pack.py); see the note at the top of LevelCatalog.swift.
     func testBundledOrderIsPinned() {
-        let order = (catalog.packs + catalog.newPacks).map { "\($0.id):" + $0.levels.map(\.id).joined(separator: ",") }
+        let order = catalog.starterPacks.map { "\($0.id):" + $0.levels.map(\.id).joined(separator: ",") }
         XCTAssertEqual(BoardPacks.sha256(Data(order.joined(separator: ";").utf8)),
-                       "88aa0e566e9570f49b61137984467585db226de4746efb301929734a0dad8359")
-        XCTAssertEqual(catalog.levelPlay.count, 1075)
+                       "faf4bce250e6093b1cbb275f8a923d432678bd2f49a9fc4e77f6fc30693f29f9")
+        XCTAssertEqual(catalog.levelPlay.count, 50)
     }
 
     // MARK: - Merging
@@ -52,11 +52,12 @@ final class BoardPackTests: XCTestCase {
         XCTAssertEqual(after.allPacks.suffix(2).map(\.id), ["dl1", "dl2"])
         XCTAssertEqual(after.levelPlay[n].id, "dl1-1")
         XCTAssertEqual(after.levelPlay[n + 20].id, "dl2-1")
-        for i in Array(0..<25) + Array(stride(from: 25, to: n, by: 37)) + [n - 1] {
+        for i in 0..<n {
             XCTAssertEqual(fingerprint(after, i), fingerprint(before, i), "board \(i + 1)")
         }
-        // Coin Mining and the daily puzzle's pool hang off the original boards only.
+        // Coin Mining and the daily puzzle's pool don't move.
         XCTAssertEqual(after.paradiseFrom, before.paradiseFrom)
+        XCTAssertEqual(after.dailyPool, before.dailyPool)
         XCTAssertEqual(after.paradiseRound(33).seed, before.paradiseRound(33).seed)
         XCTAssertEqual(after.bonus(forPack: "dl2"), 4250)
         // New boards build like any other: their number picks the challenge and seed.
@@ -76,7 +77,7 @@ final class BoardPackTests: XCTestCase {
     }
 
     func testABundledPackIsNotAddedTwice() {
-        let bundledPack = catalog.newPacks[3]
+        let bundledPack = catalog.starterPacks[1]
         let f = BoardPacks.File(packs: [bundledPack])
         let (after, taken) = catalog.adding([f, Self.file("dl1")])
         XCTAssertEqual(taken, 2)
@@ -84,7 +85,7 @@ final class BoardPackTests: XCTestCase {
     }
 
     func testClashingBoardIdsHoldBackThatPackAndEveryOneAfter() {
-        let clash = BoardPacks.File(packs: [.init(id: "dl1", name: "Clash", levels: [Self.picture(catalog.levelPlay[300].id)])])
+        let clash = BoardPacks.File(packs: [.init(id: "dl1", name: "Clash", levels: [Self.picture(catalog.levelPlay[30].id)])])
         let (after, taken) = catalog.adding([Self.file("dl0"), clash, Self.file("dl2")])
         XCTAssertEqual(taken, 1)
         XCTAssertEqual(after.allPacks.last?.id, "dl0")
@@ -93,20 +94,19 @@ final class BoardPackTests: XCTestCase {
     }
 
     func testAReplacementKeepsItsSlot() {
-        let target = catalog.levelPlay[400].id
-        let swap = Self.picture("swapped-400", color: "R")
+        let target = catalog.levelPlay[40].id
+        let swap = Self.picture("swapped-40", color: "R")
         let (after, taken) = catalog.adding([Self.file("dl1", replace: [target: swap, "no-such-board": swap])])
         XCTAssertEqual(taken, 1)
         XCTAssertEqual(after.levelPlay.count, catalog.levelPlay.count + 20)
-        XCTAssertEqual(after.levelPlay[400], swap)
-        XCTAssertEqual(after.seed(forBoard: 400), catalog.seed(forBoard: 400))
-        XCTAssertEqual(fingerprint(after, 399), fingerprint(catalog, 399))
-        XCTAssertEqual(fingerprint(after, 401), fingerprint(catalog, 401))
-        // An already-redrawn original can be redrawn again under its original id.
-        let redrawn = catalog.replacements.keys.sorted()[0]
-        let i = catalog.packs.flatMap(\.levels).firstIndex { $0.id == redrawn }!
-        let again = catalog.adding([Self.file("dl1", replace: [redrawn: swap])]).catalog
-        XCTAssertEqual(again.levelPlay[i], swap)
+        XCTAssertEqual(after.levelPlay[40], swap)
+        XCTAssertEqual(after.seed(forBoard: 40), catalog.seed(forBoard: 40))
+        XCTAssertEqual(fingerprint(after, 39), fingerprint(catalog, 39))
+        XCTAssertEqual(fingerprint(after, 41), fingerprint(catalog, 41))
+        // A redrawn board can be redrawn again under its first id.
+        let swap2 = Self.picture("swapped-40b", color: "B")
+        let again = after.adding([Self.file("dl2", replace: [target: swap2])]).catalog
+        XCTAssertEqual(again.levelPlay[40], swap2)
     }
 
     // MARK: - Files

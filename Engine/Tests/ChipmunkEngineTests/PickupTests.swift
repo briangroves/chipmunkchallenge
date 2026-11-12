@@ -62,7 +62,7 @@ final class PickupTests: XCTestCase {
         let daily = catalog.paradiseFrom + catalog.paradise.count
         for day in [20764, 20765, 20766] {
             let r = RNG(seed: day &* 2_654_435 &+ 11)
-            let pool = Array(5..<catalog.paradiseFrom)
+            let pool = catalog.dailyPool
             let pic = pool[r.int(pool.count)]
             let rampN = 50 + r.int(61)
             var diff = Difficulty.ramp(rampN)
@@ -72,7 +72,7 @@ final class PickupTests: XCTestCase {
             boards.append(("day \(day)", levelBase(name: p.name, rows: p.rows, boardNumber: rampN), "daily", day * 7 + 1,
                            "daily", daily, .daily))
         }
-        for i in [2, 29, 59] {
+        for i in [2, 29, 44] {
             boards.append(("board \(i)", catalog.base(forBoard: i), catalog.diffKey(forBoard: i),
                            (i + 1) * 1000 + 7, catalog.levelPlay[i].id, i, i < 20 ? .warmup(i + 1) : .level(i + 1)))
         }

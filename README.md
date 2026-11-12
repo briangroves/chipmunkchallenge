@@ -48,6 +48,14 @@ The `.xcodeproj` is generated, so it isn't committed. Rerun `xcodegen` after pul
 2. Run `python3 tools/make_ios_page.py web/chipmunk-challenge.html ios/ChipmunkChallenge/Web/index.html`.
 3. Build again in Xcode.
 
+## Level Play boards
+
+Level Play starts with 50 boards that ship in the app (`Engine/Sources/ChipmunkEngine/Resources/levelplay.json`,
+picked from Brian's 4- and 5-star ratings). Every board after those comes from downloaded packs. The old clipart
+boards (`boards.json`) and the web game's originals no longer ship in Level Play, though the tools still read them;
+the originals still feed Coin Mining. Updating from an older build starts Level Play over at Level 1 (coins, tools,
+hearts, Coin Mining and the daily streak carry over).
+
 ## New board packs without an app update
 
 The app downloads new Level Play packs from GitHub Pages (`https://briangroves.github.io/chipmunkchallenge/packs/`).
@@ -65,7 +73,8 @@ it on beta; `promote` puts it live; `status` lists the packs and their level num
 site is a gh-pages checkout at `.pages/`; add `--push` to publish, otherwise the change is only committed locally.
 
 Board numbers are the player's progress, so packs are append-only: a live pack is never removed or reordered, and
-once a pack is live, new boards go out only as packs, not into `boards.json` (a test pins the bundled order). To
+once a build has shipped, `levelplay.json` never changes: new boards go out only as packs (a test pins the bundled
+order). Old boards not in the 50 can be published in a pack like new ones. To
 redraw a live board, use `make --replace OLD_ID=NEW_ID`. To try a pack locally, serve a site folder
 (`python3 -m http.server`) and launch a debug build with `-packManifest http://127.0.0.1:8000/packs/beta/manifest.json`.
 

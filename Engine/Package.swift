@@ -13,7 +13,9 @@ let package = Package(
     targets: [
         .target(
             name: "ChipmunkEngine",
-            resources: [.copy("Resources/levels.json"), .copy("Resources/boards.json")],
+            // boards.json (the old clipart boards) stays in the repo for the tools but doesn't ship.
+            exclude: ["Resources/boards.json"],
+            resources: [.copy("Resources/levels.json"), .copy("Resources/levelplay.json")],
             // Level building is heavy; optimize the engine even in Debug app builds so boards build in seconds.
             swiftSettings: [.unsafeFlags(["-O"], .when(configuration: .debug))]
         ),

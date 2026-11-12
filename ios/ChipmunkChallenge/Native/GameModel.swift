@@ -221,7 +221,9 @@ final class GameModel: ObservableObject {
 
     private static let boardKey = "native.boardIndex"
     /// Bumped if saved data ever needs converting on update. 2.0 reads 1.1's saves as they are (same keys).
-    static let saveVersion = 2
+    /// 3: Level Play started over with 50 new boards, so its place and finished packs reset (coins, tools, hearts,
+    /// Coin Mining and the daily streak carry over).
+    static let saveVersion = 3
     static let continuePrice = 300
 
     struct SceneRun: Equatable {
@@ -310,6 +312,10 @@ final class GameModel: ObservableObject {
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
         tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
+        if store.integer(forKey: "native.saveVersion") < 3 {
+            store.removeObject(forKey: Self.boardKey)
+            store.removeObject(forKey: "native.packsDone")
+        }
         boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), withPacks.levelPlay.count - 1)
         if store.object(forKey: Self.packsShownKey) == nil {
             // A new install (or an update from before downloads): the packs already here aren't news.
@@ -476,7 +482,7 @@ final class GameModel: ObservableObject {
     var dailyBoard: DailyBoard {
         let day = Self.dayNo()
         let r = RNG(seed: day &* 2_654_435 &+ 11)
-        let pool = Array(5..<catalog.paradiseFrom)
+        let pool = catalog.dailyPool
         let pic = pool[r.int(pool.count)]
         return DailyBoard(day: day, picture: pic, rampN: 50 + r.int(61))
     }
@@ -520,7 +526,7 @@ final class GameModel: ObservableObject {
               baked: baked, attempt: attempt, title: catalog.levelPlay[i].name, subtitle: "Level \(i + 1)",
               label: packName(i),
               boxes: BoxSource(rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, index: i,
-                               board: i < catalog.packs[0].levels.count ? .warmup(i + 1) : .level(i + 1)))
+                               board: i < 20 ? .warmup(i + 1) : .level(i + 1)))
     }
 
     /// Load the next Coin Mining board (JS playParadise).

@@ -1,18 +1,17 @@
 import Foundation
 
-/// Every picture in the game. The original 170 Level Play boards and Coin Mining come from the web version
-/// (tools/export_levels.sh writes Resources/levels.json); new packs made from clipart by tools/make_pack.py come from
-/// Resources/boards.json and follow them as Level Play boards 171 on.
+/// Every picture in the game.
 ///
-/// Board numbering follows the web game's level index `i` (0-based): Level Play boards are 0..<170 (pack order),
-/// Coin Mining pictures follow at 170..<190. A board's challenge, seed and aim come from that index, exactly as the
-/// page's `dOf`, `seedFor` and `aimFor` do, so the same index builds the same board in both versions.
+/// Level Play starts with the 50 boards in Resources/levelplay.json (Brian's 4- and 5-star picks); every board after
+/// those is downloaded (BoardPacks, published by tools/publish_pack.py). A board's challenge, seed and aim come from
+/// its place in Level Play (index `i`, 0-based), and that index is also the player's progress, so boards are only
+/// ever added at the end: never reorder, remove or insert boards in levelplay.json once a build with it has
+/// shipped; new boards go out as downloaded packs. BoardPackTests pins the bundled order.
 ///
-/// Packs downloaded after the app shipped (BoardPacks) come after all of those. The player's place in Level Play is
-/// that index too, so boards are only ever added at the end: never reorder, remove or insert packs in boards.json
-/// once a build with it has shipped, and never add bundled packs once downloaded packs exist, except published
-/// packs (by their published id, in published order, right after the existing ones), which then aren't downloaded
-/// again. CatalogTests pins the bundled order.
+/// The web game's original 170 boards and Coin Mining's 20 pictures (tools/export_levels.sh writes
+/// Resources/levels.json) are kept for Coin Mining, whose board numbers follow the originals at 170..<190 exactly as
+/// the page's `dOf`, `seedFor` and `aimFor` number them, and for the parity tests against the web game. The clipart
+/// boards in Resources/boards.json no longer ship; the tools still read that file.
 public struct LevelCatalog: Decodable, Sendable {
     public struct Picture: Codable, Equatable, Sendable {
         public let id: String
@@ -55,10 +54,10 @@ public struct LevelCatalog: Decodable, Sendable {
     public let paradise: [ParadisePicture]
     /// Pre-built boards, keyed "levelId|diffKey" (Food 1-5 on their ramp settings).
     public let baked: [String: LevelSummary]
-    /// Packs made from clipart (Resources/boards.json), played after the original ones.
-    public private(set) var newPacks: [Pack] = []
-    /// Original boards redrawn from clipart (boards.json "replace", keyed by the original board's id). The board
-    /// keeps its place, pack and number; only the picture (and so its id) changes. Coin Mining is unaffected.
+    /// The boards Level Play starts with (Resources/levelplay.json).
+    public private(set) var starterPacks: [Pack] = []
+    /// Boards redrawn by a downloaded pack's "replace", keyed by the board's id. The board keeps its place, pack and
+    /// number; only the picture (and so its id) changes.
     public private(set) var replacements: [String: Picture] = [:]
     /// Packs downloaded after the app shipped (BoardPacks), played after the bundled ones, in the order taken.
     public private(set) var downloaded: [Pack] = []
@@ -67,9 +66,8 @@ public struct LevelCatalog: Decodable, Sendable {
         case format, source, packSize, packBonus, rampN, packs, paradise, baked
     }
 
-    private struct NewBoards: Decodable {
+    private struct Starter: Decodable {
         let packs: [Pack]
-        let replace: [String: Picture]?
     }
 
     /// The catalog that ships inside the engine.
@@ -78,27 +76,32 @@ public struct LevelCatalog: Decodable, Sendable {
             throw CocoaError(.fileNoSuchFile)
         }
         var c = try JSONDecoder().decode(LevelCatalog.self, from: Data(contentsOf: url))
-        if let extra = Bundle.module.url(forResource: "boards", withExtension: "json") {
-            let nb = try JSONDecoder().decode(NewBoards.self, from: Data(contentsOf: extra))
-            c.newPacks = nb.packs
-            c.replacements = nb.replace ?? [:]
+        guard let start = Bundle.module.url(forResource: "levelplay", withExtension: "json") else {
+            throw CocoaError(.fileNoSuchFile)
         }
+        c.starterPacks = try JSONDecoder().decode(Starter.self, from: Data(contentsOf: start)).packs
         return c
     }
 
     // MARK: - Level Play
 
-    /// Every Level Play pack in play order: the original ones, the bundled new ones, then downloaded ones (with any
-    /// redrawn boards in place).
+    /// Every Level Play pack in play order: the starter packs, then downloaded ones (with any redrawn boards in place).
     public var allPacks: [Pack] {
-        let all = packs + newPacks + downloaded
+        let all = starterPacks + downloaded
         return replacements.isEmpty ? all : all.map { p in
             Pack(id: p.id, name: p.name, levels: p.levels.map { replacements[$0.id] ?? $0 })
         }
     }
 
     /// Ids of the packs inside the app (a downloaded pack with one of these ids is already here).
-    public var bundledPackIDs: Set<String> { Set((packs + newPacks).map(\.id)) }
+    public var bundledPackIDs: Set<String> { Set(starterPacks.map(\.id)) }
+
+    /// How many Level Play boards ship in the app.
+    public var starterCount: Int { starterPacks.reduce(0) { $0 + $1.levels.count } }
+
+    /// Level Play boards the daily puzzle draws its picture from: the bundled ones after the first five (so a pack
+    /// arriving mid-day doesn't change today's puzzle).
+    public var dailyPool: [Int] { Array(min(5, starterCount - 1)..<starterCount) }
 
     /// This catalog plus downloaded pack files, in the order given (the ledger's). Each file's pack goes on the end;
     /// its `replace` swaps pictures in place (a replacement naming no board here is ignored). A pack already bundled is
@@ -106,7 +109,7 @@ public struct LevelCatalog: Decodable, Sendable {
     /// (nothing may skip ahead of a missing pack). Returns the new catalog and how many files it took.
     public func adding(_ files: [BoardPacks.File]) -> (catalog: LevelCatalog, taken: Int) {
         var c = self
-        var ids = Set((packs + newPacks + downloaded).flatMap(\.levels).map(\.id)).union(replacements.values.map(\.id))
+        var ids = Set((starterPacks + downloaded).flatMap(\.levels).map(\.id)).union(replacements.values.map(\.id))
         let bundled = bundledPackIDs
         var taken = 0
         for f in files {
@@ -132,9 +135,19 @@ public struct LevelCatalog: Decodable, Sendable {
     /// Level Play boards in play order (index = board number - 1).
     public var levelPlay: [Picture] { allPacks.flatMap(\.levels) }
 
-    /// Where Coin Mining's numbering starts: right after the original 170 boards, whatever packs are added after
-    /// them, so Coin Mining boards and the daily puzzle stay the same.
+    /// Where Coin Mining's numbering starts: right after the web game's original 170 boards (no longer in Level Play),
+    /// so Coin Mining boards stay the same.
     public var paradiseFrom: Int { packs.reduce(0) { $0 + $1.levels.count } }
+
+    // MARK: - The web game's original boards (parity tests)
+
+    /// Original board i (0..<170) as the web game builds it: its picture, challenge, seed and pre-built board.
+    public func original(_ i: Int) -> (base: LevelBase, diffKey: String, seed: Int, baked: LevelSummary?, id: String) {
+        let p = packs.flatMap(\.levels)[i]
+        let key = diffKey(forBoard: i)
+        let b = baked[p.id + "|" + key]
+        return (levelBase(name: p.name, rows: p.rows, boardNumber: i + 1), key, b?.seed ?? (i + 1) * 1000 + 7, b, p.id)
+    }
 
     /// Completion bonus for a pack (5,000 for 20 levels, scaled by size).
     public func bonus(forPack id: String) -> Int {

@@ -21,8 +21,9 @@ final class CatalogTests: XCTestCase {
         XCTAssertEqual(catalog.packs.map(\.id), js.decode([String].self, "PACKS.map(p=>p.id)"))
         XCTAssertEqual(catalog.packs.map(\.name), js.decode([String].self, "PACKS.map(p=>p.name)"))
         XCTAssertEqual(original.map(\.name), js.decode([String].self, "LEVELS.slice(0,RAMP_N).map(L=>L.name)"))
-        XCTAssertEqual(catalog.bonus(forPack: "storybook"), 2500)
-        XCTAssertEqual(catalog.bonus(forPack: "food"), 5000)
+        // Level Play packs: 5,000 for 20 boards, scaled by size.
+        XCTAssertEqual(catalog.bonus(forPack: "favorites-1"), 5000)
+        XCTAssertEqual(catalog.bonus(forPack: "favorites-3"), 2500)
     }
 
     func testPicturesMatchTheWebGame() {
@@ -40,9 +41,9 @@ final class CatalogTests: XCTestCase {
 
     func testBakedBoardsAreSolvedByTheirPlan() {
         for i in 0..<5 {
-            let summary = try! XCTUnwrap(catalog.baked(forBoard: i), "board \(i) should ship pre-built")
-            let lv = assembleLevel(base: catalog.base(forBoard: i), diffKey: catalog.diffKey(forBoard: i),
-                                   seed: catalog.seed(forBoard: i), summary: summary)
+            let o = catalog.original(i)
+            let summary = try! XCTUnwrap(o.baked, "board \(i) should ship pre-built")
+            let lv = assembleLevel(base: o.base, diffKey: o.diffKey, seed: o.seed, summary: summary)
             XCTAssertEqual(lv.seed, summary.seed)
             var m = Sim(lv)
             settleTimed(lv, &m)
@@ -54,7 +55,7 @@ final class CatalogTests: XCTestCase {
             }
             XCTAssertTrue(m.s.won, "board \(i)")
         }
-        XCTAssertNil(catalog.baked(forBoard: 5))
+        XCTAssertNil(catalog.original(5).baked)
     }
 
     /// The game has each critter stand a quarter second at its block before heading home. The builder checks boards
@@ -62,15 +63,14 @@ final class CatalogTests: XCTestCase {
     func testPlansStillClearWithThePickupPause() {
         var boards: [(String, Level)] = []
         for i in 0..<5 {
-            let summary = catalog.baked(forBoard: i)!
-            boards.append(("baked \(i)", assembleLevel(base: catalog.base(forBoard: i), diffKey: catalog.diffKey(forBoard: i),
-                                                       seed: catalog.seed(forBoard: i), summary: summary)))
+            let b = catalog.original(i)
+            boards.append(("baked \(i)", assembleLevel(base: b.base, diffKey: b.diffKey, seed: b.seed, summary: b.baked!)))
         }
         for i in [12, 30, 55, 80, 110, 140, 169] {
-            let key = catalog.diffKey(forBoard: i)
+            let b = catalog.original(i)
             var o = BuildOptions.game
-            o.aim = LevelCatalog.aim(key, tailor: 1)
-            if let lv = generateLevel(base: catalog.base(forBoard: i), seed: catalog.seed(forBoard: i), diffKey: key, options: o) {
+            o.aim = LevelCatalog.aim(b.diffKey, tailor: 1)
+            if let lv = generateLevel(base: b.base, seed: b.seed, diffKey: b.diffKey, options: o) {
                 boards.append(("board \(i)", lv))
             }
         }
@@ -116,7 +116,7 @@ final class CatalogTests: XCTestCase {
             let pic = isPara ? nil : catalog.packs.flatMap(\.levels)[i]
             let base = pic.map { levelBase(name: $0.name, rows: $0.rows, boardNumber: i + 1) }
                 ?? catalog.paradiseRound(i - catalog.paradiseFrom).base
-            let seed = isPara ? catalog.paradiseRound(i - catalog.paradiseFrom).seed : catalog.seed(forBoard: i)
+            let seed = isPara ? catalog.paradiseRound(i - catalog.paradiseFrom).seed : catalog.original(i).seed
             let aim = LevelCatalog.aim(key, tailor: 1)
             var o = ParityTests.quick
             o.aim = aim

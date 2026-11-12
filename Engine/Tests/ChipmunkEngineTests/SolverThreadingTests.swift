@@ -8,12 +8,10 @@ import XCTest
 final class SolverThreadingTests: XCTestCase {
     func testSolverOnACopyWhileTheGamePlaysOn() throws {
         let catalog = try LevelCatalog.bundled()
-        let i = 55
-        let key = catalog.diffKey(forBoard: i)
+        let b = catalog.original(55)
         var o = BuildOptions.game
-        o.aim = LevelCatalog.aim(key, tailor: 1)
-        let lv = try XCTUnwrap(generateLevelRetrying(base: catalog.base(forBoard: i), seed: catalog.seed(forBoard: i),
-                                                     diffKey: key, options: o))
+        o.aim = LevelCatalog.aim(b.diffKey, tailor: 1)
+        let lv = try XCTUnwrap(generateLevelRetrying(base: b.base, seed: b.seed, diffKey: b.diffKey, options: o))
         var m = Sim(lv)
         m.pickupPause = 25
         settleTimed(lv, &m)

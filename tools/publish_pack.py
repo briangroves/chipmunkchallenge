@@ -17,6 +17,10 @@ The site is the repo's gh-pages branch (https://briangroves.github.io/chipmunkch
 `make` puts a new pack on the end of the beta manifest. Check it on the phone (TestFlight build, Home shows
 "New pack!"), then `promote` it. The live manifest is always the start of the beta one.
 
+Level Play starts with the boards in Engine/Sources/ChipmunkEngine/Resources/levelplay.json (they ship in the app);
+every later board comes from here. Old boards that aren't in levelplay.json (the clipart boards in boards.json, the
+web game's originals) can be published in a pack like any new board.
+
 APPEND ONLY: a board's number is the player's place in Level Play, and its challenge and seed come from that number.
 So a live pack is never removed, reordered or edited. To swap a live board's picture, put the new picture in a later
 pack with --replace OLD_ID=NEW_ID (it keeps its number). Board ids must be new: not in the app or any published pack.
@@ -121,12 +125,13 @@ def boards_in(data):
     return out
 
 
+def starter():
+    """The boards Level Play starts with (they ship in the app)."""
+    return boards_in(json.load(open(os.path.join(RES, "levelplay.json"))))
+
+
 def bundled_ids():
-    ids = set()
-    for name in ("levels.json", "boards.json"):
-        for b in boards_in(json.load(open(os.path.join(RES, name)))):
-            ids.add(b["id"])
-    return ids
+    return {b["id"] for b in starter()}
 
 
 def published_ids(site, beta):
@@ -196,10 +201,10 @@ def cmd_make(args):
     taken = bundled_ids() | published_ids(site, beta)
     clash = [i for i in ids + list(swaps.values()) if i in taken]
     if clash:
-        die(f"these ids are already in the app or a published pack (board ids must be new): {clash}")
+        die(f"these ids are already in Level Play or a published pack (board ids must be new): {clash}")
     unknown = [old for old in swaps if old not in taken]
     if unknown:
-        die(f"--replace names boards that aren't in the app or a published pack: {unknown}")
+        die(f"--replace names boards that aren't in Level Play or a published pack: {unknown}")
     if args.ratings:
         stars = ratings(args.ratings)
         low = [i for i in ids + list(swaps.values()) if stars.get(i, 0) < args.min]
@@ -275,8 +280,7 @@ def cmd_status(args):
     site = site_dir(args.site)
     beta, live = read_manifest(site, "beta"), read_manifest(site, "live")
     check_order(beta, live)
-    total = len(boards_in({"packs": json.load(open(os.path.join(RES, "levels.json")))["packs"]}))
-    total += len(boards_in({"packs": json.load(open(os.path.join(RES, "boards.json")))["packs"]}))
+    total = len(starter())
     print(f"{total} boards in the app; downloaded packs start at level {total + 1}.")
     level = total + 1
     for k, e in enumerate(beta["packs"]):
