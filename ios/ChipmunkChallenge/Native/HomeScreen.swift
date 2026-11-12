@@ -5,6 +5,7 @@ import SwiftUI
 struct RootView: View {
     @StateObject private var model = GameModel()
     @SwiftUI.State private var splash = true
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         ZStack {
@@ -34,6 +35,10 @@ struct RootView: View {
         .animation(.easeOut(duration: 0.18), value: model.dailyPickOpen)
         .animation(.easeOut(duration: 0.18), value: model.reviewOpen)
         .animation(.easeOut(duration: 0.18), value: model.giftShown)
+        .task { model.checkForPacks() }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active { model.checkForPacks(force: false) }
+        }
     }
 }
 
@@ -137,10 +142,28 @@ private struct LevelHero: View {
         let cols = CGFloat(picture.rows.first?.count ?? 1), rows = CGFloat(max(1, picture.rows.count))
         Button { withAnimation(.easeOut(duration: 0.2)) { model.playLevel() } } label: {
             VStack(spacing: 8) {
-                Text("LEVEL PLAY")
-                    .font(Theme.body(12, 800))
-                    .tracking(12 * 0.1)
-                    .foregroundStyle(Color(hex: 0x6B7863))
+                if !model.newPacks.isEmpty {
+                    // Packs just downloaded: say so until the player next opens Level Play.
+                    let packs = model.newPacks
+                    let levels = packs.reduce(0) { $0 + $1.levels.count }
+                    let news = packs.count == 1 ? "NEW PACK!  \(packs[0].name) · \(levels) levels"
+                        : "\(packs.count) NEW PACKS!  \(levels) levels"
+                    Text(news)
+                        .font(Theme.body(12, 800))
+                        .tracking(12 * 0.05)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                        .foregroundStyle(Theme.darkInk)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 3)
+                        .background(Capsule().fill(Theme.gold))
+                        .accessibilityLabel(news.capitalized)
+                } else {
+                    Text("LEVEL PLAY")
+                        .font(Theme.body(12, 800))
+                        .tracking(12 * 0.1)
+                        .foregroundStyle(Color(hex: 0x6B7863))
+                }
                 PictureThumb(rows: picture.rows)
                     .aspectRatio(cols / rows, contentMode: .fit)
                     .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))

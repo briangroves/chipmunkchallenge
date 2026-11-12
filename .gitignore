@@ -7,3 +7,5 @@ build/
 .build/
 .swiftpm/
 ios/ChipmunkChallenge/Info.plist
+.pages/
+.build-sim/

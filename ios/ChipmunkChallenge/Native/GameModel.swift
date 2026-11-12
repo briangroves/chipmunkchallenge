@@ -193,7 +193,15 @@ final class GameModel: ObservableObject {
     /// Board cell size in points, set by the layout (JS sizeBoard).
     var cellSize: CGFloat = 7.5
 
-    let catalog: LevelCatalog
+    /// The boards inside the app, and those plus any downloaded packs (PackStore). Downloaded packs only ever go
+    /// on the end, so a board's number never changes when they arrive.
+    private let bundledCatalog: LevelCatalog
+    @Published private(set) var catalog: LevelCatalog
+    /// Downloaded packs the player hasn't been shown yet (Home's "New pack!" badge).
+    @Published private(set) var newPacks: [LevelCatalog.Pack] = []
+    private let packStore = PackStore()
+    private var packCheck: Task<Void, Never>?
+    private static let packsShownKey = "native.packsShown"
     private(set) var level: Level?
     /// The simulation. The board view reads it to draw; only this model changes it.
     private(set) var sim: Sim?
@@ -279,7 +287,10 @@ final class GameModel: ObservableObject {
     private static let reduceMotion = { UIAccessibility.isReduceMotionEnabled }
 
     init() {
-        catalog = try! LevelCatalog.bundled()
+        let bundled = try! LevelCatalog.bundled()
+        let withPacks = bundled.adding(PackStore.saved()).catalog
+        bundledCatalog = bundled
+        catalog = withPacks
         let startCoins = store.object(forKey: "native.coins") == nil ? 500 : store.integer(forKey: "native.coins")
         coins = startCoins
         coinsShown = startCoins
@@ -299,7 +310,12 @@ final class GameModel: ObservableObject {
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
         tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
-        boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), catalog.levelPlay.count - 1)
+        boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), withPacks.levelPlay.count - 1)
+        if store.object(forKey: Self.packsShownKey) == nil {
+            // A new install (or an update from before downloads): the packs already here aren't news.
+            store.set(catalog.downloaded.map(\.id), forKey: Self.packsShownKey)
+        }
+        noteNewPack()
         store.set(Self.saveVersion, forKey: "native.saveVersion")
         tickHearts()
         heartTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
@@ -333,8 +349,47 @@ final class GameModel: ObservableObject {
     /// Home's Level Play card: resume the level in progress, or start the next one.
     func playLevel() {
         enterPlay()
-        if mode == .level, level != nil, status != .won, !isFailed { return }
+        markPacksShown()
+        if levelInProgress { return }
+        catchUpBoardIndex()
         withHeart(level: true) { self.load(self.boardIndex) }
+    }
+
+    private var levelInProgress: Bool { mode == .level && level != nil && status != .won && !isFailed }
+
+    // MARK: - Downloaded packs
+
+    /// Look for new board packs: at launch, and when the app comes back to the front if a day has passed.
+    func checkForPacks(force: Bool = true) {
+        guard packCheck == nil, force || PackStore.due else { return }
+        let bundled = bundledCatalog
+        packCheck = Task {
+            let files = await packStore.refresh(bundled: bundled)
+            packCheck = nil
+            if let files { applyPacks(files) }
+        }
+    }
+
+    private func applyPacks(_ files: [BoardPacks.File]) {
+        catalog = bundledCatalog.adding(files).catalog
+        if !levelInProgress { catchUpBoardIndex() }
+        noteNewPack()
+    }
+
+    /// The saved next board can be one past the last (every board cleared): once a pack arrives, that's its first.
+    private func catchUpBoardIndex() {
+        boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), catalog.levelPlay.count - 1)
+    }
+
+    private func noteNewPack() {
+        let shown = Set(store.stringArray(forKey: Self.packsShownKey) ?? [])
+        newPacks = catalog.downloaded.filter { !shown.contains($0.id) }
+    }
+
+    private func markPacksShown() {
+        guard !newPacks.isEmpty else { return }
+        store.set(catalog.downloaded.map(\.id), forKey: Self.packsShownKey)
+        newPacks = []
     }
 
     /// Home's Coin Mining card.
@@ -454,7 +509,10 @@ final class GameModel: ObservableObject {
     func load(_ i: Int, attempt: Int = 1) {
         mode = .level
         boardIndex = i
-        UserDefaults.standard.set(i, forKey: Self.boardKey)
+        // Replaying the last board after clearing them all keeps the saved place one past it (for a pack yet to come).
+        if !(i == catalog.levelPlay.count - 1 && store.integer(forKey: Self.boardKey) > i) {
+            store.set(i, forKey: Self.boardKey)
+        }
         let key = catalog.diffKey(forBoard: i)
         let aim = LevelCatalog.aim(key, tailor: tailor)
         let baked = attempt == 1 && aim == LevelCatalog.baseAim(key) ? catalog.baked(forBoard: i) : nil
@@ -750,8 +808,8 @@ final class GameModel: ObservableObject {
         case .level:
             // The next level is the one after this, from now on (finished levels aren't replayed).
             packDone = finishPack(boardIndex)
+            store.set(boardIndex + 1, forKey: Self.boardKey)
             boardIndex = min(boardIndex + 1, catalog.levelPlay.count - 1)
-            store.set(boardIndex, forKey: Self.boardKey)
         }
         let base = reward
         let bonus = firstTry ? Int(JSRound(Double(base) * 0.5)) : 0

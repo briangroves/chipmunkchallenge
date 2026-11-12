@@ -7,17 +7,35 @@ import Foundation
 /// Board numbering follows the web game's level index `i` (0-based): Level Play boards are 0..<170 (pack order),
 /// Coin Mining pictures follow at 170..<190. A board's challenge, seed and aim come from that index, exactly as the
 /// page's `dOf`, `seedFor` and `aimFor` do, so the same index builds the same board in both versions.
+///
+/// Packs downloaded after the app shipped (BoardPacks) come after all of those. The player's place in Level Play is
+/// that index too, so boards are only ever added at the end: never reorder, remove or insert packs in boards.json
+/// once a build with it has shipped, and never add bundled packs once downloaded packs exist, except published
+/// packs (by their published id, in published order, right after the existing ones), which then aren't downloaded
+/// again. CatalogTests pins the bundled order.
 public struct LevelCatalog: Decodable, Sendable {
-    public struct Picture: Decodable, Sendable {
+    public struct Picture: Codable, Equatable, Sendable {
         public let id: String
         public let name: String
         public let rows: [String]
+
+        public init(id: String, name: String, rows: [String]) {
+            self.id = id
+            self.name = name
+            self.rows = rows
+        }
     }
 
-    public struct Pack: Decodable, Sendable {
+    public struct Pack: Codable, Equatable, Sendable {
         public let id: String
         public let name: String
         public let levels: [Picture]
+
+        public init(id: String, name: String, levels: [Picture]) {
+            self.id = id
+            self.name = name
+            self.levels = levels
+        }
     }
 
     public struct ParadisePicture: Decodable, Sendable {
@@ -42,6 +60,8 @@ public struct LevelCatalog: Decodable, Sendable {
     /// Original boards redrawn from clipart (boards.json "replace", keyed by the original board's id). The board
     /// keeps its place, pack and number; only the picture (and so its id) changes. Coin Mining is unaffected.
     public private(set) var replacements: [String: Picture] = [:]
+    /// Packs downloaded after the app shipped (BoardPacks), played after the bundled ones, in the order taken.
+    public private(set) var downloaded: [Pack] = []
 
     private enum CodingKeys: String, CodingKey {
         case format, source, packSize, packBonus, rampN, packs, paradise, baked
@@ -68,12 +88,45 @@ public struct LevelCatalog: Decodable, Sendable {
 
     // MARK: - Level Play
 
-    /// Every Level Play pack in play order: the original ones (with any redrawn boards), then the new ones.
+    /// Every Level Play pack in play order: the original ones, the bundled new ones, then downloaded ones (with any
+    /// redrawn boards in place).
     public var allPacks: [Pack] {
-        let originals = replacements.isEmpty ? packs : packs.map { p in
+        let all = packs + newPacks + downloaded
+        return replacements.isEmpty ? all : all.map { p in
             Pack(id: p.id, name: p.name, levels: p.levels.map { replacements[$0.id] ?? $0 })
         }
-        return originals + newPacks
+    }
+
+    /// Ids of the packs inside the app (a downloaded pack with one of these ids is already here).
+    public var bundledPackIDs: Set<String> { Set((packs + newPacks).map(\.id)) }
+
+    /// This catalog plus downloaded pack files, in the order given (the ledger's). Each file's pack goes on the end;
+    /// its `replace` swaps pictures in place (a replacement naming no board here is ignored). A pack already bundled is
+    /// skipped. A pack whose board ids clash with boards already here is refused, and so is every file after it
+    /// (nothing may skip ahead of a missing pack). Returns the new catalog and how many files it took.
+    public func adding(_ files: [BoardPacks.File]) -> (catalog: LevelCatalog, taken: Int) {
+        var c = self
+        var ids = Set((packs + newPacks + downloaded).flatMap(\.levels).map(\.id)).union(replacements.values.map(\.id))
+        let bundled = bundledPackIDs
+        var taken = 0
+        for f in files {
+            guard f.format <= BoardPacks.format, f.packs.count == 1 else { break }
+            let pack = f.packs[0]
+            if !bundled.contains(pack.id) {
+                guard !c.downloaded.contains(where: { $0.id == pack.id }) else { break }
+                let new = pack.levels.map(\.id)
+                guard Set(new).count == new.count, ids.isDisjoint(with: new) else { break }
+                ids.formUnion(new)
+                c.downloaded.append(pack)
+            }
+            for (old, pic) in f.replace ?? [:] {
+                guard ids.contains(old) || c.replacements[old] != nil else { continue }
+                c.replacements[old] = pic
+                ids.insert(pic.id)
+            }
+            taken += 1
+        }
+        return (c, taken)
     }
 
     /// Level Play boards in play order (index = board number - 1).
