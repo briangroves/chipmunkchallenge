@@ -18,9 +18,9 @@ OUT = os.path.join(ROOT, "Engine/Sources/ChipmunkEngine/Resources/approved-board
 def main():
     with urllib.request.urlopen(CFG["feed_url"], timeout=30) as r:
         feed = json.load(r)
-    old = json.load(open(OUT)) if os.path.exists(OUT) else {"packs": []}
-    n_old = sum(len(p["levels"]) for p in old["packs"])
-    n_new = sum(len(p["levels"]) for p in feed["packs"])
+    count = lambda f: len(f["levels"]) if "levels" in f else sum(len(p["levels"]) for p in f.get("packs", []))
+    old = json.load(open(OUT)) if os.path.exists(OUT) else {"levels": []}
+    n_old, n_new = count(old), count(feed)
     if n_new < n_old:
         raise SystemExit(f"feed has {n_new} boards but the game already ships {n_old}; not shrinking it")
     save(OUT, feed, indent=0)

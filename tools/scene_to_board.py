@@ -25,6 +25,7 @@ from scipy import ndimage
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from image_to_board import PALETTE  # noqa: E402
+from palette20 import limit  # noqa: E402
 
 N = 40
 # The game's 20 colors (tools/palette20.py): boards are never drawn with the five shades it dropped in 2026-11.
@@ -109,7 +110,7 @@ def convert(path, fill=FILL):
         return None, dict(error="no subject found")
     (left, top, side), cut, (sh, sw) = frame(img, mask, fill)
     idx = nearest(lab(shrink(img.crop((left, top, left + side, top + side)))))
-    rows = ["".join(KEYS[i] for i in row) for row in idx]
+    rows = limit(["".join(KEYS[i] for i in row) for row in idx])
     subj = np.asarray(Image.fromarray(mask[top:top + side, left:left + side]).resize((N, N), Image.BOX)) > 0
     info = dict(fill=fill, cut=cut, subject=round(float(subj.mean()), 3), colors=len(set("".join(rows))),
                 aspect=round(sw / sh, 2), touches=bool(subj[0].any() or subj[-1].any() or subj[:, 0].any()

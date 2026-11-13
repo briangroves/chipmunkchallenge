@@ -61,6 +61,7 @@ def used_names():
         d = load(os.path.join(res, f), {})
         for p in d.get("packs", []):
             names.update(L["name"] for L in p["levels"])
+        names.update(L["name"] for L in d.get("levels", []) + d.get("mining", []))
         names.update(R["name"] for R in d.get("replace", {}).values())
     names.update(load(os.path.join(QUEUE, "tried.json"), []))
     return names

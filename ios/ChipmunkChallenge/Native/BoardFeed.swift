@@ -2,7 +2,8 @@ import ChipmunkEngine
 import Foundation
 
 /// New boards approved in the Board Review app, downloaded from the public feed (tools/daily/publish.py writes it).
-/// The game checks once a day and right away when the player runs out of levels. The last good copy is kept on the
+/// The game checks each time it comes to the front (at most hourly) and every ten minutes while the player is out of
+/// levels, so a board approved in the Board Review app reaches players within the hour, one at a time. The last good copy is kept on the
 /// phone, so downloaded boards work offline and survive restarts.
 enum BoardFeed {
     static var url: URL {
@@ -12,7 +13,7 @@ enum BoardFeed {
         #endif
         return URL(string: "https://briangroves.github.io/chipmunkchallenge/boards/approved.json")!
     }
-    static let checkEvery: TimeInterval = 24 * 3600
+    static let checkEvery: TimeInterval = 3600
     /// Asking again when out of levels is limited to this, so a player stuck on the last board doesn't spam the feed.
     static let retryEvery: TimeInterval = 10 * 60
     private static let lastCheckKey = "native.feedCheckedAt"
@@ -28,7 +29,7 @@ enum BoardFeed {
 
     static func save(_ data: Data) { try? data.write(to: cacheURL, options: .atomic) }
 
-    /// Whether it's time to check: a day since the last check, or (when the player is out of levels) ten minutes.
+    /// Whether it's time to check: an hour since the last check, or (when the player is out of levels) ten minutes.
     static func due(urgent: Bool) -> Bool {
         let last = UserDefaults.standard.double(forKey: lastCheckKey)
         return Date().timeIntervalSince1970 - last >= (urgent ? retryEvery : checkEvery)

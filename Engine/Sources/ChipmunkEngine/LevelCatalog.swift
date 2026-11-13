@@ -1,10 +1,11 @@
 import Foundation
 
-/// Every picture in the game. The original 170 Level Play boards and Coin Mining come from the web version
-/// (tools/export_levels.sh writes Resources/levels.json); new packs made from clipart by tools/make_pack.py come from
-/// Resources/boards.json and follow them as Level Play boards 171 on.
+/// Every picture in the game. Since 2026-11-13 Level Play is one flat run of boards from the new board maker
+/// (Resources/boards.json "levels", then approved boards from the feed), and Coin Mining plays boards.json "mining".
+/// There are no packs. The original web-game export (Resources/levels.json, grouped in the web game's packs) is kept
+/// only for its numbering and the parity tests.
 ///
-/// Board numbering follows the web game's level index `i` (0-based): Level Play boards are 0..<170 (pack order),
+/// Board numbering follows the web game's level index `i` (0-based): the original boards were 0..<170,
 /// Coin Mining pictures follow at 170..<190. A board's challenge, seed and aim come from that index, exactly as the
 /// page's `dOf`, `seedFor` and `aimFor` do, so the same index builds the same board in both versions.
 public struct LevelCatalog: Decodable, Sendable {
@@ -37,22 +38,36 @@ public struct LevelCatalog: Decodable, Sendable {
     public let paradise: [ParadisePicture]
     /// Pre-built boards, keyed "levelId|diffKey" (Food 1-5 on their ramp settings).
     public let baked: [String: LevelSummary]
-    /// Packs made from clipart (Resources/boards.json), played after the original ones.
-    public private(set) var newPacks: [Pack] = []
+    /// Level Play's boards from the new board maker (Resources/boards.json "levels"), in play order. Level Play is
+    /// one long run of boards: there are no packs, pack names or pack rewards (2026-11-13).
+    public private(set) var newBoards: [Picture] = []
     /// Original boards redrawn from clipart (boards.json "replace", keyed by the original board's id). The board
     /// keeps its place, pack and number; only the picture (and so its id) changes. Coin Mining is unaffected.
     public private(set) var replacements: [String: Picture] = [:]
     /// Boards approved in the Board Review app (the public feed, tools/daily/publish.py), played after all the others.
     /// The game ships a snapshot (Resources/approved-boards.json) and downloads newer copies with `merge(feed:)`.
-    public private(set) var approvedPacks: [Pack] = []
+    public private(set) var approvedBoards: [Picture] = []
+    /// True when boards.json says the original 170 boards are out of Level Play (2026-11-12: only boards from the new
+    /// board maker play). They stay in `packs` for Coin Mining's numbering, which still starts at 170.
+    public var retireOriginals = false
+    /// Coin Mining's boards from the new board maker (boards.json "mining", tools/make_mining.py). When there are
+    /// any, Coin Mining plays them in place of the original pictures (`paradise`), which then only keep the numbering.
+    public private(set) var miningBoards: [Picture] = []
 
     private enum CodingKeys: String, CodingKey {
         case format, source, packSize, packBonus, rampN, packs, paradise, baked
     }
 
+    /// boards.json, approved-boards.json and the downloaded feed. Boards are a flat "levels" list; files written
+    /// before 2026-11-13 grouped them in "packs", which are read as one list in order.
     private struct NewBoards: Decodable {
-        let packs: [Pack]
-        let replace: [String: Picture]?
+        var levels: [Picture]? = nil
+        var packs: [Pack]? = nil
+        var replace: [String: Picture]? = nil
+        var retire: Bool? = nil
+        var mining: [Picture]? = nil
+
+        var boards: [Picture] { levels ?? (packs ?? []).flatMap(\.levels) }
     }
 
     /// The catalog that ships inside the engine.
@@ -63,58 +78,47 @@ public struct LevelCatalog: Decodable, Sendable {
         var c = try JSONDecoder().decode(LevelCatalog.self, from: Data(contentsOf: url))
         if let extra = Bundle.module.url(forResource: "boards", withExtension: "json") {
             let nb = try JSONDecoder().decode(NewBoards.self, from: Data(contentsOf: extra))
-            c.newPacks = nb.packs
+            c.newBoards = nb.boards
             c.replacements = nb.replace ?? [:]
+            c.retireOriginals = nb.retire ?? false
+            c.miningBoards = nb.mining ?? []
         }
         // Boards approved in the Board Reviewer app, added by tools/daily/publish.py, played after all the others.
         if let approved = Bundle.module.url(forResource: "approved-boards", withExtension: "json"),
            let nb = try? JSONDecoder().decode(NewBoards.self, from: Data(contentsOf: approved)) {
-            c.newPacks += nb.packs.filter { !$0.levels.isEmpty }
+            c.approvedBoards = nb.boards
         }
         return c
     }
 
     // MARK: - Approved boards feed
 
-    /// Every approved board in feed order.
-    public var approvedBoards: [Picture] { approvedPacks.flatMap(\.levels) }
-
     /// Take a copy of the approved-boards feed if it extends what the game has: the feed only ever grows (boards are
     /// appended, never removed, changed or reordered, because a board's place sets its seed and challenge), so a copy
     /// is used only when the boards the game already has are its exact start. Returns how many boards it added.
     public mutating func merge(feed data: Data) -> Int {
         guard let nb = try? JSONDecoder().decode(NewBoards.self, from: data) else { return 0 }
-        let packs = nb.packs.filter { !$0.levels.isEmpty }
-        let new = packs.flatMap(\.levels), old = approvedBoards
+        let new = nb.boards, old = approvedBoards
         guard new.count > old.count,
               zip(old, new).allSatisfy({ $0.id == $1.id }),
-              new.allSatisfy({ $0.rows.count == 40 && $0.rows.allSatisfy { $0.count == 40 && $0.allSatisfy { PALETTE[$0] != nil } } }) else { return 0 }
-        approvedPacks = packs
+              new.allSatisfy({ $0.rows.count == 40 && $0.rows.allSatisfy { $0.count == 40 && $0.allSatisfy { PALETTE[paletteLetter($0)] != nil } } }) else { return 0 }
+        approvedBoards = new
         return new.count - old.count
     }
 
     // MARK: - Level Play
 
-    /// Every Level Play pack in play order: the original ones (with any redrawn boards), then the new ones.
-    public var allPacks: [Pack] {
-        let originals = replacements.isEmpty ? packs : packs.map { p in
-            Pack(id: p.id, name: p.name, levels: p.levels.map { replacements[$0.id] ?? $0 })
-        }
-        return originals + newPacks + approvedPacks
+    /// Level Play boards in play order (index = board number - 1): the new board maker's boards, then the approved
+    /// ones from the feed. (With `retireOriginals` off, the original 170, with any redrawn boards, come first.)
+    public var levelPlay: [Picture] {
+        if retireOriginals { return newBoards + approvedBoards }
+        let originals = packs.flatMap(\.levels).map { replacements[$0.id] ?? $0 }
+        return originals + newBoards + approvedBoards
     }
-
-    /// Level Play boards in play order (index = board number - 1).
-    public var levelPlay: [Picture] { allPacks.flatMap(\.levels) }
 
     /// Where Coin Mining's numbering starts: right after the original 170 boards, whatever packs are added after
     /// them, so Coin Mining boards and the daily puzzle stay the same.
     public var paradiseFrom: Int { packs.reduce(0) { $0 + $1.levels.count } }
-
-    /// Completion bonus for a pack (5,000 for 20 levels, scaled by size).
-    public func bonus(forPack id: String) -> Int {
-        let size = allPacks.first { $0.id == id }?.levels.count ?? packSize
-        return JS.roundInt(Double(packBonus * size) / Double(packSize))
-    }
 
     /// Challenge key for Level Play board index i: warm1...warm20, then lv21 on.
     public func diffKey(forBoard i: Int) -> String {
@@ -129,12 +133,13 @@ public struct LevelCatalog: Decodable, Sendable {
 
     /// The pre-built board for board i, if it ships one (only for the first attempt at the standard aim).
     public func baked(forBoard i: Int) -> LevelSummary? {
-        baked[levelPlay[i].id + "|" + diffKey(forBoard: i)]
+        if retireOriginals { return nil }
+        return baked[levelPlay[i].id + "|" + diffKey(forBoard: i)]
     }
 
     /// Seed for board index i. `attempt` counts from 1 and goes up each time the player asks for a fresh board.
     public func seed(forBoard i: Int, attempt: Int = 1) -> Int {
-        if attempt == 1, i < paradiseFrom, let b = baked(forBoard: i), let s = b.seed { return s }
+        if attempt == 1, !retireOriginals, i < paradiseFrom, let b = baked(forBoard: i), let s = b.seed { return s }
         return (i + 1) * 1000 + 7 + (attempt - 1)
     }
 
@@ -143,7 +148,19 @@ public struct LevelCatalog: Decodable, Sendable {
     /// Board for Coin Mining round r (0, 1, 2...): which picture, its rows this round, and its seed.
     /// Rounds cycle through the 20 pictures; each lap uses the next background variant. After the exported variants
     /// run out (260 rounds) the variants repeat.
+    /// The id of the Coin Mining picture at board index i (as `paradiseRound` returns it).
+    public func paradiseID(forBoard i: Int) -> String {
+        let k = i - paradiseFrom
+        return miningBoards.isEmpty ? paradise[k].id : miningBoards[k].id
+    }
+
     public func paradiseRound(_ r: Int) -> (index: Int, base: LevelBase, seed: Int) {
+        if !miningBoards.isEmpty {
+            // New-maker boards have one backdrop each; every lap plays them again on the next seed.
+            let n = miningBoards.count, pic = miningBoards[r % n], v = r / n
+            let i = paradiseFrom + r % n
+            return (i, LevelBase(name: pic.name, rows: pic.rows), (i + 1) * 1000 + 7 + v)
+        }
         let n = paradise.count
         let pic = paradise[r % n]
         let v = r / n

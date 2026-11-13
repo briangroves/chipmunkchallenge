@@ -15,6 +15,16 @@ struct BoardReview: View {
         let picture: LevelCatalog.Picture
         let pack: String
         let check: Check?
+        /// A board from the new board maker's pilot (not in the game yet), with the judge's stars and reason.
+        var pilot: Pilot? = nil
+    }
+
+    struct Pilot: Decodable {
+        let id: String
+        let name: String
+        let rows: [String]
+        let judge: Int
+        let reason: String
     }
 
     struct Check: Decodable {
@@ -34,16 +44,29 @@ struct BoardReview: View {
         return (try? JSONDecoder().decode([String: Check].self, from: data)) ?? [:]
     }()
 
+    /// New boards waiting for a rating, bundled as pilot-boards.json (shown before the game's boards). The same file
+    /// decodes as pictures (id, name, rows) and as the judge's notes.
+    private static let pilots: [(LevelCatalog.Picture, Pilot)] = {
+        guard let url = Bundle.main.url(forResource: "pilot-boards", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let pics = try? JSONDecoder().decode([LevelCatalog.Picture].self, from: data),
+              let notes = try? JSONDecoder().decode([Pilot].self, from: data) else { return [] }
+        return Array(zip(pics, notes))
+    }()
+
     private static func loadRatings() -> [String: Int] {
         (UserDefaults.standard.dictionary(forKey: ratingsKey) as? [String: Int]) ?? [:]
     }
 
     private var entries: [Entry] {
         var out: [Entry] = []
-        for p in model.catalog.allPacks {
-            for pic in p.levels {
-                out.append(Entry(number: out.count + 1, picture: pic, pack: p.name, check: Self.checks[pic.id]))
-            }
+        for (i, (pic, p)) in Self.pilots.enumerated() {
+            out.append(Entry(number: i + 1, picture: pic, pack: "New board maker", check: nil, pilot: p))
+        }
+        let firstLevel = out.count
+        for pic in model.catalog.levelPlay {
+            out.append(Entry(number: out.count - firstLevel + 1, picture: pic, pack: "Level Play",
+                             check: Self.checks[pic.id]))
         }
         return out
     }
@@ -108,7 +131,8 @@ struct BoardReview: View {
         let cols = CGFloat(e.picture.rows.first?.count ?? 1), rows = CGFloat(max(1, e.picture.rows.count))
         return VStack(spacing: 10) {
             VStack(spacing: 0) {
-                Text("Level \(e.number)").font(Theme.display(30)).foregroundStyle(Theme.ink)
+                Text(e.pilot == nil ? "Level \(e.number)" : "New board \(e.number) of \(Self.pilots.count)")
+                    .font(Theme.display(30)).foregroundStyle(Theme.ink)
                 Text("\(e.picture.name) · \(e.pack)").font(Theme.body(15, 700)).foregroundStyle(Color(hex: 0x4A5841))
                     .lineLimit(1).minimumScaleFactor(0.7)
             }
@@ -117,7 +141,7 @@ struct BoardReview: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .layoutPriority(-1)
-            score(e.check)
+            if let p = e.pilot { judged(p) } else { score(e.check) }
         }
         .padding(14)
         .background(RoundedRectangle(cornerRadius: 22, style: .continuous).fill(.white))
@@ -140,6 +164,18 @@ struct BoardReview: View {
             }
         } else {
             Text("No image score").font(Theme.body(14, 700)).foregroundStyle(Color(hex: 0x6B7863))
+        }
+    }
+
+    private func judged(_ p: Pilot) -> some View {
+        VStack(spacing: 2) {
+            HStack(spacing: 8) {
+                Text("Judge's guess of your stars").font(Theme.body(14, 700)).foregroundStyle(Color(hex: 0x4A5841))
+                Text("\(p.judge)").font(Theme.display(26)).foregroundStyle(Theme.gold)
+                Image(systemName: "star.fill").font(.system(size: 16, weight: .bold)).foregroundStyle(Theme.gold)
+            }
+            Text(p.reason).font(Theme.body(12, 600)).foregroundStyle(Color(hex: 0x6B7863))
+                .lineLimit(3).multilineTextAlignment(.center)
         }
     }
 
@@ -186,6 +222,11 @@ struct BoardReview: View {
         var lines = ["level,id,name,pack,stars,claude_score,grade,guess"]
         for e in all {
             guard let r = ratings[e.picture.id] else { continue }
+            if let p = e.pilot {
+                lines.append(["new", p.id, q(p.name), q(e.pack), String(r), String(p.judge), "judge", ""]
+                    .joined(separator: ","))
+                continue
+            }
             lines.append([String(e.number), e.picture.id, q(e.picture.name), q(e.pack), String(r),
                           e.check.map { String($0.s) } ?? "", e.check?.g ?? "", q(e.check?.q ?? "")].joined(separator: ","))
         }

@@ -138,14 +138,14 @@ private struct StartButton: View {
     }
 }
 
-/// `.splash-title`: pack, level number, picture name, then the difficulty acorns once the board is ready.
+/// `.splash-title`: the mode (Coin Mining, Daily puzzle; nothing for Level Play), level number, picture name, then the difficulty acorns once the board is ready.
 private struct SplashTitle: View {
     @ObservedObject var model: GameModel
 
     var body: some View {
         VStack(spacing: 2) {
-            if !model.packLabel.isEmpty {
-                Text(model.packLabel.uppercased())
+            if !model.modeLabel.isEmpty {
+                Text(model.modeLabel.uppercased())
                     .font(Theme.body(13, 800))
                     .tracking(13 * 0.06)
                     .foregroundStyle(Color(red: 31 / 255, green: 42 / 255, blue: 24 / 255, opacity: 0.6))
@@ -356,11 +356,11 @@ struct ResultCard: View {
                 .accessibilityLabel("Streak: \(model.daily.streak) days")
         } else {
             H2(model.mode == .mining ? "Challenge cleared"
-               : w.packName.map { "\($0) pack complete!" } ?? "Board cleared")
+               : "Board cleared")
         }
         HStack(spacing: 8) {
             CoinIcon().frame(width: 30, height: 30)
-            Text("+\((w.base + w.bonus + w.pack).formatted())")
+            Text("+\((w.base + w.bonus).formatted())")
                 .font(Theme.display(34))
                 .foregroundStyle(Theme.ink)
                 .cssLine(Theme.uiDisplay(34), 34 * 1.45)
@@ -413,15 +413,6 @@ struct ResultCard: View {
 
     @ViewBuilder private var levelWinExtras: some View {
         let w = model.lastWin
-        if w.pack > 0 {
-            Text("Pack bonus +\(w.pack.formatted()) and \(GameModel.packWands) 🪄")
-                .font(Theme.body(13, 800))
-                .foregroundStyle(Color(hex: 0x6A3FB5))
-                .cssLine(Theme.uiBody(13, 800), 13 * 1.45)
-                .padding(.vertical, 4)
-                .padding(.horizontal, 12)
-                .background(Color(hex: 0xEDE4FF), in: Capsule())
-        }
         if w.bonus > 0 {
             Text("First-try bonus +\(w.bonus)")
                 .font(Theme.body(13, 800))

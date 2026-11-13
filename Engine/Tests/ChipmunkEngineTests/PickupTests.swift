@@ -4,7 +4,8 @@ import XCTest
 /// Mystery boxes: the Swift port cuts the same pockets as the web game, and boards stay solvable with them.
 final class PickupTests: XCTestCase {
     let js = JSReference.shared
-    let catalog = try! LevelCatalog.bundled()
+    /// The web game's boards: these tests check parity with it, so they keep the retired originals in Level Play.
+    let catalog: LevelCatalog = { var c = try! LevelCatalog.bundled(); c.retireOriginals = false; return c }()
 
     /// Loads the web game's box code (PICK_SCHED through setupPickups) with stand-ins for the page around it.
     private func loadJS() {

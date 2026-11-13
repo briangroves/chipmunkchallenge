@@ -20,16 +20,13 @@ import sys
 import tempfile
 
 N = 40
-PALETTE = {
-    "R": 0xE53935, "O": 0xFB8C00, "Y": 0xFDD835, "G": 0x43A047, "B": 0x1E88E5, "V": 0x8E24AA,
-    "P": 0xF48FB1, "N": 0x795548, "W": 0xF5F5F5, "K": 0x263238, "T": 0xD2B48C, "A": 0x9E9E9E,
-    "L": 0x9CCC65, "D": 0x1B5E20, "M": 0x8E1B1B, "C": 0x81D4FA, "U": 0x283593, "I": 0xB39DDB,
-    # In-between shades, for shadows, highlights and soft skies.
-    "Q": 0xE65100, "J": 0xFFB74D, "H": 0xB3E5FC, "E": 0x4E342E, "S": 0xD81B60, "Z": 0xFFF59D, "X": 0xD7CCC8,
-}
-RGB = {k: ((v >> 16) & 255, (v >> 8) & 255, v & 255) for k, v in PALETTE.items()}
-# Colors the subject's source is matched against: the 18 standard ones (blue eyes need blue). The in-between shades
-# are kept for shading, which works from these base colors; the backdrop is chosen to contrast with the subject.
+# The game's 20 colors (tools/palette20.py). Boards are matched to these; the five shades the game dropped in
+# 2026-11 (Q J H E X) are still known here so older drawing code (shading tables, backdrops.py) keeps working, and
+# compose() adapts its result to the 20 colors.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from palette20 import PALETTE, DROPPED, adapt, limit  # noqa: E402
+RGB = {k: ((v >> 16) & 255, (v >> 8) & 255, v & 255) for k, v in {**PALETTE, **DROPPED}.items()}
+# Colors the subject's source is matched against: the 18 standard ones (blue eyes need blue).
 SHADES = ("Q", "J", "H", "E", "S", "Z", "X")
 SUBJECT = [k for k in PALETTE if k not in SHADES]
 NEUTRAL = ["W", "A", "K"]
@@ -472,7 +469,7 @@ def compose(cells, info, candidates, seed_base=0):
     ground_shadow(g, cells, h)
     for (r, c), k in cells.items():
         g[r][c] = k
-    return ["".join(r) for r in g], theme, variant
+    return limit(adapt(["".join(r) for r in g])), theme, variant
 
 
 def main():

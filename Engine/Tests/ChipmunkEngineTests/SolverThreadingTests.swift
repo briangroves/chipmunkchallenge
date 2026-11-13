@@ -7,7 +7,8 @@ import XCTest
 /// app on level 56 after a couple of taps).
 final class SolverThreadingTests: XCTestCase {
     func testSolverOnACopyWhileTheGamePlaysOn() throws {
-        let catalog = try LevelCatalog.bundled()
+        var catalog = try LevelCatalog.bundled()
+        catalog.retireOriginals = false  // the original level 56 crashed
         let i = 55
         let key = catalog.diffKey(forBoard: i)
         var o = BuildOptions.game

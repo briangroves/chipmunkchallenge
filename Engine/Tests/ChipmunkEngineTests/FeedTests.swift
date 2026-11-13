@@ -7,12 +7,33 @@ final class FeedTests: XCTestCase {
         ["id": id, "name": id.capitalized, "rows": Array(repeating: String(repeating: ch, count: 40), count: 40)]
     }
 
+    /// The feed as tools/daily/publish.py writes it: one flat list of boards, each added as soon as it's approved.
     private func feed(_ ids: [String], badColor: Bool = false) -> Data {
         let levels = ids.map { board($0, badColor && $0 == ids.last ? "!" : "G") }
+        return try! JSONSerialization.data(withJSONObject: ["format": 2, "levels": levels])
+    }
+
+    /// A feed written before 2026-11-13, with the boards grouped in packs: read as one list in order.
+    private func packedFeed(_ ids: [String]) -> Data {
+        let levels = ids.map { board($0) }
         let packs = stride(from: 0, to: levels.count, by: 2).map { i -> [String: Any] in
             ["id": "fresh\(i / 2 + 1)", "name": "Fresh Boards \(i / 2 + 1)", "levels": Array(levels[i..<min(i + 2, levels.count)])]
         }
         return try! JSONSerialization.data(withJSONObject: ["format": 1, "packs": packs])
+    }
+
+    func testOneNewBoardArrivesOnItsOwn() throws {
+        var c = try LevelCatalog.bundled()
+        let start = c.approvedBoards.map(\.id)
+        XCTAssertEqual(c.merge(feed: feed(start + ["a"])), 1, "a single approved board is enough")
+        XCTAssertEqual(c.levelPlay.last?.id, "a")
+    }
+
+    func testOlderPackedFeedStillReads() throws {
+        var c = try LevelCatalog.bundled()
+        let start = c.approvedBoards.map(\.id)
+        XCTAssertEqual(c.merge(feed: packedFeed(start + ["a", "b", "c"])), 3)
+        XCTAssertEqual(Array(c.levelPlay.suffix(3).map(\.id)), ["a", "b", "c"])
     }
 
     func testFeedOnlyExtends() throws {

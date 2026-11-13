@@ -47,8 +47,8 @@ final class GameModel: ObservableObject {
     @Published private(set) var boardIndex: Int
     @Published private(set) var title = ""
     @Published private(set) var subtitle = ""
-    /// The splash's small line: the pack name, Coin Mining or Daily puzzle.
-    @Published private(set) var packLabel = ""
+    /// The splash's small line above the title: Coin Mining or Daily puzzle (nothing for Level Play).
+    @Published private(set) var modeLabel = ""
     @Published var fast = false
     /// Coin Mining boards cleared (the next board is this round).
     @Published private(set) var paraRound: Int
@@ -159,9 +159,6 @@ final class GameModel: ObservableObject {
     static let heartMax = 5
     static let heartRegen: Double = 10 * 60
     static let heartsPrice = 500
-    /// Finishing a pack: coins and magic wands (once per pack).
-    static let packCoins = 1000
-    static let packWands = 2
     /// When the board now building started, for the intro's progress bar.
     @Published private(set) var buildStarted = Date()
     /// What the last win paid.
@@ -232,9 +229,6 @@ final class GameModel: ObservableObject {
         var bonusBox: BoxReveal? = nil
         /// This win was the first of the day, so it cleared today's Daily Challenge.
         var dailyCleared = false
-        /// Finishing a pack: the bonus coins and the pack's name.
-        var pack: Int = 0
-        var packName: String? = nil
     }
 
     /// Daily streak days that add bonus mystery boxes, and how many (JS STREAK_BONUS).
@@ -461,9 +455,9 @@ final class GameModel: ObservableObject {
         let baked = attempt == 1 && aim == LevelCatalog.baseAim(key) ? catalog.baked(forBoard: i) : nil
         build(base: catalog.base(forBoard: i), key: key, seed: catalog.seed(forBoard: i, attempt: attempt), aim: aim,
               baked: baked, attempt: attempt, title: catalog.levelPlay[i].name, subtitle: "Level \(i + 1)",
-              label: packName(i),
+              label: "",
               boxes: BoxSource(rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, index: i,
-                               board: i < catalog.packs[0].levels.count ? .warmup(i + 1) : .level(i + 1)))
+                               board: i < 20 ? .warmup(i + 1) : .level(i + 1)))
     }
 
     /// Load the next Coin Mining board (JS playParadise).
@@ -473,7 +467,7 @@ final class GameModel: ObservableObject {
         build(base: b.base, key: "paradise", seed: b.seed + attempt - 1, aim: LevelCatalog.baseAim("paradise"),
               baked: nil, attempt: attempt, title: b.base.name, subtitle: "Challenge \(paraRound + 1)",
               label: "⛏️ Coin Mining",
-              boxes: BoxSource(rows: b.base.rows, id: catalog.paradise[b.index - catalog.paradiseFrom].id,
+              boxes: BoxSource(rows: b.base.rows, id: catalog.paradiseID(forBoard: b.index),
                                index: b.index, board: .mining))
     }
 
@@ -517,15 +511,6 @@ final class GameModel: ObservableObject {
         }
     }
 
-    private func packName(_ i: Int) -> String {
-        var k = i
-        for p in catalog.allPacks {
-            if k < p.levels.count { return p.name }
-            k -= p.levels.count
-        }
-        return ""
-    }
-
     private var loadToken = 0
 
     private func build(base: LevelBase, key: String, seed: Int, aim: Double, baked: LevelSummary?, attempt: Int,
@@ -539,7 +524,7 @@ final class GameModel: ObservableObject {
         self.attempt = attempt
         self.title = title
         self.subtitle = subtitle
-        packLabel = label
+        modeLabel = label
         status = .building
         level = nil
         cardShown = false
@@ -719,13 +704,12 @@ final class GameModel: ObservableObject {
         }
     }
 
-    /// JS payOut, without packs or hearts yet.
+    /// JS payOut, without hearts. (Level Play has no packs, so no pack-completion bonus.)
     private func payOut(_ lv: Level) {
         coinsFrom = coinsShown
         holdCoins = true
         kissCoinsAt = nil
         winCount += 1
-        var packDone: String?
         let box = claimHeld()
         defer { lastWin.box = box }
         let c = lv.botWin
@@ -750,7 +734,6 @@ final class GameModel: ObservableObject {
             return
         case .level:
             // The next level is the one after this, from now on (finished levels aren't replayed).
-            packDone = finishPack(boardIndex)
             if boardIndex + 1 < catalog.levelPlay.count {
                 boardIndex += 1
                 store.set(false, forKey: Self.outOfBoardsKey)
@@ -763,7 +746,7 @@ final class GameModel: ObservableObject {
         }
         let base = reward
         let bonus = firstTry ? Int(JSRound(Double(base) * 0.5)) : 0
-        lastWin = Win(base: base, bonus: bonus, pack: packDone == nil ? 0 : Self.packCoins, packName: packDone)
+        lastWin = Win(base: base, bonus: bonus)
         noteDaily(creditDaily())
         failStreak = 0
         easeNext = false
@@ -773,7 +756,7 @@ final class GameModel: ObservableObject {
             tailorBefore = tailor
             pickTailor(firstTry ? .tiny : .same)
         }
-        coins += base + bonus + lastWin.pack
+        coins += base + bonus
         store.set(coins, forKey: "native.coins")
     }
 
@@ -806,25 +789,6 @@ final class GameModel: ObservableObject {
         store.set(false, forKey: Self.outOfBoardsKey)
         boardIndex += 1
         store.set(boardIndex, forKey: Self.boardKey)
-    }
-
-    /// If board i is the last of its pack and that pack hasn't paid out yet: 1,000 coins (added by payOut) and 2 magic
-    /// wands, and the pack's name for the win card.
-    private func finishPack(_ i: Int) -> String? {
-        var k = i
-        for p in catalog.allPacks {
-            if k < p.levels.count {
-                guard k == p.levels.count - 1 else { return nil }
-                var done = store.stringArray(forKey: "native.packsDone") ?? []
-                guard !done.contains(p.id) else { return nil }
-                done.append(p.id)
-                store.set(done, forKey: "native.packsDone")
-                addTools(.wand, Self.packWands)
-                return p.name
-            }
-            k -= p.levels.count
-        }
-        return nil
     }
 
     // MARK: - Coin counter

@@ -4,22 +4,28 @@ import Foundation
 /// counted in the board's total, so a board is won when every other block is gone.
 public let ROCK: UInt8 = 255
 
-/// The 25 colors, keyed by the letter a picture row uses: 18 standard ones and 7 in-between shades.
+/// The 20 colors, keyed by the letter a picture row uses: 18 standard ones plus raspberry and pale yellow, the two
+/// in-between shades that are as easy to tell apart in play as the standard ones (tools/palette20.py, 2026-11).
 public let PALETTE: [Character: UInt32] = [
     "R": 0xE53935, "O": 0xFB8C00, "Y": 0xFDD835, "G": 0x43A047, "B": 0x1E88E5, "V": 0x8E24AA,
     "P": 0xF48FB1, "N": 0x795548, "W": 0xF5F5F5, "K": 0x263238, "T": 0xD2B48C, "A": 0x9E9E9E,
     "L": 0x9CCC65, "D": 0x1B5E20, "M": 0x8E1B1B, "C": 0x81D4FA, "U": 0x283593, "I": 0xB39DDB,
-    // In-between shades, for shadows, highlights and soft skies.
-    "Q": 0xE65100, "J": 0xFFB74D, "H": 0xB3E5FC, "E": 0x4E342E, "S": 0xD81B60, "Z": 0xFFF59D, "X": 0xD7CCC8,
+    "S": 0xD81B60, "Z": 0xFFF59D,
 ]
 
 public let COLOR_NAME: [Character: String] = [
     "R": "red", "O": "orange", "Y": "yellow", "G": "green", "B": "blue", "V": "purple", "P": "pink",
     "N": "brown", "W": "white", "K": "black", "T": "tan", "A": "grey", "L": "light green", "D": "dark green",
-    "M": "maroon", "C": "sky blue", "U": "navy", "I": "lavender",
-    "Q": "deep orange", "J": "peach", "H": "pale blue", "E": "dark brown", "S": "raspberry", "Z": "pale yellow",
-    "X": "stone",
+    "M": "maroon", "C": "sky blue", "U": "navy", "I": "lavender", "S": "raspberry", "Z": "pale yellow",
 ]
+
+/// The five shades the game no longer has (deep orange, peach, pale blue, dark brown, stone), and the color a board
+/// that still uses one plays them as. The shipped boards were redrawn without them; this only keeps an older
+/// downloaded board playable.
+public let RETIRED_COLOR: [Character: Character] = ["Q": "O", "J": "O", "H": "C", "E": "N", "X": "W"]
+
+/// A picture letter in today's palette (a retired shade becomes its stand-in).
+@inline(__always) public func paletteLetter(_ ch: Character) -> Character { RETIRED_COLOR[ch] ?? ch }
 
 /// The picture a board is built from, plus what this board adds to it (rocks, a locked slot).
 public struct LevelBase: Codable, Equatable, Sendable {
@@ -92,7 +98,7 @@ public struct Art: Sendable {
         var cells = [UInt8](repeating: 0, count: W * H)
         for r in 0..<H {
             for c in 0..<W {
-                let ch: Character = c < grid[r].count ? grid[r][c] : "."
+                let ch: Character = c < grid[r].count ? paletteLetter(grid[r][c]) : "."
                 if ch == "." { continue }
                 var k = chars.firstIndex(of: ch) ?? -1
                 if k < 0 {

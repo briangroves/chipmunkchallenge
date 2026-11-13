@@ -5,7 +5,8 @@ import XCTest
 /// Checks the exported level catalog against the web game it came from.
 final class CatalogTests: XCTestCase {
     let js = JSReference.shared
-    let catalog = try! LevelCatalog.bundled()
+    /// The web game's boards: these tests check parity with it, so they keep the retired originals in Level Play.
+    let catalog: LevelCatalog = { var c = try! LevelCatalog.bundled(); c.retireOriginals = false; return c }()
 
     func testExportIsUpToDate() throws {
         let html = try Data(contentsOf: JSReference.repoRoot.appendingPathComponent("web/chipmunk-challenge.html"))
@@ -21,8 +22,6 @@ final class CatalogTests: XCTestCase {
         XCTAssertEqual(catalog.packs.map(\.id), js.decode([String].self, "PACKS.map(p=>p.id)"))
         XCTAssertEqual(catalog.packs.map(\.name), js.decode([String].self, "PACKS.map(p=>p.name)"))
         XCTAssertEqual(original.map(\.name), js.decode([String].self, "LEVELS.slice(0,RAMP_N).map(L=>L.name)"))
-        XCTAssertEqual(catalog.bonus(forPack: "storybook"), 2500)
-        XCTAssertEqual(catalog.bonus(forPack: "food"), 5000)
     }
 
     func testPicturesMatchTheWebGame() {
@@ -31,10 +30,13 @@ final class CatalogTests: XCTestCase {
         for i in stride(from: 0, to: catalog.paradiseFrom, by: 7) {
             XCTAssertEqual(original[i].rows, js.decode([String].self, "LEVELS[\(i)].rows"), "board \(i)")
         }
+        // The exported Coin Mining pictures (since 2026-11-12 Coin Mining plays the new maker's boards instead; see
+        // NewBoardTests.testCoinMiningBoards).
         for r in [0, 7, 19, 20, 33, 59, 140, 259] {
-            let (i, base, _) = catalog.paradiseRound(r)
+            let n = catalog.paradise.count, pic = catalog.paradise[r % n], i = catalog.paradiseFrom + r % n
+            let rows = pic.variants[(r / n) % pic.variants.count]
             let expected = js.decode([String].self, "(()=>{const L=LEVELS[\(i)];L.variant=\(r / 20);const rows=L.rows;L.variant=0;return rows})()")
-            XCTAssertEqual(base.rows, expected, "Coin Mining round \(r)")
+            XCTAssertEqual(rows, expected, "Coin Mining picture, round \(r)")
         }
     }
 
@@ -114,8 +116,10 @@ final class CatalogTests: XCTestCase {
             let key = isPara ? "paradise" : catalog.diffKey(forBoard: i)
             // The exported original picture (a redrawn board replaces it in play, but the web game has the original).
             let pic = isPara ? nil : catalog.packs.flatMap(\.levels)[i]
+            // Coin Mining: the exported original picture (Coin Mining now plays the new maker's boards instead).
             let base = pic.map { levelBase(name: $0.name, rows: $0.rows, boardNumber: i + 1) }
-                ?? catalog.paradiseRound(i - catalog.paradiseFrom).base
+                ?? LevelBase(name: catalog.paradise[i - catalog.paradiseFrom].name,
+                             rows: catalog.paradise[i - catalog.paradiseFrom].variants[0])
             let seed = isPara ? catalog.paradiseRound(i - catalog.paradiseFrom).seed : catalog.seed(forBoard: i)
             let aim = LevelCatalog.aim(key, tailor: 1)
             var o = ParityTests.quick

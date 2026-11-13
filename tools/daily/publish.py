@@ -5,8 +5,9 @@ the private queue.
     tools/.venv/bin/python tools/daily/publish.py [--dry-run]
 
 The feed is boards/approved.json on the game repo's gh-pages branch, served by GitHub Pages at config feed_url. The
-game downloads it (and ships a snapshot of it, see snapshot_feed.py). Boards are grouped in packs of `pack_size`
-named "<pack_name> N".
+game downloads it (and ships a snapshot of it, see snapshot_feed.py). The feed is one flat list of boards,
+{"format": 2, "levels": [...]}: each approved board is added on its own, and the game picks it up within the hour.
+There are no packs (2026-11-13). Every board goes in drawn in the game's 20 colors, at most 12 per board.
 
 The feed is publish-forever: boards are only ever appended, never removed, changed or reordered, because a board's
 place in the level list sets its seed and difficulty in the game. The job checks this before every push.
@@ -20,25 +21,37 @@ import json
 import os
 import time
 
-from common import CFG, FEED, QUEUE, ensure_clone, git, load, log, push, save
+import sys
+
+from common import CFG, FEED, QUEUE, TOOLS, ensure_clone, git, load, log, push, save
+
+sys.path.insert(0, TOOLS)
+from palette20 import adapt, limit  # noqa: E402
+
+
+def boards_of(feed):
+    """The feed's boards in order (a feed from before 2026-11-13 grouped them in packs)."""
+    if "levels" in feed:
+        return feed["levels"]
+    return [L for p in feed.get("packs", []) for L in p["levels"]]
 
 
 def flat(feed):
-    return [(L["id"], L["rows"]) for p in feed.get("packs", []) for L in p["levels"]]
+    return [(L["id"], L["rows"]) for L in boards_of(feed)]
 
 
 def append(feed, boards):
     """Add boards that aren't in the feed yet, at the end. Returns the ones added."""
-    packs = feed.setdefault("packs", [])
-    have = {L["id"] for p in packs for L in p["levels"]}
+    levels = boards_of(feed)
+    feed.pop("packs", None)
+    feed["format"] = 2
+    feed["levels"] = levels
+    have = {L["id"] for L in levels}
     added = []
     for b in boards:
         if b["id"] in have:
             continue
-        if not packs or len(packs[-1]["levels"]) >= CFG["pack_size"]:
-            n = len(packs) + 1
-            packs.append(dict(id=f"{CFG['pack_id']}{n}", name=f"{CFG['pack_name']} {n}", levels=[]))
-        packs[-1]["levels"].append(dict(id=b["id"], name=b["name"], rows=b["rows"], added=b["decided"]))
+        levels.append(dict(id=b["id"], name=b["name"], rows=limit(adapt(b["rows"])), added=b["decided"]))
         have.add(b["id"])
         added.append(b)
     return added
@@ -47,7 +60,7 @@ def append(feed, boards):
 def publish_feed(approved, dry_run):
     branch = ensure_clone(FEED, CFG["feed_repo"], CFG["feed_branch"])
     path = os.path.join(FEED, CFG["feed_file"])
-    feed = load(path, {"format": 1, "packs": []})
+    feed = load(path, {"format": 2, "levels": []})
     before = flat(feed)
     added = append(feed, approved)
     if not added:

@@ -297,8 +297,8 @@ struct PictureThumb: View {
         var chars: [Character] = [], index: [Character: UInt8] = [:]
         var b = [UInt8](repeating: 0, count: w * h)
         for r in 0..<h {
-            for c in 0..<min(w, grid[r].count) where grid[r][c] != "." && PALETTE[grid[r][c]] != nil {
-                let ch = grid[r][c]
+            for c in 0..<min(w, grid[r].count) where grid[r][c] != "." && PALETTE[paletteLetter(grid[r][c])] != nil {
+                let ch = paletteLetter(grid[r][c])
                 if index[ch] == nil {
                     chars.append(ch)
                     index[ch] = UInt8(chars.count)
