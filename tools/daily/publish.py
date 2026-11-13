@@ -37,7 +37,7 @@ def append(feed, boards):
             continue
         if not packs or len(packs[-1]["levels"]) >= CFG["pack_size"]:
             n = len(packs) + 1
-            packs.append(dict(id=f"fresh{n}", name=f"{CFG['pack_name']} {n}", levels=[]))
+            packs.append(dict(id=f"{CFG['pack_id']}{n}", name=f"{CFG['pack_name']} {n}", levels=[]))
         packs[-1]["levels"].append(dict(id=b["id"], name=b["name"], rows=b["rows"], added=b["decided"]))
         have.add(b["id"])
         added.append(b)

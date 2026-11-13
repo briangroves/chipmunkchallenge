@@ -91,6 +91,20 @@ def make(s, painter, judge):
                  judge=j["stars"], reason=j["reason"], batch=day, thing=s["thing"]) for j, p, rows, _ in good]
 
 
+def code_moved_on():
+    """True when the branch this copy runs has newer pushes (then the maker exits and launchd restarts it on them).
+    Only for the pipeline's own copy (run.sh), never a checkout someone is working in."""
+    from common import ROOT, git
+    if os.path.basename(ROOT) != "code" or not os.path.exists(os.path.join(STATE, "branch")):
+        return False
+    branch = open(os.path.join(STATE, "branch")).read().strip()
+    try:
+        git(ROOT, "fetch", "-q", "origin", branch)
+        return git(ROOT, "rev-parse", "HEAD") != git(ROOT, "rev-parse", f"origin/{branch}")
+    except Exception:  # noqa: BLE001  (offline: keep going on what we have)
+        return False
+
+
 def waiting():
     """Boards waiting for review: in the queue repo (as of the last fetch) plus held here."""
     return len(load(os.path.join(QUEUE, "queue.json"), [])) + len(load(OUTBOX, []))
@@ -138,6 +152,9 @@ def main():
             picked = make(s, painter, judge)
             save(OUTBOX, load(OUTBOX, []) + picked, indent=0)
             done_subject(s)
+            if code_moved_on():
+                log("newer code pushed; restarting on it")
+                return
         except KeyboardInterrupt:
             raise
         except Exception as e:  # noqa: BLE001  (network down, API hiccup: wait and carry on)

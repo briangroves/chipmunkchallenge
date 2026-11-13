@@ -37,17 +37,19 @@ ROUND1_EXAMPLES = ["pilot-polar-bear-s6", "pilot-soccer-ball-s4", "pilot-soccer-
                    "pilot-skateboard-s6"]
 
 
+# The example boards' rows as Brian rated them (25 colors), frozen here because the game's board files have since
+# moved on (20 colors, original boards retired).
+EXAMPLE_ROWS = os.path.join(HERE, "packs", "judge-examples.json")
+
+
 def make_judge():
     """The judge, shown the old boards' examples plus Brian's ratings of new-style boards."""
     import anthropic
     examples, _ = jb.split(jb.load_ratings(RATINGS))
-    rows = jb.all_rows()
-    if os.path.exists(ROUND1):
-        rated = {b["id"]: b for b in json.load(open(ROUND1))}
-        for i in ROUND1_EXAMPLES:
-            b = rated[i]
-            rows[i] = b["rows"]
-            examples.append(dict(id=i, name=b["name"], stars=b["stars"]))
+    rows = json.load(open(EXAMPLE_ROWS))
+    rated = {b["id"]: b for b in json.load(open(ROUND1))}
+    for i in ROUND1_EXAMPLES:
+        examples.append(dict(id=i, name=rated[i]["name"], stars=rated[i]["stars"]))
     return jb.Judge(anthropic.Anthropic(), examples, rows)
 
 

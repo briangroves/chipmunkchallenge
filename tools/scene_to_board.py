@@ -9,7 +9,7 @@ itself, so it always fits the subject, and the picture's own shading and outline
      A subject cut off by the picture's edge is reported (`cut`), so callers can drop the picture.
   2. Shrink in two steps: average down to 80x80, then each board block takes the darkest of its four pixels if it's
      dark (so outlines, eyes and smiles survive) or else their average (so colors and shading stay smooth).
-  3. Snap each block to the nearest palette color (in Lab).
+  3. Snap each block to the nearest of the game's 20 colors (in Lab).
 This beat a converter with hand-written rules for eyes, lines, shading and dithering: those added noise, while the
 generated art already has clean outlines and shading to keep.
 """
@@ -27,8 +27,10 @@ sys.path.insert(0, HERE)
 from image_to_board import PALETTE  # noqa: E402
 
 N = 40
-KEYS = list(PALETTE)
-PAL = np.array([[(v >> 16) & 255, (v >> 8) & 255, v & 255] for v in PALETTE.values()], float)
+# The game's 20 colors (tools/palette20.py): boards are never drawn with the five shades it dropped in 2026-11.
+RETIRED = set("QJHEX")
+KEYS = [k for k in PALETTE if k not in RETIRED]
+PAL = np.array([[(PALETTE[k] >> 16) & 255, (PALETTE[k] >> 8) & 255, PALETTE[k] & 255] for k in KEYS], float)
 FILL = 0.78           # the subject's longer side spans this share of the board, leaving room for the backdrop
 _session = None
 
