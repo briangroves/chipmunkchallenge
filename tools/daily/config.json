@@ -5,7 +5,7 @@
   "seeds": 6,
   "size": 768,
   "steps": 9,
-  "per_subject": 2,
+  "per_subject": 1,
   "min_stars": 4,
   "queue_repo": "briangroves/chipmunk-board-queue",
   "pack_size": 20,
