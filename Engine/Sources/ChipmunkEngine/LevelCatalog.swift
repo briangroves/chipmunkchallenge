@@ -179,7 +179,9 @@ public struct LevelCatalog: Decodable, Sendable {
     /// The aim a build uses. `tailor` is the player's skill factor (1 = standard). Warm-up boards, Coin Mining and
     /// the daily puzzle always use the standard aim.
     public static func aim(_ diffKey: String, tailor: Double) -> Double {
-        if diffKey == "paradise" || diffKey == "daily" || diffKey.hasPrefix("warm") { return baseAim(diffKey) }
+        if diffKey == "paradise" || diffKey == "daily" || diffKey.hasPrefix("warm") || diffKey.hasPrefix("skill") {
+            return baseAim(diffKey)
+        }
         return min(300, max(1.1, JS.round(10 * tailor / Difficulty.named(diffKey).rtarget) / 10))
     }
 }

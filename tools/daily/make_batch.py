@@ -23,7 +23,7 @@ from common import CFG, QUEUE, ROOT, RUNS, TOOLS, ensure_clone, load, log, push,
 sys.path.insert(0, TOOLS)
 
 PROPOSE = """You choose subjects for a kids' puzzle game. Each subject becomes a 40x40 pixel-art picture: a cartoon
-illustration is generated, then shrunk to 40x40 blocks in a 20-color palette.
+illustration is generated, then shrunk to 40x40 blocks in a 19-color palette.
 
 The designer's ratings of past boards show what works:
 - 5 stars: a cute full-body character with a face and big eyes (animals, creatures, friendly monsters, characters

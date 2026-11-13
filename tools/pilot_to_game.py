@@ -8,7 +8,7 @@ import csv, json, pathlib, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from palette20 import limit  # noqa: E402
+from palette import limit  # noqa: E402
 pilot = {b["id"]: b for b in json.load(open(ROOT / "ios/ChipmunkChallenge/Native/pilot-boards.json"))}
 rated = [r for r in csv.DictReader(open(ROOT / "tools/packs/ratings-pilot-2026-11-12.csv")) if r["level"] == "new"]
 keep = sorted((r for r in rated if int(r["stars"]) >= 3), key=lambda r: (-int(r["stars"]), -int(r["claude_score"]), r["id"]))

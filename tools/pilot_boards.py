@@ -38,7 +38,7 @@ ROUND1_EXAMPLES = ["pilot-polar-bear-s6", "pilot-soccer-ball-s4", "pilot-soccer-
 
 
 # The example boards' rows as Brian rated them (25 colors), frozen here because the game's board files have since
-# moved on (20 colors, original boards retired).
+# moved on (19 colors, original boards retired).
 EXAMPLE_ROWS = os.path.join(HERE, "packs", "judge-examples.json")
 
 

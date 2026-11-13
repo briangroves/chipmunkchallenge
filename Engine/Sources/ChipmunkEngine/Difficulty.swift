@@ -74,6 +74,25 @@ public struct Difficulty: Codable, Equatable, Sendable {
 
     public static func rampKey(_ n: Int) -> String { n <= 20 ? "warm\(n)" : "lv\(n)" }
 
+    /// Level Play's challenge since 2026-11-13: set by the player's skill (`Skill`), not by the board's number. `goal`
+    /// is the careful player's win rate, from 0.97 (almost impossible to lose) down to 0.15. Nest sizes, the random
+    /// tapper's target and the color pressure follow the goal as they did on the old ramp, so a goal plays like the
+    /// ramp board that had it; below the ramp's 25% only the goal keeps falling.
+    public static func skill(_ goal: Double) -> Difficulty {
+        let g = min(Skill.easiest, max(Skill.hardest, goal))
+        let u = g >= rampEnd ? pow((rampTop - g) / (rampTop - rampEnd), 1 / 0.7) : 1
+        let rt = u == 0 ? 0.6 : max(0.01, JS.round(0.6 * pow(1 - u, 3) * 1000) / 1000)
+        let pr = JS.round(min(1, max(0, (u - 0.15) / 0.4)) * 100) / 100
+        return Difficulty(label: "Skill \(Int((g * 100).rounded()))", slots: 5, lanes: 4, cmin: JS.roundInt(22 - 10 * u),
+                          cmax: JS.roundInt(40 - 14 * u), target: g, rtarget: rt, cgoal: JS.round(g * 1000) / 1000,
+                          pressure: pr)
+    }
+
+    /// The build key for a skill goal ("skill970" for 0.97).
+    public static func skillKey(_ goal: Double) -> String {
+        "skill\(Int((min(Skill.easiest, max(Skill.hardest, goal)) * 1000).rounded()))"
+    }
+
     /// Extra settings registered at run time (the daily puzzle's).
     nonisolated(unsafe) public static var custom: [String: Difficulty] = [:]
 
@@ -87,6 +106,7 @@ public struct Difficulty: Codable, Equatable, Sendable {
         default:
             if key.hasPrefix("warm"), let n = Int(key.dropFirst(4)) { return ramp(n) }
             if key.hasPrefix("lv"), let n = Int(key.dropFirst(2)) { return ramp(n) }
+            if key.hasPrefix("skill"), let n = Int(key.dropFirst(5)) { return skill(Double(n) / 1000) }
             preconditionFailure("Unknown difficulty \(key)")
         }
     }

@@ -149,9 +149,38 @@ public func pocketBase(_ base: LevelBase, id: String, seed: Int, index: Int, boa
             if r < grid.count && c < grid[r].count { grid[r][c] = "." }
         }
     }
+    absorbTinyColors(&grid)
     var out = base
     out.rows = grid.map { String($0) }
     return (out, p)
+}
+
+/// A color the pockets cut down to fewer than MIN_NEST blocks could only make a nest that small, so its last few
+/// blocks take the color they touch most (the board keeps its picture; a stray block or two changes color).
+func absorbTinyColors(_ grid: inout [[Character]]) {
+    var count: [Character: Int] = [:]
+    for row in grid { for ch in row where ch != "." { count[paletteLetter(ch), default: 0] += 1 } }
+    let tiny = Set(count.filter { $0.value < MIN_NEST }.keys)
+    guard !tiny.isEmpty, count.count > tiny.count else { return }
+    var changed = true
+    while changed {
+        changed = false
+        for r in grid.indices {
+            for c in grid[r].indices where grid[r][c] != "." && tiny.contains(paletteLetter(grid[r][c])) {
+                var near: [Character: Int] = [:]
+                for (rr, cc) in [(r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)]
+                where rr >= 0 && rr < grid.count && cc >= 0 && cc < grid[rr].count {
+                    let ch = paletteLetter(grid[rr][cc])
+                    if ch != "." && !tiny.contains(ch) { near[ch, default: 0] += 1 }
+                }
+                if let to = near.max(by: { $0.value != $1.value ? $0.value < $1.value : $0.key > $1.key })?.key {
+                    grid[r][c] = to
+                    changed = true
+                }
+            }
+        }
+    }
+    // Blocks with no plain neighbor at all (ringed by pockets) are left as they were.
 }
 
 /// Features of a picture a box can stand in for (JS artSpots): small patches of one colour fully ringed by another

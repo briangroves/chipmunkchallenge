@@ -4,25 +4,25 @@ import Foundation
 /// counted in the board's total, so a board is won when every other block is gone.
 public let ROCK: UInt8 = 255
 
-/// The 20 colors, keyed by the letter a picture row uses: 18 standard ones plus raspberry and pale yellow, the two
-/// in-between shades that are as easy to tell apart in play as the standard ones (tools/palette20.py, 2026-11).
+/// The 19 colors, keyed by the letter a picture row uses: 18 standard ones plus raspberry, the one in-between shade
+/// that is as easy to tell apart in play as the standard ones (tools/palette.py, 2026-11).
 public let PALETTE: [Character: UInt32] = [
     "R": 0xE53935, "O": 0xFB8C00, "Y": 0xFDD835, "G": 0x43A047, "B": 0x1E88E5, "V": 0x8E24AA,
     "P": 0xF48FB1, "N": 0x795548, "W": 0xF5F5F5, "K": 0x263238, "T": 0xD2B48C, "A": 0x9E9E9E,
     "L": 0x9CCC65, "D": 0x1B5E20, "M": 0x8E1B1B, "C": 0x81D4FA, "U": 0x283593, "I": 0xB39DDB,
-    "S": 0xD81B60, "Z": 0xFFF59D,
+    "S": 0xD81B60,
 ]
 
 public let COLOR_NAME: [Character: String] = [
     "R": "red", "O": "orange", "Y": "yellow", "G": "green", "B": "blue", "V": "purple", "P": "pink",
     "N": "brown", "W": "white", "K": "black", "T": "tan", "A": "grey", "L": "light green", "D": "dark green",
-    "M": "maroon", "C": "sky blue", "U": "navy", "I": "lavender", "S": "raspberry", "Z": "pale yellow",
+    "M": "maroon", "C": "sky blue", "U": "navy", "I": "lavender", "S": "raspberry",
 ]
 
-/// The five shades the game no longer has (deep orange, peach, pale blue, dark brown, stone), and the color a board
+/// The six shades the game no longer has (deep orange, peach, pale blue, dark brown, stone, pale yellow), and the color a board
 /// that still uses one plays them as. The shipped boards were redrawn without them; this only keeps an older
 /// downloaded board playable.
-public let RETIRED_COLOR: [Character: Character] = ["Q": "O", "J": "O", "H": "C", "E": "N", "X": "W"]
+public let RETIRED_COLOR: [Character: Character] = ["Q": "O", "J": "O", "H": "C", "E": "N", "X": "W", "Z": "Y"]
 
 /// A picture letter in today's palette (a retired shade becomes its stand-in).
 @inline(__always) public func paletteLetter(_ ch: Character) -> Character { RETIRED_COLOR[ch] ?? ch }

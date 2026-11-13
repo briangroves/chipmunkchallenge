@@ -163,10 +163,14 @@ final class GameModel: ObservableObject {
     @Published private(set) var buildStarted = Date()
     /// What the last win paid.
     @Published private(set) var lastWin = Win(base: 0, bonus: 0)
-    /// The win card's "Next time" choice (nil on warm-up boards).
-    @Published private(set) var tailorPick: TailorPick?
-    /// Three tries without a win: the next try gets a new, easier board.
-    @Published private(set) var easeNext = false
+    /// The win card's "Next level" choice (nil until the player picks).
+    @Published private(set) var tailorPick: Skill.Feedback?
+    /// The win card offers the "Next level" choice (Level Play wins).
+    @Published private(set) var feedbackShown = false
+    /// What the win did to the next level, for the win card.
+    @Published private(set) var skillNote = ""
+    /// Five losses in a row just made the next level a little easier (the stuck card says so).
+    @Published private(set) var easedNext = false
     /// Blocks cleared, all time.
     @Published private(set) var lifetime: Int
     /// This try's mystery boxes on the board (the board view draws them).
@@ -198,9 +202,14 @@ final class GameModel: ObservableObject {
     private var attempt = 1
     private var history: [Sim] = []
     private var firstTry = true
-    private var tailor: Double
-    private var tailorBefore: Double = 1
-    private var failStreak = 0
+    /// The player's skill: how hard the next new level is (Skill).
+    private var skill: Skill
+    /// The level being played, the challenge it was started at (kept until it's won, so it never gets easier), and
+    /// which try this is.
+    private var current: CurrentLevel
+    /// The goal the last win set automatically, and the goal of the level it won (for the "Next level" choice).
+    private var autoGoal = Skill.easiest
+    private var wonGoal = Skill.easiest
     private var buildTask: Task<Void, Never>?
     private let haptics = Haptics()
     /// Ticks a chipmunk stands at its block before heading home with it (a quarter second at normal speed).
@@ -256,18 +265,12 @@ final class GameModel: ObservableObject {
         let board: PickupBoard
     }
 
-    /// Win-card difficulty picks (JS TAILOR).
-    enum TailorPick: String, CaseIterable {
-        case easier, same, tiny, harder
-        var factor: Double {
-            switch self {
-            case .easier: return 1 / 1.15
-            case .same: return 1
-            case .tiny: return 1.05
-            case .harder: return 1.15
-            }
-        }
+    struct CurrentLevel: Codable {
+        var index: Int
+        var goal: Double
+        var tries: Int
     }
+    private static let skillKey = "native.skill", currentKey = "native.currentLevel"
 
     private var sceneID = 0
     private let store = UserDefaults.standard
@@ -284,7 +287,12 @@ final class GameModel: ObservableObject {
             : min(Self.heartMax, max(0, store.integer(forKey: "native.hearts")))
         regenAt = store.object(forKey: "native.heartRegenAt") == nil ? nil : store.double(forKey: "native.heartRegenAt")
         lifetime = store.integer(forKey: "native.lifetime")
-        tailor = store.object(forKey: "native.tailor") == nil ? 1 : store.double(forKey: "native.tailor")
+        let savedBoard = min(max(0, store.integer(forKey: Self.boardKey)), c.levelPlay.count - 1)
+        // A player from before skill-based levels starts where the old ramp had them (at most its hardest).
+        skill = store.data(forKey: Self.skillKey).flatMap { try? JSONDecoder().decode(Skill.self, from: $0) }
+            ?? Skill(goal: Difficulty.rampGoal(min(savedBoard + 1, Difficulty.rampN)))
+        current = store.data(forKey: Self.currentKey).flatMap { try? JSONDecoder().decode(CurrentLevel.self, from: $0) }
+            ?? CurrentLevel(index: -1, goal: Skill.easiest, tries: 1)
         hapticsOn = store.object(forKey: "native.haptics") == nil ? true : store.bool(forKey: "native.haptics")
         speedNormal = store.object(forKey: "native.speedNormal") == nil ? 1 : store.double(forKey: "native.speedNormal")
         speedFast = store.object(forKey: "native.speedFast") == nil ? 3 : store.double(forKey: "native.speedFast")
@@ -450,11 +458,14 @@ final class GameModel: ObservableObject {
         mode = .level
         boardIndex = i
         UserDefaults.standard.set(i, forKey: Self.boardKey)
-        let key = catalog.diffKey(forBoard: i)
-        let aim = LevelCatalog.aim(key, tailor: tailor)
-        let baked = attempt == 1 && aim == LevelCatalog.baseAim(key) ? catalog.baked(forBoard: i) : nil
-        build(base: catalog.base(forBoard: i), key: key, seed: catalog.seed(forBoard: i, attempt: attempt), aim: aim,
-              baked: baked, attempt: attempt, title: catalog.levelPlay[i].name, subtitle: "Level \(i + 1)",
+        // A new level takes the player's skill as it is now; the level in progress keeps the challenge it started at.
+        if current.index != i {
+            current = CurrentLevel(index: i, goal: skill.goal, tries: 1)
+            saveSkill()
+        }
+        let key = Difficulty.skillKey(current.goal)
+        build(base: catalog.base(forBoard: i), key: key, seed: catalog.seed(forBoard: i, attempt: attempt),
+              aim: LevelCatalog.baseAim(key), baked: nil, attempt: attempt, title: catalog.levelPlay[i].name, subtitle: "Level \(i + 1)",
               label: "",
               boxes: BoxSource(rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, index: i,
                                board: i < 20 ? .warmup(i + 1) : .level(i + 1)))
@@ -528,7 +539,7 @@ final class GameModel: ObservableObject {
         status = .building
         level = nil
         cardShown = false
-        easeNext = false
+        easedNext = false
         firstTry = true
         history = []
         canUndo = false
@@ -599,13 +610,10 @@ final class GameModel: ObservableObject {
         #endif
     }
 
-    /// The card's Restart: a fresh try at the same board (or a new, easier one after three tries without a win).
+    /// The card's Restart: a fresh try at the same board.
     func retry() {
         firstTry = false
-        withHeart(level: mode == .level) {
-            if self.easeNext { self.reload(attempt: self.attempt + 1); return }
-            self.restart()
-        }
+        withHeart(level: mode == .level) { self.restart() }
     }
 
     /// The top bar's restart button counts as a failed try (and costs a heart, unless this try already did).
@@ -613,26 +621,22 @@ final class GameModel: ObservableObject {
         firstTry = false
         noteFailure()
         loseHeart()
-        withHeart(level: mode == .level) {
-            if self.easeNext { self.reload(attempt: self.attempt + 1); return }
-            self.restart()
-        }
+        withHeart(level: mode == .level) { self.restart() }
     }
 
-    /// Three losses in a row make Level Play a little easier (the tailored aim). Coin Mining and the daily puzzle
-    /// always play at the standard aim.
+    /// A lost try in Level Play: the next try is this level's next one, and five losses in a row make the next
+    /// level (never this one) a little easier. Coin Mining and the daily puzzle don't change the player's skill.
     private func noteFailure() {
         guard mode == .level else { return }
-        failStreak += 1
-        if failStreak >= 3 {
-            failStreak = 0
-            tailor = Self.clampT(tailor / 1.15)
-            store.set(tailor, forKey: "native.tailor")
-            easeNext = true
-        }
+        current.tries += 1
+        if skill.lost() { easedNext = true }
+        saveSkill()
     }
 
-    private static func clampT(_ t: Double) -> Double { min(6, max(0.35, t)) }
+    private func saveSkill() {
+        if let d = try? JSONEncoder().encode(skill) { store.set(d, forKey: Self.skillKey) }
+        if let d = try? JSONEncoder().encode(current) { store.set(d, forKey: Self.currentKey) }
+    }
 
     /// A different board from the same picture.
     func newBoard() { reload(attempt: attempt + 1) }
@@ -721,18 +725,33 @@ final class GameModel: ObservableObject {
             store.set(paraRound, forKey: "native.paraRound")
             lastWin = Win(base: 100, bonus: 0)
             noteDaily(creditDaily())
-            tailorPick = nil
+            feedbackShown = false
             coins += 100
             store.set(coins, forKey: "native.coins")
             return
         case .daily:
             lastWin = Win(base: reward, bonus: 0)
             noteDaily(creditDaily())
-            tailorPick = nil
+            feedbackShown = false
             coins += reward
             store.set(coins, forKey: "native.coins")
             return
         case .level:
+            // The player's skill moves on from this win (Skill), before the next level takes it.
+            wonGoal = current.goal
+            let change = skill.won(level: boardIndex + 1, boardGoal: current.goal, tries: current.tries, helped: helped)
+            autoGoal = skill.goal
+            tailorPick = nil
+            feedbackShown = true
+            switch change {
+            case .warmup: skillNote = "Warm-up level, so the next one stays easy."
+            case .harder: skillNote = current.tries == 1 ? "First-try win, so the next level is a little harder."
+                : "Second-try win, so the next level is a tiny bit harder."
+            case .same: skillNote = helped ? "You used help, so the next level stays about the same."
+                : "The next level stays about the same."
+            }
+            current = CurrentLevel(index: -1, goal: skill.goal, tries: 1)
+            saveSkill()
             // The next level is the one after this, from now on (finished levels aren't replayed).
             if boardIndex + 1 < catalog.levelPlay.count {
                 boardIndex += 1
@@ -748,14 +767,7 @@ final class GameModel: ObservableObject {
         let bonus = firstTry ? Int(JSRound(Double(base) * 0.5)) : 0
         lastWin = Win(base: base, bonus: bonus)
         noteDaily(creditDaily())
-        failStreak = 0
-        easeNext = false
-        if lv.diff?.hasPrefix("warm") == true {
-            tailorPick = nil
-        } else {
-            tailorBefore = tailor
-            pickTailor(firstTry ? .tiny : .same)
-        }
+        easedNext = false
         coins += base + bonus
         store.set(coins, forKey: "native.coins")
     }
@@ -898,11 +910,13 @@ final class GameModel: ObservableObject {
         goHome()
     }
 
-    /// Win card choice: re-applies from the target before this win, so picks replace each other.
-    func pickTailor(_ k: TailorPick) {
+    /// Win card choice: the next level a little easier, the same, or a little harder than the one just won. It
+    /// replaces the win's automatic change, and picks replace each other.
+    func pickTailor(_ k: Skill.Feedback) {
         tailorPick = k
-        tailor = Self.clampT(tailorBefore * k.factor)
-        store.set(tailor, forKey: "native.tailor")
+        skill.goal = Skill.picked(k, boardGoal: wonGoal, auto: autoGoal)
+        current.goal = skill.goal
+        saveSkill()
     }
 
     // MARK: - Scenes

@@ -422,9 +422,10 @@ struct ResultCard: View {
                 .padding(.horizontal, 12)
                 .background(Color(hex: 0xFFF3C4), in: Capsule())
         }
-        if let pick = model.tailorPick {
+        if model.feedbackShown {
+            let pick = model.tailorPick
             VStack(spacing: 6) {
-                Text("Next time:")
+                Text("Next level:")
                     .font(Theme.body(13, 800))
                     .foregroundStyle(Theme.ink)
                     .cssLine(Theme.uiBody(13, 800), 13 * 1.45)
@@ -433,7 +434,7 @@ struct ResultCard: View {
                     TailorButton(title: "About the same", on: pick == .same) { model.pickTailor(.same) }
                     TailorButton(title: "A little harder", on: pick == .harder) { model.pickTailor(.harder) }
                 }
-                Note(pick == .tiny ? "First-try win, so next time is a tiny bit harder." : "")
+                Note(pick == nil ? model.skillNote : "")
             }
             .padding(.top, 2)
             .padding(.bottom, 4)
@@ -476,8 +477,8 @@ struct ResultCard: View {
                 .foregroundStyle(Color(hex: 0x4A5841))
                 .cssLine(Theme.uiBody(13, 800), 13 * 1.45 - 1)
         }
-        if model.easeNext {
-            Note("Three tries without a win, so your next try gets a new board that's a little easier.")
+        if model.easedNext {
+            Note("Five losses in a row, so your next level will be a little easier.")
         }
         Row {
             Big("Undo last tap") { model.undo() }

@@ -20,11 +20,11 @@ import sys
 import tempfile
 
 N = 40
-# The game's 20 colors (tools/palette20.py). Boards are matched to these; the five shades the game dropped in
-# 2026-11 (Q J H E X) are still known here so older drawing code (shading tables, backdrops.py) keeps working, and
-# compose() adapts its result to the 20 colors.
+# The game's 19 colors (tools/palette.py). Boards are matched to these; the six shades the game dropped in
+# 2026-11 (Q J H E X Z) are still known here so older drawing code (shading tables, backdrops.py) keeps working, and
+# compose() adapts its result to the 19 colors.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from palette20 import PALETTE, DROPPED, adapt, limit  # noqa: E402
+from palette import PALETTE, DROPPED, adapt, limit  # noqa: E402
 RGB = {k: ((v >> 16) & 255, (v >> 8) & 255, v & 255) for k, v in {**PALETTE, **DROPPED}.items()}
 # Colors the subject's source is matched against: the 18 standard ones (blue eyes need blue).
 SHADES = ("Q", "J", "H", "E", "S", "Z", "X")

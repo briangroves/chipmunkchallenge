@@ -1,8 +1,9 @@
 import XCTest
 @testable import ChipmunkEngine
 
-/// The new board maker's boards (Resources/boards.json). Since 2026-11-12 they are all of Level Play: the original 170
-/// boards and the clipart packs are retired, but Coin Mining keeps its numbering from 170.
+/// The new board maker's boards (Resources/boards.json), and Level Play's skill-based challenge. Since 2026-11-12 the
+/// new boards are all of Level Play: the original 170 boards and the clipart packs are retired, but Coin Mining keeps
+/// its numbering from 170.
 final class NewBoardTests: XCTestCase {
     let catalog = try! LevelCatalog.bundled()
 
@@ -32,6 +33,9 @@ final class NewBoardTests: XCTestCase {
             XCTAssertTrue(L.rows.allSatisfy { $0.count == 40 }, L.id)
             XCTAssertTrue(L.rows.joined().allSatisfy { PALETTE[$0] != nil }, "\(L.id) uses a color outside the palette")
             XCTAssertLessThanOrEqual(Set(L.rows.joined()).count, 12, "\(L.id) uses more than 12 colors")
+            var count: [Character: Int] = [:]
+            for ch in L.rows.joined() where ch != "." { count[ch, default: 0] += 1 }
+            XCTAssertGreaterThanOrEqual(count.values.min() ?? 5, MIN_NEST, "\(L.id) has a color under \(MIN_NEST) blocks")
         }
     }
 
@@ -70,11 +74,86 @@ final class NewBoardTests: XCTestCase {
         XCTAssertEqual(Difficulty.rampGoal(1000), 0.16, accuracy: 0.001)
     }
 
-    /// A sample of new boards build (as the game builds them, retrying a few seeds), and each can be won under the
-    /// game's timing: its stored plan clears it, or the solver finds a way (the plan is only the solver's first try).
+    /// The palette is 19 colors; a board still using pale yellow (dropped 2026-11-13) plays it as yellow.
+    func testNineteenColors() {
+        XCTAssertEqual(PALETTE.count, 19)
+        XCTAssertNil(PALETTE["Z"])
+        XCTAssertEqual(paletteLetter("Z"), "Y")
+    }
+
+    /// The skill rules: warm-ups stay easy, clean wins climb, help holds, five losses ease the next level only, and
+    /// the player's pick replaces the automatic change.
+    func testSkillRules() {
+        var s = Skill()
+        XCTAssertEqual(s.goal, 0.97)
+        for lv in 1...5 { XCTAssertEqual(s.won(level: lv, boardGoal: s.goal, tries: 1, helped: false), .warmup) }
+        XCTAssertEqual(s.goal, 0.97, "the first 5 levels are almost impossible to lose")
+        XCTAssertEqual(s.won(level: 6, boardGoal: 0.97, tries: 1, helped: false), .harder)
+        XCTAssertEqual(s.goal, 0.95, accuracy: 1e-9)
+        XCTAssertEqual(s.won(level: 7, boardGoal: 0.95, tries: 2, helped: false), .harder)
+        XCTAssertEqual(s.goal, 0.94, accuracy: 1e-9)
+        XCTAssertEqual(s.won(level: 8, boardGoal: 0.94, tries: 1, helped: true), .same, "a tool keeps it the same")
+        XCTAssertEqual(s.won(level: 9, boardGoal: 0.94, tries: 3, helped: false), .same, "three tries keeps it the same")
+        XCTAssertEqual(s.goal, 0.94, accuracy: 1e-9)
+        for _ in 0..<4 { XCTAssertFalse(s.lost()) }
+        XCTAssertTrue(s.lost(), "the fifth loss in a row eases the next level")
+        XCTAssertEqual(s.goal, 0.98 > Skill.easiest ? Skill.easiest : 0.98, accuracy: 1e-9)
+        XCTAssertEqual(Skill.picked(.harder, boardGoal: 0.6, auto: 0.58), 0.55, accuracy: 1e-9)
+        XCTAssertEqual(Skill.picked(.same, boardGoal: 0.6, auto: 0.58), 0.6, accuracy: 1e-9)
+        XCTAssertEqual(Skill.picked(.easier, boardGoal: 0.6, auto: 0.58), 0.65, accuracy: 1e-9)
+        XCTAssertEqual(Skill.picked(.harder, boardGoal: 0.97, auto: 0.97), 0.92, accuracy: 1e-9, "harder works in warm-ups")
+        XCTAssertEqual(Skill.picked(.easier, boardGoal: 0.97, auto: 0.97), 0.97, "never easier than the easiest")
+        var low = Skill(goal: 0.16)
+        _ = low.won(level: 50, boardGoal: 0.16, tries: 1, helped: false)
+        XCTAssertEqual(low.goal, Skill.hardest, "never harder than the hardest")
+    }
+
+    /// A skill goal plays like the old ramp board that had the same goal, and a lower goal is never easier.
+    func testSkillDifficultyFollowsTheRamp() {
+        for n in [1, 5, 20, 60, 120, 170] {
+            let r = Difficulty.ramp(n), k = Difficulty.skill(Difficulty.rampGoal(n))
+            XCTAssertEqual(k.cmin, r.cmin, "board \(n)")
+            XCTAssertEqual(k.cmax, r.cmax, "board \(n)")
+            XCTAssertEqual(k.pressure, r.pressure, accuracy: 0.011, "board \(n)")
+            XCTAssertEqual(k.rtarget, r.rtarget, accuracy: 0.002, "board \(n)")
+        }
+        var g = Skill.easiest
+        while g > Skill.hardest + 0.01 {
+            let a = Difficulty.skill(g), b = Difficulty.skill(g - 0.01)
+            XCTAssertLessThanOrEqual(b.cgoal!, a.cgoal!)
+            XCTAssertLessThanOrEqual(b.cmax, a.cmax)
+            XCTAssertGreaterThanOrEqual(b.pressure, a.pressure)
+            g -= 0.01
+        }
+        XCTAssertEqual(Difficulty.named(Difficulty.skillKey(0.6)), Difficulty.skill(0.6))
+    }
+
+    /// Boards built the way the game builds them (mystery-box pockets cut, across the skill range) have no nest
+    /// smaller than 5.
+    func testNoNestsUnderFive() {
+        var o = BuildOptions.game
+        o.ms = 600
+        for (k, g) in [0.97, 0.6, 0.25].enumerated() {
+            let key = Difficulty.skillKey(g)
+            o.aim = LevelCatalog.baseAim(key)
+            for i in stride(from: k, to: catalog.levelPlay.count, by: 4) {
+                let cut = pocketBase(catalog.base(forBoard: i), id: catalog.levelPlay[i].id, seed: catalog.seed(forBoard: i),
+                                     index: i, board: i < 20 ? .warmup(i + 1) : .level(i + 1), claimed: []).base
+                guard let lv = generateLevelRetrying(base: cut, seed: catalog.seed(forBoard: i), diffKey: key, options: o) else {
+                    XCTFail("board \(i + 1) didn't build at \(g)")
+                    continue
+                }
+                XCTAssertEqual(lv.small, 0, "board \(i + 1) at \(g): smallest nest \(lv.minNest ?? 0)")
+            }
+        }
+    }
+
+    /// A sample of new boards build (as the game builds them, retrying a few seeds), across the skill range, and each
+    /// can be won under the game's timing: its stored plan clears it, or the solver finds a way.
     func testNewBoardsBuildAndClear() {
-        for i in stride(from: 0, to: catalog.levelPlay.count, by: 6) {
-            let key = catalog.diffKey(forBoard: i)
+        let goals = [0.97, 0.8, 0.6, 0.4, 0.25, 0.15]
+        for (k, i) in stride(from: 0, to: catalog.levelPlay.count, by: 4).enumerated() {
+            let key = Difficulty.skillKey(goals[k % goals.count])
             var o = BuildOptions.game
             o.aim = LevelCatalog.aim(key, tailor: 1)
             guard let lv = generateLevelRetrying(base: catalog.base(forBoard: i), seed: catalog.seed(forBoard: i),

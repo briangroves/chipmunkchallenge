@@ -53,13 +53,19 @@ public func botRate(_ lv: Level, _ n: Int, _ seed: Int, _ eps: Double = 0.1) -> 
 
 /// Nest size between the challenge's min and max, never leaving a leftover under 5 ants.
 /// reach (nil = unlimited): when slots are nearly full, aim near what the nest can reach right now.
-func pickSize(_ un: Int, _ def: Difficulty, _ rng: RNG, _ reach: Int?, _ relax: Bool) -> Int {
+/// `webParity` keeps the web game's rule, which could leave a last nest under 5 when the reach cap stopped the
+/// remainder from joining (the native game takes those blocks whole instead, since 2026-11-13).
+func pickSize(_ un: Int, _ def: Difficulty, _ rng: RNG, _ reach: Int?, _ relax: Bool, webParity: Bool = false) -> Int {
     let cap = reach.map { relax ? max($0, 1) : max($0, MIN_NEST) } ?? Int.max
     var s = (un <= def.cmax && Double(un) < Double(def.cmin) * 1.5) ? un : def.cmin + rng.int(def.cmax - def.cmin + 1)
     s = min(s, cap, un)
     let rem = un - s
     if rem > 0 && rem < MIN_NEST {
-        if s + rem <= def.cmax && s + rem <= cap { s = un } else { s = max(min(MIN_NEST, un), s - (MIN_NEST - rem)) }
+        if s + rem <= def.cmax && s + rem <= cap { s = un }
+        // Too few left to split into two nests of 5 or more: take them all rather than leave a nest under 5 (unless
+        // the build is already relaxed to get unstuck).
+        else if !relax && !webParity && un < 2 * MIN_NEST { s = un }
+        else { s = max(min(MIN_NEST, un), s - (MIN_NEST - rem)) }
     } else if rem > 0 && rem < def.cmin && s + rem <= def.cmax && s + rem <= cap {
         s = un
     }
@@ -67,7 +73,8 @@ func pickSize(_ un: Int, _ def: Difficulty, _ rng: RNG, _ reach: Int?, _ relax: 
 }
 
 /// Play the picture forward on the timed simulation, recording each nest opened. nil if the build jams.
-func buildSequence(_ art: Art, _ def: Difficulty, _ rng: RNG, _ relax: Bool, _ pressure: Double) -> [NestSpec]? {
+func buildSequence(_ art: Art, _ def: Difficulty, _ rng: RNG, _ relax: Bool, _ pressure: Double,
+                   webParity: Bool = false) -> [NestSpec]? {
     let lv = Level(art: art, slots: def.slots, lanes: [])
     lv.navSetup()
     var m = Sim(lv)
@@ -99,7 +106,7 @@ func buildSequence(_ art: Art, _ def: Difficulty, _ rng: RNG, _ relax: Bool, _ p
             col = cands[rng.int(cands.count)]
         }
         let reach: Int? = lv.slots - m.s.sl.count <= 2 ? m.s.hp[col].count : nil
-        let size = pickSize(un[col], def, rng, reach, relax)
+        let size = pickSize(un[col], def, rng, reach, relax, webParity: webParity)
         un[col] -= size
         let key = seq.count == keyAt
         seq.append(NestSpec(c: col, n: size, key: key))
@@ -136,6 +143,8 @@ public struct BuildOptions: Sendable {
     public var aim: Double?
     public var CV: Int?
     public var RV: Int?
+    /// Build exactly as the web game does (tests comparing the two); the game leaves it off.
+    public var webParity = false
 
     public init() {}
 
@@ -234,7 +243,7 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
             var seq: [NestSpec]?
             var t = 0
             while t < 12 && seq == nil {
-                seq = buildSequence(art, def, rng, relax, t < 6 ? pr : 0)
+                seq = buildSequence(art, def, rng, relax, t < 6 ? pr : 0, webParity: opt.webParity)
                 t += 1
             }
             guard let seq else { continue }

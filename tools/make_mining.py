@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Make the Coin Mining boards with the new board maker (2026-11-12): fresh subjects, pictures on this Mac, boards in
-the game's 20 colors, judged, the best board of each subject kept.
+the game's 19 colors, judged, the best board of each subject kept.
 
     tools/.venv/bin/python tools/make_mining.py [--subjects 22] [--seeds 3] [--keep 20] [--size 512]
 

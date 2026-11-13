@@ -102,7 +102,7 @@ final class ParityTests: XCTestCase {
                     """)
                     var def = Difficulty.named(key)
                     def.lock = b.lock
-                    let seq = buildSequence(Art(b, slots: def.slots), def, RNG(seed: seed), relax, pressure)
+                    let seq = buildSequence(Art(b, slots: def.slots), def, RNG(seed: seed), relax, pressure, webParity: true)
                     let expected = try! JSONDecoder().decode([NestSpec]?.self, from: Data(e.utf8))
                     XCTAssertEqual(seq, expected, "board \(i) \(key) relax \(relax) pressure \(pressure)")
                 }
@@ -120,6 +120,7 @@ final class ParityTests: XCTestCase {
         o.RV = 24
         o.CV = 24
         o.ms = 1e12
+        o.webParity = true
         return o
     }
 
@@ -281,6 +282,7 @@ final class ParityTests: XCTestCase {
         let b = jsBase(99)
         var o = BuildOptions.game
         o.ms = 1e12
+        o.webParity = true
         let t0 = Date()
         let lv = generateLevel(base: b, seed: 100_007, diffKey: "lv100", options: o)
         let swiftMs = Date().timeIntervalSince(t0) * 1000

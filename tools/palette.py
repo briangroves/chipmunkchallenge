@@ -1,10 +1,11 @@
-"""The game's 20 colors, and how a board drawn with the old 25-color palette is adapted to them.
+"""The game's 19 colors, and how a board drawn with the old 25-color palette is adapted to them.
 
-The 25-color palette had 7 in-between shades. Two of them (raspberry S, pale yellow Z) are as easy to tell apart as
-the standard colors, so they stay; the other five (Q deep orange, J peach, H pale blue, E dark brown, X stone) sit
-too close to a standard color to tell apart in play, so they are gone.
+The 25-color palette had 7 in-between shades. Raspberry (S) is as easy to tell apart as the standard colors, so it
+stays; the other six (Q deep orange, J peach, H pale blue, E dark brown, X stone, and since 2026-11-13 Z pale yellow)
+sit too close to a standard color to tell apart in play, so they are gone.
 
-`limit(rows)` then keeps each board to at most 12 colors (MAX_COLORS), the old hand-made boards' level.
+`limit(rows)` then keeps each board to at most 12 colors (MAX_COLORS), the old hand-made boards' level, and merges
+away any color with fewer than 5 blocks (MIN_CELLS): such a color can only be a nest smaller than 5.
 
 `adapt(rows)` looks at each board on its own. For every dropped shade it uses, it tries the two closest of the 20
 colors and picks the one that costs the picture least: the closer color, unless that color already sits right next
@@ -20,11 +21,11 @@ PALETTE = {
     "R": 0xE53935, "O": 0xFB8C00, "Y": 0xFDD835, "G": 0x43A047, "B": 0x1E88E5, "V": 0x8E24AA,
     "P": 0xF48FB1, "N": 0x795548, "W": 0xF5F5F5, "K": 0x263238, "T": 0xD2B48C, "A": 0x9E9E9E,
     "L": 0x9CCC65, "D": 0x1B5E20, "M": 0x8E1B1B, "C": 0x81D4FA, "U": 0x283593, "I": 0xB39DDB,
-    "S": 0xD81B60, "Z": 0xFFF59D,
+    "S": 0xD81B60,
 }
-DROPPED = {"Q": 0xE65100, "J": 0xFFB74D, "H": 0xB3E5FC, "E": 0x4E342E, "X": 0xD7CCC8}
+DROPPED = {"Q": 0xE65100, "J": 0xFFB74D, "H": 0xB3E5FC, "E": 0x4E342E, "X": 0xD7CCC8, "Z": 0xFFF59D}
 # The plain answer for each dropped shade, used by the game for any old board that was not adapted.
-FALLBACK = {"Q": "O", "J": "O", "H": "C", "E": "N", "X": "W"}
+FALLBACK = {"Q": "O", "J": "O", "H": "C", "E": "N", "X": "W", "Z": "Y"}
 
 
 def lab(hexv):
@@ -43,12 +44,14 @@ def delta(a, b):
     return sum((p - q) ** 2 for p, q in zip(lab(a), lab(b))) ** 0.5
 
 
-# The two closest of the 20 colors to each dropped shade, closest first, with how far each is.
+# The two closest of the game's colors to each dropped shade, closest first, with how far each is.
 CANDIDATES = {s: sorted((delta(v, PALETTE[k]), k) for k in PALETTE)[:2] for s, v in DROPPED.items()}
+# Pale yellow reads as a yellow (or, beside yellow, a highlight), never as the light green Lab puts nearer to it.
+CANDIDATES["Z"] = sorted((delta(DROPPED["Z"], PALETTE[k]), k) for k in "YW")
 
 
 def adapt(rows, report=None):
-    """The board redrawn in the 20 colors. `report`, if given, collects {shade: chosen color}."""
+    """The board redrawn in the game's colors. `report`, if given, collects {shade: chosen color}."""
     grid = [list(r) for r in rows]
     h, w = len(grid), max(len(r) for r in grid)
     used = {ch for r in grid for ch in r}
@@ -74,21 +77,40 @@ def adapt(rows, report=None):
 
 
 MAX_COLORS = 12
+MIN_CELLS = 5
 
 
-def limit(rows, max_colors=MAX_COLORS):
-    """The board with at most `max_colors` colors: while it has too many, its rarest color becomes the closest of the
-    colors it keeps (small details and shading tones go first; big areas and the outline stay)."""
-    rows = list(rows)
+def _touching(rows, ch):
+    """How many cell edges `ch` shares with each other color, and its whole border."""
+    h = len(rows)
+    touch = {}
+    for r in range(h):
+        for c, x in enumerate(rows[r]):
+            if x != ch:
+                continue
+            for rr, cc in ((r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)):
+                if 0 <= rr < h and 0 <= cc < len(rows[rr]) and rows[rr][cc] not in (ch, "."):
+                    touch[rows[rr][cc]] = touch.get(rows[rr][cc], 0) + 1
+    return touch, sum(touch.values()) or 1
+
+
+def limit(rows, max_colors=MAX_COLORS, min_cells=MIN_CELLS):
+    """The board with at most `max_colors` colors, none of them under `min_cells` blocks: while it breaks either
+    rule, its rarest color becomes the closest of the others (small details and shading tones go first; big areas
+    and the outline stay). A tiny color avoids the color it sits on where a close one is available, so a pupil or a
+    button doesn't simply vanish into its surroundings. Any dropped shade is adapted first."""
+    rows = adapt(rows)
     while True:
         count = {}
         for ch in "".join(rows):
             if ch != ".":
                 count[ch] = count.get(ch, 0) + 1
-        if len(count) <= max_colors:
+        rare = min(count, key=lambda k: (count[k], k)) if count else None
+        if rare is None or len(count) == 1 or (len(count) <= max_colors and count[rare] >= min_cells):
             return rows
-        rare = min(count, key=lambda k: (count[k], k))
-        to = min((k for k in count if k != rare), key=lambda k: delta(PALETTE[rare], PALETTE[k]))
+        touch, border = _touching(rows, rare)
+        to = min((k for k in count if k != rare),
+                 key=lambda k: delta(PALETTE[rare], PALETTE[k]) + 40 * touch.get(k, 0) / border)
         rows = [r.replace(rare, to) for r in rows]
 
 

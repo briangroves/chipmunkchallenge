@@ -22,14 +22,14 @@ struct BoardReviewerApp: App {
     }
 }
 
-/// The game's 20 colors (Engine/Sources/ChipmunkEngine/Level.swift), so boards look as they will in the game.
+/// The game's 19 colors (Engine/Sources/ChipmunkEngine/Level.swift), so boards look as they will in the game.
 let PALETTE: [Character: UInt32] = [
     "R": 0xE53935, "O": 0xFB8C00, "Y": 0xFDD835, "G": 0x43A047, "B": 0x1E88E5, "V": 0x8E24AA,
     "P": 0xF48FB1, "N": 0x795548, "W": 0xF5F5F5, "K": 0x263238, "T": 0xD2B48C, "A": 0x9E9E9E,
     "L": 0x9CCC65, "D": 0x1B5E20, "M": 0x8E1B1B, "C": 0x81D4FA, "U": 0x283593, "I": 0xB39DDB,
-    "S": 0xD81B60, "Z": 0xFFF59D,
-    // Retired shades, drawn as the game plays them, for boards queued before 2026-11-12.
-    "Q": 0xFB8C00, "J": 0xFB8C00, "H": 0x81D4FA, "E": 0x795548, "X": 0xF5F5F5,
+    "S": 0xD81B60,
+    // Retired shades, drawn as the game plays them, for boards queued before 2026-11-13.
+    "Q": 0xFB8C00, "J": 0xFB8C00, "H": 0x81D4FA, "E": 0x795548, "X": 0xF5F5F5, "Z": 0xFDD835,
 ]
 
 extension Color {

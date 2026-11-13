@@ -7,7 +7,7 @@ the private queue.
 The feed is boards/approved.json on the game repo's gh-pages branch, served by GitHub Pages at config feed_url. The
 game downloads it (and ships a snapshot of it, see snapshot_feed.py). The feed is one flat list of boards,
 {"format": 2, "levels": [...]}: each approved board is added on its own, and the game picks it up within the hour.
-There are no packs (2026-11-13). Every board goes in drawn in the game's 20 colors, at most 12 per board.
+There are no packs (2026-11-13). Every board goes in drawn in the game's 19 colors, at most 12 per board.
 
 The feed is publish-forever: boards are only ever appended, never removed, changed or reordered, because a board's
 place in the level list sets its seed and difficulty in the game. The job checks this before every push.
@@ -26,7 +26,7 @@ import sys
 from common import CFG, FEED, QUEUE, TOOLS, ensure_clone, git, load, log, push, save
 
 sys.path.insert(0, TOOLS)
-from palette20 import adapt, limit  # noqa: E402
+from palette import adapt, limit  # noqa: E402
 
 
 def boards_of(feed):
