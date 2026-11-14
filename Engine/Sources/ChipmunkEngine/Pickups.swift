@@ -11,9 +11,10 @@ import Foundation
    and the board is as solvable as any other. Which boards get boxes, the tools inside and where they sit are the web
    game's, pick for pick.
 
-   How many: the warm-up hands out each tool on a schedule so new players meet them all; after that every third board
-   has a box (sometimes two), every tenth board is a treasure board with three, and other boards sometimes have one.
-   Every Coin Mining board has one, sometimes two, and the daily puzzle has one. About half the time a box sits on a
+   How many: the warm-up hands out each tool on a schedule so new players meet them all. After that (since 2026-11-13,
+   so the shop matters) every tenth board is a treasure board with two, every third board has one half the time, and
+   other boards one time in ten: about 0.4 a board. Coin Mining boards have one half the time, and the daily puzzle
+   has one. (The web game had 0.9 a board and 1.35 a Coin Mining board; `webParity` keeps its counts.) About half the time a box sits on a
    feature of the picture (an eye, a window, a button) and takes its place in the drawing. */
 
 /// Pocket size in blocks.
@@ -63,7 +64,7 @@ public func randTool(_ u: Double) -> String {
 /// `index` the board's place in the web game's level list (it seeds the choice with `seed`), and `claimed` the keys
 /// of boxes already opened. Same picks, in the same order, as the web game. The board itself is left as it is.
 public func placePickups(_ lv: Level, _ s: State, rows: [String], id: String, seed: Int, index li: Int,
-                         board: PickupBoard, claimed: Set<String>) -> [Pickup] {
+                         board: PickupBoard, claimed: Set<String>, webParity: Bool = false) -> [Pickup] {
     var h = UInt32(truncatingIfNeeded: seed &* 2_654_435_761 &+ li &* 97)
     func rnd() -> Double {
         h = UInt32(truncatingIfNeeded: Int(h) &* 1_664_525 &+ 1_013_904_223)
@@ -78,10 +79,15 @@ public func placePickups(_ lv: Level, _ s: State, rows: [String], id: String, se
         types = [randTool(rnd())]
     case .mining:
         para = true
-        types = [randTool(rnd())]
-        if rnd() < 0.35 { types.append(randTool(rnd())) }
+        if webParity {
+            types = [randTool(rnd())]
+            if rnd() < 0.35 { types.append(randTool(rnd())) }
+        } else if rnd() < 0.5 {
+            types = [randTool(rnd())]
+        }
     case .level(let n):
-        let k = n % 10 == 0 ? 3 : n % 3 == 0 ? (rnd() < 0.35 ? 2 : 1) : (rnd() < 0.3 ? 1 : 0)
+        let k = webParity ? (n % 10 == 0 ? 3 : n % 3 == 0 ? (rnd() < 0.35 ? 2 : 1) : (rnd() < 0.3 ? 1 : 0))
+            : (n % 10 == 0 ? 2 : n % 3 == 0 ? (rnd() < 0.5 ? 1 : 0) : (rnd() < 0.1 ? 1 : 0))
         for _ in 0..<k { types.append(randTool(rnd())) }
     }
     if types.isEmpty { return [] }

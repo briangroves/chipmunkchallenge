@@ -80,10 +80,14 @@ final class GameModel: ObservableObject {
         }
     }
     @Published var table: Table { didSet { store.set(table.rawValue, forKey: "native.table") } }
+    /// Tables bought (the free ones always count as owned).
+    @Published private(set) var tablesOwned: Set<Table>
+    /// A locked table the player tapped: the settings sheet offers it for coins.
+    @Published var tableOffer: Table?
     /// Which screen is up. The board stays loaded while the player is on the home screen, so Play resumes it.
     enum Screen { case home, play }
     @Published var screen: Screen = .home
-    @Published var settingsOpen = false
+    @Published var settingsOpen = false { didSet { if !settingsOpen { tableOffer = nil } } }
     /// Home's Daily Challenge chooser: clear a Level Play level or a Coin Mining board to keep the streak.
     @Published var dailyPickOpen = false
     /// Settings, saved on this device.
@@ -298,7 +302,11 @@ final class GameModel: ObservableObject {
         speedFast = store.object(forKey: "native.speedFast") == nil ? 3 : store.double(forKey: "native.speedFast")
         queueOn = store.object(forKey: "native.queueOn") == nil ? true : store.bool(forKey: "native.queueOn")
         autoAdvance = store.object(forKey: "native.autoAdvance") == nil ? true : store.bool(forKey: "native.autoAdvance")
-        table = Table(rawValue: store.string(forKey: "native.table") ?? "") ?? .wood
+        let chosen = Table(rawValue: store.string(forKey: "native.table") ?? "") ?? .wood
+        table = chosen
+        // A player who picked a table back when they were all free keeps it.
+        tablesOwned = Set((store.stringArray(forKey: "native.tablesOwned") ?? []).compactMap(Table.init(rawValue:)))
+            .union(Table.allCases.filter { $0.price == 0 }).union([chosen])
         paraRound = store.integer(forKey: "native.paraRound")
         giftDay = store.object(forKey: "native.giftDay") == nil ? -1 : store.integer(forKey: "native.giftDay")
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
@@ -716,17 +724,16 @@ final class GameModel: ObservableObject {
         winCount += 1
         let box = claimHeld()
         defer { lastWin.box = box }
-        let c = lv.botWin
-        let reward: Int = lv.diff == "paradise" ? 100
-            : c == nil ? 100 : Int(JSRound(100 * min(2.5, max(0.6, 0.3 / max(c!, 0.01))) / 10)) * 10
+        // Pay follows the challenge the board was built for (Economy).
+        let reward = Economy.levelCoins(goal: lv.def?.cgoal ?? 0.5)
         switch mode {
         case .mining:
             paraRound += 1
             store.set(paraRound, forKey: "native.paraRound")
-            lastWin = Win(base: 100, bonus: 0)
+            lastWin = Win(base: Economy.miningCoins, bonus: 0)
             noteDaily(creditDaily())
             feedbackShown = false
-            coins += 100
+            coins += Economy.miningCoins
             store.set(coins, forKey: "native.coins")
             return
         case .daily:
@@ -764,7 +771,7 @@ final class GameModel: ObservableObject {
             store.set(boardIndex, forKey: Self.boardKey)
         }
         let base = reward
-        let bonus = firstTry ? Int(JSRound(Double(base) * 0.5)) : 0
+        let bonus = firstTry ? Int(JSRound(Double(base) * Economy.firstTryBonus)) : 0
         lastWin = Win(base: base, bonus: bonus)
         noteDaily(creditDaily())
         easedNext = false
@@ -876,6 +883,23 @@ final class GameModel: ObservableObject {
         }
         afterHearts = then
         heartsCardShown = true
+    }
+
+    /// A settings swatch: an owned table is chosen; a locked one is offered for coins.
+    func tapTable(_ t: Table) {
+        if tablesOwned.contains(t) { table = t } else { tableOffer = t }
+    }
+
+    /// Buy the offered table and put it on.
+    func buyTable(_ t: Table) {
+        guard !tablesOwned.contains(t), coins >= t.price else { return }
+        coins -= t.price
+        store.set(coins, forKey: "native.coins")
+        tablesOwned.insert(t)
+        store.set(tablesOwned.map(\.rawValue).sorted(), forKey: "native.tablesOwned")
+        table = t
+        tableOffer = nil
+        buzz(.success)
     }
 
     /// The out-of-hearts card's buy button: 5 hearts for 500 coins, then the try goes ahead.

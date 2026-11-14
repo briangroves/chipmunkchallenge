@@ -47,7 +47,8 @@ final class PickupTests: XCTestCase {
             let base = js.decode(ParityTests.BaseJSON.self, "testBase(\(li))").base
             let lv = Level(art: Art(base, slots: 5), slots: 5, lanes: [])
             let s = initState(lv)
-            let p = placePickups(lv, s, rows: base.rows, id: id, seed: seed, index: li, board: board, claimed: [])
+            let p = placePickups(lv, s, rows: base.rows, id: id, seed: seed, index: li, board: board, claimed: [],
+                                webParity: true)
             XCTAssertEqual(Out(at: p.map { $0.at }, tools: p.map { $0.tool }, keys: p.map { $0.key }), e, "board \(li)")
             XCTAssertTrue(p.allSatisfy { $0.cells.allSatisfy { s.b[$0] != 0 && s.b[$0] != ROCK } }, "board \(li)")
             total += p.count
@@ -106,7 +107,7 @@ final class PickupTests: XCTestCase {
         let s = initState(lv)
         let first = placePickups(lv, s, rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, seed: seed,
                                  index: i, board: .level(i + 1), claimed: [])
-        XCTAssertEqual(first.count, 3)
+        XCTAssertEqual(first.count, 2, "a treasure board has two boxes")
         let again = placePickups(lv, s, rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, seed: seed,
                                  index: i, board: .level(i + 1), claimed: Set(first.map(\.key)))
         XCTAssertTrue(again.isEmpty)

@@ -108,6 +108,34 @@ final class NewBoardTests: XCTestCase {
         XCTAssertEqual(low.goal, Skill.hardest, "never harder than the hardest")
     }
 
+    /// Level Play pays for difficulty across the whole skill range, and always more than Coin Mining.
+    func testCoinPayout() {
+        XCTAssertEqual(Economy.levelCoins(goal: 0.97), 50)
+        XCTAssertEqual(Economy.levelCoins(goal: 0.5), 100)
+        XCTAssertEqual(Economy.levelCoins(goal: 0.15), 200)
+        var g = Skill.easiest
+        while g > Skill.hardest {
+            XCTAssertLessThanOrEqual(Economy.levelCoins(goal: g), Economy.levelCoins(goal: g - 0.01))
+            XCTAssertGreaterThanOrEqual(Economy.levelCoins(goal: g), Economy.miningCoins)
+            g -= 0.01
+        }
+    }
+
+    /// After the warm-ups, about 0.4 mystery boxes a board (the web game had 0.9), and Coin Mining about 0.5.
+    func testFewerFreeBoxes() {
+        let lv = Level(art: Art(catalog.base(forBoard: 0), slots: 5), slots: 5, lanes: [])
+        let s = initState(lv)
+        var level = 0, mining = 0
+        for n in 21...320 {
+            level += placePickups(lv, s, rows: catalog.levelPlay[0].rows, id: "t", seed: n * 31, index: n,
+                                  board: .level(n), claimed: []).count
+            mining += placePickups(lv, s, rows: catalog.levelPlay[0].rows, id: "t", seed: n * 31, index: n,
+                                   board: .mining, claimed: []).count
+        }
+        XCTAssertEqual(Double(level) / 300, 0.4, accuracy: 0.1)
+        XCTAssertEqual(Double(mining) / 300, 0.5, accuracy: 0.12)
+    }
+
     /// A skill goal plays like the old ramp board that had the same goal, and a lower goal is never easier.
     func testSkillDifficultyFollowsTheRamp() {
         for n in [1, 5, 20, 60, 120, 170] {

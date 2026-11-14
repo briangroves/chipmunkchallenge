@@ -216,7 +216,7 @@ private struct ModeCard<Fill: ShapeStyle, Thumb: View>: View {
     }
 }
 
-/// Coin Mining: the next challenge, worth 100 coins.
+/// Coin Mining: the next challenge, worth Economy.miningCoins.
 private struct MiningCard: View {
     @ObservedObject var model: GameModel
 
@@ -224,7 +224,7 @@ private struct MiningCard: View {
         let b = model.miningBoard
         let resumes = model.mode == .mining && model.status == .playing && model.level != nil
         ModeCard(label: "Coin Mining", big: "Challenge \(model.paraRound + 1)",
-                 sub: AnyView(HStack(spacing: 4) { CoinIcon().frame(width: 14, height: 14); Text("+100") }),
+                 sub: AnyView(HStack(spacing: 4) { CoinIcon().frame(width: 14, height: 14); Text("+\(Economy.miningCoins)") }),
                  play: resumes ? "Continue" : "Play", playColor: Color(hex: 0x8A4B22),
                  fill: LinearGradient(stops: [.init(color: Color(hex: 0xFFF3C4), location: 0),
                                               .init(color: Color(hex: 0xFFD56B), location: 0.6),
@@ -364,8 +364,42 @@ struct SettingsSheet: View {
                     Text("Background").font(Theme.body(14, 800)).foregroundStyle(Color(hex: 0x4A5841))
                     HStack(spacing: 6) {
                         ForEach(Table.allCases) { t in
-                            TableSwatch(table: t, on: model.table == t) { model.table = t }
+                            TableSwatch(table: t, on: model.table == t, owned: model.tablesOwned.contains(t)) {
+                                model.tapTable(t)
+                            }
                         }
+                    }
+                    if let t = model.tableOffer {
+                        let can = model.coins >= t.price
+                        HStack(spacing: 8) {
+                            Text(can ? "Unlock the \(t.label) table?" : "\(t.label) table: you need \((t.price - model.coins).formatted()) more coins.")
+                                .font(Theme.body(13, 700))
+                                .foregroundStyle(Theme.ink)
+                                .fixedSize(horizontal: false, vertical: true)
+                            Spacer(minLength: 0)
+                            if can {
+                                Button { model.buyTable(t) } label: {
+                                    HStack(spacing: 4) {
+                                        CoinIcon().frame(width: 14, height: 14)
+                                        Text(t.price.formatted())
+                                    }
+                                    .font(Theme.body(13, 800))
+                                    .foregroundStyle(.white)
+                                    .padding(.horizontal, 12)
+                                    .frame(minHeight: 32)
+                                    .background(Color(hex: 0x2E7D32), in: Capsule())
+                                }
+                                .buttonStyle(Pressable())
+                            }
+                            Button { model.tableOffer = nil } label: {
+                                Image(systemName: "xmark").font(.system(size: 12, weight: .bold)).foregroundStyle(Theme.ink)
+                                    .frame(width: 28, height: 28)
+                            }
+                            .buttonStyle(Pressable())
+                            .accessibilityLabel("Not now")
+                        }
+                        .padding(10)
+                        .background(Color(hex: 0xFFF8E1), in: RoundedRectangle(cornerRadius: 12))
                     }
                 }
                 SetToggle(title: "Haptics", detail: "A light tap when a nest loads or a chipmunk picks up a block, and a buzz when a board ends.",
@@ -475,7 +509,7 @@ private struct DailyPicker: View {
                        rows: model.catalog.levelPlay[i].rows, color: Theme.darkInk) {
                     withAnimation(.easeOut(duration: 0.2)) { model.pickDaily(mining: false) }
                 }
-                choice(title: "Coin Mining", detail: "Challenge \(model.paraRound + 1) · +100 coins",
+                choice(title: "Coin Mining", detail: "Challenge \(model.paraRound + 1) · +\(Economy.miningCoins) coins",
                        rows: model.miningBoard.base.rows, color: Color(hex: 0x8A4B22)) {
                     withAnimation(.easeOut(duration: 0.2)) { model.pickDaily(mining: true) }
                 }
