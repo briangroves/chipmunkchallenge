@@ -110,7 +110,7 @@ struct GiftButton: View {
         Button { model.openGift() } label: {
             HStack(spacing: 5) {
                 MysteryBoxIcon(size: 24, grey: !ready)
-                Text(ready ? "Gift" : "✓").font(Theme.body(14, 800)).foregroundStyle(Theme.ink)
+                Text(ready || !model.isPro ? "Gift" : "✓").font(Theme.body(14, 800)).foregroundStyle(Theme.ink)
             }
             .padding(.leading, 6)
             .padding(.trailing, 10)
@@ -122,6 +122,7 @@ struct GiftButton: View {
         .buttonStyle(Pressable())
         .disabled(!ready)
         .accessibilityLabel(ready ? "Daily gift: a free mystery box" : "Daily gift opened. Come back tomorrow")
+        .proLock(!model.isPro, "Daily gift") { model.openPaywall(.dailyGift) }
     }
 }
 

@@ -22,6 +22,10 @@ struct RootView: View {
             if model.settingsOpen {
                 SettingsSheet(model: model).transition(.opacity)
             }
+            if model.paywallOpen {
+                ProSplash(model: model, store: model.pro, feature: model.paywallFeature)
+                    .transition(.opacity.combined(with: .scale(scale: 0.96)))
+            }
             if splash {
                 SplashScreen { withAnimation(.easeInOut(duration: 0.45)) { splash = false } }
                     .transition(.opacity)
@@ -33,6 +37,7 @@ struct RootView: View {
         .animation(.easeOut(duration: 0.18), value: model.settingsOpen)
         .animation(.easeOut(duration: 0.18), value: model.dailyPickOpen)
         .animation(.easeOut(duration: 0.18), value: model.giftShown)
+        .animation(.easeOut(duration: 0.2), value: model.paywallOpen)
     }
 }
 
@@ -360,58 +365,36 @@ struct SettingsSheet: View {
                         .foregroundStyle(Color(hex: 0x8A9682))
                         .accessibilityLabel("Version \(Self.version.dropFirst())")
                 }
+                ProRow(model: model)
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Background").font(Theme.body(14, 800)).foregroundStyle(Color(hex: 0x4A5841))
-                    HStack(spacing: 6) {
+                    HStack(spacing: 8) {
                         ForEach(Table.allCases) { t in
-                            TableSwatch(table: t, on: model.table == t, owned: model.tablesOwned.contains(t)) {
-                                model.tapTable(t)
-                            }
-                        }
-                    }
-                    if let t = model.tableOffer {
-                        let can = model.coins >= t.price
-                        HStack(spacing: 8) {
-                            Text(can ? "Unlock the \(t.label) table?" : "\(t.label) table: you need \((t.price - model.coins).formatted()) more coins.")
-                                .font(Theme.body(13, 700))
-                                .foregroundStyle(Theme.ink)
-                                .fixedSize(horizontal: false, vertical: true)
-                            Spacer(minLength: 0)
-                            if can {
-                                Button { model.buyTable(t) } label: {
-                                    HStack(spacing: 4) {
-                                        CoinIcon().frame(width: 14, height: 14)
-                                        Text(t.price.formatted())
-                                    }
-                                    .font(Theme.body(13, 800))
-                                    .foregroundStyle(.white)
-                                    .padding(.horizontal, 12)
-                                    .frame(minHeight: 32)
-                                    .background(Color(hex: 0x2E7D32), in: Capsule())
+                            TableSwatch(table: t, on: model.table == t) { model.tapTable(t) }
+                                .proLock(!model.tableUsable(t), "\(t.label) table", offset: CGSize(width: 6, height: -6),
+                                         saturation: 0.6) {
+                                    model.openPaywall(.backgrounds)
                                 }
-                                .buttonStyle(Pressable())
-                            }
-                            Button { model.tableOffer = nil } label: {
-                                Image(systemName: "xmark").font(.system(size: 12, weight: .bold)).foregroundStyle(Theme.ink)
-                                    .frame(width: 28, height: 28)
-                            }
-                            .buttonStyle(Pressable())
-                            .accessibilityLabel("Not now")
                         }
-                        .padding(10)
-                        .background(Color(hex: 0xFFF8E1), in: RoundedRectangle(cornerRadius: 12))
                     }
+                    .padding(.top, 4)
                 }
                 SetToggle(title: "Haptics", detail: "A light tap when a nest loads or a chipmunk picks up a block, and a buzz when a board ends.",
                           on: $model.hapticsOn)
+                let locked = !model.isPro
                 SetToggle(title: "Auto-finish last column",
                           detail: "When only one column is left, its nests load by themselves at fast-forward speed.",
-                          on: $model.autoAdvance)
+                          on: locked ? .constant(false) : $model.autoAdvance)
+                    .proLock(locked, "Auto-finish last column") { model.openPaywall(.autoFinish) }
                 SetToggle(title: "Queue nests",
                           detail: "When every slot is full, tapping a nest lines it up to load next.",
-                          on: $model.queueOn)
-                SetSlider(title: "Normal speed", value: $model.speedNormal, range: 0.5...2.5, step: 0.1)
-                SetSlider(title: "Fast-forward speed", value: $model.speedFast, range: 1.5...4, step: 0.25)
+                          on: locked ? .constant(false) : $model.queueOn)
+                    .proLock(locked, "Queue nests") { model.openPaywall(.queue) }
+                VStack(spacing: 10) {
+                    SetSlider(title: "Normal speed", value: locked ? .constant(1) : $model.speedNormal, range: 0.5...2.5, step: 0.1)
+                    SetSlider(title: "Fast-forward speed", value: locked ? .constant(3) : $model.speedFast, range: 1.5...4, step: 0.25)
+                }
+                .proLock(locked, "Speed control", offset: CGSize(width: 5, height: -17)) { model.openPaywall(.speed) }
                 Button { model.settingsOpen = false } label: { Text("Done").bigLabel(alt: false) }
                     .buttonStyle(Pressable())
                     .frame(maxWidth: .infinity)
@@ -421,6 +404,41 @@ struct SettingsSheet: View {
             .background(RoundedRectangle(cornerRadius: 20, style: .circular).fill(.white)
                 .shadow(color: .black.opacity(0.3), radius: 15, y: 10))
             .padding(16)
+        }
+    }
+}
+
+/// The top of the settings: "Pro unlocked", or a button to the unlock screen and Restore Purchases.
+private struct ProRow: View {
+    @ObservedObject var model: GameModel
+
+    var body: some View {
+        if model.isPro {
+            HStack(spacing: 8) {
+                Image(systemName: "checkmark.seal.fill").foregroundStyle(Color(hex: 0x2E7D32))
+                Text("Chipmunk Pro unlocked").font(Theme.body(14, 800)).foregroundStyle(Theme.ink)
+                Spacer(minLength: 0)
+            }
+            .padding(10)
+            .background(Color(hex: 0xE8F5E9), in: RoundedRectangle(cornerRadius: 12))
+        } else {
+            Button { model.openPaywall() } label: {
+                HStack(spacing: 10) {
+                    LockBadge(size: 26)
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Unlock Chipmunk Pro").font(Theme.body(15, 800))
+                        Text("One-time purchase\(model.pro.price.map { " · \($0)" } ?? "")")
+                            .font(Theme.body(12, 600)).foregroundStyle(Color(hex: 0x5A6851))
+                    }
+                    .foregroundStyle(Theme.ink)
+                    Spacer(minLength: 0)
+                    Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).foregroundStyle(Theme.ink)
+                }
+                .padding(10)
+                .background(Color(hex: 0xFFF3C4), in: RoundedRectangle(cornerRadius: 12))
+                .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Theme.gold, lineWidth: 2))
+            }
+            .buttonStyle(Pressable())
         }
     }
 }

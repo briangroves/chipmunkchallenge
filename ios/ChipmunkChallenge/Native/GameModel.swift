@@ -1,4 +1,5 @@
 import ChipmunkEngine
+import Combine
 import Foundation
 import UIKit
 
@@ -80,14 +81,19 @@ final class GameModel: ObservableObject {
         }
     }
     @Published var table: Table { didSet { store.set(table.rawValue, forKey: "native.table") } }
-    /// Tables bought (the free ones always count as owned).
+    /// Tables this player may use without Pro: wood, plus any bought with coins (or picked) before version 3.
     @Published private(set) var tablesOwned: Set<Table>
-    /// A locked table the player tapped: the settings sheet offers it for coins.
-    @Published var tableOffer: Table?
+    /// The Pro upgrade (ProStore). `isPro` mirrors it so every view watching the model redraws when it changes.
+    let pro = ProStore()
+    @Published private(set) var isPro: Bool
+    private var proWatch: AnyCancellable?
+    /// The unlock screen is up, and the locked control that opened it (nil from the settings' Pro row).
+    @Published private(set) var paywallOpen = false
+    @Published private(set) var paywallFeature: ProFeature?
     /// Which screen is up. The board stays loaded while the player is on the home screen, so Play resumes it.
     enum Screen { case home, play }
     @Published var screen: Screen = .home
-    @Published var settingsOpen = false { didSet { if !settingsOpen { tableOffer = nil } } }
+    @Published var settingsOpen = false
     /// Home's Daily Challenge chooser: clear a Level Play level or a Coin Mining board to keep the streak.
     @Published var dailyPickOpen = false
     /// Settings, saved on this device.
@@ -306,7 +312,8 @@ final class GameModel: ObservableObject {
         table = chosen
         // A player who picked a table back when they were all free keeps it.
         tablesOwned = Set((store.stringArray(forKey: "native.tablesOwned") ?? []).compactMap(Table.init(rawValue:)))
-            .union(Table.allCases.filter { $0.price == 0 }).union([chosen])
+            .union(Table.allCases.filter(\.free)).union([chosen])
+        isPro = pro.isPro
         paraRound = store.integer(forKey: "native.paraRound")
         giftDay = store.object(forKey: "native.giftDay") == nil ? -1 : store.integer(forKey: "native.giftDay")
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
@@ -315,6 +322,7 @@ final class GameModel: ObservableObject {
         boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), c.levelPlay.count - 1)
         store.set(Self.saveVersion, forKey: "native.saveVersion")
         tickHearts()
+        proWatch = pro.$isPro.removeDuplicates().sink { [weak self] on in self?.proChanged(on) }
         heartTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             Task { @MainActor in self?.tickHearts() }
         }
@@ -885,21 +893,33 @@ final class GameModel: ObservableObject {
         heartsCardShown = true
     }
 
-    /// A settings swatch: an owned table is chosen; a locked one is offered for coins.
+    /// A settings swatch: a usable table is chosen; a locked one opens the unlock screen.
     func tapTable(_ t: Table) {
-        if tablesOwned.contains(t) { table = t } else { tableOffer = t }
+        if tableUsable(t) { table = t } else { openPaywall(.backgrounds) }
     }
 
-    /// Buy the offered table and put it on.
-    func buyTable(_ t: Table) {
-        guard !tablesOwned.contains(t), coins >= t.price else { return }
-        coins -= t.price
-        store.set(coins, forKey: "native.coins")
-        tablesOwned.insert(t)
-        store.set(tablesOwned.map(\.rawValue).sorted(), forKey: "native.tablesOwned")
-        table = t
-        tableOffer = nil
-        buzz(.success)
+    func tableUsable(_ t: Table) -> Bool { isPro || tablesOwned.contains(t) }
+
+    // MARK: - Pro
+
+    func openPaywall(_ feature: ProFeature? = nil) {
+        paywallFeature = feature
+        paywallOpen = true
+    }
+
+    func closePaywall() { paywallOpen = false }
+
+    func buzzSuccess() { buzz(.success) }
+
+    /// Pro bought, restored or refunded. Without it the Pro settings stop applying (they're kept, so buying again
+    /// brings them back as they were).
+    private func proChanged(_ on: Bool) {
+        isPro = on
+        guard !on else { return }
+        if !tableUsable(table) { table = .wood }
+        queue = []
+        endBoost()
+        fast = false
     }
 
     /// The out-of-hearts card's buy button: 5 hearts for 500 coins, then the try goes ahead.
@@ -972,7 +992,7 @@ final class GameModel: ObservableObject {
     // MARK: - Undo and continue
 
     func undo() {
-        guard level != nil, !history.isEmpty else { return }
+        guard isPro, level != nil, !history.isEmpty else { return }
         if wandSpentAt.remove(history.count) != nil { addTools(.wand, 1) }
         let m = history.removeLast()
         queue = []
@@ -1061,10 +1081,11 @@ final class GameModel: ObservableObject {
     // MARK: - Speed
 
     /// The playback speed now: normal or fast-forward.
-    private var speed: Double { fast ? speedFast : speedNormal }
+    private var speed: Double { isPro ? (fast ? speedFast : speedNormal) : 1 }
 
     /// The fast-forward button. A change by the player sticks, even over the last-column boost.
     func toggleFast() {
+        guard isPro else { return }
         boostFrom = nil
         fast.toggle()
     }
@@ -1124,7 +1145,7 @@ final class GameModel: ObservableObject {
             return
         }
         lastPress = (key, now, at != nil)
-        if !queueOn, full || i > m.s.lp[l] { return }        // queueing off: only a free slot takes a nest
+        if !(isPro && queueOn), full || i > m.s.lp[l] { return }        // queueing off: only a free slot takes a nest
         if !full, i <= m.s.lp[l] {                          // the front nest and a slot is free: load it now
             tap(lane: l)
             return
@@ -1170,7 +1191,7 @@ final class GameModel: ObservableObject {
     /// Auto-finish: once only one lane has nests left there's no choice to make, so its nests load on their own
     /// whenever a slot is free, at fast-forward.
     private func autoFinish(_ lv: Level, _ m: inout Sim) {
-        guard autoAdvance, let l = lastColumn(lv, m.s) else { return }
+        guard isPro, autoAdvance, let l = lastColumn(lv, m.s) else { return }
         if !fast {
             if boostFrom == nil { boostFrom = false }
             fast = true
@@ -1438,7 +1459,7 @@ final class GameModel: ObservableObject {
     }
 
     /// The free daily gift (one mystery box) hasn't been opened today.
-    var giftReady: Bool { giftDay != Self.dayNo() }
+    var giftReady: Bool { isPro && giftDay != Self.dayNo() }
 
     /// Open today's gift: a random tool goes in the backpack, shown with the box reveal.
     func openGift() {

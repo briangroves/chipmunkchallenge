@@ -482,6 +482,7 @@ struct ResultCard: View {
         }
         Row {
             Big("Undo last tap") { model.undo() }
+                .proLock(!model.isPro, "Undo last tap", offset: CGSize(width: 4, height: -4)) { model.openPaywall(.undo) }
             Big("Restart", alt: true) { model.retry() }
         }
     }

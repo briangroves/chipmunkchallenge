@@ -8,16 +8,8 @@ enum Table: String, CaseIterable, Identifiable {
 
     var label: String { rawValue.prefix(1).uppercased() + rawValue.dropFirst() }
 
-    /// Coins to unlock this table (0 = free). The tables give coins something to save up for.
-    var price: Int {
-        switch self {
-        case .wood, .linen: return 0
-        case .sky: return 1000
-        case .felt: return 1500
-        case .candy: return 2500
-        case .night: return 4000
-        }
-    }
+    /// The free version has the wood table; the others come with Pro.
+    var free: Bool { self == .wood }
 
     /// Dark tables want light text drawn straight on them (the title on the home screen).
     var isDark: Bool { self == .felt || self == .night }
@@ -107,36 +99,22 @@ private struct NightBackground: View {
     }
 }
 
-/// `.sw-btn`: a 34-point swatch of a table; the chosen one has a dark border.
+/// `.sw-btn`: a 34-point swatch of a table; the chosen one has a dark border. (Locked ones get `proLock`.)
 struct TableSwatch: View {
     let table: Table
     let on: Bool
-    var owned = true
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 3) {
-                TableBackground(table: table)
-                    .frame(width: 34, height: 34)
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .circular))
-                    .overlay(RoundedRectangle(cornerRadius: 10, style: .circular).strokeBorder(.black.opacity(0.12), lineWidth: 1))
-                    .overlay(RoundedRectangle(cornerRadius: 10, style: .circular).strokeBorder(on ? Theme.ink : .clear, lineWidth: 2))
-                    .overlay {
-                        if !owned {
-                            Image(systemName: "lock.fill")
-                                .font(.system(size: 12, weight: .bold))
-                                .foregroundStyle(.white)
-                                .shadow(color: .black.opacity(0.5), radius: 1.5)
-                        }
-                    }
-                Text(owned ? " " : table.price >= 1000 ? "\(table.price / 1000)k" : "\(table.price)")
-                    .font(Theme.body(10, 800))
-                    .foregroundStyle(Color(hex: 0x8A6500))
-            }
+            TableBackground(table: table)
+                .frame(width: 34, height: 34)
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .circular))
+                .overlay(RoundedRectangle(cornerRadius: 10, style: .circular).strokeBorder(.black.opacity(0.12), lineWidth: 1))
+                .overlay(RoundedRectangle(cornerRadius: 10, style: .circular).strokeBorder(on ? Theme.ink : .clear, lineWidth: 2))
         }
         .buttonStyle(Pressable())
-        .accessibilityLabel(owned ? "\(table.label) table" : "\(table.label) table, \(table.price) coins")
+        .accessibilityLabel("\(table.label) table")
         .accessibilityAddTraits(on ? .isSelected : [])
     }
 }

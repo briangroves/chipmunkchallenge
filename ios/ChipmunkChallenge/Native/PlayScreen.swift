@@ -382,8 +382,10 @@ private struct ControlRow: View {
                 } message: {
                     Text("You'll start over from the beginning and lose your progress on this level.")
                 }
-            HUDButton(icon: Icons.undo, disabled: !model.canUndo) { model.undo() }
+            HUDButton(icon: Icons.undo, disabled: model.isPro && !model.canUndo) { model.undo() }
+                .proLock(!model.isPro, "Undo") { model.openPaywall(.undo) }
             HUDButton(icon: Icons.speed, on: model.fast) { model.toggleFast() }
+                .proLock(!model.isPro, "Fast-forward") { model.openPaywall(.fastForward) }
             Spacer(minLength: 2)
             HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek, rainbow: true,
                       badge: !model.held.isEmpty && !model.helped, badgePop: model.heldPop) {

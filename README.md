@@ -52,4 +52,8 @@ The `.xcodeproj` is generated, so it isn't committed. Rerun `xcodegen` after pul
 
 - **Saving:** progress uses the page's local storage at the fixed origin `app://game`, so it survives app restarts but not a delete-and-reinstall. iCloud sync is a later step.
 - **App icon:** add a 1024×1024 icon to an asset catalog.
-- **Purchases:** if coins, hearts or tools will be sold for real money, App Store rules require In-App Purchase (StoreKit).
+- **Pro (version 3):** one non-consumable In-App Purchase, `com.groveseng.chipmunkchallenge.pro`, unlocks the tables,
+  auto-finish, the nest queue, speed settings, the daily gift, Undo and fast-forward (`Native/ProStore.swift`). It must
+  be created in App Store Connect (Features → In-App Purchases, Non-Consumable) before TestFlight or release builds can
+  buy it. Xcode runs use `ios/Pro.storekit`, so purchases work locally with no account. Debug builds accept
+  `-pro YES` / `-pro NO` to force either version.

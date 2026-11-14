@@ -1,0 +1,33 @@
+{
+  "identifier" : "C7A1E2B4",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "6741000001",
+      "localizations" : [
+        {
+          "description" : "Backgrounds, auto-finish, nest queue, speed control, daily gift, undo and fast-forward.",
+          "displayName" : "Chipmunk Pro",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.groveseng.chipmunkchallenge.pro",
+      "referenceName" : "Chipmunk Pro",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}
