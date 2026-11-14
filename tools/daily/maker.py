@@ -75,7 +75,7 @@ def make(s, painter, judge):
         path = os.path.join(d, f"s{seed}.png")
         if not os.path.exists(path):
             painter.paint(s, seed, path)
-    cands = []
+    cands, failed = [], None
     for path, rows, info in pb.convert_all([s], GEN).get(s["name"], []):
         if not pb.usable(info):
             continue
@@ -83,6 +83,11 @@ def make(s, painter, judge):
             cands.append((judge.rate(s["name"], rows), path, rows, info))
         except Exception as e:  # noqa: BLE001
             log("  judge error", path, e)
+            failed = e
+    if failed is not None and not cands:
+        # The judge couldn't rate any of them (API down, out of credits): keep the subject and its pictures for
+        # the next try instead of counting it as made.
+        raise RuntimeError(f"judge failed on every {s['name']} board: {failed}")
     cands.sort(key=lambda c: (-c[0]["stars"], -c[3]["subject"]))
     good = [c for c in cands if c[0]["stars"] >= CFG["min_stars"]][:CFG["per_subject"]]
     log(f"{s['name']}: judged {[c[0]['stars'] for c in cands]}, keeping {len(good)}")
@@ -161,6 +166,9 @@ def main():
             log("error:", repr(e))
             if a.once:
                 raise
+            if code_moved_on():  # a fix may have been pushed for this very error
+                log("newer code pushed; restarting on it")
+                return
             time.sleep(600)
 
 
