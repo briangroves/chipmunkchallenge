@@ -119,6 +119,16 @@ class Judge:
         path = os.path.join(CACHE, digest + ".json")
         if os.path.exists(path):
             return json.load(open(path))
+        ask = [{"type": "text", "text": f'Now rate this board, named "{name}". Give a one-sentence reason, then '
+                                        'the stars (1-5) the designer would give.'},
+               {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": png_b64(rows)}}]
+        if self.client is None:  # through the claude command line, on Brian's Claude account (claude_cli.py)
+            import claude_cli
+            blocks = [{k: v for k, v in b.items() if k != "cache_control"} for b in self.prefix + ask]
+            out = claude_cli.ask(blocks, SCHEMA)
+            out["stars"] = max(1, min(5, int(out["stars"])))
+            json.dump(out, open(path, "w"))
+            return out
         response = self.client.beta.messages.create(
             model=MODEL,
             max_tokens=3000,

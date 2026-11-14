@@ -68,17 +68,12 @@ def used_names():
 
 
 def propose(n, used):
-    import anthropic
-    from judge_boards import MODEL
-    r = anthropic.Anthropic().beta.messages.create(
-        model=MODEL,
-        max_tokens=6000,
-        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": SCHEMA}},
-        betas=["server-side-fallback-2026-07-01"],
-        fallbacks="default",
-        messages=[{"role": "user", "content": PROPOSE.format(n=n, used=", ".join(sorted(used)))}],
-    )
-    out = json.loads(next(b.text for b in r.content if b.type == "text"))["subjects"]
+    prompt = PROPOSE.format(n=n, used=", ".join(sorted(used)))
+    if os.environ.get("CHIPMUNK_CLAUDE") != "api":  # Brian's Claude account (claude_cli.py) unless told otherwise
+        import claude_cli
+        out = claude_cli.ask([{"type": "text", "text": prompt}], SCHEMA)["subjects"]
+    else:
+        out = propose_api(prompt)
     low = {u.lower() for u in used}
     seen, keep = set(), []
     for s in out:
@@ -87,6 +82,20 @@ def propose(n, used):
             seen.add(k)
             keep.append(dict(s, name=s["name"].strip()))
     return keep[:n]
+
+
+def propose_api(prompt):
+    import anthropic
+    from judge_boards import MODEL
+    r = anthropic.Anthropic().beta.messages.create(
+        model=MODEL,
+        max_tokens=6000,
+        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": SCHEMA}},
+        betas=["server-side-fallback-2026-07-01"],
+        fallbacks="default",
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return json.loads(next(b.text for b in r.content if b.type == "text"))["subjects"]
 
 
 def main():

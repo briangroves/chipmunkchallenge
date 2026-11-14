@@ -44,13 +44,15 @@ EXAMPLE_ROWS = os.path.join(HERE, "packs", "judge-examples.json")
 
 def make_judge():
     """The judge, shown the old boards' examples plus Brian's ratings of new-style boards."""
-    import anthropic
     examples, _ = jb.split(jb.load_ratings(RATINGS))
     rows = json.load(open(EXAMPLE_ROWS))
     rated = {b["id"]: b for b in json.load(open(ROUND1))}
     for i in ROUND1_EXAMPLES:
         examples.append(dict(id=i, name=rated[i]["name"], stars=rated[i]["stars"]))
-    return jb.Judge(anthropic.Anthropic(), examples, rows)
+    if os.environ.get("CHIPMUNK_CLAUDE") == "api":  # the API key; otherwise Brian's Claude account (claude_cli.py)
+        import anthropic
+        return jb.Judge(anthropic.Anthropic(), examples, rows)
+    return jb.Judge(None, examples, rows)
 
 
 def convert_all(subjects, gen=GEN):
