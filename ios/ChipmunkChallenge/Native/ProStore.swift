@@ -55,15 +55,30 @@ final class ProStore: ObservableObject {
     deinit { updates?.cancel() }
 
     /// The product's price as the App Store shows it in the player's country ("$4.99"), once loaded.
-    var price: String? { product?.displayPrice }
+    var price: String? {
+        #if DEBUG
+        // `-shotPrice '$4.99'` shows a price without a store, for the App Store review screenshot.
+        if let shot = UserDefaults.standard.string(forKey: "shotPrice") { return shot }
+        #endif
+        return product?.displayPrice
+    }
 
     func loadProduct() async {
         guard product == nil else { return }
+        #if DEBUG
+        if UserDefaults.standard.string(forKey: "shotPrice") != nil { return }
+        #endif
         if phase == .idle { phase = .loading }
         do {
             product = try await Product.products(for: [Self.productID]).first
+            #if DEBUG
+            print("ProStore: product \(product.map { "\($0.displayName) \($0.displayPrice)" } ?? "not found"), pro=\(isPro)")
+            #endif
             if phase == .loading { phase = product == nil ? .failed("The store isn't available right now.") : .idle }
         } catch {
+            #if DEBUG
+            print("ProStore: products failed: \(error)")
+            #endif
             if phase == .loading { phase = .failed("Couldn't reach the App Store. Check your connection.") }
         }
     }
@@ -353,8 +368,8 @@ struct ProSplash: View {
                 .shadow(color: Color(hex: 0x1B5E20), radius: 0, y: 4))
         }
         .buttonStyle(Pressable())
-        .disabled(busy || store.product == nil || store.phase == .pending)
-        .opacity(store.product == nil && !busy ? 0.6 : 1)
+        .disabled(busy || store.price == nil || store.phase == .pending)
+        .opacity(store.price == nil && !busy ? 0.6 : 1)
     }
 
     @ViewBuilder private var status: some View {

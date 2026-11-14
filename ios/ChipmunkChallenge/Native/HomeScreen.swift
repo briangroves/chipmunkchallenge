@@ -391,7 +391,7 @@ struct SettingsSheet: View {
                           on: locked ? .constant(false) : $model.queueOn)
                     .proLock(locked, "Queue nests") { model.openPaywall(.queue) }
                 VStack(spacing: 10) {
-                    SetSlider(title: "Normal speed", value: locked ? .constant(1) : $model.speedNormal, range: 0.5...2.5, step: 0.1)
+                    SetSlider(title: "Normal speed", value: locked ? .constant(GameModel.defaultSpeed) : $model.speedNormal, range: 0.5...2.5, step: 0.1)
                     SetSlider(title: "Fast-forward speed", value: locked ? .constant(3) : $model.speedFast, range: 1.5...4, step: 0.25)
                 }
                 .proLock(locked, "Speed control", offset: CGSize(width: 5, height: -17)) { model.openPaywall(.speed) }

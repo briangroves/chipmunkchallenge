@@ -100,6 +100,8 @@ final class GameModel: ObservableObject {
     @Published var hapticsOn: Bool { didSet { store.set(hapticsOn, forKey: "native.haptics") } }
     /// Playback speed at normal and at fast-forward (multiples of the game's base pace).
     @Published var speedNormal: Double { didSet { store.set(speedNormal, forKey: "native.speedNormal") } }
+    /// Normal speed for a new player, and always in the free version (1.5× the game's base pace).
+    static let defaultSpeed = 1.5
     @Published var speedFast: Double { didSet { store.set(speedFast, forKey: "native.speedFast") } }
     /// The backpack: the tool tray is shown only while it is open.
     @Published var toolsOpen = false
@@ -304,7 +306,7 @@ final class GameModel: ObservableObject {
         current = store.data(forKey: Self.currentKey).flatMap { try? JSONDecoder().decode(CurrentLevel.self, from: $0) }
             ?? CurrentLevel(index: -1, goal: Skill.easiest, tries: 1)
         hapticsOn = store.object(forKey: "native.haptics") == nil ? true : store.bool(forKey: "native.haptics")
-        speedNormal = store.object(forKey: "native.speedNormal") == nil ? 1 : store.double(forKey: "native.speedNormal")
+        speedNormal = store.object(forKey: "native.speedNormal") == nil ? Self.defaultSpeed : store.double(forKey: "native.speedNormal")
         speedFast = store.object(forKey: "native.speedFast") == nil ? 3 : store.double(forKey: "native.speedFast")
         queueOn = store.object(forKey: "native.queueOn") == nil ? true : store.bool(forKey: "native.queueOn")
         autoAdvance = store.object(forKey: "native.autoAdvance") == nil ? true : store.bool(forKey: "native.autoAdvance")
@@ -1081,7 +1083,7 @@ final class GameModel: ObservableObject {
     // MARK: - Speed
 
     /// The playback speed now: normal or fast-forward.
-    private var speed: Double { isPro ? (fast ? speedFast : speedNormal) : 1 }
+    private var speed: Double { isPro ? (fast ? speedFast : speedNormal) : Self.defaultSpeed }
 
     /// The fast-forward button. A change by the player sticks, even over the last-column boost.
     func toggleFast() {
