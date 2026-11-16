@@ -31,8 +31,16 @@ The designer's ratings of past boards show what works:
 - 2-3 stars: landmarks and buildings, plain objects, round things that fill the board as one flat shape (balls,
   cookies), subjects the same color as their backdrop (a green caterpillar on grass), mostly-white subjects.
 
-Propose {n} NEW subjects. Mix animals, fantasy creatures, characters and vehicles; vary colors and settings across the
-set. Never reuse or closely repeat these existing names: {used}.
+The designer wants most boards themed on forest friends and nature. Propose {n} NEW subjects:
+- About three quarters forest friends and nature: woodland, meadow, pond and countryside animals (fox, hedgehog,
+  owl, deer fawn, bunny, raccoon, badger, squirrel, chipmunk, frog, beaver, otter, mole, bear cub, robin, ladybug,
+  snail, ...) and nature characters (a mushroom sprite, an acorn kid, a flower fairy, a little tree spirit). Vary the
+  season, time of day and setting (autumn leaves, snowy woods, spring meadow, pond at sunset, ...).
+- The rest: other animals, friendly creatures, characters or vehicles.
+- One main character each: animal-plus-vehicle or animal-plus-job combos with big props make the face small and
+  score low.
+Vary colors across the set, and make each subject contrast with its backdrop. Never reuse or closely repeat these
+existing names: {used}.
 
 For each give:
 - name: 1-3 words, Title Case, what the board is called in the game (e.g. "Red Panda")
