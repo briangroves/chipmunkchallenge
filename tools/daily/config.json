@@ -6,7 +6,7 @@
   "size": 768,
   "steps": 9,
   "per_subject": 1,
-  "min_stars": 4,
+  "min_stars": 3,
   "queue_repo": "briangroves/chipmunk-board-queue",
   "feed_repo": "briangroves/chipmunkchallenge",
   "feed_branch": "gh-pages",
