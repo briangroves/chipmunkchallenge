@@ -63,6 +63,7 @@ struct ReviewScreen: View {
     @EnvironmentObject var store: ReviewStore
     @State private var drag: CGSize = .zero
     @State private var showSettings = false
+    @State private var denying: Board?
 
     var body: some View {
         NavigationStack {
@@ -94,6 +95,12 @@ struct ReviewScreen: View {
                 }
             }
             .sheet(isPresented: $showSettings) { SettingsScreen().environmentObject(store) }
+            .sheet(item: $denying) { b in
+                DenyScreen(board: b) { reasons, note in
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    withAnimation { store.decide(b, approve: false, reasons: reasons, note: note) }
+                }
+            }
             .refreshable { await store.refresh() }
         }
     }
@@ -131,12 +138,14 @@ struct ReviewScreen: View {
         .gesture(DragGesture()
             .onChanged { drag = $0.translation }
             .onEnded { v in
-                if abs(v.translation.width) > 110 {
-                    let approve = v.translation.width > 0
-                    withAnimation(.easeIn(duration: 0.18)) { drag.width = approve ? 600 : -600 }
+                if v.translation.width > 110 {
+                    withAnimation(.easeIn(duration: 0.18)) { drag.width = 600 }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.18) {
-                        decide(b, approve)
+                        decide(b, true)
                     }
+                } else if v.translation.width < -110 {
+                    withAnimation(.spring) { drag = .zero }
+                    denying = b
                 } else {
                     withAnimation(.spring) { drag = .zero }
                 }
@@ -156,7 +165,7 @@ struct ReviewScreen: View {
 
     private func buttons(_ b: Board) -> some View {
         HStack(spacing: 18) {
-            Button { decide(b, false) } label: {
+            Button { denying = b } label: {
                 Label("Deny", systemImage: "xmark").frame(maxWidth: .infinity)
             }
             .tint(.red)
@@ -180,7 +189,7 @@ struct ReviewScreen: View {
         ContentUnavailableView {
             Label("All caught up", systemImage: "checkmark.seal")
         } description: {
-            Text("The Mac makes a new batch every night. Pull down to check again.")
+            Text("The Mac makes boards around the clock and sends new ones every 2 hours. Pull down to check again.")
         }
         .frame(maxHeight: .infinity)
     }
@@ -237,7 +246,7 @@ struct SettingsScreen: View {
                     Text("A fine-grained token with access to only the queue repo and \"Contents: Read and write\". It's kept in this phone's Keychain.")
                 }
                 Section {
-                    Text("Every night the Mac generates new boards and the judge keeps the best. They show up here. Swipe right or tap Approve to add a board to the game; swipe left or tap Deny to drop it. Within about 15 minutes the Mac adds approved boards to the game repo.")
+                    Text("The Mac makes boards around the clock and the judge keeps the best one of each subject; new ones show up here every 2 hours. Swipe right or tap Approve to add a board to the game. Swipe left or tap Deny to drop it and say what's wrong: the board maker reads that feedback and steers away from it. Within about 15 minutes the Mac adds approved boards to the game repo.")
                         .font(.footnote)
                 } header: { Text("How it works") }
             }
@@ -253,5 +262,85 @@ struct SettingsScreen: View {
                 }
             }
         }
+    }
+}
+
+/// Deny a board and, optionally, say why. The board maker reads these to steer new boards away from what Brian
+/// doesn't like.
+struct DenyScreen: View {
+    let board: Board
+    let deny: ([String], String) -> Void
+    @Environment(\.dismiss) private var dismiss
+    @State private var picked: [String] = []
+    @State private var note = ""
+    @FocusState private var typing: Bool
+
+    static let reasons = [
+        "Bland backdrop", "Flat colors, no shading", "Muddy or messy", "Face hard to read",
+        "Subject too small", "Doesn't look like its name", "Blends into backdrop", "Colors clash",
+        "Boring subject", "Too busy",
+    ]
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    HStack(alignment: .top, spacing: 14) {
+                        BoardPicture(rows: board.rows)
+                            .frame(width: 110, height: 110)
+                            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(board.name).font(.title2.bold())
+                            Text("What's wrong with it? Optional, but it teaches the board maker.")
+                                .font(.footnote).foregroundStyle(.secondary)
+                        }
+                    }
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 8)], spacing: 8) {
+                        ForEach(Self.reasons, id: \.self) { r in
+                            let on = picked.contains(r)
+                            Button {
+                                if on { picked.removeAll { $0 == r } } else { picked.append(r) }
+                            } label: {
+                                Text(r).font(.subheadline.weight(.medium)).frame(maxWidth: .infinity, minHeight: 34)
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(on ? .red : .secondary)
+                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(on ? Color.red : .clear, lineWidth: 2))
+                        }
+                    }
+                    TextField("In your own words (e.g. \"needs a pond or flowers behind it\")", text: $note,
+                              axis: .vertical)
+                        .lineLimit(3...6)
+                        .focused($typing)
+                        .padding(10)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color(.secondarySystemBackground)))
+                    Button {
+                        deny(picked, note)
+                        dismiss()
+                    } label: {
+                        Label("Deny", systemImage: "xmark").frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                    .tint(.red)
+                    .font(.title3.weight(.semibold))
+                }
+                .padding()
+            }
+            .scrollDismissesKeyboard(.interactively)
+            .navigationTitle("Deny board")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
+                ToolbarItem(placement: .confirmationAction) {  // reachable while the keyboard covers the big button
+                    Button("Deny") {
+                        deny(picked, note)
+                        dismiss()
+                    }
+                    .tint(.red)
+                }
+            }
+        }
+        .presentationDetents([.large])
     }
 }

@@ -112,6 +112,7 @@ def main():
         for i, (f, d) in decisions.items():
             if i in by_id:
                 h.write(json.dumps(dict(by_id[i], decision=d.get("decision"), decided=d.get("at"),
+                                        reasons=d.get("reasons") or [], note=d.get("note") or "",
                                         applied=time.strftime("%Y-%m-%dT%H:%M:%S"))) + "\n")
             os.remove(f)
     save(os.path.join(QUEUE, "queue.json"), [b for b in queue if b["id"] not in decisions], indent=0)

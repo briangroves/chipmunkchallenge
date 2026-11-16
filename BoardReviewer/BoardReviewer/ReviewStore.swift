@@ -62,9 +62,11 @@ final class ReviewStore: ObservableObject {
         }
     }
 
-    func decide(_ board: Board, approve: Bool) {
+    func decide(_ board: Board, approve: Bool, reasons: [String] = [], note: String = "") {
+        let note = note.trimmingCharacters(in: .whitespacesAndNewlines)
         let d = Decision(id: board.id, name: board.name, decision: approve ? "approve" : "deny",
-                         at: ISO8601DateFormatter().string(from: Date()))
+                         at: ISO8601DateFormatter().string(from: Date()),
+                         reasons: reasons.isEmpty ? nil : reasons, note: note.isEmpty ? nil : note)
         waiting.removeAll { $0.id == board.id }
         undoStack.append((board, d))
         if undoStack.count > 20 { undoStack.removeFirst() }

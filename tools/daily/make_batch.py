@@ -76,7 +76,8 @@ def used_names():
 
 
 def propose(n, used):
-    prompt = PROPOSE.format(n=n, used=", ".join(sorted(used)))
+    from feedback import for_subjects
+    prompt = PROPOSE.format(n=n, used=", ".join(sorted(used))) + for_subjects()
     if os.environ.get("CHIPMUNK_CLAUDE") != "api":  # Brian's Claude account (claude_cli.py) unless told otherwise
         import claude_cli
         out = claude_cli.ask([{"type": "text", "text": prompt}], SCHEMA)["subjects"]

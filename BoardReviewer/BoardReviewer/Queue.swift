@@ -18,6 +18,9 @@ struct Decision: Codable, Equatable {
     let name: String
     let decision: String   // "approve" or "deny"
     let at: String
+    /// Why a board was denied (quick picks and Brian's own words), read by the board maker to improve.
+    var reasons: [String]? = nil
+    var note: String? = nil
     var approved: Bool { decision == "approve" }
 }
 

@@ -114,6 +114,27 @@ class Judge:
             [(r["id"], r["stars"]) for r in examples])).encode()).hexdigest()[:10]
         os.makedirs(CACHE, exist_ok=True)
 
+    def add_feedback(self, decided):
+        """Show the judge Brian's latest decisions in the Board Review app: each board with approved, or denied and
+        why. These are the freshest word on his taste, so they come last and are weighed above the old ratings."""
+        if not decided:
+            return
+        blocks = [{"type": "text", "text": "\n\nNewer boards the designer reviewed in his review app, most recent "
+                   "last. These show his current taste; when they disagree with the older ratings, follow these. A "
+                   "board like an approved one deserves 4-5 stars; one with a denied board's faults deserves 2-3."}]
+        for b in decided:
+            blocks.append({"type": "image", "source": {"type": "base64", "media_type": "image/png",
+                                                        "data": png_b64(b["rows"])}})
+            if b["decision"] == "approve":
+                blocks.append({"type": "text", "text": f'"{b["name"]}": approved'})
+            else:
+                why = "; ".join(filter(None, [", ".join(b.get("reasons") or []), b.get("note") or ""]))
+                blocks.append({"type": "text", "text": f'"{b["name"]}": denied' + (f" ({why})" if why else "")})
+        blocks[-1]["cache_control"] = {"type": "ephemeral"}
+        self.prefix = [{k: v for k, v in b.items() if k != "cache_control"} for b in self.prefix] + blocks
+        self.key = hashlib.sha1((self.key + json.dumps([(b["id"], b["decision"], b.get("reasons"), b.get("note"))
+                                                        for b in decided])).encode()).hexdigest()[:10]
+
     def rate(self, name, rows):
         digest = hashlib.sha1((self.key + name + "".join(rows)).encode()).hexdigest()[:16]
         path = os.path.join(CACHE, digest + ".json")

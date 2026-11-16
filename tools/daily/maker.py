@@ -18,6 +18,7 @@ import time
 from common import CFG, QUEUE, STATE, TOOLS, ensure_clone, load, log, push, save
 
 sys.path.insert(0, TOOLS)
+from feedback import for_judge  # noqa: E402
 from make_batch import propose, used_names  # noqa: E402
 
 GEN = os.path.join(STATE, "gen")
@@ -140,7 +141,7 @@ def main():
     a = ap.parse_args()
     import pilot_boards as pb
     ensure_clone(QUEUE, CFG["queue_repo"])
-    painter, judge = None, None
+    painter = None
     while True:
         try:
             push_due(force=a.once)
@@ -152,7 +153,11 @@ def main():
                 ensure_clone(QUEUE, CFG["queue_repo"])
                 continue
             if painter is None:
-                painter, judge = Painter(), pb.make_judge()
+                painter = Painter()
+            # Fresh each subject, so Brian's latest decisions and feedback (feedback.py) count right away.
+            ensure_clone(QUEUE, CFG["queue_repo"])
+            judge = pb.make_judge()
+            judge.add_feedback(for_judge())
             s = next_subject()
             picked = make(s, painter, judge)
             save(OUTBOX, load(OUTBOX, []) + picked, indent=0)
