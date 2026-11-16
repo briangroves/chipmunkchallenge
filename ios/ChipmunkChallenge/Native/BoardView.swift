@@ -308,9 +308,9 @@ private final class LiveView: UIView {
         drawAcorns(g, lv, CACurrentMediaTime())
     }
 
-    /// How far along its path (in cells, each way) a chipmunk's drawn spot is averaged. One cell irons a stair-step
-    /// (right, down, right, down) into a straight diagonal and rounds a lone corner by about a third of a cell.
-    private static let smoothCells = 1.0
+    /// How far along its path (in cells, each way) a chipmunk's drawn spot is averaged. This irons a stair-step
+    /// (right, down, right, down) into a straight diagonal and rounds a lone corner by about 0.6 of a cell.
+    private static let smoothCells = 1.75
 
     /// Like the engine's antPose, but drawn along a smoothed path: the spot is the average of the path over
     /// ±smoothCells around where the engine has it, and the heading follows that smoothed path. Only the
