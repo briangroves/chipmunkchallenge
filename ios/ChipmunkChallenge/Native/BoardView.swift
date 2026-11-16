@@ -300,12 +300,57 @@ private final class LiveView: UIView {
             let standing = a.picked && simT < a.ta + a.hold
             var out = a
             out.picked = false
-            let p = standing ? antPose(lv, out, at: a.ta - 0.001) : antPose(lv, a, at: simT)
+            let p = standing ? smoothPose(lv, out, at: a.ta - 0.001) : smoothPose(lv, a, at: simT)
             let carry = a.picked && !standing
             drawCritter(g, lv, CGFloat(p.x) * cs, CGFloat(p.y) * cs, CGFloat(p.dx), CGFloat(p.dy),
                         carry ? a.c : 0, now, a.c)
         }
         drawAcorns(g, lv, CACurrentMediaTime())
+    }
+
+    /// How far along its path (in cells, each way) a chipmunk's drawn spot is averaged. One cell irons a stair-step
+    /// (right, down, right, down) into a straight diagonal and rounds a lone corner by about a third of a cell.
+    private static let smoothCells = 1.0
+
+    /// Like the engine's antPose, but drawn along a smoothed path: the spot is the average of the path over
+    /// ±smoothCells around where the engine has it, and the heading follows that smoothed path. Only the
+    /// drawing changes; the engine's timing (when a chipmunk reaches its block or gets home) is untouched.
+    /// Near either end of the path the window shrinks to nothing, so it still starts and stops exactly on its cells.
+    private func smoothPose(_ lv: Level, _ a: Ant, at T: Double) -> AntPose {
+        let raw = antPose(lv, a, at: T)
+        let path: [Int], t0: Double, t1: Double
+        if raw.carrying, let p2 = a.p2 {
+            path = p2; t0 = a.ta + a.hold; t1 = a.th
+        } else {
+            path = a.p1; t0 = a.t0; t1 = a.ta
+        }
+        let n = path.count - 1
+        guard n >= 2 else { return raw }
+        let f = t1 > t0 ? min(1, max(0, (T - t0) / (t1 - t0))) : 1
+        let s = f * Double(n)
+        func at(_ q: Double) -> (Double, Double) {
+            let q = min(Double(n), max(0, q))
+            let k = min(n - 1, Int(q)), u = q - Double(k)
+            let ax = Double(path[k] % lv.NW) + 0.5, ay = Double(path[k] / lv.NW) + 0.5
+            let bx = Double(path[k + 1] % lv.NW) + 0.5, by = Double(path[k + 1] / lv.NW) + 0.5
+            return (ax + (bx - ax) * u, ay + (by - ay) * u)
+        }
+        // Position: box average over a window that narrows to zero at the ends.
+        let w = min(Self.smoothCells, s, Double(n) - s)
+        var x = 0.0, y = 0.0
+        let samples = 16
+        for i in 0...samples {
+            let p = at(s - w + 2 * w * Double(i) / Double(samples))
+            x += p.0; y += p.1
+        }
+        x /= Double(samples + 1); y /= Double(samples + 1)
+        // Heading: the smoothed path's direction (ends clamped, so it eases into the first and last legs).
+        let a0 = at(s - Self.smoothCells), a1 = at(s + Self.smoothCells)
+        var dx = a1.0 - a0.0, dy = a1.1 - a0.1
+        if dx * dx + dy * dy < 1e-6 { dx = raw.dx; dy = raw.dy }
+        var out = raw
+        out.x = x; out.y = y; out.dx = dx; out.dy = dy
+        return out
     }
 
     // MARK: Mystery boxes (JS drawPickups, drawMystery)
