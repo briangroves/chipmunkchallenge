@@ -170,6 +170,45 @@ class Judge:
         return out
 
 
+    def rate_many(self, name, boards):
+        """Ratings for several boards of one subject (a list of rows), in order. On Brian's Claude account they go in
+        one call, so the big prefix of example boards is sent once instead of once per board."""
+        out = [None] * len(boards)
+        paths = []
+        for i, rows in enumerate(boards):
+            digest = hashlib.sha1((self.key + name + "".join(rows)).encode()).hexdigest()[:16]
+            paths.append(os.path.join(CACHE, digest + ".json"))
+            if os.path.exists(paths[i]):
+                out[i] = json.load(open(paths[i]))
+        todo = [i for i in range(len(boards)) if out[i] is None]
+        if not todo:
+            return out
+        if self.client is not None or len(todo) == 1:
+            for i in todo:
+                out[i] = self.rate(name, boards[i])
+            return out
+        import claude_cli
+        ask = [{"type": "text", "text": f'Now rate each of these {len(todo)} boards, all named "{name}", on its own '
+                                        "(don't rank them against each other). For each, give a one-sentence reason, "
+                                        "then the stars (1-5) the designer would give."}]
+        for n, i in enumerate(todo, 1):
+            ask += [{"type": "text", "text": f"Board {n}:"},
+                    {"type": "image", "source": {"type": "base64", "media_type": "image/png",
+                                                 "data": png_b64(boards[i])}}]
+        schema = {"type": "object", "additionalProperties": False, "required": ["boards"],
+                  "properties": {"boards": {"type": "array", "items": SCHEMA,
+                                            "minItems": len(todo), "maxItems": len(todo)}}}
+        blocks = [{k: v for k, v in b.items() if k != "cache_control"} for b in self.prefix + ask]
+        got = claude_cli.ask(blocks, schema)["boards"]
+        if len(got) != len(todo):
+            raise RuntimeError(f"judge rated {len(got)} of {len(todo)} boards")
+        for i, r in zip(todo, got):
+            r = dict(reason=r["reason"], stars=max(1, min(5, int(r["stars"]))))
+            json.dump(r, open(paths[i], "w"))
+            out[i] = r
+        return out
+
+
 def load_ratings(path):
     return [dict(id=r["id"], name=r["name"], stars=int(r["stars"]), claude=int(r["claude_score"] or 0))
             for r in csv.DictReader(open(path))]

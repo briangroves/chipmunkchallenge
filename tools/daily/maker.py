@@ -77,13 +77,15 @@ def make(s, painter, judge):
         if not os.path.exists(path):
             painter.paint(s, seed, path)
     cands, failed = [], None
-    for path, rows, info in pb.convert_all([s], GEN).get(s["name"], []):
-        if not pb.usable(info):
-            continue
+    boards = [b for b in pb.convert_all([s], GEN).get(s["name"], []) if pb.usable(b[2])]
+    per_call = CFG.get("judge_per_call", 3)  # boards per judge call: the example boards are sent once per call
+    for k in range(0, len(boards), per_call):
+        group = boards[k:k + per_call]
         try:
-            cands.append((judge.rate(s["name"], rows), path, rows, info))
+            for (path, rows, info), j in zip(group, judge.rate_many(s["name"], [b[1] for b in group])):
+                cands.append((j, path, rows, info))
         except Exception as e:  # noqa: BLE001
-            log("  judge error", path, e)
+            log("  judge error", group[0][0], e)
             failed = e
     if failed is not None and not cands:
         # The judge couldn't rate any of them (API down, out of credits): keep the subject and its pictures for
