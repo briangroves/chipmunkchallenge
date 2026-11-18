@@ -1,0 +1,19 @@
+{
+  "note": "Board-maker pilot round 2: the 7 subjects that scored 2-3 in round 1, with fixes. Buildings and objects get a friendly face and a simple sky-and-grass backdrop; round subjects (ball, cookie) fill less of the board ('fill'); the caterpillar sits on a backdrop that isn't green.",
+  "subjects": [
+    {"name": "Castle", "old": 2, "thing": "a chubby cartoon fairy tale castle with a happy face on its front gate, pink walls with darker pink shading, blue pointed roofs and yellow flags",
+     "scene": "a bright blue sky, two puffy white clouds, a rainbow, a green hill"},
+    {"name": "London", "old": 1, "thing": "a chubby cartoon Big Ben clock tower with a happy face on the clock, golden brown with darker shading",
+     "scene": "a bright blue sky, puffy white clouds, a red double-decker bus, green grass"},
+    {"name": "Paris", "old": 2, "thing": "a chubby cartoon Eiffel Tower with a happy face, thick brown legs with lighter and darker shading",
+     "scene": "a bright blue sky, a striped hot air balloon, puffy white clouds, a green park with round trees"},
+    {"name": "Skateboard", "old": 1, "thing": "a cute cartoon skateboard with a happy face on its deck, side view, level, the deck in two bold colors with simple stripes and four big wheels",
+     "scene": "a bright blue sky, puffy white clouds, a curved orange skate ramp, green grass"},
+    {"name": "Soccer Ball", "old": 1, "fill": 0.6, "thing": "a black and white soccer ball with a big happy face, bouncing",
+     "scene": "a green grass field with stripes, a white goal net, a bright blue sky, a yellow sun"},
+    {"name": "Cookie", "old": 1, "fill": 0.6, "thing": "a round golden chocolate chip cookie with a big happy face and darker brown edges",
+     "scene": "a red and white checkered tablecloth, a glass of milk, a blue wall with a window"},
+    {"name": "Caterpillar", "old": 1, "thing": "a bright green caterpillar with a red smiling head, crawling, body made of round segments with yellow spots",
+     "scene": "a bright blue sky, a brown branch, big pink and yellow flowers, a purple butterfly"}
+  ]
+}

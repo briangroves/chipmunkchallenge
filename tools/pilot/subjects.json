@@ -1,0 +1,125 @@
+{
+  "note": "Board-maker pilot: subjects Brian rated 1-2 stars, plus two 5-star controls (Fox, Cat). 'old' is his rating of the current board.",
+  "subjects": [
+    {
+      "name": "Paris",
+      "old": 2,
+      "thing": "the Eiffel Tower with a happy face",
+      "scene": "the river Seine with a little boat, cream rooftops with red chimneys, round green trees, a striped cafe awning, a hot air balloon and swirly clouds in a sunset sky"
+    },
+    {
+      "name": "London",
+      "old": 1,
+      "thing": "Big Ben clock tower with a cheerful face on the clock",
+      "scene": "a red double-decker bus, a red phone box, the river Thames with a bridge, rows of brick houses and a cloudy blue sky with birds"
+    },
+    {
+      "name": "Soccer Ball",
+      "old": 1,
+      "thing": "a black and white soccer ball with a big happy face",
+      "scene": "a stadium with colorful crowds in the stands, striped green grass, a goal net with a white frame, flags and floodlights"
+    },
+    {
+      "name": "Polar Bear",
+      "old": 1,
+      "thing": "a chubby white polar bear cub sitting and smiling",
+      "scene": "a deep blue sea with small ice floes, a red and white lighthouse far away, a seal on the ice, green northern lights in a dark blue sky"
+    },
+    {
+      "name": "Puppy",
+      "old": 1,
+      "thing": "a fluffy golden puppy sitting with its tongue out",
+      "scene": "a backyard with a wooden fence, a red doghouse, a bone, yellow flowers, a red ball and a blue sky with fluffy clouds"
+    },
+    {
+      "name": "Hedgehog",
+      "old": 1,
+      "thing": "a round brown hedgehog with a cute pink face",
+      "scene": "an autumn forest floor with red and orange leaves, red mushrooms with white spots, acorns, ferns and tree trunks"
+    },
+    {
+      "name": "Fire Truck",
+      "old": 2,
+      "thing": "a red fire truck with a ladder on top, side view, with friendly eyes on the windshield",
+      "scene": "a brick fire station with a big open door, a fire hydrant, traffic cones, a city skyline and a sunny sky"
+    },
+    {
+      "name": "Skateboard",
+      "old": 1,
+      "thing": "a colorful skateboard tilted at an angle with big wheels",
+      "scene": "a skate park with a ramp covered in colorful graffiti, palm trees, a chain-link fence and a sunset sky with stripes of orange and pink"
+    },
+    {
+      "name": "Dragon",
+      "old": 2,
+      "thing": "a friendly green baby dragon with small wings, sitting and smiling",
+      "scene": "a mountain cave entrance with piles of gold coins and gems, glowing crystals, and an orange and purple sunset sky"
+    },
+    {
+      "name": "Unicorn",
+      "old": 2,
+      "thing": "a white unicorn with a rainbow mane and a golden horn, standing and smiling",
+      "scene": "rolling hills with colorful flowers, a rainbow, sparkly stars, fluffy pink clouds and a little castle far away"
+    },
+    {
+      "name": "Castle",
+      "old": 2,
+      "thing": "a fairy tale castle with pink towers and blue pointed roofs and flags",
+      "scene": "a blue moat with a drawbridge, green hills with trees and flowers, a winding path, birds and puffy clouds in a bright sky"
+    },
+    {
+      "name": "Guitar",
+      "old": 2,
+      "thing": "an orange acoustic guitar standing upright, with a cute face on its body",
+      "scene": "a concert stage with colored spotlights, speakers, music notes floating in the air and a red curtain"
+    },
+    {
+      "name": "Caterpillar",
+      "old": 1,
+      "thing": "a green caterpillar with a red smiling head, crawling, body made of round segments",
+      "scene": "a garden with big leaves, a ladybug, yellow and pink flowers, dew drops and a bright sky"
+    },
+    {
+      "name": "Eagle",
+      "old": 1,
+      "thing": "a bald eagle with a white head, yellow beak and brown wings spread wide",
+      "scene": "snowy mountain peaks, a pine forest, a blue lake and a big sun with clouds in a blue sky"
+    },
+    {
+      "name": "Cookie",
+      "old": 1,
+      "thing": "a round chocolate chip cookie with a happy face",
+      "scene": "a kitchen counter with a blue checkered cloth, a glass of milk, a cookie jar, sprinkles and a window with curtains"
+    },
+    {
+      "name": "Penguin",
+      "old": 3,
+      "thing": "a cute black and white penguin with an orange beak and feet, standing",
+      "scene": "an icy shore with igloos, icicles, snowflakes falling, a fish on the ice and a pink and purple sky"
+    },
+    {
+      "name": "Robot",
+      "old": 2,
+      "thing": "a friendly silver and blue toy robot with big round eyes and antennas, standing",
+      "scene": "a workshop with gears on the wall, blinking control panels, wires, a wrench and a round window showing stars"
+    },
+    {
+      "name": "Submarine",
+      "old": 1,
+      "thing": "a round yellow submarine with portholes and a periscope",
+      "scene": "a coral reef with colorful corals, seaweed, a treasure chest, bubbles, sea stars and a school of small fish"
+    },
+    {
+      "name": "Fox",
+      "old": 5,
+      "thing": "a cute orange fox with a white chest and fluffy tail, sitting",
+      "scene": "an autumn forest with orange and yellow trees, mushrooms, a log, falling leaves and a pale blue sky"
+    },
+    {
+      "name": "Cat",
+      "old": 5,
+      "thing": "a cute orange tabby cat sitting with a curled tail",
+      "scene": "a cozy living room with a striped rug, a ball of yarn, a window with plants, a bookshelf and a warm lamp"
+    }
+  ]
+}
