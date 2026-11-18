@@ -422,6 +422,31 @@ struct ResultCard: View {
                 .padding(.horizontal, 12)
                 .background(Color(hex: 0xFFF3C4), in: Capsule())
         }
+        if model.outOfLevels {
+            comingSoon
+        } else {
+            nextLevelChoice
+        }
+    }
+
+    /// The win card after the last level there is: no "Next level" until new boards download (GameModel moves the
+    /// player on to the first one as soon as it arrives).
+    @ViewBuilder private var comingSoon: some View {
+        VStack(spacing: 4) {
+            Text("🌰 New Levels Coming Soon")
+                .font(Theme.display(24))
+                .foregroundStyle(Theme.ink)
+            P("You've cleared every level! New levels are added often. They'll appear here as soon as they're ready.")
+        }
+        .padding(.top, 4)
+        .padding(.bottom, 4)
+        Row {
+            Big("Coin Mining") { withAnimation(.easeOut(duration: 0.2)) { model.playMining() } }
+            Big("Home", alt: true) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
+        }
+    }
+
+    @ViewBuilder private var nextLevelChoice: some View {
         if model.feedbackShown {
             let pick = model.tailorPick
             VStack(spacing: 6) {

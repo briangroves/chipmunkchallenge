@@ -231,6 +231,8 @@ final class GameModel: ObservableObject {
     private static let boardKey = "native.boardIndex"
     /// Set when the player beat the last board there is; cleared when new boards arrive and play moves on to them.
     private static let outOfBoardsKey = "native.outOfBoards"
+    /// The player beat the last board there is: the win card and home say new levels are coming soon.
+    @Published private(set) var outOfLevels = false
     /// Bumped if saved data ever needs converting on update. 2.0 reads 1.1's saves as they are (same keys).
     static let saveVersion = 2
     static let continuePrice = 300
@@ -322,6 +324,7 @@ final class GameModel: ObservableObject {
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
         tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
         boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), c.levelPlay.count - 1)
+        outOfLevels = store.bool(forKey: Self.outOfBoardsKey)
         store.set(Self.saveVersion, forKey: "native.saveVersion")
         tickHearts()
         proWatch = pro.$isPro.removeDuplicates().sink { [weak self] on in self?.proChanged(on) }
@@ -355,6 +358,7 @@ final class GameModel: ObservableObject {
     func playLevel() {
         enterPlay()
         if mode == .level, level != nil, status != .won, !isFailed { return }
+        moveOnToNewBoards(force: true)
         withHeart(level: true) { self.load(self.boardIndex) }
     }
 
@@ -418,6 +422,7 @@ final class GameModel: ObservableObject {
         toolsOpen = false
         shopTool = nil
         screen = .home
+        moveOnToNewBoards()
     }
 
     // MARK: - Daily puzzle and Coin Mining
@@ -662,7 +667,10 @@ final class GameModel: ObservableObject {
     /// The win card's next step: the next level, the next Coin Mining board, or home after the daily puzzle.
     func next() {
         switch mode {
-        case .level: withHeart(level: true) { self.load(self.boardIndex) }    // payOut already moved boardIndex on
+        case .level:
+            // payOut already moved boardIndex on; a player who was out of levels moves on if new ones arrived since.
+            moveOnToNewBoards(force: true)
+            withHeart(level: true) { self.load(self.boardIndex) }
         case .mining: loadMining()
         case .daily: goHome()
         }
@@ -769,13 +777,16 @@ final class GameModel: ObservableObject {
             }
             current = CurrentLevel(index: -1, goal: skill.goal, tries: 1)
             saveSkill()
+            noteLevelWonForReview(boardIndex + 1)
             // The next level is the one after this, from now on (finished levels aren't replayed).
             if boardIndex + 1 < catalog.levelPlay.count {
                 boardIndex += 1
                 store.set(false, forKey: Self.outOfBoardsKey)
+                outOfLevels = false
             } else {
                 // Out of levels: fetch new boards now, and move on to the first one when it arrives.
                 store.set(true, forKey: Self.outOfBoardsKey)
+                outOfLevels = true
                 checkForNewBoards()
             }
             store.set(boardIndex, forKey: Self.boardKey)
@@ -811,11 +822,12 @@ final class GameModel: ObservableObject {
     }
 
     /// A player who beat the last board moves on to the first new one, unless they're mid-game (then winning that
-    /// game moves them on, in payOut, so no board is skipped).
-    private func moveOnToNewBoards() {
-        guard store.bool(forKey: Self.outOfBoardsKey), screen != .play,
+    /// game moves them on, in payOut, so no board is skipped). `force` is for callers about to load a fresh board.
+    private func moveOnToNewBoards(force: Bool = false) {
+        guard store.bool(forKey: Self.outOfBoardsKey), force || screen != .play,
               boardIndex + 1 < catalog.levelPlay.count else { return }
         store.set(false, forKey: Self.outOfBoardsKey)
+        outOfLevels = false
         boardIndex += 1
         store.set(boardIndex, forKey: Self.boardKey)
     }
@@ -843,6 +855,31 @@ final class GameModel: ObservableObject {
     func releaseCoins() {
         holdCoins = false
         coinsShown = coins
+        if reviewDue {
+            reviewDue = false
+            store.set(Date().timeIntervalSince1970, forKey: Self.reviewAskedAtKey)
+            reviewAsk += 1
+        }
+    }
+
+    // MARK: - Rating prompt
+
+    /// Bumped when it's time to ask for a rating; RootView then shows Apple's rating prompt (`requestReview`).
+    @Published private(set) var reviewAsk = 0
+    /// A rating is due once this win's coins have landed, so the prompt never covers the win itself.
+    private var reviewDue = false
+    private static let reviewAskedAtKey = "native.reviewAskedAt"
+    static let reviewEveryLevels = 10
+    static let reviewMinGap: TimeInterval = 3 * 24 * 3600
+
+    /// Ask for a rating after every 10th level (10, 20, 30...), at most once every 3 days. Apple's prompt can't tell
+    /// the app whether the player rated, but iOS itself stops showing it to players who already rated and limits it
+    /// to 3 times a year, so asking stops on its own once they have.
+    private func noteLevelWonForReview(_ levelNumber: Int) {
+        guard levelNumber % Self.reviewEveryLevels == 0 else { return }
+        let last = store.double(forKey: Self.reviewAskedAtKey)
+        guard Date().timeIntervalSince1970 - last >= Self.reviewMinGap else { return }
+        reviewDue = true
     }
 
     // MARK: - Hearts

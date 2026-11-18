@@ -1,4 +1,5 @@
 import ChipmunkEngine
+import StoreKit
 import SwiftUI
 
 /// The app's root: the home screen or the play screen, with the settings sheet over either.
@@ -6,6 +7,7 @@ struct RootView: View {
     @StateObject private var model = GameModel()
     @SwiftUI.State private var splash = true
     @Environment(\.scenePhase) private var phase
+    @Environment(\.requestReview) private var requestReview
 
     var body: some View {
         ZStack {
@@ -34,6 +36,8 @@ struct RootView: View {
         }
         // New approved boards: checked at launch and on return to the app (BoardFeed decides if it's time).
         .onChange(of: phase, initial: true) { _, p in if p == .active { model.checkForNewBoards() } }
+        // Every 10th level, at most once every 3 days (GameModel.noteLevelWonForReview).
+        .onChange(of: model.reviewAsk) { requestReview() }
         .animation(.easeOut(duration: 0.18), value: model.settingsOpen)
         .animation(.easeOut(duration: 0.18), value: model.dailyPickOpen)
         .animation(.easeOut(duration: 0.18), value: model.giftShown)
@@ -138,6 +142,7 @@ private struct LevelHero: View {
         let i = model.homeIndex
         let picture = model.catalog.levelPlay[i]
         let resumes = model.mode == .level && model.status == .playing && model.level != nil
+        let out = model.outOfLevels
         let cols = CGFloat(picture.rows.first?.count ?? 1), rows = CGFloat(max(1, picture.rows.count))
         Button { withAnimation(.easeOut(duration: 0.2)) { model.playLevel() } } label: {
             VStack(spacing: 8) {
@@ -153,15 +158,30 @@ private struct LevelHero: View {
                     .frame(maxWidth: 300, maxHeight: .infinity)
                     .layoutPriority(-1)
                 VStack(spacing: 0) {
-                    Text("Level \(i + 1)")
-                        .font(Theme.display(34))
-                        .foregroundStyle(Theme.ink)
-                    Text(picture.name)
-                        .font(Theme.body(16, 700))
-                        .foregroundStyle(Color(hex: 0x4A5841))
-                        .lineLimit(1)
+                    if out {
+                        // Beat the last level there is: Play replays it until new boards download.
+                        Text("New Levels Coming Soon")
+                            .font(Theme.display(26))
+                            .foregroundStyle(Theme.ink)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.6)
+                        Text("All \(i + 1) levels cleared · replay Level \(i + 1)")
+                            .font(Theme.body(14, 700))
+                            .foregroundStyle(Color(hex: 0x4A5841))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.7)
+                    } else {
+                        Text("Level \(i + 1)")
+                            .font(Theme.display(34))
+                            .foregroundStyle(Theme.ink)
+                        Text(picture.name)
+                            .font(Theme.body(16, 700))
+                            .foregroundStyle(Color(hex: 0x4A5841))
+                            .lineLimit(1)
+                    }
                 }
-                PlayPill(title: resumes ? "Continue" : "Play", color: Theme.darkInk, height: 54, font: Theme.display(26))
+                PlayPill(title: resumes ? "Continue" : out ? "Replay" : "Play", color: Theme.darkInk, height: 54,
+                         font: Theme.display(26))
                     .padding(.horizontal, 8)
                     .padding(.top, 2)
             }
