@@ -39,20 +39,16 @@ extension Color {
     }
 }
 
-/// A board drawn block by block.
+/// A board drawn the way the game shows it: shaded blocks in the sandy tray (BlockArt.swift).
 struct BoardPicture: View {
     let rows: [String]
+    @Environment(\.displayScale) private var scale
 
     var body: some View {
-        let grid = rows.map(Array.init)
-        let n = CGFloat(max(grid.first?.count ?? 1, 1)), m = CGFloat(max(grid.count, 1))
-        Canvas { ctx, size in
-            let s = min(size.width / n, size.height / m)
-            for (r, row) in grid.enumerated() {
-                for (c, ch) in row.enumerated() {
-                    let rect = CGRect(x: CGFloat(c) * s, y: CGFloat(r) * s, width: s + 0.5, height: s + 0.5)
-                    ctx.fill(Path(rect), with: .color(Color(hex: PALETTE[ch] ?? 0xFF00FF)))
-                }
+        let n = CGFloat((rows.first?.count ?? 1) + 2), m = CGFloat(rows.count + 2) + 0.42
+        GeometryReader { geo in
+            if let img = BoardArt.image(rows, width: geo.size.width, scale: scale) {
+                Image(uiImage: img).resizable().interpolation(.none).frame(width: geo.size.width, height: geo.size.height)
             }
         }
         .aspectRatio(n / m, contentMode: .fit)
