@@ -1,21 +1,29 @@
 #!/usr/bin/env python3
-"""Copy the public board feed into the game as its built-in starting set (run before a release build).
+"""Get the game's boards ready for a release build (run it before every App Store build, from the release checkout).
 
     python3 tools/daily/snapshot_feed.py
 
-Writes Engine/Sources/ChipmunkEngine/Resources/approved-boards.json from the live feed (config feed_url), so a fresh
-install has every board published so far, offline. The app can then download only boards past this count.
+1. Copies the live feed (config feed_url) into Engine/Sources/ChipmunkEngine/Resources/approved-boards.json, so a
+   fresh install has every board published so far, offline. The app then downloads only boards past this count.
+   Feed boards Brian denied on a second look are already swapped in the feed (publish.py), so they come along.
+2. Swaps the boards in the app's own boards.json "levels" that Brian denied on a second look for the new boards that
+   took their slots (slots.py, replace.json in the queue repo): same id and place, new name and picture.
+3. Lists denied boards still waiting for a new board: those stay as they are in this build.
 """
 import json
 import os
+import sys
 import urllib.request
 
-from common import CFG, ROOT, log, save
+from common import CFG, QUEUE, ROOT, TOOLS, ensure_clone, load, log, save
 
-OUT = os.path.join(ROOT, "Engine/Sources/ChipmunkEngine/Resources/approved-boards.json")
+sys.path.insert(0, TOOLS)
+RES = os.path.join(ROOT, "Engine/Sources/ChipmunkEngine/Resources")
+OUT = os.path.join(RES, "approved-boards.json")
+BUNDLED = os.path.join(RES, "boards.json")
 
 
-def main():
+def snapshot_feed():
     with urllib.request.urlopen(CFG["feed_url"], timeout=30) as r:
         feed = json.load(r)
     count = lambda f: len(f["levels"]) if "levels" in f else sum(len(p["levels"]) for p in f.get("packs", []))
@@ -23,8 +31,37 @@ def main():
     n_old, n_new = count(old), count(feed)
     if n_new < n_old:
         raise SystemExit(f"feed has {n_new} boards but the game already ships {n_old}; not shrinking it")
+    swapped = sum(1 for a, b in zip(old["levels"], feed["levels"]) if a["id"] == b["id"] and a["rows"] != b["rows"])
     save(OUT, feed, indent=0)
-    log(f"snapshot: {n_new} boards ({n_new - n_old} new) -> {os.path.relpath(OUT, ROOT)}")
+    log(f"snapshot: {n_new} boards ({n_new - n_old} new, {swapped} swapped) -> {os.path.relpath(OUT, ROOT)}")
+
+
+def swap_bundled():
+    from palette import adapt, limit
+    ensure_clone(QUEUE, CFG["queue_repo"])
+    st = load(os.path.join(QUEUE, "replace.json"), {"open": [], "filled": []})
+    nb = json.load(open(BUNDLED))
+    by_id = {L["id"]: L for L in nb["levels"]}
+    n = 0
+    for s in st["filled"]:
+        L = by_id.get(s["slot"])
+        if s["where"] != "bundled" or L is None or L.get("source") == s["board"]["id"]:
+            continue
+        log(f"  #{s['number']} {L['name']} -> {s['board']['name']}")
+        L.update(name=s["board"]["name"], rows=limit(adapt(s["board"]["rows"])), source=s["board"]["id"])
+        n += 1
+    if n:
+        with open(BUNDLED, "w") as f:
+            json.dump(nb, f, separators=(",", ":"))
+            f.write("\n")
+    log(f"boards.json: {n} board{'s' * (n != 1)} swapped")
+    for s in st["open"]:
+        log(f"  still waiting for a new board: #{s['number']} {s['name']} ({s['where']})")
+
+
+def main():
+    snapshot_feed()
+    swap_bundled()
 
 
 if __name__ == "__main__":

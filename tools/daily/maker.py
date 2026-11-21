@@ -142,8 +142,10 @@ def code_moved_on():
 
 
 def waiting():
-    """Boards waiting for review: in the queue repo (as of the last fetch) plus held here."""
-    return len(load(os.path.join(QUEUE, "queue.json"), [])) + len(load(OUTBOX, []))
+    """New boards waiting for review: in the queue repo (as of the last fetch) plus held here. Boards already in the
+    game, sent back for a second look (slots.py), don't count."""
+    return (sum(1 for b in load(os.path.join(QUEUE, "queue.json"), []) if not b.get("audit"))
+            + len(load(OUTBOX, [])))
 
 
 def last_push_time(now=None):

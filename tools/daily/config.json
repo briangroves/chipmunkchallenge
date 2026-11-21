@@ -16,5 +16,6 @@
   "good_enough": 0.7,
   "min_p": 0.6,
   "frag_max": 0.15,
-  "explore_rate": 0.1
+  "explore_rate": 0.1,
+  "release_branch": "version-3.0"
 }
