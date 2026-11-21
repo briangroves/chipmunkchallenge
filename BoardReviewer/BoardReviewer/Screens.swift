@@ -185,7 +185,7 @@ struct ReviewScreen: View {
         ContentUnavailableView {
             Label("All caught up", systemImage: "checkmark.seal")
         } description: {
-            Text("The Mac makes boards around the clock and sends new ones every 2 hours. Pull down to check again.")
+            Text("The Mac makes a batch of boards each day and sends them every morning at 6. Pull down to check again.")
         }
         .frame(maxHeight: .infinity)
     }
@@ -242,7 +242,7 @@ struct SettingsScreen: View {
                     Text("A fine-grained token with access to only the queue repo and \"Contents: Read and write\". It's kept in this phone's Keychain.")
                 }
                 Section {
-                    Text("The Mac makes boards around the clock and the judge keeps the best one of each subject; new ones show up here every 2 hours. Swipe right or tap Approve to add a board to the game. Swipe left or tap Deny to drop it and say what's wrong: the board maker reads that feedback and steers away from it. Within about 15 minutes the Mac adds approved boards to the game repo.")
+                    Text("The Mac makes a batch of boards each day and its blob judge keeps the best one of each subject; new ones show up here every morning at 6. A few are test boards outside the judge's usual range, so your answers teach it where boards get too fiddly or too easy. Swipe right or tap Approve to add a board to the game. Swipe left or tap Deny to drop it and say what's wrong: the board maker reads that feedback and steers away from it. Within about 15 minutes the Mac adds approved boards to the game repo.")
                         .font(.footnote)
                 } header: { Text("How it works") }
             }
@@ -274,7 +274,7 @@ struct DenyScreen: View {
     static let reasons = [
         "Bland backdrop", "Flat colors, no shading", "Muddy or messy", "Face hard to read",
         "Subject too small", "Doesn't look like its name", "Blends into backdrop", "Colors clash",
-        "Boring subject", "Too busy",
+        "Boring subject", "Too busy", "Too fiddly (tiny pieces)", "Too easy (big chunks)",
     ]
 
     var body: some View {

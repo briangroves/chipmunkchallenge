@@ -26,19 +26,35 @@ PROPOSE = """You choose subjects for a kids' puzzle game. Each subject becomes a
 illustration is generated, then shrunk to 40x40 blocks in a 19-color palette.
 
 The designer's ratings of past boards show what works:
-- 5 stars: a cute full-body character with a face and big eyes (animals, creatures, friendly monsters, characters
-  with jobs), or a richly detailed chunky vehicle, standing on a simple sky-and-grass or fitting backdrop.
+- 5 stars: a cute full-body character with a face and big eyes, standing on a simple sky-and-grass or fitting
+  backdrop.
 - 2-3 stars: landmarks and buildings, plain objects, round things that fill the board as one flat shape (balls,
-  cookies), subjects the same color as their backdrop (a green caterpillar on grass), mostly-white subjects.
+  cookies), subjects the same color as their backdrop (a green caterpillar on grass), mostly-white subjects, and big
+  areas of one flat color with no shading.
 
-The designer wants most boards themed on forest friends and nature. Propose {n} NEW subjects:
-- About three quarters forest friends and nature: woodland, meadow, pond and countryside animals (fox, hedgehog,
-  owl, deer fawn, bunny, raccoon, badger, squirrel, chipmunk, frog, beaver, otter, mole, bear cub, robin, ladybug,
-  snail, ...) and nature characters (a mushroom sprite, an acorn kid, a flower fairy, a little tree spirit). Vary the
-  season, time of day and setting (autumn leaves, snowy woods, spring meadow, pond at sunset, ...).
-- The rest: other animals, friendly creatures, characters or vehicles.
-- One main character each: animal-plus-vehicle or animal-plus-job combos with big props make the face small and
-  score low.
+Every board is themed on forest friends and nature. No vehicles, machines, buildings or food. Propose {n} NEW
+subjects, spread across these themes (no more than a few from any one theme in a set):
+- Forest friends: woodland, meadow, pond and countryside animals (fox, hedgehog, owl, deer fawn, bunny, raccoon,
+  badger, squirrel, chipmunk, beaver, otter, mole, bear cub, robin, ...) and nature characters (a mushroom sprite, an
+  acorn kid, a flower fairy, a little tree spirit).
+- Insects and bugs: ladybug, bumblebee, butterfly, dragonfly, firefly, beetle, grasshopper, snail, ...
+- Amphibians: frogs, toads, salamanders, newts, axolotls, ...
+- Sea creatures (a big theme with lots of variety): fish of every kind (clownfish, pufferfish, angelfish, seahorse),
+  octopus, squid, jellyfish, sea turtle, crab, lobster, starfish, dolphin, whale, shark pup, manta ray, narwhal,
+  sea otter, ...
+- Birds: songbirds, parrots, toucans, flamingos, puffins, ducklings, hummingbirds, peacocks, owls, ...
+- Arctic animals: polar bear, arctic fox, penguin, seal pup, walrus, snowy owl, arctic hare, reindeer, ...
+- Plants and flowers: orchid, tulip, daisy, sunflower, rose, monstera, succulent, cactus, lotus, ... drawn as a cute
+  character with a friendly face, or as a big bloom with rich, shaded colors.
+- Savanna and big cats: lion cub, tiger cub, antelope, hippo, zebra, giraffe, elephant calf, rhino, meerkat, ...
+- Rainforest animals: tree frog, snake, piranha, monkey, sloth, jaguar, chameleon, lemur, ...
+- Farm animals: piglet, calf, lamb, goat kid, chick, duckling, pony, donkey, ...
+Vary the season, time of day and setting (autumn leaves, snowy woods, spring meadow, coral reef, ice floe, jungle
+canopy, pond at sunset, ...).
+- One main character each: animal-plus-prop or animal-plus-job combos with big props make the face small and score
+  low.
+- Rich color with darker shading on the subject, and a backdrop with several medium-sized features rather than one
+  big empty area: big flat areas of one color make dull boards.
 Vary colors across the set, and make each subject contrast with its backdrop. Never reuse or closely repeat these
 existing names: {used}.
 
@@ -148,7 +164,7 @@ def main():
             except Exception as e:  # noqa: BLE001
                 log("judge error", s["name"], path, e)
         cands.sort(key=lambda c: (-c[0]["stars"], -c[3]["subject"]))
-        good = [c for c in cands if c[0]["stars"] >= CFG["min_stars"]][:CFG["per_subject"]]
+        good = [c for c in cands if c[0]["stars"] >= CFG.get("min_stars", 3)][:CFG["per_subject"]]
         log(f"  {s['name']:16s} {len(cands)} usable, judged {[c[0]['stars'] for c in cands]}, sending {len(good)}")
         for j, path, rows, info in good:
             seed = os.path.basename(path)[:-4]

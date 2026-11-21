@@ -3,7 +3,7 @@
 #   - clones the repo into ~/Library/Application Support/ChipmunkBoards/code (the jobs only run that copy, at the
 #     branch as pushed to GitHub, default version-2.0; the maker moves to newer pushes by itself)
 #   - links the checkout's tools/.venv as the jobs' Python
-#   - com.groveseng.chipmunk-boards.maker    always running (restarted if it stops), pushes to the queue every 2 hours
+#   - com.groveseng.chipmunk-boards.maker    always running (restarted if it stops), pushes to the queue once a day (push_at)
 #   - com.groveseng.chipmunk-boards.publish  every 15 minutes
 # Remove with: tools/daily/install.sh uninstall
 set -e
