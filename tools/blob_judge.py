@@ -8,9 +8,13 @@ approved boards above denied ones 73% of the time, against 57% for the Claude ju
 `BlobJudge(history)` fits a small logistic model on
   - his Board Review decisions (history.jsonl in the queue repo), which grow every day, and
   - his 1-5 star ratings of the original boards (packs/blob-ratings.json, frozen), 4-5 stars as "approve" and
-    1-2 as "deny", weighted lower,
-using the 3-biggest-blobs share plus single blocks (plain and squared), so it can learn a "too fiddly" end once boards like that get reviewed (the
+    1-2 as "deny", weighted much lower,
+using the 3-biggest-blobs share, how often side-by-side blocks differ (edge_density), how many blobs have 10+ blocks,
+and single blocks (plain and squared), so it can learn a "too fiddly" end once boards like that get reviewed (the
 maker sends some on purpose: exploration boards).
+
+What it can't see: most denials are about the picture (flat backdrop, no shading, no outline, hard-to-read face),
+which blob stats only catch in part; it tops out near AUC 0.71.
 
 `judge.rate(rows)` gives {"p": chance he approves, "stars": 1-5 for the Board Review app, "reason": one line,
 "stats": the blob stats}.
@@ -28,12 +32,18 @@ RATINGS = os.path.join(HERE, "packs", "blob-ratings.json")
 # The stats the model sees, each turned into a number by `x`.
 TERMS = [
     ("top3_share", lambda f: f["top3_share"]),
+    # added 2026-11-21 after the re-review of every board in the game (534 decisions): trained on the new boards
+    # only, these two lifted AUC on the 224 re-reviewed game boards from 0.72 to 0.76
+    ("edge_density", lambda f: f["edge_density"]),
+    ("blobs_10_up", lambda f: f["blobs_10_up"]),
     # single blocks, plain and squared: a curve with room for a "too fiddly" end, which only exploration boards can
     # show (no board reviewed by 2026-11-21 had more than 10% single blocks)
     ("share_in_1", lambda f: f["share_in_1"]),
     ("share_in_1_sq", lambda f: f["share_in_1"] ** 2),
 ]
-RATING_WEIGHT = 0.3  # an old star rating counts less than a Board Review decision
+# An old star rating counts far less than a Board Review decision. Cut from 0.3 on 2026-11-21: with 534 decisions,
+# the ratings dragged the edge_density/blobs_10_up terms back (AUC on game boards 0.754 at 0.1 vs 0.714 at 0.3).
+RATING_WEIGHT = 0.1
 
 
 def x(f):
@@ -71,7 +81,8 @@ class BlobJudge:
         p = self.p(f)
         stars = 1 + sum(p >= c for c in (0.45, 0.6, 0.75, 0.85))
         reason = (f"Blob score {p:.0%}: biggest 3 blobs cover {f['top3_share']:.0%} of the board, "
-                  f"{f['blobs_10_up']} blobs of 10+ blocks, {f['share_in_1']:.0%} single blocks.")
+                  f"{f['blobs_10_up']} blobs of 10+ blocks, {f['share_in_1']:.0%} single blocks, "
+                  f"{f['edge_density']:.0%} of neighbors differ.")
         return dict(p=round(p, 4), stars=int(stars), reason=reason, stats={k: round(float(v), 4) for k, v in f.items()})
 
 

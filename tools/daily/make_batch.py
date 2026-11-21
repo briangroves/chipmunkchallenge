@@ -55,6 +55,11 @@ canopy, pond at sunset, ...).
   low.
 - Rich color with darker shading on the subject, and a backdrop with several medium-sized features rather than one
   big empty area: big flat areas of one color make dull boards.
+- The scene is the subject's real home: underwater for fish and sea life, ice and snow for arctic animals, jungle for
+  rainforest animals, a barnyard for farm animals. Never a sea creature among trees. Name scene features that carry
+  their own shading and texture (rippled water, rocks, coral, leafy bushes, clouds), not plain sky or flat ground.
+- Avoid mostly-one-color subjects (an all-white swan, a green frog on green leaves): the subject's colors must
+  stand out from the scene.
 Vary colors across the set, and make each subject contrast with its backdrop. Never reuse or closely repeat these
 existing names: {used}.
 

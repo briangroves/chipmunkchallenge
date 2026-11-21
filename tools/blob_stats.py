@@ -72,8 +72,24 @@ def features(rows):
         # how evenly blocks are spread over blobs: exp(entropy) = "effective number of blobs"
         "effective_blobs": float(math.exp(-(w * np.log(w)).sum())),
         "typical_size_no_bg": float((rest * rest / rest.sum()).sum()) if len(rest) else 0.0,
+        # share of side-by-side block pairs that differ in color: how "busy" the board is block to block. It catches
+        # shading and outlines the blob sizes miss (added 2026-11-21: AUC 0.68 on its own on 534 decisions)
+        "edge_density": edge_density(rows),
     }
     return f
+
+
+def edge_density(rows):
+    pairs = diff = 0
+    for r, row in enumerate(rows):
+        for c, ch in enumerate(row):
+            if c + 1 < len(row):
+                pairs += 1
+                diff += ch != row[c + 1]
+            if r + 1 < len(rows) and c < len(rows[r + 1]):
+                pairs += 1
+                diff += ch != rows[r + 1][c]
+    return diff / max(1, pairs)
 
 
 # ---------------------------------------------------------------------------------------------------------------
