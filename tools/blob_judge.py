@@ -44,45 +44,61 @@ TERMS = [
 # An old star rating counts far less than a Board Review decision. Cut from 0.3 on 2026-11-21: with 534 decisions,
 # the ratings dragged the edge_density/blobs_10_up terms back (AUC on game boards 0.754 at 0.1 vs 0.714 at 0.3).
 RATING_WEIGHT = 0.1
+# The picture-level CLIP score (vision_score.py), used when the model is on this Mac: "does it look like a cartoon
+# animal with a clear face". Blob stats plus this: AUC on re-reviewed game boards 0.79 vs 0.76 without.
+FACE_TERM = ("face", lambda f: f["face"])
 
 
-def x(f):
-    return [t(f) for _, t in TERMS]
+def x(f, terms=None):
+    return [t(f) for _, t in (terms or TERMS)]
 
 
 class BlobJudge:
-    def __init__(self, history=(), use_ratings=True):
+    def __init__(self, history=(), use_ratings=True, use_vision=True):
         from sklearn.linear_model import LogisticRegression
         from sklearn.pipeline import make_pipeline
         from sklearn.preprocessing import StandardScaler
+        import vision_score
+        self.vision = use_vision and vision_score.available()
+        self.terms = TERMS + [FACE_TERM] * self.vision
         X, y, w = [], [], []
         if use_ratings:
             for r in json.load(open(RATINGS)):
-                if r["stars"] != 3:
-                    X.append(x(r["f"]))
+                if r["stars"] != 3 and (not self.vision or "face" in r["f"]):
+                    X.append(x(r["f"], self.terms))
                     y.append(r["stars"] >= 4)
                     w.append(RATING_WEIGHT)
         self.decisions = 0
-        for b in history:
-            if b.get("decision") in ("approve", "deny") and b.get("rows"):
-                X.append(x(features(b["rows"])))
-                y.append(b["decision"] == "approve")
-                w.append(1.0)
-                self.decisions += 1
+        hist = [b for b in history if b.get("decision") in ("approve", "deny") and b.get("rows")]
+        for b, f in zip(hist, self.feats([b["rows"] for b in hist])):
+            X.append(x(f, self.terms))
+            y.append(b["decision"] == "approve")
+            w.append(1.0)
+            self.decisions += 1
         self.model = make_pipeline(StandardScaler(), LogisticRegression(C=0.5, max_iter=2000))
         self.model.fit(np.array(X), np.array(y), logisticregression__sample_weight=np.array(w))
         self.trained_on = len(y)
 
+    def feats(self, rows_list):
+        """Blob stats for each board, plus the CLIP face score when the judge uses it."""
+        fs = [features(rows) for rows in rows_list]
+        if self.vision:
+            import vision_score
+            for f, s in zip(fs, vision_score.face(rows_list)):
+                f["face"] = s
+        return fs
+
     def p(self, f):
-        return float(self.model.predict_proba(np.array([x(f)]))[0, 1])
+        return float(self.model.predict_proba(np.array([x(f, self.terms)]))[0, 1])
 
     def rate(self, rows):
-        f = features(rows)
+        f = self.feats([rows])[0]
         p = self.p(f)
         stars = 1 + sum(p >= c for c in (0.45, 0.6, 0.75, 0.85))
         reason = (f"Blob score {p:.0%}: biggest 3 blobs cover {f['top3_share']:.0%} of the board, "
                   f"{f['blobs_10_up']} blobs of 10+ blocks, {f['share_in_1']:.0%} single blocks, "
-                  f"{f['edge_density']:.0%} of neighbors differ.")
+                  f"{f['edge_density']:.0%} of neighbors differ"
+                  + (f", face score {f['face']:+.3f}." if self.vision else "."))
         return dict(p=round(p, 4), stars=int(stars), reason=reason, stats={k: round(float(v), 4) for k, v in f.items()})
 
 
@@ -98,8 +114,8 @@ if __name__ == "__main__":
     pred = np.zeros(len(h))
     for tr, te in StratifiedKFold(5, shuffle=True, random_state=0).split(np.zeros(len(h)), y):
         j = BlobJudge([h[i] for i in tr])
-        pred[te] = [j.p(features(h[i]["rows"])) for i in te]
-    print(f"{len(h)} decisions; blob judge AUC {auc(pred, y):.3f} (Claude judge "
+        pred[te] = [j.p(f) for f in j.feats([h[i]["rows"] for i in te])]
+    print(f"vision {'on' if j.vision else 'off'}; {len(h)} decisions; blob judge AUC {auc(pred, y):.3f} (Claude judge "
           f"{auc([b.get('judge', 0) for b in h], y):.3f})")
     for cut in (0.55, 0.6, 0.65, 0.7, 0.75, 0.8):
         m = pred >= cut
