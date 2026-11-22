@@ -92,8 +92,18 @@ public struct State: Sendable {
 
 func openFrom(_ lv: Level, _ s: inout State, _ seeds: [Int]) {
     let W = lv.W, H = lv.H, key = lv.art.key
+    let bt = lv.art.burrowTo
     var q = seeds
     while let i = q.popLast() {
+        // A burrow: reaching one end opens the other.
+        if !bt.isEmpty, bt[i] >= 0 {
+            let p = bt[i]
+            if s.b[p] == 0 && s.o[p] == 0 {
+                s.o[p] = 1
+                openNav(lv, &s, p)
+                q.append(p)
+            }
+        }
         let r = i / W, c = i % W
         for k in 0..<4 {
             let j: Int
@@ -103,7 +113,7 @@ func openFrom(_ lv: Level, _ s: inout State, _ seeds: [Int]) {
             else { if c == W - 1 { continue }; j = i + 1 }
             let bj = s.b[j]
             if bj != 0 {
-                if bj != ROCK && s.ed[j] == 0 {
+                if !isObstacle(bj) && s.ed[j] == 0 {
                     s.ed[j] = 1
                     hpush(&s.hp[Int(bj)], j, key)
                 }
@@ -130,7 +140,7 @@ public func initState(_ lv: Level) -> State {
         if !onEdge(lv, i) { continue }
         let bi = s.b[i]
         if bi != 0 {
-            if bi != ROCK && s.ed[i] == 0 {
+            if !isObstacle(bi) && s.ed[i] == 0 {
                 s.ed[i] = 1
                 hpush(&s.hp[Int(bi)], i, key)
             }
@@ -334,7 +344,7 @@ public func makeMagic(_ s: inout State, id: Int) {
 @discardableResult
 public func acornHit(_ lv: Level, _ s: inout State, _ i: Int) -> Bool {
     let c = Int(s.b[i])
-    if c == 0 || c == Int(ROCK) || s.cl[i] != 0 { return false }
+    if c == 0 || isObstacle(UInt8(c)) || s.cl[i] != 0 { return false }
     /* Only a block on the edge of the open area opens a path. A buried one leaves a sealed hole. */
     let W = lv.W, H = lv.H, r = i / W, cc = i % W
     let reach = onEdge(lv, i) || (r > 0 && s.o[i - W] != 0) || (r < H - 1 && s.o[i + W] != 0)

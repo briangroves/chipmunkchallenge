@@ -16,6 +16,11 @@ public enum SIM {
 /// Ants prefer cover inside the picture: a step beside a wall or block costs 1, a step across open ground costs 4.
 public enum PATH {
     public static let EXPOSED: Int32 = 4
+    /// Route cost of going through a burrow (must stay below the bucket queue's 6).
+    public static let TUNNEL: Int32 = 5
+    /// Cells of walking time a trip through a burrow takes: the path holds its near end this many extra times
+    /// before the far end, so the critter is out of sight underground for a moment.
+    public static let TUNNEL_STEPS = 3
 }
 
 // MARK: - Navigation grid
@@ -109,6 +114,17 @@ func route(_ lv: Level, _ s: State, _ root: Int, _ stop: Int) -> Int32 {
                     pending += 1
                 }
             }
+            if !lv.tunnel.isEmpty {
+                let j = lv.tunnel[i]
+                if j >= 0 && s.pass[j] != 0 {
+                    let nd = cur + PATH.TUNNEL
+                    if nd < dist[j] {
+                        dist[j] = nd
+                        B[Int(nd) % NB].append(j)
+                        pending += 1
+                    }
+                }
+            }
         }
         cur += 1
     }
@@ -139,12 +155,46 @@ func walk(_ lv: Level, _ s: State, _ start: Int) -> [Int] {
                 bd = k
             }
         }
+        if best < 0, !lv.tunnel.isEmpty {
+            // Through a burrow: wait out of sight at this end, then come up at the other.
+            let p = lv.tunnel[cur]
+            if p >= 0 && dist[p] != UNREACHED && dist[p] == dist[cur] - PATH.TUNNEL {
+                for _ in 0..<PATH.TUNNEL_STEPS - 1 { path.append(cur) }
+                cur = p
+                dir = -1
+                path.append(cur)
+                continue
+            }
+        }
         if best < 0 { break }
         cur = best
         dir = bd
         path.append(cur)
     }
     return path
+}
+
+/// Path step k (from path[k] to path[k+1]) is underground: waiting at a burrow's end or passing through to the other.
+@inline(__always) public func tunnelStep(_ lv: Level, _ path: [Int], _ k: Int) -> Bool {
+    guard !lv.tunnel.isEmpty, k >= 0, k + 1 < path.count else { return false }
+    let a = path[k], b = path[k + 1]
+    return lv.tunnel[a] >= 0 && (a == b || lv.tunnel[a] == b)
+}
+
+/// The critter is inside a burrow at tick T (the game hides it).
+public func antUnderground(_ lv: Level, _ a: Ant, at T: Double) -> Bool {
+    if lv.tunnel.isEmpty || a.fly { return false }
+    let carrying = a.picked || T >= a.ta
+    let path: [Int], t0: Double, t1: Double
+    if carrying, let p2 = a.p2 {
+        path = p2; t0 = a.ta + a.hold; t1 = a.th
+    } else {
+        path = a.p1; t0 = a.t0; t1 = a.ta
+    }
+    if path.count < 2 { return false }
+    let f = t1 > t0 ? min(1, max(0, (T - t0) / (t1 - t0))) : 1
+    let k = min(path.count - 2, Int(f * Double(path.count - 1)))
+    return tunnelStep(lv, path, k)
 }
 
 /// Straight-line distance in cells (flying critters).

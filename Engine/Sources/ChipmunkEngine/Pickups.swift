@@ -103,7 +103,7 @@ public func placePickups(_ lv: Level, _ s: State, rows: [String], id: String, se
         for dr in lo...hi {
             for dc in lo...hi {
                 let j = (r + dr) * W + c + dc
-                if s.b[j] == 0 || s.b[j] == ROCK || (strict == 2 && s.ed[j] != 0) || (strict != 0 && s.o[j] != 0) {
+                if s.b[j] == 0 || isObstacle(s.b[j]) || (strict == 2 && s.ed[j] != 0) || (strict != 0 && s.o[j] != 0) {
                     return false
                 }
             }

@@ -125,10 +125,10 @@ public struct LevelCatalog: Decodable, Sendable {
         i < 20 ? "warm\(i + 1)" : "lv\(i + 1)"
     }
 
-    /// The picture plus this board's rocks and locked slot.
+    /// The picture plus this board's rocks, lakes, burrows and locked slot.
     public func base(forBoard i: Int) -> LevelBase {
         let p = levelPlay[i]
-        return levelBase(name: p.name, rows: p.rows, boardNumber: i + 1)
+        return levelBase(name: p.name, rows: p.rows, boardNumber: i + 1, terrain: true)
     }
 
     /// The pre-built board for board i, if it ships one (only for the first attempt at the standard aim).

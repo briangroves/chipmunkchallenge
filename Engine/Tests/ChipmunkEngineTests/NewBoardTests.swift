@@ -156,9 +156,11 @@ final class NewBoardTests: XCTestCase {
         XCTAssertEqual(Difficulty.named(Difficulty.skillKey(0.6)), Difficulty.skill(0.6))
     }
 
-    /// Boards built the way the game builds them (mystery-box pockets cut, across the skill range) have no nest
-    /// smaller than 5.
-    func testNoNestsUnderFive() {
+    /// Boards built the way the game builds them (mystery-box pockets cut, across the skill range) have no nest under
+    /// 3 unless its color has fewer than 3 blocks (some feed pictures have stray 1-2 block colors), and nests of 3-4
+    /// stay rare: they come only from relaxed builds (or colors under 5 blocks).
+    func testNoNestsUnderThree() {
+        var small = 0, builds = 0
         var o = BuildOptions.game
         o.ms = 600
         for (k, g) in [0.97, 0.6, 0.25].enumerated() {
@@ -171,9 +173,19 @@ final class NewBoardTests: XCTestCase {
                     XCTFail("board \(i + 1) didn't build at \(g)")
                     continue
                 }
-                XCTAssertEqual(lv.small, 0, "board \(i + 1) at \(g): smallest nest \(lv.minNest ?? 0)")
+                builds += 1
+                var under5 = false
+                for lane in lv.lanes {
+                    for nest in lane where nest.n < MIN_NEST {
+                        let blocks = lv.art.counts[nest.c]
+                        if nest.n < 3 { XCTAssertLessThan(blocks, 3, "board \(i + 1) at \(g) has a nest of \(nest.n)") }
+                        if blocks >= MIN_NEST { under5 = true }
+                    }
+                }
+                if under5 { small += 1 }
             }
         }
+        XCTAssertLessThanOrEqual(small * 20, builds, "\(small) of \(builds) boards have nests of 3-4 (want 5% or fewer)")
     }
 
     /// A sample of new boards build (as the game builds them, retrying a few seeds), across the skill range, and each
@@ -202,6 +214,34 @@ final class NewBoardTests: XCTestCase {
                 m0.pickupPause = 25
                 XCTAssertNotNil(solve(lv, m0, cap: 20000).path, "board \(i + 1) can't be won")
             }
+        }
+    }
+
+    /// Boards whose strict build jams used to relax straight to nests of 1 and 2 ants (dozens of them). The native
+    /// builder relaxes to 3 first, so a nest under 3 now appears only for a color with fewer than 3 blocks. These are
+    /// the boards and skills that did it (as the game builds them, mystery-box pockets included); each still clears.
+    func testRelaxedBoardsKeepNestsOfThree() {
+        let cases: [(board: Int, goal: Double)] = [(12, 0.3), (31, 0.15), (48, 0.15), (78, 0.5), (102, 0.15)]
+        for (n, g) in cases where n <= catalog.levelPlay.count {
+            let i = n - 1, key = Difficulty.skillKey(g), seed = catalog.seed(forBoard: i), p = catalog.levelPlay[i]
+            let cut = pocketBase(catalog.base(forBoard: i), id: p.id, seed: seed, index: i,
+                                 board: i < 20 ? .warmup(i + 1) : .level(i + 1), claimed: [])
+            var o = BuildOptions.game
+            o.aim = LevelCatalog.aim(key, tailor: 1)
+            o.iters = 30
+            o.ms = 1000
+            guard let lv = generateLevelRetrying(base: cut.base, seed: seed, diffKey: key, options: o) else {
+                XCTFail("board \(n) didn't build")
+                continue
+            }
+            for lane in lv.lanes {
+                for nest in lane where nest.n < 3 {
+                    XCTAssertLessThan(lv.art.counts[nest.c], 3, "board \(n) at \(key) has a nest of \(nest.n)")
+                }
+            }
+            var m = Sim(lv)
+            m.pickupPause = 25
+            XCTAssertNotNil(solve(lv, m, cap: 20000).path, "board \(n) at \(key) can't be won")
         }
     }
 }

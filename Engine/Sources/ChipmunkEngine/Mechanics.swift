@@ -70,12 +70,30 @@ public func rocksFor(_ rowsIn: [String], _ n: Int) -> [Int]? {
     return out.isEmpty ? nil : out
 }
 
-/// What the builder needs for Level Play board n (1...170): the picture plus this board's rocks and locked slot.
-/// Pass n = 0 for Coin Mining and photo boards (no rocks, no lock).
-public func levelBase(name: String, rows: [String], boardNumber n: Int) -> LevelBase {
+/// What the builder needs for Level Play board n: the picture plus this board's rocks and locked slot, and with
+/// `terrain` the native game's boulder fields, lakes and burrows (Terrain.swift). Pass n = 0 for Coin Mining and photo
+/// boards (none of these). The web game has no terrain, so the parity tests leave it off.
+public func levelBase(name: String, rows: [String], boardNumber n: Int, terrain: Bool = false) -> LevelBase {
     var b = LevelBase(name: name, rows: rows)
     if n > 0 {
         b.rocks = rocksFor(rows, n)
+        if terrain && n >= BOULDERS_FROM {
+            let t = terrainFor(rows, n, rocks: b.rocks)
+            b.rocks = t.rocks.isEmpty ? nil : t.rocks
+            b.water = t.water.isEmpty ? nil : t.water
+            b.burrows = t.burrows.isEmpty ? nil : t.burrows
+            // Terrain covers the picture: blank those cells, and a colour it cuts down to a handful of blocks takes
+            // the colour beside it (as mystery-box pockets do), so no nest is left tiny.
+            if b.water != nil || b.burrows != nil {
+                var grid = rows.map { Array($0) }
+                let W = grid.first?.count ?? 0
+                for i in t.rocks + t.water + t.burrows where W > 0 && i / W < grid.count && i % W < grid[i / W].count {
+                    grid[i / W][i % W] = "."
+                }
+                absorbTinyColors(&grid)
+                b.rows = grid.map { String($0) }
+            }
+        }
         if lockFor(n) { b.lock = true }
         if n >= LOCK_FROM { b.lockOK = true }
     }

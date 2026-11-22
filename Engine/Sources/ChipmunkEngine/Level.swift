@@ -4,6 +4,13 @@ import Foundation
 /// counted in the board's total, so a board is won when every other block is gone.
 public let ROCK: UInt8 = 255
 
+/// A lake cell (since 2026-11-21, boards from LAKE_FROM on). Like a rock it is solid ground nobody crosses, never eaten
+/// and not counted, but it is drawn as one body of water rather than as blocks.
+public let WATER: UInt8 = 254
+
+/// A rock or water: a cell that is never eaten and never opens.
+@inline(__always) public func isObstacle(_ v: UInt8) -> Bool { v >= WATER }
+
 /// The 19 colors, keyed by the letter a picture row uses: 18 standard ones plus raspberry, the one in-between shade
 /// that is as easy to tell apart in play as the standard ones (tools/palette.py, 2026-11).
 public let PALETTE: [Character: UInt32] = [
@@ -27,19 +34,27 @@ public let RETIRED_COLOR: [Character: Character] = ["Q": "O", "J": "O", "H": "C"
 /// A picture letter in today's palette (a retired shade becomes its stand-in).
 @inline(__always) public func paletteLetter(_ ch: Character) -> Character { RETIRED_COLOR[ch] ?? ch }
 
-/// The picture a board is built from, plus what this board adds to it (rocks, a locked slot).
+/// The picture a board is built from, plus what this board adds to it (rocks, lakes, burrows, a locked slot).
 public struct LevelBase: Codable, Equatable, Sendable {
     public var name: String
     public var rows: [String]
     public var rocks: [Int]?
+    /// Lake cells (board cells, row-major).
+    public var water: [Int]?
+    /// Burrows as pairs of board cells [a0, b0, a1, b1, ...]: two empty holes joined underground. When the open area
+    /// reaches one end, the other end opens too, and critters can walk from one to the other.
+    public var burrows: [Int]?
     public var lock: Bool
     /// The builder may add a lock to a board that comes out far too easy.
     public var lockOK: Bool
 
-    public init(name: String, rows: [String], rocks: [Int]? = nil, lock: Bool = false, lockOK: Bool = false) {
+    public init(name: String, rows: [String], rocks: [Int]? = nil, water: [Int]? = nil, burrows: [Int]? = nil,
+                lock: Bool = false, lockOK: Bool = false) {
         self.name = name
         self.rows = rows
         self.rocks = rocks
+        self.water = water
+        self.burrows = burrows
         self.lock = lock
         self.lockOK = lockOK
     }
@@ -78,7 +93,7 @@ public struct NestSpec: Codable, Equatable, Hashable, Sendable {
 public struct Art: Sendable {
     public let W: Int
     public let H: Int
-    /// Color index per cell: 0 empty, 1... a color (see `chars`), ROCK for a rock.
+    /// Color index per cell: 0 empty, 1... a color (see `chars`), ROCK for a rock, WATER for a lake.
     public let cells: [UInt8]
     /// Palette letter of color index k+1.
     public let chars: [Character]
@@ -89,8 +104,12 @@ public struct Art: Sendable {
     public let key: [Int]
     public let lock: Bool
     public let lockAt: Int
+    /// Burrow pairs as given ([a0, b0, a1, b1, ...]), and per cell the other end of its burrow (-1 for none; empty
+    /// when the board has no burrows).
+    public let burrows: [Int]
+    public let burrowTo: [Int]
 
-    public init(rows: [String], rocks: [Int]?, lock: Bool, slots: Int) {
+    public init(rows: [String], rocks: [Int]?, water: [Int]? = nil, burrows: [Int]? = nil, lock: Bool, slots: Int) {
         let grid = rows.map { Array($0) }
         let H = grid.count
         let W = grid.map(\.count).max() ?? 0
@@ -109,9 +128,25 @@ public struct Art: Sendable {
             }
         }
         if let rocks { for i in rocks { cells[i] = ROCK } }
+        if let water { for i in water where i >= 0 && i < cells.count { cells[i] = WATER } }
+        var burrowTo: [Int] = []
+        let bp = burrows ?? []
+        if bp.count >= 2 {
+            burrowTo = [Int](repeating: -1, count: W * H)
+            for k in stride(from: 0, to: bp.count - 1, by: 2) {
+                let a = bp[k], b = bp[k + 1]
+                guard a >= 0, b >= 0, a < cells.count, b < cells.count, a != b else { continue }
+                cells[a] = 0
+                cells[b] = 0
+                burrowTo[a] = b
+                burrowTo[b] = a
+            }
+        }
+        self.burrows = burrowTo.isEmpty ? [] : bp
+        self.burrowTo = burrowTo
         var counts = [Int](repeating: 0, count: chars.count + 1)
         var total = 0
-        for v in cells where v != 0 && v != ROCK {
+        for v in cells where v != 0 && !isObstacle(v) {
             counts[Int(v)] += 1
             total += 1
         }
@@ -135,7 +170,7 @@ public struct Art: Sendable {
     }
 
     public init(_ def: LevelBase, slots: Int) {
-        self.init(rows: def.rows, rocks: def.rocks, lock: def.lock, slots: slots)
+        self.init(rows: def.rows, rocks: def.rocks, water: def.water, burrows: def.burrows, lock: def.lock, slots: slots)
     }
 }
 
@@ -159,6 +194,8 @@ public final class Level {
     public private(set) var inBoard: [UInt8] = []
     public private(set) var drain = 0
     public internal(set) var entry: [Int] = []
+    /// Per navigation cell: the navigation cell at the other end of its burrow, or -1 (empty when there are none).
+    public private(set) var tunnel: [Int] = []
     var dist: [Int32] = []
     var buckets: [[Int]] = Array(repeating: [], count: 6)
     var byColor: [[Int]?] = []
@@ -200,6 +237,7 @@ public final class Level {
         c.inBoard = inBoard
         c.drain = drain
         c.entry = entry
+        c.tunnel = tunnel
         c.dist = dist
         c.buckets = buckets
         c.byColor = byColor
@@ -231,6 +269,13 @@ public final class Level {
             for c in MG.l..<(MG.l + W) { inBoard[r * NW + c] = 1 }
         }
         drain = (MG.t + H + 3) * NW + NW / 2
+        tunnel = []
+        if !art.burrowTo.isEmpty {
+            tunnel = [Int](repeating: -1, count: n)
+            for i in art.burrowTo.indices where art.burrowTo[i] >= 0 {
+                tunnel[boardToNav(i)] = boardToNav(art.burrowTo[i])
+            }
+        }
         hasNav = true
         placeEntries()
     }

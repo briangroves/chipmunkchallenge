@@ -20,6 +20,8 @@ struct BoardCanvas: UIViewRepresentable {
 final class BoardView: UIView {
     let model: GameModel
     private let offLayer = CALayer()
+    /// The lakes' moving light, over the painted water (Lake.swift).
+    private let lakeLayer = LakeLayer()
     private let live: LiveView
     private var link: CADisplayLink?
     private var lastTime: CFTimeInterval?
@@ -41,6 +43,7 @@ final class BoardView: UIView {
         isOpaque = false
         layer.addSublayer(offLayer)
         offLayer.contentsGravity = .resize
+        layer.addSublayer(lakeLayer)
         live.board = self
         addSubview(live)
         // Tapping the board does what the backpack button does: show or hide the tools.
@@ -70,6 +73,7 @@ final class BoardView: UIView {
         // The live layer runs past the board on every side, so a chipmunk walking the edge isn't cut in half.
         live.frame = bounds.insetBy(dx: -live.pad, dy: -live.pad)
         offLayer.frame = bounds
+        lakeLayer.frame = bounds
     }
 
     // MARK: - Frame loop (JS: the animation loop calling drawFrame)
@@ -154,8 +158,13 @@ final class BoardView: UIView {
         setNeedsLayout()
         live.reset()
         shown = model.sim?.s.b ?? lv.art.cells
+        lake = LakeShape(lv, cs: cs)
+        lakeLayer.show(lake, cs: cs)
         paintOff(lv)
     }
+
+    /// This board's water, in board points (nil when it has none).
+    private var lake: LakeShape?
 
     // MARK: - Offscreen board (JS paintOff, paintCell, repaintAround)
 
@@ -192,16 +201,25 @@ final class BoardView: UIView {
         g.setFillColor(UIColor(hex: Theme.trayIn).cgColor)
         g.fill(CGRect(x: x, y: y, width: cs, height: cs))
         let v = b[i], r = i / lv.W
-        if v != 0 {
-            sprites.block(g, x, y, cs, v, r < lv.H - 1 && b[i + lv.W] > 0, cornerMask(lv, b, i))
-        } else if r > 0 && b[i - lv.W] != 0 {
+        if v == WATER {
+            // The water, then the side band of a block standing on its shore.
+            lake?.paint(g, cell: CGRect(x: x, y: y, width: cs, height: cs))
+            if r > 0 && b[i - lv.W] != 0 && b[i - lv.W] != WATER {
+                sprites.block(g, x, y - cs, cs, b[i - lv.W], false, cornerMask(lv, b, i - lv.W))
+            }
+        } else if v != 0 {
+            let below = r < lv.H - 1 ? b[i + lv.W] : 0
+            sprites.block(g, x, y, cs, v, below > 0 && below != WATER, cornerMask(lv, b, i))
+        } else if r > 0 && b[i - lv.W] != 0 && b[i - lv.W] != WATER {
             sprites.block(g, x, y - cs, cs, b[i - lv.W], false, cornerMask(lv, b, i - lv.W))
         }
     }
 
     private func cornerMask(_ lv: Level, _ b: [UInt8], _ i: Int) -> Int {
         let W = lv.W, r = i / W, c = i % W
-        func o(_ rr: Int, _ cc: Int) -> Bool { rr < 0 || cc < 0 || rr >= lv.H || cc >= W || b[rr * W + cc] == 0 }
+        func o(_ rr: Int, _ cc: Int) -> Bool {
+            rr < 0 || cc < 0 || rr >= lv.H || cc >= W || b[rr * W + cc] == 0 || b[rr * W + cc] == WATER
+        }
         let T = o(r - 1, c), B = o(r + 1, c), L = o(r, c - 1), R = o(r, c + 1)
         return (T && L ? 1 : 0) | (T && R ? 2 : 0) | (B && L ? 4 : 0) | (B && R ? 8 : 0)
     }
@@ -261,6 +279,7 @@ private final class LiveView: UIView {
         tones = [:]
         critters = [:]
         holeImage = nil
+        burrowImage = nil
         rainbowImage = nil
         markImage = nil
     }
@@ -294,8 +313,10 @@ private final class LiveView: UIView {
         drawHole(g, (CGFloat(lv.drain % NW) + 0.5) * cs, (CGFloat(lv.drain / NW) + 0.5) * cs, cs * 2.4)
         let now = CACurrentMediaTime() * 1000
         drawPickups(g, lv, m.s, board.model.pickups, now)
+        drawBurrows(g, lv)
         let simT = board.model.simT
         for a in m.ants {
+            if antUnderground(lv, a, at: simT) { continue }
             // During the pickup pause it stands at the block, still facing it, cheeks not yet full.
             let standing = a.picked && simT < a.ta + a.hold
             var out = a
@@ -328,15 +349,26 @@ private final class LiveView: UIView {
         guard n >= 2 else { return raw }
         let f = t1 > t0 ? min(1, max(0, (T - t0) / (t1 - t0))) : 1
         let s = f * Double(n)
+        // A burrow splits the path in two: smooth only within the stretch above ground the critter is on.
+        var lo = 0.0, hi = Double(n)
+        if !lv.tunnel.isEmpty {
+            let k = min(n - 1, Int(s))
+            var j = k - 1
+            while j >= 0 && !tunnelStep(lv, path, j) { j -= 1 }
+            lo = Double(j + 1)
+            j = k
+            while j < n && !tunnelStep(lv, path, j) { j += 1 }
+            hi = Double(j)
+        }
         func at(_ q: Double) -> (Double, Double) {
-            let q = min(Double(n), max(0, q))
+            let q = min(hi, max(lo, q))
             let k = min(n - 1, Int(q)), u = q - Double(k)
             let ax = Double(path[k] % lv.NW) + 0.5, ay = Double(path[k] / lv.NW) + 0.5
             let bx = Double(path[k + 1] % lv.NW) + 0.5, by = Double(path[k + 1] / lv.NW) + 0.5
             return (ax + (bx - ax) * u, ay + (by - ay) * u)
         }
         // Position: box average over a window that narrows to zero at the ends.
-        let w = min(Self.smoothCells, s, Double(n) - s)
+        let w = max(0, min(Self.smoothCells, s - lo, hi - s))
         var x = 0.0, y = 0.0
         let samples = 16
         for i in 0...samples {
@@ -351,6 +383,40 @@ private final class LiveView: UIView {
         var out = raw
         out.x = x; out.y = y; out.dx = dx; out.dy = dy
         return out
+    }
+
+    // MARK: Burrows
+
+    private var burrowImage: CGImage?
+
+    /// Each burrow end: a dug hole with a ring of loose earth, bigger than its cell so it reads on a small board.
+    /// Both ends of one burrow share a rim colour.
+    private func drawBurrows(_ g: CGContext, _ lv: Level) {
+        let bp = lv.art.burrows
+        guard bp.count >= 2 else { return }
+        let rad = cs * 1.05
+        if burrowImage == nil {
+            burrowImage = render(CGSize(width: rad * 2, height: rad * 2)) { c in
+                c.setFillColor(UIColor(hex: 0x8A5A32).cgColor)
+                c.fillEllipse(in: CGRect(x: rad * 0.08, y: rad * 0.2, width: rad * 1.84, height: rad * 1.6))
+                c.setFillColor(UIColor(hex: 0xA8743F).cgColor)
+                c.fillEllipse(in: CGRect(x: rad * 0.16, y: rad * 0.22, width: rad * 1.68, height: rad * 1.36))
+                self.hole(c, rad, rad * 1.02, rad * 0.62)
+            }
+        }
+        guard let img = burrowImage else { return }
+        let rims: [UInt32] = [0xFFD23F, 0x9CCC65, 0xF48FB1, 0x81D4FA]
+        for k in stride(from: 0, to: bp.count - 1, by: 2) {
+            for i in [bp[k], bp[k + 1]] {
+                let n = lv.boardToNav(i)
+                let x = (CGFloat(n % lv.NW) + 0.5) * cs, y = (CGFloat(n / lv.NW) + 0.5) * cs
+                let box = CGRect(x: x - rad, y: y - rad, width: rad * 2, height: rad * 2)
+                stamp(g, img, box)
+                g.setStrokeColor(UIColor(hex: rims[(k / 2) % rims.count], alpha: 0.9).cgColor)
+                g.setLineWidth(max(1, cs * 0.16))
+                g.strokeEllipse(in: box.insetBy(dx: rad * 0.12, dy: rad * 0.22))
+            }
+        }
     }
 
     // MARK: Mystery boxes (JS drawPickups, drawMystery)
