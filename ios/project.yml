@@ -27,7 +27,7 @@ targets:
     info:
       path: ChipmunkChallenge/Info.plist
       properties:
-        CFBundleDisplayName: Chipmunk Challenge
+        CFBundleDisplayName: $(APP_DISPLAY_NAME)        # side-by-side test builds override it (and the bundle ID)
         CFBundleShortVersionString: $(MARKETING_VERSION)   # the version and build come from the settings below
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen:
@@ -40,7 +40,9 @@ targets:
         SCNDisableLinearSpaceRendering: true
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.groveseng.chipmunkchallenge
+        PRODUCT_BUNDLE_IDENTIFIER: $(APP_BUNDLE_ID)
+        APP_BUNDLE_ID: com.groveseng.chipmunkchallenge
+        APP_DISPLAY_NAME: Chipmunk Challenge
         TARGETED_DEVICE_FAMILY: "1"      # iPhone only
         MARKETING_VERSION: "3.3"
         CURRENT_PROJECT_VERSION: "1"
