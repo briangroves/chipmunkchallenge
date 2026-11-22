@@ -158,7 +158,8 @@ final class NewBoardTests: XCTestCase {
 
     /// Boards built the way the game builds them (mystery-box pockets cut, across the skill range) have no nest under
     /// 3 unless its color has fewer than 3 blocks (some feed pictures have stray 1-2 block colors), and nests of 3-4
-    /// stay rare: they come only from relaxed builds (or colors under 5 blocks).
+    /// stay rare: they come only from relaxed builds (or colors under 5 blocks). Boards Level Play passes over (denied
+    /// on a second look, `LevelCatalog.skipped`) aren't counted: players never get them.
     func testNoNestsUnderThree() {
         var small = 0, builds = 0
         var o = BuildOptions.game
@@ -166,7 +167,7 @@ final class NewBoardTests: XCTestCase {
         for (k, g) in [0.97, 0.6, 0.25].enumerated() {
             let key = Difficulty.skillKey(g)
             o.aim = LevelCatalog.baseAim(key)
-            for i in stride(from: k, to: catalog.levelPlay.count, by: 4) {
+            for i in stride(from: k, to: catalog.levelPlay.count, by: 4) where !catalog.isSkipped(i) {
                 let cut = pocketBase(catalog.base(forBoard: i), id: catalog.levelPlay[i].id, seed: catalog.seed(forBoard: i),
                                      index: i, board: i < 20 ? .warmup(i + 1) : .level(i + 1), claimed: []).base
                 guard let lv = generateLevelRetrying(base: cut, seed: catalog.seed(forBoard: i), diffKey: key, options: o) else {
