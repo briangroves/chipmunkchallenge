@@ -9,6 +9,10 @@ so a stopped run picks up where it left off.
 
 The prompt asks for what Brian's 5-star boards have in common: one big, centered, cute subject, whole and not cut off,
 with a bold outline, bright saturated colors with simple shading, and a simple backdrop that suits it.
+Changed 2026-11-21 after his re-review of every board (534 decisions): his top denial reasons were "Too easy (big
+chunks)", "Bland backdrop" and "Flat colors, no shading", and his notes kept asking for a black outline around the
+subject, 3D shading on it and its backdrop, and a backdrop that fits (a fish among trees). The old prompt asked for
+backdrop features in "solid colors", which is how flat backdrops came out.
 """
 import argparse
 import json
@@ -20,12 +24,15 @@ MODEL = "filipstrand/Z-Image-Turbo-mflux-4bit"
 OUT = os.path.expanduser("~/Library/Caches/chipmunk-boards/gen")
 STYLE = ("Cute cartoon illustration for a children's game: {thing}. The {name} is big and centered, filling about "
          "two thirds of the picture, with a clear margin of background on every side so no part touches the edge. "
-         "Thick bold black outlines, bright saturated colors with rich shading in light and dark tones, and bold "
-         "patterns on the {name} (spots, stripes, panels or markings that suit it). Background: a colorful scene with "
-         "three or four big, bold, simple features chosen from: {scene}. Each background feature is large and chunky "
-         "with a thick outline and solid colors, so it still reads when the whole picture is shrunk to a tiny 40 by "
-         "40 pixel icon; no tiny details and no big empty areas. The background colors contrast with the {name} so "
-         "it stands out. Clean cartoon art, no text, no border, no frame.")
+         "The {name} has a very thick, solid black outline all the way around its body, so it stands out sharply "
+         "from the background. A simple, friendly face with big eyes and clear features that reads even when tiny. "
+         "Bright saturated colors with rich 3D shading on the {name}: a lighter highlight side and a darker shadow "
+         "side on every part, never one flat color, plus bold patterns that suit it (spots, stripes, panels or "
+         "markings). Background: a colorful scene in the {name}'s real home with three or four big, bold features "
+         "chosen from: {scene}. Each background feature is large and chunky with a thick outline and its own light "
+         "and dark shading (no flat fills, no plain empty sky or ground), so it still reads when the whole picture is "
+         "shrunk to a tiny 40 by 40 pixel icon; no tiny details. The background colors contrast with the {name}. "
+         "Clean cartoon art, no text, no border, no frame.")
 
 
 def slug(name):

@@ -1,15 +1,21 @@
 {
-  "push_hours": 2,
   "max_waiting": 60,
-  "propose_at_once": 8,
+  "propose_at_once": 20,
   "seeds": 6,
   "size": 768,
   "steps": 9,
   "per_subject": 1,
-  "min_stars": 4,
   "queue_repo": "briangroves/chipmunk-board-queue",
   "feed_repo": "briangroves/chipmunkchallenge",
   "feed_branch": "gh-pages",
   "feed_file": "boards/approved.json",
-  "feed_url": "https://briangroves.github.io/chipmunkchallenge/boards/approved.json"
+  "feed_url": "https://briangroves.github.io/chipmunkchallenge/boards/approved.json",
+  "push_at": 6,
+  "daily_boards": 40,
+  "min_seeds": 3,
+  "good_enough": 0.7,
+  "min_p": 0.6,
+  "frag_max": 0.15,
+  "explore_rate": 0.1,
+  "release_branch": "version-3.0"
 }

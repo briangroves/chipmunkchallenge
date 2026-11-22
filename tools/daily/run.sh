@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Runs one pipeline job from the pipeline's own copy of the repo (STATE/code, version-2.0 as pushed), so work in
 # progress in the checkout you develop in can't break it. Logs go to STATE/logs.
-#   run.sh maker     nonstop: subjects -> pictures -> boards -> judge, pushed to the queue every 2 hours
+#   run.sh maker     nonstop: subjects -> pictures -> boards -> blob judge, pushed to the queue once a day
 #   run.sh publish   every 15 min: approved boards -> public feed, decided boards out of the queue
 # launchd starts it through `zsh -lic` so ANTHROPIC_API_KEY from ~/.zshrc is set. install.sh sets it all up.
 set -u

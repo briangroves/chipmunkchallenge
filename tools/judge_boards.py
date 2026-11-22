@@ -114,11 +114,42 @@ class Judge:
             [(r["id"], r["stars"]) for r in examples])).encode()).hexdigest()[:10]
         os.makedirs(CACHE, exist_ok=True)
 
+    def add_feedback(self, decided):
+        """Show the judge Brian's latest decisions in the Board Review app: each board with approved, or denied and
+        why. These are the freshest word on his taste, so they come last and are weighed above the old ratings."""
+        if not decided:
+            return
+        blocks = [{"type": "text", "text": "\n\nNewer boards the designer reviewed in his review app, most recent "
+                   "last. These show his current taste; when they disagree with the older ratings, follow these. A "
+                   "board like an approved one deserves 4-5 stars; one with a denied board's faults deserves 2-3."}]
+        for b in decided:
+            blocks.append({"type": "image", "source": {"type": "base64", "media_type": "image/png",
+                                                        "data": png_b64(b["rows"])}})
+            if b["decision"] == "approve":
+                blocks.append({"type": "text", "text": f'"{b["name"]}": approved'})
+            else:
+                why = "; ".join(filter(None, [", ".join(b.get("reasons") or []), b.get("note") or ""]))
+                blocks.append({"type": "text", "text": f'"{b["name"]}": denied' + (f" ({why})" if why else "")})
+        blocks[-1]["cache_control"] = {"type": "ephemeral"}
+        self.prefix = [{k: v for k, v in b.items() if k != "cache_control"} for b in self.prefix] + blocks
+        self.key = hashlib.sha1((self.key + json.dumps([(b["id"], b["decision"], b.get("reasons"), b.get("note"))
+                                                        for b in decided])).encode()).hexdigest()[:10]
+
     def rate(self, name, rows):
         digest = hashlib.sha1((self.key + name + "".join(rows)).encode()).hexdigest()[:16]
         path = os.path.join(CACHE, digest + ".json")
         if os.path.exists(path):
             return json.load(open(path))
+        ask = [{"type": "text", "text": f'Now rate this board, named "{name}". Give a one-sentence reason, then '
+                                        'the stars (1-5) the designer would give.'},
+               {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": png_b64(rows)}}]
+        if self.client is None:  # through the claude command line, on Brian's Claude account (claude_cli.py)
+            import claude_cli
+            blocks = [{k: v for k, v in b.items() if k != "cache_control"} for b in self.prefix + ask]
+            out = claude_cli.ask(blocks, SCHEMA)
+            out["stars"] = max(1, min(5, int(out["stars"])))
+            json.dump(out, open(path, "w"))
+            return out
         response = self.client.beta.messages.create(
             model=MODEL,
             max_tokens=3000,
@@ -136,6 +167,45 @@ class Judge:
         out = json.loads(next(b.text for b in response.content if b.type == "text"))
         out["stars"] = max(1, min(5, int(out["stars"])))
         json.dump(out, open(path, "w"))
+        return out
+
+
+    def rate_many(self, name, boards):
+        """Ratings for several boards of one subject (a list of rows), in order. On Brian's Claude account they go in
+        one call, so the big prefix of example boards is sent once instead of once per board."""
+        out = [None] * len(boards)
+        paths = []
+        for i, rows in enumerate(boards):
+            digest = hashlib.sha1((self.key + name + "".join(rows)).encode()).hexdigest()[:16]
+            paths.append(os.path.join(CACHE, digest + ".json"))
+            if os.path.exists(paths[i]):
+                out[i] = json.load(open(paths[i]))
+        todo = [i for i in range(len(boards)) if out[i] is None]
+        if not todo:
+            return out
+        if self.client is not None or len(todo) == 1:
+            for i in todo:
+                out[i] = self.rate(name, boards[i])
+            return out
+        import claude_cli
+        ask = [{"type": "text", "text": f'Now rate each of these {len(todo)} boards, all named "{name}", on its own '
+                                        "(don't rank them against each other). For each, give a one-sentence reason, "
+                                        "then the stars (1-5) the designer would give."}]
+        for n, i in enumerate(todo, 1):
+            ask += [{"type": "text", "text": f"Board {n}:"},
+                    {"type": "image", "source": {"type": "base64", "media_type": "image/png",
+                                                 "data": png_b64(boards[i])}}]
+        schema = {"type": "object", "additionalProperties": False, "required": ["boards"],
+                  "properties": {"boards": {"type": "array", "items": SCHEMA,
+                                            "minItems": len(todo), "maxItems": len(todo)}}}
+        blocks = [{k: v for k, v in b.items() if k != "cache_control"} for b in self.prefix + ask]
+        got = claude_cli.ask(blocks, schema)["boards"]
+        if len(got) != len(todo):
+            raise RuntimeError(f"judge rated {len(got)} of {len(todo)} boards")
+        for i, r in zip(todo, got):
+            r = dict(reason=r["reason"], stars=max(1, min(5, int(r["stars"]))))
+            json.dump(r, open(paths[i], "w"))
+            out[i] = r
         return out
 
 

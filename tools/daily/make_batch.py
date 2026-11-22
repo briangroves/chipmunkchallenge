@@ -26,13 +26,42 @@ PROPOSE = """You choose subjects for a kids' puzzle game. Each subject becomes a
 illustration is generated, then shrunk to 40x40 blocks in a 19-color palette.
 
 The designer's ratings of past boards show what works:
-- 5 stars: a cute full-body character with a face and big eyes (animals, creatures, friendly monsters, characters
-  with jobs), or a richly detailed chunky vehicle, standing on a simple sky-and-grass or fitting backdrop.
+- 5 stars: a cute full-body character with a face and big eyes, standing on a simple sky-and-grass or fitting
+  backdrop.
 - 2-3 stars: landmarks and buildings, plain objects, round things that fill the board as one flat shape (balls,
-  cookies), subjects the same color as their backdrop (a green caterpillar on grass), mostly-white subjects.
+  cookies), subjects the same color as their backdrop (a green caterpillar on grass), mostly-white subjects, and big
+  areas of one flat color with no shading.
 
-Propose {n} NEW subjects. Mix animals, fantasy creatures, characters and vehicles; vary colors and settings across the
-set. Never reuse or closely repeat these existing names: {used}.
+Every board is themed on forest friends and nature. No vehicles, machines, buildings or food. Propose {n} NEW
+subjects, spread across these themes (no more than a few from any one theme in a set):
+- Forest friends: woodland, meadow, pond and countryside animals (fox, hedgehog, owl, deer fawn, bunny, raccoon,
+  badger, squirrel, chipmunk, beaver, otter, mole, bear cub, robin, ...) and nature characters (a mushroom sprite, an
+  acorn kid, a flower fairy, a little tree spirit).
+- Insects and bugs: ladybug, bumblebee, butterfly, dragonfly, firefly, beetle, grasshopper, snail, ...
+- Amphibians: frogs, toads, salamanders, newts, axolotls, ...
+- Sea creatures (a big theme with lots of variety): fish of every kind (clownfish, pufferfish, angelfish, seahorse),
+  octopus, squid, jellyfish, sea turtle, crab, lobster, starfish, dolphin, whale, shark pup, manta ray, narwhal,
+  sea otter, ...
+- Birds: songbirds, parrots, toucans, flamingos, puffins, ducklings, hummingbirds, peacocks, owls, ...
+- Arctic animals: polar bear, arctic fox, penguin, seal pup, walrus, snowy owl, arctic hare, reindeer, ...
+- Plants and flowers: orchid, tulip, daisy, sunflower, rose, monstera, succulent, cactus, lotus, ... drawn as a cute
+  character with a friendly face, or as a big bloom with rich, shaded colors.
+- Savanna and big cats: lion cub, tiger cub, antelope, hippo, zebra, giraffe, elephant calf, rhino, meerkat, ...
+- Rainforest animals: tree frog, snake, piranha, monkey, sloth, jaguar, chameleon, lemur, ...
+- Farm animals: piglet, calf, lamb, goat kid, chick, duckling, pony, donkey, ...
+Vary the season, time of day and setting (autumn leaves, snowy woods, spring meadow, coral reef, ice floe, jungle
+canopy, pond at sunset, ...).
+- One main character each: animal-plus-prop or animal-plus-job combos with big props make the face small and score
+  low.
+- Rich color with darker shading on the subject, and a backdrop with several medium-sized features rather than one
+  big empty area: big flat areas of one color make dull boards.
+- The scene is the subject's real home: underwater for fish and sea life, ice and snow for arctic animals, jungle for
+  rainforest animals, a barnyard for farm animals. Never a sea creature among trees. Name scene features that carry
+  their own shading and texture (rippled water, rocks, coral, leafy bushes, clouds), not plain sky or flat ground.
+- Avoid mostly-one-color subjects (an all-white swan, a green frog on green leaves): the subject's colors must
+  stand out from the scene.
+Vary colors across the set, and make each subject contrast with its backdrop. Never reuse or closely repeat these
+existing names: {used}.
 
 For each give:
 - name: 1-3 words, Title Case, what the board is called in the game (e.g. "Red Panda")
@@ -68,17 +97,13 @@ def used_names():
 
 
 def propose(n, used):
-    import anthropic
-    from judge_boards import MODEL
-    r = anthropic.Anthropic().beta.messages.create(
-        model=MODEL,
-        max_tokens=6000,
-        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": SCHEMA}},
-        betas=["server-side-fallback-2026-07-01"],
-        fallbacks="default",
-        messages=[{"role": "user", "content": PROPOSE.format(n=n, used=", ".join(sorted(used)))}],
-    )
-    out = json.loads(next(b.text for b in r.content if b.type == "text"))["subjects"]
+    from feedback import for_subjects
+    prompt = PROPOSE.format(n=n, used=", ".join(sorted(used))) + for_subjects()
+    if os.environ.get("CHIPMUNK_CLAUDE") != "api":  # Brian's Claude account (claude_cli.py) unless told otherwise
+        import claude_cli
+        out = claude_cli.ask([{"type": "text", "text": prompt}], SCHEMA)["subjects"]
+    else:
+        out = propose_api(prompt)
     low = {u.lower() for u in used}
     seen, keep = set(), []
     for s in out:
@@ -87,6 +112,20 @@ def propose(n, used):
             seen.add(k)
             keep.append(dict(s, name=s["name"].strip()))
     return keep[:n]
+
+
+def propose_api(prompt):
+    import anthropic
+    from judge_boards import MODEL
+    r = anthropic.Anthropic().beta.messages.create(
+        model=MODEL,
+        max_tokens=6000,
+        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": SCHEMA}},
+        betas=["server-side-fallback-2026-07-01"],
+        fallbacks="default",
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return json.loads(next(b.text for b in r.content if b.type == "text"))["subjects"]
 
 
 def main():
@@ -130,7 +169,7 @@ def main():
             except Exception as e:  # noqa: BLE001
                 log("judge error", s["name"], path, e)
         cands.sort(key=lambda c: (-c[0]["stars"], -c[3]["subject"]))
-        good = [c for c in cands if c[0]["stars"] >= CFG["min_stars"]][:CFG["per_subject"]]
+        good = [c for c in cands if c[0]["stars"] >= CFG.get("min_stars", 3)][:CFG["per_subject"]]
         log(f"  {s['name']:16s} {len(cands)} usable, judged {[c[0]['stars'] for c in cands]}, sending {len(good)}")
         for j, path, rows, info in good:
             seed = os.path.basename(path)[:-4]
