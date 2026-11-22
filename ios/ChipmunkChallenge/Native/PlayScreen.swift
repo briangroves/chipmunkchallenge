@@ -1054,7 +1054,7 @@ private struct LevelTag: View {
 
     var body: some View {
         let text: String = switch model.mode {
-        case .level: "Level \(model.boardIndex + (model.status == .won ? 0 : 1))"
+        case .level: "Level \(model.status == .won ? model.wonLevelNumber : model.levelNumber(model.boardIndex))"
         case .mining: "Challenge \(model.paraRound + (model.status == .won ? 0 : 1))"
         case .daily: "Day \(model.dayCount)"
         }

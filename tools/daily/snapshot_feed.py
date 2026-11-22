@@ -8,7 +8,9 @@
    Feed boards Brian denied on a second look are already swapped in the feed (publish.py), so they come along.
 2. Swaps the boards in the app's own boards.json "levels" that Brian denied on a second look for the new boards that
    took their slots (slots.py, replace.json in the queue repo): same id and place, new name and picture.
-3. Lists denied boards still waiting for a new board: those stay as they are in this build.
+3. Writes the denied boards still waiting for a new board into boards.json "skip" (id + fingerprint of the denied
+   picture): the game passes over them but keeps every board's index, so seeds and the feed's order don't change.
+   When a new board later fills the slot (same id, new rows), the fingerprint stops matching and it plays again.
 """
 import json
 import os
@@ -36,12 +38,21 @@ def snapshot_feed():
     log(f"snapshot: {n_new} boards ({n_new - n_old} new, {swapped} swapped) -> {os.path.relpath(OUT, ROOT)}")
 
 
+def fingerprint(rows):
+    """FNV-1a 64-bit hex of the rows joined by newlines (LevelCatalog.fingerprint in the engine)."""
+    h = 0xCBF29CE484222325
+    for b in "\n".join(rows).encode():
+        h = ((h ^ b) * 0x100000001B3) & 0xFFFFFFFFFFFFFFFF
+    return f"{h:016x}"
+
+
 def swap_bundled():
     from palette import adapt, limit
     ensure_clone(QUEUE, CFG["queue_repo"])
     st = load(os.path.join(QUEUE, "replace.json"), {"open": [], "filled": []})
     nb = json.load(open(BUNDLED))
     by_id = {L["id"]: L for L in nb["levels"]}
+    feed_by_id = {L["id"]: L for L in json.load(open(OUT))["levels"]}
     n = 0
     for s in st["filled"]:
         L = by_id.get(s["slot"])
@@ -50,13 +61,20 @@ def swap_bundled():
         log(f"  #{s['number']} {L['name']} -> {s['board']['name']}")
         L.update(name=s["board"]["name"], rows=limit(adapt(s["board"]["rows"])), source=s["board"]["id"])
         n += 1
-    if n:
+    skip = []
+    for s in st["open"]:
+        L = (feed_by_id if s["where"] == "feed" else by_id).get(s["slot"])
+        if L is None:
+            log(f"  denied board not found: #{s['number']} {s['name']} ({s['where']})")
+            continue
+        skip.append({"id": L["id"], "fingerprint": fingerprint(L["rows"])})
+        log(f"  skipped until a new board fills it: #{s['number']} {s['name']} ({s['where']})")
+    if n or nb.get("skip", []) != skip:
+        nb["skip"] = skip
         with open(BUNDLED, "w") as f:
             json.dump(nb, f, separators=(",", ":"))
             f.write("\n")
-    log(f"boards.json: {n} board{'s' * (n != 1)} swapped")
-    for s in st["open"]:
-        log(f"  still waiting for a new board: #{s['number']} {s['name']} ({s['where']})")
+    log(f"boards.json: {n} board{'s' * (n != 1)} swapped, {len(skip)} skipped")
 
 
 def main():

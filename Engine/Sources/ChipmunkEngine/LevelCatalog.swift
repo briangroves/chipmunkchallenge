@@ -53,6 +53,12 @@ public struct LevelCatalog: Decodable, Sendable {
     /// Coin Mining's boards from the new board maker (boards.json "mining", tools/make_mining.py). When there are
     /// any, Coin Mining plays them in place of the original pictures (`paradise`), which then only keep the numbering.
     public private(set) var miningBoards: [Picture] = []
+    /// Level Play boards Brian denied on a second look that have no new board in their slot yet (boards.json "skip",
+    /// written by tools/daily/snapshot_feed.py), as id -> fingerprint of the denied picture (`Self.fingerprint`).
+    /// Level Play passes over them, but every board keeps its index, so seeds, challenges and terrain don't move and
+    /// the feed stays publish-forever. Once a new board fills the slot (same id, new rows) the fingerprint no longer
+    /// matches and the board plays again.
+    public private(set) var skipped: [String: String] = [:]
 
     private enum CodingKeys: String, CodingKey {
         case format, source, packSize, packBonus, rampN, packs, paradise, baked
@@ -66,8 +72,24 @@ public struct LevelCatalog: Decodable, Sendable {
         var replace: [String: Picture]? = nil
         var retire: Bool? = nil
         var mining: [Picture]? = nil
+        var skip: [Skip]? = nil
 
         var boards: [Picture] { levels ?? (packs ?? []).flatMap(\.levels) }
+    }
+
+    private struct Skip: Decodable {
+        let id: String
+        let fingerprint: String
+    }
+
+    /// FNV-1a (64-bit, hex) of a picture's rows joined by newlines; tools/daily/snapshot_feed.py computes the same.
+    public static func fingerprint(_ rows: [String]) -> String {
+        var h: UInt64 = 0xcbf2_9ce4_8422_2325
+        for b in rows.joined(separator: "\n").utf8 {
+            h ^= UInt64(b)
+            h = h &* 0x0000_0100_0000_01B3
+        }
+        return String(format: "%016llx", h)
     }
 
     /// The catalog that ships inside the engine.
@@ -82,12 +104,14 @@ public struct LevelCatalog: Decodable, Sendable {
             c.replacements = nb.replace ?? [:]
             c.retireOriginals = nb.retire ?? false
             c.miningBoards = nb.mining ?? []
+            c.skipped = Dictionary((nb.skip ?? []).map { ($0.id, $0.fingerprint) }, uniquingKeysWith: { a, _ in a })
         }
         // Boards approved in the Board Reviewer app, added by tools/daily/publish.py, played after all the others.
         if let approved = Bundle.module.url(forResource: "approved-boards", withExtension: "json"),
            let nb = try? JSONDecoder().decode(NewBoards.self, from: Data(contentsOf: approved)) {
             c.approvedBoards = nb.boards
         }
+        c.refreshSkips()
         return c
     }
 
@@ -103,6 +127,7 @@ public struct LevelCatalog: Decodable, Sendable {
               zip(old, new).allSatisfy({ $0.id == $1.id }),
               new.allSatisfy({ $0.rows.count == 40 && $0.rows.allSatisfy { $0.count == 40 && $0.allSatisfy { PALETTE[paletteLetter($0)] != nil } } }) else { return 0 }
         approvedBoards = new
+        refreshSkips()
         return new.count - old.count
     }
 
@@ -114,6 +139,32 @@ public struct LevelCatalog: Decodable, Sendable {
         if retireOriginals { return newBoards + approvedBoards }
         let originals = packs.flatMap(\.levels).map { replacements[$0.id] ?? $0 }
         return originals + newBoards + approvedBoards
+    }
+
+    /// Level Play indices passed over right now (see `skipped`), kept current by `bundled()` and `merge(feed:)`.
+    public private(set) var skippedIndices: Set<Int> = []
+
+    private mutating func refreshSkips() {
+        guard !skipped.isEmpty else { skippedIndices = []; return }
+        skippedIndices = Set(levelPlay.enumerated().compactMap { i, p in
+            skipped[p.id] == Self.fingerprint(p.rows) ? i : nil
+        })
+    }
+
+    /// True when Level Play passes over board i (a denied board still waiting for a new one).
+    public func isSkipped(_ i: Int) -> Bool { skippedIndices.contains(i) }
+
+    /// The first board at index i or later that Level Play plays, or nil if there is none yet.
+    public func playable(from i: Int) -> Int? {
+        var j = max(0, i)
+        let n = levelPlay.count
+        while j < n, skippedIndices.contains(j) { j += 1 }
+        return j < n ? j : nil
+    }
+
+    /// The level number a player sees for board i: its place counting only boards that are played.
+    public func levelNumber(forBoard i: Int) -> Int {
+        i + 1 - skippedIndices.lazy.filter { $0 < i }.count
     }
 
     /// Where Coin Mining's numbering starts: right after the original 170 boards, whatever packs are added after

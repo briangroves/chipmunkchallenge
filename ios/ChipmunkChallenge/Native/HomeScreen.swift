@@ -165,13 +165,13 @@ private struct LevelHero: View {
                             .foregroundStyle(Theme.ink)
                             .lineLimit(1)
                             .minimumScaleFactor(0.6)
-                        Text("All \(i + 1) levels cleared · replay Level \(i + 1)")
+                        Text("All \(model.levelNumber(i)) levels cleared · replay Level \(model.levelNumber(i))")
                             .font(Theme.body(14, 700))
                             .foregroundStyle(Color(hex: 0x4A5841))
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)
                     } else {
-                        Text("Level \(i + 1)")
+                        Text("Level \(model.levelNumber(i))")
                             .font(Theme.display(34))
                             .foregroundStyle(Theme.ink)
                         Text(picture.name)
@@ -543,7 +543,7 @@ private struct DailyPicker: View {
                     .foregroundStyle(Color(hex: 0x4A5841))
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
-                choice(title: "Level Play", detail: "Level \(i + 1) · \(model.catalog.levelPlay[i].name)",
+                choice(title: "Level Play", detail: "Level \(model.levelNumber(i)) · \(model.catalog.levelPlay[i].name)",
                        rows: model.catalog.levelPlay[i].rows, color: Theme.darkInk) {
                     withAnimation(.easeOut(duration: 0.2)) { model.pickDaily(mining: false) }
                 }

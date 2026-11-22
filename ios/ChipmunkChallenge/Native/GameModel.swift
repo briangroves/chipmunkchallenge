@@ -324,6 +324,8 @@ final class GameModel: ObservableObject {
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
         tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
         boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), c.levelPlay.count - 1)
+        // A player parked on a board that's now passed over (denied on a second look) moves on to the next one.
+        if c.isSkipped(boardIndex), let j = c.playable(from: boardIndex) { boardIndex = j }
         outOfLevels = store.bool(forKey: Self.outOfBoardsKey)
         store.set(Self.saveVersion, forKey: "native.saveVersion")
         tickHearts()
@@ -353,6 +355,12 @@ final class GameModel: ObservableObject {
 
     /// The level the home screen offers.
     var homeIndex: Int { boardIndex }
+
+    /// The number players see for Level Play board i (denied boards passed over don't count).
+    func levelNumber(_ i: Int) -> Int { catalog.levelNumber(forBoard: i) }
+
+    /// The number of the level just won, for the win screen (boardIndex has already moved on by then).
+    private(set) var wonLevelNumber = 0
 
     /// Home's Level Play card: resume the level in progress, or start the next one.
     func playLevel() {
@@ -447,7 +455,9 @@ final class GameModel: ObservableObject {
     var dailyBoard: DailyBoard {
         let day = Self.dayNo()
         let r = RNG(seed: day &* 2_654_435 &+ 11)
-        let pool = Array(min(5, catalog.levelPlay.count - 1)..<min(catalog.paradiseFrom, catalog.levelPlay.count))
+        let all = Array(min(5, catalog.levelPlay.count - 1)..<min(catalog.paradiseFrom, catalog.levelPlay.count))
+        let kept = all.filter { !catalog.isSkipped($0) }
+        let pool = kept.isEmpty ? all : kept
         let pic = pool[r.int(pool.count)]
         return DailyBoard(day: day, picture: pic, rampN: 50 + r.int(61))
     }
@@ -488,7 +498,7 @@ final class GameModel: ObservableObject {
         }
         let key = Difficulty.skillKey(current.goal)
         build(base: catalog.base(forBoard: i), key: key, seed: catalog.seed(forBoard: i, attempt: attempt),
-              aim: LevelCatalog.baseAim(key), baked: nil, attempt: attempt, title: catalog.levelPlay[i].name, subtitle: "Level \(i + 1)",
+              aim: LevelCatalog.baseAim(key), baked: nil, attempt: attempt, title: catalog.levelPlay[i].name, subtitle: "Level \(levelNumber(i))",
               label: "",
               boxes: BoxSource(rows: catalog.levelPlay[i].rows, id: catalog.levelPlay[i].id, index: i,
                                board: i < 20 ? .warmup(i + 1) : .level(i + 1)))
@@ -777,10 +787,12 @@ final class GameModel: ObservableObject {
             }
             current = CurrentLevel(index: -1, goal: skill.goal, tries: 1)
             saveSkill()
-            noteLevelWonForReview(boardIndex + 1)
-            // The next level is the one after this, from now on (finished levels aren't replayed).
-            if boardIndex + 1 < catalog.levelPlay.count {
-                boardIndex += 1
+            wonLevelNumber = levelNumber(boardIndex)
+            noteLevelWonForReview(wonLevelNumber)
+            // The next level is the one after this, from now on (finished levels aren't replayed); boards denied on
+            // a second look are passed over.
+            if let j = catalog.playable(from: boardIndex + 1) {
+                boardIndex = j
                 store.set(false, forKey: Self.outOfBoardsKey)
                 outOfLevels = false
             } else {
@@ -825,10 +837,10 @@ final class GameModel: ObservableObject {
     /// game moves them on, in payOut, so no board is skipped). `force` is for callers about to load a fresh board.
     private func moveOnToNewBoards(force: Bool = false) {
         guard store.bool(forKey: Self.outOfBoardsKey), force || screen != .play,
-              boardIndex + 1 < catalog.levelPlay.count else { return }
+              let j = catalog.playable(from: boardIndex + 1) else { return }
         store.set(false, forKey: Self.outOfBoardsKey)
         outOfLevels = false
-        boardIndex += 1
+        boardIndex = j
         store.set(boardIndex, forKey: Self.boardKey)
     }
 
