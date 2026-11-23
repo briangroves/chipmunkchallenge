@@ -83,7 +83,9 @@ final class FeedTests: XCTestCase {
 
     func testANewBoardInADeniedSlotPlaysAgain() throws {
         var c = try LevelCatalog.bundled()
-        guard let i = c.skippedIndices.min() else { throw XCTSkip("this build skips no boards") }
+        // A feed board (the app's own boards in boards.json are swapped only by a new build).
+        let feedFrom = c.levelPlay.count - c.approvedBoards.count
+        guard let i = c.skippedIndices.filter({ $0 >= feedFrom }).min() else { throw XCTSkip("this build skips no feed boards") }
         let id = c.levelPlay[i].id
         // The feed as publish.py writes it after a new board fills the slot: same id and place, new rows.
         let start = c.approvedBoards.map(\.id)

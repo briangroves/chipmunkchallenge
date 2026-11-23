@@ -253,6 +253,9 @@ public struct BuildOptions: Sendable {
     var gapHint: Double?
     /// Native: this build is the one extra try for a board that came out far too hard.
     var rescue = false
+    /// Native: build with nests of 5 or more only; nil rather than relax (`generateLevelRetrying` tries other seeds
+    /// this way first).
+    var strictOnly = false
 
     public init() {}
 
@@ -359,7 +362,7 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
        nests of 1; the native game first relaxes only to 3 (so a nest under 3 appears only when even that jams, or a
        color has fewer than 3 blocks), on the same seeds the old single relaxed pass used. */
     let passes: [(relax: Bool, floor: Int?)] = opt.webParity ? [(false, nil), (true, nil)]
-        : [(false, nil), (true, 3), (true, 1)]
+        : opt.strictOnly ? [(false, nil)] : [(false, nil), (true, 3), (true, 1)]
     for (relax, floor) in passes {
         var best: (seq: [NestSpec], tl: Tuned)?
         // Native: how much easier the timed game plays than the instant model on this picture, learned from each deal
@@ -481,8 +484,20 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
 /// `generateLevel`, but if this seed can't make a board, try a few others before giving up. A handful of the clipart
 /// pictures fail on one seed and build on the next; without this the player would be stuck on "couldn't build".
 /// The extra seeds are far from the per-attempt seeds (seed + attempt), so a retry never repeats another attempt.
+/// Native (since 2026-11-23): a strict build that jams used to relax on the same seed, which fills the whole board
+/// with nests of 3-4. Now a few seeds are tried with nests of 5 or more first, and only then does a build relax.
+/// A board that built strictly on its own seed comes out exactly as before.
 public func generateLevelRetrying(base: LevelBase, seed: Int, diffKey: String = "normal",
                                   options: BuildOptions = BuildOptions(), tries: Int = 6) -> Level? {
+    if !options.webParity {
+        var strict = options
+        strict.strictOnly = true
+        for k in 0..<min(4, max(1, tries)) {
+            if let lv = generateLevel(base: base, seed: seed + k * 100_003, diffKey: diffKey, options: strict) {
+                return lv
+            }
+        }
+    }
     for k in 0..<max(1, tries) {
         if let lv = generateLevel(base: base, seed: seed + k * 100_003, diffKey: diffKey, options: options) {
             return lv
