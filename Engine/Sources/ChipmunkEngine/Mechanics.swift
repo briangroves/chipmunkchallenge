@@ -71,14 +71,16 @@ public func rocksFor(_ rowsIn: [String], _ n: Int) -> [Int]? {
 }
 
 /// What the builder needs for Level Play board n: the picture plus this board's rocks and locked slot, and with
-/// `terrain` the native game's boulder fields, lakes and burrows (Terrain.swift). Pass n = 0 for Coin Mining and photo
-/// boards (none of these). The web game has no terrain, so the parity tests leave it off.
-public func levelBase(name: String, rows: [String], boardNumber n: Int, terrain: Bool = false) -> LevelBase {
+/// `terrain` the native game's boulder fields, lakes and burrows (Terrain.swift); lakes only when `drawsWater` (the
+/// picture draws a lake, river or sea). Pass n = 0 for Coin Mining and photo boards (none of these). The web game has
+/// no terrain, so the parity tests leave it off.
+public func levelBase(name: String, rows: [String], boardNumber n: Int, terrain: Bool = false,
+                      drawsWater: Bool = false) -> LevelBase {
     var b = LevelBase(name: name, rows: rows)
     if n > 0 {
         b.rocks = rocksFor(rows, n)
         if terrain && n >= BOULDERS_FROM {
-            let t = terrainFor(rows, n, rocks: b.rocks)
+            let t = terrainFor(rows, n, rocks: b.rocks, drawsWater: drawsWater)
             b.rocks = t.rocks.isEmpty ? nil : t.rocks
             b.water = t.water.isEmpty ? nil : t.water
             b.burrows = t.burrows.isEmpty ? nil : t.burrows

@@ -72,37 +72,81 @@ final class TerrainTests: XCTestCase {
     }
 
     func testFirstBoardsOfEachFeature() {
-        let rows = catalog.levelPlay[0].rows
-        XCTAssertNil(levelBase(name: "", rows: rows, boardNumber: LAKE_FROM - 1, terrain: true).water)
-        XCTAssertNotNil(levelBase(name: "", rows: rows, boardNumber: LAKE_FROM, terrain: true).water)
-        XCTAssertNil(levelBase(name: "", rows: rows, boardNumber: LAKE_FROM, terrain: false).water, "web parity")
-        XCTAssertNotNil(catalog.base(forBoard: LAKE_FROM - 1).water, "the first lake board has its lake")
-        XCTAssertNotNil(catalog.base(forBoard: BURROW_FROM - 1).burrows, "the first moat board has its burrow")
+        // Water only from LAKE_FROM, only on pictures known to draw it, and never in the web game's boards.
+        let i = (LAKE_FROM - 1..<catalog.levelPlay.count).first { catalog.drawsWater($0) }!
+        let rows = catalog.levelPlay[i].rows
+        XCTAssertNil(levelBase(name: "", rows: rows, boardNumber: LAKE_FROM - 1, terrain: true, drawsWater: true).water)
+        XCTAssertNotNil(levelBase(name: "", rows: rows, boardNumber: LAKE_FROM, terrain: true, drawsWater: true).water)
+        XCTAssertNil(levelBase(name: "", rows: rows, boardNumber: LAKE_FROM, terrain: true, drawsWater: false).water,
+                     "blue alone never makes a lake")
+        XCTAssertNil(levelBase(name: "", rows: rows, boardNumber: LAKE_FROM, terrain: false, drawsWater: true).water,
+                     "web parity")
+        XCTAssertNotNil(catalog.base(forBoard: i).water)
+        XCTAssertNotNil(catalog.base(forBoard: BURROW_FROM - 1).burrows, "the first burrow board has its burrow")
+    }
+
+    /// Night sky, sky between the subject's parts, snow shading and fences are blue but not water.
+    func testSkyIsNeverWater() {
+        for name in ["Bush Baby", "Indigo Bunting", "Barn Owlet", "Sugar Glider", "Little Gargoyle", "Reindeer Calf",
+                     "Tiny Sphinx", "Barn Kitten", "Gray Fox Kit"] {
+            guard let i = catalog.levelPlay.firstIndex(where: { $0.name == name }) else { continue }
+            XCTAssertFalse(catalog.drawsWater(i), name)
+            XCTAssertNil(catalog.base(forBoard: i).water, name)
+        }
+        // Every listed picture is still in the game and its water is found.
+        let ids = Set(catalog.levelPlay.map(\.id))
+        XCTAssertTrue(catalog.waterBoards.isSubset(of: ids))
+        for (i, p) in catalog.levelPlay.enumerated() where catalog.drawsWater(i) {
+            XCTAssertFalse(drawnWater(p.rows).isEmpty, "\(p.name): listed as drawing water, but none found")
+        }
+    }
+
+    /// Which pictures draw water, over every Level Play board (run it to see; the lake boards are checked by eye
+    /// with testShow).
+    func testDrawnWaterSurvey() {
+        var found = 0
+        for (i, p) in catalog.levelPlay.enumerated() {
+            let w = drawnWater(p.rows)
+            if w.isEmpty { continue }
+            found += 1
+            let W = p.rows[0].count
+            let top = w.map { $0 / W }.min()!, bottom = w.map { $0 / W }.max()!
+            print("WATER board \(i + 1) \(p.name): \(w.count) cells, rows \(top)-\(bottom)")
+        }
+        print("WATER found on \(found) of \(catalog.levelPlay.count) pictures")
     }
 
     /// Every Level Play board from the first boulder board on: the terrain walls nothing in, every colour keeps at
     /// least MIN_NEST blocks, and the board builds and can be won.
     func testTerrainBoardsBuildAndClear() {
         let lp = catalog.levelPlay
-        var stats = (lakes: 0, moats: 0, shortcuts: 0, boulders: 0, boards: 0)
-        for i in (BOULDERS_FROM - 1)..<min(lp.count, 230) {
+        var stats = (lakes: 0, islands: 0, burrowBoards: 0, twoBurrows: 0, boulders: 0, boards: 0)
+        for i in (BOULDERS_FROM - 1)..<lp.count {
             let n = i + 1
             let b = catalog.base(forBoard: i)
             let W = b.rows[0].count, H = b.rows.count
             let solid = Set((b.rocks ?? []) + (b.water ?? []))
-            XCTAssertTrue(walledIn(W: W, H: H, solid: solid, burrows: b.burrows ?? []).isEmpty, "board \(n)")
+            let shut = walledIn(W: W, H: H, solid: solid, burrows: b.burrows ?? [])
+            XCTAssertTrue(shut.allSatisfy { b.rows[$0 / W][b.rows[$0 / W].index(b.rows[$0 / W].startIndex, offsetBy: $0 % W)] == "." },
+                          "board \(n) walls blocks in")
             let art = Art(b, slots: 5)
             XCTAssertGreaterThanOrEqual(art.counts.dropFirst().filter { $0 > 0 }.min() ?? MIN_NEST, MIN_NEST, "board \(n)")
-            stats.boards += 1
-            if b.water != nil { stats.lakes += 1 }
-            if b.water != nil && b.burrows != nil { stats.moats += 1 }
-            if b.water == nil && b.burrows != nil { stats.shortcuts += 1 }
-            if (b.rocks?.count ?? 0) >= 12 && boulderFor(n) { stats.boulders += 1 }
-            if lakeFor(n) || moatFor(n) {
-                print("LAKE board \(n): \(moatFor(n) ? "moat" : "pond") -> \(b.water == nil ? "none" : b.burrows == nil ? "pond" : "moat") \(b.water?.count ?? 0)")
+            if let w = b.water {
+                XCTAssertEqual(Set(w), drawnWater(lp[i].rows), "board \(n): water is only what the picture draws")
             }
-            // Building is slow; build every fifth board, plus every board with a burrow.
-            guard n % 5 == 0 || b.burrows != nil else { continue }
+            stats.boards += 1
+            let water = Set(b.water ?? [])
+            let pairs = (b.burrows ?? []).count / 2
+            let byWater = stride(from: 0, to: (b.burrows ?? []).count, by: 2).filter { k in
+                [b.burrows![k], b.burrows![k + 1]].contains { i in neighbors(i, W: W, H: H).contains { water.contains($0) } }
+            }.count
+            if !water.isEmpty { stats.lakes += 1 }
+            if byWater > 0 { stats.islands += 1 }
+            if pairs - byWater > 0 { stats.burrowBoards += 1 }
+            if pairs - byWater > 1 { stats.twoBurrows += 1 }
+            if (b.rocks?.count ?? 0) >= 12 && boulderFor(n) { stats.boulders += 1 }
+            // Building is slow; build every fifth board, plus every board with water or a burrow.
+            guard n % 5 == 0 || b.burrows != nil || b.water != nil else { continue }
             let key = catalog.diffKey(forBoard: i)
             var o = BuildOptions.game
             o.aim = LevelCatalog.baseAim(key)
@@ -115,21 +159,23 @@ final class TerrainTests: XCTestCase {
             XCTAssertNotNil(solve(lv, m, cap: 20000).path, "board \(n) can't be won")
         }
         print("TERRAIN", stats)
-        XCTAssertGreaterThan(stats.lakes, 10)
-        XCTAssertGreaterThan(stats.moats, 3)
+        XCTAssertGreaterThan(stats.burrowBoards, (lp.count - BURROW_FROM) / 4, "burrows on a fair share of boards")
     }
 
-    /// Debug: print a board's terrain as text. TERRAIN_BOARD=n swift test -c release --filter TerrainTests/testShow
+    /// Debug: print a board's picture and its terrain side by side.
+    /// TERRAIN_BOARD=n swift test -c release --filter TerrainTests/testShow
     func testShow() throws {
         guard let v = ProcessInfo.processInfo.environment["TERRAIN_BOARD"], let n = Int(v) else { throw XCTSkip() }
-        let b = catalog.base(forBoard: n - 1)
+        let b = catalog.base(forBoard: n - 1), pic = catalog.levelPlay[n - 1]
         let water = Set(b.water ?? []), rocks = Set(b.rocks ?? []), bur = Set(b.burrows ?? [])
         let W = b.rows[0].count
+        print("SHOW \(n) \(pic.name)")
         for (r, row) in b.rows.enumerated() {
-            print(String(row.enumerated().map { c, ch in
+            let t = String(row.enumerated().map { c, ch in
                 let i = r * W + c
                 return water.contains(i) ? "~" : rocks.contains(i) ? "#" : bur.contains(i) ? "@" : ch == "." ? " " : ch
-            }))
+            })
+            print("SHOW " + pic.rows[r] + "  " + t)
         }
     }
 }

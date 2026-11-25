@@ -13,6 +13,8 @@ public struct LevelCatalog: Decodable, Sendable {
         public let id: String
         public let name: String
         public let rows: [String]
+        /// The picture draws a lake, river or sea (a board in the feed may say so itself).
+        public var water: Bool? = nil
     }
 
     public struct Pack: Decodable, Sendable {
@@ -53,6 +55,9 @@ public struct LevelCatalog: Decodable, Sendable {
     /// Coin Mining's boards from the new board maker (boards.json "mining", tools/make_mining.py). When there are
     /// any, Coin Mining plays them in place of the original pictures (`paradise`), which then only keep the numbering.
     public private(set) var miningBoards: [Picture] = []
+    /// Ids of the pictures checked by eye as drawing water (Resources/water-boards.json). Only these, and feed boards
+    /// marked `water`, get lakes.
+    public private(set) var waterBoards: Set<String> = []
     /// Level Play boards Brian denied on a second look that have no new board in their slot yet (boards.json "skip",
     /// written by tools/daily/snapshot_feed.py), as id -> fingerprint of the denied picture (`Self.fingerprint`).
     /// Level Play passes over them, but every board keeps its index, so seeds, challenges and terrain don't move and
@@ -105,6 +110,14 @@ public struct LevelCatalog: Decodable, Sendable {
             c.retireOriginals = nb.retire ?? false
             c.miningBoards = nb.mining ?? []
             c.skipped = Dictionary((nb.skip ?? []).map { ($0.id, $0.fingerprint) }, uniquingKeysWith: { a, _ in a })
+        }
+        struct WaterList: Decodable {
+            struct Board: Decodable { let id: String }
+            let boards: [Board]
+        }
+        if let w = Bundle.module.url(forResource: "water-boards", withExtension: "json"),
+           let list = try? JSONDecoder().decode(WaterList.self, from: Data(contentsOf: w)) {
+            c.waterBoards = Set(list.boards.map(\.id))
         }
         // Boards approved in the Board Reviewer app, added by tools/daily/publish.py, played after all the others.
         if let approved = Bundle.module.url(forResource: "approved-boards", withExtension: "json"),
@@ -179,7 +192,13 @@ public struct LevelCatalog: Decodable, Sendable {
     /// The picture plus this board's rocks, lakes, burrows and locked slot.
     public func base(forBoard i: Int) -> LevelBase {
         let p = levelPlay[i]
-        return levelBase(name: p.name, rows: p.rows, boardNumber: i + 1, terrain: true)
+        return levelBase(name: p.name, rows: p.rows, boardNumber: i + 1, terrain: true, drawsWater: drawsWater(i))
+    }
+
+    /// Board i's picture draws water (a lake, river or sea), so it may have a lake.
+    public func drawsWater(_ i: Int) -> Bool {
+        let p = levelPlay[i]
+        return p.water ?? waterBoards.contains(p.id)
     }
 
     /// The pre-built board for board i, if it ships one (only for the first attempt at the standard aim).

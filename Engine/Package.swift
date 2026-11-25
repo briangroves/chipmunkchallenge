@@ -14,7 +14,8 @@ let package = Package(
         .target(
             name: "ChipmunkEngine",
             resources: [.copy("Resources/levels.json"), .copy("Resources/boards.json"),
-                        .copy("Resources/approved-boards.json")],
+                        .copy("Resources/approved-boards.json"),
+                        .copy("Resources/water-boards.json")],
             // Level building is heavy; optimize the engine even in Debug app builds so boards build in seconds.
             swiftSettings: [.unsafeFlags(["-O"], .when(configuration: .debug))]
         ),

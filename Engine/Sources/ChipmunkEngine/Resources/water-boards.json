@@ -1,0 +1,113 @@
+{
+ "about": "Level Play pictures that draw a lake, river or sea, checked by eye (2026-11-24). Only these get lakes: the engine finds the water's cells (drawnWater) but never decides on its own that blue is water.",
+ "boards": [
+  {
+   "id": "pilot-eagle-s1",
+   "name": "Eagle"
+  },
+  {
+   "id": "new-2026-11-12-snowplow-s4",
+   "name": "Blue-Footed Booby"
+  },
+  {
+   "id": "new-2026-11-12-phoenix-chick-s6",
+   "name": "Phoenix Chick"
+  },
+  {
+   "id": "new-2026-11-12-viking-kid-s1",
+   "name": "Viking Kid"
+  },
+  {
+   "id": "new-2026-11-13-pirate-hamster-s1",
+   "name": "Rainbow Boa"
+  },
+  {
+   "id": "new-2026-11-13-otter-sailor-s4",
+   "name": "Otter Sailor"
+  },
+  {
+   "id": "new-2026-11-15-mermaid-kid-s6",
+   "name": "Mermaid Kid"
+  },
+  {
+   "id": "new-2026-11-15-icebreaker-ship-s5",
+   "name": "Icebreaker Ship"
+  },
+  {
+   "id": "new-2026-11-15-manatee-submarine-s5",
+   "name": "Manatee Submarine"
+  },
+  {
+   "id": "new-2026-11-17-mink-kit-s1",
+   "name": "Mink Kit"
+  },
+  {
+   "id": "new-2026-11-17-painted-turtle-s5",
+   "name": "Painted Turtle"
+  },
+  {
+   "id": "new-2026-11-17-heron-chick-s3",
+   "name": "Heron Chick"
+  },
+  {
+   "id": "new-2026-11-17-baby-walrus-s6",
+   "name": "Baby Walrus"
+  },
+  {
+   "id": "new-2026-11-18-fire-bellied-toad-s1",
+   "name": "Fire-Bellied Toad"
+  },
+  {
+   "id": "new-2026-11-18-harbor-seal-pup-s4",
+   "name": "Harbor Seal Pup"
+  },
+  {
+   "id": "new-2026-11-18-crane-chick-s5",
+   "name": "Crane Chick"
+  },
+  {
+   "id": "new-2026-11-18-dragon-boat-s6",
+   "name": "Dragon Boat"
+  },
+  {
+   "id": "new-2026-11-19-wood-turtle-s6",
+   "name": "Wood Turtle"
+  },
+  {
+   "id": "new-2026-11-19-mudpuppy-s5",
+   "name": "Mudpuppy"
+  },
+  {
+   "id": "new-2026-11-19-dipper-chick-s3",
+   "name": "Dipper Chick"
+  },
+  {
+   "id": "new-2026-11-19-wood-frog-s3",
+   "name": "Wood Frog"
+  },
+  {
+   "id": "new-2026-11-19-baby-dragon-turtle-s1",
+   "name": "Baby Dragon Turtle"
+  },
+  {
+   "id": "new-2026-11-19-bittern-chick-s6",
+   "name": "Bittern Chick"
+  },
+  {
+   "id": "new-2026-11-20-red-river-piglet-s3",
+   "name": "Red River Piglet"
+  },
+  {
+   "id": "new-2026-11-20-merganser-chick-s4",
+   "name": "Merganser Chick"
+  },
+  {
+   "id": "new-2026-11-20-nutria-pup-s3",
+   "name": "Nutria Pup"
+  },
+  {
+   "id": "new-2026-11-17-sunset-bullfrog-s2",
+   "name": "Sunset Bullfrog"
+  }
+ ]
+}

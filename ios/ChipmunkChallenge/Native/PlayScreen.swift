@@ -384,7 +384,7 @@ private struct ControlRow: View {
                 }
             HUDButton(icon: Icons.undo, disabled: model.isPro && !model.canUndo) { model.undo() }
                 .proLock(!model.isPro, "Undo") { model.openPaywall(.undo) }
-            HUDButton(icon: Icons.speed, on: model.fast) { model.toggleFast() }
+            HUDButton(icon: Icons.speed, on: model.fastShown) { model.toggleFast() }
                 .proLock(!model.isPro, "Fast-forward") { model.openPaywall(.fastForward) }
             Spacer(minLength: 2)
             HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek, rainbow: true,

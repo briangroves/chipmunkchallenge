@@ -1,14 +1,16 @@
 import Foundation
 
 /* ---- Terrain for the native game's later boards (since 2026-11-21) ----
-   Three additions on top of the web game's rocks and lock, all seeded from the board number so a board always comes
-   out the same:
+   Three additions on top of the web game's rocks and lock, all decided from the picture and the board number, so a
+   board always comes out the same:
 
    - Boulders (from BOULDERS_FROM): now and then one rock clump is a big boulder field instead of a 2x2-3x4 clump.
-   - Lakes (from LAKE_FROM): one rounded body of water, usually over the picture's backdrop (blue backdrop most of all).
-     Critters can't cross it, so it reshapes the routes and the order the board opens up in.
-   - Burrows (from BURROW_FROM): two holes joined underground. Some lakes are a moat round an island, reachable only
-     through a burrow; other boards get a shortcut burrow from near the edge into the middle of the picture.
+   - Lakes (from LAKE_FROM): only where the picture itself draws water, a lake, river or sea (2026-11-24: never made
+     up, and never the sky). Which pictures draw water is decided by eye (Resources/water-boards.json, or a feed
+     board's own `water` flag); `drawnWater` then finds the water's cells. That water becomes one body of water
+     critters can't cross. A piece of the picture the water walls in (an island) gets a burrow to it.
+   - Burrows (from BURROW_FROM): two holes joined underground, with or without water: from near the edge into the
+     middle of the picture, or between two places deep inside it, so opening one opens the other.
 
    Every board is checked so each block can still be reached from the edge (through burrows where there are any).
    A layout that would wall blocks in is dropped, so terrain never makes a board impossible.
@@ -16,9 +18,6 @@ import Foundation
    The web game has none of this, so `levelBase(..., terrain: false)` (the parity tests) leaves it out. */
 
 public let BOULDERS_FROM = 60, LAKE_FROM = 75, BURROW_FROM = 100
-
-/// Fewest blocks a lake keeps between itself and the board's edge.
-let LAKE_MARGIN = 2
 
 /// What a board's terrain adds to the picture.
 public struct Terrain: Equatable, Sendable {
@@ -28,23 +27,14 @@ public struct Terrain: Equatable, Sendable {
     public var burrows: [Int] = []
 }
 
-/// A lake shows up on the first lake board, then on a growing share of boards.
-public func lakeFor(_ n: Int) -> Bool {
-    if n < LAKE_FROM { return false }
-    if n == LAKE_FROM { return true }
-    return RNG(seed: n * 15_485_863 + 11).next() < min(0.45, 0.2 + Double(n - LAKE_FROM) / 300)
-}
-
-/// A lake that is a moat round an island (needs burrows).
-func moatFor(_ n: Int) -> Bool {
-    if n < BURROW_FROM { return false }
-    if n == BURROW_FROM { return true }
-    return RNG(seed: n * 982_451_653 + 3).next() < min(0.5, 0.25 + Double(n - BURROW_FROM) / 400)
-}
-
-/// A shortcut burrow on a board with no moat.
-func shortcutFor(_ n: Int) -> Bool {
-    n > BURROW_FROM && RNG(seed: n * 32_452_843 + 9).next() < min(0.3, 0.12 + Double(n - BURROW_FROM) / 500)
+/// How many standalone burrows board n gets: none before BURROW_FROM, one on the first burrow board, then one on a
+/// growing share of boards, and from board 150 sometimes two.
+func burrowCount(_ n: Int) -> Int {
+    if n < BURROW_FROM { return 0 }
+    if n == BURROW_FROM { return 1 }
+    let r = RNG(seed: n * 32_452_843 + 9)
+    guard r.next() < min(0.6, 0.35 + Double(n - BURROW_FROM) / 400) else { return 0 }
+    return n >= 150 && r.next() < 0.35 ? 2 : 1
 }
 
 /// One rock clump becomes a boulder field.
@@ -119,6 +109,24 @@ func solidOnePiece(_ cells: Set<Int>, W: Int, H: Int, from: Int) -> Set<Int> {
 /// Chebyshev distance between two cells.
 @inline(__always) func gap(_ a: Int, _ b: Int, W: Int) -> Int { max(abs(a / W - b / W), abs(a % W - b % W)) }
 
+/// Connected pieces (4-way) of the cells `inside` accepts.
+func pieces(W: Int, H: Int, _ inside: (Int) -> Bool) -> [[Int]] {
+    var seen = [Bool](repeating: false, count: W * H), out: [[Int]] = []
+    for i in 0..<(W * H) where !seen[i] && inside(i) {
+        var comp = [i], q = [i]
+        seen[i] = true
+        while let j = q.popLast() {
+            for m in neighbors(j, W: W, H: H) where !seen[m] && inside(m) {
+                seen[m] = true
+                comp.append(m)
+                q.append(m)
+            }
+        }
+        out.append(comp)
+    }
+    return out
+}
+
 // MARK: - Reachability
 
 /// Cells (not rock or water) a critter can't get to from the board's edge, even digging through every block and
@@ -148,7 +156,7 @@ func walledIn(W: Int, H: Int, solid: Set<Int>, burrows: [Int]) -> [Int] {
     return (0..<(W * H)).filter { !seen[$0] && !solid.contains($0) }
 }
 
-// MARK: - Placement
+// MARK: - Backdrop
 
 /// How much each picture colour belongs to the backdrop: how often it runs along the board's edge.
 func edgeWeight(_ rows: [[Character]]) -> [Character: Double] {
@@ -167,17 +175,13 @@ func edgeWeight(_ rows: [[Character]]) -> [Character: Double] {
     return edge.mapValues { $0 / top }
 }
 
-/// Picture letters that read as water when a lake covers them.
-let WATERY: Set<Character> = ["B", "C", "U"]
-
-/// Score a set of cells as terrain: high over the backdrop (and, for a lake, over blue), low over the subject.
-func backdropScore(_ cells: Set<Int>, _ rows: [[Character]], _ edge: [Character: Double], W: Int, lake: Bool) -> Double {
+/// Score a set of cells as rock: high over the backdrop, low over the subject.
+func backdropScore(_ cells: Set<Int>, _ rows: [[Character]], _ edge: [Character: Double], W: Int) -> Double {
     var sc = 0.0
     for i in cells {
         let r = i / W, c = i % W
         let ch = c < rows[r].count ? paletteLetter(rows[r][c]) : "."
         sc += (edge[ch] ?? 0) - 0.35
-        if lake && WATERY.contains(ch) { sc += 0.6 }
     }
     return sc / Double(max(1, cells.count))
 }
@@ -205,75 +209,174 @@ func backdropMask(_ rows: [[Character]], _ edge: [Character: Double]) -> [Bool] 
     return back
 }
 
-/// Least share of a lake's water that must lie on the backdrop.
-let LAKE_ON_BACKDROP = 0.95
+// MARK: - Water drawn in the picture
 
-/// The best place for a lake of about `area` cells (a moat when `moat`): off the board's edge, clear of rocks, with
-/// its water on the backdrop; lower in the scene and over blue backdrop is better. Nil when it fits nowhere.
-func placeLake(rows: [[Character]], W: Int, H: Int, area: Int, moat: Bool, back: [Bool], edge: [Character: Double],
-               rocks: Set<Int>, _ r: RNG) -> (water: Set<Int>, island: Set<Int>)? {
-    var best: (water: Set<Int>, island: Set<Int>)?, bs = -Double.infinity
-    for _ in 0..<160 {
-        let r0 = 3 + Int(r.next() * Double(H - 6)), c0 = 3 + Int(r.next() * Double(W - 6))
-        // Only start from the backdrop.
-        if !back[r0 * W + c0] && !moat { continue }
-        let aspect = moat ? 0.8 + r.next() * 0.5 : 0.9 + r.next() * 2.2
-        var w = blob(W: W, H: H, r0: r0, c0: c0, area: area, aspect: aspect, r)
-        var island = Set<Int>()
-        if moat {
-            // Keep the middle as an island: cells at least 3 in from the lake's edge.
-            island = w.filter { i in
-                let rr = i / W, cc = i % W
-                for dr in -2...2 { for dc in -2...2 where !w.contains((rr + dr) * W + cc + dc) { return false } }
-                return true
+/// Picture letters that can be drawn water.
+let WATERY: Set<Character> = ["B", "C", "U"]
+
+/// Least cells for drawn water to count as a lake or river.
+let WATER_MIN = 20
+/// Most of the board drawn water may take; a picture that is mostly sea plays as it is.
+let WATER_MAX_SHARE = 0.4
+/// Enclosed bits inside the water up to this size (ripples, glints) become water too.
+let WATER_HOLE = 6
+/// A blue region whose cells sit higher than this share of the board, on average, is sky.
+let WATER_LOW = 0.45
+/// Water lies below the horizon: none of it reaches higher than this share of the board.
+let WATER_TOP = 0.35
+
+/// The lakes and rivers the picture draws: blue regions in the lower part of the scene that lie on the backdrop.
+/// Sky is left alone: a blue region that spans a quarter of the top row or more, or sits mostly in the upper part
+/// of the board, is sky.
+public func drawnWater(_ rowsIn: [String]) -> Set<Int> {
+    let rows = rowsIn.map { Array($0) }
+    let H = rows.count, W = rows.map(\.count).max() ?? 0
+    guard H >= 10, W >= 10 else { return [] }
+    func ch(_ i: Int) -> Character { let r = i / W, c = i % W; return c < rows[r].count ? paletteLetter(rows[r][c]) : "." }
+    func mid(_ comp: [Int]) -> Double { Double(comp.reduce(0) { $0 + $1 / W }) / Double(comp.count) }
+    let back = backdropMask(rows, edgeWeight(rows))
+
+    // 1. Sky, judged one shade at a time (sky and sea in two blues that meet at the horizon stay apart): a region
+    //    across the top or high in the scene. Sky showing through lower down, between parts of the subject, is the
+    //    same shade, so every region of a sky shade is sky too, except one that reaches the bottom edge (water in
+    //    the foreground, drawn in the sky's blue).
+    var sky = [Bool](repeating: false, count: W * H)
+    var skyShade = Set<Character>()
+    var regions: [(k: Character, comp: [Int])] = []
+    for k in WATERY {
+        for comp in pieces(W: W, H: H, { ch($0) == k }) {
+            regions.append((k, comp))
+            let top = comp.filter { $0 / W == 0 }.count
+            if Double(top) >= 0.25 * Double(W) || mid(comp) < WATER_LOW * Double(H) {
+                for j in comp { sky[j] = true }
+                if comp.count >= 40 { skyShade.insert(k) }
             }
-            guard island.count >= 4 else { continue }
-            w.subtract(island)
         }
-        // A moat stays off the edge (or it wouldn't ring its island); a pond may run to it, like a lake in the
-        // foreground, but not along it.
-        let m = moat ? LAKE_MARGIN : 0
-        if w.contains(where: { let q = $0 / W, c = $0 % W; return q < m || c < m || q > H - 1 - m || c > W - 1 - m }) {
-            continue
-        }
-        if !moat {
-            // Along the bottom it reads as water in the foreground; up the sides or across the top it doesn't.
-            var side = 0, bottom = 0
-            for i in w {
-                if i / W == H - 1 { bottom += 1 } else if i / W == 0 || i % W == 0 || i % W == W - 1 { side += 1 }
+    }
+    for (k, comp) in regions where skyShade.contains(k) && !comp.contains(where: { $0 / W == H - 1 }) {
+        for j in comp { sky[j] = true }
+    }
+
+    // 2. The rest of the blue, joined across shades (a lake drawn in two blues is one lake).
+    var water = Set<Int>()
+    for comp in pieces(W: W, H: H, { WATERY.contains(ch($0)) && !sky[$0] }) {
+        guard comp.count >= WATER_MIN, mid(comp) >= WATER_LOW * Double(H),
+              Double(comp.map { $0 / W }.min()!) >= WATER_TOP * Double(H) else { continue }
+        // Part of the scene, not of the subject: a fair part of what borders it is backdrop or the board's edge (a
+        // wing or a shirt is ringed by the subject's outline).
+        let set = Set(comp)
+        var border = 0, scene = 0
+        for j in comp {
+            let r = j / W, c = j % W
+            if r == 0 || c == 0 || r == H - 1 || c == W - 1 {
+                border += 1
+                scene += 1
             }
-            if side > 5 || bottom > 20 { continue }
+            for m in neighbors(j, W: W, H: H) where !set.contains(m) {
+                border += 1
+                if back[m] { scene += 1 }
+            }
         }
-        if w.contains(where: { i in rocks.contains { gap($0, i, W: W) < 2 } }) { continue }
-        let onBack = Double(w.filter { back[$0] }.count) / Double(w.count)
-        if onBack < LAKE_ON_BACKDROP { continue }
-        // Lakes sit low in the scene; an island that holds a bit of the picture is better than an empty one.
-        let low = Double(w.reduce(0) { $0 + $1 / W }) / Double(w.count) / Double(H - 1)
-        // Keep a strip of backdrop between the water and the subject's outline.
-        let touch = w.filter { i in !back[i] || neighbors(i, W: W, H: H).contains { !back[$0] } }.count
-        var sc = backdropScore(w, rows, edge, W: W, lake: true) + 2 * onBack + 1.2 * low
-            - 2.5 * Double(touch) / Double(w.count)
-        if moat { sc += 0.3 * Double(island.filter { !back[$0] }.count) / Double(island.count) }
-        sc += r.next() * 0.15
+        // (Loose: it only runs on pictures already known to draw water.)
+        guard Double(scene) >= 0.25 * Double(max(1, border)) else { continue }
+        water.formUnion(comp)
+    }
+    guard !water.isEmpty else { return [] }
+
+    // 3. Small bits the water encloses (highlights drawn on it) are water too; bigger ones (a duck, an island) stay.
+    let open = Set(walledIn(W: W, H: H, solid: water, burrows: []))
+    for comp in pieces(W: W, H: H, { open.contains($0) }) where comp.count <= WATER_HOLE { water.formUnion(comp) }
+    if Double(water.count) > WATER_MAX_SHARE * Double(W * H) { return [] }
+    return water
+}
+
+/// Burrows to every piece of the picture the water walls in: one end just outside the water, as low on the board as
+/// it can be (critters come from below), the other just inside the island's shore, nearest it.
+func islandBurrows(W: Int, H: Int, solid: Set<Int>, water: Set<Int>) -> [Int] {
+    var out: [Int] = []
+    func shore(_ i: Int) -> Bool { neighbors(i, W: W, H: H).contains { water.contains($0) } }
+    for _ in 0..<6 {
+        let shut = Set(walledIn(W: W, H: H, solid: solid, burrows: out))
+        guard let start = shut.min() else { break }
+        var island: Set<Int> = [start], q = [start]
+        while let i = q.popLast() {
+            for j in neighbors(i, W: W, H: H) where shut.contains(j) && !island.contains(j) {
+                island.insert(j)
+                q.append(j)
+            }
+        }
+        let used = Set(out)
+        let outer = (0..<(W * H)).filter { !solid.contains($0) && !shut.contains($0) && !used.contains($0) && shore($0) }
+        let inner = island.filter { shore($0) && !used.contains($0) }
+        guard let bo = outer.max(by: { ($0 / W, -abs($0 % W - W / 2)) < ($1 / W, -abs($1 % W - W / 2)) }),
+              let bi = inner.min(by: { gap($0, bo, W: W) < gap($1, bo, W: W) }) else { break }
+        out += [bo, bi]
+    }
+    return out
+}
+
+// MARK: - Burrows on their own
+
+/// A cell in the middle of a big patch of one colour, so a hole never lands on a small detail like an eye.
+func plainSpot(_ i: Int, _ rows: [[Character]], W: Int, H: Int) -> Bool {
+    let r = i / W, c = i % W
+    guard r >= 2, c >= 2, r < H - 2, c < W - 2, c < rows[r].count else { return false }
+    let k = rows[r][c]
+    var same = 0
+    for dr in -2...2 {
+        for dc in -2...2 where c + dc < rows[r + dr].count && rows[r + dr][c + dc] == k { same += 1 }
+    }
+    return same >= 23
+}
+
+/// One standalone burrow clear of `avoid` (rocks, water) and of the ends already placed: from just inside the edge
+/// into the depths of the picture, or between two places deep inside it.
+func standaloneBurrow(_ rows: [[Character]], W: Int, H: Int, avoid: Set<Int>, ends: [Int], _ r: RNG) -> [Int]? {
+    func depth(_ i: Int) -> Int { min(i / W, i % W, H - 1 - i / W, W - 1 - i % W) }
+    func clear(_ i: Int) -> Bool {
+        !avoid.contains { gap($0, i, W: W) < 2 } && !ends.contains { gap($0, i, W: W) < 6 }
+    }
+    let deep = (0..<(W * H)).filter { depth($0) >= 8 && plainSpot($0, rows, W: W, H: H) && clear($0) }
+    guard !deep.isEmpty else { return nil }
+    let fromEdge = r.next() < 0.5
+    var best: [Int]?, bs = -1.0
+    for _ in 0..<80 {
+        let b = deep[min(deep.count - 1, Int(r.next() * Double(deep.count)))]
+        let a: Int
+        if fromEdge {
+            // Just inside the left, right or top edge (the bottom is where critters start anyway).
+            let side = Int(r.next() * 3), k = 4 + Int(r.next() * Double((side == 2 ? W : H) - 8))
+            a = side == 0 ? k * W + 1 : side == 1 ? k * W + W - 2 : W + k
+            guard clear(a) else { continue }
+        } else {
+            a = deep[min(deep.count - 1, Int(r.next() * Double(deep.count)))]
+        }
+        let d = Double(gap(a, b, W: W))
+        if d < 12 { continue }
+        let sc = d + r.next() * 6
         if sc > bs {
             bs = sc
-            best = (w, island)
+            best = [a, b]
         }
     }
     return best
 }
 
-/// The board's terrain. `rocks` are the web game's clumps for this board (kept unless a boulder field or lake needs
-/// their room).
-public func terrainFor(_ rowsIn: [String], _ n: Int, rocks: [Int]?) -> Terrain {
+// MARK: - The board's terrain
+
+/// The board's terrain. `rocks` are the web game's clumps for this board (kept unless a boulder field or water
+/// needs their room). `drawsWater`: the picture is known to draw a lake, river or sea (LevelCatalog.drawsWater); only
+/// then does its blue become water.
+public func terrainFor(_ rowsIn: [String], _ n: Int, rocks: [Int]?, drawsWater: Bool = false) -> Terrain {
     let rows = rowsIn.map { Array($0) }
     let H = rows.count, W = rows.map(\.count).max() ?? 0
     var t = Terrain(rocks: rocks ?? [])
     guard H >= 20, W >= 20 else { return t }
     let edge = edgeWeight(rows)
     let r = RNG(seed: n * 6_700_417 + 29)
+    let water = n >= LAKE_FROM && drawsWater ? drawnWater(rowsIn) : []
 
-    // Boulder field: one large blob of rock (12-26 cells) instead of the smallest clump.
+    // Boulder field: one large blob of rock (12-26 cells) instead of the smallest clump, on the backdrop.
     if boulderFor(n) {
         let area = 12 + Int(r.next() * min(14, 4 + Double(n - BOULDERS_FROM) / 12))
         var best: Set<Int>?, bs = -Double.infinity
@@ -281,7 +384,8 @@ public func terrainFor(_ rowsIn: [String], _ n: Int, rocks: [Int]?) -> Terrain {
             let r0 = 6 + Int(r.next() * Double(H - 14)), c0 = 4 + Int(r.next() * Double(W - 8))
             let b = blob(W: W, H: H, r0: r0, c0: c0, area: area, aspect: 0.7 + r.next() * 0.9, r)
             if b.contains(where: { let q = $0 / W, c = $0 % W; return q < 2 || c < 2 || q > H - 3 || c > W - 3 }) { continue }
-            let sc = backdropScore(b, rows, edge, W: W, lake: false) + r.next() * 0.2
+            if b.contains(where: { i in water.contains { gap($0, i, W: W) < 2 } }) { continue }
+            let sc = backdropScore(b, rows, edge, W: W) + r.next() * 0.2
             if sc > bs {
                 bs = sc
                 best = b
@@ -294,75 +398,38 @@ public func terrainFor(_ rowsIn: [String], _ n: Int, rocks: [Int]?) -> Terrain {
         }
     }
 
-    // Lake: a pond, or (from BURROW_FROM) sometimes a moat round an island. Its water goes on the backdrop, never
-    // across the subject: a moat that can't find room becomes a pond, and a pond that can't find room is left out.
-    let moat = moatFor(n)
-    if lakeFor(n) || moat {
-        let back = backdropMask(rows, edge)
-        let grow = min(1, Double(n - LAKE_FROM) / 150)
-        let rocks = Set(t.rocks)
-        var tries: [(moat: Bool, area: Int)] = []
-        if moat { tries += [140, 110, 85, 65].map { (true, $0 + Int(r.next() * 15)) } }
-        let pond = 36 + Int(r.next() * (40 + 70 * grow))
-        tries += [(false, pond), (false, max(30, pond * 2 / 3))]
-        for (isMoat, area) in tries {
-            guard let best = placeLake(rows: rows, W: W, H: H, area: area, moat: isMoat, back: back, edge: edge,
-                                       rocks: rocks, r) else { continue }
-            t.water = best.water.sorted()
-            if isMoat, let b = moatBurrow(W: W, H: H, water: best.water, island: best.island, r) { t.burrows += b }
-            break
+    // Lakes and rivers: only the water the picture draws. Rocks never sit in or right beside it.
+    if !water.isEmpty {
+        t.water = water.sorted()
+        t.rocks = t.rocks.filter { i in !water.contains { gap($0, i, W: W) < 2 } }
+        t.burrows += islandBurrows(W: W, H: H, solid: Set(t.rocks).union(water), water: water)
+    }
+
+    // Burrows on their own.
+    for _ in 0..<burrowCount(n) {
+        if let b = standaloneBurrow(rows, W: W, H: H, avoid: Set(t.rocks).union(t.water), ends: t.burrows, r) {
+            t.burrows += b
         }
     }
 
-    // Shortcut burrow: from just inside the edge to deep in the picture.
-    if t.burrows.isEmpty && shortcutFor(n) {
-        let solid = Set(t.rocks).union(t.water)
-        var best: [Int]?, bs = -1.0
-        for _ in 0..<40 {
-            let side = Int(r.next() * 3)   // left, right, or top
-            let k = 6 + Int(r.next() * Double((side == 2 ? W : H) - 12))
-            let a = side == 0 ? k * W + 1 : side == 1 ? k * W + W - 2 : 1 * W + k
-            let b = (10 + Int(r.next() * Double(H - 20))) * W + 10 + Int(r.next() * Double(W - 20))
-            if solid.contains(a) || solid.contains(b) { continue }
-            if solid.contains(where: { gap($0, a, W: W) < 2 || gap($0, b, W: W) < 2 }) { continue }
-            let d = Double(gap(a, b, W: W)) + r.next()
-            if d > bs {
-                bs = d
-                best = [a, b]
-            }
+    // Nothing may be walled in (blank cells don't matter). Drop what doesn't fit: first the water (and the burrows
+    // that went to its islands), then the boulder field (back to the web game's clumps).
+    func shutBlocks() -> Bool {
+        let ends = Set(t.burrows)
+        return walledIn(W: W, H: H, solid: Set(t.rocks).union(t.water), burrows: t.burrows).contains { i in
+            let q = i / W, c = i % W
+            return c < rows[q].count && rows[q][c] != "." && !ends.contains(i)
         }
-        if let best { t.burrows += best }
     }
-
-    // Nothing may be walled in. Drop what doesn't fit, worst first: the lake's burrow can't help, so the lake goes;
-    // then the boulder field (back to the web game's clumps).
-    let solid = Set(t.rocks).union(t.water)
-    if !walledIn(W: W, H: H, solid: solid, burrows: t.burrows).isEmpty {
+    if shutBlocks() {
+        var kept: [Int] = []
+        for k in stride(from: 0, to: t.burrows.count - 1, by: 2) {
+            let pair = [t.burrows[k], t.burrows[k + 1]]
+            if !pair.contains(where: { i in neighbors(i, W: W, H: H).contains { water.contains($0) } }) { kept += pair }
+        }
         t.water = []
-        t.burrows = t.burrows.count >= 2 && !moatFor(n) ? t.burrows : []
-        if !walledIn(W: W, H: H, solid: Set(t.rocks), burrows: t.burrows).isEmpty {
-            t.rocks = rocks ?? []
-        }
+        t.burrows = kept
+        if shutBlocks() { t.rocks = rocks ?? [] }
     }
     return t
-}
-
-/// The burrow that takes critters from the lakeshore under a moat to its island: the island end just inside its
-/// shore, the outer end just outside the moat, as near the board's bottom (where critters come from) as it can be.
-func moatBurrow(W: Int, H: Int, water: Set<Int>, island: Set<Int>, _ r: RNG) -> [Int]? {
-    func touches(_ i: Int) -> Bool { neighbors(i, W: W, H: H).contains { water.contains($0) } }
-    let inner = island.filter(touches).sorted()
-    let outer = (0..<(W * H)).filter { !water.contains($0) && !island.contains($0) && touches($0) }
-    guard !inner.isEmpty, !outer.isEmpty else { return nil }
-    // Pick the outer end low and a little to one side, then the island end nearest it.
-    var bo = -1, bs = -Double.infinity
-    for o in outer {
-        let sc = Double(o / W) + r.next() * 4
-        if sc > bs {
-            bs = sc
-            bo = o
-        }
-    }
-    let bi = inner.min { gap($0, bo, W: W) < gap($1, bo, W: W) }!
-    return [bo, bi]
 }

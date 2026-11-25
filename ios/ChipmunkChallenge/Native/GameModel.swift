@@ -1131,8 +1131,27 @@ final class GameModel: ObservableObject {
 
     // MARK: - Speed
 
-    /// The playback speed now: normal or fast-forward.
-    private var speed: Double { isPro ? (fast ? speedFast : speedNormal) : Self.defaultSpeed }
+    /// Fast-forward in the free version, which runs on its own once every nest has left the lanes (Pro's default).
+    static let defaultFastSpeed = 3.0
+
+    /// The playback speed now: normal or fast-forward. The free version has no fast-forward button, but once every
+    /// nest is out of the lanes there's nothing left to decide, so the rest of the board plays at fast-forward.
+    private var speed: Double {
+        if isPro { return fast ? speedFast : speedNormal }
+        return allNestsOut ? Self.defaultFastSpeed : Self.defaultSpeed
+    }
+
+    /// Every nest has left the lanes (into a slot, or pulled out by the wand): only the critters still out remain.
+    var allNestsOut: Bool {
+        guard let lv = level, let m = sim else { return false }
+        return lv.lanes.indices.allSatisfy { l in
+            (m.s.lp[l]..<lv.lanes[l].count).allSatisfy { m.s.tk[l][$0] != 0 }
+        }
+    }
+
+    /// The fast-forward button shows lit while the game runs fast: Pro's own setting, or the free version's
+    /// finish once every nest is out.
+    var fastShown: Bool { isPro ? fast : status == .playing && allNestsOut }
 
     /// The fast-forward button. A change by the player sticks, even over the last-column boost.
     func toggleFast() {
