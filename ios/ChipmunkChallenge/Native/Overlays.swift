@@ -138,7 +138,7 @@ private struct StartButton: View {
     }
 }
 
-/// `.splash-title`: the mode (Coin Mining, Daily puzzle; nothing for Level Play), level number, picture name, then the difficulty acorns once the board is ready.
+/// `.splash-title`: the mode (Daily puzzle; nothing for Level Play), level number, picture name, then the difficulty acorns once the board is ready.
 private struct SplashTitle: View {
     @ObservedObject var model: GameModel
 
@@ -355,8 +355,7 @@ struct ResultCard: View {
                 .foregroundStyle(Color(hex: 0xC2410C))
                 .accessibilityLabel("Streak: \(model.daily.streak) days")
         } else {
-            H2(model.mode == .mining ? "Challenge cleared"
-               : "Board cleared")
+            H2("Board cleared")
         }
         HStack(spacing: 8) {
             CoinIcon().frame(width: 30, height: 30)
@@ -397,12 +396,6 @@ struct ResultCard: View {
         .foregroundStyle(Color(hex: 0x4A5841))
         .padding(.top, 2 - 3)        // measured against the web layout
         switch model.mode {
-        case .mining:
-            Note("\(model.paraRound) Coin Mining challenge\(model.paraRound == 1 ? "" : "s") cleared")
-            Row {
-                Big("Next challenge") { model.next() }
-                Big("Home", alt: true) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
-            }
         case .daily:
             Note("Come back tomorrow to keep your streak.")
             Row { Big("Home") { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } } }
@@ -440,10 +433,7 @@ struct ResultCard: View {
         }
         .padding(.top, 4)
         .padding(.bottom, 4)
-        Row {
-            Big("Coin Mining") { withAnimation(.easeOut(duration: 0.2)) { model.playMining() } }
-            Big("Home", alt: true) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
-        }
+        Row { Big("Home") { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } } }
     }
 
     @ViewBuilder private var nextLevelChoice: some View {
@@ -472,36 +462,31 @@ struct ResultCard: View {
 
     @ViewBuilder private var stuckCard: some View {
         let slots = model.level?.slots ?? 5
-        let paradise = model.level?.diff == "paradise"
         H2("Chipmunks stuck")
         P("All \(slots) slots are holding chipmunks that cannot reach their color.")
-        if paradise {
-            Note("No hearts lost in Coin Mining. Try again!")
-        } else {
-            if model.mode == .level {
-                Note(model.hearts == 0 ? "That was your last heart."
-                     : "−1 ❤️ · \(model.hearts) heart\(model.hearts == 1 ? "" : "s") left")
-            }
-            if model.mode == .daily { Note("No hearts lost on the daily puzzle.") }
-            let can = model.coins >= GameModel.continuePrice
-            Row {
-                Button { model.continueGame() } label: {
-                    HStack(spacing: 0) {
-                        Text("Continue ")
-                        CoinIcon().frame(width: 18, height: 18).padding(.leading, 8).padding(.trailing, 4).offset(y: 1)
-                        Text("\(GameModel.continuePrice)")
-                    }
-                    .bigLabel(alt: false)
-                }
-                .buttonStyle(Pressable())
-                .disabled(!can)
-                .opacity(can ? 1 : 0.45)
-            }
-            Text("Clears 3 slots and their blocks" + (can ? "" : " · you need \((GameModel.continuePrice - model.coins).formatted()) more coins"))
-                .font(Theme.body(13, 800))
-                .foregroundStyle(Color(hex: 0x4A5841))
-                .cssLine(Theme.uiBody(13, 800), 13 * 1.45 - 1)
+        if model.mode == .level {
+            Note(model.hearts == 0 ? "That was your last heart."
+                 : "−1 ❤️ · \(model.hearts) heart\(model.hearts == 1 ? "" : "s") left")
         }
+        if model.mode == .daily { Note("No hearts lost on the daily puzzle.") }
+        let can = model.coins >= GameModel.continuePrice
+        Row {
+            Button { model.continueGame() } label: {
+                HStack(spacing: 0) {
+                    Text("Continue ")
+                    CoinIcon().frame(width: 18, height: 18).padding(.leading, 8).padding(.trailing, 4).offset(y: 1)
+                    Text("\(GameModel.continuePrice)")
+                }
+                .bigLabel(alt: false)
+            }
+            .buttonStyle(Pressable())
+            .disabled(!can)
+            .opacity(can ? 1 : 0.45)
+        }
+        Text("Clears 3 slots and their blocks" + (can ? "" : " · you need \((GameModel.continuePrice - model.coins).formatted()) more coins"))
+            .font(Theme.body(13, 800))
+            .foregroundStyle(Color(hex: 0x4A5841))
+            .cssLine(Theme.uiBody(13, 800), 13 * 1.45 - 1)
         if model.easedNext {
             Note("Five losses in a row, so your next level will be a little easier.")
         }

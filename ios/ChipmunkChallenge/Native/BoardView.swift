@@ -422,7 +422,7 @@ private final class LiveView: UIView {
     // MARK: Mystery boxes (JS drawPickups, drawMystery)
 
     /// Each box not yet reached: an inset cream pocket (its 3x3 cut out of the picture) holding a gently pulsing rainbow
-    /// "?" box. A box opened on an earlier win (Coin Mining) shows its tool faded, with a check, until the pocket opens.
+    /// "?" box. A box opened on an earlier win shows its tool faded, with a check, until the pocket opens.
     private func drawPickups(_ g: CGContext, _ lv: Level, _ s: ChipmunkEngine.State, _ pickups: [Pickup], _ now: Double) {
         guard !pickups.isEmpty else { return }
         let P = cs * CGFloat(POCKET)

@@ -39,8 +39,8 @@ final class GameModel: ObservableObject {
         case failed(String)
     }
 
-    /// What kind of board is up: the next Level Play level, a Coin Mining board, or today's daily puzzle.
-    enum Mode: Equatable { case level, mining, daily }
+    /// What kind of board is up: the next Level Play level, or today's daily puzzle.
+    enum Mode: Equatable { case level, daily }
 
     @Published private(set) var status: Status = .building
     @Published private(set) var mode: Mode = .level
@@ -48,11 +48,9 @@ final class GameModel: ObservableObject {
     @Published private(set) var boardIndex: Int
     @Published private(set) var title = ""
     @Published private(set) var subtitle = ""
-    /// The splash's small line above the title: Coin Mining or Daily puzzle (nothing for Level Play).
+    /// The splash's small line above the title: Daily puzzle (nothing for Level Play).
     @Published private(set) var modeLabel = ""
     @Published var fast = false
-    /// Coin Mining boards cleared (the next board is this round).
-    @Published private(set) var paraRound: Int
     /// The daily puzzle's record (JS `daily`): the last day cleared, the streak, the best streak and days cleared.
     struct Daily: Codable, Equatable {
         var last = -1
@@ -94,8 +92,6 @@ final class GameModel: ObservableObject {
     enum Screen { case home, play }
     @Published var screen: Screen = .home
     @Published var settingsOpen = false
-    /// Home's Daily Challenge chooser: clear a Level Play level or a Coin Mining board to keep the streak.
-    @Published var dailyPickOpen = false
     /// Settings, saved on this device.
     @Published var hapticsOn: Bool { didSet { store.set(hapticsOn, forKey: "native.haptics") } }
     /// Playback speed at normal and at fast-forward (multiples of the game's base pace).
@@ -105,8 +101,14 @@ final class GameModel: ObservableObject {
     @Published var speedFast: Double { didSet { store.set(speedFast, forKey: "native.speedFast") } }
     /// The backpack: the tool tray is shown only while it is open.
     @Published var toolsOpen = false
-    /// Tools owned (JS wands, owls, drops, xslots, peeks). A new player starts with 3 of each.
+    /// Tools owned (JS wands, owls, drops, xslots, peeks). A new player starts with none: each comes with its lesson.
     @Published private(set) var tools: [Tool: Int]
+    /// The how-to-play cards or a tool's lesson, shown over the board before it starts (or from Settings).
+    @Published private(set) var lesson: Lesson?
+    /// Tools taught so far, in the order they were taught. Only these show anywhere (backpack, boxes, gifts).
+    @Published private(set) var taught: [Tool]
+    /// The how-to-play cards have been seen.
+    private var tutorialSeen: Bool
     /// The tool whose shop card is up (tapped with none left).
     @Published var shopTool: Tool?
     /// Wise Owl: the next nests to tap, in order (shown as numbered owl badges).
@@ -318,11 +320,23 @@ final class GameModel: ObservableObject {
         tablesOwned = Set((store.stringArray(forKey: "native.tablesOwned") ?? []).compactMap(Table.init(rawValue:)))
             .union(Table.allCases.filter(\.free)).union([chosen])
         isPro = pro.isPro
-        paraRound = store.integer(forKey: "native.paraRound")
         giftDay = store.object(forKey: "native.giftDay") == nil ? -1 : store.integer(forKey: "native.giftDay")
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
+        // A player from before the lessons (any progress at all) skips them and keeps every tool.
+        let defaults = UserDefaults.standard
+        let veteran = defaults.object(forKey: Self.taughtKey) == nil
+            && (savedBoard > 0 || defaults.integer(forKey: "native.paraRound") > 0 // Coin Mining, since removed
+                || defaults.object(forKey: "native.daily") != nil || defaults.object(forKey: "native.tools") != nil)
+        if veteran {
+            store.set(Self.teachOrder.map(\.rawValue), forKey: Self.taughtKey)
+            store.set(true, forKey: Self.tutorialKey)
+        }
+        taught = (store.stringArray(forKey: Self.taughtKey) ?? []).compactMap(Tool.init(rawValue:))
+        tutorialSeen = store.bool(forKey: Self.tutorialKey)
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
-        tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map { ($0, max(0, saved[$0.rawValue] ?? Tool.starting)) })
+        tools = Dictionary(uniqueKeysWithValues: Tool.allCases.map {
+            ($0, max(0, saved[$0.rawValue] ?? (veteran ? Tool.starting : 0)))
+        })
         boardIndex = min(max(0, store.integer(forKey: Self.boardKey)), c.levelPlay.count - 1)
         // A player parked on a board that's now passed over (denied on a second look) moves on to the next one.
         if c.isSkipped(boardIndex), let j = c.playable(from: boardIndex) { boardIndex = j }
@@ -341,12 +355,14 @@ final class GameModel: ObservableObject {
            let pic = try? JSONDecoder().decode(ImportedPicture.self, from: data) {
             screen = .play
             loadImported(pic)
-        } else if store.string(forKey: "screen") == "dailyPick" {
-            dailyPickOpen = true
         } else if store.string(forKey: "scene") != nil || store.bool(forKey: "autoplay") || store.string(forKey: "screen") == "play" {
             screen = .play
             if store.bool(forKey: "fast") { fast = true }
             load(boardIndex)
+        }
+        // `-lesson owl` (or any tool) shows that tool's lesson; `-lesson howToPlay -lessonPage 2` a how-to-play card.
+        if let l = store.string(forKey: "lesson") {
+            lesson = l == "howToPlay" ? .howToPlay : Tool(rawValue: l).map { .tool($0) }
         }
         #endif
     }
@@ -370,24 +386,10 @@ final class GameModel: ObservableObject {
         withHeart(level: true) { self.load(self.boardIndex) }
     }
 
-    /// Home's Coin Mining card.
-    func playMining() {
-        enterPlay()
-        if mode == .mining, level != nil, status != .won, !isFailed { return }
-        loadMining()
-    }
-
-    /// Home's Daily Challenge card (only until today's is cleared): a chooser, since clearing either the next
-    /// Level Play level or a Coin Mining board counts.
+    /// Home's Daily Challenge card (only until today's is cleared): the day is cleared by winning the next level.
     func playDaily() {
         guard !dailyDone else { return }
-        dailyPickOpen = true
-    }
-
-    /// The chooser's two buttons.
-    func pickDaily(mining: Bool) {
-        dailyPickOpen = false
-        if mining { playMining() } else { playLevel() }
+        playLevel()
     }
 
     /// The first win of the day clears the Daily Challenge: the streak goes on (or starts again at 1) and streak
@@ -402,7 +404,7 @@ final class GameModel: ObservableObject {
         saveDaily()
         var tools: [Tool] = []
         for _ in 0..<(Self.streakBonus[daily.streak] ?? 0) {
-            let t = Tool.randomBox()
+            guard let t = randomUnlocked() else { break }
             tools.append(t)
             addTools(t, 1)
         }
@@ -433,7 +435,7 @@ final class GameModel: ObservableObject {
         moveOnToNewBoards()
     }
 
-    // MARK: - Daily puzzle and Coin Mining
+    // MARK: - Daily puzzle
 
     /// Today's number (JS dayNo): days since 1970 for the local calendar date.
     static func dayNo() -> Int {
@@ -468,9 +470,6 @@ final class GameModel: ObservableObject {
     /// Daily puzzles are numbered by the player's own count: Day 1 is the first one they clear.
     var dayCount: Int { daily.count + (dailyDone ? 0 : 1) }
 
-    /// The next Coin Mining board.
-    var miningBoard: (index: Int, base: LevelBase, seed: Int) { catalog.paradiseRound(paraRound) }
-
     private func saveDaily() {
         if let d = try? JSONEncoder().encode(daily) { store.set(d, forKey: "native.daily") }
     }
@@ -491,6 +490,7 @@ final class GameModel: ObservableObject {
         mode = .level
         boardIndex = i
         UserDefaults.standard.set(i, forKey: Self.boardKey)
+        queueLesson()
         // A new level takes the player's skill as it is now; the level in progress keeps the challenge it started at.
         if current.index != i {
             current = CurrentLevel(index: i, goal: skill.goal, tries: 1)
@@ -504,20 +504,10 @@ final class GameModel: ObservableObject {
                                board: i < 20 ? .warmup(i + 1) : .level(i + 1)))
     }
 
-    /// Load the next Coin Mining board (JS playParadise).
-    func loadMining(attempt: Int = 1) {
-        mode = .mining
-        let b = miningBoard
-        build(base: b.base, key: "paradise", seed: b.seed + attempt - 1, aim: LevelCatalog.baseAim("paradise"),
-              baked: nil, attempt: attempt, title: b.base.name, subtitle: "Challenge \(paraRound + 1)",
-              label: "⛏️ Coin Mining",
-              boxes: BoxSource(rows: b.base.rows, id: catalog.paradiseID(forBoard: b.index),
-                               index: b.index, board: .mining))
-    }
-
     /// Load today's daily puzzle. It plays on the ramp's settings for its board number, at the standard aim.
     func loadDaily(attempt: Int = 1) {
         mode = .daily
+        queueLesson()
         let d = dailyBoard
         var diff = Difficulty.ramp(d.rampN)
         diff.label = "Daily"
@@ -550,7 +540,6 @@ final class GameModel: ObservableObject {
     private func reload(attempt n: Int) {
         switch mode {
         case .level: load(boardIndex, attempt: n)
-        case .mining: loadMining(attempt: n)
         case .daily: loadDaily(attempt: n)
         }
     }
@@ -658,7 +647,7 @@ final class GameModel: ObservableObject {
     }
 
     /// A lost try in Level Play: the next try is this level's next one, and five losses in a row make the next
-    /// level (never this one) a little easier. Coin Mining and the daily puzzle don't change the player's skill.
+    /// level (never this one) a little easier. The daily puzzle doesn't change the player's skill.
     private func noteFailure() {
         guard mode == .level else { return }
         current.tries += 1
@@ -674,14 +663,13 @@ final class GameModel: ObservableObject {
     /// A different board from the same picture.
     func newBoard() { reload(attempt: attempt + 1) }
 
-    /// The win card's next step: the next level, the next Coin Mining board, or home after the daily puzzle.
+    /// The win card's next step: the next level, or home after the daily puzzle.
     func next() {
         switch mode {
         case .level:
             // payOut already moved boardIndex on; a player who was out of levels moves on if new ones arrived since.
             moveOnToNewBoards(force: true)
             withHeart(level: true) { self.load(self.boardIndex) }
-        case .mining: loadMining()
         case .daily: goHome()
         }
     }
@@ -755,15 +743,6 @@ final class GameModel: ObservableObject {
         // Pay follows the challenge the board was built for (Economy).
         let reward = Economy.levelCoins(goal: lv.def?.cgoal ?? 0.5)
         switch mode {
-        case .mining:
-            paraRound += 1
-            store.set(paraRound, forKey: "native.paraRound")
-            lastWin = Win(base: Economy.miningCoins, bonus: 0)
-            noteDaily(creditDaily())
-            feedbackShown = false
-            coins += Economy.miningCoins
-            store.set(coins, forKey: "native.coins")
-            return
         case .daily:
             lastWin = Win(base: reward, bonus: 0)
             noteDaily(creditDaily())
@@ -1488,6 +1467,84 @@ final class GameModel: ObservableObject {
         dropping = false
     }
 
+    // MARK: - Lessons
+
+    /// What's shown before a board starts: how to play (before the very first board), or one tool.
+    enum Lesson: Equatable {
+        case howToPlay
+        case tool(Tool)
+    }
+
+    private static let taughtKey = "native.toolsTaught"
+    private static let tutorialKey = "native.tutorialSeen"
+    /// The order tools are taught in, easiest first.
+    static let teachOrder: [Tool] = [.owl, .slot, .peek, .drop, .wand]
+    /// How many of a tool its lesson gives.
+    static let lessonGift = 3
+
+    /// How many tools should be taught by now, from Level Play levels cleared: the first after level 1, then one more
+    /// after every 2 levels (so before levels 2, 4, 6, 8 and 10).
+    static func toolsDue(levelsCleared n: Int) -> Int {
+        n < 1 ? 0 : min(teachOrder.count, 1 + (n - 1) / 2)
+    }
+
+    /// Level Play levels cleared so far (the next level's number, less one).
+    private var levelsCleared: Int { max(0, levelNumber(boardIndex) - 1) }
+
+    func isUnlocked(_ t: Tool) -> Bool { taught.contains(t) }
+
+    /// The tools taught so far, in tool bar order.
+    var unlockedTools: [Tool] { Tool.allCases.filter(isUnlocked) }
+
+    /// A mystery box's tool with the boxes' odds, among the tools taught so far (nil before the first).
+    private func randomUnlocked() -> Tool? {
+        guard !taught.isEmpty else { return nil }
+        for _ in 0..<20 {
+            let t = Tool.randomBox()
+            if isUnlocked(t) { return t }
+        }
+        return taught.randomElement()
+    }
+
+    /// Before a board starts: the how-to-play cards the first time, then each tool's lesson once it's due.
+    private func queueLesson() {
+        #if DEBUG
+        if store.bool(forKey: "autoplay") { return }
+        #endif
+        if !tutorialSeen {
+            lesson = .howToPlay
+        } else if taught.count < Self.toolsDue(levelsCleared: levelsCleared) {
+            lesson = .tool(Self.teachOrder[taught.count])
+        }
+    }
+
+    /// The lesson's last button: the cards are marked seen, or the tool is unlocked with its 3 to start.
+    func finishLesson() {
+        switch lesson {
+        case .howToPlay:
+            tutorialSeen = true
+            store.set(true, forKey: Self.tutorialKey)
+        case .tool(let t):
+            if !isUnlocked(t) {
+                taught.append(t)
+                store.set(taught.map(\.rawValue), forKey: Self.taughtKey)
+                addTools(t, Self.lessonGift)
+                buzz(.success)
+            }
+        case nil:
+            break
+        }
+        lesson = nil
+        // On a board, a tool's lesson may follow the cards (a player who cleared levels before seeing them).
+        if screen == .play { queueLesson() }
+    }
+
+    /// Settings' "How to play": the cards again, any time.
+    func showHowToPlay() {
+        settingsOpen = false
+        lesson = .howToPlay
+    }
+
     // MARK: - Mystery boxes (JS setupPickups, checkPickups, markHelp, claimHeld)
 
     /// Keys of boxes already opened, oldest first (the newest 500 are kept).
@@ -1500,9 +1557,11 @@ final class GameModel: ObservableObject {
         held = []
         helped = false
         let opened = Set(picked)
+        // Before the first tool is taught there's nothing a box could hold: the boxes stay closed and out of play.
+        let none = taught.isEmpty
         pickups = boardPickups.map { p in
             var q = p
-            q.got = p.claimed || opened.contains(p.key)
+            q.got = none || p.claimed || opened.contains(p.key)
             return q
         }
     }
@@ -1511,7 +1570,9 @@ final class GameModel: ObservableObject {
     private func checkPickups(_ m: Sim) {
         for k in pickups.indices where !pickups[k].got && pickups[k].reached(m.s) {
             pickups[k].got = true
-            guard let t = Tool(rawValue: pickups[k].tool) else { continue }
+            guard let boxed = Tool(rawValue: pickups[k].tool) else { continue }
+            // A tool not taught yet is swapped for one that has been.
+            guard let t = isUnlocked(boxed) ? boxed : randomUnlocked() else { continue }
             held.append(Held(tool: t, key: pickups[k].key))
             heldPop += 1
             buzz()
@@ -1529,14 +1590,13 @@ final class GameModel: ObservableObject {
     }
 
     /// The free daily gift (one mystery box) hasn't been opened today.
-    var giftReady: Bool { isPro && giftDay != Self.dayNo() }
+    var giftReady: Bool { isPro && giftDay != Self.dayNo() && !taught.isEmpty }
 
     /// Open today's gift: a random tool goes in the backpack, shown with the box reveal.
     func openGift() {
-        guard giftReady else { return }
+        guard giftReady, let t = randomUnlocked() else { return }
         giftDay = Self.dayNo()
         store.set(giftDay, forKey: "native.giftDay")
-        let t = Tool.randomBox()
         addTools(t, 1)
         giftShown = BoxReveal(tools: [t], lost: false)
         buzz(.success)
@@ -1601,7 +1661,7 @@ enum Tool: String, CaseIterable, Identifiable {
     var id: String { rawValue }
     /// A tool for a mystery box, with the boxes' odds.
     static func randomBox() -> Tool { Tool(rawValue: randTool(Double.random(in: 0..<1))) ?? .owl }
-    /// How many of each a new player starts with.
+    /// How many of each a player from before the lessons started with (new players get each with its lesson).
     static let starting = 3
 
     var icon: String {

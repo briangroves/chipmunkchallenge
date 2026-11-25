@@ -18,15 +18,15 @@ struct RootView: View {
             if let gift = model.giftShown {
                 GiftOverlay(model: model, box: gift).transition(.opacity)
             }
-            if model.dailyPickOpen {
-                DailyPicker(model: model).transition(.opacity)
-            }
             if model.settingsOpen {
                 SettingsSheet(model: model).transition(.opacity)
             }
             if model.paywallOpen {
                 ProSplash(model: model, store: model.pro, feature: model.paywallFeature)
                     .transition(.opacity.combined(with: .scale(scale: 0.96)))
+            }
+            if let lesson = model.lesson {
+                LessonOverlay(model: model, lesson: lesson).transition(.opacity)
             }
             if splash {
                 SplashScreen { withAnimation(.easeInOut(duration: 0.45)) { splash = false } }
@@ -39,16 +39,16 @@ struct RootView: View {
         // Every 10th level, at most once every 3 days (GameModel.noteLevelWonForReview).
         .onChange(of: model.reviewAsk) { requestReview() }
         .animation(.easeOut(duration: 0.18), value: model.settingsOpen)
-        .animation(.easeOut(duration: 0.18), value: model.dailyPickOpen)
         .animation(.easeOut(duration: 0.18), value: model.giftShown)
         .animation(.easeOut(duration: 0.2), value: model.paywallOpen)
+        .animation(.easeOut(duration: 0.2), value: model.lesson)
     }
 }
 
 // MARK: - Home (.menu)
 
-/// The home screen: the title and settings gear, Level Play as the big featured card, and Coin Mining and the Daily
-/// Challenge side by side under it. Hearts and coins sit beside the Dynamic Island. The daily gift sits by the gear.
+/// The home screen: the title and settings gear, Level Play as the big featured card, and the Daily Challenge
+/// under it. Hearts and coins sit beside the Dynamic Island. The daily gift sits by the gear.
 /// (The gnome's visit isn't built yet.)
 struct HomeScreen: View {
     @ObservedObject var model: GameModel
@@ -81,11 +81,8 @@ struct HomeScreen: View {
                     }
                     LevelHero(model: model)
                         .frame(maxHeight: .infinity)
-                    HStack(alignment: .top, spacing: 12) {
-                        MiningCard(model: model)
-                        DailyCard(model: model)
-                    }
-                    .fixedSize(horizontal: false, vertical: true)
+                    DailyCard(model: model)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(EdgeInsets(top: island ? 8 : 10, leading: 16, bottom: 12, trailing: 16))
                 .frame(width: w)
@@ -193,7 +190,8 @@ private struct LevelHero: View {
     }
 }
 
-/// A smaller card under the featured one: a label, a picture, a big line, a small line, and a Play button.
+/// A full-width card under the featured one: a picture on the left, a label, a big line and a small line, and a
+/// Play button on the right.
 private struct ModeCard<Fill: ShapeStyle, Thumb: View>: View {
     let label: String
     let big: String
@@ -208,32 +206,34 @@ private struct ModeCard<Fill: ShapeStyle, Thumb: View>: View {
 
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 4) {
-                Text(label.uppercased())
-                    .font(Theme.body(11, 800))
-                    .tracking(11 * 0.08)
-                    .foregroundStyle(Color(hex: 0x5E6B57))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.8)
+            HStack(spacing: 12) {
                 thumb
-                    .frame(width: 76, height: 76)
+                    .frame(width: 64, height: 64)
                     .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    .padding(.vertical, 2)
-                Text(big)
-                    .font(Theme.display(22))
-                    .foregroundStyle(Theme.ink)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
-                sub
-                    .font(Theme.body(12.5, 800))
-                    .foregroundStyle(Color(hex: 0x4A5841))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.8)
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(label.uppercased())
+                        .font(Theme.body(11, 800))
+                        .tracking(11 * 0.08)
+                        .foregroundStyle(Color(hex: 0x5E6B57))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                    Text(big)
+                        .font(Theme.display(24))
+                        .foregroundStyle(Theme.ink)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                    sub
+                        .font(Theme.body(12.5, 800))
+                        .foregroundStyle(Color(hex: 0x4A5841))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 PlayPill(title: play, color: playColor)
-                    .padding(.top, 4)
+                    .frame(width: 104)
             }
-            .padding(EdgeInsets(top: 12, leading: 10, bottom: 10, trailing: 10))
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(12)
+            .frame(maxWidth: .infinity)
             .modifier(CardChrome(fill: fill, border: border))
         }
         .buttonStyle(Pressable())
@@ -241,37 +241,15 @@ private struct ModeCard<Fill: ShapeStyle, Thumb: View>: View {
     }
 }
 
-/// Coin Mining: the next challenge, worth Economy.miningCoins.
-private struct MiningCard: View {
-    @ObservedObject var model: GameModel
-
-    var body: some View {
-        let b = model.miningBoard
-        let resumes = model.mode == .mining && model.status == .playing && model.level != nil
-        ModeCard(label: "Coin Mining", big: "Challenge \(model.paraRound + 1)",
-                 sub: AnyView(HStack(spacing: 4) { CoinIcon().frame(width: 14, height: 14); Text("+\(Economy.miningCoins)") }),
-                 play: resumes ? "Continue" : "Play", playColor: Color(hex: 0x8A4B22),
-                 fill: LinearGradient(stops: [.init(color: Color(hex: 0xFFF3C4), location: 0),
-                                              .init(color: Color(hex: 0xFFD56B), location: 0.6),
-                                              .init(color: Color(hex: 0xE8A93A), location: 1)],
-                                      startPoint: UnitPoint(x: 0.33, y: 0), endPoint: UnitPoint(x: 0.67, y: 1)),
-                 border: Color(hex: 0xE0A21B)) {
-            PictureThumb(rows: b.base.rows)
-        } action: {
-            withAnimation(.easeOut(duration: 0.2)) { model.playMining() }
-        }
-    }
-}
-
-/// The Daily Challenge: the streak, and Play (or Done). Any Level Play or Coin Mining win clears the day.
+/// The Daily Challenge: the streak, and Play (or Done). Any Level Play win clears the day.
 private struct DailyCard: View {
     @ObservedObject var model: GameModel
 
     var body: some View {
         let done = model.dailyDone
         let streak = model.streakNow
-        ModeCard(label: "Daily Challenge", big: "\(streak)",
-                 sub: AnyView(Text("day streak")),
+        ModeCard(label: "Daily Challenge", big: "\(streak)-day streak",
+                 sub: AnyView(Text(done ? "Done for today" : "Clear any level today")),
                  play: done ? "Done ✓" : "Play",
                  playColor: done ? Color(hex: 0x2E7D32) : Color(hex: 0x2F5FB3),
                  fill: LinearGradient(stops: [.init(color: Color(hex: 0xEAF2FF), location: 0),
@@ -415,6 +393,17 @@ struct SettingsSheet: View {
                     SetSlider(title: "Fast-forward speed", value: locked ? .constant(3) : $model.speedFast, range: 1.5...4, step: 0.25)
                 }
                 .proLock(locked, "Speed control", offset: CGSize(width: 5, height: -17)) { model.openPaywall(.speed) }
+                Button { model.showHowToPlay() } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "questionmark.circle.fill").foregroundStyle(Color(hex: 0x2E7D32))
+                        Text("How to play").font(Theme.body(14, 800)).foregroundStyle(Theme.ink)
+                        Spacer(minLength: 0)
+                        Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold))
+                            .foregroundStyle(Color(hex: 0x8A9682))
+                    }
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(Pressable())
                 Button { model.settingsOpen = false } label: { Text("Done").bigLabel(alt: false) }
                     .buttonStyle(Pressable())
                     .frame(maxWidth: .infinity)
@@ -521,69 +510,3 @@ private struct SetSlider: View {
     }
 }
 
-/// The Daily Challenge chooser: clear the next Level Play level or a Coin Mining board today to keep the streak.
-private struct DailyPicker: View {
-    @ObservedObject var model: GameModel
-
-    var body: some View {
-        let i = model.homeIndex
-        ZStack {
-            Color(red: 20 / 255, green: 30 / 255, blue: 15 / 255, opacity: 0.5)
-                .ignoresSafeArea()
-                .onTapGesture { model.dailyPickOpen = false }
-            VStack(spacing: 14) {
-                Text("Daily Challenge")
-                    .font(Theme.display(26))
-                    .foregroundStyle(Theme.ink)
-                Text("🔥 \(model.streakNow) day streak")
-                    .font(Theme.body(16, 800))
-                    .foregroundStyle(Color(hex: 0xC2410C))
-                Text("Clear one board today to keep your streak going. Pick how you want to play.")
-                    .font(Theme.body(14, 600))
-                    .foregroundStyle(Color(hex: 0x4A5841))
-                    .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
-                choice(title: "Level Play", detail: "Level \(model.levelNumber(i)) · \(model.catalog.levelPlay[i].name)",
-                       rows: model.catalog.levelPlay[i].rows, color: Theme.darkInk) {
-                    withAnimation(.easeOut(duration: 0.2)) { model.pickDaily(mining: false) }
-                }
-                choice(title: "Coin Mining", detail: "Challenge \(model.paraRound + 1) · +\(Economy.miningCoins) coins",
-                       rows: model.miningBoard.base.rows, color: Color(hex: 0x8A4B22)) {
-                    withAnimation(.easeOut(duration: 0.2)) { model.pickDaily(mining: true) }
-                }
-                Button("Not now") { model.dailyPickOpen = false }
-                    .font(Theme.body(15, 800))
-                    .foregroundStyle(Color(hex: 0x6B7863))
-                    .padding(.top, 2)
-            }
-            .padding(20)
-            .frame(maxWidth: 360)
-            .background(RoundedRectangle(cornerRadius: 20, style: .circular).fill(.white)
-                .shadow(color: .black.opacity(0.3), radius: 15, y: 10))
-            .padding(16)
-        }
-    }
-
-    private func choice(title: String, detail: String, rows: [String], color: Color,
-                        action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            HStack(spacing: 12) {
-                PictureThumb(rows: rows)
-                    .frame(width: 56, height: 56)
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(title).font(Theme.display(22)).foregroundStyle(.white)
-                    Text(detail).font(Theme.body(13, 700)).foregroundStyle(.white.opacity(0.85))
-                        .lineLimit(1).minimumScaleFactor(0.8)
-                }
-                Spacer(minLength: 0)
-            }
-            .padding(10)
-            .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(color))
-            .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(color).brightness(-0.22).offset(y: 4))
-            .padding(.bottom, 4)
-        }
-        .buttonStyle(Pressable())
-        .accessibilityLabel("\(title). \(detail)")
-    }
-}

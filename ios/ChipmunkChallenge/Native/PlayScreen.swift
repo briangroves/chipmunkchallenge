@@ -387,9 +387,12 @@ private struct ControlRow: View {
             HUDButton(icon: Icons.speed, on: model.fastShown) { model.toggleFast() }
                 .proLock(!model.isPro, "Fast-forward") { model.openPaywall(.fastForward) }
             Spacer(minLength: 2)
-            HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek, rainbow: true,
-                      badge: !model.held.isEmpty && !model.helped, badgePop: model.heldPop) {
-                withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.toggleBackpack() }
+            // No backpack until the first tool is taught (after level 1).
+            if !model.taught.isEmpty {
+                HUDButton(icon: Icons.backpack, on: model.toolsOpen || model.magicMode || model.peek, rainbow: true,
+                          badge: !model.held.isEmpty && !model.helped, badgePop: model.heldPop) {
+                    withAnimation(.spring(response: 0.32, dampingFraction: 0.86)) { model.toggleBackpack() }
+                }
             }
             HUDButton(icon: Icons.home) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
             HUDButton(icon: Icons.gear, size: 19) { model.settingsOpen = true }
@@ -889,7 +892,7 @@ struct ToolIcon: View {
     }
 }
 
-/// The five tools (`.toolbar`): each shows how many are left, or a yellow "+" with none (tap to buy more).
+/// The tools taught so far (`.toolbar`): each shows how many are left, or a yellow "+" with none (tap to buy more).
 private struct ToolBar: View {
     @ObservedObject var model: GameModel
     let asking: Tool?
@@ -897,7 +900,7 @@ private struct ToolBar: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            ForEach(Tool.allCases) { t in
+            ForEach(model.unlockedTools) { t in
                 let n = model.count(t)
                 let on = (t == .wand && model.magicMode) || (t == .peek && model.peek)
                 let empty = n == 0 && !on
@@ -1048,14 +1051,13 @@ struct Pressable: ButtonStyle {
 
 // MARK: - Level tag, coins, hearts
 
-/// The level in play ("Level 20", "Challenge 8", "Day 41"), in a bubble centered under the Dynamic Island.
+/// The level in play ("Level 20", "Day 41"), in a bubble centered under the Dynamic Island.
 private struct LevelTag: View {
     @ObservedObject var model: GameModel
 
     var body: some View {
         let text: String = switch model.mode {
         case .level: "Level \(model.status == .won ? model.wonLevelNumber : model.levelNumber(model.boardIndex))"
-        case .mining: "Challenge \(model.paraRound + (model.status == .won ? 0 : 1))"
         case .daily: "Day \(model.dayCount)"
         }
         Text(text)
