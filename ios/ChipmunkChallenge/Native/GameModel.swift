@@ -1200,6 +1200,7 @@ final class GameModel: ObservableObject {
             return
         }
         if at != nil { return }                             // already queued
+        if i < m.s.lp[l] { return }                         // that nest already loaded (screen hadn't caught up yet)
         var add: [Queued] = []
         for k in m.s.lp[l]...i where queue.firstIndex(of: Queued(l: l, i: k)) == nil && m.s.tk[l][k] == 0 {
             add.append(Queued(l: l, i: k))
