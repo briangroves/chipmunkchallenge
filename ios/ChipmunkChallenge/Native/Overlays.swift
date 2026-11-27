@@ -64,7 +64,7 @@ struct SceneLayer: View {
                 })
                 if run.kind == .intro && !model.introReady {
                     // While the board builds: a progress bar where the Start button will appear.
-                    BuildProgress(started: model.buildStarted)
+                    BuildProgress(meter: model.buildMeter)
                         .frame(height: max(80, (geo.size.height - h) / 2 + geo.safeAreaInsets.bottom))
                         .frame(maxHeight: .infinity, alignment: .bottom)
                         .offset(y: geo.safeAreaInsets.bottom)
@@ -652,15 +652,34 @@ extension View {
     }
 }
 
-/// The intro's progress bar while the board builds. Building has no fixed length, so it eases toward the end (most
-/// boards take one to three seconds) and the Start button replaces it the moment the board is ready.
+/// The intro's progress bar while the board builds. It follows the builder's own meter (how many deals are tuned and
+/// judged, and any rebuilds), easing toward each reading and creeping a little while one step runs, so it neither
+/// races ahead nor sits still. The Start button replaces it the moment the board is ready.
 private struct BuildProgress: View {
-    let started: Date
+    let meter: BuildMeter
+    @State private var shown = Shown()
+
+    /// What the bar shows: eased toward the meter, plus a small creep while the meter holds still.
+    private final class Shown {
+        var f = 0.0, reading = -1.0, since = Date(), last = Date()
+        var build: ObjectIdentifier?
+        func step(_ meter: BuildMeter, _ now: Date) -> Double {
+            if build != ObjectIdentifier(meter) { build = ObjectIdentifier(meter); f = 0; reading = -1; last = now }
+            let m = meter.fraction
+            if m != reading { reading = m; since = now }
+            let dt = min(0.1, now.timeIntervalSince(last))
+            last = now
+            // Up to 6% past a reading that holds still, so a long step still shows movement.
+            let creep = 0.06 * (1 - exp(-now.timeIntervalSince(since) / 2))
+            let target = min(0.98, m + creep)
+            if target > f { f += (target - f) * min(1, dt * 6) }
+            return f
+        }
+    }
 
     var body: some View {
         TimelineView(.animation(minimumInterval: 1 / 30)) { tl in
-            let t = tl.date.timeIntervalSince(started)
-            let f = min(0.96, 1 - exp(-t / 1.4))
+            let f = shown.step(meter, tl.date)
             VStack(spacing: 8) {
                 ZStack(alignment: .leading) {
                     Capsule().fill(Color.white.opacity(0.7))

@@ -186,8 +186,8 @@ final class GameModel: ObservableObject {
     static let heartMax = 5
     static let heartRegen: Double = 10 * 60
     static let heartsPrice = 500
-    /// When the board now building started, for the intro's progress bar.
-    @Published private(set) var buildStarted = Date()
+    /// How far the board now building has got, for the intro's progress bar.
+    @Published private(set) var buildMeter = BuildMeter()
     /// What the last win paid.
     @Published private(set) var lastWin = Win(base: 0, bonus: 0)
     /// The win card's "Next level" choice (nil until the player picks).
@@ -609,7 +609,8 @@ final class GameModel: ObservableObject {
         boardSeed = seed
         loadToken += 1
         let token = loadToken
-        buildStarted = Date()
+        let meter = BuildMeter()
+        buildMeter = meter
         self.attempt = attempt
         self.title = title
         self.subtitle = subtitle
@@ -638,6 +639,7 @@ final class GameModel: ObservableObject {
             let built = await Task.detached(priority: .userInitiated) { () -> LevelBox in
                 var o = BuildOptions.game
                 o.aim = aim
+                o.meter = meter
                 return LevelBox(generateLevelRetrying(base: cutBase, seed: seed, diffKey: key, options: o))
             }.value
             guard let self, !Task.isCancelled, self.loadToken == token else { return }

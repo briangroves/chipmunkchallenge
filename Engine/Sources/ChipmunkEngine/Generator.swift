@@ -231,6 +231,19 @@ func balanced(_ a: [Int], _ L: Int) -> Bool {
 }
 
 /// Options for one board build (JS generateLevel's `opt`).
+/// How far a board build has got, 0...1, for the loading bar. Safe to read from any thread; it only moves forward.
+public final class BuildMeter: @unchecked Sendable {
+    private let lock = NSLock()
+    private var f = 0.0
+    public init() {}
+    public var fraction: Double { lock.lock(); defer { lock.unlock() }; return f }
+    func set(_ x: Double) {
+        lock.lock()
+        if x > f { f = min(1, x) }
+        lock.unlock()
+    }
+}
+
 public struct BuildOptions: Sendable {
     public var seqs = 3
     public var iters = 60
@@ -256,8 +269,25 @@ public struct BuildOptions: Sendable {
     /// Native: build with nests of 5 or more only; nil rather than relax (`generateLevelRetrying` tries other seeds
     /// this way first).
     var strictOnly = false
+    /// Where the build reports its progress (nil: nowhere). `span` is the slice of the bar this build fills.
+    public var meter: BuildMeter?
+    var span: (lo: Double, hi: Double) = (0, 1)
 
     public init() {}
+
+    /// Report that this build is `x` (0...1) of the way through its slice of the bar.
+    func mark(_ x: Double) {
+        guard let meter else { return }
+        meter.set(span.lo + (span.hi - span.lo) * min(1, max(0, x)))
+    }
+
+    /// The same options, filling the part `a...b` of this build's slice.
+    func within(_ a: Double, _ b: Double) -> BuildOptions {
+        var o = self
+        let w = span.hi - span.lo
+        o.span = (span.lo + w * a, span.lo + w * b)
+        return o
+    }
 
     /// What the game uses: a few seconds per board.
     public static var game: BuildOptions {
@@ -312,6 +342,7 @@ func tuneLanes(_ art: Art, _ def: Difficulty, _ seq: [NestSpec], _ seed: Int, _ 
     let t0 = Date()
     while it < opt.iters && Date().timeIntervalSince(t0) * 1000 < opt.ms {
         it += 1
+        opt.mark(max(Double(it) / Double(max(1, opt.iters)), Date().timeIntervalSince(t0) * 1000 / opt.ms))
         if it % 15 == 0 {
             epoch += 1
             cur = score(a)
@@ -339,6 +370,19 @@ func tuneLanes(_ art: Art, _ def: Difficulty, _ seq: [NestSpec], _ seed: Int, _ 
 
 // MARK: - Building a board
 
+/// Where each step of a build ends on its slice of the loading bar.
+enum BuildPhase {
+    /// The deals end here (the rest is measuring the finished board and any rebuilds).
+    static let deals = 0.55
+    /// Measuring the finished board ends here.
+    static let measured = 0.65
+    /// Within one deal: tuning its lanes ends here (the rest is judging the deal).
+    static let tuning = 0.75
+    /// Within the rebuilds: the smaller-nest rebuild ends here, then the locked one.
+    static let rebuild1 = 0.45
+    static let rebuild2 = 0.75
+}
+
 /// Build a solvable board from a picture, tuned to the challenge `diffKey`. nil when the picture can't make one.
 public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String = "normal",
                           options: BuildOptions = BuildOptions()) -> Level? {
@@ -361,6 +405,10 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
     /* Passes: strict (nests of 5 or more), then relaxed when the strict build jams. The web game relaxes straight to
        nests of 1; the native game first relaxes only to 3 (so a nest under 3 appears only when even that jams, or a
        color has fewer than 3 blocks), on the same seeds the old single relaxed pass used. */
+    /* The loading bar: the deals fill most of it, then measuring the finished board, then any rebuilds (shares
+       measured on the game's boards so the bar moves at an even pace). Each pass fills the same slice again; the
+       meter never moves back. */
+    let dealsEnd = BuildPhase.deals, measured = BuildPhase.measured
     let passes: [(relax: Bool, floor: Int?)] = opt.webParity ? [(false, nil), (true, nil)]
         : opt.strictOnly ? [(false, nil)] : [(false, nil), (true, 3), (true, 1)]
     for (relax, floor) in passes {
@@ -377,9 +425,10 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
                 seq = buildSequence(art, def, rng, relax, t < 6 ? pr : 0, webParity: opt.webParity, floor: floor)
                 t += 1
             }
-            guard let seq else { continue }
+            let dealSpan = opt.within(dealsEnd * Double(k) / Double(opt.seqs), dealsEnd * Double(k + 1) / Double(opt.seqs))
+            guard let seq else { dealSpan.mark(1); continue }
             let aimGoal = opt.webParity ? nil : def.cgoal.map { min(0.99, max(0.01, $0 - gap)) }
-            var tl = tuneLanes(art, def, seq, baseSeed * 31 + k, opt, aimGoal: aimGoal)
+            var tl = tuneLanes(art, def, seq, baseSeed * 31 + k, dealSpan.within(0, BuildPhase.tuning), aimGoal: aimGoal)
             // Judge each finished deal on games it was never tuned on (the native game: on the timed game).
             let chk = Level(art: art, slots: def.slots, lanes: lanesOf(seq, tl.a, def.lanes))
             let s1 = baseSeed * 7 + k * 31337
@@ -398,6 +447,7 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
                 d += def.cgoal.map { goalMiss(wt, $0) } ?? 0
             }
             tl.d = d
+            dealSpan.mark(1)
             if best == nil || tl.d < best!.tl.d { best = (seq, tl); bestGap = gap }
         }
         guard let best else { continue }
@@ -423,6 +473,7 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
             lv.randWin = botRate(lv, opt.RV ?? opt.V, baseSeed * 19 + 5, 1)
         }
         lv.randN = opt.RV ?? opt.V
+        opt.mark(measured)
         /* Some pictures (few colours, big areas) come out far easier than their target whatever the deal. Rebuild those
            with smaller nests (more, tighter decisions) and keep whichever lands closer to the target. The native game
            rebuilds when a board is 0.08 too easy (the web game: 0.15), and tries even smaller nests if that's not
@@ -446,18 +497,21 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
                 o2.seqs = 1
                 o2.timedCV = max(24, opt.timedCV / 2)
             }
-            let lv2 = generateLevel(base: base, seed: baseSeed, diffKey: diffKey, options: o2)
+            let rest = o2.within(measured, 1)
+            let lv2 = generateLevel(base: base, seed: baseSeed, diffKey: diffKey,
+                                    options: rest.within(0, BuildPhase.rebuild1))
             if closer(lv2) { bestLv = lv2! }
             /* Still far too easy, and the locked slot is already part of the game by this board: try it with a lock. */
             if bestLv.botWin! > cg + tooEasy && base.lockOK && !def.lock {
                 var b3 = base
                 b3.lock = true
-                let lv3 = generateLevel(base: b3, seed: baseSeed, diffKey: diffKey, options: o2)
+                let lv3 = generateLevel(base: b3, seed: baseSeed, diffKey: diffKey,
+                                        options: rest.within(BuildPhase.rebuild1, BuildPhase.rebuild2))
                 if closer(lv3) { bestLv = lv3! }
             }
             /* Native: still too easy, so halve the nests (keeping the lock if that's what helped). */
             if !opt.webParity && bestLv.botWin! > cg + tooEasy {
-                var o3 = o2
+                var o3 = rest.within(BuildPhase.rebuild2, 1)
                 o3.scale = 0.5
                 var b4 = base
                 b4.lock = bestLv.lock
@@ -469,7 +523,7 @@ public func generateLevel(base: LevelBase, seed baseSeed: Int, diffKey: String =
         /* Native: far too hard (some deals that the fast model rates fine lose almost every timed game): one more
            build on another seed, kept if it lands closer. */
         if !opt.webParity, let cg = def.cgoal, opt.scale == nil, !opt.rescue, lv.botWin! < hardFloor(cg) {
-            var o5 = opt
+            var o5 = opt.within(measured, 1)
             o5.rescue = true
             if let lv5 = generateLevel(base: base, seed: baseSeed + 7_777, diffKey: diffKey, options: o5),
                goalMiss(lv5.botWin!, cg) < goalMiss(lv.botWin!, cg) {
@@ -494,12 +548,14 @@ public func generateLevelRetrying(base: LevelBase, seed: Int, diffKey: String = 
         strict.strictOnly = true
         for k in 0..<min(4, max(1, tries)) {
             if let lv = generateLevel(base: base, seed: seed + k * 100_003, diffKey: diffKey, options: strict) {
+                options.meter?.set(1)
                 return lv
             }
         }
     }
     for k in 0..<max(1, tries) {
         if let lv = generateLevel(base: base, seed: seed + k * 100_003, diffKey: diffKey, options: options) {
+            options.meter?.set(1)
             return lv
         }
     }
