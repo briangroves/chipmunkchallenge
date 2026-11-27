@@ -283,7 +283,9 @@ struct ProSplash: View {
                     Text("Chipmunk Pro")
                         .font(Theme.display(30))
                         .foregroundStyle(Theme.ink)
-                    Text("Unlock everything, one time. No subscription.")
+                    Text(model.paywallPassEnded ? "Your free Pro pass ran out. Keep it all, one time. No subscription."
+                         : model.onPass ? "You're on a free Pro pass: \(model.passClock) left. Keep it all, one time."
+                         : "Unlock everything, one time. No subscription.")
                         .font(Theme.body(14, 700))
                         .foregroundStyle(Color(hex: 0x4A5841))
                         .multilineTextAlignment(.center)

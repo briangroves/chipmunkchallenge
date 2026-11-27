@@ -386,6 +386,22 @@ struct ResultCard: View {
             }
             .accessibilityElement(children: .combine)
         }
+        if w.proPass {
+            VStack(spacing: 1) {
+                Text("🐿️ 24 hours of Chipmunk Pro!")
+                    .font(Theme.body(14, 800))
+                    .foregroundStyle(Theme.ink)
+                Text("\(model.daily.streak)-day streak gift: Undo, speed, queue, tables and more")
+                    .font(Theme.body(11.5, 600))
+                    .foregroundStyle(Color(hex: 0x5A6851))
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.vertical, 6)
+            .padding(.horizontal, 14)
+            .background(Color(hex: 0xFFF3C4), in: RoundedRectangle(cornerRadius: 12))
+            .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Theme.gold, lineWidth: 2))
+            .accessibilityElement(children: .combine)
+        }
         HStack(spacing: 6) {
             BlockIcon(size: 14)
             // .lifeline is a flex row: the count and the words are separate items 6 apart

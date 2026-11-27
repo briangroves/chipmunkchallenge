@@ -85,12 +85,25 @@ final class GameModel: ObservableObject {
     let pro = ProStore()
     @Published private(set) var isPro: Bool
     private var proWatch: AnyCancellable?
+    /// Pro bought (ProStore), as against the free Pro pass a Daily Challenge streak earns.
+    private(set) var proBought: Bool
+    /// The streak's Pro pass: when it started and when it ends (seconds since 1970; 0 when there's none).
+    private var passStart: Double
+    private var passEnd: Double
+    /// Time left on the Pro pass ("23h", "45m"), or empty when there's none.
+    @Published private(set) var passClock = ""
+    /// The pass ran out and the unlock screen hasn't been shown for it yet (it waits for the home screen).
+    private var passEndedPending: Bool
+    /// The unlock screen is up because the Pro pass ran out (it says so at the top).
+    @Published private(set) var paywallPassEnded = false
+    /// The win that just cleared the Daily Challenge started a Pro pass.
+    private var passJustStarted = false
     /// The unlock screen is up, and the locked control that opened it (nil from the settings' Pro row).
     @Published private(set) var paywallOpen = false
     @Published private(set) var paywallFeature: ProFeature?
     /// Which screen is up. The board stays loaded while the player is on the home screen, so Play resumes it.
     enum Screen { case home, play }
-    @Published var screen: Screen = .home
+    @Published var screen: Screen = .home { didSet { if screen == .home { showPassEndedIfDue() } } }
     @Published var settingsOpen = false
     /// Settings, saved on this device.
     @Published var hapticsOn: Bool { didSet { store.set(hapticsOn, forKey: "native.haptics") } }
@@ -254,10 +267,22 @@ final class GameModel: ObservableObject {
         var bonusBox: BoxReveal? = nil
         /// This win was the first of the day, so it cleared today's Daily Challenge.
         var dailyCleared = false
+        /// Daily puzzle: this win's streak day started a free 24-hour Pro pass.
+        var proPass = false
     }
 
     /// Daily streak days that add bonus mystery boxes, and how many (JS STREAK_BONUS).
     static let streakBonus = [3: 1, 7: 2, 14: 3, 30: 5]
+    /// Daily streak days that also give a free Pro pass (to players who haven't bought Pro), and how long it lasts.
+    static let proPassDays = [3, 7, 14, 30]
+    static var proPassLength: Double {
+        #if DEBUG
+        // `-proPassSeconds 60` makes the pass short enough to watch it run out.
+        let s = UserDefaults.standard.double(forKey: "proPassSeconds")
+        if s > 0 { return s }
+        #endif
+        return 24 * 3600
+    }
 
     /// What the win card shows of the boxes held at the win: the tools inside, or how many were lost.
     struct BoxReveal: Equatable {
@@ -319,9 +344,21 @@ final class GameModel: ObservableObject {
         // A player who picked a table back when they were all free keeps it.
         tablesOwned = Set((store.stringArray(forKey: "native.tablesOwned") ?? []).compactMap(Table.init(rawValue:)))
             .union(Table.allCases.filter(\.free)).union([chosen])
-        isPro = pro.isPro
+        proBought = pro.isPro
+        passStart = store.double(forKey: "native.passStart")
+        passEnd = store.double(forKey: "native.passEnd")
+        passEndedPending = store.bool(forKey: "native.passEndedPending")
+        let now = Date().timeIntervalSince1970
+        isPro = pro.isPro || (now >= passStart && now < passEnd)
         giftDay = store.object(forKey: "native.giftDay") == nil ? -1 : store.integer(forKey: "native.giftDay")
         daily = (store.data(forKey: "native.daily")).flatMap { try? JSONDecoder().decode(Daily.self, from: $0) } ?? Daily()
+        #if DEBUG
+        // `-streak 2`: yesterday's challenge cleared on a 2-day streak, so today's win makes day 3.
+        if store.object(forKey: "streak") != nil {
+            let n = store.integer(forKey: "streak")
+            daily = Daily(last: Self.dayNo() - 1, streak: n, best: n, count: n)
+        }
+        #endif
         // A player from before the lessons (any progress at all) skips them and keeps every tool.
         let defaults = UserDefaults.standard
         let veteran = defaults.object(forKey: Self.taughtKey) == nil
@@ -343,9 +380,15 @@ final class GameModel: ObservableObject {
         outOfLevels = store.bool(forKey: Self.outOfBoardsKey)
         store.set(Self.saveVersion, forKey: "native.saveVersion")
         tickHearts()
-        proWatch = pro.$isPro.removeDuplicates().sink { [weak self] on in self?.proChanged(on) }
+        proWatch = pro.$isPro.removeDuplicates().sink { [weak self] on in
+            self?.proBought = on
+            self?.refreshPro()
+        }
         heartTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            Task { @MainActor in self?.tickHearts() }
+            Task { @MainActor in
+                self?.tickHearts()
+                self?.refreshPro()
+            }
         }
         #if DEBUG
         // The debug launch arguments (`-scene`, `-autoplay`, `-screen play`) skip the home screen.
@@ -408,6 +451,10 @@ final class GameModel: ObservableObject {
             tools.append(t)
             addTools(t, 1)
         }
+        if Self.proPassDays.contains(daily.streak), !proBought {
+            startPass()
+            passJustStarted = true
+        }
         return tools
     }
 
@@ -415,6 +462,8 @@ final class GameModel: ObservableObject {
     private func noteDaily(_ tools: [Tool]?) {
         guard let tools else { return }
         lastWin.dailyCleared = true
+        lastWin.proPass = passJustStarted
+        passJustStarted = false
         if !tools.isEmpty { lastWin.bonusBox = BoxReveal(tools: tools, lost: false) }
     }
 
@@ -465,6 +514,13 @@ final class GameModel: ObservableObject {
     }
 
     var dailyDone: Bool { daily.last == Self.dayNo() }
+    /// The Daily Challenge card's line before today's win: the next Pro pass, for players without Pro.
+    var dailyHint: String {
+        let next = streakNow + 1
+        guard !proBought, let day = Self.proPassDays.first(where: { $0 >= next }) else { return "Clear any level today" }
+        return day == next ? "Win today for 24h of Pro" : "Free Pro at a \(day)-day streak"
+    }
+
     /// The streak shown: zero once a day has been missed.
     var streakNow: Int { daily.last >= Self.dayNo() - 1 ? daily.streak : 0 }
     /// Daily puzzles are numbered by the player's own count: Day 1 is the first one they clear.
@@ -937,7 +993,61 @@ final class GameModel: ObservableObject {
         paywallOpen = true
     }
 
-    func closePaywall() { paywallOpen = false }
+    func closePaywall() {
+        paywallOpen = false
+        paywallPassEnded = false
+    }
+
+    // MARK: - Pro pass (a Daily Challenge streak's free 24 hours of Pro)
+
+    /// On a Pro pass rather than bought Pro.
+    var onPass: Bool { isPro && !proBought }
+
+    /// Start (or restart) the pass: Pro for the next 24 hours.
+    private func startPass() {
+        let now = Date().timeIntervalSince1970
+        passStart = now
+        passEnd = now + Self.proPassLength
+        passEndedPending = false
+        savePass()
+        refreshPro()
+    }
+
+    private func savePass() {
+        store.set(passStart, forKey: "native.passStart")
+        store.set(passEnd, forKey: "native.passEnd")
+        store.set(passEndedPending, forKey: "native.passEndedPending")
+    }
+
+    /// Pro is on when it's bought or a pass is running. Checked every second: a pass that ran out (or whose start is
+    /// in the future, from the clock being set back) ends here, and the unlock screen says so.
+    private func refreshPro() {
+        let now = Date().timeIntervalSince1970
+        if passEnd > 0, !(now >= passStart && now < passEnd) {
+            passStart = 0
+            passEnd = 0
+            passEndedPending = !proBought
+            savePass()
+        }
+        let on = proBought || passEnd > 0
+        if on != isPro { proChanged(on) }
+        var clock = ""
+        if passEnd > 0, !proBought {
+            let left = Int((passEnd - now).rounded(.up))
+            clock = left >= 3600 ? "\((left + 3599) / 3600)h" : left >= 60 ? "\((left + 59) / 60)m" : "\(left)s"
+        }
+        if clock != passClock { passClock = clock }
+        showPassEndedIfDue()
+    }
+
+    /// Once the pass has run out, the next time the player is on the home screen: the unlock screen, saying so.
+    private func showPassEndedIfDue() {
+        guard passEndedPending, !proBought, screen == .home, !paywallOpen else { return }
+        passEndedPending = false
+        savePass()
+        openPaywall()
+        paywallPassEnded = true
+    }
 
     func buzzSuccess() { buzz(.success) }
 

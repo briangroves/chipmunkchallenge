@@ -101,6 +101,26 @@ struct BoxRevealView: View {
     }
 }
 
+/// Home's Pro pass clock: the time left on a streak's free Pro. Tapping it opens the unlock screen.
+struct ProPassChip: View {
+    @ObservedObject var model: GameModel
+
+    var body: some View {
+        Button { model.openPaywall() } label: {
+            VStack(spacing: -2) {
+                Text("PRO").font(Theme.body(10, 900)).tracking(0.6)
+                Text(model.passClock).font(Theme.body(14, 800)).monospacedDigit()
+            }
+            .foregroundStyle(Theme.ink)
+            .padding(.horizontal, 9)
+            .frame(height: HUDButton.diameter)
+            .background(Capsule().fill(Theme.gold).shadow(color: .black.opacity(0.12), radius: 1.5, y: 1))
+        }
+        .buttonStyle(Pressable())
+        .accessibilityLabel("Free Chipmunk Pro pass, \(model.passClock) left")
+    }
+}
+
 /// Home's daily gift (`.giftcard`): one free mystery box a day. Greyed once today's is opened.
 struct GiftButton: View {
     @ObservedObject var model: GameModel

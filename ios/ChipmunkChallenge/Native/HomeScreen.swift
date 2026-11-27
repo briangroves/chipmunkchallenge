@@ -74,8 +74,9 @@ struct HomeScreen: View {
                             .foregroundStyle(model.table.isDark ? .white : Theme.ink)
                             .shadow(color: .black.opacity(model.table.isDark ? 0.25 : 0), radius: 0, y: 2)
                             .lineLimit(1)
-                            .minimumScaleFactor(0.7)
+                            .minimumScaleFactor(0.55)
                         Spacer(minLength: 8)
+                        if !model.passClock.isEmpty { ProPassChip(model: model) }
                         GiftButton(model: model)
                         HUDButton(icon: Icons.gear, size: 19) { model.settingsOpen = true }
                     }
@@ -249,7 +250,7 @@ private struct DailyCard: View {
         let done = model.dailyDone
         let streak = model.streakNow
         ModeCard(label: "Daily Challenge", big: "\(streak)-day streak",
-                 sub: AnyView(Text(done ? "Done for today" : "Clear any level today")),
+                 sub: AnyView(Text(done ? "Done for today" : model.dailyHint)),
                  play: done ? "Done ✓" : "Play",
                  playColor: done ? Color(hex: 0x2E7D32) : Color(hex: 0x2F5FB3),
                  fill: LinearGradient(stops: [.init(color: Color(hex: 0xEAF2FF), location: 0),
@@ -422,7 +423,7 @@ private struct ProRow: View {
     @ObservedObject var model: GameModel
 
     var body: some View {
-        if model.isPro {
+        if model.isPro && !model.onPass {
             HStack(spacing: 8) {
                 Image(systemName: "checkmark.seal.fill").foregroundStyle(Color(hex: 0x2E7D32))
                 Text("Chipmunk Pro unlocked").font(Theme.body(14, 800)).foregroundStyle(Theme.ink)
@@ -435,8 +436,9 @@ private struct ProRow: View {
                 HStack(spacing: 10) {
                     LockBadge(size: 26)
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("Unlock Chipmunk Pro").font(Theme.body(15, 800))
-                        Text("One-time purchase\(model.pro.price.map { " · \($0)" } ?? "")")
+                        Text(model.onPass ? "Keep Chipmunk Pro" : "Unlock Chipmunk Pro").font(Theme.body(15, 800))
+                        Text((model.onPass ? "Free pass: \(model.passClock) left · " : "")
+                             + "One-time purchase\(model.pro.price.map { " · \($0)" } ?? "")")
                             .font(Theme.body(12, 600)).foregroundStyle(Color(hex: 0x5A6851))
                     }
                     .foregroundStyle(Theme.ink)
