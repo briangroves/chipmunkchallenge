@@ -60,6 +60,8 @@ struct ReviewScreen: View {
     @State private var drag: CGSize = .zero
     @State private var showSettings = false
     @State private var denying: Board?
+    /// Excellent marks for the board on screen ("subject", "background"); cleared when the next board comes up.
+    @State private var stars: Set<String> = []
 
     var body: some View {
         NavigationStack {
@@ -68,6 +70,7 @@ struct ReviewScreen: View {
                     setupPrompt
                 } else if let board = store.waiting.first {
                     card(board)
+                    ExcellentToggles(stars: $stars)
                     buttons(board)
                 } else {
                     caughtUp
@@ -92,12 +95,14 @@ struct ReviewScreen: View {
             }
             .sheet(isPresented: $showSettings) { SettingsScreen().environmentObject(store) }
             .sheet(item: $denying) { b in
-                DenyScreen(board: b) { reasons, note in
+                DenyScreen(board: b, stars: stars) { reasons, note, excellent in
                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    withAnimation { store.decide(b, approve: false, reasons: reasons, note: note) }
+                    stars = []
+                    withAnimation { store.decide(b, approve: false, reasons: reasons, note: note, excellent: excellent) }
                 }
             }
             .refreshable { await store.refresh() }
+            .onChange(of: store.waiting.first?.id) { _, _ in stars = [] }
         }
     }
 
@@ -178,7 +183,9 @@ struct ReviewScreen: View {
     private func decide(_ b: Board, _ approve: Bool) {
         UIImpactFeedbackGenerator(style: approve ? .medium : .light).impactOccurred()
         drag = .zero
-        withAnimation { store.decide(b, approve: approve) }
+        let excellent = ExcellentToggles.order.filter(stars.contains)
+        stars = []
+        withAnimation { store.decide(b, approve: approve, excellent: excellent) }
     }
 
     private var caughtUp: some View {
@@ -242,7 +249,7 @@ struct SettingsScreen: View {
                     Text("A fine-grained token with access to only the queue repo and \"Contents: Read and write\". It's kept in this phone's Keychain.")
                 }
                 Section {
-                    Text("The Mac makes a batch of boards each day and its blob judge keeps the best one of each subject; new ones show up here every morning at 6. A few are test boards outside the judge's usual range, so your answers teach it where boards get too fiddly or too easy. Swipe right or tap Approve to add a board to the game. Swipe left or tap Deny to drop it and say what's wrong: the board maker reads that feedback and steers away from it. Within about 15 minutes the Mac adds approved boards to the game repo.")
+                    Text("The Mac makes a batch of boards each day and its blob judge keeps the best one of each subject; new ones show up here every morning at 6. A few are test boards outside the judge's usual range, so your answers teach it where boards get too fiddly or too easy. Swipe right or tap Approve to add a board to the game. Swipe left or tap Deny to drop it and say what's wrong: the board maker reads that feedback and steers away from it. Before you decide, tap Excellent subject or Excellent backdrop when that part really knocks it out of the park; the board maker aims for more boards like those. Within about 15 minutes the Mac adds approved boards to the game repo.")
                         .font(.footnote)
                 } header: { Text("How it works") }
             }
@@ -265,16 +272,28 @@ struct SettingsScreen: View {
 /// doesn't like.
 struct DenyScreen: View {
     let board: Board
-    let deny: ([String], String) -> Void
+    let deny: ([String], String, [String]) -> Void
     @Environment(\.dismiss) private var dismiss
     @State private var picked: [String] = []
     @State private var note = ""
+    @State private var stars: Set<String>
     @FocusState private var typing: Bool
 
+    init(board: Board, stars: Set<String>, deny: @escaping ([String], String, [String]) -> Void) {
+        self.board = board
+        self.deny = deny
+        _stars = State(initialValue: stars)
+    }
+
+    private func send() {
+        deny(picked, note, ExcellentToggles.order.filter(stars.contains))
+        dismiss()
+    }
+
     static let reasons = [
-        "Bland backdrop", "Flat colors, no shading", "Muddy or messy", "Face hard to read",
-        "Subject too small", "Doesn't look like its name", "Blends into backdrop", "Colors clash",
-        "Boring subject", "Too busy", "Too fiddly (tiny pieces)", "Too easy (big chunks)",
+        "Too easy (big chunks)", "Bland backdrop", "Flat colors, no shading", "Face hard to read",
+        "Doesn't look like its name", "Boring subject", "Muddy or messy", "Blends into backdrop",
+        "Too fiddly (tiny pieces)",
     ]
 
     var body: some View {
@@ -304,6 +323,10 @@ struct DenyScreen: View {
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(on ? Color.red : .clear, lineWidth: 2))
                         }
                     }
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("Anything excellent anyway?").font(.footnote.weight(.semibold)).foregroundStyle(.secondary)
+                        ExcellentToggles(stars: $stars)
+                    }
                     TextField("In your own words (e.g. \"needs a pond or flowers behind it\")", text: $note,
                               axis: .vertical)
                         .lineLimit(3...6)
@@ -311,8 +334,7 @@ struct DenyScreen: View {
                         .padding(10)
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color(.secondarySystemBackground)))
                     Button {
-                        deny(picked, note)
-                        dismiss()
+                        send()
                     } label: {
                         Label("Deny", systemImage: "xmark").frame(maxWidth: .infinity)
                     }
@@ -329,14 +351,43 @@ struct DenyScreen: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {  // reachable while the keyboard covers the big button
-                    Button("Deny") {
-                        deny(picked, note)
-                        dismiss()
-                    }
+                    Button("Deny") { send() }
                     .tint(.red)
                 }
             }
         }
         .presentationDetents([.large])
+    }
+}
+
+/// Two toggles for what makes a board stand out, beyond merely good enough. Sent with the decision as
+/// `excellent: ["subject", "background"]`; the board maker aims for more boards like these.
+struct ExcellentToggles: View {
+    @Binding var stars: Set<String>
+    static let order = ["subject", "background"]
+
+    var body: some View {
+        HStack(spacing: 10) {
+            toggle("subject", "Excellent subject", .orange)
+            toggle("background", "Excellent backdrop", .teal)
+        }
+    }
+
+    private func toggle(_ key: String, _ title: String, _ color: Color) -> some View {
+        let on = stars.contains(key)
+        return Button {
+            UISelectionFeedbackGenerator().selectionChanged()
+            if on { stars.remove(key) } else { stars.insert(key) }
+        } label: {
+            Label(title, systemImage: on ? "star.fill" : "star")
+                .font(.subheadline.weight(.semibold))
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
+                .frame(maxWidth: .infinity, minHeight: 36)
+        }
+        .buttonStyle(.bordered)
+        .tint(on ? color : .secondary)
+        .overlay(RoundedRectangle(cornerRadius: 8).stroke(on ? color : .clear, lineWidth: 2))
+        .accessibilityAddTraits(on ? .isSelected : [])
     }
 }

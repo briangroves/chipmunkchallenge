@@ -21,6 +21,9 @@ struct Decision: Codable, Equatable {
     /// Why a board was denied (quick picks and Brian's own words), read by the board maker to improve.
     var reasons: [String]? = nil
     var note: String? = nil
+    /// What's excellent about it, if anything: "subject" and/or "background". Kept for approved and denied boards
+    /// alike (a denied board can still have a great backdrop), so the board maker learns what to aim for.
+    var excellent: [String]? = nil
     var approved: Bool { decision == "approve" }
 }
 
