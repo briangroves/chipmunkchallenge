@@ -39,8 +39,9 @@ final class GameModel: ObservableObject {
         case failed(String)
     }
 
-    /// What kind of board is up: the next Level Play level, or today's daily puzzle.
-    enum Mode: Equatable { case level, daily }
+    /// What kind of board is up: the next Level Play level, today's daily puzzle, or one of the practice boards a
+    /// new player plays before Level 1 (`Practice`).
+    enum Mode: Equatable { case level, daily, practice }
 
     @Published private(set) var status: Status = .building
     @Published private(set) var mode: Mode = .level
@@ -50,6 +51,11 @@ final class GameModel: ObservableObject {
     @Published private(set) var subtitle = ""
     /// The splash's small line above the title: Daily puzzle (nothing for Level Play).
     @Published private(set) var modeLabel = ""
+    /// Practice boards finished (0...Practice.count). Level Play starts once all are done.
+    @Published private(set) var practiceDone: Int
+    /// The practice board in play, or the next one (0-based).
+    var practiceIndex: Int { min(practiceDone, Practice.count - 1) }
+    var practicePending: Bool { practiceDone < Practice.count }
     @Published var fast = false
     /// The daily puzzle's record (JS `daily`): the last day cleared, the streak, the best streak and days cleared.
     struct Daily: Codable, Equatable {
@@ -368,6 +374,11 @@ final class GameModel: ObservableObject {
             store.set(Self.teachOrder.map(\.rawValue), forKey: Self.taughtKey)
             store.set(true, forKey: Self.tutorialKey)
         }
+        // A player who has already started Level Play doesn't go back to the practice boards.
+        if veteran || savedBoard > 0 || store.object(forKey: Self.currentKey) != nil {
+            if store.object(forKey: Self.practiceKey) == nil { store.set(Practice.count, forKey: Self.practiceKey) }
+        }
+        practiceDone = min(Practice.count, max(0, store.integer(forKey: Self.practiceKey)))
         taught = (store.stringArray(forKey: Self.taughtKey) ?? []).compactMap(Tool.init(rawValue:))
         tutorialSeen = store.bool(forKey: Self.tutorialKey)
         let saved = store.dictionary(forKey: "native.tools") as? [String: Int] ?? [:]
@@ -420,11 +431,19 @@ final class GameModel: ObservableObject {
 
     /// The number of the level just won, for the win screen (boardIndex has already moved on by then).
     private(set) var wonLevelNumber = 0
+    /// The practice board just won (0-based), for the win screen.
+    private(set) var wonPractice = 0
+    /// One line on what the board practises (practice boards only), shown on the splash.
+    @Published private(set) var hint = ""
 
     /// Home's Level Play card: resume the level in progress, or start the next one.
     func playLevel() {
         enterPlay()
-        if mode == .level, level != nil, status != .won, !isFailed { return }
+        if mode == .level || mode == .practice, level != nil, status != .won, !isFailed { return }
+        if practicePending {
+            loadPractice(practiceIndex)
+            return
+        }
         moveOnToNewBoards(force: true)
         withHeart(level: true) { self.load(self.boardIndex) }
     }
@@ -560,6 +579,18 @@ final class GameModel: ObservableObject {
                                board: i < 20 ? .warmup(i + 1) : .level(i + 1)))
     }
 
+    /// Load practice board k (0-based). Practice boards are hand-made and small, cost no hearts and don't change the
+    /// player's skill.
+    func loadPractice(_ k: Int) {
+        mode = .practice
+        queueLesson()
+        let b = Practice.boards[k]
+        build(base: Practice.base(k), key: Practice.diffKey, seed: 1 + k, aim: LevelCatalog.baseAim(Practice.diffKey),
+              baked: nil, prebuilt: Practice.level(k), attempt: 1, title: b.lesson,
+              subtitle: "Practice \(k + 1) of \(Practice.count)", label: "", hint: b.hint,
+              boxes: BoxSource(rows: b.rows, id: "practice-\(k + 1)", index: 0, board: .warmup(0)))
+    }
+
     /// Load today's daily puzzle. It plays on the ramp's settings for its board number, at the standard aim.
     func loadDaily(attempt: Int = 1) {
         mode = .daily
@@ -597,13 +628,15 @@ final class GameModel: ObservableObject {
         switch mode {
         case .level: load(boardIndex, attempt: n)
         case .daily: loadDaily(attempt: n)
+        case .practice: loadPractice(practiceIndex)
         }
     }
 
     private var loadToken = 0
 
-    private func build(base: LevelBase, key: String, seed: Int, aim: Double, baked: LevelSummary?, attempt: Int,
-                       title: String, subtitle: String, label: String, boxes: BoxSource) {
+    private func build(base: LevelBase, key: String, seed: Int, aim: Double, baked: LevelSummary?,
+                       prebuilt: Level? = nil, attempt: Int, title: String, subtitle: String, label: String,
+                       hint: String = "", boxes: BoxSource) {
         buildTask?.cancel()
         boxSource = boxes
         boardSeed = seed
@@ -615,6 +648,7 @@ final class GameModel: ObservableObject {
         self.title = title
         self.subtitle = subtitle
         modeLabel = label
+        self.hint = hint
         status = .building
         level = nil
         cardShown = false
@@ -630,6 +664,10 @@ final class GameModel: ObservableObject {
         // around them. A pre-built board only fits the uncut picture, so it's used only when there are no boxes.
         let cut = pocketBase(base, id: boxes.id, seed: seed, index: boxes.index, board: boxes.board, claimed: Set(picked))
         boardPickups = cut.pickups
+        if let prebuilt, cut.pickups.isEmpty {
+            start(prebuilt)
+            return
+        }
         if let baked, cut.pickups.isEmpty {
             start(assembleLevel(base: base, diffKey: key, seed: seed, summary: baked, aim: aim))
             return
@@ -728,6 +766,12 @@ final class GameModel: ObservableObject {
             // payOut already moved boardIndex on; a player who was out of levels moves on if new ones arrived since.
             moveOnToNewBoards(force: true)
             withHeart(level: true) { self.load(self.boardIndex) }
+        case .practice:
+            if practicePending {
+                loadPractice(practiceIndex)
+            } else {
+                withHeart(level: true) { self.load(self.boardIndex) }
+            }
         case .daily: goHome()
         }
     }
@@ -805,6 +849,17 @@ final class GameModel: ObservableObject {
             lastWin = Win(base: reward, bonus: 0)
             noteDaily(creditDaily())
             feedbackShown = false
+            coins += reward
+            store.set(coins, forKey: "native.coins")
+            return
+        case .practice:
+            // A practice win pays the easiest level's coins and moves on to the next practice board (or Level 1).
+            lastWin = Win(base: reward, bonus: 0)
+            wonPractice = practiceIndex
+            practiceDone = min(Practice.count, practiceDone + 1)
+            store.set(practiceDone, forKey: Self.practiceKey)
+            feedbackShown = false
+            noteDaily(creditDaily())
             coins += reward
             store.set(coins, forKey: "native.coins")
             return
@@ -1590,6 +1645,7 @@ final class GameModel: ObservableObject {
 
     private static let taughtKey = "native.toolsTaught"
     private static let tutorialKey = "native.tutorialSeen"
+    private static let practiceKey = "native.practiceDone"
     /// The order tools are taught in, easiest first.
     static let teachOrder: [Tool] = [.owl, .slot, .peek, .drop, .wand]
     /// How many of a tool its lesson gives.

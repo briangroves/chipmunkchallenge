@@ -138,17 +138,18 @@ private struct LevelHero: View {
 
     var body: some View {
         let i = model.homeIndex
-        let picture = model.catalog.levelPlay[i]
-        let resumes = model.mode == .level && model.status == .playing && model.level != nil
-        let out = model.outOfLevels
-        let cols = CGFloat(picture.rows.first?.count ?? 1), rows = CGFloat(max(1, picture.rows.count))
+        let practice = model.practicePending ? Practice.boards[model.practiceIndex] : nil
+        let rowsShown = practice?.rows ?? model.catalog.levelPlay[i].rows
+        let resumes = (model.mode == .level || model.mode == .practice) && model.status == .playing && model.level != nil
+        let out = model.outOfLevels && practice == nil
+        let cols = CGFloat(rowsShown.first?.count ?? 1), rows = CGFloat(max(1, rowsShown.count))
         Button { withAnimation(.easeOut(duration: 0.2)) { model.playLevel() } } label: {
             VStack(spacing: 8) {
                 Text("LEVEL PLAY")
                     .font(Theme.body(12, 800))
                     .tracking(12 * 0.1)
                     .foregroundStyle(Color(hex: 0x6B7863))
-                PictureThumb(rows: picture.rows)
+                PictureThumb(rows: rowsShown)
                     .aspectRatio(cols / rows, contentMode: .fit)
                     .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                     .padding(6)
@@ -168,11 +169,19 @@ private struct LevelHero: View {
                             .foregroundStyle(Color(hex: 0x4A5841))
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)
+                    } else if let practice {
+                        Text("Practice \(model.practiceIndex + 1) of \(Practice.count)")
+                            .font(Theme.display(34))
+                            .foregroundStyle(Theme.ink)
+                        Text(practice.lesson)
+                            .font(Theme.body(16, 700))
+                            .foregroundStyle(Color(hex: 0x4A5841))
+                            .lineLimit(1)
                     } else {
                         Text("Level \(model.levelNumber(i))")
                             .font(Theme.display(34))
                             .foregroundStyle(Theme.ink)
-                        Text(picture.name)
+                        Text(model.catalog.levelPlay[i].name)
                             .font(Theme.body(16, 700))
                             .foregroundStyle(Color(hex: 0x4A5841))
                             .lineLimit(1)

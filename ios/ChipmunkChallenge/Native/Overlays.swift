@@ -173,6 +173,14 @@ private struct SplashTitle: View {
                     .minimumScaleFactor(0.7)
                     .cssLine(Theme.uiBody(20, 800), 24)
             }
+            if !model.hint.isEmpty {
+                Text(model.hint)
+                    .font(Theme.body(15, 600))
+                    .foregroundStyle(Color(hex: 0x3A4A30))
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: 320)
+                    .padding(.top, 6)
+            }
             let n = model.introReady ? model.tier : nil
             Text(n.map { String(repeating: "🌰", count: $0) } ?? " ")
                 .font(.system(size: 30))
@@ -354,6 +362,8 @@ struct ResultCard: View {
                 .font(Theme.body(30, 900))
                 .foregroundStyle(Color(hex: 0xC2410C))
                 .accessibilityLabel("Streak: \(model.daily.streak) days")
+        } else if model.mode == .practice {
+            H2("Practice \(model.wonPractice + 1) cleared")
         } else {
             H2("Board cleared")
         }
@@ -417,6 +427,8 @@ struct ResultCard: View {
             Row { Big("Home") { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } } }
         case .level:
             levelWinExtras
+        case .practice:
+            practiceWinExtras
         }
     }
 
@@ -435,6 +447,24 @@ struct ResultCard: View {
             comingSoon
         } else {
             nextLevelChoice
+        }
+    }
+
+    /// The practice win card: what comes next, and on to it.
+    @ViewBuilder private var practiceWinExtras: some View {
+        if model.practicePending {
+            let next = Practice.boards[model.practiceIndex]
+            Note("Next: \(next.lesson.lowercased()).")
+            Row {
+                Big("Next practice") { model.next() }
+                Big("Home", alt: true) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
+            }
+        } else {
+            P("Practice done! You're ready for the real levels.")
+            Row {
+                Big("Start Level 1") { model.next() }
+                Big("Home", alt: true) { withAnimation(.easeOut(duration: 0.2)) { model.goHome() } }
+            }
         }
     }
 
@@ -485,6 +515,9 @@ struct ResultCard: View {
                  : "−1 ❤️ · \(model.hearts) heart\(model.hearts == 1 ? "" : "s") left")
         }
         if model.mode == .daily { Note("No hearts lost on the daily puzzle.") }
+        if model.mode == .practice {
+            Note("No hearts lost on practice boards. Tip: tap colors your chipmunks can reach, so a slot stays free.")
+        }
         let can = model.coins >= GameModel.continuePrice
         Row {
             Button { model.continueGame() } label: {

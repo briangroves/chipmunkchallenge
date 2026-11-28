@@ -1059,6 +1059,7 @@ private struct LevelTag: View {
         let text: String = switch model.mode {
         case .level: "Level \(model.status == .won ? model.wonLevelNumber : model.levelNumber(model.boardIndex))"
         case .daily: "Day \(model.dayCount)"
+        case .practice: "Practice \(model.status == .won ? model.wonPractice + 1 : model.practiceIndex + 1)"
         }
         Text(text)
             .font(Theme.display(18))
